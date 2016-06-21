@@ -168,6 +168,8 @@ return [
         Backpack\CRUD\CrudServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
+        Backpack\BackupManager\BackupManagerServiceProvider::class,
 
     ],
 

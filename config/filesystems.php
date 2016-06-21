@@ -59,6 +59,11 @@ return [
             'root' => public_path('uploads'),
         ],
 
+        'backups' => [ // used for Backpack/BackupManager
+            'driver' => 'local',
+            'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',
