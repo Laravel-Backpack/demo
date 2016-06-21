@@ -1,27 +1,65 @@
-# Laravel PHP Framework
+# Backpack\Demo
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Laravel BackPack's demo, which includes all Backpack packages.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+**[Subscribe to the newsletter](http://eepurl.com/bUEGjf) to be announced of any major updates or breaking changes.** 
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+![Example generated CRUD interface](https://dl.dropboxusercontent.com/u/2431352/backpack_base_login.png)
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Install
+
+1) Run in your terminal:
+
+``` bash
+$ git clone git@github.com:Laravel-Backpack/demo.git
+```
+
+2) Set your database information in your .env file
+
+3) Run:
+``` bash
+$ php artisan key:generate
+$ php artisan migrate
+$ php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
+```
+
+## Usage 
+
+1. Register a new user at yourappname/admin/register
+2. Your admin panel will be available at yourappname/admin or yourappname/login
+3. [optional] If you're building an admin panel, you should close the registration. In config/backpack/base.php look for "registration_open" and change it to false.
+
+![Example generated CRUD interface](https://dl.dropboxusercontent.com/u/2431352/backpack_base_dashboard.png)
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Testing
+
+// TODO
+
+``` bash
+$ composer test
+```
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
-## Security Vulnerabilities
+## Security
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you discover any security related issues, please email hello@tabacitu.ro instead of using the issue tracker.
+
+## Credits
+
+- [Cristian Tabacitu][link-author]
+- [All Contributors][link-contributors]
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[link-author]: http://tabacitu.ro
+[link-contributors]: ../../contributors
