@@ -11,7 +11,9 @@
         "backpack/crud": "^2.0",
         "backpack/backupmanager": "^1.1",
         "backpack/logmanager": "^2.3",
-        "backpack/settings": "^2.0"
+        "backpack/settings": "^2.0",
+        "backpack/pagemanager": "^1.0",
+        "backpack/MenuCRUD": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

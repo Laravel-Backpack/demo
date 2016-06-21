@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e4ee5261471811b1c93fe83e13507b1",
-    "content-hash": "aacd6534918634d6b4a6006b21ce260e",
+    "hash": "31c31843e695b1e64c01213a22ecfeef",
+    "content-hash": "06a006b1ed1cf241f38ca463d6e4e367",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -283,6 +283,126 @@
             "time": "2016-06-02 12:43:00"
         },
         {
+            "name": "backpack/menucrud",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
+                "reference": "6ce23bfe8efa159d1abd8472c6cb7fde544c7a15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/6ce23bfe8efa159d1abd8472c6cb7fde544c7a15",
+                "reference": "6ce23bfe8efa159d1abd8472c6cb7fde544c7a15",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "2.0.*",
+                "illuminate/support": "~5.1",
+                "php": "~5.5|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\MenuCRUD\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://tabacitu.ro",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An admin panel for menu items, using Backpack\\CRUD on Laravel 5.",
+            "homepage": "https://github.com/backpack/MenuCRUD",
+            "keywords": [
+                "MenuCRUD",
+                "backpack"
+            ],
+            "time": "2016-06-13 14:05:23"
+        },
+        {
+            "name": "backpack/pagemanager",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/pagemanager.git",
+                "reference": "780607b6b97484c6284c4cd3bf2ceb1e1aa57412"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/pagemanager/zipball/780607b6b97484c6284c4cd3bf2ceb1e1aa57412",
+                "reference": "780607b6b97484c6284c4cd3bf2ceb1e1aa57412",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "2.*",
+                "cviebrock/eloquent-sluggable": "^3.0",
+                "illuminate/support": "~5.1",
+                "php": "~5.5|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\PageManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://tabacitu.ro",
+                    "role": "Architect & Developer"
+                }
+            ],
+            "description": "Create admin panels for presentation websites on Laravel, using page templates and Backpack\\CRUD.",
+            "homepage": "https://github.com/laravel-backpack/PageManager",
+            "keywords": [
+                "Content management system",
+                "admin panel",
+                "administer pages",
+                "backpack",
+                "cms",
+                "crud",
+                "manage pages",
+                "pagemanager",
+                "presentation pages",
+                "presentation website",
+                "wordpress"
+            ],
+            "time": "2016-06-03 16:17:34"
+        },
+        {
             "name": "backpack/settings",
             "version": "2.0.4",
             "source": {
@@ -503,6 +623,119 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "cocur/slugify",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cocur/slugify.git",
+                "reference": "16cdd7e792657d524cde931ea666436623b23301"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cocur/slugify/zipball/16cdd7e792657d524cde931ea666436623b23301",
+                "reference": "16cdd7e792657d524cde931ea666436623b23301",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "laravel/framework": "~4.1",
+                "latte/latte": "~2.2",
+                "mockery/mockery": "~0.9",
+                "nette/di": "~2.2",
+                "phpunit/phpunit": "~4.6",
+                "plumphp/plum": "~0.1",
+                "sami/sami": "~1.3",
+                "satooshi/php-coveralls": "0.6.*",
+                "silex/silex": "~1.2",
+                "symfony/dependency-injection": "~2.4",
+                "symfony/http-kernel": "~2.4",
+                "twig/twig": "~1",
+                "zendframework/zend-modulemanager": "~2.2",
+                "zendframework/zend-servicemanager": "~2.2",
+                "zendframework/zend-view": "~2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cocur\\Slugify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Bathke",
+                    "email": "ivo.bathke@gmail.com"
+                },
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
+                }
+            ],
+            "description": "Converts a string into a slug.",
+            "keywords": [
+                "slug",
+                "slugify"
+            ],
+            "time": "2016-02-11 09:53:46"
+        },
+        {
+            "name": "cviebrock/eloquent-sluggable",
+            "version": "3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+                "reference": "5d40a334ec02c32b9c7d33f9023b5da75eb27d7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/5d40a334ec02c32b9c7d33f9023b5da75eb27d7d",
+                "reference": "5d40a334ec02c32b9c7d33f9023b5da75eb27d7d",
+                "shasum": ""
+            },
+            "require": {
+                "cocur/slugify": "^1.1",
+                "illuminate/config": "^5.0",
+                "illuminate/database": "^5.0",
+                "illuminate/support": "^5.0",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.0",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cviebrock\\EloquentSluggable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin Viebrock",
+                    "email": "colin@viebrock.ca"
+                }
+            ],
+            "description": "Easy creation of slugs for your Eloquent models in Laravel",
+            "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "slug"
+            ],
+            "time": "2016-01-03 21:24:10"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
