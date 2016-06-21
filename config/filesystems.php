@@ -54,6 +54,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'uploads' => [ // Backpack uploads folder - used in File Manager (elFinder)
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

@@ -165,6 +165,9 @@ return [
         /*
         * Other Service Providers...
         */
+        Backpack\CRUD\CrudServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
     ],
 
@@ -215,7 +218,10 @@ return [
         /*
         * Backpack Aliases...
         */
-       'Alert' => Prologue\Alerts\Facades\Alert::class,
+        'Alert' => Prologue\Alerts\Facades\Alert::class,
+        'CRUD' => Backpack\CRUD\CrudServiceProvider::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
        /*
         * Other Aliases...
