@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         // register the services that are only used for development
         if ($this->app->environment() == 'local') {
             $this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
+            $this->app->register('Backpack\Generators\GeneratorsServiceProvider');
         }
     }
 }

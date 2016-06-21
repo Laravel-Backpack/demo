@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b268529ce208ebc96943b25b7ae0698a",
-    "content-hash": "2a714d886ae32f391c683f38d8899419",
+    "hash": "a17c6ddc87465bee772e8e1a07d32511",
+    "content-hash": "41798dea14d97125e76a04dd2b2d4d71",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2471,6 +2471,59 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "backpack/generators",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/generators.git",
+                "reference": "432da1d817c1456245ea6f39dd24246574131454"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/generators/zipball/432da1d817c1456245ea6f39dd24246574131454",
+                "reference": "432da1d817c1456245ea6f39dd24246574131454",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=5.1",
+                "illuminate/support": ">=5.1",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Generators\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tone",
+                    "email": "cristitone@outlook.com",
+                    "homepage": "http://updivision.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate files for laravel projects",
+            "homepage": "https://github.com/laravel-backpack/generators",
+            "keywords": [
+                "config",
+                "generators",
+                "model",
+                "request",
+                "view"
+            ],
+            "time": "2016-05-22 14:08:18"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
