@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2ccee4bdddad6d75ddafeaf633877bae",
-    "content-hash": "fbfc37c3bdfe02e7b1b45206fd2ef440",
+    "hash": "0e4ee5261471811b1c93fe83e13507b1",
+    "content-hash": "aacd6534918634d6b4a6006b21ce260e",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -281,6 +281,67 @@
                 "logs"
             ],
             "time": "2016-06-02 12:43:00"
+        },
+        {
+            "name": "backpack/settings",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/settings.git",
+                "reference": "ac6cba0fa2de81449584803f54644767202198c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/settings/zipball/ac6cba0fa2de81449584803f54644767202198c1",
+                "reference": "ac6cba0fa2de81449584803f54644767202198c1",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "2.*",
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Settings\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://www.tabacitu.ro",
+                    "role": "Chief Architect & Lead Developer"
+                }
+            ],
+            "description": "Application settings interface for Laravel 5 using Backpack CRUD.",
+            "homepage": "https://github.com/laravel-backpack/settings",
+            "keywords": [
+                "backpack",
+                "backpack settings",
+                "dick",
+                "dick settings",
+                "laravel backpack",
+                "manage settings",
+                "settings admin",
+                "tabacitu",
+                "updivision"
+            ],
+            "time": "2016-06-06 09:46:49"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",

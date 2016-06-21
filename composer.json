@@ -10,7 +10,8 @@
         "backpack/base": "^0.6.4",
         "backpack/crud": "^2.0",
         "backpack/backupmanager": "^1.1",
-        "backpack/logmanager": "^2.3"
+        "backpack/logmanager": "^2.3",
+        "backpack/settings": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

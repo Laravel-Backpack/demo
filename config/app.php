@@ -161,16 +161,17 @@ return [
         */
         Backpack\Base\BaseServiceProvider::class,
         Prologue\Alerts\AlertsServiceProvider::class,
-
-        /*
-        * Other Service Providers...
-        */
         Backpack\CRUD\CrudServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Backpack\BackupManager\BackupManagerServiceProvider::class,
         Backpack\LogManager\LogManagerServiceProvider::class,
+        Backpack\Settings\SettingsServiceProvider::class,
+
+        /*
+        * Other Service Providers...
+        */
 
     ],
 
