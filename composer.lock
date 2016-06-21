@@ -4,9 +4,106 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c284a9c122da36c99a8b6597bdce7aa6",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "fb9de96db7e13f9f9348663366f136e1",
+    "content-hash": "c657fbd22c933f3e152e3cd2d21688bc",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "reference": "8db979795044412a2e2b4e9659788c23cb59fcd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/8db979795044412a2e2b4e9659788c23cb59fcd3",
+                "reference": "8db979795044412a2e2b4e9659788c23cb59fcd3",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abdullah Almsaeed",
+                    "email": "support@almsaeedstudio.com"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+            "homepage": "http://almsaeedstudio.com/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2016-03-24 14:31:41"
+        },
+        {
+            "name": "backpack/base",
+            "version": "0.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/base.git",
+                "reference": "6e38338c942672d65532b09bb0a1070f1b61c4ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/base/zipball/6e38338c942672d65532b09bb0a1070f1b61c4ae",
+                "reference": "6e38338c942672d65532b09bb0a1070f1b61c4ae",
+                "shasum": ""
+            },
+            "require": {
+                "almasaeed2010/adminlte": "2.3.*",
+                "illuminate/support": "~5.1",
+                "laravel/framework": "5.2.*",
+                "php": "~5.5|~7.0",
+                "prologue/alerts": "0.4.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Base\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://www.tabacitu.ro",
+                    "role": "Chief Architect & Developer"
+                }
+            ],
+            "description": "Laravel Backpack's base package, which offers admin authentication and a blank admin panel using AdminLTE",
+            "homepage": "https://github.com/laravel-backpack/base",
+            "keywords": [
+                "backpack",
+                "base"
+            ],
+            "time": "2016-06-21 17:33:16"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
@@ -785,6 +882,56 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "prologue/alerts",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:driesvints/Alerts.git",
+                "reference": "f4ea1e784070f43ddd12dab732552809e54ff7d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driesvints/Alerts/zipball/f4ea1e784070f43ddd12dab732552809e54ff7d5",
+                "reference": "f4ea1e784070f43ddd12dab732552809e54ff7d5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5",
+                "illuminate/session": "~5",
+                "illuminate/support": "~5",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prologue\\Alerts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Prologue Alerts is a package that handles global site messages.",
+            "keywords": [
+                "alerts",
+                "laravel",
+                "messages"
+            ],
+            "time": "2015-04-13 17:27:18"
         },
         {
             "name": "psr/log",
