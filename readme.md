@@ -12,7 +12,7 @@ Laravel BackPack's demo, which includes all Backpack packages.
 1) Run in your terminal:
 
 ``` bash
-$ git clone git@github.com:Laravel-Backpack/demo.git backpack-demo
+$ git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
 ```
 
 2) Set your database information in your .env file (use the .env.example as an example);
