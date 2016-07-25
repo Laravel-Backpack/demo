@@ -1,31 +1,36 @@
 <!-- Select template field. Used in Backpack/PageManager to redirect to a form with different fields if the template changes. A fork of the select_from_array field with an extra ID and an extra javascript file. -->
-  <div class="form-group">
+  <div @include('crud::inc.field_wrapper_attributes') >
+
     <label>{{ $field['label'] }}</label>
     <select
-    	class="form-control"
+        class="form-control"
         id="select_template"
 
-    	@foreach ($field as $attribute => $value)
+        @foreach ($field as $attribute => $value)
             @if (!is_array($value))
-    		{{ $attribute }}="{{ $value }}"
+            {{ $attribute }}="{{ $value }}"
             @endif
-    	@endforeach
-    	>
+        @endforeach
+        >
 
         @if (isset($field['allows_null']) && $field['allows_null']==true)
             <option value="">-</option>
         @endif
 
-    	@if (count($field['options']))
-    		@foreach ($field['options'] as $key => $value)
-    			<option value="{{ $key }}"
-					@if (isset($field['value']) && $key==$field['value'])
-						 selected
-					@endif
-    			>{{ $value }}</option>
-    		@endforeach
-    	@endif
-	</select>
+        @if (count($field['options']))
+            @foreach ($field['options'] as $key => $value)
+                <option value="{{ $key }}"
+                    @if (isset($field['value']) && $key==$field['value'])
+                         selected
+                    @endif
+                >{{ $value }}</option>
+            @endforeach
+        @endif
+    </select>
+
+    @if (isset($field['hint']))
+        <p class="help-block">{!! $field['hint'] !!}</p>
+    @endif
   </div>
 
 
