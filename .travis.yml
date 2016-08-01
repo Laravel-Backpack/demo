@@ -13,7 +13,37 @@ matrix:
         - php: nightly
         - php: hhvm
 
+env:
+  - APP_ENV=local
+  - APP_DEBUG=true
+  - APP_KEY=base64:jNI+qJRj1eqN3RWMeBWo6sxMwKzgDP7Py2AfRJ1luyA=
+  - APP_URL=http://localhost
+  - DB_CONNECTION=mysql
+  - DB_HOST=127.0.0.1
+  - DB_PORT=3306
+  - DB_DATABASE=test
+  - DB_USERNAME=root
+  - DB_PASSWORD=
+  - CACHE_DRIVER=file
+  - SESSION_DRIVER=file
+  - QUEUE_DRIVER=sync
+  - REDIS_HOST=127.0.0.1
+  - REDIS_PASSWORD=null
+  - REDIS_PORT=6379
+  - MAIL_DRIVER=smtp
+  - MAIL_HOST=mailtrap.io
+  - MAIL_PORT=2525
+  - MAIL_USERNAME=null
+  - MAIL_PASSWORD=null
+  - MAIL_ENCRYPTION=null
+
+
 sudo: false
+
+services: mysql
+
+before_install:
+  - mysql -e "create database IF NOT EXISTS test;" -uroot
 
 install: travis_retry composer install --no-interaction --prefer-source
 
