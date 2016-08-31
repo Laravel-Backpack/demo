@@ -6,15 +6,15 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
-        "backpack/base": "^0.6.4",
-        "backpack/crud": "^3.0.0",
+        "laravel/framework": "5.3.*",
+        "backpack/base": "^0.7.0",
+        "backpack/crud": "^3.1.0",
         "backpack/backupmanager": "^1.1",
         "backpack/logmanager": "^2.3",
         "backpack/settings": "^2.0",
-        "backpack/pagemanager": "^1.0",
+        "backpack/pagemanager": "^1.1",
         "backpack/MenuCRUD": "^1.0",
-        "backpack/newscrud": "^2.0"
+        "backpack/newscrud": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
