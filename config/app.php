@@ -168,7 +168,6 @@ return [
         Backpack\BackupManager\BackupManagerServiceProvider::class,
         Backpack\LogManager\LogManagerServiceProvider::class,
         Backpack\Settings\SettingsServiceProvider::class,
-        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Backpack\PageManager\PageManagerServiceProvider::class,
         Backpack\MenuCRUD\MenuCRUDServiceProvider::class,
         Backpack\NewsCRUD\NewsCRUDServiceProvider::class,
