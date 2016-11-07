@@ -45,18 +45,18 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => storage_path('app'),
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
             'visibility' => 'public',
         ],
 
         'uploads' => [ // used for Backpack/CRUD (in elFinder)
             'driver' => 'local',
-            'root' => public_path('uploads'),
+            'root'   => public_path('uploads'),
         ],
 
         'backups' => [ // used for Backpack/BackupManager
@@ -72,7 +72,7 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
+            'key'    => 'your-key',
             'secret' => 'your-secret',
             'region' => 'your-region',
             'bucket' => 'your-bucket',
