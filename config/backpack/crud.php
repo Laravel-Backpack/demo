@@ -21,7 +21,7 @@ return [
 
     // How would you like the validation errors to be shown?
     'show_grouped_errors' => true,
-    'show_inline_errors' => true,
+    'show_inline_errors'  => true,
 
     /*
     |------------
@@ -62,7 +62,7 @@ return [
     |-------------------
     */
 
-    'show_translatable_field_icon' => true,
+    'show_translatable_field_icon'     => true,
     'translatable_field_icon_position' => 'right', // left or right
 
     'locales' => [
