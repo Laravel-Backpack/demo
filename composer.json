@@ -14,7 +14,8 @@
         "backpack/settings": "^2.0",
         "backpack/pagemanager": "^1.1",
         "backpack/MenuCRUD": "^1.0",
-        "backpack/newscrud": "^2.1"
+        "backpack/newscrud": "^2.1",
+        "backpack/permissionmanager": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
