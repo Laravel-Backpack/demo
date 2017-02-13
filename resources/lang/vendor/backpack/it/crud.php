@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Dick Crud Language Lines
+    | Backpack Crud Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the CRUD interface.
@@ -13,21 +13,32 @@ return [
     |
     */
 
+    // Forms
+    'save_action_save_and_new' => 'Save and new item', // TODO: translate
+    'save_action_save_and_edit' => 'Save and edit this item', // TODO: translate
+    'save_action_save_and_back' => 'Save and back', // TODO: translate
+    'save_action_changed_notification' => 'Default save action changed', // TODO: translate
+
     // Create form
     'add'                 => 'Aggiungi',
     'back_to_all'         => 'Torna a tutti i ',
     'cancel'              => 'Annulla',
     'add_a_new'           => 'Aggiungi un nuovo ',
 
-        // Create form - advanced options
-        'after_saving'            => 'Dopo il salvataggio',
-        'go_to_the_table_view'    => 'vai alla lista di tutti gli elementi',
-        'let_me_add_another_item' => 'aggiungi un altro elemento',
-        'edit_the_new_item'       => 'modifica il nuovo elemento',
-
     // Edit form
     'edit'                 => 'Modifica',
     'save'                 => 'Salva',
+
+    // Revisions
+    'revisions'            => 'Revisioni',
+    'no_revisions'         => 'Nessuna revisione Trovato',
+    'created_this'          => 'ha creato questo',
+    'changed_the'          => 'cambiato il',
+    'restore_this_value'   => 'ripristinare questo valore',
+    'from'                 => 'de parte di',
+    'to'                   => 'a',
+    'undo'                 => 'Disfare',
+    'revision_restored'    => 'Revisione successo restaurato',
 
     // CRUD table view
     'all'                       => 'Tutti i ',
@@ -73,28 +84,32 @@ return [
         ],
 
     // global crud - errors
-    'unauthorized_access' => 'Accesso non autorizzato - non hai i permessi necessari per vedere questa pagina.',
-    'please_fix' => 'Per favore correggi i seguenti errori:',
+        'unauthorized_access' => 'Accesso non autorizzato - non hai i permessi necessari per vedere questa pagina.',
+        'please_fix' => 'Per favore correggi i seguenti errori:',
 
     // global crud - success / error notification bubbles
-    'insert_success' => "L'elemento è stato aggiunto correttamente.",
-    'update_success' => "L'elemento è stato aggiornato correttamente.",
+        'insert_success' => "L'elemento è stato aggiunto correttamente.",
+        'update_success' => "L'elemento è stato aggiornato correttamente.",
 
     // CRUD reorder view
-    'reorder'                      => 'Riordina',
-    'reorder_text'                 => 'Seleziona e trascina per riordinare.',
-    'reorder_success_title'        => 'Fatto',
-    'reorder_success_message'      => 'Il tuo ordinamento è stato salvato.',
-    'reorder_error_title'          => 'Errore',
-    'reorder_error_message'        => 'Il tuo ordinamento non è stato salvato.',
+        'reorder'                      => 'Riordina',
+        'reorder_text'                 => 'Seleziona e trascina per riordinare.',
+        'reorder_success_title'        => 'Fatto',
+        'reorder_success_message'      => 'Il tuo ordinamento è stato salvato.',
+        'reorder_error_title'          => 'Errore',
+        'reorder_error_message'        => 'Il tuo ordinamento non è stato salvato.',
+
+    // CRUD yes/no
+        'yes' => 'Sì',
+        'no' => 'No',
 
     // Fields
-    'browse_uploads' => 'Sfoglia file caricati',
-    'clear' => 'Pulisci',
-    'page_link' => 'Link Pagina',
-    'page_link_placeholder' => 'http://esempio.com/pagina-desiderata',
-    'internal_link' => 'Link Interno',
-    'internal_link_placeholder' => 'Slug interno. Es: \'admin/page\' (no quotes) for \':url\'',
-    'external_link' => 'Link Esterno',
+        'browse_uploads' => 'Sfoglia file caricati',
+        'clear' => 'Pulisci',
+        'page_link' => 'Link Pagina',
+        'page_link_placeholder' => 'http://esempio.com/pagina-desiderata',
+        'internal_link' => 'Link Interno',
+        'internal_link_placeholder' => 'Slug interno. Es: \'admin/page\' (no quotes) for \':url\'',
+        'external_link' => 'Link Esterno',
 
 ];
