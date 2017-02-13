@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Spatie\Permission\Traits\HasRoles;
-use Backpack\CRUD\CrudTrait;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
