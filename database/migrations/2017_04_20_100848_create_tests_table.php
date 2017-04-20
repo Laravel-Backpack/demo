@@ -54,6 +54,7 @@ class CreateTestsTable extends Migration
             $table->string('url')->nullable;
             $table->text('video')->nullable;
             $table->string('week')->nullable;
+            $table->text('extras')->nullable;
             $table->timestamps();
         });
     }
