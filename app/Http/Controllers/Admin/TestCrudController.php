@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TestRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TestRequest as UpdateRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class TestCrudController extends CrudController
 {
@@ -18,7 +17,7 @@ class TestCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Test');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/test');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/test');
         $this->crud->setEntityNameStrings('test', 'tests');
 
         /*
@@ -36,7 +35,6 @@ class TestCrudController extends CrudController
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
-
         // -------------------------
         // ------ CRUD FIELDS ------
         // -------------------------
@@ -45,90 +43,90 @@ class TestCrudController extends CrudController
         // SIMPLE tab
         // ----------
         $this->crud->addField([
-            'name' => 'text',
+            'name'  => 'text',
             'label' => 'Text',
-            'type' => 'text',
-            'tab' => 'Simple'
+            'type'  => 'text',
+            'tab'   => 'Simple',
         ]);
 
         $this->crud->addField([
-            'name' => 'email',
+            'name'  => 'email',
             'label' => 'Email',
-            'type' => 'email',
-            'tab' => 'Simple'
+            'type'  => 'email',
+            'tab'   => 'Simple',
         ]);
 
         $this->crud->addField([   // Textarea
-            'name' => 'textarea',
+            'name'  => 'textarea',
             'label' => 'Textarea',
-            'type' => 'textarea',
-            'tab' => 'Simple'
+            'type'  => 'textarea',
+            'tab'   => 'Simple',
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'number',
+            'name'  => 'number',
             'label' => 'Number',
-            'type' => 'number',
+            'type'  => 'number',
             // optionals
             // 'attributes' => ["step" => "any"], // allow decimals
             // 'prefix' => "$",
             // 'suffix' => ".00",
-            'tab' => 'Simple'
+            'tab' => 'Simple',
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'float',
+            'name'  => 'float',
             'label' => 'Float',
-            'type' => 'number',
+            'type'  => 'number',
             // optionals
-            'attributes' => ["step" => "any"], // allow decimals
+            'attributes' => ['step' => 'any'], // allow decimals
             // 'prefix' => "$",
             // 'suffix' => ".00",
-            'tab' => 'Simple'
+            'tab' => 'Simple',
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'number_with_prefix',
+            'name'  => 'number_with_prefix',
             'label' => 'Number with prefix',
-            'type' => 'number',
+            'type'  => 'number',
             // optionals
             // 'attributes' => ["step" => "any"], // allow decimals
-            'prefix' => "$",
+            'prefix' => '$',
             // 'suffix' => ".00",
-            'fake' => true,
+            'fake'     => true,
             'store_in' => 'extras',
-            'tab' => 'Simple'
+            'tab'      => 'Simple',
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'number_with_suffix',
+            'name'  => 'number_with_suffix',
             'label' => 'Number with suffix',
-            'type' => 'number',
+            'type'  => 'number',
             // optionals
             // 'attributes' => ["step" => "any"], // allow decimals
             // 'prefix' => "$",
-            'suffix' => ".00",
-            'fake' => true,
+            'suffix'   => '.00',
+            'fake'     => true,
             'store_in' => 'extras',
-            'tab' => 'Simple'
+            'tab'      => 'Simple',
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'text_with_both_prefix_and_suffix',
-            'label' => 'Text with both prefix and suffix',
-            'type' => 'number',
-            'prefix' => "@",
-            'suffix' => "<i class='fa fa-home'></i>",
-            'fake' => true,
+            'name'     => 'text_with_both_prefix_and_suffix',
+            'label'    => 'Text with both prefix and suffix',
+            'type'     => 'number',
+            'prefix'   => '@',
+            'suffix'   => "<i class='fa fa-home'></i>",
+            'fake'     => true,
             'store_in' => 'extras',
-            'tab' => 'Simple'
+            'tab'      => 'Simple',
         ]);
 
         $this->crud->addField([   // Password
-            'name' => 'password',
+            'name'  => 'password',
             'label' => 'Password',
-            'type' => 'password',
-            'tab' => 'Simple'
+            'type'  => 'password',
+            'tab'   => 'Simple',
         ]);
 
         $this->crud->addField([
@@ -136,27 +134,27 @@ class TestCrudController extends CrudController
             'label'       => 'Status (radio)', // the input label
             'type'        => 'radio',
             'options'     => [ // the key will be stored in the db, the value will be shown as label;
-                                0 => "Draft",
-                                1 => "Published",
-                                2 => "Other",
+                                0 => 'Draft',
+                                1 => 'Published',
+                                2 => 'Other',
                             ],
             // optional
             'inline'      => true, // show the radios all on the same line?
-            'tab' => 'Simple'
+            'tab'         => 'Simple',
         ]);
 
         $this->crud->addField([   // Checkbox
-            'name' => 'checkbox',
+            'name'  => 'checkbox',
             'label' => 'I have not read the terms and conditions and I never will (checkbox)',
-            'type' => 'checkbox',
-            'tab' => 'Simple'
+            'type'  => 'checkbox',
+            'tab'   => 'Simple',
         ]);
 
         $this->crud->addField([   // Hidden
-            'name' => 'hidden',
-            'type' => 'hidden',
+            'name'    => 'hidden',
+            'type'    => 'hidden',
             'default' => 'hidden value',
-            'tab' => 'Simple'
+            'tab'     => 'Simple',
         ]);
 
         // -----------------
@@ -164,89 +162,87 @@ class TestCrudController extends CrudController
         // -----------------
 
         $this->crud->addField([   // Month
-            'name' => 'week',
+            'name'  => 'week',
             'label' => 'Week',
-            'type' => 'week',
+            'type'  => 'week',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([   // Month
-            'name' => 'month',
+            'name'  => 'month',
             'label' => 'Month',
-            'type' => 'month',
+            'type'  => 'month',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([   // Date
-            'name' => 'date',
+            'name'  => 'date',
             'label' => 'Date (HTML5 spec)',
-            'type' => 'date',
+            'type'  => 'date',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([   // Date
-            'name' => 'date_picker',
+            'name'  => 'date_picker',
             'label' => 'Date (jQuery plugin)',
-            'type' => 'date_picker',
+            'type'  => 'date_picker',
             // optional:
             'date_picker_options' => [
                 'todayBtn' => true,
-                'format' => 'dd-mm-yyyy',
-                'language' => 'en'
+                'format'   => 'dd-mm-yyyy',
+                'language' => 'en',
             ],
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([   // DateTime
-            'name' => 'datetime',
+            'name'  => 'datetime',
             'label' => 'Datetime (HTML5 spec)',
-            'type' => 'datetime',
+            'type'  => 'datetime',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
         $this->crud->addField([   // DateTime
-            'name' => 'datetime_picker',
+            'name'  => 'datetime_picker',
             'label' => 'Datetime picker (jQuery plugin)',
-            'type' => 'datetime_picker',
+            'type'  => 'datetime_picker',
             // optional:
             'datetime_picker_options' => [
-                'format' => 'DD/MM/YYYY HH:mm',
-                'language' => 'en'
+                'format'   => 'DD/MM/YYYY HH:mm',
+                'language' => 'en',
             ],
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([ // Date_range
-            'name' => 'date_range', // a unique name for this field
+            'name'       => 'date_range', // a unique name for this field
             'start_name' => 'start_date', // the db column that holds the start_date
-            'end_name' => 'end_date', // the db column that holds the end_date
-            'label' => 'Date Range',
-            'type' => 'date_range',
+            'end_name'   => 'end_date', // the db column that holds the end_date
+            'label'      => 'Date Range',
+            'type'       => 'date_range',
             // OPTIONALS
-            'start_default' => '2017-03-28 01:01', // default value for start_date
-            'end_default' => '2017-04-05 02:00', // default value for end_date
+            'start_default'      => '2017-03-28 01:01', // default value for start_date
+            'end_default'        => '2017-04-05 02:00', // default value for end_date
             'date_range_options' => [ // options sent to daterangepicker.js
                 'timePicker' => true,
-                'locale' => ['format' => 'DD/MM/YYYY HH:mm']
+                'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
             ],
-            'tab' => 'Time and space'
+            'tab' => 'Time and space',
         ]);
 
         $this->crud->addField([   // Address
-            'name' => 'address',
+            'name'  => 'address',
             'label' => 'Address (Algolia Places search)',
-            'type' => 'address',
+            'type'  => 'address',
             // optional
             'store_as_json' => true,
-            'tab' => 'Time and space'
+            'tab'           => 'Time and space',
         ], 'both'); // the second parameter for the addField method is the form it should place this field in; specify either 'create', 'update' or 'both'; default is 'both', so you might aswell not mention it;
-
-
 
         // -----------------
         // SELECTS tab
@@ -264,21 +260,21 @@ class TestCrudController extends CrudController
         // UPLOADS tab
         // -----------------
         $this->crud->addField([   // Browse
-            'name' => 'browse',
+            'name'  => 'browse',
             'label' => 'Browse (using elFinder)',
-            'type' => 'browse',
-            'tab' => 'Uploads'
+            'type'  => 'browse',
+            'tab'   => 'Uploads',
         ]);
 
         $this->crud->addField([ // base64_image
-            'label' => "Base64 Image - includes cropping",
-            'name' => "base64_image",
-            'filename' => null, // set to null if not needed
-            'type' => 'base64_image',
+            'label'        => 'Base64 Image - includes cropping',
+            'name'         => 'base64_image',
+            'filename'     => null, // set to null if not needed
+            'type'         => 'base64_image',
             'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
-            'crop' => true, // set to true to allow cropping, false to disable
-            'src' => NULL, // null to read straight from DB, otherwise set to model accessor function
-            'tab' => 'Uploads'
+            'crop'         => true, // set to true to allow cropping, false to disable
+            'src'          => null, // null to read straight from DB, otherwise set to model accessor function
+            'tab'          => 'Uploads',
         ]);
 
         // $table->string('image')->nullable;
@@ -289,63 +285,62 @@ class TestCrudController extends CrudController
         // BIG TEXTS tab
         // -----------------
         $this->crud->addField([   // SimpleMDE
-            'name' => 'simplemde',
+            'name'  => 'simplemde',
             'label' => 'SimpleMDE - markdown editor',
-            'type' => 'simplemde',
-            'tab' => 'Big texts'
+            'type'  => 'simplemde',
+            'tab'   => 'Big texts',
         ]);
 
         $this->crud->addField([   // Summernote
-            'name' => 'summernote',
+            'name'  => 'summernote',
             'label' => 'Summernote editor',
-            'type' => 'summernote',
-            'tab' => 'Big texts'
+            'type'  => 'summernote',
+            'tab'   => 'Big texts',
         ]);
 
         $this->crud->addField([   // CKEditor
-            'name' => 'wysiwyg',
+            'name'  => 'wysiwyg',
             'label' => 'CKEditor - also called the WYSIWYG field',
-            'type' => 'ckeditor',
-            'tab' => 'Big texts'
+            'type'  => 'ckeditor',
+            'tab'   => 'Big texts',
         ]);
 
         $this->crud->addField([   // TinyMCE
-            'name' => 'tinymce',
+            'name'  => 'tinymce',
             'label' => 'TinyMCE',
-            'type' => 'tinymce',
-            'tab' => 'Big texts'
+            'type'  => 'tinymce',
+            'tab'   => 'Big texts',
         ]);
 
         // -----------------
         // MISCELLANEOUS tab
         // -----------------
         $this->crud->addField([   // Color
-            'name' => 'color',
+            'name'  => 'color',
             'label' => 'Color picker (HTML5 spec)',
-            'type' => 'color',
+            'type'  => 'color',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Miscellaneous'
+            'tab' => 'Miscellaneous',
         ]);
         $this->crud->addField([   // Color
-            'name' => 'color_picker',
+            'name'  => 'color_picker',
             'label' => 'Color picker (jQuery plugin)',
-            'type' => 'color_picker',
+            'type'  => 'color_picker',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab' => 'Miscellaneous'
+            'tab' => 'Miscellaneous',
         ]);
 
         $this->crud->addField([
-            'label' => "Icon Picker",
-            'name' => 'icon_picker',
-            'type' => 'icon_picker',
+            'label'   => 'Icon Picker',
+            'name'    => 'icon_picker',
+            'type'    => 'icon_picker',
             'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
-            'tab' => 'Miscellaneous'
+            'tab'     => 'Miscellaneous',
         ]);
 
         // $table->text('table')->nullable;
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
-
 
         // $this->crud->removeField('name', 'update/create/both');
 
@@ -373,7 +368,6 @@ class TestCrudController extends CrudController
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
-
     }
 
     public function store(StoreRequest $request)
