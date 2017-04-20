@@ -22,10 +22,10 @@ Route::get('/', function () {
 // Backpack routes
 // ---------------
 Route::group([
-    'prefix' => config('backpack.base.route_prefix', 'admin'),
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['admin'],
-    'namespace' => 'Admin'
-], function() {
+    'namespace'  => 'Admin',
+], function () {
     // CRUD resources and other admin routes
     CRUD::resource('test', 'TestCrudController');
 });

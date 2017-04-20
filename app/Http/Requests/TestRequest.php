@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 class TestRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {
     /**
@@ -25,7 +23,7 @@ class TestRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'text' => 'required|min:5|max:255'
+            'text' => 'required|min:5|max:255',
         ];
     }
 
