@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TestRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TestRequest as UpdateRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class TestCrudController extends CrudController
 {
-
     public function setUp()
     {
 
@@ -20,7 +18,7 @@ class TestCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Test');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/test');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/test');
         $this->crud->setEntityNameStrings('test', 'tests');
 
         /*
@@ -38,14 +36,13 @@ class TestCrudController extends CrudController
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
-
         // ------ CRUD FIELDS
         $this->crud->addField([   // Address
-            'name' => 'address',
+            'name'  => 'address',
             'label' => 'Address',
-            'type' => 'address',
+            'type'  => 'address',
             // optional
-            'store_as_json' => true
+            'store_as_json' => true,
         ], 'both'); // the second parameter for the addField method is the form it should place this field in; specify either 'create', 'update' or 'both'; default is 'both', so you might aswell not mention it;
 
         // $table->binary('base64_image')->nullable;
@@ -88,7 +85,6 @@ class TestCrudController extends CrudController
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
         // $table->string('week')->nullable;
-
 
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');

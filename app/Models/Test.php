@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
@@ -23,7 +23,7 @@ class Test extends Model
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address' => 'array'
+        'address' => 'array',
     ];
 
     /*
