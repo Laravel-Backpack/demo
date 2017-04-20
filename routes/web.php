@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+// Route::get('/home', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index');
+// ---------------
+// Backpack routes
+// ---------------
+Route::group([
+    'prefix' => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['admin'],
+    'namespace' => 'Admin'
+], function() {
+    // CRUD resources and other admin routes
+    CRUD::resource('test', 'TestCrudController');
+});
