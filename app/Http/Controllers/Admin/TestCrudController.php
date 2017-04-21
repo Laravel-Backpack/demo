@@ -292,7 +292,7 @@ class TestCrudController extends CrudController
             'name' => 'simplemde',
             'label' => 'SimpleMDE - markdown editor',
             'type' => 'simplemde',
-            'tab' => 'Big texts'
+            'tab' => 'Big texts',
         ]);
 
         $this->crud->addField([   // Summernote
@@ -358,9 +358,9 @@ class TestCrudController extends CrudController
         // $this->crud->removeButtonFromStack($name, $stack);
 
         // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
-        // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
+        $this->crud->enableDetailsRow();
+        $this->crud->allowAccess('details_row');
+        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.test');
 
         // ------ REVISIONS
         // You also need to use \Venturecraft\Revisionable\RevisionableTrait;
@@ -374,6 +374,7 @@ class TestCrudController extends CrudController
         // Does not work well with AJAX datatables.
         $this->crud->enableExportButtons();
 
+        $this->addCustomCrudFilters();
     }
 
     public function store(StoreRequest $request)
@@ -392,5 +393,18 @@ class TestCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
+    }
+
+    public function addCustomCrudFilters()
+    {
+        $this->crud->addFilter([ // add a "simple" filter called Draft
+          'type' => 'simple',
+          'name' => 'checkbox',
+          'label'=> 'Checked'
+        ],
+        false, // the simple filter has no values, just the "Draft" label specified above
+        function() { // if the filter is active (the GET parameter "draft" exits)
+            $this->crud->addClause('where', 'checkbox', '1');
+        });
     }
 }
