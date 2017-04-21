@@ -28,6 +28,7 @@ class MonsterCrudController extends CrudController
 
         // ------ CRUD COLUMNS
         $this->crud->addColumn('text'); // add a text column, at the end of the stack
+        $this->crud->addColumn('email'); // add a single column, at the end of the stack
         $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
