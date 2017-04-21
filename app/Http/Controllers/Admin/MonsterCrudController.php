@@ -312,30 +312,30 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // select2_from_ajax: 1-n relationship
-            'label' => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
-            'type' => "select2_from_ajax",
-            'name' => 'select2_from_ajax', // the column that contains the ID of that connected entity;
-            'entity' => 'article', // the method that defines the relationship in your Model
-            'attribute' => "title", // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source' => url("api/article"), // url to controller search function (with /{id} should return model)
-            'placeholder' => "Select an article", // placeholder for the select
+            'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
+            'type'                 => 'select2_from_ajax',
+            'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
+            'entity'               => 'article', // the method that defines the relationship in your Model
+            'attribute'            => 'title', // foreign key attribute that is shown to user
+            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+            'placeholder'          => 'Select an article', // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
-            'tab'           => 'Selects',
+            'tab'                  => 'Selects',
         ]);
 
         $this->crud->addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
-            'label' => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
-            'type' => "select2_from_ajax_multiple",
-            'name' => 'articles', // the column that contains the ID of that connected entity;
-            'entity' => 'articles', // the method that defines the relationship in your Model
-            'attribute' => "title", // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source' => url("api/article"), // url to controller search function (with /{id} should return model)
-            'placeholder' => "Select one or more articles", // placeholder for the select
+            'label'                => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
+            'type'                 => 'select2_from_ajax_multiple',
+            'name'                 => 'articles', // the column that contains the ID of that connected entity;
+            'entity'               => 'articles', // the method that defines the relationship in your Model
+            'attribute'            => 'title', // foreign key attribute that is shown to user
+            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+            'placeholder'          => 'Select one or more articles', // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
-            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'           => 'Selects',
+            'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
+            'tab'                  => 'Selects',
         ]);
 
         // -----------------
