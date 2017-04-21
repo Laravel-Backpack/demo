@@ -32,13 +32,14 @@ return [
     // Revisions
     'revisions'            => 'Revisions',
     'no_revisions'         => 'No revisions found',
-    'created_this'          => 'created this',
+    'created_this'         => 'created this',
     'changed_the'          => 'changed the',
     'restore_this_value'   => 'Restore this value',
     'from'                 => 'from',
     'to'                   => 'to',
     'undo'                 => 'Undo',
     'revision_restored'    => 'Revision successfully restored',
+    'guest_user'           => 'Guest User',
 
     // CRUD table view
     'all'                       => 'All ',

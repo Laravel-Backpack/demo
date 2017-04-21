@@ -39,8 +39,9 @@ class CreateTestsTable extends Migration
             $table->string('range')->nullable;
             $table->integer('select')->nullable;
             $table->string('select_from_array')->nullable;
-            $table->string('select_from_ajax')->nullable;
             // select_multiple
+            $table->integer('select2')->nullable;
+            $table->string('select2_from_ajax')->nullable;
             $table->string('select2_from_array')->nullable;
             // select2_from_ajax_multiple
             $table->text('simplemde')->nullable;
