@@ -477,10 +477,10 @@ class TestCrudController extends CrudController
         $this->crud->addFilter([ // add a "simple" filter called Draft
           'type' => 'simple',
           'name' => 'checkbox',
-          'label'=> 'Checked'
+          'label'=> 'Checked',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
-        function() { // if the filter is active (the GET parameter "draft" exits)
+        function () { // if the filter is active (the GET parameter "draft" exits)
             $this->crud->addClause('where', 'checkbox', '1');
         });
     }
