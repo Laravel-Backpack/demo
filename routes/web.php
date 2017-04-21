@@ -30,6 +30,5 @@ Route::group([
     CRUD::resource('monster', 'MonsterCrudController');
 });
 
-
 Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Backpack\NewsCRUD\app\Models\Article;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -13,12 +13,9 @@ class ArticleController extends Controller
         $search_term = $request->input('q');
         $page = $request->input('page');
 
-        if ($search_term)
-        {
+        if ($search_term) {
             $results = Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
-        }
-        else
-        {
+        } else {
             $results = Article::paginate(10);
         }
 
