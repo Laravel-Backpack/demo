@@ -250,90 +250,90 @@ class TestCrudController extends CrudController
         // -----------------
 
         $this->crud->addField([    // SELECT
-            'label' => 'Select (1-n relationship)',
-            'type' => 'select',
-            'name' => 'select',
-            'entity' => 'category',
-            'attribute' => 'name',
-            'model' => "Backpack\NewsCRUD\app\Models\Category",
+            'label'         => 'Select (1-n relationship)',
+            'type'          => 'select',
+            'name'          => 'select',
+            'entity'        => 'category',
+            'attribute'     => 'name',
+            'model'         => "Backpack\NewsCRUD\app\Models\Category",
             'tab'           => 'Selects',
         ]);
         $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label' => 'Select_multiple (n-n relationship with pivot table)',
-            'type' => 'select_multiple',
-            'name' => 'tags', // the method that defines the relationship in your Model
-            'entity' => 'tags', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            'label'         => 'Select_multiple (n-n relationship with pivot table)',
+            'type'          => 'select_multiple',
+            'name'          => 'tags', // the method that defines the relationship in your Model
+            'entity'        => 'tags', // the method that defines the relationship in your Model
+            'attribute'     => 'name', // foreign key attribute that is shown to user
+            'model'         => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'           => 'Selects',
         ]);
 
         $this->crud->addField([ // select_from_array
-            'name' => 'select_from_array',
-            'label' => "Select_from_array (no relationship, 1-1 or 1-n)",
-            'type' => 'select_from_array',
-            'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null' => false,
+            'name'          => 'select_from_array',
+            'label'         => 'Select_from_array (no relationship, 1-1 or 1-n)',
+            'type'          => 'select_from_array',
+            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null'   => false,
             'tab'           => 'Selects',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
         $this->crud->addField([    // SELECT2
-            'label' => 'Select2 (1-n relationship)',
-            'type' => 'select2',
-            'name' => 'select2',
-            'entity' => 'category',
-            'attribute' => 'name',
-            'model' => "Backpack\NewsCRUD\app\Models\Category",
+            'label'         => 'Select2 (1-n relationship)',
+            'type'          => 'select2',
+            'name'          => 'select2',
+            'entity'        => 'category',
+            'attribute'     => 'name',
+            'model'         => "Backpack\NewsCRUD\app\Models\Category",
             'tab'           => 'Selects',
         ]);
 
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
-            'label' => 'Select2_multiple (n-n relationship with pivot table)',
-            'type' => 'select2_multiple',
-            'name' => 'categories', // the method that defines the relationship in your Model
-            'entity' => 'categories', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            'label'         => 'Select2_multiple (n-n relationship with pivot table)',
+            'type'          => 'select2_multiple',
+            'name'          => 'categories', // the method that defines the relationship in your Model
+            'entity'        => 'categories', // the method that defines the relationship in your Model
+            'attribute'     => 'name', // foreign key attribute that is shown to user
+            'model'         => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'           => 'Selects',
         ]);
 
         $this->crud->addField([ // select2_from_array
-            'name' => 'select2_from_array',
-            'label' => "Select2_from_array (no relationship, 1-1 or 1-n)",
-            'type' => 'select2_from_array',
-            'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null' => false,
+            'name'          => 'select2_from_array',
+            'label'         => 'Select2_from_array (no relationship, 1-1 or 1-n)',
+            'type'          => 'select2_from_array',
+            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null'   => false,
             'tab'           => 'Selects',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
         $this->crud->addField([ // select2_from_ajax: 1-n relationship
-            'label' => "Select2_from_ajax (1-n relationship)", // Table column heading
-            'type' => "select2_from_ajax",
-            'name' => 'select2_from_ajax', // the column that contains the ID of that connected entity;
-            'entity' => 'article', // the method that defines the relationship in your Model
-            'attribute' => "title", // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source' => url("api/article"), // url to controller search function (with /{id} should return model)
-            'placeholder' => "Select an article", // placeholder for the select
+            'label'                => 'Select2_from_ajax (1-n relationship)', // Table column heading
+            'type'                 => 'select2_from_ajax',
+            'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
+            'entity'               => 'article', // the method that defines the relationship in your Model
+            'attribute'            => 'title', // foreign key attribute that is shown to user
+            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+            'placeholder'          => 'Select an article', // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
-            'tab'           => 'Selects',
+            'tab'                  => 'Selects',
         ]);
 
         $this->crud->addField([ // select2_from_ajax_multiple: n-n relationship
-            'label' => "Select2_from_ajax_multiple (n-n relationship with pivot table)", // Table column heading
-            'type' => "select2_from_ajax_multiple",
-            'name' => 'select2_from_ajax_multiple', // the column that contains the ID of that connected entity;
-            'entity' => 'articles', // the method that defines the relationship in your Model
-            'attribute' => "title", // foreign key attribute that is shown to user
-            'model' => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source' => url("api/article"), // url to controller search function (with /{id} should return model)
-            'placeholder' => "Select one or more articles", // placeholder for the select
+            'label'                => 'Select2_from_ajax_multiple (n-n relationship with pivot table)', // Table column heading
+            'type'                 => 'select2_from_ajax_multiple',
+            'name'                 => 'select2_from_ajax_multiple', // the column that contains the ID of that connected entity;
+            'entity'               => 'articles', // the method that defines the relationship in your Model
+            'attribute'            => 'title', // foreign key attribute that is shown to user
+            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+            'placeholder'          => 'Select one or more articles', // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
-            'tab'           => 'Selects',
+            'tab'                  => 'Selects',
         ]);
 
         // -----------------

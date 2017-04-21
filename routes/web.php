@@ -30,6 +30,5 @@ Route::group([
     CRUD::resource('test', 'TestCrudController');
 });
 
-
 Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');
