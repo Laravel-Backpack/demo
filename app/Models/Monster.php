@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class Monster extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Test extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'tests';
+    protected $table = 'monsters';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
@@ -45,7 +45,7 @@ class Test extends Model
 
     public function articles()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Article', 'test_article');
+        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Article', 'monster_article');
     }
 
     public function category()
@@ -55,12 +55,12 @@ class Test extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Category', 'test_category');
+        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Category', 'monster_category');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Tag', 'test_tag');
+        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Tag', 'monster_tag');
     }
 
     /*

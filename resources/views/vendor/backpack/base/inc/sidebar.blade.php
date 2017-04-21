@@ -21,7 +21,7 @@
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
-          <li><a href="{{ url(config('backpack.base.route_prefix').'/test') }}"><i class="fa fa-list-alt"></i> <span>Tests</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix').'/monster') }}"><i class="fa fa-optin-monster"></i> <span>Monsters</span></a></li>
 
           <li class="treeview">
               <a href="#"><i class="fa fa-newspaper-o"></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>

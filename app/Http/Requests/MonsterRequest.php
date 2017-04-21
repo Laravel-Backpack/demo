@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class TestRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
+class MonsterRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {
     /**
      * Determine if the user is authorized to make this request.

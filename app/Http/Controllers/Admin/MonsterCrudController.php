@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\TestRequest as StoreRequest;
+use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\TestRequest as UpdateRequest;
+use App\Http\Requests\MonsterRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class TestCrudController extends CrudController
+class MonsterCrudController extends CrudController
 {
     public function setup()
     {
@@ -16,9 +16,9 @@ class TestCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Test');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/test');
-        $this->crud->setEntityNameStrings('test', 'tests');
+        $this->crud->setModel('App\Models\Monster');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
+        $this->crud->setEntityNameStrings('monster', 'monsters');
 
         /*
         |--------------------------------------------------------------------------
@@ -185,19 +185,19 @@ class TestCrudController extends CrudController
             'tab' => 'Time and space',
         ]);
 
-        // $this->crud->addField([   // Date
-        //     'name'  => 'date_picker',
-        //     'label' => 'Date (jQuery plugin)',
-        //     'type'  => 'date_picker',
-        //     // optional:
-        //     'date_picker_options' => [
-        //         'todayBtn' => true,
-        //         'format'   => 'dd-mm-yyyy',
-        //         'language' => 'en',
-        //     ],
-        //     // 'wrapperAttributes' => ['class' => 'col-md-6'],
-        //     'tab' => 'Time and space',
-        // ]);
+        $this->crud->addField([   // Date
+            'name'  => 'date_picker',
+            'label' => 'Date (jQuery plugin)',
+            'type'  => 'date_picker',
+            // optional:
+            'date_picker_options' => [
+                'todayBtn' => true,
+                'format'   => 'dd-mm-yyyy',
+                'language' => 'en',
+            ],
+            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'tab' => 'Time and space',
+        ]);
 
         $this->crud->addField([   // DateTime
             'name'  => 'datetime',
@@ -207,18 +207,18 @@ class TestCrudController extends CrudController
             'tab' => 'Time and space',
         ]);
 
-        // $this->crud->addField([   // DateTime
-        //     'name'  => 'datetime_picker',
-        //     'label' => 'Datetime picker (jQuery plugin)',
-        //     'type'  => 'datetime_picker',
-        //     // optional:
-        //     'datetime_picker_options' => [
-        //         'format'   => 'DD/MM/YYYY HH:mm',
-        //         'language' => 'en',
-        //     ],
-        //     // 'wrapperAttributes' => ['class' => 'col-md-6'],
-        //     'tab' => 'Time and space',
-        // ]);
+        $this->crud->addField([   // DateTime
+            'name'  => 'datetime_picker',
+            'label' => 'Datetime picker (jQuery plugin)',
+            'type'  => 'datetime_picker',
+            // optional:
+            'datetime_picker_options' => [
+                'format'   => 'DD/MM/YYYY HH:mm',
+                'language' => 'en',
+            ],
+            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'tab' => 'Time and space',
+        ]);
 
         $this->crud->addField([ // Date_range
             'name'       => 'date_range', // a unique name for this field
@@ -311,7 +311,7 @@ class TestCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // select2_from_ajax: 1-n relationship
-            'label' => "Select2_from_ajax (1-n relationship)", // Table column heading
+            'label' => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
             'type' => "select2_from_ajax",
             'name' => 'select2_from_ajax', // the column that contains the ID of that connected entity;
             'entity' => 'article', // the method that defines the relationship in your Model
@@ -323,16 +323,17 @@ class TestCrudController extends CrudController
             'tab'           => 'Selects',
         ]);
 
-        $this->crud->addField([ // select2_from_ajax_multiple: n-n relationship
-            'label' => "Select2_from_ajax_multiple (n-n relationship with pivot table)", // Table column heading
+        $this->crud->addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
+            'label' => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
             'type' => "select2_from_ajax_multiple",
-            'name' => 'select2_from_ajax_multiple', // the column that contains the ID of that connected entity;
+            'name' => 'articles', // the column that contains the ID of that connected entity;
             'entity' => 'articles', // the method that defines the relationship in your Model
             'attribute' => "title", // foreign key attribute that is shown to user
             'model' => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
             'data_source' => url("api/article"), // url to controller search function (with /{id} should return model)
             'placeholder' => "Select one or more articles", // placeholder for the select
             'minimum_input_length' => 2, // minimum characters to type before querying results
+            'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'           => 'Selects',
         ]);
 
@@ -436,7 +437,7 @@ class TestCrudController extends CrudController
         // ------ CRUD DETAILS ROW
         $this->crud->enableDetailsRow();
         $this->crud->allowAccess('details_row');
-        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.test');
+        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
 
         // ------ REVISIONS
         // You also need to use \Venturecraft\Revisionable\RevisionableTrait;

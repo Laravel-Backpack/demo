@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTestArticlesTable extends Migration
+class CreateMonsterTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTestArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_article', function (Blueprint $table) {
+        Schema::create('monster_tag', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('test_id')->unsigned();
-            $table->integer('article_id')->unsigned();
+            $table->integer('monster_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
             $table->nullableTimestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateTestArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('test_article');
+        Schema::drop('monster_tag');
     }
 }

@@ -27,7 +27,7 @@ Route::group([
     'namespace'  => 'Admin',
 ], function () {
     // CRUD resources and other admin routes
-    CRUD::resource('test', 'TestCrudController');
+    CRUD::resource('monster', 'MonsterCrudController');
 });
 
 
