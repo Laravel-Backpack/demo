@@ -15,6 +15,9 @@ body[class^='skin-'] .sidebar-menu>li>a {
   border-left: 1px solid transparent;
 }
 
+body[class^='skin-purple'] .nav-tabs-custom>.nav-tabs>li.active {
+  border-top-color: #57549C;
+}
 
 body[class^='skin-purple'] .btn-primary {
   color: #fff;

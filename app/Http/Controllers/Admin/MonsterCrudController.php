@@ -434,6 +434,8 @@ class MonsterCrudController extends CrudController
         // $this->crud->addButtonFromView($stack, $name, $view, $position); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
         // $this->crud->removeButton($name);
         // $this->crud->removeButtonFromStack($name, $stack);
+        // $this->crud->removeAllButtons();
+        // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD DETAILS ROW
         $this->crud->enableDetailsRow();
