@@ -30,9 +30,11 @@ $ php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSee
 
 ## Usage 
 
-1. Register a new user at http://localhost/backpack-demo/public/admin/register
-2. Your admin panel will be available at http://localhost/backpack-demo/public/admin
+1. Register a new user at http://localhost/backpack-demo/admin/register
+2. Your admin panel will be available at http://localhost/backpack-demo/admin
 3. [optional] If you're building an admin panel, you should close the registration. In config/backpack/base.php look for "registration_open" and change it to false.
+
+Note: Depending on your configuration you may need to define a site within NGINX or Apache; Your URL domain may change from localhost to what you have defined.
 
 ![Example generated CRUD interface](https://dl.dropboxusercontent.com/u/2431352/backpack_base_dashboard.png)
 
