@@ -11,11 +11,11 @@
 */
 
 Route::group([
-				'namespace' => 'Backpack\NewsCRUD\app\Http\Controllers\Admin',
-				'prefix' => config('backpack.base.route_prefix', 'admin'),
-				'middleware' => ['web', 'admin'],
-			], function () {
-    CRUD::resource('article', 'ArticleCrudController');
-    CRUD::resource('category', 'CategoryCrudController');
-    CRUD::resource('tag', 'TagCrudController');
-});
+                'namespace'  => 'Backpack\NewsCRUD\app\Http\Controllers\Admin',
+                'prefix'     => config('backpack.base.route_prefix', 'admin'),
+                'middleware' => ['web', 'admin'],
+            ], function () {
+                CRUD::resource('article', 'ArticleCrudController');
+                CRUD::resource('category', 'CategoryCrudController');
+                CRUD::resource('tag', 'TagCrudController');
+            });
