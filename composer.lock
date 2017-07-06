@@ -107,16 +107,16 @@
         },
         {
             "name": "backpack/base",
-            "version": "0.7.19",
+            "version": "0.7.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Base.git",
-                "reference": "1e81a3130a927b643bab1e2e0eb8cbeeef603039"
+                "reference": "845a78f01e8476decb95948ecde1015bbcc939ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/1e81a3130a927b643bab1e2e0eb8cbeeef603039",
-                "reference": "1e81a3130a927b643bab1e2e0eb8cbeeef603039",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/845a78f01e8476decb95948ecde1015bbcc939ee",
+                "reference": "845a78f01e8476decb95948ecde1015bbcc939ee",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,7 @@
                 "backpack",
                 "base"
             ],
-            "time": "2017-04-25T13:55:39+00:00"
+            "time": "2017-07-06T06:17:37+00:00"
         },
         {
             "name": "backpack/crud",
@@ -3818,12 +3818,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
