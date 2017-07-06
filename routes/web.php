@@ -15,12 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
-// Route::get('/home', 'HomeController@index');
-
-// ---------------
-// Backpack routes
-// ---------------
+// --------------------
+// Backpack\Demo routes
+// --------------------
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['admin'],
