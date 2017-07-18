@@ -32,6 +32,11 @@ class Monster extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function openGoogle($crud = false)
+    {
+        return '<a class="btn btn-xs btn-default" target="_blank" href="http://google.com?q='.urlencode($this->text).'" data-toggle="tooltip" title="Just a demo custom button."><i class="fa fa-search"></i> Google it</a>';
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
