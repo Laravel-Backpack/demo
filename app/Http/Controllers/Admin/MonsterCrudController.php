@@ -275,9 +275,9 @@ class MonsterCrudController extends CrudController
             'label'         => 'Select_from_array (no relationship, 1-1 or 1-n)',
             'type'          => 'select_from_array',
             'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => false,
+            'allows_null'   => true,
             'tab'           => 'Selects',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+            'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
         $this->crud->addField([    // SELECT2
@@ -297,6 +297,7 @@ class MonsterCrudController extends CrudController
             'entity'        => 'categories', // the method that defines the relationship in your Model
             'attribute'     => 'name', // foreign key attribute that is shown to user
             'model'         => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+            'allows_null'   => true,
             'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'           => 'Selects',
         ]);
@@ -306,9 +307,9 @@ class MonsterCrudController extends CrudController
             'label'         => 'Select2_from_array (no relationship, 1-1 or 1-n)',
             'type'          => 'select2_from_array',
             'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => false,
+            'allows_null'   => true,
             'tab'           => 'Selects',
-            // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+            'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
         $this->crud->addField([ // select2_from_ajax: 1-n relationship

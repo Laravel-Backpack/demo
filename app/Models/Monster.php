@@ -24,6 +24,9 @@ class Monster extends Model
     // protected $dates = [];
     protected $casts = [
         'address' => 'array',
+        // optional casts for select from array fields that allow multiple selection
+        // 'select_from_array' => 'array',
+        // 'select2_from_array' => 'array'
     ];
 
     /*
