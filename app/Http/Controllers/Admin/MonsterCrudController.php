@@ -271,12 +271,12 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // select_from_array
-            'name'          => 'select_from_array',
-            'label'         => 'Select_from_array (no relationship, 1-1 or 1-n)',
-            'type'          => 'select_from_array',
-            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => true,
-            'tab'           => 'Selects',
+            'name'            => 'select_from_array',
+            'label'           => 'Select_from_array (no relationship, 1-1 or 1-n)',
+            'type'            => 'select_from_array',
+            'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null'     => true,
+            'tab'             => 'Selects',
             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
@@ -303,12 +303,12 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // select2_from_array
-            'name'          => 'select2_from_array',
-            'label'         => 'Select2_from_array (no relationship, 1-1 or 1-n)',
-            'type'          => 'select2_from_array',
-            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => true,
-            'tab'           => 'Selects',
+            'name'            => 'select2_from_array',
+            'label'           => 'Select2_from_array (no relationship, 1-1 or 1-n)',
+            'type'            => 'select2_from_array',
+            'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null'     => true,
+            'tab'             => 'Selects',
             'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
