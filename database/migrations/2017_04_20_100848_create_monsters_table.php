@@ -59,7 +59,7 @@ class CreateMonstersTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE monsters MODIFY base64_image MEDIUMBLOB");
+        DB::statement('ALTER TABLE monsters MODIFY base64_image MEDIUMBLOB');
     }
 
     /**
