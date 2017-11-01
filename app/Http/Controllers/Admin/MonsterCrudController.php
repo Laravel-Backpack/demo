@@ -131,17 +131,17 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name'        => 'radio', // the name of the db column
-            'label'       => 'Status (radio)', // the input label
-            'type'        => 'radio',
-            'options'     => [ // the key will be stored in the db, the value will be shown as label;
+            'name'    => 'radio', // the name of the db column
+            'label'   => 'Status (radio)', // the input label
+            'type'    => 'radio',
+            'options' => [ // the key will be stored in the db, the value will be shown as label;
                                 0 => 'Draft',
                                 1 => 'Published',
                                 2 => 'Other',
                             ],
             // optional
-            'inline'      => true, // show the radios all on the same line?
-            'tab'         => 'Simple',
+            'inline' => true, // show the radios all on the same line?
+            'tab'    => 'Simple',
         ]);
 
         $this->crud->addField([   // Checkbox
@@ -251,63 +251,63 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         $this->crud->addField([    // SELECT
-            'label'         => 'Select (1-n relationship)',
-            'type'          => 'select',
-            'name'          => 'select',
-            'entity'        => 'category',
-            'attribute'     => 'name',
-            'model'         => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'           => 'Selects',
+            'label'     => 'Select (1-n relationship)',
+            'type'      => 'select',
+            'name'      => 'select',
+            'entity'    => 'category',
+            'attribute' => 'name',
+            'model'     => "Backpack\NewsCRUD\app\Models\Category",
+            'tab'       => 'Selects',
         ]);
         $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label'         => 'Select_multiple (n-n relationship with pivot table)',
-            'type'          => 'select_multiple',
-            'name'          => 'tags', // the method that defines the relationship in your Model
-            'entity'        => 'tags', // the method that defines the relationship in your Model
-            'attribute'     => 'name', // foreign key attribute that is shown to user
-            'model'         => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'           => 'Selects',
+            'label'     => 'Select_multiple (n-n relationship with pivot table)',
+            'type'      => 'select_multiple',
+            'name'      => 'tags', // the method that defines the relationship in your Model
+            'entity'    => 'tags', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            'tab'       => 'Selects',
         ]);
 
         $this->crud->addField([ // select_from_array
-            'name'          => 'select_from_array',
-            'label'         => 'Select_from_array (no relationship, 1-1 or 1-n)',
-            'type'          => 'select_from_array',
-            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => false,
-            'tab'           => 'Selects',
+            'name'        => 'select_from_array',
+            'label'       => 'Select_from_array (no relationship, 1-1 or 1-n)',
+            'type'        => 'select_from_array',
+            'options'     => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null' => false,
+            'tab'         => 'Selects',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
         $this->crud->addField([    // SELECT2
-            'label'         => 'Select2 (1-n relationship)',
-            'type'          => 'select2',
-            'name'          => 'select2',
-            'entity'        => 'category',
-            'attribute'     => 'name',
-            'model'         => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'           => 'Selects',
+            'label'     => 'Select2 (1-n relationship)',
+            'type'      => 'select2',
+            'name'      => 'select2',
+            'entity'    => 'category',
+            'attribute' => 'name',
+            'model'     => "Backpack\NewsCRUD\app\Models\Category",
+            'tab'       => 'Selects',
         ]);
 
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
-            'label'         => 'Select2_multiple (n-n relationship with pivot table)',
-            'type'          => 'select2_multiple',
-            'name'          => 'categories', // the method that defines the relationship in your Model
-            'entity'        => 'categories', // the method that defines the relationship in your Model
-            'attribute'     => 'name', // foreign key attribute that is shown to user
-            'model'         => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'           => 'Selects',
+            'label'     => 'Select2_multiple (n-n relationship with pivot table)',
+            'type'      => 'select2_multiple',
+            'name'      => 'categories', // the method that defines the relationship in your Model
+            'entity'    => 'categories', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            'tab'       => 'Selects',
         ]);
 
         $this->crud->addField([ // select2_from_array
-            'name'          => 'select2_from_array',
-            'label'         => 'Select2_from_array (no relationship, 1-1 or 1-n)',
-            'type'          => 'select2_from_array',
-            'options'       => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'   => false,
-            'tab'           => 'Selects',
+            'name'        => 'select2_from_array',
+            'label'       => 'Select2_from_array (no relationship, 1-1 or 1-n)',
+            'type'        => 'select2_from_array',
+            'options'     => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+            'allows_null' => false,
+            'tab'         => 'Selects',
             // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
         ]);
 
@@ -479,9 +479,9 @@ class MonsterCrudController extends CrudController
     public function addCustomCrudFilters()
     {
         $this->crud->addFilter([ // add a "simple" filter called Draft
-          'type' => 'simple',
-          'name' => 'checkbox',
-          'label'=> 'Checked',
+          'type'  => 'simple',
+          'name'  => 'checkbox',
+          'label' => 'Checked',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
