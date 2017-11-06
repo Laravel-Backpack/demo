@@ -7,8 +7,8 @@
     "require": {
         "php": ">=7.0",
         "laravel/framework": "5.5.*",
-        "backpack/base": "dev-upgrade as 0.7.99",
-        "backpack/crud": "dev-upgrade as 3.2.99",
+        "backpack/base": "^0.8.0",
+        "backpack/crud": "^3.3.0",
         "backpack/backupmanager": "^1.1",
         "backpack/logmanager": "^2.3",
         "backpack/settings": "^2.0",

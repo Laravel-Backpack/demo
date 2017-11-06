@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f19a01e2f8a2a8949d745fd6cdeae0b5",
+    "content-hash": "856bbfafe2dc838606a1c31ff0ce0575",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -107,16 +107,16 @@
         },
         {
             "name": "backpack/base",
-            "version": "dev-upgrade",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Base.git",
-                "reference": "775acae7bce062406085f59077c5dad016a27ce8"
+                "reference": "03ec45044ff53843314599bf3d226ed335d1379a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/775acae7bce062406085f59077c5dad016a27ce8",
-                "reference": "775acae7bce062406085f59077c5dad016a27ce8",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/03ec45044ff53843314599bf3d226ed335d1379a",
+                "reference": "03ec45044ff53843314599bf3d226ed335d1379a",
                 "shasum": ""
             },
             "require": {
@@ -167,24 +167,24 @@
                 "backpack",
                 "base"
             ],
-            "time": "2017-09-12T07:14:43+00:00"
+            "time": "2017-11-06T11:20:36+00:00"
         },
         {
             "name": "backpack/crud",
-            "version": "dev-upgrade",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "468b8339865b73a18a19b67aa6cf09abc9c53c1c"
+                "reference": "bd2badc5ae6a47bb31a62b5af28361d890f4ce63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/468b8339865b73a18a19b67aa6cf09abc9c53c1c",
-                "reference": "468b8339865b73a18a19b67aa6cf09abc9c53c1c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/bd2badc5ae6a47bb31a62b5af28361d890f4ce63",
+                "reference": "bd2badc5ae6a47bb31a62b5af28361d890f4ce63",
                 "shasum": ""
             },
             "require": {
-                "backpack/base": "^0.7.15",
+                "backpack/base": "^0.8.0",
                 "barryvdh/laravel-elfinder": "^0.3.10",
                 "doctrine/dbal": "^2.5",
                 "intervention/image": "^2.3",
@@ -239,7 +239,7 @@
                 "read",
                 "update"
             ],
-            "time": "2017-11-01T08:30:47+00:00"
+            "time": "2017-11-06T11:51:25+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -415,16 +415,16 @@
         },
         {
             "name": "backpack/pagemanager",
-            "version": "1.1.21",
+            "version": "1.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "7bf829fcda196327658bd3759a2b56131b604dda"
+                "reference": "0d94d2c02b0b8da4d917ce99344c7361a369f89a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/7bf829fcda196327658bd3759a2b56131b604dda",
-                "reference": "7bf829fcda196327658bd3759a2b56131b604dda",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/0d94d2c02b0b8da4d917ce99344c7361a369f89a",
+                "reference": "0d94d2c02b0b8da4d917ce99344c7361a369f89a",
                 "shasum": ""
             },
             "require": {
@@ -482,7 +482,7 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2017-08-30T20:21:52+00:00"
+            "time": "2017-11-02T08:20:13+00:00"
         },
         {
             "name": "backpack/permissionmanager",
@@ -558,20 +558,22 @@
         },
         {
             "name": "backpack/settings",
-            "version": "2.0.22",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "0dc44adc03c9f0de66cfa8d4bba9c77765e32696"
+                "reference": "9016b0fc8e4bdc0c3404447b29529764bb29e415"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/0dc44adc03c9f0de66cfa8d4bba9c77765e32696",
-                "reference": "0dc44adc03c9f0de66cfa8d4bba9c77765e32696",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/9016b0fc8e4bdc0c3404447b29529764bb29e415",
+                "reference": "9016b0fc8e4bdc0c3404447b29529764bb29e415",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "3.2.*"
+                "backpack/crud": "^3.0.6",
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -581,11 +583,6 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Backpack\\Settings\\SettingsServiceProvider"
-                    ]
                 }
             },
             "autoload": {
@@ -618,7 +615,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2017-08-30T20:14:49+00:00"
+            "time": "2016-08-05T11:51:08+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -4093,51 +4090,6 @@
             "time": "2017-01-25T15:31:26+00:00"
         },
         {
-            "name": "livecontrol/eloquent-datatable",
-            "version": "0.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LiveControl/EloquentDataTable.git",
-                "reference": "49488446f3116ebf725447bb805bb76c28109d1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LiveControl/EloquentDataTable/zipball/49488446f3116ebf725447bb805bb76c28109d1b",
-                "reference": "49488446f3116ebf725447bb805bb76c28109d1b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "5.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "~2.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "LiveControl\\EloquentDataTable": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeffrey de Vreede",
-                    "email": "jeffrey@devreede.eu"
-                }
-            ],
-            "description": "Eloquent DataTable plugin for server side ajax call handling.",
-            "keywords": [
-                "datatable",
-                "eloquent",
-                "laravel"
-            ],
-            "time": "2015-09-15T11:39:39+00:00"
-        },
-        {
             "name": "mockery/mockery",
             "version": "0.9.9",
             "source": {
@@ -4560,16 +4512,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ed1902a57849e117b5651fc1a5c48110946c06b",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
                 "shasum": ""
             },
             "require": {
@@ -4578,7 +4530,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
+                "phpunit/php-token-stream": "^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -4620,7 +4572,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T12:40:43+00:00"
+            "time": "2017-11-03T13:47:33+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4998,30 +4950,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -5052,13 +5004,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -5657,24 +5609,9 @@
             "time": "2016-11-23T20:04:58+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "0.7.99",
-            "alias_normalized": "0.7.99.0",
-            "version": "dev-upgrade",
-            "package": "backpack/base"
-        },
-        {
-            "alias": "3.2.99",
-            "alias_normalized": "3.2.99.0",
-            "version": "dev-upgrade",
-            "package": "backpack/crud"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "backpack/base": 20,
-        "backpack/crud": 20,
         "laracasts/generators": 20
     },
     "prefer-stable": false,
