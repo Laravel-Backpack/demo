@@ -479,9 +479,9 @@ class MonsterCrudController extends CrudController
     public function addCustomCrudFilters()
     {
         $this->crud->addFilter([ // add a "simple" filter called Draft
-          'type' => 'simple',
-          'name' => 'checkbox',
-          'label'=> 'Checked',
+          'type'  => 'simple',
+          'name'  => 'checkbox',
+          'label' => 'Checked',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
@@ -489,23 +489,23 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // date filter
-          'type' => 'date',
-          'name' => 'date',
-          'label'=> 'Date'
+          'type'  => 'date',
+          'name'  => 'date',
+          'label' => 'Date',
         ],
         false,
-        function($value) { // if the filter is active, apply these constraints
-          $this->crud->addClause('where', 'date', '=', $value);
+        function ($value) { // if the filter is active, apply these constraints
+            $this->crud->addClause('where', 'date', '=', $value);
         });
 
         $this->crud->addFilter([ // text filter
-          'type' => 'text',
-          'name' => 'text',
-          'label'=> 'Text'
+          'type'  => 'text',
+          'name'  => 'text',
+          'label' => 'Text',
         ],
         false,
-        function($value) { // if the filter is active
+        function ($value) { // if the filter is active
             $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
-        } );
+        });
     }
 }
