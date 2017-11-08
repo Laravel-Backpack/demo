@@ -107,16 +107,16 @@
         },
         {
             "name": "backpack/base",
-            "version": "0.8.1",
+            "version": "0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Base.git",
-                "reference": "03ec45044ff53843314599bf3d226ed335d1379a"
+                "reference": "a47899310e7ad3490b50d9cd7d64d1bdc88dbf08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/03ec45044ff53843314599bf3d226ed335d1379a",
-                "reference": "03ec45044ff53843314599bf3d226ed335d1379a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/a47899310e7ad3490b50d9cd7d64d1bdc88dbf08",
+                "reference": "a47899310e7ad3490b50d9cd7d64d1bdc88dbf08",
                 "shasum": ""
             },
             "require": {
@@ -167,20 +167,20 @@
                 "backpack",
                 "base"
             ],
-            "time": "2017-11-06T11:20:36+00:00"
+            "time": "2017-11-07T12:17:50+00:00"
         },
         {
             "name": "backpack/crud",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "bd2badc5ae6a47bb31a62b5af28361d890f4ce63"
+                "reference": "b23f944a3dabc5ce573e9bab143019e376d9ee7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/bd2badc5ae6a47bb31a62b5af28361d890f4ce63",
-                "reference": "bd2badc5ae6a47bb31a62b5af28361d890f4ce63",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/b23f944a3dabc5ce573e9bab143019e376d9ee7a",
+                "reference": "b23f944a3dabc5ce573e9bab143019e376d9ee7a",
                 "shasum": ""
             },
             "require": {
@@ -239,7 +239,7 @@
                 "read",
                 "update"
             ],
-            "time": "2017-11-06T11:51:25+00:00"
+            "time": "2017-11-06T12:22:20+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -1673,16 +1673,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.19",
+            "version": "v5.5.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
+                "reference": "ce0019d22a83b1b240330ea4115ae27a4d75d79c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
-                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ce0019d22a83b1b240330ea4115ae27a4d75d79c",
+                "reference": "ce0019d22a83b1b240330ea4115ae27a4d75d79c",
                 "shasum": ""
             },
             "require": {
@@ -1764,7 +1764,7 @@
                 "nexmo/client": "Required to use the Nexmo transport (~1.0).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
                 "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
-                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
+                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~3.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (~3.3).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (~3.3).",
                 "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
@@ -1800,7 +1800,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-25T19:10:45+00:00"
+            "time": "2017-11-07T14:24:50+00:00"
         },
         {
             "name": "laravelcollective/html",
