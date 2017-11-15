@@ -64,7 +64,7 @@ return [
             'prefix'                        => '',
             'strict'                        => false,
             'engine'                        => null,
-            'dump_command_path'             => '/Applications/MAMP/Library/bin/', // only the path, so without 'mysqldump' or 'pg_dump'
+            'dump_command_path'             => env('MYSQL_DUMP_PATH', '/Applications/MAMP/Library/bin/'), // only the path, so without 'mysqldump' or 'pg_dump'
             'dump_command_timeout'          => 60 * 5, // 5 minute timeout
             'dump_using_single_transaction' => true,
         ],
