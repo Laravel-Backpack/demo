@@ -25,6 +25,7 @@ Route::group([
 ], function () {
     // CRUD resources and other admin routes
     CRUD::resource('monster', 'MonsterCrudController');
+    CRUD::resource('icon', 'IconCrudController');
 });
 
 Route::get('api/article', 'Api\ArticleController@index');
