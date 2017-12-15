@@ -27,9 +27,24 @@ class MonsterCrudController extends CrudController
         */
 
         // ------ CRUD COLUMNS
-        $this->crud->addColumn('text'); // add a text column, at the end of the stack
-        $this->crud->addColumn('email'); // add a single column, at the end of the stack
-        $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
+        // $this->crud->addColumn('text'); // add a text column, at the end of the stack
+        // $this->crud->addColumn('email'); // add a single column, at the end of the stack
+        // $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
+        $this->crud->addColumns([
+            [
+               // show both text and email values in one column
+               // this column is here to demo and test the custom searchLogic functionality
+               'name' => "getTextAndEmailAttribute",
+               'label' => "Text and Email", // Table column heading
+               'type' => "model_function",
+               'function_name' => 'getTextAndEmailAttribute', // the method in your Model
+               'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhere('email', 'like', '%'.$searchTerm.'%');
+                    $query->orWhere('text', 'like', '%'.$searchTerm.'%');
+                }
+            ],
+            'textarea',
+        ]);
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack

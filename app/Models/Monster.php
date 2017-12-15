@@ -80,6 +80,11 @@ class Monster extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function getTextAndEmailAttribute()
+    {
+        return $this->text.' '.$this->email;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
