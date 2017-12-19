@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\IconRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\IconRequest as UpdateRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class IconCrudController extends CrudController
 {
@@ -19,7 +18,7 @@ class IconCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Icon');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/icon');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/icon');
         $this->crud->setEntityNameStrings('icon', 'icons');
 
         /*
@@ -33,10 +32,10 @@ class IconCrudController extends CrudController
         $this->crud->addColumns(['name', 'icon']);
         $this->crud->addField('name');
         $this->crud->addField([
-            'label' => "Icon",
-            'name' => 'icon',
-            'type' => 'icon_picker',
-            'iconset' => 'fontawesome' // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
+            'label'   => 'Icon',
+            'name'    => 'icon',
+            'type'    => 'icon_picker',
+            'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
         ]);
 
         // ------ CRUD FIELDS
