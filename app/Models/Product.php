@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Backpack\CRUD\ModelTraits\SpatieTranslatable\HasTranslations;
+use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     use CrudTrait;
     use HasTranslations;
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ class Product extends Model
     // protected $dates = [];
     public $translatable = ['name', 'description', 'details', 'features', 'extras'];
     public $casts = [
-        'features' => 'object',
+        'features'       => 'object',
         'extra_features' => 'object',
     ];
 

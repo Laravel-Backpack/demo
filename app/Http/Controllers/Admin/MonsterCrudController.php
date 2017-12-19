@@ -436,14 +436,14 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // Table
-            'name' => 'table',
-            'label' => 'Table',
-            'type' => 'table',
+            'name'            => 'table',
+            'label'           => 'Table',
+            'type'            => 'table',
             'entity_singular' => 'subentry', // used on the "Add X" button
-            'columns' => [
-                'name' => 'Name',
-                'desc' => 'Description',
-                'price' => 'Price'
+            'columns'         => [
+                'name'  => 'Name',
+                'desc'  => 'Description',
+                'price' => 'Price',
             ],
             'max' => 5, // maximum rows allowed in the table
             'min' => 0, // minimum rows allowed in the table
@@ -451,19 +451,19 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // Table
-            'name' => 'fake_table',
-            'label' => 'Fake Table',
-            'type' => 'table',
+            'name'            => 'fake_table',
+            'label'           => 'Fake Table',
+            'type'            => 'table',
             'entity_singular' => 'subentry', // used on the "Add X" button
-            'columns' => [
-                'name' => 'Name',
-                'desc' => 'Description',
-                'price' => 'Price'
+            'columns'         => [
+                'name'  => 'Name',
+                'desc'  => 'Description',
+                'price' => 'Price',
             ],
             'fake' => true,
-            'max' => 5, // maximum rows allowed in the table
-            'min' => 0, // minimum rows allowed in the table
-            'tab' => 'Miscellaneous',
+            'max'  => 5, // maximum rows allowed in the table
+            'min'  => 0, // minimum rows allowed in the table
+            'tab'  => 'Miscellaneous',
         ]);
 
         // $table->string('url')->nullable;

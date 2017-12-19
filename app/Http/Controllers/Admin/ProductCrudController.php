@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\ProductRequest as StoreRequest;
+// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\ProductRequest as UpdateRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class ProductCrudController extends CrudController
 {
@@ -19,7 +18,7 @@ class ProductCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\Product');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/product');
         $this->crud->setEntityNameStrings('product', 'products');
 
         /*
@@ -37,10 +36,10 @@ class ProductCrudController extends CrudController
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         $this->crud->addField([  // Select2
-           'label' => "Category",
-           'type' => 'select2',
-           'name' => 'category_id', // the db column for the foreign key
-           'entity' => 'category', // the method that defines the relationship in your Model
+           'label'     => 'Category',
+           'type'      => 'select2',
+           'name'      => 'category_id', // the db column for the foreign key
+           'entity'    => 'category', // the method that defines the relationship in your Model
            'attribute' => 'name', // foreign key attribute that is shown to user
            // 'wrapperAttributes' => [
            //     'class' => 'form-group col-md-6'
@@ -49,13 +48,13 @@ class ProductCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Number
-            'name' => 'price',
+            'name'  => 'price',
             'label' => 'Price',
-            'type' => 'number',
+            'type'  => 'number',
             // optionals
             // 'attributes' => ["step" => "any"], // allow decimals
-            'prefix' => "$",
-            'suffix' => ".00",
+            'prefix' => '$',
+            'suffix' => '.00',
             // 'wrapperAttributes' => [
             //    'class' => 'form-group col-md-6'
             //  ], // extra HTML attributes for the field wrapper - mostly for resizing fields
@@ -63,10 +62,10 @@ class ProductCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // Text
-            'name' => 'name',
-            'label' => "Name",
-            'type' => 'text',
-            'tab' => 'Texts',
+            'name'  => 'name',
+            'label' => 'Name',
+            'type'  => 'text',
+            'tab'   => 'Texts',
 
             // optional
             //'prefix' => '',
@@ -84,25 +83,25 @@ class ProductCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Textarea
-            'name' => 'description',
+            'name'  => 'description',
             'label' => 'Description',
-            'type' => 'textarea',
-            'tab' => 'Texts',
+            'type'  => 'textarea',
+            'tab'   => 'Texts',
         ]);
 
         $this->crud->addField([   // Wysiwyg
-            'name' => 'details',
+            'name'  => 'details',
             'label' => 'Details',
-            'type' => 'wysiwyg',
-            'tab' => 'Texts',
+            'type'  => 'wysiwyg',
+            'tab'   => 'Texts',
         ]);
 
         $this->crud->addField([ // Table
-            'name' => 'features',
-            'label' => 'Features',
-            'type' => 'table',
+            'name'            => 'features',
+            'label'           => 'Features',
+            'type'            => 'table',
             'entity_singular' => 'feature', // used on the "Add X" button
-            'columns' => [
+            'columns'         => [
                 'name' => 'Feature',
                 'desc' => 'Value',
             ],
@@ -112,56 +111,54 @@ class ProductCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // Table
-            'name' => 'extra_features',
-            'label' => 'Extra Features',
-            'type' => 'table',
+            'name'            => 'extra_features',
+            'label'           => 'Extra Features',
+            'type'            => 'table',
             'entity_singular' => 'extra feature', // used on the "Add X" button
-            'columns' => [
+            'columns'         => [
                 'name' => 'Feature',
                 'desc' => 'Value',
             ],
             'fake' => true,
-            'max' => 25, // maximum rows allowed in the table
-            'min' => 0, // minimum rows allowed in the table
-            'tab' => 'Texts',
+            'max'  => 25, // maximum rows allowed in the table
+            'min'  => 0, // minimum rows allowed in the table
+            'tab'  => 'Texts',
         ]);
 
         $this->crud->addFields([
             [ // Text
-                'name' => 'meta_title',
-                'label' => "Meta Title",
-                'type' => 'text',
-                'fake' => true,
-                'tab' => 'Metas'
+                'name'  => 'meta_title',
+                'label' => 'Meta Title',
+                'type'  => 'text',
+                'fake'  => true,
+                'tab'   => 'Metas',
             ],
             [ // Text
-                'name' => 'meta_description',
-                'label' => "Meta Description",
-                'type' => 'text',
-                'fake' => true,
-                'tab' => 'Metas'
+                'name'  => 'meta_description',
+                'label' => 'Meta Description',
+                'type'  => 'text',
+                'fake'  => true,
+                'tab'   => 'Metas',
             ],
             [ // Text
-                'name' => 'meta_keywords',
-                'label' => "Meta Keywords",
-                'type' => 'text',
-                'fake' => true,
-                'tab' => 'Metas'
+                'name'  => 'meta_keywords',
+                'label' => 'Meta Keywords',
+                'type'  => 'text',
+                'fake'  => true,
+                'tab'   => 'Metas',
             ],
         ]);
-
-
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         $this->crud->addColumns(['name', 'description', 'price']); // add multiple columns, at the end of the stack
         $this->crud->addColumn([
            // 1-n relationship
-           'label' => "Category", // Table column heading
-           'type' => "select",
-           'name' => 'category_id', // the column that contains the ID of that connected entity;
-           'entity' => 'category', // the method that defines the relationship in your Model
-           'attribute' => "name", // foreign key attribute that is shown to user
+           'label'     => 'Category', // Table column heading
+           'type'      => 'select',
+           'name'      => 'category_id', // the column that contains the ID of that connected entity;
+           'entity'    => 'category', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
         ]);
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack

@@ -23,8 +23,8 @@ class Monster extends Model
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address' => 'array',
-        'table' => 'object',
+        'address'    => 'array',
+        'table'      => 'object',
         'fake_table' => 'object',
     ];
 
