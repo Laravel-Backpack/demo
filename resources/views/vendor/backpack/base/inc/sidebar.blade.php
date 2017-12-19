@@ -26,6 +26,7 @@
               <ul class="treeview-menu">
                 <li><a href="{{ backpack_url('monster') }}"><i class="fa fa-optin-monster"></i> <span>Monsters</span></a></li>
                 <li><a href="{{ backpack_url('icon') }}"><i class="fa fa-font-awesome"></i> <span>Icons</span></a></li>
+                <li><a href="{{ backpack_url('product') }}"><i class="fa fa-shopping-cart"></i> <span>Products</span></a></li>
               </ul>
           </li>
 

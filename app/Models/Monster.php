@@ -24,6 +24,8 @@ class Monster extends Model
     // protected $dates = [];
     protected $casts = [
         'address' => 'array',
+        'table' => 'object',
+        'fake_table' => 'object',
     ];
 
     /*

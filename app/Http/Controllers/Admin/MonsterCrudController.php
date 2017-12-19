@@ -435,7 +435,37 @@ class MonsterCrudController extends CrudController
             'tab'     => 'Miscellaneous',
         ]);
 
-        // $table->text('table')->nullable;
+        $this->crud->addField([ // Table
+            'name' => 'table',
+            'label' => 'Table',
+            'type' => 'table',
+            'entity_singular' => 'subentry', // used on the "Add X" button
+            'columns' => [
+                'name' => 'Name',
+                'desc' => 'Description',
+                'price' => 'Price'
+            ],
+            'max' => 5, // maximum rows allowed in the table
+            'min' => 0, // minimum rows allowed in the table
+            'tab' => 'Miscellaneous',
+        ]);
+
+        $this->crud->addField([ // Table
+            'name' => 'fake_table',
+            'label' => 'Fake Table',
+            'type' => 'table',
+            'entity_singular' => 'subentry', // used on the "Add X" button
+            'columns' => [
+                'name' => 'Name',
+                'desc' => 'Description',
+                'price' => 'Price'
+            ],
+            'fake' => true,
+            'max' => 5, // maximum rows allowed in the table
+            'min' => 0, // minimum rows allowed in the table
+            'tab' => 'Miscellaneous',
+        ]);
+
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
         // $table->string('range')->nullable;
