@@ -34,14 +34,14 @@ class MonsterCrudController extends CrudController
             [
                // show both text and email values in one column
                // this column is here to demo and test the custom searchLogic functionality
-               'name' => "getTextAndEmailAttribute",
-               'label' => "Text and Email", // Table column heading
-               'type' => "model_function",
+               'name'          => 'getTextAndEmailAttribute',
+               'label'         => 'Text and Email', // Table column heading
+               'type'          => 'model_function',
                'function_name' => 'getTextAndEmailAttribute', // the method in your Model
-               'searchLogic' => function ($query, $column, $searchTerm) {
-                    $query->orWhere('email', 'like', '%'.$searchTerm.'%');
-                    $query->orWhere('text', 'like', '%'.$searchTerm.'%');
-                }
+               'searchLogic'   => function ($query, $column, $searchTerm) {
+                   $query->orWhere('email', 'like', '%'.$searchTerm.'%');
+                   $query->orWhere('text', 'like', '%'.$searchTerm.'%');
+               },
             ],
             'textarea',
         ]);
