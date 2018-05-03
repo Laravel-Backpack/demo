@@ -23,9 +23,10 @@ class Monster extends Model
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address'    => 'array',
-        'table'      => 'object',
-        'fake_table' => 'object',
+        'address' => 'array',
+        // optional casts for select from array fields that allow multiple selection
+        // 'select_from_array' => 'array',
+        // 'select2_from_array' => 'array'
     ];
 
     /*
