@@ -5,6 +5,9 @@
  * @author Cristian Tabacitu [hello@tabacitu.ro]
  **/
 
+body.elfinder { margin:0; }
+body.elfinder #elfinder.ui-widget-content { border:none; }
+
 /* input textarea */
 .elfinder input,
 .elfinder textarea {

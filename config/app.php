@@ -158,23 +158,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-        * Backpack Service Providers...
-        */
-        Backpack\Base\BaseServiceProvider::class,
-        Prologue\Alerts\AlertsServiceProvider::class,
-        Backpack\CRUD\CrudServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\Elfinder\ElfinderServiceProvider::class,
-        Spatie\Backup\BackupServiceProvider::class,
-        Backpack\BackupManager\BackupManagerServiceProvider::class,
-        Backpack\LogManager\LogManagerServiceProvider::class,
-        Backpack\Settings\SettingsServiceProvider::class,
-        Backpack\PageManager\PageManagerServiceProvider::class,
-        Backpack\MenuCRUD\MenuCRUDServiceProvider::class,
-        Backpack\NewsCRUD\NewsCRUDServiceProvider::class,
-        Backpack\PermissionManager\PermissionManagerServiceProvider::class,
-
-        /*
         * Other Service Providers...
         */
 

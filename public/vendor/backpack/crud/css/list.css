@@ -3,3 +3,66 @@
 * Backpack Crud / List
 *
 */
+
+	/* Removes the horizontal scroll (if the width allows it) */
+	.box-body.table-responsive {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	}
+
+	/*  DataTables Loading State Visual Improvements  */
+
+	#crudTable_wrapper .dataTables_processing {
+		background: rgba(255,255,255,0.9);
+		top: 21px;
+		height: 100%;
+		left: 100px;
+		width: 100%;
+		z-index: 999;
+		border: none;
+		box-shadow: none;
+	}
+
+	#crudTable_wrapper .dataTables_processing > img {
+		top: 48%;
+		left: 48%;
+		position: absolute;
+	}
+
+	#crudTable_wrapper {
+		overflow: hidden;
+	}
+
+	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+		background-color: transparent;
+		color: #636161;
+		font-family: 'FontAwesome';
+		width: 15px;
+		content: "\f142";
+		font-size: 21px;
+		box-shadow: none;
+		border: none;
+		font-weight: 100;
+		margin-top: 5px;
+	}
+
+	.dt-buttons {
+		display: none;
+	}
+
+	.modal .details-control {
+		display: none;
+	}
+
+	#crudTable td {
+		outline: none;
+	}
+
+	#crudTable.has-hidden-columns .details-control {
+		/*display: none;*/
+	}
+
+	div.dataTables_wrapper div.dataTables_length select {
+		width: auto;
+	}
