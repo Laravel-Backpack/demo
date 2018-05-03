@@ -27,13 +27,15 @@ php artisan key:generate
 php artisan migrate
 php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
 php artisan db:seed --class=NewsTablesSeeder
+php artisan db:seed --class=UsersTableSeeder
 ```
 
 ## Usage 
 
-1. Register a new user at http://localhost/backpack-demo/admin/register
-2. Your admin panel will be available at http://localhost/backpack-demo/admin
-3. [optional] If you're building an admin panel, you should close the registration. In config/backpack/base.php look for "registration_open" and change it to false.
+1. Your admin panel is available at http://localhost/backpack-demo/admin
+2. Login with email ```admin@example.com```, password ```admin```
+3. [optional] You can register a different account, to check out the process and see your gravatar inside the admin panel. 
+4. By default, registration is open only in your local environment. Check out ```config/backpack/base.php``` to change this and other preferences.
 
 Note: Depending on your configuration you may need to define a site within NGINX or Apache; Your URL domain may change from localhost to what you have defined.
 
