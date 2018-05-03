@@ -27,9 +27,24 @@ class MonsterCrudController extends CrudController
         */
 
         // ------ CRUD COLUMNS
-        $this->crud->addColumn('text'); // add a text column, at the end of the stack
-        $this->crud->addColumn('email'); // add a single column, at the end of the stack
-        $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
+        // $this->crud->addColumn('text'); // add a text column, at the end of the stack
+        // $this->crud->addColumn('email'); // add a single column, at the end of the stack
+        // $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
+        $this->crud->addColumns([
+            [
+               // show both text and email values in one column
+               // this column is here to demo and test the custom searchLogic functionality
+               'name'          => 'getTextAndEmailAttribute',
+               'label'         => 'Text and Email', // Table column heading
+               'type'          => 'model_function',
+               'function_name' => 'getTextAndEmailAttribute', // the method in your Model
+               'searchLogic'   => function ($query, $column, $searchTerm) {
+                   $query->orWhere('email', 'like', '%'.$searchTerm.'%');
+                   $query->orWhere('text', 'like', '%'.$searchTerm.'%');
+               },
+            ],
+            'textarea',
+        ]);
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
@@ -131,17 +146,17 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name'        => 'radio', // the name of the db column
-            'label'       => 'Status (radio)', // the input label
-            'type'        => 'radio',
-            'options'     => [ // the key will be stored in the db, the value will be shown as label;
+            'name'    => 'radio', // the name of the db column
+            'label'   => 'Status (radio)', // the input label
+            'type'    => 'radio',
+            'options' => [ // the key will be stored in the db, the value will be shown as label;
                                 0 => 'Draft',
                                 1 => 'Published',
                                 2 => 'Other',
                             ],
             // optional
-            'inline'      => true, // show the radios all on the same line?
-            'tab'         => 'Simple',
+            'inline' => true, // show the radios all on the same line?
+            'tab'    => 'Simple',
         ]);
 
         $this->crud->addField([   // Checkbox
@@ -251,23 +266,23 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         $this->crud->addField([    // SELECT
-            'label'         => 'Select (1-n relationship)',
-            'type'          => 'select',
-            'name'          => 'select',
-            'entity'        => 'category',
-            'attribute'     => 'name',
-            'model'         => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'           => 'Selects',
+            'label'     => 'Select (1-n relationship)',
+            'type'      => 'select',
+            'name'      => 'select',
+            'entity'    => 'category',
+            'attribute' => 'name',
+            'model'     => "Backpack\NewsCRUD\app\Models\Category",
+            'tab'       => 'Selects',
         ]);
         $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label'         => 'Select_multiple (n-n relationship with pivot table)',
-            'type'          => 'select_multiple',
-            'name'          => 'tags', // the method that defines the relationship in your Model
-            'entity'        => 'tags', // the method that defines the relationship in your Model
-            'attribute'     => 'name', // foreign key attribute that is shown to user
-            'model'         => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'           => 'Selects',
+            'label'     => 'Select_multiple (n-n relationship with pivot table)',
+            'type'      => 'select_multiple',
+            'name'      => 'tags', // the method that defines the relationship in your Model
+            'entity'    => 'tags', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            'tab'       => 'Selects',
         ]);
 
         $this->crud->addField([ // select_from_array
@@ -421,7 +436,37 @@ class MonsterCrudController extends CrudController
             'tab'     => 'Miscellaneous',
         ]);
 
-        // $table->text('table')->nullable;
+        $this->crud->addField([ // Table
+            'name'            => 'table',
+            'label'           => 'Table',
+            'type'            => 'table',
+            'entity_singular' => 'subentry', // used on the "Add X" button
+            'columns'         => [
+                'name'  => 'Name',
+                'desc'  => 'Description',
+                'price' => 'Price',
+            ],
+            'max' => 5, // maximum rows allowed in the table
+            'min' => 0, // minimum rows allowed in the table
+            'tab' => 'Miscellaneous',
+        ]);
+
+        $this->crud->addField([ // Table
+            'name'            => 'fake_table',
+            'label'           => 'Fake Table',
+            'type'            => 'table',
+            'entity_singular' => 'subentry', // used on the "Add X" button
+            'columns'         => [
+                'name'  => 'Name',
+                'desc'  => 'Description',
+                'price' => 'Price',
+            ],
+            'fake' => true,
+            'max'  => 5, // maximum rows allowed in the table
+            'min'  => 0, // minimum rows allowed in the table
+            'tab'  => 'Miscellaneous',
+        ]);
+
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
         // $table->string('range')->nullable;
@@ -480,13 +525,33 @@ class MonsterCrudController extends CrudController
     public function addCustomCrudFilters()
     {
         $this->crud->addFilter([ // add a "simple" filter called Draft
-          'type' => 'simple',
-          'name' => 'checkbox',
-          'label'=> 'Checked',
+          'type'  => 'simple',
+          'name'  => 'checkbox',
+          'label' => 'Checked',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
             $this->crud->addClause('where', 'checkbox', '1');
+        });
+
+        $this->crud->addFilter([ // date filter
+          'type'  => 'date',
+          'name'  => 'date',
+          'label' => 'Date',
+        ],
+        false,
+        function ($value) { // if the filter is active, apply these constraints
+            $this->crud->addClause('where', 'date', '=', $value);
+        });
+
+        $this->crud->addFilter([ // text filter
+          'type'  => 'text',
+          'name'  => 'text',
+          'label' => 'Text',
+        ],
+        false,
+        function ($value) { // if the filter is active
+            $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
         });
     }
 }

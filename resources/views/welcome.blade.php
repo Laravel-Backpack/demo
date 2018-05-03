@@ -39,6 +39,8 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                <div>This is an empty Laravel app. Backpack does not provide any front-end functionality.<br><br></div>
+                <div><a href="{{ backpack_url() }}">Login to admin panel</a></div>
             </div>
         </div>
     </body>
