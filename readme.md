@@ -15,18 +15,18 @@ Laravel BackPack's demo, which includes all Backpack packages.
 1) Run in your terminal:
 
 ``` bash
-$ git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
+git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
 ```
 
 2) Set your database information in your .env file (use the .env.example as an example);
 
 3) Run in your backpack-demo folder:
 ``` bash
-$ composer install
-$ php artisan key:generate
-$ php artisan migrate
-$ php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
-$ php artisan db:seed --class=NewsTablesSeeder
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
+php artisan db:seed --class=NewsTablesSeeder
 ```
 
 ## Usage 
