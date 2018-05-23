@@ -274,6 +274,7 @@ class MonsterCrudController extends CrudController
             'model'     => "Backpack\NewsCRUD\app\Models\Category",
             'tab'       => 'Selects',
         ]);
+
         $this->crud->addField([       // Select_Multiple = n-n relationship
             'label'     => 'Select_multiple (n-n relationship with pivot table)',
             'type'      => 'select_multiple',
@@ -527,21 +528,20 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // add a "simple" filter called Draft
           'type'  => 'simple',
           'name'  => 'checkbox',
-          'label' => 'Checked',
+          'label' => 'Simple',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
             $this->crud->addClause('where', 'checkbox', '1');
         });
 
-        $this->crud->addFilter([ // date filter
-          'type'  => 'date',
-          'name'  => 'date',
-          'label' => 'Date',
-        ],
-        false,
-        function ($value) { // if the filter is active, apply these constraints
-            $this->crud->addClause('where', 'date', '=', $value);
+        $this->crud->addFilter([ // dropdown filter
+          'name' => 'select_from_array',
+          'type' => 'dropdown',
+          'label'=> 'Dropdown'
+        ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function($value) {
+            // if the filter is active
+            $this->crud->addClause('where', 'select_from_array', $value);
         });
 
         $this->crud->addFilter([ // text filter
@@ -552,6 +552,16 @@ class MonsterCrudController extends CrudController
         false,
         function ($value) { // if the filter is active
             $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
+        });
+
+        $this->crud->addFilter([ // date filter
+          'type'  => 'date',
+          'name'  => 'date',
+          'label' => 'Date',
+        ],
+        false,
+        function ($value) { // if the filter is active, apply these constraints
+            $this->crud->addClause('where', 'date', '=', $value);
         });
 
         $this->crud->addFilter([ // daterange filter
@@ -565,5 +575,18 @@ class MonsterCrudController extends CrudController
            $this->crud->addClause('where', 'date', '>=', $dates->from);
            $this->crud->addClause('where', 'date', '<=', $dates->to);
          });
+
+        $this->crud->addFilter([ // select2 filter
+          'name' => 'select2',
+          'type' => 'select2',
+          'label'=> 'Select2'
+        ], function() {
+            return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
+        }, function($value) { // if the filter is active
+            $this->crud->addClause('where', 'select2', $value);
+        });
+
+
+
     }
 }
