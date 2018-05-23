@@ -553,5 +553,17 @@ class MonsterCrudController extends CrudController
         function ($value) { // if the filter is active
             $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
         });
+
+        $this->crud->addFilter([ // daterange filter
+           'type' => 'date_range',
+           'name' => 'date_range',
+           'label'=> 'Date range'
+         ],
+         false,
+         function($value) { // if the filter is active, apply these constraints
+           $dates = json_decode($value);
+           $this->crud->addClause('where', 'date', '>=', $dates->from);
+           $this->crud->addClause('where', 'date', '<=', $dates->to);
+         });
     }
 }
