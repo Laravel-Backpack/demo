@@ -538,8 +538,8 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // dropdown filter
           'name' => 'select_from_array',
           'type' => 'dropdown',
-          'label'=> 'Dropdown'
-        ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function($value) {
+          'label'=> 'Dropdown',
+        ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function ($value) {
             // if the filter is active
             $this->crud->addClause('where', 'select_from_array', $value);
         });
@@ -579,14 +579,11 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // select2 filter
           'name' => 'select2',
           'type' => 'select2',
-          'label'=> 'Select2'
-        ], function() {
+          'label'=> 'Select2',
+        ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-        }, function($value) { // if the filter is active
+        }, function ($value) { // if the filter is active
             $this->crud->addClause('where', 'select2', $value);
         });
-
-
-
     }
 }
