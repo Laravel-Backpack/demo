@@ -587,6 +587,17 @@ class MonsterCrudController extends CrudController
         });
 
 
+        $this->crud->addFilter([ // select2_multiple filter
+          'name' => 'select2_multiple',
+          'type' => 'select2_multiple',
+          'label'=> 'Select2 multiple'
+        ], function() {
+            return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
+        }, function($values) { // if the filter is active
+            foreach (json_decode($values) as $key => $value) {
+                $this->crud->addClause('orWhere', 'select2', $value);
+            }
+        });
 
     }
 }
