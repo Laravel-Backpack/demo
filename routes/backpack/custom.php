@@ -6,8 +6,9 @@
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
 
-Route::get('api/article', 'Api\ArticleController@index');
-Route::get('api/article/{id}', 'Api\ArticleController@show');
+Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
+Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
+Route::get('api/article/{id}', 'App\Http\Controllers\Api\ArticleController@show');
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),

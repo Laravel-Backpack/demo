@@ -22,6 +22,13 @@ class ArticleController extends Controller
         return $results;
     }
 
+    public function search(Request $request) {
+        $term = $request->input('term');
+        $options = Article::where('title', 'like', '%'.$term.'%')->get()->pluck('title', 'id');
+
+        return $options;
+    }
+
     public function show($id)
     {
         return Article::find($id);

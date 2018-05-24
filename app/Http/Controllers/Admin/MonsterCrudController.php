@@ -554,6 +554,22 @@ class MonsterCrudController extends CrudController
             $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
         });
 
+        $this->crud->addFilter([
+          'name' => 'number',
+          'type' => 'range',
+          'label'=> 'Range',
+          'label_from' => 'min value',
+          'label_to' => 'max value'
+        ],
+        false,
+        function($value) { // if the filter is active
+          $range = json_decode($value);
+          if ($range->from && $range->to) {
+            $this->crud->addClause('where', 'number', '>=', (float)$range->from);
+            $this->crud->addClause('where', 'number', '<=', (float)$range->to);
+          }
+        });
+
         $this->crud->addFilter([ // date filter
           'type'  => 'date',
           'name'  => 'date',
@@ -568,6 +584,12 @@ class MonsterCrudController extends CrudController
            'type' => 'date_range',
            'name' => 'date_range',
            'label'=> 'Date range',
+           // 'date_range_options' => [
+                 // 'format' => 'YYYY/MM/DD',
+                 // 'locale' => ['format' => 'YYYY/MM/DD'],
+                 // 'showDropdowns' => true,
+                 // 'showWeekNumbers' => true
+            // ]
          ],
          false,
          function ($value) { // if the filter is active, apply these constraints
@@ -575,6 +597,7 @@ class MonsterCrudController extends CrudController
              $this->crud->addClause('where', 'date', '>=', $dates->from);
              $this->crud->addClause('where', 'date', '<=', $dates->to);
          });
+
 
         $this->crud->addFilter([ // select2 filter
           'name' => 'select2',
@@ -596,6 +619,17 @@ class MonsterCrudController extends CrudController
             foreach (json_decode($values) as $key => $value) {
                 $this->crud->addClause('orWhere', 'select2', $value);
             }
+        });
+
+        $this->crud->addFilter([ // select2_ajax filter
+          'name' => 'select2_from_ajax',
+          'type' => 'select2_ajax',
+          'label'=> 'Select2 Ajax',
+          'placeholder' => 'Pick an article'
+        ],
+        url('api/article-search'), // the ajax route
+        function($value) { // if the filter is active
+            $this->crud->addClause('where', 'select2_from_ajax', $value);
         });
 
     }
