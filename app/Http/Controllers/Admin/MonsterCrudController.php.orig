@@ -620,6 +620,7 @@ class MonsterCrudController extends CrudController
                 $this->crud->addClause('orWhere', 'select2', $value);
             }
         });
+<<<<<<< HEAD
 
         $this->crud->addFilter([ // select2_ajax filter
           'name' => 'select2_from_ajax',
@@ -632,5 +633,7 @@ class MonsterCrudController extends CrudController
             $this->crud->addClause('where', 'select2_from_ajax', $value);
         });
 
+=======
+>>>>>>> 27e44d5919dcaae7977682295168173e96521248
     }
 }
