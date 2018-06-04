@@ -11,7 +11,6 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $search_term = $request->input('q');
-        $page = $request->input('page');
 
         if ($search_term) {
             $results = Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
