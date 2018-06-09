@@ -71,6 +71,11 @@ class Monster extends Model
         return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Tag', 'monster_tag');
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'monster_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -21,7 +21,7 @@ class Product extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras'];
+    protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras', 'monster_id'];
     // protected $hidden = [];
     // protected $dates = [];
     public $translatable = ['name', 'description', 'details', 'features', 'extras'];
@@ -47,6 +47,10 @@ class Product extends Model
         return $this->belongsTo('Backpack\NewsCRUD\app\Models\Category', 'category_id');
     }
 
+    public function monster()
+    {
+        return $this->belongsTo(Monster::class, 'monster_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -47,6 +47,18 @@ class ProductCrudController extends CrudController
             'tab' => 'Basic Info',
         ]);
 
+        $this->crud->addField([  // Select2
+          'label'     => 'Monster',
+          'type'      => 'select2',
+          'name'      => 'monster_id', // the db column for the foreign key
+          'entity'    => 'monster', // the method that defines the relationship in your Model
+          'attribute' => 'id', // foreign key attribute that is shown to user
+          // 'wrapperAttributes' => [
+          //     'class' => 'form-group col-md-6'
+          //   ], // extra HTML attributes for the field wrapper - mostly for resizing fields
+          'tab' => 'Basic Info',
+        ]);
+
         $this->crud->addField([   // Number
             'name'  => 'price',
             'label' => 'Price',
