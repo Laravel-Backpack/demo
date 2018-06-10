@@ -356,14 +356,27 @@ class MonsterCrudController extends CrudController
             'tab'                  => 'Selects',
         ]);
 
-        $this->crud->addField([ // Select2Many = n-1 relationship (with foreign key in selected model)
-            'label'         => 'Select2_many (n-1 relationship with foreign key in selected model)',
+        $this->crud->addField([ // select_one: 1-1 relationship with foreign key in selectable model
+            'label'         => 'select2_one (1-1 relationship with foreign key in selectable model)',
+            'type'          => 'select2_one',
+            'name'          => 'mainProduct', // the method that defines the relationship in your Model
+            'entity'        => 'mainProduct', // the method that defines the relationship in your Model
+            'attribute'     => 'name', // foreign key attribute that is shown to user
+            'model'         => Product::class, // foreign key model
+            'allows_null'   => true,
+            'tab'           => 'Selects',
+
+        ]);
+
+        $this->crud->addField([ // Select2_many: n-1 relationship (with foreign key in selected models)
+            'label'         => 'Select2_many (n-1 relationship with foreign key in selected models)',
             'type'          => 'select2_many',
             'name'          => 'products', // the method that defines the relationship in your Model
             'entity'        => 'products', // the method that defines the relationship in your Model
             'attribute'     => 'name', // foreign key attribute that is shown to user
             'model'         => Product::class, // foreign key model
             'allows_null'   => true,
+            'fallback_id'   => 1337, // (optional if foreign_key is nullable) the id to apply to dissociated models
             'tab'           => 'Selects',
         ]);
 
