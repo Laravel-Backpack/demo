@@ -56,6 +56,7 @@ class Product extends Model
     {
         return $this->belongsTo(Monster::class, 'monster_id');
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
