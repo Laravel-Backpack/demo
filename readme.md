@@ -25,9 +25,7 @@ git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
 composer install
 php artisan key:generate
 php artisan migrate
-php artisan db:seed --class="Backpack\Settings\database\seeds\SettingsTableSeeder"
-php artisan db:seed --class=NewsTablesSeeder
-php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed
 ```
 
 ## Usage 
