@@ -63,6 +63,7 @@
 
 	#crudTable td {
 		outline: none;
+	    overflow: hidden;
 	}
 
 	#crudTable.has-hidden-columns .details-control {

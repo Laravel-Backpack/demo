@@ -218,6 +218,12 @@ class ProductCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+
+        $this->crud->enableBulkActions();
+        $this->crud->addBulkDeleteButton();
+
+        $this->crud->allowAccess('clone');
+        $this->crud->addButton('bottom', 'bulk_clone', 'view', 'crud::buttons.bulk_clone', 'beginning');
     }
 
     public function store(StoreRequest $request)
