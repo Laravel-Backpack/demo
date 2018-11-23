@@ -14,10 +14,10 @@
 
 	#crudTable_wrapper .dataTables_processing {
 		background: rgba(255,255,255,0.9);
-		top: 21px;
-		height: 100%;
-		left: 100px;
-		width: 100%;
+		top: 26px;
+		height: 98%;
+		left: 115px;
+		width: 97%;
 		z-index: 999;
 		border: none;
 		box-shadow: none;
@@ -30,8 +30,14 @@
 	}
 
 	#crudTable_wrapper {
-		overflow: hidden;
+		/*overflow: hidden;*/
 	}
+
+	#crudTable_wrapper #crudTable {
+		margin-top: 0px!important;
+	}
+
+  /*  DataTables Loading State Visual Improvements  */
 
 	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
 	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
@@ -65,4 +71,107 @@
 
 	div.dataTables_wrapper div.dataTables_length select {
 		width: auto;
+	}
+
+
+	/* backpack filters */
+
+    .backpack-filter label {
+      color: #868686;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .navbar-filters {
+      min-height: 25px;
+      border-radius: 0;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      background: transparent;
+      border-color: #f4f4f4;
+      border: none;
+    }
+
+    .navbar-filters .navbar-collapse {
+    	padding: 0;
+    }
+
+    .navbar-filters .navbar-toggle {
+      padding: 10px 15px;
+      border-radius: 0;
+    }
+
+    .navbar-filters .navbar-brand {
+      height: 25px;
+      padding: 5px 15px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    @media (min-width: 768px) {
+      .navbar-filters .navbar-nav>li>a {
+          padding-top: 5px;
+          padding-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-filters .navbar-nav {
+        margin: 0;
+      }
+    }
+
+
+	/* pagination overwrites */
+
+	.pagination>li>a {
+	  background: transparent;
+	  border: none;
+	  border-radius: 5px;
+	  color: #333;
+	}
+
+	.pagination>.disabled>a,
+	.pagination>.disabled>a:focus,
+	.pagination>.disabled>a:hover,
+	.pagination>.disabled>span,
+	.pagination>.disabled>span:focus,
+	.pagination>.disabled>span:hover {
+	  background: transparent;
+	}
+
+	.pagination>li>a:focus,
+	.pagination>li>a:hover,
+	.pagination>li>span:focus,
+	.pagination>li>span:hover {
+	  background: white;
+	}
+
+	.pagination>li:last-child>a, .pagination>li:last-child>span,
+	.pagination>li:first-child>a, .pagination>li:first-child>span {
+	  border-radius: 5px;
+	}
+
+	/* datatable search overwrites */
+
+	.dataTables_filter {
+		text-align: right;
+	}
+
+	.dataTables_filter label {
+		font-weight: normal;
+	    white-space: nowrap;
+	    text-align: left;
+	}
+
+	.dataTables_filter input {
+		margin-left: 0.5em;
+	    display: inline-block;
+	    width: auto;
+	    border-radius: 25px;
+	    /*border: none;*/
+	}
+
+	/* datatable header overwrites */
+	table.dataTable {
+		margin-top: 0px!important;
 	}
