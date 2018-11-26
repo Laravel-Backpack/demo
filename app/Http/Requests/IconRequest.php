@@ -24,7 +24,7 @@ class IconRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     {
         return [
             'name' => 'required|min:5|max:255',
-            'icon' => 'required'
+            'icon' => 'required',
         ];
     }
 
