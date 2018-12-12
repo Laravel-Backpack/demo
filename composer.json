@@ -16,7 +16,7 @@
         "backpack/pagemanager": "^1.1",
         "backpack/MenuCRUD": "^1.0",
         "backpack/newscrud": "^2.1",
-        "backpack/permissionmanager": "^3.12",
+        "backpack/permissionmanager": "4.0.*",
         "spatie/laravel-translatable": "^2.1",
         "barryvdh/laravel-elfinder": "^0.3.12"
     },
