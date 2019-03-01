@@ -33,8 +33,8 @@ return [
 
     // Date & Datetime Format Syntax: https://github.com/jenssegers/date#usage
     // (same as Carbon)
-    'default_date_format'     => 'j F Y',
-    'default_datetime_format' => 'j F Y H:i',
+    'default_date_format'     => 'Do MMMM YYYY',
+    'default_datetime_format' => 'Do MMMM YYYY, HH:mm',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -42,7 +42,7 @@ return [
     // Overlays - CSS files that change the look and feel of the admin panel
     'overlays' => [
         'vendor/backpack/base/backpack.bold.css',
-        // 'vendor/backpack/base/backpack.content.is.king.css',
+        'vendor/backpack/base/backpack.content.is.king.css',
     ],
 
     /*
