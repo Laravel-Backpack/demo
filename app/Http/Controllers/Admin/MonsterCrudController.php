@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\MonsterRequest as UpdateRequest;
+use App\Models\Product;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class MonsterCrudController extends CrudController
@@ -353,6 +354,30 @@ class MonsterCrudController extends CrudController
             'minimum_input_length' => 2, // minimum characters to type before querying results
             'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'                  => 'Selects',
+        ]);
+
+        $this->crud->addField([ // select_one: 1-1 relationship with foreign key in selectable model
+            'label'         => 'select2_one (1-1 relationship with foreign key in selectable model)',
+            'type'          => 'select2_one',
+            'name'          => 'mainProduct', // the method that defines the relationship in your Model
+            'entity'        => 'mainProduct', // the method that defines the relationship in your Model
+            'attribute'     => 'name', // foreign key attribute that is shown to user
+            'model'         => Product::class, // foreign key model
+            'allows_null'   => true,
+            'tab'           => 'Selects',
+
+        ]);
+
+        $this->crud->addField([ // Select2_many: n-1 relationship (with foreign key in selected models)
+            'label'         => 'Select2_many (n-1 relationship with foreign key in selected models)',
+            'type'          => 'select2_many',
+            'name'          => 'products', // the method that defines the relationship in your Model
+            'entity'        => 'products', // the method that defines the relationship in your Model
+            'attribute'     => 'name', // foreign key attribute that is shown to user
+            'model'         => Product::class, // foreign key model
+            'allows_null'   => true,
+            'fallback_id'   => 1337, // (optional if foreign_key is nullable) the id to apply to dissociated models
+            'tab'           => 'Selects',
         ]);
 
         // -----------------
