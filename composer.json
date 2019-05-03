@@ -16,7 +16,7 @@
         "backpack/newscrud": "^2.1",
         "backpack/permissionmanager": "4.0.*",
         "spatie/laravel-translatable": "^3.0",
-        "barryvdh/laravel-elfinder": "^0.4.0",
+        "barryvdh/laravel-elfinder": "^0.4.2",
         "spatie/laravel-backup": "^6.1",
         "backpack/backupmanager": "1.4.*"
     },
@@ -28,7 +28,7 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "dev-master",
-        "backpack/generators": "^1.1"
+        "backpack/generators": "^1.2"
     },
     "autoload": {
         "classmap": [

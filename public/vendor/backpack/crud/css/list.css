@@ -15,17 +15,17 @@
 	#crudTable_wrapper .dataTables_processing {
 		background: rgba(255,255,255,0.9);
 		top: 26px;
-		height: 98%;
+		height: calc(100% - 6px);
 		left: 115px;
-		width: 97%;
+		width: calc(100% - 30px);
 		z-index: 999;
 		border: none;
 		box-shadow: none;
 	}
 
 	#crudTable_wrapper .dataTables_processing > img {
-		top: 48%;
-		left: 48%;
+		top: calc(50% - 16px)!important;
+		left: calc(50% - 16px)!important;
 		position: absolute;
 	}
 
@@ -54,7 +54,7 @@
 	}
 
 	.dt-buttons {
-		/*display: none;*/
+		display: none;
 	}
 
 	.modal .details-control {
@@ -63,7 +63,6 @@
 
 	#crudTable td {
 		outline: none;
-	    overflow: hidden;
 	}
 
 	#crudTable.has-hidden-columns .details-control {
@@ -86,7 +85,7 @@
     .navbar-filters {
       min-height: 25px;
       border-radius: 0;
-      margin-bottom: 0px;
+      margin-bottom: 6px;
       margin-top: 0px;
       background: transparent;
       border-color: #f4f4f4;
@@ -95,6 +94,7 @@
 
     .navbar-filters .navbar-collapse {
     	padding: 0;
+    	border: 0;
     }
 
     .navbar-filters .navbar-toggle {
@@ -175,4 +175,31 @@
 	/* datatable header overwrites */
 	table.dataTable {
 		margin-top: 0px!important;
+	}
+
+	.content-wrapper {
+		min-height: calc(100% - 98px);
+	}
+
+	#datatable_search_stack {
+		min-height: 35px;
+	}
+
+	#crudTable thead>tr>th, table.dataTable thead>tr>td {
+		padding-right: 30px;
+	}
+
+	.navbar-filters li>a:active,
+	.navbar-filters .navbar-nav>.active>a, .navbar-filters .navbar-nav>.active>a:focus, .navbar-filters .navbar-nav>.active>a:hover,
+	.navbar-filters .navbar-nav>.open>a, .navbar-filters .navbar-nav>.open>a:focus, .navbar-filters .navbar-nav>.open>a:hover {
+		background-color: #e0e0e9;
+	}
+	.navbar-filters li {
+		margin: 0 2px;
+	}
+	.navbar-filters li>a {
+		border-radius: 2px;
+	}
+	.navbar-filters .nav.navbar-nav {
+		float: none;
 	}

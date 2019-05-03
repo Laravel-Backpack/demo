@@ -3,7 +3,15 @@
  * @author Yaron Shahrabani <sh.yaron@gmail.com>
  * @version 2015-11-02
  */
-if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object') {
+(function(root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['elfinder'], factory);
+	} else if (typeof exports !== 'undefined') {
+		module.exports = factory(require('elfinder'));
+	} else {
+		factory(root.elFinder);
+	}
+}(this, function(elFinder) {
 	elFinder.prototype.i18.he = {
 		translator : 'Yaron Shahrabani <sh.yaron@gmail.com>',
 		language   : 'עברית',
@@ -107,7 +115,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'cmdhome'      : 'בית',
 			'cmdinfo'      : 'קבלת מידע',
 			'cmdmkdir'     : 'תיקייה חדשה',
-			'cmdmkfile'    : 'קובץ טקסט חדש',
+			'cmdmkfile'    : 'קובץ חדש',
 			'cmdopen'      : 'פתיחה',
 			'cmdpaste'     : 'הדבקה',
 			'cmdquicklook' : 'תצוגה מקדימה',
@@ -363,5 +371,5 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'kindVideoOGG'    : 'סרטון Ogg'
 		}
 	};
-}
+}));
 

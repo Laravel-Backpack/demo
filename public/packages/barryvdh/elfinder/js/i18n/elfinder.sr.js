@@ -3,7 +3,15 @@
  * @author Momčilo m0k1 Mićanović <moki.forum@gmail.com>
  * @version 2014-12-19
  */
-if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object') {
+(function(root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['elfinder'], factory);
+	} else if (typeof exports !== 'undefined') {
+		module.exports = factory(require('elfinder'));
+	} else {
+		factory(root.elFinder);
+	}
+}(this, function(elFinder) {
 	elFinder.prototype.i18.sr = {
 		translator : 'Momčilo m0k1 Mićanović &lt;moki.forum@gmail.com&gt;',
 		language   : 'Srpski',
@@ -107,7 +115,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'cmdhome'      : 'Početna',
 			'cmdinfo'      : 'Proveri informacije',
 			'cmdmkdir'     : 'Novi folder',
-			'cmdmkfile'    : 'Nova tekstualna datoteka',
+			'cmdmkfile'    : 'Nova datoteka',
 			'cmdopen'      : 'Otvori',
 			'cmdpaste'     : 'Zalepi',
 			'cmdquicklook' : 'Pregledaj',
@@ -125,7 +133,7 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			/*********************************** buttons ***********************************/ 
 			'btnClose'  : 'Zatvori',
 			'btnSave'   : 'Sačuvaj',
-			'btnRm'     : 'Preimenuj',
+			'btnRm'     : 'Obriši',
 			'btnApply'  : 'Potvrdi',
 			'btnCancel' : 'Prekini',
 			'btnNo'     : 'Ne',
@@ -363,4 +371,4 @@ if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object'
 			'kindVideoOGG'    : 'Ogg video'
 		}
 	};
-}
+}));
