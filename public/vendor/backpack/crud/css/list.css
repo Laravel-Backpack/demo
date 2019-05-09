@@ -203,3 +203,8 @@
 	.navbar-filters .nav.navbar-nav {
 		float: none;
 	}
+
+/*	Allow dropdown buttons to push the height/width of the rapper so that they're entirely visible	*/
+	.fixed .wrapper {
+		overflow: visible;
+	}

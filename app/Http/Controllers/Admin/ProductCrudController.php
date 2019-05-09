@@ -11,7 +11,6 @@ class ProductCrudController extends CrudController
 {
     public function setup()
     {
-
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -151,15 +150,25 @@ class ProductCrudController extends CrudController
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
-        $this->crud->addColumns(['name', 'description', 'price']); // add multiple columns, at the end of the stack
+        $this->crud->addColumns(['name', 'description']); // add multiple columns, at the end of the stack
+        $this->crud->addColumn([
+            'name' => 'price',
+            'type' => 'number',
+            'label' => 'Price',
+            'visibleInTable' => false,
+            'visibleInModal' => true,
+        ]);
         $this->crud->addColumn([
            // 1-n relationship
-           'label'     => 'Category', // Table column heading
-           'type'      => 'select',
-           'name'      => 'category_id', // the column that contains the ID of that connected entity;
-           'entity'    => 'category', // the method that defines the relationship in your Model
-           'attribute' => 'name', // foreign key attribute that is shown to user
+            'label'     => 'Category', // Table column heading
+            'type'      => 'select',
+            'name'      => 'category_id', // the column that contains the ID of that connected entity;
+            'entity'    => 'category', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'visibleInTable' => true,
+            'visibleInModal' => false,
         ]);
+        $this->crud->enableExportButtons();
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)

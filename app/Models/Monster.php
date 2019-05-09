@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Monster extends Model
 {
@@ -24,6 +25,7 @@ class Monster extends Model
     // protected $dates = [];
     protected $casts = [
         'address' => 'array',
+        'video' => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array' => 'array',
         // 'select2_from_array' => 'array'
@@ -93,4 +95,34 @@ class Monster extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function setImageAttribute($value)
+    {
+        $attribute_name = "image";
+        $disk = config('backpack.base.root_disk_name'); // use Backpack's root disk; or your own
+        $destination_path = "public/uploads/monster_images";
+
+        // if the image was erased
+        if ($value==null) {
+            // delete the image from disk
+            \Storage::disk($disk)->delete($this->{$attribute_name});
+
+            // set null in the database column
+            $this->attributes[$attribute_name] = null;
+        }
+
+        // if a base64 was sent, store it in the db
+        if (starts_with($value, 'data:image'))
+        {
+            // 0. Make the image
+            $image = \Image::make($value)->encode('jpg', 90);
+            // 1. Generate a filename.
+            $filename = md5($value.time()).'.jpg';
+            // 2. Store the image on disk.
+            \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+            // 3. Save the public path to the database
+            $public_destination_path = Str::replaceFirst('public/', '', $destination_path);
+            $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
+        }
+    }
 }
