@@ -25,7 +25,7 @@ class Monster extends Model
     // protected $dates = [];
     protected $casts = [
         'address' => 'array',
-        'video' => 'array',
+        'video'   => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array' => 'array',
         // 'select2_from_array' => 'array'
@@ -98,12 +98,12 @@ class Monster extends Model
 
     public function setImageAttribute($value)
     {
-        $attribute_name = "image";
+        $attribute_name = 'image';
         $disk = config('backpack.base.root_disk_name'); // use Backpack's root disk; or your own
-        $destination_path = "public/uploads/monster_images";
+        $destination_path = 'public/uploads/monster_images';
 
         // if the image was erased
-        if ($value==null) {
+        if ($value == null) {
             // delete the image from disk
             \Storage::disk($disk)->delete($this->{$attribute_name});
 
@@ -112,8 +112,7 @@ class Monster extends Model
         }
 
         // if a base64 was sent, store it in the db
-        if (starts_with($value, 'data:image'))
-        {
+        if (starts_with($value, 'data:image')) {
             // 0. Make the image
             $image = \Image::make($value)->encode('jpg', 90);
             // 1. Generate a filename.

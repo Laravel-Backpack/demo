@@ -152,19 +152,19 @@ class ProductCrudController extends CrudController
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         $this->crud->addColumns(['name', 'description']); // add multiple columns, at the end of the stack
         $this->crud->addColumn([
-            'name' => 'price',
-            'type' => 'number',
-            'label' => 'Price',
+            'name'           => 'price',
+            'type'           => 'number',
+            'label'          => 'Price',
             'visibleInTable' => false,
             'visibleInModal' => true,
         ]);
         $this->crud->addColumn([
            // 1-n relationship
-            'label'     => 'Category', // Table column heading
-            'type'      => 'select',
-            'name'      => 'category_id', // the column that contains the ID of that connected entity;
-            'entity'    => 'category', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
+            'label'          => 'Category', // Table column heading
+            'type'           => 'select',
+            'name'           => 'category_id', // the column that contains the ID of that connected entity;
+            'entity'         => 'category', // the method that defines the relationship in your Model
+            'attribute'      => 'name', // foreign key attribute that is shown to user
             'visibleInTable' => true,
             'visibleInModal' => false,
         ]);

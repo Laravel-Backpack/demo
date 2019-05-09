@@ -34,60 +34,60 @@ class MonsterCrudController extends CrudController
             'text',
             'textarea',
             [
-                'name' => 'image', // The db column name
-                'label' => "Image", // Table column heading
-                'type' => 'image',
+                'name'  => 'image', // The db column name
+                'label' => 'Image', // Table column heading
+                'type'  => 'image',
                 // 'prefix' => 'folder/subfolder/',
                 // optional width/height if 25px is not ok with you
                 // 'height' => '30px',
                 // 'width' => '30px',
             ],
             [
-                'name' => 'base64_image', // The db column name
-                'label' => "Base64 Image", // Table column heading
-                'type' => 'image',
+                'name'  => 'base64_image', // The db column name
+                'label' => 'Base64 Image', // Table column heading
+                'type'  => 'image',
                 // 'prefix' => 'folder/subfolder/',
                 // optional width/height if 25px is not ok with you
                 // 'height' => '30px',
                 // 'width' => '30px',
             ],
             [
-                'name' => 'checkbox',
+                'name'  => 'checkbox',
                 'label' => 'Boolean',
-                'type' => 'boolean',
+                'type'  => 'boolean',
                 // optionally override the Yes/No texts
-                'options' => [0 => 'Yes', 1 => 'No']
+                'options' => [0 => 'Yes', 1 => 'No'],
             ],
             [
-               'name' => 'checkbox', // The db column name
-               'key' => 'check',
-               'label' => "Agreed", // Table column heading
-               'type' => 'check',
+               'name'  => 'checkbox', // The db column name
+               'key'   => 'check',
+               'label' => 'Agreed', // Table column heading
+               'type'  => 'check',
             ],
             [
-                'name' => 'created_at',
-                'label' => 'Created At',
-                'type' => 'closure',
-                'function' => function($entry) {
+                'name'     => 'created_at',
+                'label'    => 'Created At',
+                'type'     => 'closure',
+                'function' => function ($entry) {
                     return 'Created on '.$entry->created_at;
-                }
+                },
             ],
             [
-               'name' => "name", // The db column name
-               'label' => "Date", // Table column heading
-               'type' => "date",
+               'name'  => 'name', // The db column name
+               'label' => 'Date', // Table column heading
+               'type'  => 'date',
                 // 'format' => 'l j F Y', // use something else than the base.default_date_format config value
             ],
             [
-               'name' => "name", // The db column name
-               'label' => "Datetime", // Table column heading
-               'type' => "datetime",
+               'name'  => 'name', // The db column name
+               'label' => 'Datetime', // Table column heading
+               'type'  => 'datetime',
                 // 'format' => 'l j F Y H:i:s', // use something else than the base.default_datetime_format config value
             ],
             [
-               'name' => 'email', // The db column name
-               'label' => "Email Address", // Table column heading
-               'type' => 'email',
+               'name'  => 'email', // The db column name
+               'label' => 'Email Address', // Table column heading
+               'type'  => 'email',
                // 'limit' => 500, // if you want to truncate the text to a different number of characters
             ],
             [
@@ -103,9 +103,9 @@ class MonsterCrudController extends CrudController
                },
             ],
             [
-               'name' => 'number', // The db column name
-               'label' => "Number", // Table column heading
-               'type' => "number",
+               'name'  => 'number', // The db column name
+               'label' => 'Number', // Table column heading
+               'type'  => 'number',
                // 'prefix' => "$",
                // 'suffix' => " EUR",
                // 'decimals' => 2,
@@ -119,36 +119,36 @@ class MonsterCrudController extends CrudController
                 'name'        => 'radio',
                 'label'       => 'Radio',
                 'type'        => 'radio',
-                'options'     => [ 0 => "Draft", 1 => "Published", 2 => 'Other' ]
+                'options'     => [0 => 'Draft', 1 => 'Published', 2 => 'Other'],
             ],
             [
                // 1-n relationship
-               'label' => "Select", // Table column heading
-               'type' => "select",
-               'name' => 'select', // the column that contains the ID of that connected entity;
-               'entity' => 'category', // the method that defines the relationship in your Model
-               'attribute' => "name", // foreign key attribute that is shown to user
-               'model' => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+               'label'     => 'Select', // Table column heading
+               'type'      => 'select',
+               'name'      => 'select', // the column that contains the ID of that connected entity;
+               'entity'    => 'category', // the method that defines the relationship in your Model
+               'attribute' => 'name', // foreign key attribute that is shown to user
+               'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
             ],
             [ // select_from_array
-                'name' => 'Select_from_array',
-                'label' => "Status",
-                'type' => 'select_from_array',
+                'name'    => 'Select_from_array',
+                'label'   => 'Status',
+                'type'    => 'select_from_array',
                 'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
             ],
             [
                // select_multiple: n-n relationship (with pivot table)
-               'label' => "Select_multiple", // Table column heading
-               'type' => "select_multiple",
-               'name' => 'tags', // the method that defines the relationship in your Model
-               'entity' => 'tags', // the method that defines the relationship in your Model
-               'attribute' => "name", // foreign key attribute that is shown to user
-               'model' => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+               'label'     => 'Select_multiple', // Table column heading
+               'type'      => 'select_multiple',
+               'name'      => 'tags', // the method that defines the relationship in your Model
+               'entity'    => 'tags', // the method that defines the relationship in your Model
+               'attribute' => 'name', // foreign key attribute that is shown to user
+               'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
             ],
             [
-               'name' => 'video', // The db column name
-               'label' => "Video", // Table column heading
-               'type' => 'video',
+               'name'  => 'video', // The db column name
+               'label' => 'Video', // Table column heading
+               'type'  => 'video',
             ],
         ]);
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
@@ -300,12 +300,12 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Date
-            'name'  => 'date',
-            'label' => 'Date (HTML5 spec)',
-            'type'  => 'date',
+            'name'       => 'date',
+            'label'      => 'Date (HTML5 spec)',
+            'type'       => 'date',
             'attributes' => [
-                'pattern' => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
-                'placeholder' => "yyyy-mm-dd",
+                'pattern'     => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
+                'placeholder' => 'yyyy-mm-dd',
             ],
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
             'tab' => 'Time and space',
@@ -466,22 +466,22 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // select_and_order
-            'name' => 'select_and_order',
-            'label' => "Featured",
-            'type' => 'select_and_order',
+            'name'    => 'select_and_order',
+            'label'   => 'Featured',
+            'type'    => 'select_and_order',
             'options' => [
-                1 => "Option 1",
-                2 => "Option 2",
-                3 => "Option 3",
-                4 => "Option 4",
-                5 => "Option 5",
-                6 => "Option 6",
-                7 => "Option 7",
-                8 => "Option 8",
-                9 => "Option 9",
+                1 => 'Option 1',
+                2 => 'Option 2',
+                3 => 'Option 3',
+                4 => 'Option 4',
+                5 => 'Option 5',
+                6 => 'Option 6',
+                7 => 'Option 7',
+                8 => 'Option 8',
+                9 => 'Option 9',
             ],
             'fake' => true,
-            'tab' => 'Selects',
+            'tab'  => 'Selects',
         ]);
 
         // -----------------
@@ -506,11 +506,11 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // image
-            'label' => "Image",
-            'name' => "image",
-            'type' => 'image',
-            'upload' => true,
-            'crop' => true, // set to true to allow cropping, false to disable
+            'label'        => 'Image',
+            'name'         => 'image',
+            'type'         => 'image',
+            'upload'       => true,
+            'crop'         => true, // set to true to allow cropping, false to disable
             'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
             // 'disk' => config('backpack.base.root_disk_name'), // in case you need to show images from a different disk
             // 'prefix' => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
@@ -612,9 +612,9 @@ class MonsterCrudController extends CrudController
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
         $this->crud->addField([   // URL
-            'name' => 'video',
+            'name'  => 'video',
             'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type' => 'video',
+            'type'  => 'video',
         ]);
         // $table->string('range')->nullable;
 
