@@ -758,7 +758,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // select2_multiple filter
           'name' => 'select2_multiple',
           'type' => 'select2_multiple',
-          'label'=> 'Select2 multiple',
+          'label'=> 'S2 multiple',
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($values) { // if the filter is active
@@ -770,7 +770,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // select2_ajax filter
           'name'        => 'select2_from_ajax',
           'type'        => 'select2_ajax',
-          'label'       => 'Select2 Ajax',
+          'label'       => 'S2 Ajax',
           'placeholder' => 'Pick an article',
         ],
         url('api/article-search'), // the ajax route
