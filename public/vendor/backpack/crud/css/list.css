@@ -44,7 +44,7 @@
 	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
 		background-color: transparent;
 		color: #636161;
-		font-family: 'FontAwesome';
+		font-family: 'LineAwesome';
 		width: 16px;
 		content: "\f1c4";
 		font-size: 21px;
