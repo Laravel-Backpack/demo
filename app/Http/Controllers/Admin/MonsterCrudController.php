@@ -4,16 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\MonsterRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class MonsterCrudController extends CrudController
-{    
+{
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    
+
     public function setup()
     {
         $this->crud->setModel('App\Models\Monster');
@@ -21,7 +20,7 @@ class MonsterCrudController extends CrudController
         $this->crud->setEntityNameStrings('monster', 'monsters');
     }
 
-    public function setupListOperation() 
+    public function setupListOperation()
     {
         $this->crud->addColumns([
             'text',
