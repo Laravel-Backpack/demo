@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>elFinder 2.0</title>
+    <title>elFinder 2.0 - TinyMCE</title>
 
     <!-- jQuery and jQuery UI (REQUIRED) -->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
@@ -25,7 +25,7 @@
     ?>
         <!-- elFinder translation (OPTIONAL) -->
         <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>
-    <?php 
+    <?php
 } ?>
 
 
@@ -62,11 +62,12 @@
         $().ready(function() {
             var elf = $('#elfinder').elfinder({
                 // set your elFinder options here
+                resizable: false,
                 <?php if ($locale) {
-    ?>
+        ?>
                     lang: '<?= $locale ?>', // locale
-                <?php 
-} ?>
+                <?php
+    } ?>
                 customData: {
                     _token: '<?= csrf_token() ?>'
                 },
@@ -76,10 +77,16 @@
                 }
             }).elfinder('instance');
         });
+        $(window).resize(function(){
+            var h = ($(window).height());
+            if($('#elfinder').height() != h){
+                $('#elfinder').height(h).resize();
+            }
+        });
     </script>
 
 </head>
-<body>
+<body class="elfinder">
 
 <!-- Element where elFinder will be created (REQUIRED) -->
 <div id="elfinder"></div>

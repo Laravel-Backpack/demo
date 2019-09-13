@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b578c24293af382f99dbc33e3b87435",
+    "content-hash": "b776702637ca87827a64bb1472722687",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -6730,7 +6730,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.3"
+        "php": ">=7.2.0"
     },
     "platform-dev": []
 }

@@ -17,7 +17,7 @@
         "backpack/permissionmanager": "v4.x-dev as 4.0.0",
         "backpack/backupmanager": "v4.x-dev as 4.0.0",
         "spatie/laravel-translatable": "^4.0",
-        "barryvdh/laravel-elfinder": "^0.4.2",
+        "barryvdh/laravel-elfinder": "^0.4.3",
         "spatie/laravel-backup": "^6.1"
     },
     "require-dev": {

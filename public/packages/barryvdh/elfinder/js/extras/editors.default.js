@@ -356,7 +356,7 @@
 					this.disabled = true;
 				} else {
 					this.opts = Object.assign({
-						version: 'v3.5.1'
+						version: 'v3.5.2'
 					}, opts.extraOptions.tuiImgEditOpts || {}, {
 						iconsPath : fm.baseUrl + 'img/tui-',
 						theme : {}
@@ -680,7 +680,7 @@
 				noContent: true,
 				arrayBufferContent: true,
 				openMaximized: true,
-				canMakeEmpty: true,
+				canMakeEmpty: ['image/jpeg', 'image/png', 'image/gif', 'image/x-ms-bmp', 'image/tiff', 'image/webp', 'image/vnd.adobe.photoshop', 'image/x-portable-pixmap', 'image/x-sketch'],
 				integrate: {
 					title: 'Photopea',
 					link: 'https://www.photopea.com/learn/'
@@ -712,7 +712,7 @@
 					spnr = $('<div class="elfinder-edit-spinner elfinder-edit-photopea"/>')
 						.html('<span class="elfinder-spinner-text">' + fm.i18n('nowLoading') + '</span><span class="elfinder-spinner"/>')
 						.appendTo(ifm.parent()),
-					saveTypes = fm.arrayFlip(['jpg', 'png', 'gif', 'bmp', 'tiff', 'webp']),
+					saveMimes = fm.arrayFlip(confObj.info.canMakeEmpty),
 					getType = function(mime) {
 						var ext = getExtention(mime, fm),
 							extmime = ext2mime[ext];
@@ -722,7 +722,7 @@
 						} else if (ext === 'jpeg') {
 							ext = 'jpg';
 						}
-						if (!ext || !saveTypes[ext]) {
+						if (!ext || !!saveMimes[ext]) {
 							ext = 'psd';
 							extmime = ext2mime[ext];
 							ifm.closest('.ui-dialog').trigger('changeType', {
@@ -1411,7 +1411,7 @@
 								$('#ace_settingsmenu')
 									.css('font-size', '80%')
 									.find('div[contains="setOptions"]').hide().end()
-									.parent().parent().appendTo($('#elfinder'));
+									.parent().appendTo($('#elfinder'));
 							})
 						)
 						.prependTo(taBase.next());
@@ -1914,10 +1914,9 @@
 						base.height(fm.getUI().height() - 100);
 
 						// CKEditor5 configure options
-						opts = {
-							toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'imageUpload', 'ckfinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo'],
+						opts = Object.assign({
 							language: lang
-						};
+						}, self.confObj.ckeOpts);
 
 						// trigger event 'editEditorPrepare'
 						self.trigger('Prepare', {
@@ -1928,11 +1927,17 @@
 						});
 
 						cEditor
-							.create(editnode, Object.assign(opts, self.confObj.ckeOpts))
+							.create(editnode, opts)
 							.then(function(editor) {
 								var ckf = editor.commands.get('ckfinder'),
 									fileRepo = editor.plugins.get('FileRepository'),
 									prevVars = {}, isImage, insertImages;
+								if (editor.ui.view.toolbar && (mode === 'classic' || mode === 'decoupled-document')) {
+									$(editnode).closest('.elfinder-dialog').children('.ui-widget-header').append(editor.ui.view.toolbar.element);
+								}
+								if (mode === 'classic') {
+									$(editnode).closest('.elfinder-edit-editor').css('overflow', 'auto');
+								}
 								// Set up this elFinder instead of CKFinder
 								if (ckf) {
 									isImage = function(f) {
@@ -2023,30 +2028,39 @@
 							});
 					},
 					uploder = function(loader) {
+						var upload = function(file, resolve, reject) {
+							fm.exec('upload', {files: [file]}, void(0), fm.cwd().hash)
+								.done(function(data){
+									if (data.added && data.added.length) {
+										fm.url(data.added[0].hash, { async: true }).done(function(url) {
+											resolve({
+												'default': fm.convAbsUrl(url)
+											});
+										}).fail(function() {
+											reject('errFileNotFound');
+										});
+									} else {
+										reject(fm.i18n(data.error? data.error : 'errUpload'));
+									}
+								})
+								.fail(function(err) {
+									var error = fm.parseError(err);
+									reject(fm.i18n(error? (error === 'userabort'? 'errAbort' : error) : 'errUploadNoFiles'));
+								})
+								.progress(function(data) {
+									loader.uploadTotal = data.total;
+									loader.uploaded = data.progress;
+								});
+						};
 						this.upload = function() {
 							return new Promise(function(resolve, reject) {
-								fm.exec('upload', {files: [loader.file]}, void(0), fm.cwd().hash)
-									.done(function(data){
-										if (data.added && data.added.length) {
-											fm.url(data.added[0].hash, { async: true }).done(function(url) {
-												resolve({
-													'default': fm.convAbsUrl(url)
-												});
-											}).fail(function() {
-												reject('errFileNotFound');
-											});
-										} else {
-											reject(fm.i18n(data.error? data.error : 'errUpload'));
-										}
-									})
-									.fail(function(err) {
-										var error = fm.parseError(err);
-										reject(fm.i18n(error? (error === 'userabort'? 'errAbort' : error) : 'errUploadNoFiles'));
-									})
-									.progress(function(data) {
-										loader.uploadTotal = data.total;
-										loader.uploaded = data.progress;
+								if (loader.file instanceof Promise || (loader.file && typeof loader.file.then === 'function')) {
+									loader.file.then(function(file) {
+										upload(file, resolve, reject);
 									});
+								} else {
+									upload(loader.file, resolve, reject);
+								}
 							});
 						};
 						this.abort = function() {
@@ -2060,7 +2074,7 @@
 						fm.options.cdns.ckeditor5 + '/' + mode + '/ckeditor.js'
 					], function(editor) {
 						if (!editor) {
-							editor = window.BalloonEditor || window.InlineEditor || window.ClassicEditor;
+							editor = window.BalloonEditor || window.InlineEditor || window.ClassicEditor || window.DecoupledEditor;
 						}
 						if (fm.lang !== 'en') {
 							self.fm.loadScript([

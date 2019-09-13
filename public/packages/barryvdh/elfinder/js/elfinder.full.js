@@ -1,6 +1,6 @@
 /*!
  * elFinder - file manager for web
- * Version 2.1.49 (2019-04-17)
+ * Version 2.1.50 (2019-08-20)
  * http://elfinder.org
  * 
  * Copyright 2009-2019, Studio 42
@@ -1036,7 +1036,9 @@ var elFinder = function(elm, opts, bootCallback) {
 		if (l = handlers.length) {
 			event = $.Event(type);
 			if (data) {
-				data._event = event;
+				data._getEvent = function() {
+					return event;
+				};
 			}
 			if (allowModify) {
 				event.data = data;
@@ -1183,12 +1185,25 @@ var elFinder = function(elm, opts, bootCallback) {
 
 			// additional CSS files
 			if (Array.isArray(self.options.cssAutoLoad)) {
-				if (self.cssloaded === true) {
-					self.loadCss(self.options.cssAutoLoad);
+				if (!self.options.themes.default) {
+					// set as default theme
+					self.options.themes = Object.assign({
+						'default' : {
+							'name': 'default',
+							'cssurls': self.options.cssAutoLoad
+						}
+					}, self.options.themes);
+					if (!self.options.theme) {
+						self.options.theme = 'default';
+					}
 				} else {
-					self.bind('cssloaded', function() {
+					if (self.cssloaded === true) {
 						self.loadCss(self.options.cssAutoLoad);
-					});
+					} else {
+						self.bind('cssloaded', function() {
+							self.loadCss(self.options.cssAutoLoad);
+						});
+					}
 				}
 			}
 
@@ -2605,7 +2620,7 @@ var elFinder = function(elm, opts, bootCallback) {
 						err: error,
 						xhr: xhr,
 						rc: response
-					};
+					}, errMsg;
 
 					// unset this cmd queue when user canceling
 					// see notify : function - `cancel.reject(0);`
@@ -2618,7 +2633,7 @@ var elFinder = function(elm, opts, bootCallback) {
 					}
 					// trigger "requestError" event
 					self.trigger('requestError', errData);
-					if (errData._event && errData._event.isDefaultPrevented()) {
+					if (errData._getEvent && errData._getEvent().isDefaultPrevented()) {
 						deffail = false;
 						syncOnFail = false;
 						if (error) {
@@ -2632,8 +2647,9 @@ var elFinder = function(elm, opts, bootCallback) {
 						openDir && openDir.volumeid && self.isRoot(openDir) && delete self.volumeExpires[openDir.volumeid];
 					}
 					self.trigger(cmd + 'fail', response);
-					if (error) {
-						deffail ? self.error(error) : self.debug('error', self.i18n(error));
+					errMsg = (typeof error === 'object')? error.error : error;
+					if (errMsg) {
+						deffail ? self.error(errMsg) : self.debug('error', self.i18n(errMsg));
 					}
 					syncOnFail && self.sync();
 				});
@@ -5865,7 +5881,7 @@ elFinder.prototype = {
 		
 		data = self.normalize(data);
 		if (!self.validResponse('upload', data)) {
-			return {error : (response.norError || ['errResponse'])};
+			return {error : (data.norError || ['errResponse'])};
 		}
 		data.removed = $.merge((data.removed || []), $.map(data.added || [], function(f) { return self.file(f.hash)? f.hash : null; }));
 		return data;
@@ -6550,7 +6566,7 @@ elFinder.prototype = {
 				
 				if (error) {
 					node.trigger('uploadabort');
-					getFile(files).done(function(file) {
+					getFile(files || {}).done(function(file) {
 						return dfrd.reject(file._cid? null : error);
 					});
 				}
@@ -6588,7 +6604,7 @@ elFinder.prototype = {
 					self.trigger('uploadfail', res);
 					// trigger "requestError" event
 					self.trigger('requestError', errData);
-					if (errData._event && errData._event.isDefaultPrevented()) {
+					if (errData._getEvent && errData._getEvent().isDefaultPrevented()) {
 						res.error = '';
 					}
 					if (res._chunkfailure || res._multiupload) {
@@ -9690,14 +9706,16 @@ elFinder.prototype = {
 					if (fileCnt !== false) {
 						if (typeof data.fileCnt === 'undefined') {
 							fileCnt = false;
+						} else {
+							fileCnt += parseInt(data.fileCnt || 0);
 						}
-						fileCnt += parseInt(data.fileCnt || 0);
 					}
 					if (dirCnt !== false) {
 						if (typeof data.dirCnt === 'undefined') {
 							dirCnt = false;
+						} else {
+							dirCnt += parseInt(data.dirCnt || 0);
 						}
-						dirCnt += parseInt(data.dirCnt || 0);
 					}
 				}
 				changed.length && self.change({changed: changed});
@@ -10155,7 +10173,7 @@ if (!window.cancelAnimationFrame) {
  *
  * @type String
  **/
-elFinder.prototype.version = '2.1.49';
+elFinder.prototype.version = '2.1.50';
 
 
 
@@ -10591,24 +10609,24 @@ elFinder.prototype._options = {
 	 */
 	cdns : {
 		// for editor etc.
-		ace        : 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.2',
-		codemirror : 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.43.0',
-		ckeditor   : 'https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.11.2',
-		ckeditor5  : 'https://cdn.ckeditor.com/ckeditor5/11.2.0',
-		tinymce    : 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.0.0',
+		ace        : 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5',
+		codemirror : 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4',
+		ckeditor   : 'https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.12.1',
+		ckeditor5  : 'https://cdn.ckeditor.com/ckeditor5/12.3.1',
+		tinymce    : 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.0.14',
 		simplemde  : 'https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2',
 		fabric16   : 'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.7',
 		tui        : 'https://uicdn.toast.com',
 		// for quicklook etc.
-		hls        : 'https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.10.1/hls.min.js',
-		dash       : 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/2.9.3/dash.all.min.js',
+		hls        : 'https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.12.4/hls.min.js',
+		dash       : 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/3.0.0/dash.all.min.js',
 		flv        : 'https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.5.0/flv.min.js',
 		prettify   : 'https://cdn.jsdelivr.net/gh/google/code-prettify@453bd5f51e61245339b738b1bbdd42d7848722ba/loader/run_prettify.js',
 		psd        : 'https://cdnjs.cloudflare.com/ajax/libs/psd.js/3.2.0/psd.min.js',
 		rar        : 'https://cdn.jsdelivr.net/gh/nao-pon/rar.js@6cef13ec66dd67992fc7f3ea22f132d770ebaf8b/rar.min.js',
 		zlibUnzip  : 'https://cdn.jsdelivr.net/gh/imaya/zlib.js@0.3.1/bin/unzip.min.js', // need check unzipFiles() in quicklook.plugins.js when update
 		zlibGunzip : 'https://cdn.jsdelivr.net/gh/imaya/zlib.js@0.3.1/bin/gunzip.min.js',
-		marked     : 'https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.1:/marked.min.js',
+		marked     : 'https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.min.js',
 		sparkmd5   : 'https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.0/spark-md5.min.js',
 		jssha      : 'https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.3.1/sha.js',
 		amr        : 'https://cdn.jsdelivr.net/gh/yxl/opencore-amr-js@dcf3d2b5f384a1d9ded2a54e4c137a81747b222b/js/amrnb.js'
@@ -11106,8 +11124,8 @@ elFinder.prototype._options = {
 				ckeditor: {},
 				// CKEditor 5 editor options
 				ckeditor5: {
-					// builds mode - 'classic', 'inline' or 'balloon' 
-					mode: 'inline'
+					// builds mode - 'classic', 'inline', 'balloon', 'balloon-block' or 'decoupled-document'
+					mode: 'decoupled-document'
 				},
 				// TinyMCE editor options
 				tinymce : {},
@@ -11241,6 +11259,9 @@ elFinder.prototype._options = {
 			infoCheckWait : 10,
 			// Maximum number of items that can be placed into the Trash at one time
 			toTrashMaxItems : 1000
+		},
+		paste : {
+			moveConfirm : false // Display confirmation dialog when moving items
 		},
 		help : {
 			// Tabs to show
@@ -12995,7 +13016,7 @@ $.fn.dialogelfinder = function(opts, opts2) {
  * English translation
  * @author Troex Nevelin <troex@fury.scancode.ru>
  * @author Naoki Sawada <hypweb+elfinder@gmail.com>
- * @version 2019-02-18
+ * @version 2019-07-27
  */
 // elfinder.en.js is integrated into elfinder.(full|min).js by jake build
 if (typeof elFinder === 'function' && elFinder.prototype.i18) {
@@ -13289,6 +13310,7 @@ if (typeof elFinder === 'function' && elFinder.prototype.i18) {
 			'confirmNonUTF8'  : 'Character encoding of this file couldn\'t be detected. It need to temporarily convert to UTF-8 for editting.<br/>Please select character encoding of this file.', // from v2.1.19 added 28.11.2016
 			'confirmNotSave'  : 'It has been modified.<br/>Losing work if you do not save changes.', // from v2.1 added 15.7.2015
 			'confirmTrash'    : 'Are you sure you want to move items to trash bin?', //from v2.1.24 added 29.4.2017
+			'confirmMove'     : 'Are you sure you want to move items to "$1"?', //from v2.1.50 added 27.7.2019
 			'apllyAll'        : 'Apply to all',
 			'name'            : 'Name',
 			'size'            : 'Size',
@@ -16241,7 +16263,11 @@ $.fn.elfindercwd = function(fm, options) {
 					}
 					if (e.shiftKey && (pl || nl)) {
 						sib = pl ? p.prevUntil('#'+prev.attr('id')) : p.nextUntil('#'+next.attr('id'));
-						sib.add(p).trigger(evtSelect);
+						sib = sib.add(p);
+						if (!pl) {
+							sib  = $(sib.get().reverse());
+						}
+						sib.trigger(evtSelect);
 					} else if (e.ctrlKey || e.metaKey) {
 						p.trigger(p.hasClass(clSelected) ? evtUnselect : evtSelect);
 					} else {
@@ -24045,7 +24071,8 @@ elFinder.prototype.commands.edit = function() {
 				var name;
 				if ((cnt === 1 || !editor.info.single)
 						&& ((!editor.info || !editor.info.converter)? file.write : cwdWrite)
-						&& (file.size > 0 || (!editor.info.converter && (editor.info.canMakeEmpty || (editor.info.canMakeEmpty !== false && fm.mimeIsText(file.mime)))))
+						//&& (file.size > 0 || (!editor.info.converter && (editor.info.canMakeEmpty || (editor.info.canMakeEmpty !== false && fm.mimeIsText(file.mime)))))
+						&& (file.size > 0 || (!editor.info.converter && fm.mimesCanMakeEmpty[file.mime]))
 						&& (!editor.info.maxSize || file.size <= editor.info.maxSize)
 						&& mimeMatch(file.mime, editor.mimes || null)
 						&& extMatch(file.name, editor.exts || null)
@@ -24185,7 +24212,7 @@ elFinder.prototype.commands.edit = function() {
 								fm.trigger('helpIntegration', Object.assign({cmd: 'edit'}, editor.info.integrate));
 							}
 							if (editor.info.canMakeEmpty) {
-								fm.trigger('canMakeEmptyFile', {mimes: editor.mimes});
+								fm.trigger('canMakeEmptyFile', {mimes: Array.isArray(editor.info.canMakeEmpty)? editor.info.canMakeEmpty : editor.mimes});
 							}
 						}
 					});
@@ -26129,9 +26156,9 @@ elFinder.prototype.commands.netmount = function() {
 	this.handlers = {
 		load : function() {
 			var fm = self.fm;
-			self.drivers = fm.netDrivers;
-			if (self.drivers.length) {
-				requestAnimationFrame(function() {
+			fm.one('open', function() {
+				self.drivers = fm.netDrivers;
+				if (self.drivers.length) {
 					$.each(self.drivers, function() {
 						var d = self.options[this];
 						if (d) {
@@ -26141,8 +26168,8 @@ elFinder.prototype.commands.netmount = function() {
 							}
 						}
 					});
-				});
-			}
+				}
+			});
 		}
 	};
 
@@ -27031,6 +27058,7 @@ elFinder.prototype.commands.paste = function() {
 						fm.request({
 								data   : reqData,
 								notify : {type : cmd, cnt : cnt},
+								cancel : true,
 								navigate : { 
 									toast  : opts.noToast? {} : {
 										inbuffer : {msg: fm.i18n(['complete', fm.i18n('cmd' + cmd)]), action: {
@@ -27096,8 +27124,12 @@ elFinder.prototype.commands.paste = function() {
 								}
 								dfrd.resolve(data);
 							})
-							.fail(function() {
+							.fail(function(flg) {
 								dfrd.reject();
+								if (flg === 0) {
+									// canceling
+									fm.sync();
+								}
 							})
 							.always(function() {
 								fm.unlockfiles({files : files});
@@ -27132,7 +27164,7 @@ elFinder.prototype.commands.paste = function() {
 				
 				return dfrd;
 			},
-			parents, fparents;
+			parents, fparents, cutDfrd;
 
 
 		if (!cnt || !dst || dst.mime != 'directory') {
@@ -27182,22 +27214,48 @@ elFinder.prototype.commands.paste = function() {
 			}
 		});
 
-		if (dfrd.state() == 'rejected') {
+		if (dfrd.state() === 'rejected') {
 			return dfrd;
 		}
 
-		$.when(
-			copy(fcopy),
-			paste(fpaste)
-		)
-		.done(function(cr, pr) {
-			dfrd.resolve(pr && pr.undo? pr : void(0));
-		})
-		.fail(function() {
+		cutDfrd = $.Deferred();
+		if (cut && self.options.moveConfirm) {
+			fm.confirm({
+				title  : 'moveFiles',
+				text   : fm.i18n('confirmMove', dst.i18 || dst.name),
+				accept : {
+					label    : 'btnYes',
+					callback : function() {  
+						cutDfrd.resolve();
+					}
+				},
+				cancel : {
+					label    : 'btnCancel',
+					callback : function() {
+						cutDfrd.reject();
+					}
+				}
+			});
+		} else {
+			cutDfrd.resolve();
+		}
+
+		cutDfrd.done(function() {
+			$.when(
+				copy(fcopy),
+				paste(fpaste)
+			)
+			.done(function(cr, pr) {
+				dfrd.resolve(pr && pr.undo? pr : void(0));
+			})
+			.fail(function() {
+				dfrd.reject();
+			})
+			.always(function() {
+				cut && fm.clipboard([]);
+			});
+		}).fail(function() {
 			dfrd.reject();
-		})
-		.always(function() {
-			cut && fm.clipboard([]);
 		});
 		
 		return dfrd;
@@ -29466,9 +29524,15 @@ elFinder.prototype.commands.quicklook.plugins = [
 				}
 			},
 			loadDash = function(file) {
+				var debug;
 				render(file);
 				pDash = window.dashjs.MediaPlayer().create();
-				pDash.getDebug().setLogToBrowserConsole(false);
+				debug = pDash.getDebug();
+				if (debug.setLogLevel) {
+					debug.setLogLevel(dashjs.Debug.LOG_LEVEL_FATAL);
+				} else if (debug.setLogToBrowserConsole) {
+					debug.setLogToBrowserConsole(false);
+				}
 				pDash.initialize(node[0], fm.openUrl(file.hash), autoplay);
 				pDash.on('error', function(e) {
 					reset(true);
