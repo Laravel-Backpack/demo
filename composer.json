@@ -6,19 +6,19 @@
     "type": "project",
     "require": {
         "php": ">=7.1.3",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "fideloper/proxy": "^4.0",
-        "backpack/crud": "3.6.*",
-        "backpack/logmanager": "^2.3",
-        "backpack/settings": "^2.0",
-        "backpack/pagemanager": "^1.1",
-        "backpack/menucrud": "^1.0",
-        "backpack/newscrud": "^2.1",
-        "backpack/permissionmanager": "4.0.*",
-        "spatie/laravel-translatable": "^3.0",
+        "backpack/crud": "v4.x-dev as 4.0.0",
+        "backpack/logmanager": "v4.x-dev as 4.0.0",
+        "backpack/settings": "v4.x-dev as 4.0.0",
+        "backpack/pagemanager": "v4.x-dev as 2.0.0",
+        "backpack/menucrud": "v4.x-dev as 4.0.0",
+        "backpack/newscrud": "v4.x-dev as 4.0.0",
+        "backpack/permissionmanager": "v4.x-dev as 4.0.0",
+        "backpack/backupmanager": "v4.x-dev as 4.0.0",
+        "spatie/laravel-translatable": "^4.0",
         "barryvdh/laravel-elfinder": "^0.4.2",
-        "spatie/laravel-backup": "^6.1",
-        "backpack/backupmanager": "1.4.*"
+        "spatie/laravel-backup": "^6.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -28,7 +28,9 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "dev-master",
-        "backpack/generators": "^1.2"
+        "backpack/generators": "^2.0",
+        "itsgoingd/clockwork": "^4.0",
+        "barryvdh/laravel-debugbar": "^3.2"
     },
     "autoload": {
         "classmap": [

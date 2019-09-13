@@ -8,28 +8,21 @@ use App\Http\Requests\MonsterRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class MonsterCrudController extends CrudController
-{
+{    
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    
     public function setup()
     {
-        /*
-        |--------------------------------------------------------------------------
-        | BASIC CRUD INFORMATION
-        |--------------------------------------------------------------------------
-        */
         $this->crud->setModel('App\Models\Monster');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
         $this->crud->setEntityNameStrings('monster', 'monsters');
+    }
 
-        /*
-        |--------------------------------------------------------------------------
-        | BASIC CRUD INFORMATION
-        |--------------------------------------------------------------------------
-        */
-
-        // ------ CRUD COLUMNS
-        // $this->crud->addColumn('text'); // add a text column, at the end of the stack
-        // $this->crud->addColumn('email'); // add a single column, at the end of the stack
-        // $this->crud->addColumn('textarea'); // add a single column, at the end of the stack
+    public function setupListOperation() 
+    {
         $this->crud->addColumns([
             'text',
             'textarea',
@@ -151,19 +144,21 @@ class MonsterCrudController extends CrudController
                'type'  => 'video',
             ],
         ]);
-        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
-        // $this->crud->removeColumn('column_name'); // remove a column from the stack
-        // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
-        // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
-        // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
-        // -------------------------
-        // ------ CRUD FIELDS ------
-        // -------------------------
+        $this->addCustomCrudFilters();
 
-        // ----------
-        // SIMPLE tab
-        // ----------
+        $this->crud->enableDetailsRow();
+        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
+
+        $this->crud->enableExportButtons();
+
+        $this->crud->addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning');
+    }
+
+    protected function setupCreateOperation()
+    {
+        $this->crud->setValidation(StoreRequest::class);
+
         $this->crud->addField([
             'name'  => 'text',
             'label' => 'Text',
@@ -347,14 +342,11 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // Date_range
-            'name'       => 'date_range', // a unique name for this field
-            'start_name' => 'start_date', // the db column that holds the start_date
-            'end_name'   => 'end_date', // the db column that holds the end_date
+            'name'       => ['start_date', 'end_date'], // a unique name for this field
             'label'      => 'Date Range',
             'type'       => 'date_range',
+            'default'    => ['2020-03-28 01:01', '2020-04-05 02:00'],
             // OPTIONALS
-            'start_default'      => '2017-03-28 01:01', // default value for start_date
-            'end_default'        => '2017-04-05 02:00', // default value for end_date
             'date_range_options' => [ // options sent to daterangepicker.js
                 'timePicker' => true,
                 'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
@@ -369,7 +361,7 @@ class MonsterCrudController extends CrudController
             // optional
             'store_as_json' => true,
             'tab'           => 'Time and space',
-        ], 'both'); // the second parameter for the addField method is the form it should place this field in; specify either 'create', 'update' or 'both'; default is 'both', so you might aswell not mention it;
+        ]); // the second parameter for the addField method is the form it should place this field in; specify either 'create', 'update' or 'both'; default is 'both', so you might aswell not mention it;
 
         // -----------------
         // SELECTS tab
@@ -619,55 +611,11 @@ class MonsterCrudController extends CrudController
         // $table->string('range')->nullable;
 
         // $this->crud->removeField('name', 'update/create/both');
-
-        // ------ CRUD BUTTONS
-        // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
-        // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
-        $this->crud->addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning'); // add a button whose HTML is returned by a method in the CRUD model
-        // $this->crud->addButtonFromView($stack, $name, $view, $position); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
-        // $this->crud->removeButton($name);
-        // $this->crud->removeButtonFromStack($name, $stack);
-        // $this->crud->removeAllButtons();
-        // $this->crud->removeAllButtonsFromStack('line');
-
-        // ------ CRUD DETAILS ROW
-        $this->crud->enableDetailsRow();
-        $this->crud->allowAccess('details_row');
-        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
-
-        // ------ REVISIONS
-        // You also need to use \Venturecraft\Revisionable\RevisionableTrait;
-        // Please check out: https://laravel-backpack.readme.io/docs/crud#revisions
-        // $this->crud->allowAccess('revisions');
-
-        // ------ DATATABLE EXPORT BUTTONS
-        // Show export to PDF, CSV, XLS and Print buttons on the table view.
-        // Does not work well with AJAX datatables.
-
-        $this->crud->enableBulkActions();
-        $this->crud->addBulkDeleteButton();
-        $this->crud->enableExportButtons();
-
-        // ------ FILTERS
-        $this->addCustomCrudFilters();
     }
 
-    public function store(StoreRequest $request)
+    protected function setupUpdateOperation()
     {
-        // your additional operations before save here
-        $redirect_location = parent::storeCrud();
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
-        return $redirect_location;
-    }
-
-    public function update(UpdateRequest $request)
-    {
-        // your additional operations before save here
-        $redirect_location = parent::updateCrud();
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
-        return $redirect_location;
+        $this->setupCreateOperation();
     }
 
     public function addCustomCrudFilters()
@@ -758,7 +706,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // select2_multiple filter
           'name' => 'select2_multiple',
           'type' => 'select2_multiple',
-          'label'=> 'Select2 multiple',
+          'label'=> 'S2 multiple',
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($values) { // if the filter is active
@@ -770,7 +718,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter([ // select2_ajax filter
           'name'        => 'select2_from_ajax',
           'type'        => 'select2_ajax',
-          'label'       => 'Select2 Ajax',
+          'label'       => 'S2 Ajax',
           'placeholder' => 'Pick an article',
         ],
         url('api/article-search'), // the ajax route
