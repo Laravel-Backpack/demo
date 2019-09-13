@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\IconRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\IconRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class IconCrudController extends CrudController
-{    
+{
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\RevisionsOperation;
-    
+
     public function setup()
     {
         $this->crud->setModel('App\Models\Icon');
@@ -22,7 +21,7 @@ class IconCrudController extends CrudController
         $this->crud->setEntityNameStrings('icon', 'icons');
     }
 
-    protected function setupListOperation() 
+    protected function setupListOperation()
     {
         $this->crud->addColumns(['name', 'icon']);
     }
