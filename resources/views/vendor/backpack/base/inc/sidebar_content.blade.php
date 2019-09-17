@@ -1,7 +1,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
 <li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-smile-o"></i> <span>Demo Entities</span></a>
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-smile-o"></i> Demo Entities</a>
     <ul class="nav-dropdown-items">
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon fa fa-optin-monster"></i> <span>Monsters</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon fa fa-info-circle"></i> <span>Icons</span></a></li>
@@ -10,7 +10,7 @@
 </li>
 
 <li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-newspaper-o"></i> <span>News</span></a>
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-newspaper-o"></i> News</a>
     <ul class="nav-dropdown-items">
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('article') }}"><i class="nav-icon fa fa-newspaper-o"></i> <span>Articles</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('category') }}"><i class="nav-icon fa fa-list"></i> <span>Categories</span></a></li>
@@ -23,7 +23,7 @@
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item nav-dropdown">
-  <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-group"></i> <span>Authentication</span></a>
+  <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-group"></i> Authentication</a>
   <ul class="nav-dropdown-items">
     <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon fa fa-user"></i> <span>Users</span></a></li>
     <li class="nav-item"><a class="nav-link" href="{{ backpack_url('role') }}"><i class="nav-icon fa fa-group"></i> <span>Roles</span></a></li>
@@ -32,7 +32,7 @@
 </li>
 
 <li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-cogs"></i> <span>Advanced</span></a>
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-cogs"></i> Advanced</a>
     <ul class="nav-dropdown-items">
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon fa fa-files-o"></i> <span>File manager</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('backup') }}"><i class="nav-icon fa fa-hdd-o"></i> <span>Backups</span></a></li>
