@@ -88,7 +88,7 @@ return [
 
     // Footer element classes.
     'footer_class' => 'app-footer',
-    
+
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',
 
