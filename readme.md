@@ -7,7 +7,7 @@ Laravel BackPack's demo, which includes all Backpack packages.
 > Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 
-![Example generated CRUD interface](https://dl.dropboxusercontent.com/u/2431352/backpack_base_login.png)
+![Example generated CRUD interface](https://backpackforlaravel.com/uploads/docs-4-0/getting_started/monster_crud_list_entries.png)
 
 
 ## Install
@@ -37,7 +37,7 @@ php artisan db:seed
 
 Note: Depending on your configuration you may need to define a site within NGINX or Apache; Your URL domain may change from localhost to what you have defined.
 
-![Example generated CRUD interface](https://dl.dropboxusercontent.com/u/2431352/backpack_base_dashboard.png)
+![Example generated CRUD interface](https://backpackforlaravel.com/uploads/docs-4-0/getting_started/tag_crud_list_entries.png)
 
 ## Change log
 
