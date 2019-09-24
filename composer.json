@@ -29,8 +29,7 @@
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "dev-master",
         "backpack/generators": "^2.0",
-        "itsgoingd/clockwork": "^4.0",
-        "barryvdh/laravel-debugbar": "^3.2"
+        "itsgoingd/clockwork": "^4.0"
     },
     "autoload": {
         "classmap": [
