@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular@1.7.8",
-      "/Users/tabacitu/Sites/v4demo1/vendor/backpack/crud"
+      "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud"
     ]
   ],
   "_from": "angular@1.7.8",
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.8.tgz",
   "_spec": "1.7.8",
-  "_where": "/Users/tabacitu/Sites/v4demo1/vendor/backpack/crud",
+  "_where": "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"

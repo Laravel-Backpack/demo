@@ -2,7 +2,7 @@
   "_args": [
     [
       "ckeditor@4.12.1",
-      "/Users/tabacitu/Sites/v4demo1/vendor/backpack/crud"
+      "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud"
     ]
   ],
   "_from": "ckeditor@4.12.1",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/ckeditor/-/ckeditor-4.12.1.tgz",
   "_spec": "4.12.1",
-  "_where": "/Users/tabacitu/Sites/v4demo1/vendor/backpack/crud",
+  "_where": "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud",
   "author": {
     "name": "CKSource",
     "url": "http://cksource.com/"
