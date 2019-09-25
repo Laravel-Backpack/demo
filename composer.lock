@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a955216a0d3784a50a94277513f60995",
+    "content-hash": "8e51fff2683074dfd860390ccb7332eb",
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v4.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "0d7d45e13d0f4750c96e6d48b599f6e05b08096c"
+                "reference": "ea3e5f692a7c38dec729cf4f22dfb5fd9a8cb452"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/0d7d45e13d0f4750c96e6d48b599f6e05b08096c",
-                "reference": "0d7d45e13d0f4750c96e6d48b599f6e05b08096c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/ea3e5f692a7c38dec729cf4f22dfb5fd9a8cb452",
+                "reference": "ea3e5f692a7c38dec729cf4f22dfb5fd9a8cb452",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "spatie/laravel-backup": "^6.0"
             },
             "require-dev": {
@@ -67,20 +67,20 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2019-09-12T16:12:14+00:00"
+            "time": "2019-09-24T15:30:16+00:00"
         },
         {
             "name": "backpack/crud",
-            "version": "v4.x-dev",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "5e75be32f9d22a37b0bf08b8cdac776683985622"
+                "reference": "dd141346da93325698f432b70f40187674748cc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/5e75be32f9d22a37b0bf08b8cdac776683985622",
-                "reference": "5e75be32f9d22a37b0bf08b8cdac776683985622",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/dd141346da93325698f432b70f40187674748cc9",
+                "reference": "dd141346da93325698f432b70f40187674748cc9",
                 "shasum": ""
             },
             "require": {
@@ -154,24 +154,84 @@
                 "read",
                 "update"
             ],
-            "time": "2019-09-24T06:53:18+00:00"
+            "time": "2019-09-25T04:15:22+00:00"
         },
         {
-            "name": "backpack/logmanager",
-            "version": "v4.x-dev",
+            "name": "backpack/generators",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Laravel-Backpack/LogManager.git",
-                "reference": "1807f43d90d7764983c71cf4f6ddc0fa6254d8e5"
+                "url": "https://github.com/Laravel-Backpack/Generators.git",
+                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/1807f43d90d7764983c71cf4f6ddc0fa6254d8e5",
-                "reference": "1807f43d90d7764983c71cf4f6ddc0fa6254d8e5",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/d2910ceb0f63396a0723e8f4ca476ef3f4835194",
+                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0"
+                "backpack/crud": "4.0.*|v4.x-dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\Generators\\GeneratorsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Generators\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tone",
+                    "email": "cristitone@outlook.com",
+                    "homepage": "http://updivision.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate files for laravel projects",
+            "homepage": "https://github.com/laravel-backpack/generators",
+            "keywords": [
+                "config",
+                "generators",
+                "model",
+                "request",
+                "view"
+            ],
+            "time": "2019-09-17T11:15:55+00:00"
+        },
+        {
+            "name": "backpack/logmanager",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/LogManager.git",
+                "reference": "ae49ef94a80e3d530cd63db84a5a6910411edfcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/ae49ef94a80e3d530cd63db84a5a6910411edfcc",
+                "reference": "ae49ef94a80e3d530cd63db84a5a6910411edfcc",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -214,25 +274,25 @@
                 "log manager",
                 "logs"
             ],
-            "time": "2019-09-12T15:45:51+00:00"
+            "time": "2019-09-24T15:33:58+00:00"
         },
         {
             "name": "backpack/menucrud",
-            "version": "v4.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "5489a2ffe207261f94569468615eaea4706a5ecb"
+                "reference": "ba07bf6c3c26005aa92d2c407f666e4834e5c5c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/5489a2ffe207261f94569468615eaea4706a5ecb",
-                "reference": "5489a2ffe207261f94569468615eaea4706a5ecb",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/ba07bf6c3c26005aa92d2c407f666e4834e5c5c4",
+                "reference": "ba07bf6c3c26005aa92d2c407f666e4834e5c5c4",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0|v4.x-dev",
-                "backpack/pagemanager": "^2.0|v4.x-dev"
+                "backpack/crud": "^4.0.0",
+                "backpack/pagemanager": "^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -267,30 +327,30 @@
                     "role": "Developer"
                 }
             ],
-            "description": "An admin panel for menu items, using Backpack\\CRUD on Laravel 5.",
+            "description": "An admin panel for menu items, using Backpack\\CRUD on Laravel 6.",
             "homepage": "https://github.com/backpack/MenuCRUD",
             "keywords": [
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2019-09-12T15:35:19+00:00"
+            "time": "2019-09-24T15:44:00+00:00"
         },
         {
             "name": "backpack/newscrud",
-            "version": "v4.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/NewsCRUD.git",
-                "reference": "e08ff00e72bbc0c9674ffbba0fd3639faf59a424"
+                "reference": "48f066b55944ad622b908445459beedb8d7b4d99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/e08ff00e72bbc0c9674ffbba0fd3639faf59a424",
-                "reference": "e08ff00e72bbc0c9674ffbba0fd3639faf59a424",
+                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/48f066b55944ad622b908445459beedb8d7b4d99",
+                "reference": "48f066b55944ad622b908445459beedb8d7b4d99",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "cviebrock/eloquent-sluggable": "^6.0"
             },
             "require-dev": {
@@ -332,24 +392,24 @@
                 "NewsCRUD",
                 "backpack"
             ],
-            "time": "2019-09-12T15:30:50+00:00"
+            "time": "2019-09-24T15:38:15+00:00"
         },
         {
             "name": "backpack/pagemanager",
-            "version": "v4.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "0c16817d34d79b68eeab5115b68c781f2b5a2aab"
+                "reference": "fb9bda43407060df97b945e227ca9749261dc902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/0c16817d34d79b68eeab5115b68c781f2b5a2aab",
-                "reference": "0c16817d34d79b68eeab5115b68c781f2b5a2aab",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/fb9bda43407060df97b945e227ca9749261dc902",
+                "reference": "fb9bda43407060df97b945e227ca9749261dc902",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "cviebrock/eloquent-sluggable": "^6.0"
             },
             "require-dev": {
@@ -400,24 +460,24 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2019-09-12T15:28:12+00:00"
+            "time": "2019-09-24T15:40:30+00:00"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "v4.x-dev",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "65a77753517021bfc238105b843e2e8b8e066bd6"
+                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/65a77753517021bfc238105b843e2e8b8e066bd6",
-                "reference": "65a77753517021bfc238105b843e2e8b8e066bd6",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/b790dbba866000e6e6485be6e51436d7dec8f680",
+                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0",
+                "backpack/crud": "^4.0.0",
                 "spatie/laravel-permission": "^3.0"
             },
             "require-dev": {
@@ -475,24 +535,24 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2019-09-17T08:12:09+00:00"
+            "time": "2019-09-24T15:22:06+00:00"
         },
         {
             "name": "backpack/settings",
-            "version": "v4.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "48910195eab0c16377a4c133184f777a01229763"
+                "reference": "9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/48910195eab0c16377a4c133184f777a01229763",
-                "reference": "48910195eab0c16377a4c133184f777a01229763",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1",
+                "reference": "9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0"
+                "backpack/crud": "^4.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -539,7 +599,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2019-09-17T07:11:27+00:00"
+            "time": "2019-09-24T15:26:29+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1667,16 +1727,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.0.3",
+            "version": "v6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "56789e9dec750e0fbe8e9e6ae90a01a4e6887902"
+                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/56789e9dec750e0fbe8e9e6ae90a01a4e6887902",
-                "reference": "56789e9dec750e0fbe8e9e6ae90a01a4e6887902",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
+                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
                 "shasum": ""
             },
             "require": {
@@ -1808,7 +1868,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-09-10T18:46:24+00:00"
+            "time": "2019-09-24T13:40:36+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -2828,16 +2888,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "6.4.0",
+            "version": "6.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "933c90957932dabf43b33bf91661bf3c8db8bc6a"
+                "reference": "b5e712c8d49001b071ec20155d4c9a72e90bb872"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/933c90957932dabf43b33bf91661bf3c8db8bc6a",
-                "reference": "933c90957932dabf43b33bf91661bf3c8db8bc6a",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/b5e712c8d49001b071ec20155d4c9a72e90bb872",
+                "reference": "b5e712c8d49001b071ec20155d4c9a72e90bb872",
                 "shasum": ""
             },
             "require": {
@@ -2899,7 +2959,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2019-09-04T06:42:31+00:00"
+            "time": "2019-09-25T06:51:46+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -4567,16 +4627,16 @@
         },
         {
             "name": "venturecraft/revisionable",
-            "version": "1.31.1",
+            "version": "1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VentureCraft/revisionable.git",
-                "reference": "e5951803d8349eb497bbb78940babd6a0ae0f8b2"
+                "reference": "4e288ba15f82a5614cf10bc18698cc8a8f374498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/e5951803d8349eb497bbb78940babd6a0ae0f8b2",
-                "reference": "e5951803d8349eb497bbb78940babd6a0ae0f8b2",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/4e288ba15f82a5614cf10bc18698cc8a8f374498",
+                "reference": "4e288ba15f82a5614cf10bc18698cc8a8f374498",
                 "shasum": ""
             },
             "require": {
@@ -4616,7 +4676,7 @@
                 "model",
                 "revision"
             ],
-            "time": "2019-09-04T05:30:44+00:00"
+            "time": "2019-09-23T21:20:15+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -4677,66 +4737,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "backpack/generators",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/d2910ceb0f63396a0723e8f4ca476ef3f4835194",
-                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194",
-                "shasum": ""
-            },
-            "require": {
-                "backpack/crud": "4.0.*|v4.x-dev"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*",
-                "scrutinizer/ocular": "~1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Backpack\\Generators\\GeneratorsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Backpack\\Generators\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Cristian Tone",
-                    "email": "cristitone@outlook.com",
-                    "homepage": "http://updivision.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Generate files for laravel projects",
-            "homepage": "https://github.com/laravel-backpack/generators",
-            "keywords": [
-                "config",
-                "generators",
-                "model",
-                "request",
-                "view"
-            ],
-            "time": "2019-09-17T11:15:55+00:00"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "1.2.0",
@@ -6536,66 +6536,9 @@
             "time": "2019-08-24T08:43:50+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/crud"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/logmanager"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/settings"
-        },
-        {
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/pagemanager"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/menucrud"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/newscrud"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/permissionmanager"
-        },
-        {
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "4.9999999.9999999.9999999-dev",
-            "package": "backpack/backupmanager"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "backpack/crud": 20,
-        "backpack/logmanager": 20,
-        "backpack/settings": 20,
-        "backpack/pagemanager": 20,
-        "backpack/menucrud": 20,
-        "backpack/newscrud": 20,
-        "backpack/permissionmanager": 20,
-        "backpack/backupmanager": 20,
         "laracasts/generators": 20
     },
     "prefer-stable": false,
