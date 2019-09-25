@@ -8,7 +8,7 @@
         "php": ">=7.2.0",
         "laravel/framework": "^6.0",
         "fideloper/proxy": "^4.0",
-        "backpack/crud": "v4.x-dev as 4.0.0",
+        "backpack/crud": "v4.0.*",
         "backpack/logmanager": "v4.x-dev as 4.0.0",
         "backpack/settings": "v4.x-dev as 4.0.0",
         "backpack/pagemanager": "v4.x-dev as 2.0.0",
