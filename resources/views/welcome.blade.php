@@ -40,7 +40,7 @@
             }
             .title {
                 font-size: 84px;
-                color: #605ca8;
+                color: #467fd0;
             }
             .links > a {
                 color: #636b6f;
@@ -58,7 +58,7 @@
                 margin-top: 60px;
             }
             a:hover {
-                color: #605ca8;
+                color: #467fd0;
             }
         </style>
     </head>
