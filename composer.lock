@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.1",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "dd141346da93325698f432b70f40187674748cc9"
+                "reference": "6a191a25df833b5449f455bbc7f542884144e50c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/dd141346da93325698f432b70f40187674748cc9",
-                "reference": "dd141346da93325698f432b70f40187674748cc9",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6a191a25df833b5449f455bbc7f542884144e50c",
+                "reference": "6a191a25df833b5449f455bbc7f542884144e50c",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "read",
                 "update"
             ],
-            "time": "2019-09-25T04:15:22+00:00"
+            "time": "2019-09-28T08:15:23+00:00"
         },
         {
             "name": "backpack/generators",
@@ -2870,9 +2870,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Dump databases",
@@ -4838,8 +4838,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -5679,8 +5679,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
