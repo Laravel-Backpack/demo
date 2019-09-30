@@ -278,16 +278,16 @@
         },
         {
             "name": "backpack/menucrud",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "ba07bf6c3c26005aa92d2c407f666e4834e5c5c4"
+                "reference": "7786ed2312bcf047dd4c6ff73d2532bef26c361d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/ba07bf6c3c26005aa92d2c407f666e4834e5c5c4",
-                "reference": "ba07bf6c3c26005aa92d2c407f666e4834e5c5c4",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/7786ed2312bcf047dd4c6ff73d2532bef26c361d",
+                "reference": "7786ed2312bcf047dd4c6ff73d2532bef26c361d",
                 "shasum": ""
             },
             "require": {
@@ -333,7 +333,7 @@
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2019-09-24T15:44:00+00:00"
+            "time": "2019-09-25T07:25:33+00:00"
         },
         {
             "name": "backpack/newscrud",
@@ -2870,9 +2870,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Dump databases",
@@ -4838,8 +4838,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -5679,8 +5679,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
