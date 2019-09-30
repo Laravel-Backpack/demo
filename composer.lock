@@ -158,16 +158,16 @@
         },
         {
             "name": "backpack/generators",
-            "version": "2.0.2",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194"
+                "reference": "7c1c056359fa7a682feea600b1c74a988d614d23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/d2910ceb0f63396a0723e8f4ca476ef3f4835194",
-                "reference": "d2910ceb0f63396a0723e8f4ca476ef3f4835194",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/7c1c056359fa7a682feea600b1c74a988d614d23",
+                "reference": "7c1c056359fa7a682feea600b1c74a988d614d23",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 "request",
                 "view"
             ],
-            "time": "2019-09-17T11:15:55+00:00"
+            "time": "2019-09-28T08:33:39+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -2870,9 +2870,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Dump databases",
@@ -4838,8 +4838,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -5679,8 +5679,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
