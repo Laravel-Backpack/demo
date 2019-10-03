@@ -36,21 +36,7 @@ Route::group([
         });
     }
 
-    // TODO: disable updating users
-    // Route::put('user/{id}', function() { return false; });
-
     // TODO: disable uploading files
     // TODO: disable creating backups
-    
-    // TODO: disable changing the user/password of the logged in user
-
-    // TODO: disable file manager screen
-    Route::any('elfinder/connector', function () {
-        return 'Disabled';
-    });
-
-    // disable file manager in field types
-    Route::any('elfinder/popup/browse', function () {
-        return '<div style="position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; background-color: #ffc107; border-color: #ebb206; color: #fffdf5;">Sorry, the file manager is disabled in the online demo.</div>';
-    });
+   
 }); // this should be the absolute last line of this file
