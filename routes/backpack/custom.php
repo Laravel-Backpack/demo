@@ -38,5 +38,4 @@ Route::group([
 
     // TODO: disable uploading files
     // TODO: disable creating backups
-   
 }); // this should be the absolute last line of this file
