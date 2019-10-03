@@ -1,14 +1,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
-<li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-smile-o"></i> Demo Entities</a>
-    <ul class="nav-dropdown-items">
-      <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon fa fa-optin-monster"></i> <span>Monsters</span></a></li>
-      <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon fa fa-info-circle"></i> <span>Icons</span></a></li>
-      <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon fa fa-shopping-cart"></i> <span>Products</span></a></li>
-    </ul>
-</li>
-
+<li class="nav-title">First-Party Packages</li>
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-newspaper-o"></i> News</a>
     <ul class="nav-dropdown-items">
@@ -40,4 +32,8 @@
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('setting') }}"><i class="nav-icon fa fa-cog"></i> <span>Settings</span></a></li>
     </ul>
 </li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon fa fa-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+
+<li class="nav-title">Demo Entities</li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon fa fa-optin-monster"></i> <span>Monsters</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon fa fa-info-circle"></i> <span>Icons</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon fa fa-shopping-cart"></i> <span>Products</span></a></li>
