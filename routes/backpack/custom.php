@@ -41,7 +41,7 @@ Route::group([
 
     // TODO: disable uploading files
     // TODO: disable creating backups
-    
+
     // TODO: disable changing the user/password of the logged in user
 
     // TODO: disable file manager screen
