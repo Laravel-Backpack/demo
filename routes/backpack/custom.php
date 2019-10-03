@@ -22,14 +22,18 @@ Route::group([
 
     // ---------------------------
     // Backpack DEMO Custom Routes
-	// Prevent people from doing nasty stuff in the online demo
+    // Prevent people from doing nasty stuff in the online demo
     // ---------------------------
 
     // disable delete and bulk delete for all CRUDs
     $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
     foreach ($cruds as $name) {
-    	Route::delete($name.'/{id}', function() { return false; });
-    	Route::post($name.'/bulk-delete', function() { return false; });
+        Route::delete($name.'/{id}', function () {
+            return false;
+        });
+        Route::post($name.'/bulk-delete', function () {
+            return false;
+        });
     }
 
     // TODO: disable updating users
@@ -39,13 +43,13 @@ Route::group([
     // TODO: disable creating backups
     // TODO: login screen should have user and password pre-filled
 
-	// TODO: disable file manager screen
-	Route::any('elfinder/connector', function() {
-		return 'Disabled';
-	});
+    // TODO: disable file manager screen
+    Route::any('elfinder/connector', function () {
+        return 'Disabled';
+    });
 
     // disable file manager in field types
-	Route::any('elfinder/popup/browse', function() {
-		return '<div style="position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; background-color: #ffc107; border-color: #ebb206; color: #fffdf5;">Sorry, the file manager is disabled in the online demo.</div>';
-	});
+    Route::any('elfinder/popup/browse', function () {
+        return '<div style="position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; background-color: #ffc107; border-color: #ebb206; color: #fffdf5;">Sorry, the file manager is disabled in the online demo.</div>';
+    });
 }); // this should be the absolute last line of this file
