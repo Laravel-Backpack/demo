@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => [],
+    'dir' => ['uploads'],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,8 +26,8 @@ return [
     |    ]
     */
     'disks' => [
-        'public',
-        'backups',
+        // 'public',
+        // 'backups',
     ],
 
     /*
@@ -77,6 +77,8 @@ return [
     |
     */
 
-    'options' => [],
+    'options' => [
+
+    ],
 
 ];
