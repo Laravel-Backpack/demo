@@ -14,7 +14,7 @@ class Elfinder
                 break;
 
             case 'write':
-                return (app('env') == 'local')?true:false;
+                return (app('env') == 'local') ? true : false;
                 break;
 
             default:
