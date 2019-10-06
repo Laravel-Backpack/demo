@@ -19,4 +19,21 @@ Route::group([
     Route::crud('monster', 'MonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
+
+    // ---------------------------
+    // Backpack DEMO Custom Routes
+    // Prevent people from doing nasty stuff in the online demo
+    // ---------------------------
+    if (app('env') == 'production') {
+        // disable delete and bulk delete for all CRUDs
+        $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
+        foreach ($cruds as $name) {
+            Route::delete($name.'/{id}', function () {
+                return false;
+            });
+            Route::post($name.'/bulk-delete', function () {
+                return false;
+            });
+        }
+    }
 }); // this should be the absolute last line of this file

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Alert;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -30,4 +31,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function save(array $options = [])
+    {
+        if (app('env') == 'production') {
+            Alert::warning('User editing is disabled in the demo.');
+
+            return true;
+        }
+
+        return parent::save($options);
+    }
 }

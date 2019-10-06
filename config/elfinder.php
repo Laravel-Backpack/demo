@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['uploads'],
+    'dir' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,8 @@ return [
     |    ]
     */
     'disks' => [
-        // 'uploads',
+        'public',
+        'backups',
     ],
 
     /*
@@ -52,7 +53,7 @@ return [
     |
     */
 
-    'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
+    'access' => 'App\Library\Elfinder::checkAccess',
 
     /*
     |--------------------------------------------------------------------------

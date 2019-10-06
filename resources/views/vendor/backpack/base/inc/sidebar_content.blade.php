@@ -1,6 +1,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
-<li class="nav-title">First-party Packages</li>
+<li class="nav-title">First-Party Packages</li>
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon fa fa-newspaper-o"></i> News</a>
     <ul class="nav-dropdown-items">
