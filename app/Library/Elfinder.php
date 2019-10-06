@@ -6,11 +6,6 @@ class Elfinder
 {
     public static function checkAccess($attr, $path, $data, $volume)
     {
-        // on localhost allow everything
-        if (app('env') == 'local') {
-            return true;
-        }
-
         // on production / staging environments disable writing
         // since it could be a security vulnerability
         switch ($attr) {
@@ -19,7 +14,7 @@ class Elfinder
                 break;
 
             case 'write':
-                return false;
+                return (app('env') == 'local')?true:false;
                 break;
 
             default:
