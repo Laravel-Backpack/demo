@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.5",
+            "version": "4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6a191a25df833b5449f455bbc7f542884144e50c"
+                "reference": "0cd48d8aeea66d64e76765d7916fccc75c5db284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6a191a25df833b5449f455bbc7f542884144e50c",
-                "reference": "6a191a25df833b5449f455bbc7f542884144e50c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/0cd48d8aeea66d64e76765d7916fccc75c5db284",
+                "reference": "0cd48d8aeea66d64e76765d7916fccc75c5db284",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "read",
                 "update"
             ],
-            "time": "2019-09-28T08:15:23+00:00"
+            "time": "2019-10-06T07:48:16+00:00"
         },
         {
             "name": "backpack/generators",
@@ -278,16 +278,16 @@
         },
         {
             "name": "backpack/menucrud",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "7786ed2312bcf047dd4c6ff73d2532bef26c361d"
+                "reference": "8b4e9b9d4780d72853caf80b9256dd4da6a14537"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/7786ed2312bcf047dd4c6ff73d2532bef26c361d",
-                "reference": "7786ed2312bcf047dd4c6ff73d2532bef26c361d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/8b4e9b9d4780d72853caf80b9256dd4da6a14537",
+                "reference": "8b4e9b9d4780d72853caf80b9256dd4da6a14537",
                 "shasum": ""
             },
             "require": {
@@ -333,7 +333,7 @@
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2019-09-25T07:25:33+00:00"
+            "time": "2019-10-04T12:29:27+00:00"
         },
         {
             "name": "backpack/newscrud",
@@ -396,16 +396,16 @@
         },
         {
             "name": "backpack/pagemanager",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "fb9bda43407060df97b945e227ca9749261dc902"
+                "reference": "aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/fb9bda43407060df97b945e227ca9749261dc902",
-                "reference": "fb9bda43407060df97b945e227ca9749261dc902",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb",
+                "reference": "aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb",
                 "shasum": ""
             },
             "require": {
@@ -460,20 +460,20 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2019-09-24T15:40:30+00:00"
+            "time": "2019-10-04T08:00:12+00:00"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680"
+                "reference": "dedbcae2c1026cbe7dd313b3dff67bdc9300d1f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/b790dbba866000e6e6485be6e51436d7dec8f680",
-                "reference": "b790dbba866000e6e6485be6e51436d7dec8f680",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/dedbcae2c1026cbe7dd313b3dff67bdc9300d1f2",
+                "reference": "dedbcae2c1026cbe7dd313b3dff67bdc9300d1f2",
                 "shasum": ""
             },
             "require": {
@@ -535,7 +535,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2019-09-24T15:22:06+00:00"
+            "time": "2019-10-04T08:35:17+00:00"
         },
         {
             "name": "backpack/settings",
@@ -2321,16 +2321,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.0",
+            "version": "2.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "b70da677101cca7b584c7489770d2677c2733593"
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b70da677101cca7b584c7489770d2677c2733593",
-                "reference": "b70da677101cca7b584c7489770d2677c2733593",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
                 "shasum": ""
             },
             "require": {
@@ -2384,7 +2384,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-09-30T16:22:22+00:00"
+            "time": "2019-10-05T15:52:23+00:00"
         },
         {
             "name": "nikic/php-parser",
