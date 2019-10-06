@@ -479,12 +479,12 @@ class MonsterCrudController extends CrudController
         // UPLOADS tab
         // -----------------
 
-        if (app('env')=='production') {
+        if (app('env') == 'production') {
             $this->crud->addField([   // CustomHTML
-                'name' => 'separator',
-                'type' => 'custom_html',
+                'name'  => 'separator',
+                'type'  => 'custom_html',
                 'value' => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
-            'tab' => 'Uploads',
+            'tab'       => 'Uploads',
             ]);
         }
 
@@ -496,27 +496,27 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Upload
-            'name' => 'upload',
-            'label' => 'Upload',
-            'type' => 'upload',
+            'name'   => 'upload',
+            'label'  => 'Upload',
+            'type'   => 'upload',
             'upload' => true,
-            'disk' => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+            'disk'   => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
             // optional:
             // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
             'tab' => 'Uploads',
         ]);
 
         $this->crud->addField([   // Upload
-            'name' => 'upload_multiple',
-            'label' => 'Upload Multiple',
-            'type' => 'upload_multiple',
+            'name'   => 'upload_multiple',
+            'label'  => 'Upload Multiple',
+            'type'   => 'upload_multiple',
             'upload' => true,
             // 'disk' => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
             // optional:
             // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
             'tab' => 'Uploads',
         ]);
-        
+
         $this->crud->addField([ // base64_image
             'label'        => 'Base64 Image - includes cropping',
             'name'         => 'base64_image',
@@ -539,7 +539,6 @@ class MonsterCrudController extends CrudController
             // 'prefix' => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
             'tab' => 'Uploads',
         ]);
-
 
         // -----------------
         // BIG TEXTS tab

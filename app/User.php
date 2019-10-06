@@ -36,6 +36,7 @@ class User extends Authenticatable
     {
         if (app('env') == 'production') {
             Alert::warning('User editing is disabled in the demo.');
+
             return true;
         }
 

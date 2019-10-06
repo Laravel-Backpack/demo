@@ -24,8 +24,8 @@ class Monster extends Model
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address' => 'array',
-        'video'   => 'array',
+        'address'         => 'array',
+        'video'           => 'array',
         'upload_multiple' => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array' => 'array',
@@ -96,11 +96,12 @@ class Monster extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-   
-    public function setBase64ImageAttribute($value) 
+
+    public function setBase64ImageAttribute($value)
     {
         if (app('env') == 'production') {
             \Alert::warning('In the online demo the base64 images don\'t get stored.');
+
             return true;
         }
 
@@ -111,6 +112,7 @@ class Monster extends Model
     {
         if (app('env') == 'production') {
             \Alert::warning('In the online demo the images don\'t get uploaded.');
+
             return true;
         }
 
@@ -145,28 +147,30 @@ class Monster extends Model
     {
         if (app('env') == 'production') {
             \Alert::warning('In the online demo the files don\'t get uploaded.');
+
             return true;
         }
 
-        $attribute_name = "upload";
-        $disk = "public";
-        $destination_path = "monsters/upload_field";
+        $attribute_name = 'upload';
+        $disk = 'public';
+        $destination_path = 'monsters/upload_field';
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
-    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+        // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
     }
 
     public function setUploadMultipleAttribute($value)
     {
         if (app('env') == 'production') {
             \Alert::warning('In the online demo the files don\'t get uploaded.');
+
             return true;
         }
 
-        $attribute_name = "upload_multiple";
-        $disk = "public";
-        $destination_path = "monsters/upload_multiple_field";
+        $attribute_name = 'upload_multiple';
+        $disk = 'public';
+        $destination_path = 'monsters/upload_multiple_field';
 
         $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
     }
