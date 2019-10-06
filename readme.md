@@ -10,6 +10,11 @@ Laravel BackPack's demo, which includes all Backpack packages.
 ![Example generated CRUD interface](https://backpackforlaravel.com/uploads/docs-4-0/getting_started/monster_crud_list_entries.png)
 
 
+## How to Use
+
+You can find the demo online at [demo.backpackforlaravel.com](https://demo.backpackforlaravel.com/admin), and play around. But some functionality is disabled, for security reasons (uploads, edits to users). If you want to run the demo without restrictions and/or make code edits and see how they're applied, you can install it on your own machine. See below.
+
+
 ## Install
 
 1) Run in your terminal:
