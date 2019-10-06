@@ -24,18 +24,16 @@ Route::group([
     // Backpack DEMO Custom Routes
     // Prevent people from doing nasty stuff in the online demo
     // ---------------------------
-
-    // disable delete and bulk delete for all CRUDs
-    $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
-    foreach ($cruds as $name) {
-        Route::delete($name.'/{id}', function () {
-            return false;
-        });
-        Route::post($name.'/bulk-delete', function () {
-            return false;
-        });
+    if (app('env') == 'production') {
+	    // disable delete and bulk delete for all CRUDs
+	    $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
+	    foreach ($cruds as $name) {
+	        Route::delete($name.'/{id}', function () {
+	            return false;
+	        });
+	        Route::post($name.'/bulk-delete', function () {
+	            return false;
+	        });
+	    }
     }
-
-    // TODO: disable uploading files
-    // TODO: disable creating backups
 }); // this should be the absolute last line of this file
