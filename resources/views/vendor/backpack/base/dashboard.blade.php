@@ -7,6 +7,13 @@
 	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
 	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
 
+    $widgets['before_content'][] = [
+	  'type'         => 'alert',
+	  'class'        => 'alert alert-warning mb-2',
+	  'heading'      => 'Demo gets refreshed every hour.',
+	  'content'      => 'This online demo gets wiped & reinstalled every hour. If you get logged out unexpectedly, or your entries have been deleted out of the blue - that\'s most likely what has happened. We do this as a security measure - developers like to mess with stuff.' ,
+	  'close_button' => true, // show close button or not
+	];
 	$widgets['before_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
@@ -85,13 +92,6 @@
 			  ]
 			],
 	  ]
-	];
-    $widgets['after_content'][] = [
-	  'type'         => 'alert',
-	  'class'        => 'alert alert-primary mb-2',
-	  'heading'      => 'This repo is for demonstration purposes only.',
-	  'content'      => 'Don\'t use it to start your project. If you decide to use Backpack, start from a fresh Laravel install, or an existing Laravel project, and <a href="http://backpackforlaravel.com/docs/4.0/installation" target="_blank" class="alert-link">install Backpack</a> on top of it. This way, you don\'t end up with unnecessary models, views, packages, etc.',
-	  'close_button' => true, // show close button or not
 	];
 @endphp
 
