@@ -89,7 +89,7 @@
     $widgets['after_content'][] = [
 	  'type'         => 'alert',
 	  'class'        => 'alert alert-warning bg-dark border-0 mb-2',
-	  'heading'      => 'Demo Refreshes Every Full Hour',
+	  'heading'      => 'Demo Refreshes Every Hour on the Hour',
 	  'content'      => 'At hh:00, all custom entries are deleted, all files, everything. This cleanup is necessary because developers like to joke with their test entries, and mess with stuff. But you know that :-) Go ahead - make a developer smile.' ,
 	  'close_button' => true, // show close button or not
 	];
