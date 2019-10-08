@@ -7,13 +7,6 @@
 	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
 	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
 
-    $widgets['before_content'][] = [
-	  'type'         => 'alert',
-	  'class'        => 'alert alert-warning mb-2',
-	  'heading'      => 'Demo gets refreshed every hour.',
-	  'content'      => 'This online demo gets wiped & reinstalled every hour. If you get logged out unexpectedly, or your entries have been deleted out of the blue - that\'s most likely what has happened. We do this as a security measure - developers like to mess with stuff.' ,
-	  'close_button' => true, // show close button or not
-	];
 	$widgets['before_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
@@ -92,6 +85,13 @@
 			  ]
 			],
 	  ]
+	];
+    $widgets['after_content'][] = [
+	  'type'         => 'alert',
+	  'class'        => 'alert alert-warning bg-dark border-0 mb-2',
+	  'heading'      => 'Demo Refreshes Every Full Hour',
+	  'content'      => 'At hh:00, all custom entries are deleted, all files, everything. This cleanup is necessary because developers like to joke with their test entries, and mess with stuff. But you know that :-) Go ahead - make a developer smile.' ,
+	  'close_button' => true, // show close button or not
 	];
 @endphp
 
