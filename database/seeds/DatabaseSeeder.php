@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Product::class, 210)->create();
         factory(App\Models\Monster::class, 140)->create();
         factory(Backpack\PageManager\app\Models\Page::class, 16)->create();
+        factory(Backpack\MenuCRUD\app\Models\MenuItem::class, 7)->create();
     }
 }
