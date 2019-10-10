@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(NewsTablesSeeder::class);
+        $this->call(IconsTableSeeder::class);
         $this->call(\Backpack\Settings\database\seeds\SettingsTableSeeder::class);
 
         $this->call(PermissionManagerTablesSeeder::class);
