@@ -19,6 +19,7 @@
       @endforeach
   @endforeach
 
+  @if (app('env') != 'local')
   @php
     $now = \Carbon\Carbon::now();
     $refreshTime = \Carbon\Carbon::now()->endOfHour();
@@ -42,4 +43,5 @@
       @php
     }
   @endphp
+  @endif
 </script>
