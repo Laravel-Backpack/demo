@@ -56,13 +56,11 @@ $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Ge
     ];
 });
 
-
-/**
+/*
  * PageManager and MenuCRUD
  */
 
 $factory->define(Backpack\PageManager\app\Models\Page::class, function (Faker\Generator $faker) {
-    
     $title = ucfirst($faker->unique()->words(rand(1, 3), true));
 
     return [
@@ -76,8 +74,7 @@ $factory->define(Backpack\PageManager\app\Models\Page::class, function (Faker\Ge
 });
 
 $factory->define(Backpack\MenuCRUD\app\Models\MenuItem::class, function (Faker\Generator $faker) {
-
-    $name = ucfirst($faker->unique()->words(rand(1,3), true));
+    $name = ucfirst($faker->unique()->words(rand(1, 3), true));
     $type = $faker->randomElement(['page_link', 'external_link', 'internal_link']);
 
     switch ($type) {
@@ -85,11 +82,11 @@ $factory->define(Backpack\MenuCRUD\app\Models\MenuItem::class, function (Faker\G
             $link = $faker->url;
             $page_id = null;
             break;
-        
+
         case 'internal_link':
             $link = $faker->slug;
             $page_id = null;
-            # code...
+            // code...
             break;
 
         default: // page_link
@@ -99,9 +96,9 @@ $factory->define(Backpack\MenuCRUD\app\Models\MenuItem::class, function (Faker\G
     }
 
     return [
-        'name' => $name,
-        'type' => $type,
-        'link' => $link,
+        'name'    => $name,
+        'type'    => $type,
+        'link'    => $link,
         'page_id' => $page_id,
     ];
 });
