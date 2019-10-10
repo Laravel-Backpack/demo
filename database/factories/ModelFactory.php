@@ -42,11 +42,11 @@ $factory->define(Backpack\NewsCRUD\app\Models\Tag::class, function (Faker\Genera
 $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Generator $faker) {
     return [
         'category_id' => rand(1, 8),
-        'title'    => ucfirst($faker->unique()->sentence()),
-        'content'  => $faker->text(800),
-        'status'   => $faker->shuffle(['PUBLISHED', 'DRAFT'])[0],
-        'date'     => $faker->date(),
-        'featured' => $faker->boolean(),
+        'title'       => ucfirst($faker->unique()->sentence()),
+        'content'     => $faker->text(800),
+        'status'      => $faker->shuffle(['PUBLISHED', 'DRAFT'])[0],
+        'date'        => $faker->date(),
+        'featured'    => $faker->boolean(),
     ];
 });
 
