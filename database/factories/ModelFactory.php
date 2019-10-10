@@ -17,7 +17,7 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name'           => $faker->name,
-        'email'          => $faker->safeEmail,
+        'email'          => $faker->unique()->safeEmail,
         'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];
@@ -53,6 +53,20 @@ $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Ge
         'status'   => $faker->shuffle(['PUBLISHED', 'DRAFT'])[0],
         'date'     => $faker->date(),
         'featured' => $faker->boolean(),
+    ];
+});
+
+
+$factory->define(Backpack\PageManager\app\Models\Page::class, function (Faker\Generator $faker) {
+    $title = ucfirst($faker->unique()->words(rand(1,3), true));
+
+    return [
+        'template' => $faker->randomElement(['services', 'about_us']),
+        'name' => $title,
+        'title' => $title,
+        // 'slug' = ,
+        'content' => $faker->paragraphs(rand(3, 18), true),
+        // 'extras' => ,
     ];
 });
 
