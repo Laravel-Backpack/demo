@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Models\Icon;
+use Illuminate\Database\Seeder;
 
 class IconsTableSeeder extends Seeder
 {
@@ -23,6 +23,7 @@ class IconsTableSeeder extends Seeder
             'icon' => 'fa-fas fa-home',
         ],
     ];
+
     /**
      * Run the database seeds.
      *
