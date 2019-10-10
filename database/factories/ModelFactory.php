@@ -56,14 +56,13 @@ $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Ge
     ];
 });
 
-
 $factory->define(Backpack\PageManager\app\Models\Page::class, function (Faker\Generator $faker) {
-    $title = ucfirst($faker->unique()->words(rand(1,3), true));
+    $title = ucfirst($faker->unique()->words(rand(1, 3), true));
 
     return [
         'template' => $faker->randomElement(['services', 'about_us']),
-        'name' => $title,
-        'title' => $title,
+        'name'     => $title,
+        'title'    => $title,
         // 'slug' = ,
         'content' => $faker->paragraphs(rand(3, 18), true),
         // 'extras' => ,
