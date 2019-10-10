@@ -12,9 +12,8 @@
 */
 
 /**
- * Authentication - Users, Roles, Permissions
+ * Authentication - Users, Roles, Permissions.
  */
-
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name'           => $faker->name,
@@ -24,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-/**
+/*
  * NewsCRUD
  */
 
@@ -57,8 +56,7 @@ $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Ge
     ];
 });
 
-
-/**
+/*
  * Demo Entities
  */
 
