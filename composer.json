@@ -20,13 +20,13 @@
         "spatie/laravel-translatable": "^4.0",
         "barryvdh/laravel-elfinder": "^0.4.3",
         "spatie/laravel-backup": "^6.1",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "facade/ignition": "^1.11"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "^7.0",
-        "filp/whoops": "~2.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "dev-master",
