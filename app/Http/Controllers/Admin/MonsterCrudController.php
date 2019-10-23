@@ -167,9 +167,9 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name' => 'table', 
-            'label' => 'Table', 
-            'type' => 'table', 
+            'name'            => 'table',
+            'label'           => 'Table',
+            'type'            => 'table',
             'columns'         => [
                 'name'  => 'Name',
                 'desc'  => 'Description',
@@ -178,33 +178,33 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-           'name' => 'table', // The db column name
-           'key' => 'table_count',
-           'label' => "Array count", // Table column heading
-           'type' => 'array_count',
+           'name'  => 'table', // The db column name
+           'key'   => 'table_count',
+           'label' => 'Array count', // Table column heading
+           'type'  => 'array_count',
            // 'suffix' => 'options', // if you want it to show "2 options" instead of "2 items"
         ]);
 
         $this->crud->addColumn([
-           'name' => 'extras', // The db column name
-           'key' => 'array',
-           'label' => "Array", // Table column heading
-           'type' => 'array',
+           'name'  => 'extras', // The db column name
+           'key'   => 'array',
+           'label' => 'Array', // Table column heading
+           'type'  => 'array',
         ]);
 
         $this->crud->addColumn([
-           'name' => 'table', // The db column name
-           'key' => 'multidimensional_array',
-           'label' => "Multidimensional Array", // Table column heading
-           'type' => 'multidimensional_array',
-           'visible_key' => 'name'
+           'name'        => 'table', // The db column name
+           'key'         => 'multidimensional_array',
+           'label'       => 'Multidimensional Array', // Table column heading
+           'type'        => 'multidimensional_array',
+           'visible_key' => 'name',
         ]);
 
         $this->crud->addColumn([
-           'name' => "category",
-           'key' => "category_name",
-           'label' => "Model Function Attribute", // Table column heading
-           'type' => "model_function_attribute",
+           'name'          => 'category',
+           'key'           => 'category_name',
+           'label'         => 'Model Function Attribute', // Table column heading
+           'type'          => 'model_function_attribute',
            'function_name' => 'getCategory', // the method in your Model
            // 'function_parameters' => [$one, $two], // pass one/more parameters to that method
            'attribute' => 'name',
@@ -212,10 +212,10 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-           'name' => 'number', // The db column name
-           'key' => 'phone',
-           'label' => "Phone", // Table column heading
-           'type' => 'phone',
+           'name'  => 'number', // The db column name
+           'key'   => 'phone',
+           'label' => 'Phone', // Table column heading
+           'type'  => 'phone',
         ]);
 
         $this->crud->addColumn([   // Upload
