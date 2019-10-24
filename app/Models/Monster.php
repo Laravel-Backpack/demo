@@ -122,8 +122,8 @@ class Monster extends Model
         }
 
         $attribute_name = 'image';
-        $disk = 'uploads'; // use Backpack's root disk; or your own
-        $destination_path = 'monsters/image_field';
+        $disk = 'public'; // use Backpack's root disk; or your own
+        $destination_path = 'uploads/monsters/image_field';
 
         // if the image was erased
         if ($value == null) {
@@ -157,8 +157,8 @@ class Monster extends Model
         }
 
         $attribute_name = 'upload';
-        $disk = 'uploads';
-        $destination_path = 'monsters/upload_field';
+        $disk = 'public';
+        $destination_path = 'uploads/monsters/upload_field';
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
@@ -174,8 +174,8 @@ class Monster extends Model
         }
 
         $attribute_name = 'upload_multiple';
-        $disk = 'uploads';
-        $destination_path = 'monsters/upload_multiple_field';
+        $disk = 'public';
+        $destination_path = 'uploads/monsters/upload_multiple_field';
 
         $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
     }
