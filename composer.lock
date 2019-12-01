@@ -1735,8 +1735,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -3499,9 +3499,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Dump databases",
@@ -5519,16 +5519,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.0.13",
+            "version": "v4.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "c6d5c55473648ed02ac4b5568ca7b99356b77adb"
+                "reference": "0803cd5e410f1f4bdb544c346021b87faf76c4c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/c6d5c55473648ed02ac4b5568ca7b99356b77adb",
-                "reference": "c6d5c55473648ed02ac4b5568ca7b99356b77adb",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/0803cd5e410f1f4bdb544c346021b87faf76c4c6",
+                "reference": "0803cd5e410f1f4bdb544c346021b87faf76c4c6",
                 "shasum": ""
             },
             "require": {
@@ -5573,7 +5573,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2019-10-20T23:00:09+00:00"
+            "time": "2019-11-25T21:07:52+00:00"
         },
         {
             "name": "laracasts/generators",
@@ -6247,8 +6247,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
