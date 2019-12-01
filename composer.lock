@@ -396,16 +396,16 @@
         },
         {
             "name": "backpack/pagemanager",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb"
+                "reference": "00e7601c8aa499bfb52404c5ff19a58d337aeff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb",
-                "reference": "aa75ac51771a2dea1a3bfc4beacdf4ca294af9bb",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/00e7601c8aa499bfb52404c5ff19a58d337aeff4",
+                "reference": "00e7601c8aa499bfb52404c5ff19a58d337aeff4",
                 "shasum": ""
             },
             "require": {
@@ -460,7 +460,7 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2019-10-04T08:00:12+00:00"
+            "time": "2019-11-17T05:01:45+00:00"
         },
         {
             "name": "backpack/permissionmanager",
@@ -1735,8 +1735,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -3499,9 +3499,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Dump databases",
@@ -6247,8 +6247,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
