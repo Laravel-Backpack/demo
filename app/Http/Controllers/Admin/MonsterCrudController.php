@@ -568,10 +568,10 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Browse multiple
-            'name' => 'browse_multiple',
+            'name'  => 'browse_multiple',
             'label' => 'Browse multiple',
-            'type' => 'browse_multiple',
-            'tab' => 'Uploads',
+            'type'  => 'browse_multiple',
+            'tab'   => 'Uploads',
             // 'multiple' => true, // enable/disable the multiple selection functionality
             // 'mime_types' => null, // visible mime prefixes; ex. ['image'] or ['application/pdf']
         ]);
