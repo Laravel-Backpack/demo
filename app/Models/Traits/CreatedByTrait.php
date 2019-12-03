@@ -1,17 +1,15 @@
-<?php 
+<?php
 
 namespace App\Models\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-
-trait CreatedByTrait 
+trait CreatedByTrait
 {
     /**
      * Stores the user id at each create & update.
      */
     public function save(array $options = [])
     {
-        $user = backpack_auth()->check() ? backpack_auth()->user() : (\Auth::check() ? \Auth::user() : false );
+        $user = backpack_auth()->check() ? backpack_auth()->user() : (\Auth::check() ? \Auth::user() : false);
 
         if ($user) {
             $this->created_by = $this->created_by ?? $user->id;
@@ -26,7 +24,7 @@ trait CreatedByTrait
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-   
+
     public function creator()
     {
         return $this->belongsTo('App\User', 'created_by');

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\SnippetRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class SnippetCrudController
- * @package App\Http\Controllers\Admin
+ * Class SnippetCrudController.
+ *
  * @property-read CrudPanel $crud
  */
 class CreatorSnippetCrudController extends SnippetCrudController
@@ -24,7 +22,7 @@ class CreatorSnippetCrudController extends SnippetCrudController
         $user_id = \Route::current()->parameter('user_id');
 
         $this->crud->setModel('App\Models\Snippet');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/creator/'.$user_id.'/snippet');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/creator/'.$user_id.'/snippet');
         $this->crud->setEntityNameStrings('snippet', 'snippets');
 
         // filter List operation (with search) to only show this users' entries

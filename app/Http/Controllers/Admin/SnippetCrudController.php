@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class SnippetCrudController
- * @package App\Http\Controllers\Admin
+ * Class SnippetCrudController.
+ *
  * @property-read CrudPanel $crud
  */
 class SnippetCrudController extends CrudController
@@ -22,7 +22,7 @@ class SnippetCrudController extends CrudController
     public function setup()
     {
         $this->crud->setModel('App\Models\Snippet');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/snippet');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/snippet');
         $this->crud->setEntityNameStrings('snippet', 'snippets');
     }
 
@@ -30,25 +30,25 @@ class SnippetCrudController extends CrudController
     {
         $this->crud->addColumn('name');
         $this->crud->addColumn([
-            'label' => 'Category',
-            'type' => 'select',
-            'name' => 'category_id',
-            'entity' => 'category',
+            'label'     => 'Category',
+            'type'      => 'select',
+            'name'      => 'category_id',
+            'entity'    => 'category',
             'attribute' => 'name',
         ]);
         $this->crud->addColumn([
-            'label' => 'Created by',
-            'type' => 'select',
-            'name' => 'created_by',
-            'entity' => 'creator',
+            'label'     => 'Created by',
+            'type'      => 'select',
+            'name'      => 'created_by',
+            'entity'    => 'creator',
             'attribute' => 'name',
         ]);
 
         $this->crud->addColumn([
-            'label' => 'Updated by',
-            'type' => 'select',
-            'name' => 'updated_by',
-            'entity' => 'updater',
+            'label'     => 'Updated by',
+            'type'      => 'select',
+            'name'      => 'updated_by',
+            'entity'    => 'updater',
             'attribute' => 'name',
         ]);
     }
@@ -56,7 +56,7 @@ class SnippetCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
-        
+
         $this->crud->addColumn('description');
         $this->crud->addColumn('content');
     }
@@ -66,32 +66,32 @@ class SnippetCrudController extends CrudController
         $this->crud->setValidation(SnippetRequest::class);
 
         $this->crud->addField([
-            'type' => 'text',
-            'name' => 'name',
-            'label' => 'Name',
+            'type'              => 'text',
+            'name'              => 'name',
+            'label'             => 'Name',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
-            ]
+                'class' => 'form-group col-md-6',
+            ],
         ]);
         $this->crud->addField([
-            'label' => 'Category',
-            'type' => 'select',
-            'name' => 'category_id',
-            'entity' => 'category',
-            'attribute' => 'name',
+            'label'             => 'Category',
+            'type'              => 'select',
+            'name'              => 'category_id',
+            'entity'            => 'category',
+            'attribute'         => 'name',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
-            ]
+                'class' => 'form-group col-md-6',
+            ],
         ]);
         $this->crud->addField([
-            'type' => 'simplemde',
-            'name' => 'description',
-            'label' => 'Description'
+            'type'  => 'simplemde',
+            'name'  => 'description',
+            'label' => 'Description',
         ]);
         $this->crud->addField([
-            'type' => 'textarea',
-            'name' => 'content',
-            'label' => 'Content'
+            'type'  => 'textarea',
+            'name'  => 'content',
+            'label' => 'Content',
         ]);
     }
 

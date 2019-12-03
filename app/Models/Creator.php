@@ -17,7 +17,7 @@ class Creator extends BackpackUser
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-   
+
     public function snippets()
     {
         return $this->hasMany('App\Models\Snippet', 'created_by');

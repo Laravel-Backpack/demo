@@ -40,7 +40,7 @@ class Snippet extends Model
     {
         return $this->belongsTo('Backpack\NewsCRUD\app\Models\Category', 'category_id');
     }
-    
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

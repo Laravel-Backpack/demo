@@ -27,7 +27,7 @@ Route::group([
     Route::crud('my-snippet', 'MySnippetCrudController');
 
     Route::crud('creator', 'CreatorCrudController');
-    Route::group(['prefix' => 'creator/{user_id}'], function() {
+    Route::group(['prefix' => 'creator/{user_id}'], function () {
         Route::crud('snippet', 'CreatorSnippetCrudController');
     });
 
@@ -47,6 +47,4 @@ Route::group([
             });
         }
     }
-
-
 }); // this should be the absolute last line of this file
