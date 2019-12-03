@@ -572,6 +572,7 @@ class MonsterCrudController extends CrudController
             'label' => 'Browse multiple',
             'type' => 'browse_multiple',
             'tab' => 'Uploads',
+            'sortable' => true,
             // 'multiple' => true, // enable/disable the multiple selection functionality
             // 'mime_types' => null, // visible mime prefixes; ex. ['image'] or ['application/pdf']
         ]);
