@@ -568,7 +568,7 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Browse multiple
-            'name' => 'browse_multiple',
+            'name'  => 'browse_multiple',
             'label' => 'Browse multiple',
             'type' => 'browse_multiple',
             'tab' => 'Uploads',
