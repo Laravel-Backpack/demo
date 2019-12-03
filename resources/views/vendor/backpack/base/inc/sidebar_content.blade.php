@@ -37,3 +37,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon fa fa-optin-monster"></i> <span>Monsters</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon fa fa-info-circle"></i> <span>Icons</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon fa fa-shopping-cart"></i> <span>Products</span></a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('snippet') }}'><i class='nav-icon fa fa-question'></i> Snippets</a></li>

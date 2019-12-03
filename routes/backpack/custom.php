@@ -36,4 +36,5 @@ Route::group([
             });
         }
     }
+    Route::crud('snippet', 'SnippetCrudController');
 }); // this should be the absolute last line of this file
