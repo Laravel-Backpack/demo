@@ -38,4 +38,8 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon fa fa-info-circle"></i> <span>Icons</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon fa fa-shopping-cart"></i> <span>Products</span></a></li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('snippet') }}'><i class='nav-icon fa fa-question'></i> Snippets</a></li>
+
+<li class="nav-title">Filtered or Nested</li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('snippet') }}'><i class='nav-icon fa fa-question'></i> All Snippets</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('my-snippet') }}'><i class='nav-icon fa fa-question'></i> My Snippets</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('creator') }}'><i class='nav-icon fa fa-question'></i> Creator Snippets</a></li>

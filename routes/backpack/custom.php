@@ -20,13 +20,24 @@ Route::group([
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
 
+    // ---------------------
+    // Backpack Nested CRUDs
+    // ---------------------
+    Route::crud('snippet', 'SnippetCrudController');
+    Route::crud('my-snippet', 'MySnippetCrudController');
+
+    Route::crud('creator', 'CreatorCrudController');
+    Route::group(['prefix' => 'creator/{user_id}'], function() {
+        Route::crud('snippet', 'CreatorSnippetCrudController');
+    });
+
     // ---------------------------
     // Backpack DEMO Custom Routes
     // Prevent people from doing nasty stuff in the online demo
     // ---------------------------
     if (app('env') == 'production') {
         // disable delete and bulk delete for all CRUDs
-        $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
+        $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission', 'snippet', 'my-snippet', 'creator', 'creator/{user_id}/snippet'];
         foreach ($cruds as $name) {
             Route::delete($name.'/{id}', function () {
                 return false;
@@ -36,5 +47,6 @@ Route::group([
             });
         }
     }
-    Route::crud('snippet', 'SnippetCrudController');
+
+
 }); // this should be the absolute last line of this file
