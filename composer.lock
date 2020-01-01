@@ -539,16 +539,16 @@
         },
         {
             "name": "backpack/settings",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1"
+                "reference": "4232f8b8671bfdc239ccfe7fb4f77e9ecda9bde6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1",
-                "reference": "9f0ed1189cd2e5c95a0be42f4d3573e5f57ba1f1",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/4232f8b8671bfdc239ccfe7fb4f77e9ecda9bde6",
+                "reference": "4232f8b8671bfdc239ccfe7fb4f77e9ecda9bde6",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2019-09-24T15:26:29+00:00"
+            "time": "2019-12-19T11:25:14+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1734,8 +1734,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -6316,8 +6316,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
