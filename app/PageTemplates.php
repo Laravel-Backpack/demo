@@ -23,49 +23,49 @@ trait PageTemplates
     private function services()
     {
         $this->crud->addField([   // CustomHTML
-                        'name'  => 'metas_separator',
-                        'type'  => 'custom_html',
-                        'value' => '<br><h2>Metas</h2><hr>',
-                    ]);
+            'name'  => 'metas_separator',
+            'type'  => 'custom_html',
+            'value' => '<br><h2>Metas</h2><hr>',
+        ]);
         $this->crud->addField([
-                        'name'     => 'meta_title',
-                        'label'    => 'Meta Title',
-                        'fake'     => true,
-                        'store_in' => 'extras',
-                    ]);
+            'name'     => 'meta_title',
+            'label'    => 'Meta Title',
+            'fake'     => true,
+            'store_in' => 'extras',
+        ]);
         $this->crud->addField([
-                        'name'     => 'meta_description',
-                        'label'    => 'Meta Description',
-                        'fake'     => true,
-                        'store_in' => 'extras',
-                    ]);
+            'name'     => 'meta_description',
+            'label'    => 'Meta Description',
+            'fake'     => true,
+            'store_in' => 'extras',
+        ]);
         $this->crud->addField([
-                        'name'     => 'meta_keywords',
-                        'type'     => 'textarea',
-                        'label'    => 'Meta Keywords',
-                        'fake'     => true,
-                        'store_in' => 'extras',
-                    ]);
+            'name'     => 'meta_keywords',
+            'type'     => 'textarea',
+            'label'    => 'Meta Keywords',
+            'fake'     => true,
+            'store_in' => 'extras',
+        ]);
         $this->crud->addField([   // CustomHTML
-                        'name'  => 'content_separator',
-                        'type'  => 'custom_html',
-                        'value' => '<br><h2>Content</h2><hr>',
-                    ]);
+            'name'  => 'content_separator',
+            'type'  => 'custom_html',
+            'value' => '<br><h2>Content</h2><hr>',
+        ]);
         $this->crud->addField([
-                        'name'        => 'content',
-                        'label'       => 'Content',
-                        'type'        => 'wysiwyg',
-                        'placeholder' => 'Your content here',
-                    ]);
+            'name'        => 'content',
+            'label'       => 'Content',
+            'type'        => 'wysiwyg',
+            'placeholder' => 'Your content here',
+        ]);
     }
 
     private function about_us()
     {
         $this->crud->addField([
-                        'name'        => 'content',
-                        'label'       => 'Content',
-                        'type'        => 'wysiwyg',
-                        'placeholder' => 'Your content here',
-                    ]);
+            'name'        => 'content',
+            'label'       => 'Content',
+            'type'        => 'wysiwyg',
+            'placeholder' => 'Your content here',
+        ]);
     }
 }
