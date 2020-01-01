@@ -35,7 +35,7 @@ class ProductCrudController extends CrudController
             'visibleInModal' => true,
         ]);
         CRUD::addColumn([
-           // 1-n relationship
+            // 1-n relationship
             'label'          => 'Category', // Table column heading
             'type'           => 'select',
             'name'           => 'category_id', // the column that contains the ID of that connected entity;
@@ -62,13 +62,13 @@ class ProductCrudController extends CrudController
             //'default'    => 'some value', // default value
             //'hint'       => 'Some hint text', // helpful text, show up after input
             //'attributes' => [
-               //'placeholder' => 'Some text when empty',
-               //'class' => 'form-control some-class'
-             //], // extra HTML attributes and values your input might need
-             //'wrapperAttributes' => [
-               //'class' => 'form-group col-md-12'
-             //], // extra HTML attributes for the field wrapper - mostly for resizing fields
-             //'readonly'=>'readonly',
+            //'placeholder' => 'Some text when empty',
+            //'class' => 'form-control some-class'
+            //], // extra HTML attributes and values your input might need
+            //'wrapperAttributes' => [
+            //'class' => 'form-group col-md-12'
+            //], // extra HTML attributes for the field wrapper - mostly for resizing fields
+            //'readonly'=>'readonly',
         ]);
 
         CRUD::addField([   // Textarea
@@ -115,14 +115,14 @@ class ProductCrudController extends CrudController
         ]);
 
         CRUD::addField([  // Select2
-           'label'     => 'Category',
-           'type'      => 'select2',
-           'name'      => 'category_id', // the db column for the foreign key
-           'entity'    => 'category', // the method that defines the relationship in your Model
-           'attribute' => 'name', // foreign key attribute that is shown to user
-           // 'wrapperAttributes' => [
-           //     'class' => 'form-group col-md-6'
-           //   ], // extra HTML attributes for the field wrapper - mostly for resizing fields
+            'label'     => 'Category',
+            'type'      => 'select2',
+            'name'      => 'category_id', // the db column for the foreign key
+            'entity'    => 'category', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            // 'wrapperAttributes' => [
+            //     'class' => 'form-group col-md-6'
+            //   ], // extra HTML attributes for the field wrapper - mostly for resizing fields
             'tab' => 'Basic Info',
         ]);
 

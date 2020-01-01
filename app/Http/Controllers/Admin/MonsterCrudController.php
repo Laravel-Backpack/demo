@@ -52,10 +52,10 @@ class MonsterCrudController extends CrudController
                 'options' => [0 => 'Yes', 1 => 'No'],
             ],
             [
-               'name'  => 'checkbox', // The db column name
-               'key'   => 'check',
-               'label' => 'Agreed', // Table column heading
-               'type'  => 'check',
+                'name'  => 'checkbox', // The db column name
+                'key'   => 'check',
+                'label' => 'Agreed', // Table column heading
+                'type'  => 'check',
             ],
             [
                 'name'     => 'created_at',
@@ -66,47 +66,47 @@ class MonsterCrudController extends CrudController
                 },
             ],
             [
-               'name'  => 'name', // The db column name
-               'label' => 'Date', // Table column heading
-               'type'  => 'date',
+                'name'  => 'name', // The db column name
+                'label' => 'Date', // Table column heading
+                'type'  => 'date',
                 // 'format' => 'l j F Y', // use something else than the base.default_date_format config value
             ],
             [
-               'name'  => 'name', // The db column name
-               'label' => 'Datetime', // Table column heading
-               'type'  => 'datetime',
+                'name'  => 'name', // The db column name
+                'label' => 'Datetime', // Table column heading
+                'type'  => 'datetime',
                 // 'format' => 'l j F Y H:i:s', // use something else than the base.default_datetime_format config value
             ],
             [
-               'name'  => 'email', // The db column name
-               'label' => 'Email Address', // Table column heading
-               'type'  => 'email',
-               // 'limit' => 500, // if you want to truncate the text to a different number of characters
+                'name'  => 'email', // The db column name
+                'label' => 'Email Address', // Table column heading
+                'type'  => 'email',
+                // 'limit' => 500, // if you want to truncate the text to a different number of characters
             ],
             [
-               // show both text and email values in one column
-               // this column is here to demo and test the custom searchLogic functionality
-               'name'          => 'model_function',
-               'label'         => 'Text and Email', // Table column heading
-               'type'          => 'model_function',
-               'function_name' => 'getTextAndEmailAttribute', // the method in your Model
-               'searchLogic'   => function ($query, $column, $searchTerm) {
-                   $query->orWhere('email', 'like', '%'.$searchTerm.'%');
-                   $query->orWhere('text', 'like', '%'.$searchTerm.'%');
-               },
+                // show both text and email values in one column
+                // this column is here to demo and test the custom searchLogic functionality
+                'name'          => 'model_function',
+                'label'         => 'Text and Email', // Table column heading
+                'type'          => 'model_function',
+                'function_name' => 'getTextAndEmailAttribute', // the method in your Model
+                'searchLogic'   => function ($query, $column, $searchTerm) {
+                    $query->orWhere('email', 'like', '%'.$searchTerm.'%');
+                    $query->orWhere('text', 'like', '%'.$searchTerm.'%');
+                },
             ],
             [
-               'name'  => 'number', // The db column name
-               'label' => 'Number', // Table column heading
-               'type'  => 'number',
-               // 'prefix' => "$",
-               // 'suffix' => " EUR",
-               // 'decimals' => 2,
-               // 'dec_point' => ',',
-               // 'thousands_sep' => '.',
-               // decimals, dec_point and thousands_sep are used to format the number;
-               // for details on how they work check out PHP's number_format() method, they're passed directly to it;
-               // https://www.php.net/manual/en/function.number-format.php
+                'name'  => 'number', // The db column name
+                'label' => 'Number', // Table column heading
+                'type'  => 'number',
+                // 'prefix' => "$",
+                // 'suffix' => " EUR",
+                // 'decimals' => 2,
+                // 'dec_point' => ',',
+                // 'thousands_sep' => '.',
+                // decimals, dec_point and thousands_sep are used to format the number;
+                // for details on how they work check out PHP's number_format() method, they're passed directly to it;
+                // https://www.php.net/manual/en/function.number-format.php
             ],
             [
                 'name'        => 'radio',
@@ -115,13 +115,13 @@ class MonsterCrudController extends CrudController
                 'options'     => [0 => 'Draft', 1 => 'Published', 2 => 'Other'],
             ],
             [
-               // 1-n relationship
-               'label'     => 'Select', // Table column heading
-               'type'      => 'select',
-               'name'      => 'select', // the column that contains the ID of that connected entity;
-               'entity'    => 'category', // the method that defines the relationship in your Model
-               'attribute' => 'name', // foreign key attribute that is shown to user
-               'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+                // 1-n relationship
+                'label'     => 'Select', // Table column heading
+                'type'      => 'select',
+                'name'      => 'select', // the column that contains the ID of that connected entity;
+                'entity'    => 'category', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
             ],
             [ // select_from_array
                 'name'    => 'Select_from_array',
@@ -130,18 +130,18 @@ class MonsterCrudController extends CrudController
                 'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
             ],
             [
-               // select_multiple: n-n relationship (with pivot table)
-               'label'     => 'Select_multiple', // Table column heading
-               'type'      => 'select_multiple',
-               'name'      => 'tags', // the method that defines the relationship in your Model
-               'entity'    => 'tags', // the method that defines the relationship in your Model
-               'attribute' => 'name', // foreign key attribute that is shown to user
-               'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+                // select_multiple: n-n relationship (with pivot table)
+                'label'     => 'Select_multiple', // Table column heading
+                'type'      => 'select_multiple',
+                'name'      => 'tags', // the method that defines the relationship in your Model
+                'entity'    => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
             ],
             [
-               'name'  => 'video', // The db column name
-               'label' => 'Video', // Table column heading
-               'type'  => 'video',
+                'name'  => 'video', // The db column name
+                'label' => 'Video', // Table column heading
+                'type'  => 'video',
             ],
         ]);
 
@@ -178,44 +178,44 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-           'name'  => 'table', // The db column name
-           'key'   => 'table_count',
-           'label' => 'Array count', // Table column heading
-           'type'  => 'array_count',
-           // 'suffix' => 'options', // if you want it to show "2 options" instead of "2 items"
+            'name'  => 'table', // The db column name
+            'key'   => 'table_count',
+            'label' => 'Array count', // Table column heading
+            'type'  => 'array_count',
+            // 'suffix' => 'options', // if you want it to show "2 options" instead of "2 items"
         ]);
 
         $this->crud->addColumn([
-           'name'  => 'extras', // The db column name
-           'key'   => 'array',
-           'label' => 'Array', // Table column heading
-           'type'  => 'array',
+            'name'  => 'extras', // The db column name
+            'key'   => 'array',
+            'label' => 'Array', // Table column heading
+            'type'  => 'array',
         ]);
 
         $this->crud->addColumn([
-           'name'        => 'table', // The db column name
-           'key'         => 'multidimensional_array',
-           'label'       => 'Multidimensional Array', // Table column heading
-           'type'        => 'multidimensional_array',
-           'visible_key' => 'name',
+            'name'        => 'table', // The db column name
+            'key'         => 'multidimensional_array',
+            'label'       => 'Multidimensional Array', // Table column heading
+            'type'        => 'multidimensional_array',
+            'visible_key' => 'name',
         ]);
 
         $this->crud->addColumn([
-           'name'          => 'category',
-           'key'           => 'category_name',
-           'label'         => 'Model Function Attribute', // Table column heading
-           'type'          => 'model_function_attribute',
-           'function_name' => 'getCategory', // the method in your Model
-           // 'function_parameters' => [$one, $two], // pass one/more parameters to that method
-           'attribute' => 'name',
-           // 'limit' => 100, // Limit the number of characters shown
+            'name'          => 'category',
+            'key'           => 'category_name',
+            'label'         => 'Model Function Attribute', // Table column heading
+            'type'          => 'model_function_attribute',
+            'function_name' => 'getCategory', // the method in your Model
+            // 'function_parameters' => [$one, $two], // pass one/more parameters to that method
+            'attribute' => 'name',
+            // 'limit' => 100, // Limit the number of characters shown
         ]);
 
         $this->crud->addColumn([
-           'name'  => 'number', // The db column name
-           'key'   => 'phone',
-           'label' => 'Phone', // Table column heading
-           'type'  => 'phone',
+            'name'  => 'number', // The db column name
+            'key'   => 'phone',
+            'label' => 'Phone', // Table column heading
+            'type'  => 'phone',
         ]);
 
         $this->crud->addColumn([   // Upload
@@ -322,10 +322,10 @@ class MonsterCrudController extends CrudController
             'label'   => 'Status (radio)', // the input label
             'type'    => 'radio',
             'options' => [ // the key will be stored in the db, the value will be shown as label;
-                                0 => 'Draft',
-                                1 => 'Published',
-                                2 => 'Other',
-                            ],
+                0 => 'Draft',
+                1 => 'Published',
+                2 => 'Other',
+            ],
             // optional
             'inline' => true, // show the radios all on the same line?
             'tab'    => 'Simple',
@@ -553,10 +553,10 @@ class MonsterCrudController extends CrudController
 
         if (app('env') == 'production') {
             $this->crud->addField([   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
-            'tab'       => 'Uploads',
+                'name'      => 'separator',
+                'type'      => 'custom_html',
+                'value'     => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
+                'tab'       => 'Uploads',
             ]);
         }
 
@@ -730,9 +730,9 @@ class MonsterCrudController extends CrudController
     public function addCustomCrudFilters()
     {
         $this->crud->addFilter([ // add a "simple" filter called Draft
-          'type'  => 'simple',
-          'name'  => 'checkbox',
-          'label' => 'Simple',
+            'type'  => 'simple',
+            'name'  => 'checkbox',
+            'label' => 'Simple',
         ],
         false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
@@ -740,18 +740,18 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // dropdown filter
-          'name' => 'select_from_array',
-          'type' => 'dropdown',
-          'label'=> 'Dropdown',
+            'name' => 'select_from_array',
+            'type' => 'dropdown',
+            'label'=> 'Dropdown',
         ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function ($value) {
             // if the filter is active
             $this->crud->addClause('where', 'select_from_array', $value);
         });
 
         $this->crud->addFilter([ // text filter
-          'type'  => 'text',
-          'name'  => 'text',
-          'label' => 'Text',
+            'type'  => 'text',
+            'name'  => 'text',
+            'label' => 'Text',
         ],
         false,
         function ($value) { // if the filter is active
@@ -759,11 +759,11 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([
-          'name'       => 'number',
-          'type'       => 'range',
-          'label'      => 'Range',
-          'label_from' => 'min value',
-          'label_to'   => 'max value',
+            'name'       => 'number',
+            'type'       => 'range',
+            'label'      => 'Range',
+            'label_from' => 'min value',
+            'label_to'   => 'max value',
         ],
         false,
         function ($value) { // if the filter is active
@@ -775,9 +775,9 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // date filter
-          'type'  => 'date',
-          'name'  => 'date',
-          'label' => 'Date',
+            'type'  => 'date',
+            'name'  => 'date',
+            'label' => 'Date',
         ],
         false,
         function ($value) { // if the filter is active, apply these constraints
@@ -785,16 +785,16 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // daterange filter
-           'type' => 'date_range',
-           'name' => 'date_range',
-           'label'=> 'Date range',
-           // 'date_range_options' => [
-                 // 'format' => 'YYYY/MM/DD',
-                 // 'locale' => ['format' => 'YYYY/MM/DD'],
-                 // 'showDropdowns' => true,
-                 // 'showWeekNumbers' => true
+            'type' => 'date_range',
+            'name' => 'date_range',
+            'label'=> 'Date range',
+            // 'date_range_options' => [
+            // 'format' => 'YYYY/MM/DD',
+            // 'locale' => ['format' => 'YYYY/MM/DD'],
+            // 'showDropdowns' => true,
+            // 'showWeekNumbers' => true
             // ]
-         ],
+        ],
          false,
          function ($value) { // if the filter is active, apply these constraints
              $dates = json_decode($value);
@@ -803,9 +803,9 @@ class MonsterCrudController extends CrudController
          });
 
         $this->crud->addFilter([ // select2 filter
-          'name' => 'select2',
-          'type' => 'select2',
-          'label'=> 'Select2',
+            'name' => 'select2',
+            'type' => 'select2',
+            'label'=> 'Select2',
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($value) { // if the filter is active
@@ -813,9 +813,9 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // select2_multiple filter
-          'name' => 'select2_multiple',
-          'type' => 'select2_multiple',
-          'label'=> 'S2 multiple',
+            'name' => 'select2_multiple',
+            'type' => 'select2_multiple',
+            'label'=> 'S2 multiple',
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($values) { // if the filter is active
@@ -825,10 +825,10 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addFilter([ // select2_ajax filter
-          'name'        => 'select2_from_ajax',
-          'type'        => 'select2_ajax',
-          'label'       => 'S2 Ajax',
-          'placeholder' => 'Pick an article',
+            'name'        => 'select2_from_ajax',
+            'type'        => 'select2_ajax',
+            'label'       => 'S2 Ajax',
+            'placeholder' => 'Pick an article',
         ],
         url('api/article-search'), // the ajax route
         function ($value) { // if the filter is active
