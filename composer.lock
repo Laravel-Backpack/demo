@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "c3b6fb2487015aded5224c5c2e01123aca9b757d"
+                "reference": "02941d3103dc9ef8da14cc07643b4b5684a9f006"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/c3b6fb2487015aded5224c5c2e01123aca9b757d",
-                "reference": "c3b6fb2487015aded5224c5c2e01123aca9b757d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/02941d3103dc9ef8da14cc07643b4b5684a9f006",
+                "reference": "02941d3103dc9ef8da14cc07643b4b5684a9f006",
                 "shasum": ""
             },
             "require": {
@@ -67,7 +67,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2019-11-17T05:26:12+00:00"
+            "time": "2019-12-19T11:20:16+00:00"
         },
         {
             "name": "backpack/crud",
@@ -1734,8 +1734,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -6316,8 +6316,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
