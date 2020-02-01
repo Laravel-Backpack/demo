@@ -5592,16 +5592,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.0.14",
+            "version": "v4.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "0803cd5e410f1f4bdb544c346021b87faf76c4c6"
+                "reference": "3ddf31bcf04f925ccc551f490839529de32876c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/0803cd5e410f1f4bdb544c346021b87faf76c4c6",
-                "reference": "0803cd5e410f1f4bdb544c346021b87faf76c4c6",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/3ddf31bcf04f925ccc551f490839529de32876c4",
+                "reference": "3ddf31bcf04f925ccc551f490839529de32876c4",
                 "shasum": ""
             },
             "require": {
@@ -5646,7 +5646,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2019-11-25T21:07:52+00:00"
+            "time": "2020-01-31T00:43:53+00:00"
         },
         {
             "name": "laracasts/generators",
@@ -6321,8 +6321,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
