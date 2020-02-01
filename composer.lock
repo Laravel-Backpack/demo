@@ -3673,16 +3673,16 @@
         },
         {
             "name": "spatie/laravel-translatable",
-            "version": "4.2.1",
+            "version": "4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translatable.git",
-                "reference": "3a07be9e1e3cc9566c6d7274b613552d5cbf4b1a"
+                "reference": "71a8ba458dabd8bbe417fa65fd21468175ec22cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/3a07be9e1e3cc9566c6d7274b613552d5cbf4b1a",
-                "reference": "3a07be9e1e3cc9566c6d7274b613552d5cbf4b1a",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/71a8ba458dabd8bbe417fa65fd21468175ec22cb",
+                "reference": "71a8ba458dabd8bbe417fa65fd21468175ec22cb",
                 "shasum": ""
             },
             "require": {
@@ -3742,7 +3742,7 @@
                 "spatie",
                 "translate"
             ],
-            "time": "2019-10-03T11:05:01+00:00"
+            "time": "2020-01-20T07:53:37+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -6321,8 +6321,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
