@@ -464,16 +464,16 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "5.0.3",
+            "version": "5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "ee958b00a707646a447bb396019718e29a8ca131"
+                "reference": "4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/ee958b00a707646a447bb396019718e29a8ca131",
-                "reference": "ee958b00a707646a447bb396019718e29a8ca131",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46",
+                "reference": "4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46",
                 "shasum": ""
             },
             "require": {
@@ -535,7 +535,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2019-12-24T08:10:58+00:00"
+            "time": "2020-01-15T15:50:58+00:00"
         },
         {
             "name": "backpack/settings",
@@ -3605,27 +3605,27 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.4.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "fe0573ddb6fd95378eec67e401882564db830312"
+                "reference": "0a063ce206c7545737d19c1beda12003fc66e4e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/fe0573ddb6fd95378eec67e401882564db830312",
-                "reference": "fe0573ddb6fd95378eec67e401882564db830312",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/0a063ce206c7545737d19c1beda12003fc66e4e9",
+                "reference": "0a063ce206c7545737d19c1beda12003fc66e4e9",
                 "shasum": ""
             },
             "require": {
-                "illuminate/auth": "^5.8|^6.0",
-                "illuminate/container": "^5.8|^6.0",
-                "illuminate/contracts": "^5.8|^6.0",
-                "illuminate/database": "^5.8|^6.0",
+                "illuminate/auth": "^5.8|^6.0|^7.0",
+                "illuminate/container": "^5.8|^6.0|^7.0",
+                "illuminate/contracts": "^5.8|^6.0|^7.0",
+                "illuminate/database": "^5.8|^6.0|^7.0",
                 "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "^3.8|^4.0",
+                "orchestra/testbench": "^3.8|^4.0|^5.0",
                 "phpunit/phpunit": "^8.0",
                 "predis/predis": "^1.1"
             },
@@ -3669,7 +3669,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2019-12-28T13:22:00+00:00"
+            "time": "2020-01-17T16:18:51+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
@@ -6321,8 +6321,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
