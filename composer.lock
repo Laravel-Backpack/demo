@@ -218,16 +218,16 @@
         },
         {
             "name": "backpack/logmanager",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/LogManager.git",
-                "reference": "a30e1e3d2d7aeca014bd951c1a7a47c3b74635b4"
+                "reference": "7aea77e4207891fe17359cb5298a9c490713d393"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/a30e1e3d2d7aeca014bd951c1a7a47c3b74635b4",
-                "reference": "a30e1e3d2d7aeca014bd951c1a7a47c3b74635b4",
+                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/7aea77e4207891fe17359cb5298a9c490713d393",
+                "reference": "7aea77e4207891fe17359cb5298a9c490713d393",
                 "shasum": ""
             },
             "require": {
@@ -274,7 +274,7 @@
                 "log manager",
                 "logs"
             ],
-            "time": "2020-01-03T07:18:16+00:00"
+            "time": "2020-01-14T12:56:02+00:00"
         },
         {
             "name": "backpack/menucrud",
@@ -6321,8 +6321,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
