@@ -1,4 +1,4 @@
-/*!  1.16.4 | © Algolia | github.com/algolia/places */
+/*!  1.17.1 | © Algolia | github.com/algolia/places */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -92,7 +92,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 68);
+/******/ 	return __webpack_require__(__webpack_require__.s = 69);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -238,7 +238,9 @@ module.exports = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -315,8 +317,8 @@ var params = {};
 var controls = {};
 
 var configure = function configure(configuration) {
-  params = extractParams(_objectSpread({}, params, configuration));
-  controls = extractControls(_objectSpread({}, controls, configuration));
+  params = extractParams(_objectSpread({}, params, {}, configuration));
+  controls = extractControls(_objectSpread({}, controls, {}, configuration));
   return {
     params: params,
     controls: controls
@@ -406,7 +408,7 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ('1.16.4');
+/* harmony default export */ __webpack_exports__["default"] = ('1.17.1');
 
 /***/ }),
 /* 7 */
@@ -532,7 +534,9 @@ function findType(tags) {
 }
 // CONCATENATED MODULE: ./src/formatHit.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatHit; });
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -934,7 +938,7 @@ module.exports = {
   ),
   RequestTimeout: createCustomError(
     'RequestTimeout',
-    'Request timedout before getting a response'
+    'Request timed out before getting a response'
   ),
   Network: createCustomError(
     'Network',
@@ -944,9 +948,17 @@ module.exports = {
     'JSONPScriptFail',
     '<script> was loaded but did not call our provided callback'
   ),
+  ValidUntilNotFound: createCustomError(
+    'ValidUntilNotFound',
+    'The SecuredAPIKey does not have a validUntil parameter.'
+  ),
   JSONPScriptError: createCustomError(
     'JSONPScriptError',
     '<script> unable to load due to an `error` event on it'
+  ),
+  ObjectNotFound: createCustomError(
+    'ObjectNotFound',
+    'Object not found'
   ),
   Unknown: createCustomError(
     'Unknown',
@@ -991,7 +1003,7 @@ module.exports = function map(arr, fn) {
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(42);
+exports = module.exports = __webpack_require__(43);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -1175,12 +1187,19 @@ function localstorage() {
 
 /***/ }),
 /* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (".algolia-places {\n  width: 100%;\n}\n\n.ap-input, .ap-hint {\n  width: 100%;\n  padding-right: 35px;\n  padding-left: 16px;\n  line-height: 40px;\n  height: 40px;\n  border: 1px solid #CCC;\n  border-radius: 3px;\n  outline: none;\n  font: inherit;\n  appearance: none;\n  -webkit-appearance: none;\n  box-sizing: border-box;\n}\n\n.ap-input::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n.ap-input::-ms-clear {\n  display: none;\n}\n\n.ap-input:hover ~ .ap-input-icon svg,\n.ap-input:focus ~ .ap-input-icon svg,\n.ap-input-icon:hover svg {\n  fill: #aaaaaa;\n}\n\n.ap-dropdown-menu {\n  width: 100%;\n  background: #ffffff;\n  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n  border-radius: 3px;\n  margin-top: 3px;\n  overflow: hidden;\n}\n\n.ap-suggestion {\n  cursor: pointer;\n  height: 46px;\n  line-height: 46px;\n  padding-left: 18px;\n  overflow: hidden;\n}\n\n.ap-suggestion em {\n  font-weight: bold;\n  font-style: normal;\n}\n\n.ap-address {\n  font-size: smaller;\n  margin-left: 12px;\n  color: #aaaaaa;\n}\n\n.ap-suggestion-icon {\n  margin-right: 10px;\n  width: 14px;\n  height: 20px;\n  vertical-align: middle;\n}\n\n.ap-suggestion-icon svg {\n  -webkit-transform: scale(0.9) translateY(2px);\n          transform: scale(0.9) translateY(2px);\n  fill: #cfcfcf;\n}\n\n.ap-input-icon {\n  border: 0;\n  background: transparent;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 16px;\n  outline: none;\n}\n\n.ap-input-icon.ap-icon-pin {\n  cursor: pointer;\n}\n\n.ap-input-icon svg {\n  fill: #cfcfcf;\n  position: absolute;\n  top: 50%;\n  right: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.ap-cursor {\n  background: #efefef;\n}\n\n.ap-cursor .ap-suggestion-icon svg {\n  -webkit-transform: scale(1) translateY(2px);\n          transform: scale(1) translateY(2px);\n  fill: #aaaaaa;\n}\n\n.ap-footer {\n  opacity: .8;\n  text-align: right;\n  padding: .5em 1em .5em 0;\n  font-size: 12px;\n  line-height: 12px;\n}\n\n.ap-footer a {\n  color: inherit;\n  text-decoration: none;\n}\n\n.ap-footer a svg {\n  vertical-align: middle;\n}\n\n.ap-footer:hover {\n  opacity: 1;\n}\n");
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var immediate = __webpack_require__(57);
+var immediate = __webpack_require__(58);
 var splitter = /\s+/;
 
 module.exports = {
@@ -1283,7 +1302,7 @@ function bindContext(fn, context) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1387,14 +1406,6 @@ module.exports = css;
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".algolia-places {\n  width: 100%;\n}\n\n.ap-input, .ap-hint {\n  width: 100%;\n  padding-right: 35px;\n  padding-left: 16px;\n  line-height: 40px;\n  height: 40px;\n  border: 1px solid #CCC;\n  border-radius: 3px;\n  outline: none;\n  font: inherit;\n  appearance: none;\n  -webkit-appearance: none;\n  box-sizing: border-box;\n}\n\n.ap-input::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n.ap-input::-ms-clear {\n  display: none;\n}\n\n.ap-input:hover ~ .ap-input-icon svg,\n.ap-input:focus ~ .ap-input-icon svg,\n.ap-input-icon:hover svg {\n  fill: #aaaaaa;\n}\n\n.ap-dropdown-menu {\n  width: 100%;\n  background: #ffffff;\n  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n  border-radius: 3px;\n  margin-top: 3px;\n  overflow: hidden;\n}\n\n.ap-suggestion {\n  cursor: pointer;\n  height: 46px;\n  line-height: 46px;\n  padding-left: 18px;\n  overflow: hidden;\n}\n\n.ap-suggestion em {\n  font-weight: bold;\n  font-style: normal;\n}\n\n.ap-address {\n  font-size: smaller;\n  margin-left: 12px;\n  color: #aaaaaa;\n}\n\n.ap-suggestion-icon {\n  margin-right: 10px;\n  width: 14px;\n  height: 20px;\n  vertical-align: middle;\n}\n\n.ap-suggestion-icon svg {\n  -webkit-transform: scale(0.9) translateY(2px);\n          transform: scale(0.9) translateY(2px);\n  fill: #cfcfcf;\n}\n\n.ap-input-icon {\n  border: 0;\n  background: transparent;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 16px;\n  outline: none;\n}\n\n.ap-input-icon.ap-icon-pin {\n  cursor: initial;\n}\n\n.ap-input-icon svg {\n  fill: #cfcfcf;\n  position: absolute;\n  top: 50%;\n  right: 0;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n\n.ap-cursor {\n  background: #efefef;\n}\n\n.ap-cursor .ap-suggestion-icon svg {\n  -webkit-transform: scale(1) translateY(2px);\n          transform: scale(1) translateY(2px);\n  fill: #aaaaaa;\n}\n\n.ap-footer {\n  opacity: .8;\n  text-align: right;\n  padding: .5em 1em .5em 0;\n  font-size: 12px;\n  line-height: 12px;\n}\n\n.ap-footer a {\n  color: inherit;\n  text-decoration: none;\n}\n\n.ap-footer a svg {\n  vertical-align: middle;\n}\n\n.ap-footer:hover {\n  opacity: 1;\n}\n");
-
-/***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
@@ -1475,7 +1486,9 @@ var formatHit = __webpack_require__(9);
 var version = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./src/createAutocompleteSource.js
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1585,7 +1598,7 @@ function createAutocompleteSource(_ref) {
   }
 
   searcher.configure = function (partial) {
-    var updated = Object(configure["a" /* default */])(_objectSpread({}, params, controls, partial));
+    var updated = Object(configure["a" /* default */])(_objectSpread({}, params, {}, controls, {}, partial));
     params = updated.params;
     controls = updated.controls;
 
@@ -1608,14 +1621,16 @@ var defaultTemplates = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./src/createAutocompleteDataset.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createAutocompleteDataset; });
-function createAutocompleteDataset_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { createAutocompleteDataset_defineProperty(target, key, source[key]); }); } return target; }
+function createAutocompleteDataset_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function createAutocompleteDataset_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { createAutocompleteDataset_ownKeys(Object(source), true).forEach(function (key) { createAutocompleteDataset_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { createAutocompleteDataset_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function createAutocompleteDataset_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 function createAutocompleteDataset(options) {
-  var templates = createAutocompleteDataset_objectSpread({}, defaultTemplates["a" /* default */], options.templates);
+  var templates = createAutocompleteDataset_objectSpread({}, defaultTemplates["a" /* default */], {}, options.templates);
 
   var source = createAutocompleteSource(createAutocompleteDataset_objectSpread({}, options, {
     formatInputValue: templates.value,
@@ -1637,10 +1652,10 @@ function createAutocompleteDataset(options) {
 "use strict";
 
 
-var AlgoliaSearchCore = __webpack_require__(33);
-var createAlgoliasearch = __webpack_require__(44);
+var AlgoliaSearchCore = __webpack_require__(34);
+var createAlgoliasearch = __webpack_require__(45);
 
-module.exports = createAlgoliasearch(AlgoliaSearchCore, '(lite) ');
+module.exports = createAlgoliasearch(AlgoliaSearchCore, 'Browser (lite)');
 
 
 /***/ }),
@@ -1650,24 +1665,28 @@ module.exports = createAlgoliasearch(AlgoliaSearchCore, '(lite) ');
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
+    if (superCtor) {
+      ctor.super_ = superCtor
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      })
+    }
   };
 } else {
   // old school shim for old browsers
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
+    if (superCtor) {
+      ctor.super_ = superCtor
+      var TempCtor = function () {}
+      TempCtor.prototype = superCtor.prototype
+      ctor.prototype = new TempCtor()
+      ctor.prototype.constructor = ctor
+    }
   }
 }
 
@@ -1750,7 +1769,7 @@ function buildSearchMethod(queryParam, url) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function omit(obj, test) {
-  var keys = __webpack_require__(39);
+  var keys = __webpack_require__(40);
   var foreach = __webpack_require__(3);
 
   var filtered = {};
@@ -1767,6 +1786,30 @@ module.exports = function omit(obj, test) {
 
 /***/ }),
 /* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var toStr = Object.prototype.toString;
+
+module.exports = function isArguments(value) {
+	var str = toStr.call(value);
+	var isArgs = str === '[object Arguments]';
+	if (!isArgs) {
+		isArgs = str !== '[object Array]' &&
+			value !== null &&
+			typeof value === 'object' &&
+			typeof value.length === 'number' &&
+			value.length >= 0 &&
+			toStr.call(value.callee) === '[object Function]';
+	}
+	return isArgs;
+};
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1858,7 +1901,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1898,7 +1941,7 @@ module.exports = EventBus;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1914,14 +1957,14 @@ module.exports = {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "0.36.0";
+module.exports = "0.37.0";
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1934,7 +1977,7 @@ module.exports = function parseAlgoliaClientVersion(agent) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 // polyfill for navigator.language (IE <= 10)
@@ -1953,7 +1996,7 @@ if (!('language' in navigator)) {
 }
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2408,24 +2451,24 @@ function unwrapListeners(arr) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(53);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/events/events.js
-var events = __webpack_require__(30);
+var events = __webpack_require__(31);
 var events_default = /*#__PURE__*/__webpack_require__.n(events);
 
 // EXTERNAL MODULE: ./node_modules/algoliasearch/src/browser/builds/algoliasearchLite.js
@@ -2433,11 +2476,11 @@ var algoliasearchLite = __webpack_require__(20);
 var algoliasearchLite_default = /*#__PURE__*/__webpack_require__.n(algoliasearchLite);
 
 // EXTERNAL MODULE: ./node_modules/autocomplete.js/index.js
-var autocomplete_js = __webpack_require__(31);
+var autocomplete_js = __webpack_require__(32);
 var autocomplete_js_default = /*#__PURE__*/__webpack_require__.n(autocomplete_js);
 
 // EXTERNAL MODULE: ./src/navigatorLanguage.js
-var navigatorLanguage = __webpack_require__(29);
+var navigatorLanguage = __webpack_require__(30);
 
 // EXTERNAL MODULE: ./src/createAutocompleteDataset.js + 1 modules
 var createAutocompleteDataset = __webpack_require__(19);
@@ -2448,7 +2491,7 @@ var createAutocompleteDataset = __webpack_require__(19);
 var address = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./src/places.css
-var places = __webpack_require__(17);
+var places = __webpack_require__(15);
 
 // EXTERNAL MODULE: ./node_modules/insert-css/index.js
 var insert_css = __webpack_require__(18);
@@ -2475,7 +2518,9 @@ var version = __webpack_require__(6);
 var defaultTemplates = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./src/createReverseGeocodingSource.js
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2588,7 +2633,7 @@ var createReverseGeocodingSource_createReverseGeocodingSource = function createR
   };
 
   searcher.configure = function (partial) {
-    var updated = Object(configure["a" /* default */])(_objectSpread({}, params, controls, partial));
+    var updated = Object(configure["a" /* default */])(_objectSpread({}, params, {}, controls, {}, partial));
     params = filterApplicableParams(updated.params);
     controls = updated.controls;
     return searcher;
@@ -2600,10 +2645,19 @@ var createReverseGeocodingSource_createReverseGeocodingSource = function createR
 /* harmony default export */ var src_createReverseGeocodingSource = (createReverseGeocodingSource_createReverseGeocodingSource);
 // CONCATENATED MODULE: ./src/places.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return places_places; });
-function places_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { places_defineProperty(target, key, source[key]); }); } return target; }
+function places_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function places_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { places_ownKeys(Object(source), true).forEach(function (key) { places_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { places_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function places_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -2613,14 +2667,28 @@ function places_defineProperty(obj, key, value) { if (key in obj) { Object.defin
 
 
 
-insert_css_default()(places["default"], {
+
+insert_css_default()(places["a" /* default */], {
   prepend: true
 });
 
 
+
+var applyAttributes = function applyAttributes(elt, attrs) {
+  Object.entries(attrs).forEach(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        name = _ref2[0],
+        value = _ref2[1];
+
+    elt.setAttribute(name, "".concat(value));
+  });
+  return elt;
+};
+
 function places_places(options) {
   var container = options.container,
       style = options.style,
+      accessibility = options.accessibility,
       _options$autocomplete = options.autocompleteOptions,
       userAutocompleteOptions = _options$autocomplete === void 0 ? {} : _options$autocomplete; // multiple DOM elements targeted
 
@@ -2663,10 +2731,10 @@ function places_places(options) {
 
   var autocompleteDataset = Object(createAutocompleteDataset["default"])(places_objectSpread({}, options, {
     algoliasearch: algoliasearchLite_default.a,
-    onHits: function onHits(_ref) {
-      var hits = _ref.hits,
-          rawAnswer = _ref.rawAnswer,
-          query = _ref.query;
+    onHits: function onHits(_ref3) {
+      var hits = _ref3.hits,
+          rawAnswer = _ref3.rawAnswer,
+          query = _ref3.query;
       return placesInstance.emit('suggestions', {
         rawAnswer: rawAnswer,
         query: query,
@@ -2680,7 +2748,7 @@ function places_places(options) {
       var listeners = placesInstance.listenerCount('limit');
 
       if (listeners === 0) {
-        console.log(errors.rateLimitReached); // eslint-disable-line
+        console.log(errors.rateLimitReached); // eslint-disable-line no-console
 
         return;
       }
@@ -2691,9 +2759,9 @@ function places_places(options) {
     },
     onInvalidCredentials: function onInvalidCredentials() {
       if (options && options.appId && options.appId.startsWith('pl')) {
-        console.error(errors.invalidCredentials); // eslint-disable-line
+        console.error(errors.invalidCredentials); // eslint-disable-line no-console
       } else {
-        console.error(errors.invalidAppId); // eslint-disable-line
+        console.error(errors.invalidAppId); // eslint-disable-line no-console
       }
     },
     container: undefined
@@ -2722,6 +2790,11 @@ function places_places(options) {
   var clear = document.createElement('button');
   clear.setAttribute('type', 'button');
   clear.setAttribute('aria-label', 'clear');
+
+  if (accessibility && accessibility.clearButton && accessibility.clearButton instanceof Object) {
+    applyAttributes(clear, accessibility.clearButton);
+  }
+
   clear.classList.add("".concat(prefix, "-input-icon"));
   clear.classList.add("".concat(prefix, "-icon-clear"));
   clear.innerHTML = icons_clear;
@@ -2730,6 +2803,11 @@ function places_places(options) {
   var pin = document.createElement('button');
   pin.setAttribute('type', 'button');
   pin.setAttribute('aria-label', 'focus');
+
+  if (accessibility && accessibility.pinButton && accessibility.pinButton instanceof Object) {
+    applyAttributes(pin, accessibility.pinButton);
+  }
+
   pin.classList.add("".concat(prefix, "-input-icon"));
   pin.classList.add("".concat(prefix, "-icon-pin"));
   pin.innerHTML = address["a" /* default */];
@@ -2768,7 +2846,7 @@ function places_places(options) {
   };
 
   autocompleteContainer.querySelector(".".concat(prefix, "-input")).addEventListener('input', inputListener);
-  var autocompleteIsomorphicMethods = ['open', 'close', 'getVal'];
+  var autocompleteIsomorphicMethods = ['open', 'close'];
   autocompleteIsomorphicMethods.forEach(function (methodName) {
     placesInstance[methodName] = function () {
       var _autocompleteInstance;
@@ -2776,6 +2854,10 @@ function places_places(options) {
       (_autocompleteInstance = autocompleteInstance.autocomplete)[methodName].apply(_autocompleteInstance, arguments);
     };
   });
+
+  placesInstance.getVal = function () {
+    return autocompleteInstance.val();
+  };
 
   placesInstance.destroy = function () {
     var _autocompleteInstance2;
@@ -2825,10 +2907,10 @@ function places_places(options) {
   placesInstance.reverse = src_createReverseGeocodingSource(places_objectSpread({}, options, {
     algoliasearch: algoliasearchLite_default.a,
     formatInputValue: (options.templates || {}).value,
-    onHits: function onHits(_ref2) {
-      var hits = _ref2.hits,
-          rawAnswer = _ref2.rawAnswer,
-          query = _ref2.query;
+    onHits: function onHits(_ref4) {
+      var hits = _ref4.hits,
+          rawAnswer = _ref4.rawAnswer,
+          query = _ref4.query;
       return placesInstance.emit('reverse', {
         rawAnswer: rawAnswer,
         query: query,
@@ -2842,7 +2924,7 @@ function places_places(options) {
       var listeners = placesInstance.listenerCount('limit');
 
       if (listeners === 0) {
-        console.log(errors.rateLimitReached); // eslint-disable-line
+        console.log(errors.rateLimitReached); // eslint-disable-line no-console
 
         return;
       }
@@ -2853,9 +2935,9 @@ function places_places(options) {
     },
     onInvalidCredentials: function onInvalidCredentials() {
       if (options && options.appId && options.appId.startsWith('pl')) {
-        console.error(errors.invalidCredentials); // eslint-disable-line
+        console.error(errors.invalidCredentials); // eslint-disable-line no-console
       } else {
-        console.error(errors.invalidAppId); // eslint-disable-line
+        console.error(errors.invalidAppId); // eslint-disable-line no-console
       }
     }
   }));
@@ -2863,15 +2945,15 @@ function places_places(options) {
 }
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {module.exports = AlgoliaSearchCore;
 
 var errors = __webpack_require__(11);
-var exitPromise = __webpack_require__(34);
-var IndexCore = __webpack_require__(35);
-var store = __webpack_require__(41);
+var exitPromise = __webpack_require__(35);
+var IndexCore = __webpack_require__(36);
+var store = __webpack_require__(42);
 
 // We will always put the API KEY in the JSON body in case of too long API KEY,
 // to avoid query string being too long and failing in various conditions (our server limit, browser limit,
@@ -3039,8 +3121,10 @@ AlgoliaSearchCore.prototype.unsetExtraHeader = function(name) {
 * @param algoliaAgent the agent to add
 */
 AlgoliaSearchCore.prototype.addAlgoliaAgent = function(algoliaAgent) {
-  if (this._ua.indexOf(';' + algoliaAgent) === -1) {
-    this._ua += ';' + algoliaAgent;
+  var algoliaAgentWithDelimiter = '; ' + algoliaAgent;
+
+  if (this._ua.indexOf(algoliaAgentWithDelimiter) === -1) {
+    this._ua += algoliaAgentWithDelimiter;
   }
 };
 
@@ -3297,7 +3381,7 @@ AlgoliaSearchCore.prototype._jsonRequest = function(initialOpts) {
         return client._promise.reject(err);
       }
 
-      // When a timeout occured, retry by raising timeout
+      // When a timeout occurred, retry by raising timeout
       if (err instanceof errors.RequestTimeout) {
         return retryRequestWithHigherTimeout();
       }
@@ -3436,7 +3520,7 @@ AlgoliaSearchCore.prototype._computeRequestHeaders = function(options) {
   var forEach = __webpack_require__(3);
 
   var ua = options.additionalUA ?
-    this._ua + ';' + options.additionalUA :
+    this._ua + '; ' + options.additionalUA :
     this._ua;
 
   var requestHeaders = {
@@ -3836,7 +3920,7 @@ function removeCredentials(headers) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // Parse cloud does not supports setTimeout
@@ -3849,12 +3933,12 @@ module.exports = function exitPromise(fn, _setTimeout) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var buildSearchMethod = __webpack_require__(22);
-var deprecate = __webpack_require__(36);
-var deprecatedMessage = __webpack_require__(37);
+var deprecate = __webpack_require__(37);
+var deprecatedMessage = __webpack_require__(38);
 
 module.exports = IndexCore;
 
@@ -4012,7 +4096,7 @@ IndexCore.prototype.similarSearch = deprecate(
 * @see {@link https://www.algolia.com/doc/rest_api#Browse|Algolia REST API Documentation}
 */
 IndexCore.prototype.browse = function(query, queryParameters, callback) {
-  var merge = __webpack_require__(38);
+  var merge = __webpack_require__(39);
 
   var indexObj = this;
 
@@ -4162,7 +4246,7 @@ IndexCore.prototype._search = function(params, url, callback, additionalUA) {
 * @param attrs (optional) if set, contains the array of attribute names to retrieve
 * @param callback (optional) the result callback called with two arguments
 *  error: null or Error('message')
-*  content: the object to retrieve or the error message if a failure occured
+*  content: the object to retrieve or the error message if a failure occurred
 */
 IndexCore.prototype.getObject = function(objectID, attrs, callback) {
   var indexObj = this;
@@ -4244,7 +4328,7 @@ IndexCore.prototype.typeAheadValueOption = null;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = function deprecate(fn, message) {
@@ -4265,7 +4349,7 @@ module.exports = function deprecate(fn, message) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = function deprecatedMessage(previousUsage, newUsage) {
@@ -4278,7 +4362,7 @@ module.exports = function deprecatedMessage(previousUsage, newUsage) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var foreach = __webpack_require__(3);
@@ -4303,142 +4387,33 @@ module.exports = function merge(destination/* , sources */) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-// modified from https://github.com/es-shims/es5-shim
-var has = Object.prototype.hasOwnProperty;
-var toStr = Object.prototype.toString;
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(40);
-var isEnumerable = Object.prototype.propertyIsEnumerable;
-var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
-var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
-var dontEnums = [
-	'toString',
-	'toLocaleString',
-	'valueOf',
-	'hasOwnProperty',
-	'isPrototypeOf',
-	'propertyIsEnumerable',
-	'constructor'
-];
-var equalsConstructorPrototype = function (o) {
-	var ctor = o.constructor;
-	return ctor && ctor.prototype === o;
-};
-var excludedKeys = {
-	$applicationCache: true,
-	$console: true,
-	$external: true,
-	$frame: true,
-	$frameElement: true,
-	$frames: true,
-	$innerHeight: true,
-	$innerWidth: true,
-	$outerHeight: true,
-	$outerWidth: true,
-	$pageXOffset: true,
-	$pageYOffset: true,
-	$parent: true,
-	$scrollLeft: true,
-	$scrollTop: true,
-	$scrollX: true,
-	$scrollY: true,
-	$self: true,
-	$webkitIndexedDB: true,
-	$webkitStorageInfo: true,
-	$window: true
-};
-var hasAutomationEqualityBug = (function () {
-	/* global window */
-	if (typeof window === 'undefined') { return false; }
-	for (var k in window) {
-		try {
-			if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
-				try {
-					equalsConstructorPrototype(window[k]);
-				} catch (e) {
-					return true;
-				}
-			}
-		} catch (e) {
-			return true;
-		}
-	}
-	return false;
-}());
-var equalsConstructorPrototypeIfNotBuggy = function (o) {
-	/* global window */
-	if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
-		return equalsConstructorPrototype(o);
-	}
-	try {
-		return equalsConstructorPrototype(o);
-	} catch (e) {
-		return false;
-	}
-};
+var isArgs = __webpack_require__(24);
 
-var keysShim = function keys(object) {
-	var isObject = object !== null && typeof object === 'object';
-	var isFunction = toStr.call(object) === '[object Function]';
-	var isArguments = isArgs(object);
-	var isString = isObject && toStr.call(object) === '[object String]';
-	var theKeys = [];
+var origKeys = Object.keys;
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(41);
 
-	if (!isObject && !isFunction && !isArguments) {
-		throw new TypeError('Object.keys called on a non-object');
-	}
-
-	var skipProto = hasProtoEnumBug && isFunction;
-	if (isString && object.length > 0 && !has.call(object, 0)) {
-		for (var i = 0; i < object.length; ++i) {
-			theKeys.push(String(i));
-		}
-	}
-
-	if (isArguments && object.length > 0) {
-		for (var j = 0; j < object.length; ++j) {
-			theKeys.push(String(j));
-		}
-	} else {
-		for (var name in object) {
-			if (!(skipProto && name === 'prototype') && has.call(object, name)) {
-				theKeys.push(String(name));
-			}
-		}
-	}
-
-	if (hasDontEnumBug) {
-		var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
-
-		for (var k = 0; k < dontEnums.length; ++k) {
-			if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
-				theKeys.push(dontEnums[k]);
-			}
-		}
-	}
-	return theKeys;
-};
+var originalKeys = Object.keys;
 
 keysShim.shim = function shimObjectKeys() {
 	if (Object.keys) {
 		var keysWorksWithArguments = (function () {
 			// Safari 5.0 bug
-			return (Object.keys(arguments) || '').length === 2;
+			var args = Object.keys(arguments);
+			return args && args.length === arguments.length;
 		}(1, 2));
 		if (!keysWorksWithArguments) {
-			var originalKeys = Object.keys;
 			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
 				if (isArgs(object)) {
 					return originalKeys(slice.call(object));
-				} else {
-					return originalKeys(object);
 				}
+				return originalKeys(object);
 			};
 		}
 	} else {
@@ -4451,31 +4426,136 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toStr = Object.prototype.toString;
+var keysShim;
+if (!Object.keys) {
+	// modified from https://github.com/es-shims/es5-shim
+	var has = Object.prototype.hasOwnProperty;
+	var toStr = Object.prototype.toString;
+	var isArgs = __webpack_require__(24); // eslint-disable-line global-require
+	var isEnumerable = Object.prototype.propertyIsEnumerable;
+	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
+	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
+	var dontEnums = [
+		'toString',
+		'toLocaleString',
+		'valueOf',
+		'hasOwnProperty',
+		'isPrototypeOf',
+		'propertyIsEnumerable',
+		'constructor'
+	];
+	var equalsConstructorPrototype = function (o) {
+		var ctor = o.constructor;
+		return ctor && ctor.prototype === o;
+	};
+	var excludedKeys = {
+		$applicationCache: true,
+		$console: true,
+		$external: true,
+		$frame: true,
+		$frameElement: true,
+		$frames: true,
+		$innerHeight: true,
+		$innerWidth: true,
+		$onmozfullscreenchange: true,
+		$onmozfullscreenerror: true,
+		$outerHeight: true,
+		$outerWidth: true,
+		$pageXOffset: true,
+		$pageYOffset: true,
+		$parent: true,
+		$scrollLeft: true,
+		$scrollTop: true,
+		$scrollX: true,
+		$scrollY: true,
+		$self: true,
+		$webkitIndexedDB: true,
+		$webkitStorageInfo: true,
+		$window: true
+	};
+	var hasAutomationEqualityBug = (function () {
+		/* global window */
+		if (typeof window === 'undefined') { return false; }
+		for (var k in window) {
+			try {
+				if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+					try {
+						equalsConstructorPrototype(window[k]);
+					} catch (e) {
+						return true;
+					}
+				}
+			} catch (e) {
+				return true;
+			}
+		}
+		return false;
+	}());
+	var equalsConstructorPrototypeIfNotBuggy = function (o) {
+		/* global window */
+		if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+			return equalsConstructorPrototype(o);
+		}
+		try {
+			return equalsConstructorPrototype(o);
+		} catch (e) {
+			return false;
+		}
+	};
 
-module.exports = function isArguments(value) {
-	var str = toStr.call(value);
-	var isArgs = str === '[object Arguments]';
-	if (!isArgs) {
-		isArgs = str !== '[object Array]' &&
-			value !== null &&
-			typeof value === 'object' &&
-			typeof value.length === 'number' &&
-			value.length >= 0 &&
-			toStr.call(value.callee) === '[object Function]';
-	}
-	return isArgs;
-};
+	keysShim = function keys(object) {
+		var isObject = object !== null && typeof object === 'object';
+		var isFunction = toStr.call(object) === '[object Function]';
+		var isArguments = isArgs(object);
+		var isString = isObject && toStr.call(object) === '[object String]';
+		var theKeys = [];
+
+		if (!isObject && !isFunction && !isArguments) {
+			throw new TypeError('Object.keys called on a non-object');
+		}
+
+		var skipProto = hasProtoEnumBug && isFunction;
+		if (isString && object.length > 0 && !has.call(object, 0)) {
+			for (var i = 0; i < object.length; ++i) {
+				theKeys.push(String(i));
+			}
+		}
+
+		if (isArguments && object.length > 0) {
+			for (var j = 0; j < object.length; ++j) {
+				theKeys.push(String(j));
+			}
+		} else {
+			for (var name in object) {
+				if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+					theKeys.push(String(name));
+				}
+			}
+		}
+
+		if (hasDontEnumBug) {
+			var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+
+			for (var k = 0; k < dontEnums.length; ++k) {
+				if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+					theKeys.push(dontEnums[k]);
+				}
+			}
+		}
+		return theKeys;
+	};
+}
+module.exports = keysShim;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var debug = __webpack_require__(14)('algoliasearch:src/hostIndexState.js');
@@ -4568,7 +4648,7 @@ function cleanup() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -4584,7 +4664,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(43);
+exports.humanize = __webpack_require__(44);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -4776,7 +4856,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 /**
@@ -4934,14 +5014,14 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var global = __webpack_require__(45);
-var Promise = global.Promise || __webpack_require__(46).Promise;
+var global = __webpack_require__(46);
+var Promise = global.Promise || __webpack_require__(47).Promise;
 
 // This is the standalone browser build entry point
 // Browser implementation of the Algolia Search JavaScript client,
@@ -4949,9 +5029,9 @@ var Promise = global.Promise || __webpack_require__(46).Promise;
 module.exports = function createAlgoliasearch(AlgoliaSearch, uaSuffix) {
   var inherits = __webpack_require__(21);
   var errors = __webpack_require__(11);
-  var inlineHeaders = __webpack_require__(47);
-  var jsonpRequest = __webpack_require__(48);
-  var places = __webpack_require__(49);
+  var inlineHeaders = __webpack_require__(48);
+  var jsonpRequest = __webpack_require__(49);
+  var places = __webpack_require__(50);
   uaSuffix = uaSuffix || '';
 
   if (false) {}
@@ -4966,8 +5046,11 @@ module.exports = function createAlgoliasearch(AlgoliaSearch, uaSuffix) {
     return new AlgoliaSearchBrowser(applicationID, apiKey, opts);
   }
 
-  algoliasearch.version = __webpack_require__(52);
-  algoliasearch.ua = 'Algolia for vanilla JavaScript ' + uaSuffix + algoliasearch.version;
+  algoliasearch.version = __webpack_require__(53);
+
+  algoliasearch.ua =
+    'Algolia for JavaScript (' + algoliasearch.version + '); ' + uaSuffix;
+
   algoliasearch.initPlaces = places(algoliasearch);
 
   // we expose into window no matter how we are used, this will allow
@@ -5172,7 +5255,7 @@ module.exports = function createAlgoliasearch(AlgoliaSearch, uaSuffix) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var win;
@@ -5192,7 +5275,7 @@ module.exports = win;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -5200,7 +5283,7 @@ module.exports = win;
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
- * @version   v4.2.5+7f2b526d
+ * @version   v4.2.8+1e68dce6
  */
 
 (function (global, factory) {
@@ -5430,23 +5513,12 @@ var PENDING = void 0;
 var FULFILLED = 1;
 var REJECTED = 2;
 
-var TRY_CATCH_ERROR = { error: null };
-
 function selfFulfillment() {
   return new TypeError("You cannot resolve a promise with itself");
 }
 
 function cannotReturnOwn() {
   return new TypeError('A promises callback cannot return that same promise.');
-}
-
-function getThen(promise) {
-  try {
-    return promise.then;
-  } catch (error) {
-    TRY_CATCH_ERROR.error = error;
-    return TRY_CATCH_ERROR;
-  }
 }
 
 function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
@@ -5504,10 +5576,7 @@ function handleMaybeThenable(promise, maybeThenable, then$$1) {
   if (maybeThenable.constructor === promise.constructor && then$$1 === then && maybeThenable.constructor.resolve === resolve$1) {
     handleOwnThenable(promise, maybeThenable);
   } else {
-    if (then$$1 === TRY_CATCH_ERROR) {
-      reject(promise, TRY_CATCH_ERROR.error);
-      TRY_CATCH_ERROR.error = null;
-    } else if (then$$1 === undefined) {
+    if (then$$1 === undefined) {
       fulfill(promise, maybeThenable);
     } else if (isFunction(then$$1)) {
       handleForeignThenable(promise, maybeThenable, then$$1);
@@ -5521,7 +5590,14 @@ function resolve(promise, value) {
   if (promise === value) {
     reject(promise, selfFulfillment());
   } else if (objectOrFunction(value)) {
-    handleMaybeThenable(promise, value, getThen(value));
+    var then$$1 = void 0;
+    try {
+      then$$1 = value.then;
+    } catch (error) {
+      reject(promise, error);
+      return;
+    }
+    handleMaybeThenable(promise, value, then$$1);
   } else {
     fulfill(promise, value);
   }
@@ -5600,31 +5676,18 @@ function publish(promise) {
   promise._subscribers.length = 0;
 }
 
-function tryCatch(callback, detail) {
-  try {
-    return callback(detail);
-  } catch (e) {
-    TRY_CATCH_ERROR.error = e;
-    return TRY_CATCH_ERROR;
-  }
-}
-
 function invokeCallback(settled, promise, callback, detail) {
   var hasCallback = isFunction(callback),
       value = void 0,
       error = void 0,
-      succeeded = void 0,
-      failed = void 0;
+      succeeded = true;
 
   if (hasCallback) {
-    value = tryCatch(callback, detail);
-
-    if (value === TRY_CATCH_ERROR) {
-      failed = true;
-      error = value.error;
-      value.error = null;
-    } else {
-      succeeded = true;
+    try {
+      value = callback(detail);
+    } catch (e) {
+      succeeded = false;
+      error = e;
     }
 
     if (promise === value) {
@@ -5633,14 +5696,13 @@ function invokeCallback(settled, promise, callback, detail) {
     }
   } else {
     value = detail;
-    succeeded = true;
   }
 
   if (promise._state !== PENDING) {
     // noop
   } else if (hasCallback && succeeded) {
     resolve(promise, value);
-  } else if (failed) {
+  } else if (succeeded === false) {
     reject(promise, error);
   } else if (settled === FULFILLED) {
     fulfill(promise, value);
@@ -5718,7 +5780,15 @@ var Enumerator = function () {
 
 
     if (resolve$$1 === resolve$1) {
-      var _then = getThen(entry);
+      var _then = void 0;
+      var error = void 0;
+      var didError = false;
+      try {
+        _then = entry.then;
+      } catch (e) {
+        didError = true;
+        error = e;
+      }
 
       if (_then === then && entry._state !== PENDING) {
         this._settledAt(entry._state, i, entry._result);
@@ -5727,7 +5797,11 @@ var Enumerator = function () {
         this._result[i] = entry;
       } else if (c === Promise$1) {
         var promise = new c(noop);
-        handleMaybeThenable(promise, entry, _then);
+        if (didError) {
+          reject(promise, error);
+        } else {
+          handleMaybeThenable(promise, entry, _then);
+        }
         this._willSettleAt(promise, i);
       } else {
         this._willSettleAt(new c(function (resolve$$1) {
@@ -6381,7 +6455,7 @@ return Promise$1;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10), __webpack_require__(5)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6389,7 +6463,7 @@ return Promise$1;
 
 module.exports = inlineHeaders;
 
-var encode = __webpack_require__(24);
+var encode = __webpack_require__(25);
 
 function inlineHeaders(url, headers) {
   if (/\?/.test(url)) {
@@ -6403,7 +6477,7 @@ function inlineHeaders(url, headers) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6536,12 +6610,12 @@ function jsonpRequest(url, opts, cb) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = createPlacesClient;
 
-var qs3 = __webpack_require__(50);
+var qs3 = __webpack_require__(51);
 var buildSearchMethod = __webpack_require__(22);
 
 function createPlacesClient(algoliasearch) {
@@ -6591,18 +6665,18 @@ function createPlacesClient(algoliasearch) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(51);
-exports.encode = exports.stringify = __webpack_require__(24);
+exports.decode = exports.parse = __webpack_require__(52);
+exports.encode = exports.stringify = __webpack_require__(25);
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6693,24 +6767,24 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = '3.32.0';
-
-
-/***/ }),
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+module.exports = '3.35.1';
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 // this will inject Zepto in window, unfortunately no easy commonJS zepto build
-var zepto = __webpack_require__(54);
+var zepto = __webpack_require__(55);
 
 // setup DOM element
 var DOM = __webpack_require__(2);
@@ -6734,8 +6808,8 @@ _.mixin = zepto.extend;
 _.Event = zepto.Event;
 
 var typeaheadKey = 'aaAutocomplete';
-var Typeahead = __webpack_require__(55);
-var EventBus = __webpack_require__(25);
+var Typeahead = __webpack_require__(56);
+var EventBus = __webpack_require__(26);
 
 function autocomplete(selector, options, datasets, typeaheadObject) {
   datasets = _.isArray(datasets) ? datasets : [].slice.call(arguments, 2);
@@ -6801,7 +6875,7 @@ module.exports = autocomplete;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports) {
 
 /* istanbul ignore next */
@@ -8124,7 +8198,7 @@ module.exports = autocomplete;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8134,11 +8208,11 @@ var attrsKey = 'aaAttrs';
 
 var _ = __webpack_require__(0);
 var DOM = __webpack_require__(2);
-var EventBus = __webpack_require__(25);
-var Input = __webpack_require__(56);
-var Dropdown = __webpack_require__(63);
-var html = __webpack_require__(26);
-var css = __webpack_require__(16);
+var EventBus = __webpack_require__(26);
+var Input = __webpack_require__(57);
+var Dropdown = __webpack_require__(64);
+var html = __webpack_require__(27);
+var css = __webpack_require__(17);
 
 // constructor
 // -----------
@@ -8779,13 +8853,13 @@ function destroyDomStructure($node, cssClasses) {
 
 Typeahead.Dropdown = Dropdown;
 Typeahead.Input = Input;
-Typeahead.sources = __webpack_require__(65);
+Typeahead.sources = __webpack_require__(66);
 
 module.exports = Typeahead;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8805,7 +8879,7 @@ specialKeyCodeMap = {
 
 var _ = __webpack_require__(0);
 var DOM = __webpack_require__(2);
-var EventEmitter = __webpack_require__(15);
+var EventEmitter = __webpack_require__(16);
 
 // constructor
 // -----------
@@ -9133,17 +9207,17 @@ module.exports = Input;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var types = [
-  __webpack_require__(58),
   __webpack_require__(59),
   __webpack_require__(60),
   __webpack_require__(61),
-  __webpack_require__(62)
+  __webpack_require__(62),
+  __webpack_require__(63)
 ];
 var draining;
 var currentQueue;
@@ -9236,7 +9310,7 @@ function immediate(task) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9255,7 +9329,7 @@ exports.install = function (func) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9284,7 +9358,7 @@ exports.install = function (handle) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9309,7 +9383,7 @@ exports.install = function (func) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9340,7 +9414,7 @@ exports.install = function (handle) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9356,7 +9430,7 @@ exports.install = function (t) {
 };
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9364,9 +9438,9 @@ exports.install = function (t) {
 
 var _ = __webpack_require__(0);
 var DOM = __webpack_require__(2);
-var EventEmitter = __webpack_require__(15);
-var Dataset = __webpack_require__(64);
-var css = __webpack_require__(16);
+var EventEmitter = __webpack_require__(16);
+var Dataset = __webpack_require__(65);
+var css = __webpack_require__(17);
 
 // constructor
 // -----------
@@ -9757,7 +9831,7 @@ module.exports = Dropdown;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9769,9 +9843,9 @@ var datumKey = 'aaDatum';
 
 var _ = __webpack_require__(0);
 var DOM = __webpack_require__(2);
-var html = __webpack_require__(26);
-var css = __webpack_require__(16);
-var EventEmitter = __webpack_require__(15);
+var html = __webpack_require__(27);
+var css = __webpack_require__(17);
+var EventEmitter = __webpack_require__(16);
 
 // constructor
 // -----------
@@ -10019,9 +10093,11 @@ _.mixin(Dataset.prototype, EventEmitter, {
   },
 
   clear: function clear() {
-    this.cancel();
-    this.$el.empty();
-    this.trigger('rendered', '');
+    if (this.$el) {
+      this.cancel();
+      this.$el.empty();
+      this.trigger('rendered', '');
+    }
   },
 
   isEmpty: function isEmpty() {
@@ -10069,28 +10145,28 @@ module.exports = Dataset;
 
 
 /***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {
-  hits: __webpack_require__(66),
-  popularIn: __webpack_require__(67)
-};
-
-
-/***/ }),
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+module.exports = {
+  hits: __webpack_require__(67),
+  popularIn: __webpack_require__(68)
+};
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _ = __webpack_require__(0);
-var version = __webpack_require__(27);
-var parseAlgoliaClientVersion = __webpack_require__(28);
+var version = __webpack_require__(28);
+var parseAlgoliaClientVersion = __webpack_require__(29);
 
 module.exports = function search(index, params) {
   var algoliaVersion = parseAlgoliaClientVersion(index.as._ua);
@@ -10113,15 +10189,15 @@ module.exports = function search(index, params) {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _ = __webpack_require__(0);
-var version = __webpack_require__(27);
-var parseAlgoliaClientVersion = __webpack_require__(28);
+var version = __webpack_require__(28);
+var parseAlgoliaClientVersion = __webpack_require__(29);
 
 module.exports = function popularIn(index, params, details, options) {
   var algoliaVersion = parseAlgoliaClientVersion(index.as._ua);
@@ -10205,7 +10281,7 @@ module.exports = function popularIn(index, params, details, options) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // we need to export using commonjs for ease of usage in all
@@ -10214,13 +10290,14 @@ module.exports = function popularIn(index, params, details, options) {
 // https://github.com/webpack/webpack/issues/4039
 
 /* eslint-disable import/no-commonjs */
-var places = __webpack_require__(32);
+var places = __webpack_require__(33);
 
 var version = __webpack_require__(6); // must use module.exports to be commonJS compatible
 
 
 module.exports = places["default"];
 module.exports.version = version["default"];
+/* eslint-enable import/no-commonjs */
 
 /***/ })
 /******/ ]);

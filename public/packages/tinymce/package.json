@@ -1,38 +1,36 @@
 {
-  "_args": [
-    [
-      "tinymce@4.9.6",
-      "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "tinymce@4.9.6",
-  "_id": "tinymce@4.9.6",
+  "_from": "tinymce@4.9.8",
+  "_id": "tinymce@4.9.8",
   "_inBundle": false,
-  "_integrity": "sha512-ZSBxBVvAHhi6KTSWGVsnv7X7drJJbInOrpCiSuvNLQz0Po8lZfeLh8nt7asQ9eGxD7TUD1dD46iXhOH+SsBbNg==",
+  "_integrity": "sha512-587xEh2+otXUNz4FVC8vBogMWpCxhiUIKNYQwOuqao9CHtCVXGHnK2rpEQHE6RsSTLsERpoMsAVte3K6KXoGzQ==",
   "_location": "/tinymce",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "tinymce@4.9.6",
+    "raw": "tinymce@4.9.8",
     "name": "tinymce",
     "escapedName": "tinymce",
-    "rawSpec": "4.9.6",
+    "rawSpec": "4.9.8",
     "saveSpec": null,
-    "fetchSpec": "4.9.6"
+    "fetchSpec": "4.9.8"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/tinymce/-/tinymce-4.9.6.tgz",
-  "_spec": "4.9.6",
-  "_where": "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/tinymce/-/tinymce-4.9.8.tgz",
+  "_shasum": "1f470a9defe3b52845fd51147cb226d44740750e",
+  "_spec": "tinymce@4.9.8",
+  "_where": "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud",
   "author": {
     "name": "Ephox Corporation"
   },
   "bugs": {
     "url": "https://github.com/tinymce/tinymce/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Web based JavaScript HTML WYSIWYG editor control.",
   "homepage": "https://github.com/tinymce/tinymce-dist#readme",
   "keywords": [
@@ -50,5 +48,5 @@
     "type": "git",
     "url": "git+https://github.com/tinymce/tinymce-dist.git"
   },
-  "version": "4.9.6"
+  "version": "4.9.8"
 }

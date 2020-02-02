@@ -1,33 +1,33 @@
 {
   "_args": [
     [
-      "angular@1.7.8",
-      "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud"
+      "angular@1.7.9",
+      "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud"
     ]
   ],
-  "_from": "angular@1.7.8",
-  "_id": "angular@1.7.8",
+  "_from": "angular@1.7.9",
+  "_id": "angular@1.7.9",
   "_inBundle": false,
-  "_integrity": "sha512-wtef/y4COxM7ZVhddd7JtAAhyYObq9YXKar9tsW7558BImeVYteJiTxCKeJOL45lJ/+7B4wrAC49j8gTFYEthg==",
+  "_integrity": "sha512-5se7ZpcOtu0MBFlzGv5dsM1quQDoDeUTwZrWjGtTNA7O88cD8TEk5IEKCTDa3uECV9XnvKREVUr7du1ACiWGFQ==",
   "_location": "/angular",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "angular@1.7.8",
+    "raw": "angular@1.7.9",
     "name": "angular",
     "escapedName": "angular",
-    "rawSpec": "1.7.8",
+    "rawSpec": "1.7.9",
     "saveSpec": null,
-    "fetchSpec": "1.7.8"
+    "fetchSpec": "1.7.9"
   },
   "_requiredBy": [
     "/",
     "/angular-ui-sortable"
   ],
-  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.8.tgz",
-  "_spec": "1.7.8",
-  "_where": "/Users/tabacitu/Sites/v4demo4/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.7.9.tgz",
+  "_spec": "1.7.9",
+  "_where": "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"
@@ -53,5 +53,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.7.8"
+  "version": "1.7.9"
 }
