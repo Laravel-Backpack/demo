@@ -124,8 +124,8 @@ class MonsterCrudController extends CrudController
                 'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
             ],
             [ // select_from_array
-                'name'    => 'Select_from_array',
-                'label'   => 'Status',
+                'name'    => 'select_from_array',
+                'label'   => 'Select_from_array',
                 'type'    => 'select_from_array',
                 'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
             ],
