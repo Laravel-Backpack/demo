@@ -229,12 +229,16 @@ class MonsterCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(StoreRequest::class);
+        $this->crud->set('create.contentClass', 'col-md-12');
 
         $this->crud->addField([
             'name'  => 'text',
             'label' => 'Text',
             'type'  => 'text',
             'tab'   => 'Simple',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6',
+            ],
         ]);
 
         $this->crud->addField([
@@ -242,6 +246,9 @@ class MonsterCrudController extends CrudController
             'label' => 'Email',
             'type'  => 'email',
             'tab'   => 'Simple',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6',
+            ],
         ]);
 
         $this->crud->addField([   // Textarea
@@ -260,6 +267,7 @@ class MonsterCrudController extends CrudController
             // 'prefix' => "$",
             // 'suffix' => ".00",
             'tab' => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-3' ],
         ]);
 
         $this->crud->addField([   // Number
@@ -271,6 +279,7 @@ class MonsterCrudController extends CrudController
             // 'prefix' => "$",
             // 'suffix' => ".00",
             'tab' => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-3' ],
         ]);
 
         $this->crud->addField([   // Number
@@ -284,6 +293,7 @@ class MonsterCrudController extends CrudController
             'fake'     => true,
             'store_in' => 'extras',
             'tab'      => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-3' ],
         ]);
 
         $this->crud->addField([   // Number
@@ -297,6 +307,7 @@ class MonsterCrudController extends CrudController
             'fake'     => true,
             'store_in' => 'extras',
             'tab'      => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-3' ],
         ]);
 
         $this->crud->addField([   // Number
@@ -308,6 +319,7 @@ class MonsterCrudController extends CrudController
             'fake'     => true,
             'store_in' => 'extras',
             'tab'      => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-6' ],
         ]);
 
         $this->crud->addField([   // Password
@@ -315,6 +327,7 @@ class MonsterCrudController extends CrudController
             'label' => 'Password',
             'type'  => 'password',
             'tab'   => 'Simple',
+            'wrapperAttributes' => [ 'class' => 'form-group col-md-6' ],
         ]);
 
         $this->crud->addField([
@@ -353,7 +366,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'week',
             'label' => 'Week',
             'type'  => 'week',
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -361,7 +374,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'month',
             'label' => 'Month',
             'type'  => 'month',
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -373,7 +386,7 @@ class MonsterCrudController extends CrudController
                 'pattern'     => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
                 'placeholder' => 'yyyy-mm-dd',
             ],
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -387,7 +400,7 @@ class MonsterCrudController extends CrudController
                 'format'   => 'dd-mm-yyyy',
                 'language' => 'en',
             ],
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -395,7 +408,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'datetime',
             'label' => 'Datetime (HTML5 spec)',
             'type'  => 'datetime',
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -408,7 +421,7 @@ class MonsterCrudController extends CrudController
                 'format'   => 'DD/MM/YYYY HH:mm',
                 'language' => 'en',
             ],
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             'tab' => 'Time and space',
         ]);
 
@@ -437,115 +450,143 @@ class MonsterCrudController extends CrudController
         // -----------------
         // SELECTS tab
         // -----------------
+        
 
-        $this->crud->addField([    // SELECT
-            'label'     => 'Select (1-n relationship)',
-            'type'      => 'select',
-            'name'      => 'select',
-            'entity'    => 'category',
-            'attribute' => 'name',
-            'model'     => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'       => 'Selects',
+        $this->crud->addField([   // CustomHTML
+            'name' => 'select_1_n_heading',
+            'type' => 'custom_html',
+            'value' => '<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>',
+            'tab' => 'Selects',
         ]);
 
-        $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label'     => 'Select_multiple (n-n relationship with pivot table)',
-            'type'      => 'select_multiple',
-            'name'      => 'tags', // the method that defines the relationship in your Model
-            'entity'    => 'tags', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'       => 'Selects',
+            $this->crud->addField([    // SELECT
+                'label'     => 'Select (HTML Spec Select Input)',
+                'type'      => 'select',
+                'name'      => 'select',
+                'entity'    => 'category',
+                'attribute' => 'name',
+                'model'     => "Backpack\NewsCRUD\app\Models\Category",
+                'tab'       => 'Selects',
+            ]);
+
+            $this->crud->addField([    // SELECT2
+                'label'         => 'Select2 (1-n relationship)',
+                'type'          => 'select2',
+                'name'          => 'select2',
+                'entity'        => 'category',
+                'attribute'     => 'name',
+                'model'         => "Backpack\NewsCRUD\app\Models\Category",
+                'tab'           => 'Selects',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
+
+            $this->crud->addField([ // select2_from_ajax: 1-n relationship
+                'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
+                'type'                 => 'select2_from_ajax',
+                'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
+                'entity'               => 'article', // the method that defines the relationship in your Model
+                'attribute'            => 'title', // foreign key attribute that is shown to user
+                'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+                'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'placeholder'          => 'Select an article', // placeholder for the select
+                'minimum_input_length' => 2, // minimum characters to type before querying results
+                'tab'                  => 'Selects',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
+
+        $this->crud->addField([   // CustomHTML
+            'name' => 'select_n_n_heading',
+            'type' => 'custom_html',
+            'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
+            'tab' => 'Selects',
         ]);
 
-        $this->crud->addField([ // select_from_array
-            'name'            => 'select_from_array',
-            'label'           => 'Select_from_array (no relationship, 1-1 or 1-n)',
-            'type'            => 'select_from_array',
-            'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'     => true,
-            'tab'             => 'Selects',
-            'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+            $this->crud->addField([       // Select_Multiple = n-n relationship
+                'label'     => 'Select_multiple (n-n relationship with pivot table)',
+                'type'      => 'select_multiple',
+                'name'      => 'tags', // the method that defines the relationship in your Model
+                'entity'    => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'       => 'Selects',
+            ]);
+
+            $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
+                'label'         => 'Select2_multiple (n-n relationship with pivot table)',
+                'type'          => 'select2_multiple',
+                'name'          => 'categories', // the method that defines the relationship in your Model
+                'entity'        => 'categories', // the method that defines the relationship in your Model
+                'attribute'     => 'name', // foreign key attribute that is shown to user
+                'model'         => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+                'allows_null'   => true,
+                'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'           => 'Selects',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
+
+            $this->crud->addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
+                'label'                => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
+                'type'                 => 'select2_from_ajax_multiple',
+                'name'                 => 'articles', // the column that contains the ID of that connected entity;
+                'entity'               => 'articles', // the method that defines the relationship in your Model
+                'attribute'            => 'title', // foreign key attribute that is shown to user
+                'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+                'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'placeholder'          => 'Select one or more articles', // placeholder for the select
+                'minimum_input_length' => 2, // minimum characters to type before querying results
+                'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'                  => 'Selects',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
+
+        $this->crud->addField([   // CustomHTML
+            'name' => 'select_heading',
+            'type' => 'custom_html',
+            'value' => '<h5 class="mb-0 mt-3 text-primary">No Relationship</h5>',
+            'tab' => 'Selects',
         ]);
 
-        $this->crud->addField([    // SELECT2
-            'label'         => 'Select2 (1-n relationship)',
-            'type'          => 'select2',
-            'name'          => 'select2',
-            'entity'        => 'category',
-            'attribute'     => 'name',
-            'model'         => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'           => 'Selects',
-        ]);
+            $this->crud->addField([ // select_from_array
+                'name'            => 'select_from_array',
+                'label'           => 'Select_from_array (no relationship, 1-1 or 1-n)',
+                'type'            => 'select_from_array',
+                'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+                'allows_null'     => true,
+                'tab'             => 'Selects',
+                'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
 
-        $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
-            'label'         => 'Select2_multiple (n-n relationship with pivot table)',
-            'type'          => 'select2_multiple',
-            'name'          => 'categories', // the method that defines the relationship in your Model
-            'entity'        => 'categories', // the method that defines the relationship in your Model
-            'attribute'     => 'name', // foreign key attribute that is shown to user
-            'model'         => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-            'allows_null'   => true,
-            'pivot'         => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'           => 'Selects',
-        ]);
+            $this->crud->addField([ // select2_from_array
+                'name'            => 'select2_from_array',
+                'label'           => 'Select2_from_array (no relationship, 1-1 or 1-n)',
+                'type'            => 'select2_from_array',
+                'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+                'allows_null'     => true,
+                'tab'             => 'Selects',
+                'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ]);
 
-        $this->crud->addField([ // select2_from_array
-            'name'            => 'select2_from_array',
-            'label'           => 'Select2_from_array (no relationship, 1-1 or 1-n)',
-            'type'            => 'select2_from_array',
-            'options'         => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'     => true,
-            'tab'             => 'Selects',
-            'allows_multiple' => false, // OPTIONAL; needs you to cast this to array in your model;
-        ]);
-
-        $this->crud->addField([ // select2_from_ajax: 1-n relationship
-            'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
-            'type'                 => 'select2_from_ajax',
-            'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
-            'entity'               => 'article', // the method that defines the relationship in your Model
-            'attribute'            => 'title', // foreign key attribute that is shown to user
-            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
-            'placeholder'          => 'Select an article', // placeholder for the select
-            'minimum_input_length' => 2, // minimum characters to type before querying results
-            'tab'                  => 'Selects',
-        ]);
-
-        $this->crud->addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
-            'label'                => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
-            'type'                 => 'select2_from_ajax_multiple',
-            'name'                 => 'articles', // the column that contains the ID of that connected entity;
-            'entity'               => 'articles', // the method that defines the relationship in your Model
-            'attribute'            => 'title', // foreign key attribute that is shown to user
-            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
-            'placeholder'          => 'Select one or more articles', // placeholder for the select
-            'minimum_input_length' => 2, // minimum characters to type before querying results
-            'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'                  => 'Selects',
-        ]);
-
-        $this->crud->addField([ // select_and_order
-            'name'    => 'select_and_order',
-            'label'   => 'Featured',
-            'type'    => 'select_and_order',
-            'options' => [
-                1 => 'Option 1',
-                2 => 'Option 2',
-                3 => 'Option 3',
-                4 => 'Option 4',
-                5 => 'Option 5',
-                6 => 'Option 6',
-                7 => 'Option 7',
-                8 => 'Option 8',
-                9 => 'Option 9',
-            ],
-            'fake' => true,
-            'tab'  => 'Selects',
-        ]);
+            $this->crud->addField([ // select_and_order
+                'name'    => 'select_and_order',
+                'label'   => 'Select_and_order',
+                'type'    => 'select_and_order',
+                'options' => [
+                    1 => 'Option 1',
+                    2 => 'Option 2',
+                    3 => 'Option 3',
+                    4 => 'Option 4',
+                    5 => 'Option 5',
+                    6 => 'Option 6',
+                    7 => 'Option 7',
+                    8 => 'Option 8',
+                    9 => 'Option 9',
+                ],
+                'fake' => true,
+                'tab'  => 'Selects',
+            ]);
 
         // -----------------
         // UPLOADS tab
@@ -611,7 +652,7 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([ // image
-            'label'        => 'Image',
+            'label'        => 'Image - includes cropping',
             'name'         => 'image',
             'type'         => 'image',
             'upload'       => true,
@@ -662,6 +703,7 @@ class MonsterCrudController extends CrudController
             'type'  => 'color',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
             'tab' => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
         $this->crud->addField([   // Color
             'name'  => 'color_picker',
@@ -669,6 +711,7 @@ class MonsterCrudController extends CrudController
             'type'  => 'color_picker',
             // 'wrapperAttributes' => ['class' => 'col-md-6'],
             'tab' => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
         $this->crud->addField([
@@ -716,6 +759,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'video',
             'label' => 'Video - link to video file on Youtube or Vimeo',
             'type'  => 'video',
+            'tab'   => 'Miscellaneous',
         ]);
         // $table->string('range')->nullable;
 
