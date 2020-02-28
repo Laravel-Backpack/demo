@@ -72,7 +72,7 @@ return [
     // - default: '' (project root)
     // - alternative: 'admin' (the admin's dashboard)
     'home_link' => 'https://backpackforlaravel.com',
-    
+
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
 
