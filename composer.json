@@ -62,9 +62,11 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ]
+        ],
+        "test": "vendor/bin/phpunit --testdox"
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "platform": {"php": "7.2.0"}
     }
 }
