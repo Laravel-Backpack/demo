@@ -1,4 +1,4 @@
-/*!  1.17.1 | © Algolia | github.com/algolia/places */
+/*!  1.18.1 | © Algolia | github.com/algolia/places */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -109,6 +109,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var extractParams = function extractParams(_ref) {
   var hitsPerPage = _ref.hitsPerPage,
+      postcodeSearch = _ref.postcodeSearch,
       aroundLatLng = _ref.aroundLatLng,
       aroundRadius = _ref.aroundRadius,
       aroundLatLngViaIP = _ref.aroundLatLngViaIP,
@@ -139,6 +140,10 @@ var extractParams = function extractParams(_ref) {
     extracted.aroundLatLng = aroundLatLng;
   } else if (aroundLatLngViaIP !== undefined) {
     extracted.aroundLatLngViaIP = aroundLatLngViaIP;
+  }
+
+  if (postcodeSearch) {
+    extracted.restrictSearchableAttributes = 'postcode';
   }
 
   return _objectSpread({}, extracted, {
@@ -296,6 +301,7 @@ function createAutocompleteSource(_ref) {
       apiKey = _ref.apiKey,
       appId = _ref.appId,
       hitsPerPage = _ref.hitsPerPage,
+      postcodeSearch = _ref.postcodeSearch,
       aroundLatLng = _ref.aroundLatLng,
       aroundRadius = _ref.aroundRadius,
       aroundLatLngViaIP = _ref.aroundLatLngViaIP,
@@ -326,6 +332,7 @@ function createAutocompleteSource(_ref) {
   var configuration = Object(configure["a" /* default */])({
     hitsPerPage: hitsPerPage,
     type: type,
+    postcodeSearch: postcodeSearch,
     countries: countries,
     language: language,
     aroundLatLng: aroundLatLng,
@@ -467,7 +474,7 @@ if (!('language' in navigator)) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ('1.17.1');
+/* harmony default export */ __webpack_exports__["default"] = ('1.18.1');
 
 /***/ }),
 

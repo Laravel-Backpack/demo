@@ -1,4 +1,10 @@
 {
+  "_args": [
+    [
+      "tinymce@4.9.8",
+      "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud"
+    ]
+  ],
   "_from": "tinymce@4.9.8",
   "_id": "tinymce@4.9.8",
   "_inBundle": false,
@@ -16,21 +22,17 @@
     "fetchSpec": "4.9.8"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/tinymce/-/tinymce-4.9.8.tgz",
-  "_shasum": "1f470a9defe3b52845fd51147cb226d44740750e",
-  "_spec": "tinymce@4.9.8",
-  "_where": "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud",
+  "_spec": "4.9.8",
+  "_where": "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud",
   "author": {
     "name": "Ephox Corporation"
   },
   "bugs": {
     "url": "https://github.com/tinymce/tinymce/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "Web based JavaScript HTML WYSIWYG editor control.",
   "homepage": "https://github.com/tinymce/tinymce-dist#readme",
   "keywords": [

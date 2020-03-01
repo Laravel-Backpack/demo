@@ -2,7 +2,7 @@
   "_args": [
     [
       "datatables.net-responsive@2.2.3",
-      "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud"
+      "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud"
     ]
   ],
   "_from": "datatables.net-responsive@2.2.3",
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/datatables.net-responsive/-/datatables.net-responsive-2.2.3.tgz",
   "_spec": "2.2.3",
-  "_where": "/Users/tabacitu/Sites/v4demo10/vendor/backpack/crud",
+  "_where": "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"

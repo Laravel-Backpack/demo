@@ -229,7 +229,7 @@ class MonsterCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(StoreRequest::class);
-        $this->crud->set('create.contentClass', 'col-md-12');
+        $this->crud->setOperationSetting('contentClass', 'col-md-12');
 
         $this->crud->addField([
             'name'              => 'text',
