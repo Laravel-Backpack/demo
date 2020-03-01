@@ -20,7 +20,7 @@
         "spatie/laravel-translatable": "^4.0",
         "barryvdh/laravel-elfinder": "^0.4.3",
         "spatie/laravel-backup": "^6.1",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.1",
         "facade/ignition": "^1.11"
     },
     "require-dev": {
