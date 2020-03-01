@@ -659,21 +659,21 @@
         },
         {
             "name": "barryvdh/laravel-elfinder",
-            "version": "v0.4.4",
+            "version": "v0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-elfinder.git",
-                "reference": "47405c06e828d16f834dcc6235f67c88971862f8"
+                "reference": "bb99c9f3f74fad5a593682d2f842e06ebffc5d14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/47405c06e828d16f834dcc6235f67c88971862f8",
-                "reference": "47405c06e828d16f834dcc6235f67c88971862f8",
+                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/bb99c9f3f74fad5a593682d2f842e06ebffc5d14",
+                "reference": "bb99c9f3f74fad5a593682d2f842e06ebffc5d14",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/elfinder-flysystem-driver": "^0.2",
-                "illuminate/support": "5.5.x|5.6.x|5.7.x|5.8.x|6.x",
+                "illuminate/support": "^5.5|^6|^7",
                 "league/flysystem": "^1.0",
                 "league/flysystem-cached-adapter": "^1.0",
                 "php": ">=7.0",
@@ -712,7 +712,7 @@
                 "laravel",
                 "tinymce"
             ],
-            "time": "2019-10-27T18:56:41+00:00"
+            "time": "2020-02-25T20:53:00+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -6357,8 +6357,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
