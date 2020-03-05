@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.45",
+            "version": "v4.0.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "4239523b05ac32c70a7ba2b1117d1c3ae97dc062"
+                "reference": "6bf7166de7836cfa0be34b7b7c7711a616de4146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/4239523b05ac32c70a7ba2b1117d1c3ae97dc062",
-                "reference": "4239523b05ac32c70a7ba2b1117d1c3ae97dc062",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6bf7166de7836cfa0be34b7b7c7711a616de4146",
+                "reference": "6bf7166de7836cfa0be34b7b7c7711a616de4146",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,8 @@
                 "laravel/helpers": "^1.1",
                 "nesbot/carbon": "^2.14",
                 "ocramius/package-versions": "^1.4",
-                "prologue/alerts": "^0.4.1"
+                "prologue/alerts": "^0.4.1",
+                "venturecraft/revisionable": "1.*"
             },
             "require-dev": {
                 "orchestra/database": "^5.0@dev|3.8.x-dev",
@@ -153,7 +154,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-05T06:44:02+00:00"
+            "time": "2020-03-05T09:30:43+00:00"
         },
         {
             "name": "backpack/generators",
@@ -277,16 +278,16 @@
         },
         {
             "name": "backpack/menucrud",
-            "version": "2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "8b4e9b9d4780d72853caf80b9256dd4da6a14537"
+                "reference": "8935f84d111562d55c1770315bac3658128ca734"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/8b4e9b9d4780d72853caf80b9256dd4da6a14537",
-                "reference": "8b4e9b9d4780d72853caf80b9256dd4da6a14537",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/8935f84d111562d55c1770315bac3658128ca734",
+                "reference": "8935f84d111562d55c1770315bac3658128ca734",
                 "shasum": ""
             },
             "require": {
@@ -294,9 +295,9 @@
                 "backpack/pagemanager": "^2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^9.0||^7.0",
                 "scrutinizer/ocular": "~1.1",
-                "squizlabs/php_codesniffer": "~2.3"
+                "squizlabs/php_codesniffer": "~2.3 || ~3.0"
             },
             "type": "library",
             "extra": {
@@ -332,20 +333,20 @@
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2019-10-04T12:29:27+00:00"
+            "time": "2020-03-05T09:21:15+00:00"
         },
         {
             "name": "backpack/newscrud",
-            "version": "3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/NewsCRUD.git",
-                "reference": "c94f40299e9d1eb442d1c73a16750e92ae27a794"
+                "reference": "81bd20dfae6087cee173d02cdc4ddf65995eddf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/c94f40299e9d1eb442d1c73a16750e92ae27a794",
-                "reference": "c94f40299e9d1eb442d1c73a16750e92ae27a794",
+                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/81bd20dfae6087cee173d02cdc4ddf65995eddf1",
+                "reference": "81bd20dfae6087cee173d02cdc4ddf65995eddf1",
                 "shasum": ""
             },
             "require": {
@@ -353,9 +354,9 @@
                 "cviebrock/eloquent-sluggable": "^7.0||^6.0||4.8"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^9.0||^7.0",
                 "scrutinizer/ocular": "~1.1",
-                "squizlabs/php_codesniffer": "~2.3"
+                "squizlabs/php_codesniffer": "~2.3 || ~3.0"
             },
             "type": "library",
             "extra": {
@@ -391,20 +392,20 @@
                 "NewsCRUD",
                 "backpack"
             ],
-            "time": "2020-03-05T06:51:46+00:00"
+            "time": "2020-03-05T09:07:35+00:00"
         },
         {
             "name": "backpack/pagemanager",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "b7908211c52f2e3998beb4cda70493334b615214"
+                "reference": "786d070a89569031335ad62fdf8a1ce23619e66d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/b7908211c52f2e3998beb4cda70493334b615214",
-                "reference": "b7908211c52f2e3998beb4cda70493334b615214",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/786d070a89569031335ad62fdf8a1ce23619e66d",
+                "reference": "786d070a89569031335ad62fdf8a1ce23619e66d",
                 "shasum": ""
             },
             "require": {
@@ -412,7 +413,7 @@
                 "cviebrock/eloquent-sluggable": "^7.0||^6.0||4.8"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^9.0||^7.0",
                 "scrutinizer/ocular": "~1.1",
                 "squizlabs/php_codesniffer": "~2.3"
             },
@@ -459,20 +460,20 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2020-03-05T06:53:49+00:00"
+            "time": "2020-03-05T07:43:58+00:00"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "5.0.6",
+            "version": "5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46"
+                "reference": "032051df0ed1b638c5afcc9bccc93c8162261f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46",
-                "reference": "4ddfbc91c1536c3e0a7a4d0379ebfe24eb859a46",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/032051df0ed1b638c5afcc9bccc93c8162261f17",
+                "reference": "032051df0ed1b638c5afcc9bccc93c8162261f17",
                 "shasum": ""
             },
             "require": {
@@ -480,7 +481,7 @@
                 "spatie/laravel-permission": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^9.0||^7.0",
                 "scrutinizer/ocular": "~1.1"
             },
             "type": "library",
@@ -534,27 +535,27 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2020-01-15T15:50:58+00:00"
+            "time": "2020-03-05T07:55:03+00:00"
         },
         {
             "name": "backpack/settings",
-            "version": "3.0.3",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "1d9329b8f3806f3f44698ee69ef7aa5ebdbe0623"
+                "reference": "03b62203e34a23c51791235aa887bb420df7a267"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/1d9329b8f3806f3f44698ee69ef7aa5ebdbe0623",
-                "reference": "1d9329b8f3806f3f44698ee69ef7aa5ebdbe0623",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/03b62203e34a23c51791235aa887bb420df7a267",
+                "reference": "03b62203e34a23c51791235aa887bb420df7a267",
                 "shasum": ""
             },
             "require": {
                 "backpack/crud": "^4.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^9.0||^7.0",
                 "scrutinizer/ocular": "~1.1"
             },
             "type": "library",
@@ -598,7 +599,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2020-02-16T08:27:16+00:00"
+            "time": "2020-03-05T08:06:30+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -5358,6 +5359,66 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2019-10-24T08:53:34+00:00"
+        },
+        {
+            "name": "venturecraft/revisionable",
+            "version": "1.34.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VentureCraft/revisionable.git",
+                "reference": "151336f0cd51921a00a1ac249afdbcbedb3bc8b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/151336f0cd51921a00a1ac249afdbcbedb3bc8b3",
+                "reference": "151336f0cd51921a00a1ac249afdbcbedb3bc8b3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0",
+                "laravel/framework": "~5.4|^6.0|^7.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Venturecraft\\Revisionable\\RevisionableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-0": {
+                    "Venturecraft\\Revisionable": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Duell",
+                    "email": "me@chrisduell.com"
+                }
+            ],
+            "description": "Keep a revision history for your models without thinking, created as a package for use with Laravel",
+            "homepage": "http://github.com/venturecraft/revisionable",
+            "keywords": [
+                "Audit",
+                "ardent",
+                "history",
+                "laravel",
+                "model",
+                "revision"
+            ],
+            "time": "2020-03-03T22:35:12+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
