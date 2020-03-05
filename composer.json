@@ -5,7 +5,7 @@
     "license": "proprietary",
     "type": "project",
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.3",
         "laravel/framework": "^7.0",
         "fideloper/proxy": "^4.0",
         "backpack/crud": "^4.0.0",
@@ -26,7 +26,7 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^7.0",
+        "phpunit/phpunit" : "^9.0||^7.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "^1.0",
