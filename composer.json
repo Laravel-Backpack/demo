@@ -66,6 +66,9 @@
         "test": "vendor/bin/phpunit --testdox"
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.3.9"
+        }
     }
 }
