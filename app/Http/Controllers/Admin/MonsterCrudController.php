@@ -772,15 +772,17 @@ class MonsterCrudController extends CrudController
 
     public function addCustomCrudFilters()
     {
-        $this->crud->addFilter([ // add a "simple" filter called Draft
-            'type'  => 'simple',
-            'name'  => 'checkbox',
-            'label' => 'Simple',
-        ],
-        false, // the simple filter has no values, just the "Draft" label specified above
+        $this->crud->addFilter(
+            [ // add a "simple" filter called Draft
+                'type'  => 'simple',
+                'name'  => 'checkbox',
+                'label' => 'Simple',
+            ],
+            false, // the simple filter has no values, just the "Draft" label specified above
         function () { // if the filter is active (the GET parameter "draft" exits)
             $this->crud->addClause('where', 'checkbox', '1');
-        });
+        }
+        );
 
         $this->crud->addFilter([ // dropdown filter
             'name' => 'select_from_array',
@@ -791,59 +793,67 @@ class MonsterCrudController extends CrudController
             $this->crud->addClause('where', 'select_from_array', $value);
         });
 
-        $this->crud->addFilter([ // text filter
-            'type'  => 'text',
-            'name'  => 'text',
-            'label' => 'Text',
-        ],
-        false,
-        function ($value) { // if the filter is active
+        $this->crud->addFilter(
+            [ // text filter
+                'type'  => 'text',
+                'name'  => 'text',
+                'label' => 'Text',
+            ],
+            false,
+            function ($value) { // if the filter is active
             $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
-        });
+        }
+        );
 
-        $this->crud->addFilter([
-            'name'       => 'number',
-            'type'       => 'range',
-            'label'      => 'Range',
-            'label_from' => 'min value',
-            'label_to'   => 'max value',
-        ],
-        false,
-        function ($value) { // if the filter is active
+        $this->crud->addFilter(
+            [
+                'name'       => 'number',
+                'type'       => 'range',
+                'label'      => 'Range',
+                'label_from' => 'min value',
+                'label_to'   => 'max value',
+            ],
+            false,
+            function ($value) { // if the filter is active
             $range = json_decode($value);
             if ($range->from && $range->to) {
                 $this->crud->addClause('where', 'number', '>=', (float) $range->from);
                 $this->crud->addClause('where', 'number', '<=', (float) $range->to);
             }
-        });
+        }
+        );
 
-        $this->crud->addFilter([ // date filter
-            'type'  => 'date',
-            'name'  => 'date',
-            'label' => 'Date',
-        ],
-        false,
-        function ($value) { // if the filter is active, apply these constraints
+        $this->crud->addFilter(
+            [ // date filter
+                'type'  => 'date',
+                'name'  => 'date',
+                'label' => 'Date',
+            ],
+            false,
+            function ($value) { // if the filter is active, apply these constraints
             $this->crud->addClause('where', 'date', '=', $value);
-        });
+        }
+        );
 
-        $this->crud->addFilter([ // daterange filter
-            'type' => 'date_range',
-            'name' => 'date_range',
-            'label'=> 'Date range',
-            // 'date_range_options' => [
-            // 'format' => 'YYYY/MM/DD',
-            // 'locale' => ['format' => 'YYYY/MM/DD'],
-            // 'showDropdowns' => true,
-            // 'showWeekNumbers' => true
-            // ]
-        ],
-         false,
-         function ($value) { // if the filter is active, apply these constraints
+        $this->crud->addFilter(
+            [ // daterange filter
+                'type' => 'date_range',
+                'name' => 'date_range',
+                'label'=> 'Date range',
+                // 'date_range_options' => [
+                // 'format' => 'YYYY/MM/DD',
+                // 'locale' => ['format' => 'YYYY/MM/DD'],
+                // 'showDropdowns' => true,
+                // 'showWeekNumbers' => true
+                // ]
+            ],
+            false,
+            function ($value) { // if the filter is active, apply these constraints
              $dates = json_decode($value);
              $this->crud->addClause('where', 'date', '>=', $dates->from);
              $this->crud->addClause('where', 'date', '<=', $dates->to);
-         });
+         }
+        );
 
         $this->crud->addFilter([ // select2 filter
             'name' => 'select2',
@@ -867,15 +877,17 @@ class MonsterCrudController extends CrudController
             }
         });
 
-        $this->crud->addFilter([ // select2_ajax filter
-            'name'        => 'select2_from_ajax',
-            'type'        => 'select2_ajax',
-            'label'       => 'S2 Ajax',
-            'placeholder' => 'Pick an article',
-        ],
-        url('api/article-search'), // the ajax route
+        $this->crud->addFilter(
+            [ // select2_ajax filter
+                'name'        => 'select2_from_ajax',
+                'type'        => 'select2_ajax',
+                'label'       => 'S2 Ajax',
+                'placeholder' => 'Pick an article',
+            ],
+            url('api/article-search'), // the ajax route
         function ($value) { // if the filter is active
             $this->crud->addClause('where', 'select2_from_ajax', $value);
-        });
+        }
+        );
     }
 }

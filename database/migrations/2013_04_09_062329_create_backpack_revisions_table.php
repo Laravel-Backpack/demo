@@ -12,7 +12,8 @@ class CreateBackpackRevisionsTable extends Migration
     public function up()
     {
         if (!Schema::hasTable('revisions')) {
-            Schema::create('revisions',
+            Schema::create(
+                'revisions',
                 function ($table) {
                     $table->increments('id');
                     $table->string('revisionable_type');
@@ -24,7 +25,8 @@ class CreateBackpackRevisionsTable extends Migration
                     $table->timestamps();
 
                     $table->index(['revisionable_id', 'revisionable_type']);
-                });
+                }
+            );
         }
     }
 
