@@ -24,6 +24,11 @@ class Icon extends Model
     protected $fillable = ['name', 'icon'];
     // protected $hidden = [];
     // protected $dates = [];
+    
+    public function identifiableName()
+    {
+        return 'icon';
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -36,6 +41,7 @@ class Icon extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+   
 
     /*
     |--------------------------------------------------------------------------

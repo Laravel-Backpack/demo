@@ -13,6 +13,7 @@ class IconCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\RevisionsOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
 
     public function setup()
     {
