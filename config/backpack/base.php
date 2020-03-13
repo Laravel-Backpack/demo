@@ -71,7 +71,7 @@ return [
     // The string below will be passed through the url() helper.
     // - default: '' (project root)
     // - alternative: 'admin' (the admin's dashboard)
-    'home_link' => 'https://backpackforlaravel.com',
+    'home_link' => env('APP_ENV') === 'local' ? '/' : 'https://backpackforlaravel.com',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
