@@ -801,8 +801,8 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
-        }
+                $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
+            }
         );
 
         $this->crud->addFilter(
@@ -815,12 +815,12 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active
-            $range = json_decode($value);
-            if ($range->from && $range->to) {
-                $this->crud->addClause('where', 'number', '>=', (float) $range->from);
-                $this->crud->addClause('where', 'number', '<=', (float) $range->to);
+                $range = json_decode($value);
+                if ($range->from && $range->to) {
+                    $this->crud->addClause('where', 'number', '>=', (float) $range->from);
+                    $this->crud->addClause('where', 'number', '<=', (float) $range->to);
+                }
             }
-        }
         );
 
         $this->crud->addFilter(
@@ -831,8 +831,8 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active, apply these constraints
-            $this->crud->addClause('where', 'date', '=', $value);
-        }
+                $this->crud->addClause('where', 'date', '=', $value);
+            }
         );
 
         $this->crud->addFilter(
@@ -849,10 +849,10 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active, apply these constraints
-             $dates = json_decode($value);
-             $this->crud->addClause('where', 'date', '>=', $dates->from);
-             $this->crud->addClause('where', 'date', '<=', $dates->to);
-         }
+                $dates = json_decode($value);
+                $this->crud->addClause('where', 'date', '>=', $dates->from);
+                $this->crud->addClause('where', 'date', '<=', $dates->to);
+            }
         );
 
         $this->crud->addFilter([ // select2 filter
