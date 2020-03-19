@@ -2,7 +2,7 @@
   "_args": [
     [
       "datatables.net@1.10.20",
-      "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud"
+      "/Users/tabacitu/Sites/v40master/vendor/backpack/crud"
     ]
   ],
   "_from": "datatables.net@1.10.20",
@@ -30,7 +30,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.20.tgz",
   "_spec": "1.10.20",
-  "_where": "/Users/tabacitu/Sites/v4depupgrades/vendor/backpack/crud",
+  "_where": "/Users/tabacitu/Sites/v40master/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"
