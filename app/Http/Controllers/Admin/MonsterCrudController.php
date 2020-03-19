@@ -50,6 +50,16 @@ class MonsterCrudController extends CrudController
                 'type'  => 'boolean',
                 // optionally override the Yes/No texts
                 'options' => [0 => 'Yes', 1 => 'No'],
+                'wrapper' => [
+                    'element' => 'span',
+                    'class' => function ($crud, $column, $entry, $related_key) {
+                        if ($column['text'] == 'Yes') {
+                            return 'badge badge-success';
+                        }
+
+                        return 'badge badge-default';
+                    },
+                ],
             ],
             [
                 'name'  => 'checkbox', // The db column name
@@ -122,6 +132,11 @@ class MonsterCrudController extends CrudController
                 'entity'    => 'category', // the method that defines the relationship in your Model
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+                'wrapper'   => [
+                    'href' => function ($crud, $column, $entry, $related_key) {
+                        return backpack_url('category/'.$related_key.'/show');
+                    }
+                ],
             ],
             [ // select_from_array
                 'name'    => 'select_from_array',
@@ -137,6 +152,11 @@ class MonsterCrudController extends CrudController
                 'entity'    => 'tags', // the method that defines the relationship in your Model
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+                'wrapper'   => [
+                    'href' => function ($crud, $column, $entry, $related_key) {
+                        return backpack_url('tag/'.$related_key.'/show');
+                    }
+                ],
             ],
             [
                 'name'  => 'video', // The db column name
