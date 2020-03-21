@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcbcf8d9a8d25ad0ad93ebe603ba2cf6",
+    "content-hash": "03c9d572eadc272f3956e7adb0be3688",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "cb5240f21cc14998d510acd5758a9685f7cac99d"
+                "reference": "edf2e0d21e22c3c6dbc1152faecee99cab4b3504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/cb5240f21cc14998d510acd5758a9685f7cac99d",
-                "reference": "cb5240f21cc14998d510acd5758a9685f7cac99d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/edf2e0d21e22c3c6dbc1152faecee99cab4b3504",
+                "reference": "edf2e0d21e22c3c6dbc1152faecee99cab4b3504",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,63 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-21T11:46:42+00:00"
+            "time": "2020-03-21T17:18:23+00:00"
+        },
+        {
+            "name": "backpack/filemanager",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/FileManager.git",
+                "reference": "1d986ee70d395ee7e2980bf99dcbea37765a70a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/1d986ee70d395ee7e2980bf99dcbea37765a70a1",
+                "reference": "1d986ee70d395ee7e2980bf99dcbea37765a70a1",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0.0|^4.1.0",
+                "barryvdh/laravel-elfinder": "^0.4.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\FileManager\\FileManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\FileManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "Backpack admin interface for files and folder, using elFinder",
+            "homepage": "https://github.com/laravel-backpack/filemanager",
+            "keywords": [
+                "filemanager",
+                "laravel"
+            ],
+            "time": "2020-03-21T16:54:01+00:00"
         },
         {
             "name": "backpack/generators",
@@ -5754,6 +5810,67 @@
                 "slim"
             ],
             "time": "2020-02-04T22:56:50+00:00"
+        },
+        {
+            "name": "jeroen-g/laravel-packager",
+            "version": "2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jeroen-G/laravel-packager.git",
+                "reference": "50351b10c806a1a4890bdbdc43d52a1c39742258"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jeroen-G/laravel-packager/zipball/50351b10c806a1a4890bdbdc43d52a1c39742258",
+                "reference": "50351b10c806a1a4890bdbdc43d52a1c39742258",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "~6",
+                "illuminate/support": "^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": ">=3.8",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "suggest": {
+                "sensiolabs/security-checker": "Required to use the security check command"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenG\\Packager\\PackagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenG\\Packager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "EUPL-1.1"
+            ],
+            "authors": [
+                {
+                    "name": "JeroenG",
+                    "email": "jeroengjeroeng@gmail.com",
+                    "homepage": "https://github.com/Jeroen-G"
+                }
+            ],
+            "description": "A cli tool for creating Laravel packages.",
+            "homepage": "https://github.com/Jeroen-G/laravel-packager",
+            "keywords": [
+                "Skeleton",
+                "laravel",
+                "package",
+                "packager"
+            ],
+            "time": "2020-03-05T08:10:23+00:00"
         },
         {
             "name": "laracasts/generators",
