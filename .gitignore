@@ -7,3 +7,4 @@ Homestead.json
 .env
 .idea
 .DS_Store
+.packages

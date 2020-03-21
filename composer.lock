@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0623bfa63dec82eaf4a4deeeb03fd12b",
+    "content-hash": "dcbcf8d9a8d25ad0ad93ebe603ba2cf6",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -75,19 +75,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6256c584f1577bb68a0f03f9cdb960787e7be1c3"
+                "reference": "cb5240f21cc14998d510acd5758a9685f7cac99d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6256c584f1577bb68a0f03f9cdb960787e7be1c3",
-                "reference": "6256c584f1577bb68a0f03f9cdb960787e7be1c3",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/cb5240f21cc14998d510acd5758a9685f7cac99d",
+                "reference": "cb5240f21cc14998d510acd5758a9685f7cac99d",
                 "shasum": ""
             },
             "require": {
                 "creativeorange/gravatar": "~1.0",
                 "doctrine/dbal": "^2.5",
                 "guzzlehttp/guzzle": "^6.3",
-                "intervention/image": "^2.3",
                 "laravel/framework": "^7.0|^6.0",
                 "nesbot/carbon": "^2.14",
                 "ocramius/package-versions": "^1.4",
@@ -153,7 +152,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-20T07:20:09+00:00"
+            "time": "2020-03-21T11:46:42+00:00"
         },
         {
             "name": "backpack/generators",
@@ -535,6 +534,72 @@
                 "users roles admin"
             ],
             "time": "2020-03-05T07:55:03+00:00"
+        },
+        {
+            "name": "backpack/revise-operation",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/revise-operation.git",
+                "reference": "46d652d94f7f35d69b3496de26e4e29b49176681"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/46d652d94f7f35d69b3496de26e4e29b49176681",
+                "reference": "46d652d94f7f35d69b3496de26e4e29b49176681",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0.0|^4.1.0",
+                "venturecraft/revisionable": "1.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\ReviseOperation\\ReviseOperationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\ReviseOperation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "http://tabacitu.ro"
+                }
+            ],
+            "description": "Backpack interface for venturecraft/revisionable",
+            "homepage": "https://github.com/laravel-backpack/revise-operation",
+            "keywords": [
+                "Admin Interface",
+                "Audit Log",
+                "Backpack Add-On",
+                "Backpack Operation",
+                "Backpack for Laravel",
+                "ReviseOperation",
+                "Revision History",
+                "Revisions",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "revisionable"
+            ],
+            "time": "2020-03-21T11:45:14+00:00"
         },
         {
             "name": "backpack/settings",
@@ -3244,16 +3309,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.10.0",
+            "version": "v0.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "e361c8b7e5114534078e0ce04ddc442b39018a3c"
+                "reference": "573c2362c3cdebe846b4adae4b630eecb350afd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e361c8b7e5114534078e0ce04ddc442b39018a3c",
-                "reference": "e361c8b7e5114534078e0ce04ddc442b39018a3c",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/573c2362c3cdebe846b4adae4b630eecb350afd8",
+                "reference": "573c2362c3cdebe846b4adae4b630eecb350afd8",
                 "shasum": ""
             },
             "require": {
@@ -3313,7 +3378,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2020-03-15T22:52:37+00:00"
+            "time": "2020-03-21T06:55:27+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
