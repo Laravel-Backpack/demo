@@ -8,7 +8,7 @@
         "php": ">=7.3",
         "laravel/framework": "^7.0",
         "fideloper/proxy": "^4.0",
-        "backpack/crud": "^4.0.0",
+        "backpack/crud": "4.1.x-dev as 4.0.99",
         "backpack/logmanager": "^3.0.0",
         "backpack/settings": "^3.0.0",
         "backpack/pagemanager": "^2.0.0",
@@ -21,7 +21,8 @@
         "barryvdh/laravel-elfinder": "^0.4.5",
         "spatie/laravel-backup": "^6.1",
         "laravel/tinker": "^2.1",
-        "facade/ignition": "^2.0"
+        "facade/ignition": "^2.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -70,5 +71,7 @@
         "platform": {
             "php": "7.3.9"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
