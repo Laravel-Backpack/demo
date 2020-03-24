@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Charts\Pies;
 
-use App\User;
 use Backpack\CRUD\app\Http\Controllers\ChartController;
 use ConsoleTVs\Charts\Classes\C3\Chart;
 

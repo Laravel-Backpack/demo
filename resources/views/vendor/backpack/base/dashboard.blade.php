@@ -123,16 +123,6 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-12',
-		        // 'class' => 'col-md-6',
-		        'controller' => \App\Http\Controllers\Admin\Charts\SomeLineChartController::class,
-				'content' => [
-				    'header' => 'Line Chart', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
     	]
 	];
 
@@ -203,6 +193,77 @@
 	    	],
 
 	  ]
+	];
+
+
+    $widgets['after_content'][] = [
+	  'type' => 'div',
+	  'class' => 'row',
+	  'content' => [ // widgets 
+
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\ChartjsLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - Chartjs', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\EchartsLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - Echarts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\HighchartsLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - Highcharts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\FusionchartsLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - Fusioncharts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\FrappeLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - Frappe', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\C3LineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart - C3', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	
+
+    	]
 	];
 @endphp
 
