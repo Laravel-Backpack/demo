@@ -97,7 +97,115 @@
 	  'content'      => 'At hh:00, all custom entries are deleted, all files, everything. This cleanup is necessary because developers like to joke with their test entries, and mess with stuff. But you know that :-) Go ahead - make a developer smile.' ,
 	  'close_button' => true, // show close button or not
 	];
+
+    $widgets['after_content'][] = [
+	  'type' => 'div',
+	  'class' => 'row',
+	  'content' => [ // widgets 
+		  	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\LatestUsersChartController::class,
+				'content' => [
+				    'header' => 'New Users Past 7 Days', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+					
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-6',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\NewEntriesChartController::class,
+				'content' => [
+				    'header' => 'New Entries', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-12',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\SomeLineChartController::class,
+				'content' => [
+				    'header' => 'Line Chart', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+    	]
+	];
+
+    $widgets['after_content'][] = [
+	  'type' => 'div',
+	  'class' => 'row',
+	  'content' => [ // widgets 
+
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Pies\ChartjsPieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - Chartjs', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+		        'controller' => \App\Http\Controllers\Admin\Charts\Pies\EchartsPieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - Echarts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+				'controller' => \App\Http\Controllers\Admin\Charts\Pies\HighchartsPieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - Highcharts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[ 
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+				'controller' => \App\Http\Controllers\Admin\Charts\Pies\FusionchartsPieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - Fusioncharts', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+				'controller' => \App\Http\Controllers\Admin\Charts\Pies\FrappePieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - Frappe', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+	    	[
+		        'type' => 'chart',
+		        'wrapperClass' => 'col-md-4',
+		        // 'class' => 'col-md-6',
+				'controller' => \App\Http\Controllers\Admin\Charts\Pies\C3PieController::class,
+				'content' => [
+				    'header' => 'Pie Chart - C3', // optional
+				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
+		    	]
+	    	],
+
+	  ]
+	];
 @endphp
 
 @section('content')
+	{{-- @include(backpack_view('inc.widgets'), [ 'widgets' => $widgets['after_content'] ]) --}}
 @endsection

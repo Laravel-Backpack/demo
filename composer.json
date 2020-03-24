@@ -21,7 +21,8 @@
         "barryvdh/laravel-elfinder": "^0.4.5",
         "spatie/laravel-backup": "^6.1",
         "laravel/tinker": "^2.1",
-        "facade/ignition": "^2.0"
+        "facade/ignition": "^2.0",
+        "consoletvs/charts": "6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
