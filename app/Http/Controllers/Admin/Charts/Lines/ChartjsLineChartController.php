@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Charts\Lines;
+
+use Backpack\CRUD\app\Http\Controllers\ChartController;
+use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+
+class ChartjsLineChartController extends ChartController
+{
+    public function setup()
+    {
+        $this->chart = new Chart();
+
+        $this->chart->dataset('Red', 'line', [1, 2, 8, 3])
+                    ->color('rgba(205, 32, 31, 1)')
+                    ->backgroundColor('rgba(205, 32, 31, 0.4)');
+        $this->chart->dataset('Blue', 'line', [4, 3, 5, 1])
+                    ->color('rgba(70, 127, 208, 1)')
+                    ->backgroundColor('rgba(70, 127, 208, 0.4)');
+        $this->chart->dataset('Yellow', 'line', [8, 1, 4, 3])
+                    ->color('rgb(255, 193, 7)')
+                    ->backgroundColor('rgba(255, 193, 7, 0.4)');
+        $this->chart->dataset('Green', 'line', [1, 4, 7, 11])
+                    ->color('rgb(77, 189, 116)')
+                    ->backgroundColor('rgba(77, 189, 116, 0.4)');
+        $this->chart->dataset('Purple', 'line', [2, 10, 5, 3])
+                    ->color('rgb(96, 92, 168)')
+                    ->backgroundColor('rgba(96, 92, 168, 0.4)');
+
+        // MANDATORY. Set the labels for the dataset points
+        $this->chart->labels(['One', 'Two', 'Three', 'Four']);
+    }
+}

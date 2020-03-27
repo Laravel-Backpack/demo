@@ -15,10 +15,18 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
-    // CRUD resources and other admin routes
+    // -----
+    // CRUDs
+    // -----
     Route::crud('monster', 'MonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
+
+    // ------------------
+    // AJAX Chart Widgets
+    // ------------------
+    Route::get('charts/users', 'Charts\LatestUsersChartController@response');
+    Route::get('charts/new-entries', 'Charts\NewEntriesChartController@response');
 
     // ---------------------------
     // Backpack DEMO Custom Routes

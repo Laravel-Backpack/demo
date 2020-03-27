@@ -103,6 +103,10 @@
     border-color: #8a8a8a;
 }
 
+.elfinder-quicklook-info-progress {
+    background-color: gray;
+}
+
 .std42-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close:hover .ui-icon,
 .elfinder-mobile .std42-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close .ui-icon,
 .elfinder-quicklook-titlebar-icon .ui-icon.elfinder-icon-close:hover,
@@ -396,6 +400,15 @@
     background-color: inherit;
 }
 
+.elfinder-notify-cancel .elfinder-notify-button {
+    background-color: #707070;
+    background-image: url("../img/ui-icons_ffffff_256x240.png");
+}
+
+.elfinder-notify-cancel .elfinder-notify-button.ui-state-hover {
+    background-color: #aaa;
+}
+
 /* edit dialog */
 .elfinder-dialog-edit select.elfinder-edit-changed {
     border-bottom: 2px solid #13ae10;
@@ -409,4 +422,9 @@
 .elfinder-ui-tooltip.ui-widget-shadow,
 .elfinder .elfinder-ui-tooltip.ui-widget-shadow {
     box-shadow: 2px 6px 4px -4px #cecdcd;
+}
+
+/* progressbar */
+.elfinder-ui-progressbar {
+    background-color: #419bf3;
 }

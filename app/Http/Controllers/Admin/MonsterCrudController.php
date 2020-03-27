@@ -13,12 +13,23 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     public function setup()
     {
         $this->crud->setModel('App\Models\Monster');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
         $this->crud->setEntityNameStrings('monster', 'monsters');
+    }
+
+    public function fetchProduct()
+    {
+        return $this->fetch(\App\Models\Product::class);
+    }
+
+    public function fetchIcon()
+    {
+        return $this->fetch(\App\Models\Icon::class);
     }
 
     public function setupListOperation()
@@ -479,7 +490,7 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([    // SELECT
-            'label'     => 'Select (HTML Spec Select Input)',
+            'label'     => 'Select (HTML Spec Select Input for 1-n relationship)',
             'type'      => 'select',
             'name'      => 'select',
             'entity'    => 'category',
@@ -511,6 +522,18 @@ class MonsterCrudController extends CrudController
             'minimum_input_length' => 2, // minimum characters to type before querying results
             'tab'                  => 'Selects',
             'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+        ]);
+
+        $this->crud->addField([    // Relationship
+            'label'     => 'Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>',
+            'type'      => 'relationship',
+            'name'      => 'icon_id',
+            // 'entity'    => 'icon',
+            'attribute' => 'name',
+            // 'tab'       => 'Selects',
+            'inline_create' => true, // TODO: make this work
+            // 'data_source' => backpack_url('monster/fetch/icon'),
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
         $this->crud->addField([   // CustomHTML
@@ -557,6 +580,20 @@ class MonsterCrudController extends CrudController
             'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'                  => 'Selects',
             'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+        ]);
+
+        $this->crud->addField([    // Relationship
+            'label'     => 'Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
+            'type'      => 'relationship',
+            'name'      => 'products',
+            'entity'    => 'products',
+            // 'attribute' => 'name',
+            // 'tab'       => 'Selects',
+            'ajax' => true,
+            // 'inline_create' => true, // TODO: make it work like this too
+            'inline_create'     => ['entity' => 'product'],
+            'data_source'       => backpack_url('monster/fetch/product'),
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
         $this->crud->addField([   // CustomHTML

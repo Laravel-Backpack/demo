@@ -1,5 +1,8 @@
 <?php
 
+use Carbon\Carbon;
+use Illuminate\Support\Str;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -18,8 +21,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name'           => $faker->name,
         'email'          => $faker->unique()->safeEmail,
-        'password'       => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'password'       => bcrypt(Str::random(10)),
+        'remember_token' => Str::random(10),
+        'created_at'     => Carbon::now()->subDays(rand(0, 7)),
     ];
 });
 
@@ -29,13 +33,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(Backpack\NewsCRUD\app\Models\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => ucfirst($faker->unique()->word),
+        'name'           => ucfirst($faker->unique()->word),
+        'created_at'     => Carbon::now()->subDays(rand(0, 30)),
     ];
 });
 
 $factory->define(Backpack\NewsCRUD\app\Models\Tag::class, function (Faker\Generator $faker) {
     return [
-        'name' => ucfirst($faker->unique()->word),
+        'name'          => ucfirst($faker->unique()->word),
+        'created_at'    => Carbon::now()->subDays(rand(0, 30)),
     ];
 });
 
@@ -47,6 +53,7 @@ $factory->define(Backpack\NewsCRUD\app\Models\Article::class, function (Faker\Ge
         'status'      => $faker->shuffle(['PUBLISHED', 'DRAFT'])[0],
         'date'        => $faker->date(),
         'featured'    => $faker->boolean(),
+        'created_at'  => Carbon::now()->subDays(rand(0, 30)),
     ];
 });
 

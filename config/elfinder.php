@@ -7,7 +7,7 @@ return [
     | Upload dir
     |--------------------------------------------------------------------------
     |
-    | The dir where to store the images (relative from public)
+    | The dir where to store the images (relative from public).
     |
     */
     'dir' => ['uploads'],
@@ -26,8 +26,7 @@ return [
     |    ]
     */
     'disks' => [
-        // 'public',
-        // 'backups',
+        // 'uploads',
     ],
 
     /*
@@ -53,7 +52,7 @@ return [
     |
     */
 
-    'access' => 'App\Library\Elfinder::checkAccess',
+    'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,8 +76,6 @@ return [
     |
     */
 
-    'options' => [
-
-    ],
+    'options' => [],
 
 ];
