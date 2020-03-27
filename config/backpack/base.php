@@ -64,7 +64,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Back</b>pack',
+    'project_logo'   => '<b>Backpack</b>Beta',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
