@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dce09ea1098f1114aa922bcb6e65ffa8",
+    "content-hash": "023c24517b391b83a512d2b15eeb680d",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.55",
+            "version": "dev-widgets-manager",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60"
+                "reference": "2a2aaefc9685b4f49b7f6e4d44c57499fbebf390"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/2a2aaefc9685b4f49b7f6e4d44c57499fbebf390",
+                "reference": "2a2aaefc9685b4f49b7f6e4d44c57499fbebf390",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,8 @@
                         "Backpack\\CRUD\\BackpackServiceProvider"
                     ],
                     "aliases": {
-                        "CRUD": "Backpack\\CRUD\\app\\Library\\CrudPanel\\CrudPanelFacade"
+                        "CRUD": "Backpack\\CRUD\\app\\Library\\CrudPanel\\CrudPanelFacade",
+                        "Widget": "Backpack\\CRUD\\app\\Library\\Widget"
                     }
                 }
             },
@@ -154,7 +155,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-19T06:58:41+00:00"
+            "time": "2020-03-26T08:43:25+00:00"
         },
         {
             "name": "backpack/generators",
@@ -7473,9 +7474,18 @@
             "time": "2020-02-14T12:15:55+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "4.0.99",
+            "alias_normalized": "4.0.99.0",
+            "version": "dev-widgets-manager",
+            "package": "backpack/crud"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "backpack/crud": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
