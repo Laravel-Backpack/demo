@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
