@@ -23,7 +23,8 @@
         "facade/ignition": "^2.0",
         "intervention/image": "^2.3",
         "backpack/revise-operation": "^1.0",
-        "backpack/filemanager": "^1.0"
+        "backpack/filemanager": "^1.0",
+        "consoletvs/charts": "6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -33,8 +34,7 @@
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "^1.0",
         "backpack/generators": "^2.0",
-        "itsgoingd/clockwork": "^4.0",
-        "jeroen-g/laravel-packager": "^2.5"
+        "itsgoingd/clockwork": "^4.0"
     },
     "autoload": {
         "classmap": [
