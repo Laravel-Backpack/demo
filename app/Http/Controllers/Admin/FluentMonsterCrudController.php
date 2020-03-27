@@ -183,433 +183,338 @@ class FluentMonsterCrudController extends CrudController
         // DATE, TIME AND SPACE tab
         // -----------------
 
-        CRUD::addField([   // Month
-            'name'              => 'week',
-            'label'             => 'Week',
-            'type'              => 'week',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
+        CRUD::field('week')
+            ->type('week')
+            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->tab('Time and space');
 
-        CRUD::addField([   // Month
-            'name'              => 'month',
-            'label'             => 'Month',
-            'type'              => 'month',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
 
-        CRUD::addField([   // Date
-            'name'       => 'date',
-            'label'      => 'Date (HTML5 spec)',
-            'type'       => 'date',
-            'attributes' => [
+        CRUD::field('month')
+            ->type('month')
+            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->tab('Time and space');
+
+        CRUD::field('date')
+            ->type('date')
+            ->label('Date (HTML5 spec)')
+            ->attributes([
                 'pattern'     => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
                 'placeholder' => 'yyyy-mm-dd',
-            ],
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
+            ])
+            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->tab('Time and space');
 
-        CRUD::addField([   // Date
-            'name'  => 'date_picker',
-            'label' => 'Date (jQuery plugin)',
-            'type'  => 'date_picker',
-            // optional:
-            'date_picker_options' => [
+        CRUD::field('date_picker')
+            ->type('date_picker')
+            ->label('Date (jQuery plugin)')
+            ->date_picker_options([
                 'todayBtn' => true,
                 'format'   => 'dd-mm-yyyy',
                 'language' => 'en',
-            ],
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
+            ])
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->tab('Time and space');
 
-        CRUD::addField([   // DateTime
-            'name'              => 'datetime',
-            'label'             => 'Datetime (HTML5 spec)',
-            'type'              => 'datetime',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
+        CRUD::field('datetime')
+            ->type('datetime')
+            ->label('Datetime (HTML5 spec)')
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->tab('Time and space');
 
-        CRUD::addField([   // DateTime
-            'name'  => 'datetime_picker',
-            'label' => 'Datetime picker (jQuery plugin)',
-            'type'  => 'datetime_picker',
-            // optional:
-            'datetime_picker_options' => [
+        CRUD::field('datetime_picker')
+            ->type('datetime_picker')
+            ->label('Datetime picker (jQuery plugin)')
+            ->datetime_picker_options([
                 'format'   => 'DD/MM/YYYY HH:mm',
                 'language' => 'en',
-            ],
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            'tab'               => 'Time and space',
-        ]);
+            ])
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->tab('Time and space');
 
-        CRUD::addField([ // Date_range
-            'name'       => ['start_date', 'end_date'], // a unique name for this field
-            'label'      => 'Date Range',
-            'type'       => 'date_range',
-            'default'    => ['2020-03-28 01:01', '2020-04-05 02:00'],
-            // OPTIONALS
-            'date_range_options' => [ // options sent to daterangepicker.js
-                'timePicker' => true,
-                'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
-            ],
-            'tab' => 'Time and space',
-        ]);
+        // CRUD::field(['start_date', 'end_date'])
+        //     ->type('date_range')
+        //     ->label('Date Range')
+        //     ->default(['2020-03-28 01:01', '2020-04-05 02:00'])
+        //     ->date_range_options([
+        //         'timePicker' => true,
+        //         'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
+        //     ])
+        //     ->tab('Time and space');
 
-        CRUD::addField([   // Address
-            'name'  => 'address',
-            'label' => 'Address (Algolia Places search)',
-            'type'  => 'address',
-            // optional
-            'store_as_json' => true,
-            'tab'           => 'Time and space',
-        ]); // the second parameter for the addField method is the form it should place this field in; specify either 'create', 'update' or 'both'; default is 'both', so you might aswell not mention it;
+        CRUD::field('address')
+            ->type('address')
+            ->label('Address (Algolia Places search)')
+            ->store_as_json(true)
+            ->tab('Time and space');
 
         // -----------------
         // SELECTS tab
         // -----------------
 
-        CRUD::addField([   // CustomHTML
-            'name'  => 'select_1_n_heading',
-            'type'  => 'custom_html',
-            'value' => '<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>',
-            'tab'   => 'Selects',
-        ]);
+        CRUD::field('select_1_n_heading')->type('custom_html')->tab('Selects')
+                ->value('<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>');
 
-        CRUD::addField([    // SELECT
-            'label'     => 'Select (HTML Spec Select Input for 1-n relationship)',
-            'type'      => 'select',
-            'name'      => 'select',
-            'entity'    => 'category',
-            'attribute' => 'name',
-            'model'     => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'       => 'Selects',
-        ]);
+        CRUD::field('select')
+                ->type('select')
+                ->label('Select (HTML Spec Select Input for 1-n relationship)')
+                ->entity('category')
+                ->attribute('name')
+                ->model('Backpack\NewsCRUD\app\Models\Category')
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([    // SELECT2
-            'label'             => 'Select2 (1-n relationship)',
-            'type'              => 'select2',
-            'name'              => 'select2',
-            'entity'            => 'category',
-            'attribute'         => 'name',
-            'model'             => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'               => 'Selects',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('select2')
+                ->type('select2')
+                ->label('Select2 (1-n relationship)')
+                ->entity('category')
+                ->attribute('name')
+                ->model('Backpack\NewsCRUD\app\Models\Category')
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([ // select2_from_ajax: 1-n relationship
-            'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
-            'type'                 => 'select2_from_ajax',
-            'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
-            'entity'               => 'article', // the method that defines the relationship in your Model
-            'attribute'            => 'title', // foreign key attribute that is shown to user
-            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
-            'placeholder'          => 'Select an article', // placeholder for the select
-            'minimum_input_length' => 2, // minimum characters to type before querying results
-            'tab'                  => 'Selects',
-            'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('select2_from_ajax')
+                ->type('select2_from_ajax')
+                ->label("Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>")
+                ->entity('article')
+                ->attribute('title')
+                ->model('Backpack\NewsCRUD\app\Models\Article')
+                ->data_source(url('api/article'))
+                ->placeholder('Select an article')
+                ->minimum_input_length(2)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([    // Relationship
-            'label'     => 'Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>',
-            'type'      => 'relationship',
-            'name'      => 'icon_id',
-            // 'entity'    => 'icon',
-            'attribute' => 'name',
-            // 'tab'       => 'Selects',
-            'inline_create' => true, // TODO: make this work
-            // 'data_source' => backpack_url('monster/fetch/icon'),
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('icon_id')
+                ->type('relationship')
+                ->label('Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                // ->entity('icon')
+                ->attribute('name')
+                // ->data_source(backpack_url('monster/fetch/icon'))
+                ->inline_create(true)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([   // CustomHTML
-            'name'  => 'select_n_n_heading',
-            'type'  => 'custom_html',
-            'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
-            'tab'   => 'Selects',
-        ]);
+        CRUD::field('select_n_n_heading')->type('custom_html')->tab('Selects')
+            ->value('<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>');
 
-        CRUD::addField([       // Select_Multiple = n-n relationship
-            'label'     => 'Select_multiple (n-n relationship with pivot table)',
-            'type'      => 'select_multiple',
-            'name'      => 'tags', // the method that defines the relationship in your Model
-            'entity'    => 'tags', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'       => 'Selects',
-        ]);
+        CRUD::field('tags')
+                ->type('select_multiple')
+                ->label('Select_multiple (n-n relationship with pivot table)')
+                ->entity('tags')
+                ->attribute('name')
+                ->model('Backpack\NewsCRUD\app\Models\Tag')
+                ->pivot(true)
+                ->tab('Selects');
 
-        CRUD::addField([       // Select2Multiple = n-n relationship (with pivot table)
-            'label'             => 'Select2_multiple (n-n relationship with pivot table)',
-            'type'              => 'select2_multiple',
-            'name'              => 'categories', // the method that defines the relationship in your Model
-            'entity'            => 'categories', // the method that defines the relationship in your Model
-            'attribute'         => 'name', // foreign key attribute that is shown to user
-            'model'             => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-            'allows_null'       => true,
-            'pivot'             => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'               => 'Selects',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('categories')
+                ->type('select2_multiple')
+                ->label('Select2_multiple (n-n relationship with pivot table)')
+                ->entity('categories')
+                ->attribute('name')
+                ->model(\Backpack\NewsCRUD\app\Models\Category::class)
+                ->allows_null(true)
+                ->pivot(true)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
-            'label'                => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
-            'type'                 => 'select2_from_ajax_multiple',
-            'name'                 => 'articles', // the column that contains the ID of that connected entity;
-            'entity'               => 'articles', // the method that defines the relationship in your Model
-            'attribute'            => 'title', // foreign key attribute that is shown to user
-            'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-            'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
-            'placeholder'          => 'Select one or more articles', // placeholder for the select
-            'minimum_input_length' => 2, // minimum characters to type before querying results
-            'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
-            'tab'                  => 'Selects',
-            'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('articles')
+                ->type('select2_from_ajax_multiple')
+                ->label("Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>")
+                ->entity('articles')
+                ->attribute('title')
+                ->model(\Backpack\NewsCRUD\app\Models\Article::class)
+                ->data_source(url('api/article'))
+                ->placeholder('Select one or more articles')
+                ->minimum_input_length(2)
+                ->pivot(true)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([    // Relationship
-            'label'     => 'Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
-            'type'      => 'relationship',
-            'name'      => 'products',
-            'entity'    => 'products',
-            // 'attribute' => 'name',
-            // 'tab'       => 'Selects',
-            'ajax' => true,
-            // 'inline_create' => true, // TODO: make it work like this too
-            'inline_create'     => ['entity' => 'product'],
-            'data_source'       => backpack_url('monster/fetch/product'),
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('products')
+                ->type('relationship')
+                ->label('Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                ->entity('products')
+                // ->attribute('name')
+                ->ajax(true)
+                ->data_source(backpack_url('monster/fetch/product'))
+                // ->inline_create(true) // TODO: make it work this way too
+                ->inline_create(['entity' => 'product'])
+                // ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([   // CustomHTML
-            'name'  => 'select_heading',
-            'type'  => 'custom_html',
-            'value' => '<h5 class="mb-0 mt-3 text-primary">No Relationship</h5>',
-            'tab'   => 'Selects',
-        ]);
+        CRUD::field('select_heading')->type('custom_html')->tab('Selects')
+            ->value('<h5 class="mb-0 mt-3 text-primary">No Relationship</h5>');
 
-        CRUD::addField([ // select_from_array
-            'name'              => 'select_from_array',
-            'label'             => 'Select_from_array (no relationship, 1-1 or 1-n)',
-            'type'              => 'select_from_array',
-            'options'           => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'       => true,
-            'tab'               => 'Selects',
-            'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('select_from_array')
+                ->type('select_from_array')
+                ->label('Select_from_array (no relationship, 1-1 or 1-n)')
+                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
+                ->allows_null(true)
+                ->allows_multiple(false)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([ // select2_from_array
-            'name'              => 'select2_from_array',
-            'label'             => 'Select2_from_array (no relationship, 1-1 or 1-n)',
-            'type'              => 'select2_from_array',
-            'options'           => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            'allows_null'       => true,
-            'tab'               => 'Selects',
-            'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('select2_from_array')
+                ->type('select2_from_array')
+                ->label('Select2_from_array (no relationship, 1-1 or 1-n)')
+                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
+                ->allows_null(true)
+                ->allows_multiple(false)
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->tab('Selects');
 
-        CRUD::addField([ // select_and_order
-            'name'    => 'select_and_order',
-            'label'   => 'Select_and_order',
-            'type'    => 'select_and_order',
-            'options' => [
-                1 => 'Option 1',
-                2 => 'Option 2',
-                3 => 'Option 3',
-                4 => 'Option 4',
-                5 => 'Option 5',
-                6 => 'Option 6',
-                7 => 'Option 7',
-                8 => 'Option 8',
-                9 => 'Option 9',
-            ],
-            'fake' => true,
-            'tab'  => 'Selects',
-        ]);
+        CRUD::field('select_and_order')
+                ->type('select_and_order')
+                ->label('Select and order')
+                ->options([
+                    1 => 'Option 1',
+                    2 => 'Option 2',
+                    3 => 'Option 3',
+                    4 => 'Option 4',
+                    5 => 'Option 5',
+                    6 => 'Option 6',
+                    7 => 'Option 7',
+                    8 => 'Option 8',
+                    9 => 'Option 9',
+                ])
+                ->fake(true)
+                ->tab('Selects');
 
         // -----------------
         // UPLOADS tab
         // -----------------
 
         if (app('env') == 'production') {
-            CRUD::addField([   // CustomHTML
-                'name'      => 'separator',
-                'type'      => 'custom_html',
-                'value'     => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
-                'tab'       => 'Uploads',
-            ]);
+            CRUD::field('separator')
+                ->type('custom_html')
+                ->value('<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>')
+                ->tab('Uploads');
         }
 
-        CRUD::addField([   // Browse
-            'name'  => 'browse',
-            'label' => 'Browse (using elFinder)',
-            'type'  => 'browse',
-            'tab'   => 'Uploads',
-        ]);
+        CRUD::field('browse')
+                ->type('browse')
+                ->label('Browse (using elFinder)')
+                ->tab('Uploads');
 
-        CRUD::addField([   // Browse multiple
-            'name'     => 'browse_multiple',
-            'label'    => 'Browse multiple',
-            'type'     => 'browse_multiple',
-            'tab'      => 'Uploads',
-            'sortable' => true,
-            // 'multiple' => true, // enable/disable the multiple selection functionality
-            // 'mime_types' => null, // visible mime prefixes; ex. ['image'] or ['application/pdf']
-        ]);
+        CRUD::field('browse_multiple')
+                ->type('browse_multiple')
+                ->label('Browse multiple')
+                ->sortable(true)
+                // ->multiple(true)
+                // ->mime_types(null)
+                ->tab('Uploads');
 
-        CRUD::addField([   // Upload
-            'name'   => 'upload',
-            'label'  => 'Upload',
-            'type'   => 'upload',
-            'upload' => true,
-            'disk'   => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
-            'tab' => 'Uploads',
-        ]);
+        CRUD::field('upload')
+                ->type('upload')
+                ->label('Upload')
+                ->upload(true)
+                ->disk('uploads')
+                ->tab('Uploads');
 
-        CRUD::addField([   // Upload
-            'name'   => 'upload_multiple',
-            'label'  => 'Upload Multiple',
-            'type'   => 'upload_multiple',
-            'upload' => true,
-            // 'disk' => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
-            'tab' => 'Uploads',
-        ]);
+        CRUD::field('upload_multiple')
+                ->type('upload_multiple')
+                ->upload(true)
+                ->tab('Uploads');
 
-        CRUD::addField([ // base64_image
-            'label'        => 'Base64 Image - includes cropping',
-            'name'         => 'base64_image',
-            'filename'     => null, // set to null if not needed
-            'type'         => 'base64_image',
-            'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'src'          => null, // null to read straight from DB, otherwise set to model accessor function
-            'tab'          => 'Uploads',
-        ]);
+        CRUD::field('base64_image')
+                ->type('base64_image')
+                ->label('Base64 Image - includes cropping')
+                ->crop(true)
+                ->filename(null)
+                ->aspect_ratio(1)
+                ->src(null) // null to read straight from DB, else model accessor
+                ->tab('Uploads');
 
-        CRUD::addField([ // image
-            'label'        => 'Image - includes cropping',
-            'name'         => 'image',
-            'type'         => 'image',
-            'upload'       => true,
-            'crop'         => true, // set to true to allow cropping, false to disable
-            'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
-            // 'disk' => config('backpack.base.root_disk_name'), // in case you need to show images from a different disk
-            // 'prefix' => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
-            'tab' => 'Uploads',
-        ]);
+        CRUD::field('image')
+                ->type('image')
+                ->label('Image - includes cropping')
+                ->upload(true)
+                ->crop(true)
+                ->aspect_ratio(1)
+                ->src(null) // null to read straight from DB, else model accessor
+                ->tab('Uploads');
 
         // -----------------
         // BIG TEXTS tab
         // -----------------
-        CRUD::addField([   // SimpleMDE
-            'name'  => 'simplemde',
-            'label' => 'SimpleMDE - markdown editor',
-            'type'  => 'simplemde',
-            'tab'   => 'Big texts',
-        ]);
 
-        CRUD::addField([   // Summernote
-            'name'  => 'summernote',
-            'label' => 'Summernote editor',
-            'type'  => 'summernote',
-            'tab'   => 'Big texts',
-        ]);
+        CRUD::field('simplemde')
+                ->type('simplemde')
+                ->label('SimpleMDE - markdown editor')
+                ->tab('Big texts');
 
-        CRUD::addField([   // CKEditor
-            'name'  => 'wysiwyg',
-            'label' => 'CKEditor - also called the WYSIWYG field',
-            'type'  => 'ckeditor',
-            'tab'   => 'Big texts',
-        ]);
+        CRUD::field('summernote')
+                ->type('summernote')
+                ->label('Summernote editor')
+                ->tab('Big texts');
 
-        CRUD::addField([   // TinyMCE
-            'name'  => 'tinymce',
-            'label' => 'TinyMCE',
-            'type'  => 'tinymce',
-            'tab'   => 'Big texts',
-        ]);
+        CRUD::field('wysiwyg')
+                ->type('ckeditor')
+                ->label('CKEditor - also called the WYSIWYG field')
+                ->tab('Big texts');
+
+        CRUD::field('tinymce')
+                ->type('tinymce')
+                ->label('TinyMCE')
+                ->tab('Big texts');
 
         // -----------------
         // MISCELLANEOUS tab
         // -----------------
-        CRUD::addField([   // Color
-            'name'  => 'color',
-            'label' => 'Color picker (HTML5 spec)',
-            'type'  => 'color',
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab'               => 'Miscellaneous',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
-        CRUD::addField([   // Color
-            'name'  => 'color_picker',
-            'label' => 'Color picker (jQuery plugin)',
-            'type'  => 'color_picker',
-            // 'wrapperAttributes' => ['class' => 'col-md-6'],
-            'tab'               => 'Miscellaneous',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
 
-        CRUD::addField([
-            'label'   => 'Icon Picker',
-            'name'    => 'icon_picker',
-            'type'    => 'icon_picker',
-            'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
-            'tab'     => 'Miscellaneous',
-        ]);
+        CRUD::field('color')
+                ->type('color')
+                ->label('Color picker (HTML5 spec)')
+                ->wrapperAttributes(['class' => 'form-group col-md-5'])
+                ->tab('Miscellaneous');
 
-        CRUD::addField([ // Table
-            'name'            => 'table',
-            'label'           => 'Table',
-            'type'            => 'table',
-            'entity_singular' => 'subentry', // used on the "Add X" button
-            'columns'         => [
-                'name'  => 'Name',
-                'desc'  => 'Description',
-                'price' => 'Price',
-            ],
-            'max' => 5, // maximum rows allowed in the table
-            'min' => 0, // minimum rows allowed in the table
-            'tab' => 'Miscellaneous',
-        ]);
+        CRUD::field('color_picker')
+                ->type('color_picker')
+                ->label('Color picker (jQuery plugin)')
+                ->wrapperAttributes(['class' => 'form-group col-md-5'])
+                ->tab('Miscellaneous');
 
-        CRUD::addField([ // Table
-            'name'            => 'fake_table',
-            'label'           => 'Fake Table',
-            'type'            => 'table',
-            'entity_singular' => 'subentry', // used on the "Add X" button
-            'columns'         => [
-                'name'  => 'Name',
-                'desc'  => 'Description',
-                'price' => 'Price',
-            ],
-            'fake' => true,
-            'max'  => 5, // maximum rows allowed in the table
-            'min'  => 0, // minimum rows allowed in the table
-            'tab'  => 'Miscellaneous',
-        ]);
+        CRUD::field('icon_picker')
+                ->type('icon_picker')
+                ->label('Icon Picker')
+                ->iconset('fontawesome')
+                ->wrapperAttributes(['class' => 'form-group col-md-2'])
+                ->tab('Miscellaneous');
+
+        CRUD::field('table')
+                ->type('table')
+                ->label('Table')
+                ->columns([
+                    'name'  => 'Name',
+                    'desc'  => 'Description',
+                    'price' => 'Price',
+                ])
+                ->min(0)
+                ->max(5)
+                ->tab('Miscellaneous');
+
+        CRUD::field('fake_table')
+                ->type('table')
+                ->label('Fake Table')
+                ->fake(true)
+                ->columns([
+                    'name'  => 'Name',
+                    'desc'  => 'Description',
+                    'price' => 'Price',
+                ])
+                ->min(0)
+                ->max(5)
+                ->tab('Miscellaneous');
 
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
-        CRUD::addField([   // URL
-            'name'  => 'video',
-            'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type'  => 'video',
-            'tab'   => 'Miscellaneous',
-        ]);
+        CRUD::field('video')
+                ->type('video')
+                ->label('Video - link to video file on Youtube or Vimeo')
+                ->tab('Miscellaneous');
         // $table->string('range')->nullable;
 
-        // CRUD::removeField('name', 'update/create/both');
+        // CRUD::field('text')->remove();
     }
 
     protected function setupUpdateOperation()
