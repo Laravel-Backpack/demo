@@ -105,7 +105,7 @@
             ->content('It includes <strong>new fields</strong> (repeatable, relationship), <strong>new operations</strong> (InlineCreate, Fetch), <strong>new widgets</strong> (chart) and a brand-new <strong>fluent syntax</strong> to work with Fields, Columns, Filters, Buttons and Widgets. For more information, take a look at the 4.1 <a href="https://backpackforlaravel.com/docs/4.1/release-notes" class="text-white text-underline"><u>release notes</u></a>.')
             ->close_button(true);
 
-    $widgets['after_content'][] = [
+    $widgets['before_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
 	  'content' => [ // widgets 
@@ -168,36 +168,6 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-4',
-		        // 'class' => 'col-md-6',
-				'controller' => \App\Http\Controllers\Admin\Charts\Pies\FusionchartsPieController::class,
-				'content' => [
-				    'header' => 'Pie Chart - Fusioncharts', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
-	    	[
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-4',
-		        // 'class' => 'col-md-6',
-				'controller' => \App\Http\Controllers\Admin\Charts\Pies\FrappePieController::class,
-				'content' => [
-				    'header' => 'Pie Chart - Frappe', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
-	    	[
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-4',
-		        // 'class' => 'col-md-6',
-				'controller' => \App\Http\Controllers\Admin\Charts\Pies\C3PieController::class,
-				'content' => [
-				    'header' => 'Pie Chart - C3', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
 
 	  ]
 	];
@@ -242,29 +212,9 @@
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
-		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\FusionchartsLineChartController::class,
-				'content' => [
-				    'header' => 'Line Chart - Fusioncharts', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
-	    	[ 
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-6',
-		        // 'class' => 'col-md-6',
 		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\FrappeLineChartController::class,
 				'content' => [
 				    'header' => 'Line Chart - Frappe', // optional
-				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-		    	]
-	    	],
-	    	[ 
-		        'type' => 'chart',
-		        'wrapperClass' => 'col-md-6',
-		        // 'class' => 'col-md-6',
-		        'controller' => \App\Http\Controllers\Admin\Charts\Lines\C3LineChartController::class,
-				'content' => [
-				    'header' => 'Line Chart - C3', // optional
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
