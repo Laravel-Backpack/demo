@@ -185,13 +185,12 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::field('week')
             ->type('week')
-            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
-
 
         CRUD::field('month')
             ->type('month')
-            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('date')
@@ -201,7 +200,7 @@ class FluentMonsterCrudController extends CrudController
                 'pattern'     => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
                 'placeholder' => 'yyyy-mm-dd',
             ])
-            ->wrapperAttributes([ 'class' => 'form-group col-md-6', ])
+            ->wrapperAttributes(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('date_picker')
