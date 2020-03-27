@@ -54,8 +54,8 @@ class FluentMonsterCrudController extends CrudController
                 ]);
         CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
         CRUD::column('created_at')->type('closure')->function(function ($entry) {
-                    return 'Created on '.$entry->created_at;
-                });
+            return 'Created on '.$entry->created_at;
+        });
         CRUD::column('date')->type('date');
         CRUD::column('datetime')->type('datetime');
         CRUD::column('email')->type('email')->label('Email Address');
@@ -116,10 +116,10 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::column('simplemde')->type('markdown')->label('Markdown (SimpleMDE)');
         CRUD::column('table')->type('table')->columns([
-                    'name'  => 'Name',
-                    'desc'  => 'Description',
-                    'price' => 'Price',
-                ]);
+            'name'  => 'Name',
+            'desc'  => 'Description',
+            'price' => 'Price',
+        ]);
         CRUD::column('name')->type('array_count')->key('table_count')->label('Array count');
         CRUD::column('extras')->type('array')->key('array')->label('Array');
         // CRUD::column('name')
@@ -141,39 +141,39 @@ class FluentMonsterCrudController extends CrudController
         CRUD::setOperationSetting('contentClass', 'col-md-12');
 
         CRUD::field('text')->type('text')->label('Text')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
 
         CRUD::field('email')->type('email')->label('Email')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
 
         CRUD::field('textarea')->type('textarea')->label('Textarea')->tab('Simple');
         CRUD::field('number')->type('number')->label('Number')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
 
         CRUD::field('float')->type('number')->label('Float')->attributes(['step' => 'any'])
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
 
         CRUD::field('number_with_prefix')->type('number')
             ->prefix('$')->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
 
         CRUD::field('number_with_suffix')->type('number')
             ->suffix('.00')->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
 
         CRUD::field('text_with_both_prefix_and_suffix')->type('number')
             ->prefix('@')->suffix("<i class='la la-home'></i>")->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
 
         CRUD::field('password')->type('password')
-            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
+            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
 
-        CRUD::field('radio')->type('radio')->label('Status (radio)')->options([ 
-                // the key will be stored in the db, the value will be shown as label;
-                0 => 'Draft',
-                1 => 'Published',
-                2 => 'Other',
-            ])->inline(true)->tab('Simple');
+        CRUD::field('radio')->type('radio')->label('Status (radio)')->options([
+            // the key will be stored in the db, the value will be shown as label;
+            0 => 'Draft',
+            1 => 'Published',
+            2 => 'Other',
+        ])->inline(true)->tab('Simple');
 
         CRUD::field('checkbox')->type('checkbox')->label('I have not read the termins and conditions and I never will (checkbox)')->tab('Simple');
 
@@ -622,7 +622,7 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('checkbox')
                 ->type('simple')
                 ->label('Simple')
-                ->whenActive(function() {
+                ->whenActive(function () {
                     CRUD::addClause('where', 'checkbox', '1');
                 })->apply();
 
@@ -630,14 +630,14 @@ class FluentMonsterCrudController extends CrudController
                 ->type('dropdown')
                 ->label('Dropdown')
                 ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select_from_array', $value);
                 })->apply();
 
         CRUD::filter('text')
                 ->type('text')
                 ->label('Text')
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     CRUD::addClause('where', 'text', 'LIKE', "%$value%");
                 })->apply();
 
@@ -646,7 +646,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('Range')
                 ->label_from('min value')
                 ->label_to('max value')
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     $range = json_decode($value);
                     if ($range->from && $range->to) {
                         CRUD::addClause('where', 'number', '>=', (float) $range->from);
@@ -657,14 +657,14 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('date')
                 ->type('date')
                 ->label('Date')
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     CRUD::addClause('where', 'date', '=', $value);
                 })->apply();
 
         CRUD::filter('date_range')
                 ->type('date_range')
                 ->label('Date range')
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     $dates = json_decode($value);
                     CRUD::addClause('where', 'date', '>=', $dates->from);
                     CRUD::addClause('where', 'date', '<=', $dates->to);
@@ -673,18 +673,18 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('select2')
                 ->type('select2')
                 ->label('Select2')
-                ->options(function() {
+                ->options(function () {
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-                })->whenActive(function($value) {
+                })->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2', $value);
                 })->apply();
 
         CRUD::filter('select2_multiple')
                 ->type('select2_multiple')
                 ->label('S2 multiple')
-                ->options(function() {
+                ->options(function () {
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-                })->whenActive(function($value) {
+                })->whenActive(function ($value) {
                     foreach (json_decode($values) as $key => $value) {
                         CRUD::addClause('orWhere', 'select2', $value);
                     }
@@ -695,7 +695,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('S2 Ajax')
                 ->placeholder('Pick an article')
                 ->options(url('api/article-search'))
-                ->whenActive(function($value) {
+                ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2_from_ajax', $value);
                 })->apply();
     }
