@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6ae11b05b75c8a4626c6396b5c807d13bb94a786"
+                "reference": "52558d4a177a47b1709c5bddaaa4e9934ab8e822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6ae11b05b75c8a4626c6396b5c807d13bb94a786",
-                "reference": "6ae11b05b75c8a4626c6396b5c807d13bb94a786",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/52558d4a177a47b1709c5bddaaa4e9934ab8e822",
+                "reference": "52558d4a177a47b1709c5bddaaa4e9934ab8e822",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,8 @@
                         "Backpack\\CRUD\\BackpackServiceProvider"
                     ],
                     "aliases": {
-                        "CRUD": "Backpack\\CRUD\\app\\Library\\CrudPanel\\CrudPanelFacade"
+                        "CRUD": "Backpack\\CRUD\\app\\Library\\CrudPanel\\CrudPanelFacade",
+                        "Widget": "Backpack\\CRUD\\app\\Library\\Widget"
                     }
                 }
             },
@@ -151,7 +152,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-27T08:15:43+00:00"
+            "time": "2020-03-27T08:54:14+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -592,16 +593,16 @@
         },
         {
             "name": "backpack/revise-operation",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "46d652d94f7f35d69b3496de26e4e29b49176681"
+                "reference": "dbaa626e5c674b7f047a01dba8922d3c8f9807fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/46d652d94f7f35d69b3496de26e4e29b49176681",
-                "reference": "46d652d94f7f35d69b3496de26e4e29b49176681",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/dbaa626e5c674b7f047a01dba8922d3c8f9807fb",
+                "reference": "dbaa626e5c674b7f047a01dba8922d3c8f9807fb",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +655,7 @@
                 "laravel",
                 "revisionable"
             ],
-            "time": "2020-03-21T11:45:14+00:00"
+            "time": "2020-03-27T08:39:17+00:00"
         },
         {
             "name": "backpack/settings",
