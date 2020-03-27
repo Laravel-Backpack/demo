@@ -8,3 +8,5 @@ Homestead.json
 .idea
 .DS_Store
 .packages
+.quarantine
+.tmb

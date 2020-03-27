@@ -100,8 +100,8 @@
     Widget::add('greenWidget')
             ->type('alert')
             ->group('before_content')
-            ->class('alert alert-warning bg-success border-0 mb-2')
-            ->heading('Now in Beta - Backpack 4.1')
+            ->class('alert alert-success border-0 mb-2')
+            ->heading('This Demo uses Backpack 4.1 <span class="badge badge-pill badge-warning font-xs">beta</span>')
             ->content('It includes <strong>new fields</strong> (repeatable, relationship), <strong>new operations</strong> (InlineCreate, Fetch), <strong>new widgets</strong> (chart) and a brand-new <strong>fluent syntax</strong> to work with Fields, Columns, Filters, Buttons and Widgets. For more information, take a look at the 4.1 <a href="https://backpackforlaravel.com/docs/4.1/release-notes" class="text-white text-underline"><u>release notes</u></a>.')
             ->close_button(true);
 
