@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MonsterRequest as StoreRequest;
-// VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
-class MonsterCrudController extends CrudController
+class FluentMonsterCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -17,9 +17,9 @@ class MonsterCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Monster');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
-        $this->crud->setEntityNameStrings('monster', 'monsters');
+        CRUD::setModel('App\Models\Monster');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/fluent-monster');
+        CRUD::setEntityNameStrings('fluent monster', 'fluent monsters');
     }
 
     public function fetchProduct()
@@ -34,26 +34,15 @@ class MonsterCrudController extends CrudController
 
     public function setupListOperation()
     {
-        $this->crud->addColumns([
-            'text',
-            'textarea',
-            [
-                'name'  => 'image', // The db column name
-                'label' => 'Image', // Table column heading
-                'type'  => 'image',
-            ],
-            [
-                'name'  => 'base64_image', // The db column name
-                'label' => 'Base64 Image', // Table column heading
-                'type'  => 'image',
-            ],
-            [
-                'name'  => 'checkbox',
-                'label' => 'Boolean',
-                'type'  => 'boolean',
-                // optionally override the Yes/No texts
-                'options' => [0 => 'Yes', 1 => 'No'],
-                'wrapper' => [
+        CRUD::column('text');
+        CRUD::column('textarea');
+        CRUD::column('image')->type('image');
+        CRUD::column('base64_image')->type('image')->label('Base64 Image');
+        CRUD::column('checkbox')
+                ->type('boolean')
+                ->label('Boolean')
+                ->options([0 => 'Yes', 1 => 'No'])
+                ->wrapper([
                     'element' => 'span',
                     'class'   => function ($crud, $column, $entry, $related_key) {
                         if ($column['text'] == 'Yes') {
@@ -62,103 +51,59 @@ class MonsterCrudController extends CrudController
 
                         return 'badge badge-default';
                     },
-                ],
-            ],
-            [
-                'name'  => 'checkbox', // The db column name
-                'key'   => 'check',
-                'label' => 'Agreed', // Table column heading
-                'type'  => 'check',
-            ],
-            [
-                'name'     => 'created_at',
-                'label'    => 'Created At',
-                'type'     => 'closure',
-                'function' => function ($entry) {
+                ]);
+        CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
+        CRUD::column('created_at')->type('closure')->function(function ($entry) {
                     return 'Created on '.$entry->created_at;
-                },
-            ],
-            [
-                'name'  => 'name', // The db column name
-                'label' => 'Date', // Table column heading
-                'type'  => 'date',
-            ],
-            [
-                'name'  => 'name', // The db column name
-                'label' => 'Datetime', // Table column heading
-                'type'  => 'datetime',
-            ],
-            [
-                'name'  => 'email', // The db column name
-                'label' => 'Email Address', // Table column heading
-                'type'  => 'email',
-            ],
-            [
-                // show both text and email values in one column
-                // this column is here to demo and test the custom searchLogic functionality
-                'name'          => 'model_function',
-                'label'         => 'Text and Email', // Table column heading
-                'type'          => 'model_function',
-                'function_name' => 'getTextAndEmailAttribute', // the method in your Model
-                'searchLogic'   => function ($query, $column, $searchTerm) {
+                });
+        CRUD::column('date')->type('date');
+        CRUD::column('datetime')->type('datetime');
+        CRUD::column('email')->type('email')->label('Email Address');
+        // show both text and email values in one column
+        // this column is here to demo and test the custom searchLogic functionality
+        CRUD::column('model_function')
+                ->type('model_function')
+                ->label('Text and Email')
+                ->function_name('getTextAndEmailAttribute')
+                ->searchLogic(function ($query, $column, $searchTerm) {
                     $query->orWhere('email', 'like', '%'.$searchTerm.'%');
                     $query->orWhere('text', 'like', '%'.$searchTerm.'%');
-                },
-            ],
-            [
-                'name'  => 'number', // The db column name
-                'label' => 'Number', // Table column heading
-                'type'  => 'number',
-            ],
-            [
-                'name'        => 'radio',
-                'label'       => 'Radio',
-                'type'        => 'radio',
-                'options'     => [0 => 'Draft', 1 => 'Published', 2 => 'Other'],
-            ],
-            [   // 1-n relationship
-                'label'     => 'Select', // Table column heading
-                'type'      => 'select',
-                'name'      => 'select', // the column that contains the ID of that connected entity;
-                'entity'    => 'category', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-                'wrapper'   => [
+                });
+        CRUD::column('number')->type('number');
+        CRUD::column('radio')
+                ->type('radio')
+                ->options([0 => 'Draft', 1 => 'Published', 2 => 'Other']);
+        CRUD::column('select')
+                ->type('select')
+                ->entity('category')
+                ->attribute('name')
+                ->model("Backpack\NewsCRUD\app\Models\Category")
+                ->wrapper([
                     'href' => function ($crud, $column, $entry, $related_key) {
                         return backpack_url('category/'.$related_key.'/show');
                     },
-                ],
-            ],
-            [   // select_from_array
-                'name'    => 'select_from_array',
-                'label'   => 'Select_from_array',
-                'type'    => 'select_from_array',
-                'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
-            ],
-            [   // select_multiple: n-n relationship (with pivot table)
-                'label'     => 'Select_multiple', // Table column heading
-                'type'      => 'select_multiple',
-                'name'      => 'tags', // the method that defines the relationship in your Model
-                'entity'    => 'tags', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-                'wrapper'   => [
+                ]);
+        CRUD::column('select_from_array')
+                ->type('select_from_array')
+                ->label('Select_from_array')
+                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three']);
+        CRUD::column('tags')
+                ->type('select_multiple')
+                ->label('Select_multiple')
+                ->entity('tags')
+                ->attribute('name')
+                ->model('Backpack\NewsCRUD\app\Models\Tag')
+                ->wrapper([
                     'href' => function ($crud, $column, $entry, $related_key) {
                         return backpack_url('tag/'.$related_key.'/show');
                     },
-                ],
-            ],
-            [
-                'name'  => 'video', // The db column name
-                'label' => 'Video', // Table column heading
-                'type'  => 'video',
-            ],
-        ]);
+                ]);
+        CRUD::column('video')->type('video');
 
-        $this->crud->enableDetailsRow();
-        $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
-        $this->crud->enableExportButtons();
-        $this->crud->addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning');
+        CRUD::enableDetailsRow();
+        CRUD::setDetailsRowView('vendor.backpack.crud.details_row.monster');
+        CRUD::enableExportButtons();
+        CRUD::addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning');
 
         $this->addCustomCrudFilters();
     }
@@ -166,195 +111,79 @@ class MonsterCrudController extends CrudController
     public function setupShowOperation()
     {
         $this->setupListOperation();
-        $this->crud->set('show.contentClass', 'col-md-12');
 
-        $this->crud->addColumn([   // SimpleMDE
-            'name'  => 'simplemde',
-            'label' => 'Markdown (SimpleMDE)',
-            'type'  => 'markdown',
-        ]);
+        CRUD::set('show.contentClass', 'col-md-12');
 
-        $this->crud->addColumn([
-            'name'            => 'table',
-            'label'           => 'Table',
-            'type'            => 'table',
-            'columns'         => [
-                'name'  => 'Name',
-                'desc'  => 'Description',
-                'price' => 'Price',
-            ],
-        ]);
-
-        $this->crud->addColumn([
-            'name'  => 'table', // The db column name
-            'key'   => 'table_count',
-            'label' => 'Array count', // Table column heading
-            'type'  => 'array_count',
-        ]);
-
-        $this->crud->addColumn([
-            'name'  => 'extras', // The db column name
-            'key'   => 'array',
-            'label' => 'Array', // Table column heading
-            'type'  => 'array',
-        ]);
-
-        $this->crud->addColumn([
-            'name'        => 'table', // The db column name
-            'key'         => 'multidimensional_array',
-            'label'       => 'Multidimensional Array', // Table column heading
-            'type'        => 'multidimensional_array',
-            'visible_key' => 'name',
-        ]);
-
-        $this->crud->addColumn([
-            'name'          => 'category',
-            'key'           => 'category_name',
-            'label'         => 'Model Function Attribute', // Table column heading
-            'type'          => 'model_function_attribute',
-            'function_name' => 'getCategory', // the method in your Model
-            'attribute'     => 'name',
-        ]);
-
-        $this->crud->addColumn([
-            'name'  => 'number', // The db column name
-            'key'   => 'phone',
-            'label' => 'Phone', // Table column heading
-            'type'  => 'phone',
-        ]);
-
-        $this->crud->addColumn([   // Upload
-            'name'   => 'upload_multiple',
-            'label'  => 'Upload Multiple',
-            'type'   => 'upload_multiple',
-            'prefix' => 'uploads/',
-        ]);
+        CRUD::column('simplemde')->type('markdown')->label('Markdown (SimpleMDE)');
+        CRUD::column('table')->type('table')->columns([
+                    'name'  => 'Name',
+                    'desc'  => 'Description',
+                    'price' => 'Price',
+                ]);
+        CRUD::column('name')->type('array_count')->key('table_count')->label('Array count');
+        CRUD::column('extras')->type('array')->key('array')->label('Array');
+        // CRUD::column('name')
+        //         ->type('multidimensional_array')
+        //         ->key('multidimensional_array')
+        //         ->visible_key('name');
+        CRUD::column('category')
+                ->label('Model Function Attribute')
+                ->type('model_function_attribute')
+                ->function_name('getCategory')
+                ->attribute('name');
+        CRUD::column('number')->type('phone')->label('Phone')->key('phone');
+        CRUD::column('upload_multiple')->type('upload_multiple')->prefix('uploads/');
     }
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(StoreRequest::class);
-        $this->crud->setOperationSetting('contentClass', 'col-md-12');
+        CRUD::setValidation(StoreRequest::class);
+        CRUD::setOperationSetting('contentClass', 'col-md-12');
 
-        $this->crud->addField([
-            'name'              => 'text',
-            'label'             => 'Text',
-            'type'              => 'text',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
+        CRUD::field('text')->type('text')->label('Text')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
 
-        $this->crud->addField([
-            'name'              => 'email',
-            'label'             => 'Email',
-            'type'              => 'email',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6',
-            ],
-        ]);
+        CRUD::field('email')->type('email')->label('Email')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
 
-        $this->crud->addField([   // Textarea
-            'name'  => 'textarea',
-            'label' => 'Textarea',
-            'type'  => 'textarea',
-            'tab'   => 'Simple',
-        ]);
+        CRUD::field('textarea')->type('textarea')->label('Textarea')->tab('Simple');
+        CRUD::field('number')->type('number')->label('Number')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
 
-        $this->crud->addField([   // Number
-            'name'  => 'number',
-            'label' => 'Number',
-            'type'  => 'number',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-        ]);
+        CRUD::field('float')->type('number')->label('Float')->attributes(['step' => 'any'])
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
 
-        $this->crud->addField([   // Number
-            'name'  => 'float',
-            'label' => 'Float',
-            'type'  => 'number',
-            'attributes' => ['step' => 'any'], // allow decimals
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-        ]);
+        CRUD::field('number_with_prefix')->type('number')
+            ->prefix('$')->fake(true)->store_in('extras')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
 
-        $this->crud->addField([   // Number
-            'name'  => 'number_with_prefix',
-            'label' => 'Number with prefix',
-            'type'  => 'number',
-            'prefix' => '$',
-            'fake'              => true,
-            'store_in'          => 'extras',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-        ]);
+        CRUD::field('number_with_suffix')->type('number')
+            ->suffix('.00')->fake(true)->store_in('extras')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-3', ]);
 
-        $this->crud->addField([   // Number
-            'name'  => 'number_with_suffix',
-            'label' => 'Number with suffix',
-            'type'  => 'number',
-            'suffix'            => '.00',
-            'fake'              => true,
-            'store_in'          => 'extras',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-        ]);
+        CRUD::field('text_with_both_prefix_and_suffix')->type('number')
+            ->prefix('@')->suffix("<i class='la la-home'></i>")->fake(true)->store_in('extras')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
 
-        $this->crud->addField([   // Number
-            'name'              => 'text_with_both_prefix_and_suffix',
-            'label'             => 'Text with both prefix and suffix',
-            'type'              => 'number',
-            'prefix'            => '@',
-            'suffix'            => "<i class='fa fa-home'></i>",
-            'fake'              => true,
-            'store_in'          => 'extras',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
+        CRUD::field('password')->type('password')
+            ->tab('Simple')->wrapperAttributes([ 'class' => 'form-group col-md-6', ]);
 
-        $this->crud->addField([   // Password
-            'name'              => 'password',
-            'label'             => 'Password',
-            'type'              => 'password',
-            'tab'               => 'Simple',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-        ]);
-
-        $this->crud->addField([
-            'name'    => 'radio', // the name of the db column
-            'label'   => 'Status (radio)', // the input label
-            'type'    => 'radio',
-            'options' => [ // the key will be stored in the db, the value will be shown as label;
+        CRUD::field('radio')->type('radio')->label('Status (radio)')->options([ 
+                // the key will be stored in the db, the value will be shown as label;
                 0 => 'Draft',
                 1 => 'Published',
                 2 => 'Other',
-            ],
-            // optional
-            'inline' => true, // show the radios all on the same line?
-            'tab'    => 'Simple',
-        ]);
+            ])->inline(true)->tab('Simple');
 
-        $this->crud->addField([   // Checkbox
-            'name'  => 'checkbox',
-            'label' => 'I have not read the terms and conditions and I never will (checkbox)',
-            'type'  => 'checkbox',
-            'tab'   => 'Simple',
-        ]);
+        CRUD::field('checkbox')->type('checkbox')->label('I have not read the termins and conditions and I never will (checkbox)')->tab('Simple');
 
-        $this->crud->addField([   // Hidden
-            'name'    => 'hidden',
-            'type'    => 'hidden',
-            'default' => 'hidden value',
-            'tab'     => 'Simple',
-        ]);
+        CRUD::field('hidden')->type('hidden')->default('hidden value')->tab('Simple');
 
         // -----------------
         // DATE, TIME AND SPACE tab
         // -----------------
 
-        $this->crud->addField([   // Month
+        CRUD::addField([   // Month
             'name'              => 'week',
             'label'             => 'Week',
             'type'              => 'week',
@@ -362,7 +191,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([   // Month
+        CRUD::addField([   // Month
             'name'              => 'month',
             'label'             => 'Month',
             'type'              => 'month',
@@ -370,7 +199,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([   // Date
+        CRUD::addField([   // Date
             'name'       => 'date',
             'label'      => 'Date (HTML5 spec)',
             'type'       => 'date',
@@ -382,7 +211,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([   // Date
+        CRUD::addField([   // Date
             'name'  => 'date_picker',
             'label' => 'Date (jQuery plugin)',
             'type'  => 'date_picker',
@@ -396,7 +225,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([   // DateTime
+        CRUD::addField([   // DateTime
             'name'              => 'datetime',
             'label'             => 'Datetime (HTML5 spec)',
             'type'              => 'datetime',
@@ -404,7 +233,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([   // DateTime
+        CRUD::addField([   // DateTime
             'name'  => 'datetime_picker',
             'label' => 'Datetime picker (jQuery plugin)',
             'type'  => 'datetime_picker',
@@ -417,7 +246,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Time and space',
         ]);
 
-        $this->crud->addField([ // Date_range
+        CRUD::addField([ // Date_range
             'name'       => ['start_date', 'end_date'], // a unique name for this field
             'label'      => 'Date Range',
             'type'       => 'date_range',
@@ -430,7 +259,7 @@ class MonsterCrudController extends CrudController
             'tab' => 'Time and space',
         ]);
 
-        $this->crud->addField([   // Address
+        CRUD::addField([   // Address
             'name'  => 'address',
             'label' => 'Address (Algolia Places search)',
             'type'  => 'address',
@@ -443,14 +272,14 @@ class MonsterCrudController extends CrudController
         // SELECTS tab
         // -----------------
 
-        $this->crud->addField([   // CustomHTML
+        CRUD::addField([   // CustomHTML
             'name'  => 'select_1_n_heading',
             'type'  => 'custom_html',
             'value' => '<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>',
             'tab'   => 'Selects',
         ]);
 
-        $this->crud->addField([    // SELECT
+        CRUD::addField([    // SELECT
             'label'     => 'Select (HTML Spec Select Input for 1-n relationship)',
             'type'      => 'select',
             'name'      => 'select',
@@ -460,7 +289,7 @@ class MonsterCrudController extends CrudController
             'tab'       => 'Selects',
         ]);
 
-        $this->crud->addField([    // SELECT2
+        CRUD::addField([    // SELECT2
             'label'             => 'Select2 (1-n relationship)',
             'type'              => 'select2',
             'name'              => 'select2',
@@ -471,7 +300,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([ // select2_from_ajax: 1-n relationship
+        CRUD::addField([ // select2_from_ajax: 1-n relationship
             'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
             'type'                 => 'select2_from_ajax',
             'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
@@ -485,7 +314,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([    // Relationship
+        CRUD::addField([    // Relationship
             'label'     => 'Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>',
             'type'      => 'relationship',
             'name'      => 'icon_id',
@@ -497,14 +326,14 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([   // CustomHTML
+        CRUD::addField([   // CustomHTML
             'name'  => 'select_n_n_heading',
             'type'  => 'custom_html',
             'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
             'tab'   => 'Selects',
         ]);
 
-        $this->crud->addField([       // Select_Multiple = n-n relationship
+        CRUD::addField([       // Select_Multiple = n-n relationship
             'label'     => 'Select_multiple (n-n relationship with pivot table)',
             'type'      => 'select_multiple',
             'name'      => 'tags', // the method that defines the relationship in your Model
@@ -515,7 +344,7 @@ class MonsterCrudController extends CrudController
             'tab'       => 'Selects',
         ]);
 
-        $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
+        CRUD::addField([       // Select2Multiple = n-n relationship (with pivot table)
             'label'             => 'Select2_multiple (n-n relationship with pivot table)',
             'type'              => 'select2_multiple',
             'name'              => 'categories', // the method that defines the relationship in your Model
@@ -528,7 +357,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
+        CRUD::addField([ // Select2_from_ajax_multiple: n-n relationship with pivot table
             'label'                => "Articles <small class='font-light'>(select2_from_ajax_multiple for an n-n relationship with pivot table)</small>", // Table column heading
             'type'                 => 'select2_from_ajax_multiple',
             'name'                 => 'articles', // the column that contains the ID of that connected entity;
@@ -543,7 +372,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([    // Relationship
+        CRUD::addField([    // Relationship
             'label'     => 'Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
             'type'      => 'relationship',
             'name'      => 'products',
@@ -557,14 +386,14 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([   // CustomHTML
+        CRUD::addField([   // CustomHTML
             'name'  => 'select_heading',
             'type'  => 'custom_html',
             'value' => '<h5 class="mb-0 mt-3 text-primary">No Relationship</h5>',
             'tab'   => 'Selects',
         ]);
 
-        $this->crud->addField([ // select_from_array
+        CRUD::addField([ // select_from_array
             'name'              => 'select_from_array',
             'label'             => 'Select_from_array (no relationship, 1-1 or 1-n)',
             'type'              => 'select_from_array',
@@ -575,7 +404,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([ // select2_from_array
+        CRUD::addField([ // select2_from_array
             'name'              => 'select2_from_array',
             'label'             => 'Select2_from_array (no relationship, 1-1 or 1-n)',
             'type'              => 'select2_from_array',
@@ -586,7 +415,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([ // select_and_order
+        CRUD::addField([ // select_and_order
             'name'    => 'select_and_order',
             'label'   => 'Select_and_order',
             'type'    => 'select_and_order',
@@ -610,7 +439,7 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         if (app('env') == 'production') {
-            $this->crud->addField([   // CustomHTML
+            CRUD::addField([   // CustomHTML
                 'name'      => 'separator',
                 'type'      => 'custom_html',
                 'value'     => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
@@ -618,14 +447,14 @@ class MonsterCrudController extends CrudController
             ]);
         }
 
-        $this->crud->addField([   // Browse
+        CRUD::addField([   // Browse
             'name'  => 'browse',
             'label' => 'Browse (using elFinder)',
             'type'  => 'browse',
             'tab'   => 'Uploads',
         ]);
 
-        $this->crud->addField([   // Browse multiple
+        CRUD::addField([   // Browse multiple
             'name'     => 'browse_multiple',
             'label'    => 'Browse multiple',
             'type'     => 'browse_multiple',
@@ -635,7 +464,7 @@ class MonsterCrudController extends CrudController
             // 'mime_types' => null, // visible mime prefixes; ex. ['image'] or ['application/pdf']
         ]);
 
-        $this->crud->addField([   // Upload
+        CRUD::addField([   // Upload
             'name'   => 'upload',
             'label'  => 'Upload',
             'type'   => 'upload',
@@ -646,7 +475,7 @@ class MonsterCrudController extends CrudController
             'tab' => 'Uploads',
         ]);
 
-        $this->crud->addField([   // Upload
+        CRUD::addField([   // Upload
             'name'   => 'upload_multiple',
             'label'  => 'Upload Multiple',
             'type'   => 'upload_multiple',
@@ -657,7 +486,7 @@ class MonsterCrudController extends CrudController
             'tab' => 'Uploads',
         ]);
 
-        $this->crud->addField([ // base64_image
+        CRUD::addField([ // base64_image
             'label'        => 'Base64 Image - includes cropping',
             'name'         => 'base64_image',
             'filename'     => null, // set to null if not needed
@@ -668,7 +497,7 @@ class MonsterCrudController extends CrudController
             'tab'          => 'Uploads',
         ]);
 
-        $this->crud->addField([ // image
+        CRUD::addField([ // image
             'label'        => 'Image - includes cropping',
             'name'         => 'image',
             'type'         => 'image',
@@ -683,28 +512,28 @@ class MonsterCrudController extends CrudController
         // -----------------
         // BIG TEXTS tab
         // -----------------
-        $this->crud->addField([   // SimpleMDE
+        CRUD::addField([   // SimpleMDE
             'name'  => 'simplemde',
             'label' => 'SimpleMDE - markdown editor',
             'type'  => 'simplemde',
             'tab'   => 'Big texts',
         ]);
 
-        $this->crud->addField([   // Summernote
+        CRUD::addField([   // Summernote
             'name'  => 'summernote',
             'label' => 'Summernote editor',
             'type'  => 'summernote',
             'tab'   => 'Big texts',
         ]);
 
-        $this->crud->addField([   // CKEditor
+        CRUD::addField([   // CKEditor
             'name'  => 'wysiwyg',
             'label' => 'CKEditor - also called the WYSIWYG field',
             'type'  => 'ckeditor',
             'tab'   => 'Big texts',
         ]);
 
-        $this->crud->addField([   // TinyMCE
+        CRUD::addField([   // TinyMCE
             'name'  => 'tinymce',
             'label' => 'TinyMCE',
             'type'  => 'tinymce',
@@ -714,7 +543,7 @@ class MonsterCrudController extends CrudController
         // -----------------
         // MISCELLANEOUS tab
         // -----------------
-        $this->crud->addField([   // Color
+        CRUD::addField([   // Color
             'name'  => 'color',
             'label' => 'Color picker (HTML5 spec)',
             'type'  => 'color',
@@ -722,7 +551,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
-        $this->crud->addField([   // Color
+        CRUD::addField([   // Color
             'name'  => 'color_picker',
             'label' => 'Color picker (jQuery plugin)',
             'type'  => 'color_picker',
@@ -731,7 +560,7 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
-        $this->crud->addField([
+        CRUD::addField([
             'label'   => 'Icon Picker',
             'name'    => 'icon_picker',
             'type'    => 'icon_picker',
@@ -739,7 +568,7 @@ class MonsterCrudController extends CrudController
             'tab'     => 'Miscellaneous',
         ]);
 
-        $this->crud->addField([ // Table
+        CRUD::addField([ // Table
             'name'            => 'table',
             'label'           => 'Table',
             'type'            => 'table',
@@ -754,7 +583,7 @@ class MonsterCrudController extends CrudController
             'tab' => 'Miscellaneous',
         ]);
 
-        $this->crud->addField([ // Table
+        CRUD::addField([ // Table
             'name'            => 'fake_table',
             'label'           => 'Fake Table',
             'type'            => 'table',
@@ -772,7 +601,7 @@ class MonsterCrudController extends CrudController
 
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
-        $this->crud->addField([   // URL
+        CRUD::addField([   // URL
             'name'  => 'video',
             'label' => 'Video - link to video file on Youtube or Vimeo',
             'type'  => 'video',
@@ -780,7 +609,7 @@ class MonsterCrudController extends CrudController
         ]);
         // $table->string('range')->nullable;
 
-        // $this->crud->removeField('name', 'update/create/both');
+        // CRUD::removeField('name', 'update/create/both');
     }
 
     protected function setupUpdateOperation()
@@ -790,122 +619,84 @@ class MonsterCrudController extends CrudController
 
     public function addCustomCrudFilters()
     {
-        $this->crud->addFilter(
-            [ // add a "simple" filter called Draft
-                'type'  => 'simple',
-                'name'  => 'checkbox',
-                'label' => 'Simple',
-            ],
-            false, // the simple filter has no values, just the "Draft" label specified above
-        function () { // if the filter is active (the GET parameter "draft" exits)
-            $this->crud->addClause('where', 'checkbox', '1');
-        }
-        );
+        CRUD::filter('checkbox')
+                ->type('simple')
+                ->label('Simple')
+                ->whenActive(function() {
+                    CRUD::addClause('where', 'checkbox', '1');
+                })->apply();
 
-        $this->crud->addFilter([ // dropdown filter
-            'name' => 'select_from_array',
-            'type' => 'dropdown',
-            'label'=> 'Dropdown',
-        ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function ($value) {
-            // if the filter is active
-            $this->crud->addClause('where', 'select_from_array', $value);
-        });
+        CRUD::filter('select_from_array')
+                ->type('dropdown')
+                ->label('Dropdown')
+                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
+                ->whenActive(function($value) {
+                    CRUD::addClause('where', 'select_from_array', $value);
+                })->apply();
 
-        $this->crud->addFilter(
-            [ // text filter
-                'type'  => 'text',
-                'name'  => 'text',
-                'label' => 'Text',
-            ],
-            false,
-            function ($value) { // if the filter is active
-                $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
-            }
-        );
+        CRUD::filter('text')
+                ->type('text')
+                ->label('Text')
+                ->whenActive(function($value) {
+                    CRUD::addClause('where', 'text', 'LIKE', "%$value%");
+                })->apply();
 
-        $this->crud->addFilter(
-            [
-                'name'       => 'number',
-                'type'       => 'range',
-                'label'      => 'Range',
-                'label_from' => 'min value',
-                'label_to'   => 'max value',
-            ],
-            false,
-            function ($value) { // if the filter is active
-                $range = json_decode($value);
-                if ($range->from && $range->to) {
-                    $this->crud->addClause('where', 'number', '>=', (float) $range->from);
-                    $this->crud->addClause('where', 'number', '<=', (float) $range->to);
-                }
-            }
-        );
+        CRUD::filter('number')
+                ->type('range')
+                ->label('Range')
+                ->label_from('min value')
+                ->label_to('max value')
+                ->whenActive(function($value) {
+                    $range = json_decode($value);
+                    if ($range->from && $range->to) {
+                        CRUD::addClause('where', 'number', '>=', (float) $range->from);
+                        CRUD::addClause('where', 'number', '<=', (float) $range->to);
+                    }
+                })->apply();
 
-        $this->crud->addFilter(
-            [ // date filter
-                'type'  => 'date',
-                'name'  => 'date',
-                'label' => 'Date',
-            ],
-            false,
-            function ($value) { // if the filter is active, apply these constraints
-                $this->crud->addClause('where', 'date', '=', $value);
-            }
-        );
+        CRUD::filter('date')
+                ->type('date')
+                ->label('Date')
+                ->whenActive(function($value) {
+                    CRUD::addClause('where', 'date', '=', $value);
+                })->apply();
 
-        $this->crud->addFilter(
-            [ // daterange filter
-                'type' => 'date_range',
-                'name' => 'date_range',
-                'label'=> 'Date range',
-                // 'date_range_options' => [
-                // 'format' => 'YYYY/MM/DD',
-                // 'locale' => ['format' => 'YYYY/MM/DD'],
-                // 'showDropdowns' => true,
-                // 'showWeekNumbers' => true
-                // ]
-            ],
-            false,
-            function ($value) { // if the filter is active, apply these constraints
-                $dates = json_decode($value);
-                $this->crud->addClause('where', 'date', '>=', $dates->from);
-                $this->crud->addClause('where', 'date', '<=', $dates->to);
-            }
-        );
+        CRUD::filter('date_range')
+                ->type('date_range')
+                ->label('Date range')
+                ->whenActive(function($value) {
+                    $dates = json_decode($value);
+                    CRUD::addClause('where', 'date', '>=', $dates->from);
+                    CRUD::addClause('where', 'date', '<=', $dates->to);
+                })->apply();
 
-        $this->crud->addFilter([ // select2 filter
-            'name' => 'select2',
-            'type' => 'select2',
-            'label'=> 'Select2',
-        ], function () {
-            return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-        }, function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'select2', $value);
-        });
+        CRUD::filter('select2')
+                ->type('select2')
+                ->label('Select2')
+                ->options(function() {
+                    return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
+                })->whenActive(function($value) {
+                    CRUD::addClause('where', 'select2', $value);
+                })->apply();
 
-        $this->crud->addFilter([ // select2_multiple filter
-            'name' => 'select2_multiple',
-            'type' => 'select2_multiple',
-            'label'=> 'S2 multiple',
-        ], function () {
-            return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-        }, function ($values) { // if the filter is active
-            foreach (json_decode($values) as $key => $value) {
-                $this->crud->addClause('orWhere', 'select2', $value);
-            }
-        });
+        CRUD::filter('select2_multiple')
+                ->type('select2_multiple')
+                ->label('S2 multiple')
+                ->options(function() {
+                    return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
+                })->whenActive(function($value) {
+                    foreach (json_decode($values) as $key => $value) {
+                        CRUD::addClause('orWhere', 'select2', $value);
+                    }
+                })->apply();
 
-        $this->crud->addFilter(
-            [ // select2_ajax filter
-                'name'        => 'select2_from_ajax',
-                'type'        => 'select2_ajax',
-                'label'       => 'S2 Ajax',
-                'placeholder' => 'Pick an article',
-            ],
-            url('api/article-search'), // the ajax route
-        function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'select2_from_ajax', $value);
-        }
-        );
+        CRUD::filter('select2_from_ajax')
+                ->type('select2_ajax')
+                ->label('S2 Ajax')
+                ->placeholder('Pick an article')
+                ->options(url('api/article-search'))
+                ->whenActive(function($value) {
+                    CRUD::addClause('where', 'select2_from_ajax', $value);
+                })->apply();
     }
 }
