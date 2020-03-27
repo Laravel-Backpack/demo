@@ -264,27 +264,27 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number',
-            'label' => 'Number',
-            'type'  => 'number',
+            'name'              => 'number',
+            'label'             => 'Number',
+            'type'              => 'number',
             'tab'               => 'Simple',
             'wrapperAttributes' => ['class' => 'form-group col-md-3'],
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'float',
-            'label' => 'Float',
-            'type'  => 'number',
-            'attributes' => ['step' => 'any'], // allow decimals
+            'name'              => 'float',
+            'label'             => 'Float',
+            'type'              => 'number',
+            'attributes'        => ['step' => 'any'], // allow decimals
             'tab'               => 'Simple',
             'wrapperAttributes' => ['class' => 'form-group col-md-3'],
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number_with_prefix',
-            'label' => 'Number with prefix',
-            'type'  => 'number',
-            'prefix' => '$',
+            'name'              => 'number_with_prefix',
+            'label'             => 'Number with prefix',
+            'type'              => 'number',
+            'prefix'            => '$',
             'fake'              => true,
             'store_in'          => 'extras',
             'tab'               => 'Simple',
@@ -292,9 +292,9 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number_with_suffix',
-            'label' => 'Number with suffix',
-            'type'  => 'number',
+            'name'              => 'number_with_suffix',
+            'label'             => 'Number with suffix',
+            'type'              => 'number',
             'suffix'            => '.00',
             'fake'              => true,
             'store_in'          => 'extras',
