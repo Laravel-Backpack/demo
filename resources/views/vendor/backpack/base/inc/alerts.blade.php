@@ -13,7 +13,7 @@
 
         new Noty({
           type: "{{ $type }}",
-          text: "{!! Str::replace('"', "'", $message) !!}"
+          text: "{!! str_replace('"', "'", $message) !!}"
         }).show();
 
       @endforeach
