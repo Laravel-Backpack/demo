@@ -1,4 +1,4 @@
-/*!  1.17.1 | © Algolia | github.com/algolia/places */
+/*!  1.18.1 | © Algolia | github.com/algolia/places */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -246,6 +246,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var extractParams = function extractParams(_ref) {
   var hitsPerPage = _ref.hitsPerPage,
+      postcodeSearch = _ref.postcodeSearch,
       aroundLatLng = _ref.aroundLatLng,
       aroundRadius = _ref.aroundRadius,
       aroundLatLngViaIP = _ref.aroundLatLngViaIP,
@@ -276,6 +277,10 @@ var extractParams = function extractParams(_ref) {
     extracted.aroundLatLng = aroundLatLng;
   } else if (aroundLatLngViaIP !== undefined) {
     extracted.aroundLatLngViaIP = aroundLatLngViaIP;
+  }
+
+  if (postcodeSearch) {
+    extracted.restrictSearchableAttributes = 'postcode';
   }
 
   return _objectSpread({}, extracted, {
@@ -408,7 +413,7 @@ module.exports = g;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ('1.17.1');
+/* harmony default export */ __webpack_exports__["default"] = ('1.18.1');
 
 /***/ }),
 /* 7 */
@@ -1501,6 +1506,7 @@ function createAutocompleteSource(_ref) {
       apiKey = _ref.apiKey,
       appId = _ref.appId,
       hitsPerPage = _ref.hitsPerPage,
+      postcodeSearch = _ref.postcodeSearch,
       aroundLatLng = _ref.aroundLatLng,
       aroundRadius = _ref.aroundRadius,
       aroundLatLngViaIP = _ref.aroundLatLngViaIP,
@@ -1531,6 +1537,7 @@ function createAutocompleteSource(_ref) {
   var configuration = Object(configure["a" /* default */])({
     hitsPerPage: hitsPerPage,
     type: type,
+    postcodeSearch: postcodeSearch,
     countries: countries,
     language: language,
     aroundLatLng: aroundLatLng,
@@ -1960,7 +1967,7 @@ module.exports = {
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "0.37.0";
+module.exports = "0.37.1";
 
 
 /***/ }),
@@ -1969,9 +1976,18 @@ module.exports = "0.37.0";
 
 "use strict";
 
+
 module.exports = function parseAlgoliaClientVersion(agent) {
-  var parsed = agent.match(/Algolia for vanilla JavaScript (\d+\.)(\d+\.)(\d+)/);
-  if (parsed) return [parsed[1], parsed[2], parsed[3]];
+  var parsed =
+    // User agent for algoliasearch >= 3.33.0
+    agent.match(/Algolia for JavaScript \((\d+\.)(\d+\.)(\d+)\)/) ||
+    // User agent for algoliasearch < 3.33.0
+    agent.match(/Algolia for vanilla JavaScript (\d+\.)(\d+\.)(\d+)/);
+
+  if (parsed) {
+    return [parsed[1], parsed[2], parsed[3]];
+  }
+
   return undefined;
 };
 
@@ -2068,6 +2084,12 @@ EventEmitter.prototype._maxListeners = undefined;
 // added to it. This is a useful default which helps finding memory leaks.
 var defaultMaxListeners = 10;
 
+function checkListener(listener) {
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+}
+
 Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
   enumerable: true,
   get: function() {
@@ -2102,14 +2124,14 @@ EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
   return this;
 };
 
-function $getMaxListeners(that) {
+function _getMaxListeners(that) {
   if (that._maxListeners === undefined)
     return EventEmitter.defaultMaxListeners;
   return that._maxListeners;
 }
 
 EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
-  return $getMaxListeners(this);
+  return _getMaxListeners(this);
 };
 
 EventEmitter.prototype.emit = function emit(type) {
@@ -2161,9 +2183,7 @@ function _addListener(target, type, listener, prepend) {
   var events;
   var existing;
 
-  if (typeof listener !== 'function') {
-    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
-  }
+  checkListener(listener);
 
   events = target._events;
   if (events === undefined) {
@@ -2200,7 +2220,7 @@ function _addListener(target, type, listener, prepend) {
     }
 
     // Check for listener leak
-    m = $getMaxListeners(target);
+    m = _getMaxListeners(target);
     if (m > 0 && existing.length > m && !existing.warned) {
       existing.warned = true;
       // No error code for this since it is a Warning
@@ -2232,12 +2252,12 @@ EventEmitter.prototype.prependListener =
     };
 
 function onceWrapper() {
-  var args = [];
-  for (var i = 0; i < arguments.length; i++) args.push(arguments[i]);
   if (!this.fired) {
     this.target.removeListener(this.type, this.wrapFn);
     this.fired = true;
-    ReflectApply(this.listener, this.target, args);
+    if (arguments.length === 0)
+      return this.listener.call(this.target);
+    return this.listener.apply(this.target, arguments);
   }
 }
 
@@ -2250,18 +2270,14 @@ function _onceWrap(target, type, listener) {
 }
 
 EventEmitter.prototype.once = function once(type, listener) {
-  if (typeof listener !== 'function') {
-    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
-  }
+  checkListener(listener);
   this.on(type, _onceWrap(this, type, listener));
   return this;
 };
 
 EventEmitter.prototype.prependOnceListener =
     function prependOnceListener(type, listener) {
-      if (typeof listener !== 'function') {
-        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
-      }
+      checkListener(listener);
       this.prependListener(type, _onceWrap(this, type, listener));
       return this;
     };
@@ -2271,9 +2287,7 @@ EventEmitter.prototype.removeListener =
     function removeListener(type, listener) {
       var list, events, position, i, originalListener;
 
-      if (typeof listener !== 'function') {
-        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
-      }
+      checkListener(listener);
 
       events = this._events;
       if (events === undefined)
@@ -7957,7 +7971,9 @@ module.exports = autocomplete;
         event[predicate] = returnFalse
       })
 
-      event.timeStamp || (event.timeStamp = Date.now())
+      try {
+        event.timeStamp || (event.timeStamp = Date.now())
+      } catch (ignored) { }
 
       if (source.defaultPrevented !== undefined ? source.defaultPrevented :
           'returnValue' in source ? source.returnValue === false :

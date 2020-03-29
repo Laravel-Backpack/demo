@@ -35,16 +35,25 @@
 			tiff: 'image/tiff',
 			webp: 'image/webp',
 			xcf: 'image/x-xcf',
-			sketch: 'application/x-sketch'
+			sketch: 'application/x-sketch',
+			ico: 'image/x-icon',
+			dds: 'image/vnd-ms.dds',
+			emf: 'application/x-msmetafile'
 		},
 		mime2ext,
-		getExtention = function(mime, fm) {
+		getExtention = function(mime, fm, jpeg) {
 			if (!mime2ext) {
 				mime2ext = fm.arrayFlip(ext2mime);
 			}
 			var ext = mime2ext[mime] || fm.mimeTypes[mime];
-			if (ext === 'jpeg') {
-				ext = 'jpg';
+			if (!jpeg) {
+				if (ext === 'jpeg') {
+					ext = 'jpg';
+				}
+			} else {
+				if (ext === 'jpg') {
+					ext = 'jpeg';
+				}
 			}
 			return ext;
 		},
@@ -356,7 +365,7 @@
 					this.disabled = true;
 				} else {
 					this.opts = Object.assign({
-						version: 'v3.5.2'
+						version: 'v3.7.3'
 					}, opts.extraOptions.tuiImgEditOpts || {}, {
 						iconsPath : fm.baseUrl + 'img/tui-',
 						theme : {}
@@ -525,7 +534,8 @@
 					if (fm.hasRequire) {
 						require.config({
 							paths : {
-								'fabric/dist/fabric.require' : cdns.fabric16 + '/fabric.require.min',
+								'fabric/dist/fabric.require' : cdns.fabric + '/fabric.require.min', // for fabric < 2.0.1
+								'fabric' : cdns.fabric + '/fabric.min', // for fabric >= 2.0.1
 								'tui-code-snippet' : cdns.tui + '/tui.code-snippet/latest/tui-code-snippet.min',
 								'tui-color-picker' : cdns.tui + '/tui-color-picker/latest/tui-color-picker.min',
 								'tui-image-editor' : cdns.tui + '/tui-image-editor/'+ver+'/tui-image-editor.min'
@@ -536,7 +546,7 @@
 						});
 					} else {
 						fm.loadScript([
-							cdns.fabric16 + '/fabric.min.js',
+							cdns.fabric + '/fabric.min.js',
 							cdns.tui + '/tui.code-snippet/latest/tui-code-snippet.min.js'
 						], function() {
 							fm.loadScript([
@@ -576,7 +586,7 @@
 						quality = Math.max(0.1, Math.min(1, quality / 100));
 					}
 					return editor.instance.toDataURL({
-						format: getExtention($base.data('mime'), fm),
+						format: getExtention($base.data('mime'), fm, true),
 						quality: quality
 					});
 				}
@@ -680,13 +690,14 @@
 				noContent: true,
 				arrayBufferContent: true,
 				openMaximized: true,
-				canMakeEmpty: ['image/jpeg', 'image/png', 'image/gif', 'image/x-ms-bmp', 'image/tiff', 'image/webp', 'image/vnd.adobe.photoshop', 'image/x-portable-pixmap', 'image/x-sketch'],
+				// Disable file types that cannot be saved on Photopea.
+				canMakeEmpty: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/x-ms-bmp', 'image/tiff', /*'image/x-adobe-dng',*/ 'image/webp', /*'image/x-xcf',*/ 'image/vnd.adobe.photoshop', 'application/pdf', 'image/x-portable-pixmap', 'image/x-sketch', 'image/x-icon', 'image/vnd-ms.dds', /*'application/x-msmetafile'*/],
 				integrate: {
 					title: 'Photopea',
 					link: 'https://www.photopea.com/learn/'
 				}
 			},
-			mimes : ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/x-ms-bmp', 'image/tiff', 'image/x-adobe-dng', 'image/webp', 'image/x-xcf', 'image/vnd.adobe.photoshop', 'application/pdf', 'image/x-portable-pixmap', 'image/x-sketch'],
+			mimes : ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/x-ms-bmp', 'image/tiff', 'image/x-adobe-dng', 'image/webp', 'image/x-xcf', 'image/vnd.adobe.photoshop', 'application/pdf', 'image/x-portable-pixmap', 'image/x-sketch', 'image/x-icon', 'image/vnd-ms.dds', 'application/x-msmetafile'],
 			html : '<iframe style="width:100%;height:100%;border:none;"></iframe>',
 			// setup on elFinder bootup
 			setup : function(opts, fm) {
@@ -722,7 +733,7 @@
 						} else if (ext === 'jpeg') {
 							ext = 'jpg';
 						}
-						if (!ext || !!saveMimes[ext]) {
+						if (!ext || !saveMimes[extmime]) {
 							ext = 'psd';
 							extmime = ext2mime[ext];
 							ifm.closest('.ui-dialog').trigger('changeType', {
@@ -751,7 +762,7 @@
 							dfdIni = $.Deferred().done(function() {
 								spnr.remove();
 								phase = 1;
-								wnd.postMessage(data, '*');
+								wnd.postMessage(data, orig);
 							}),
 							dfdGet;
 
@@ -787,6 +798,8 @@
 											dfdGet.reject('errDataEmpty');
 										}
 									}
+								} else if (ev.data === 'Save') {
+									editor.doSave();
 								} else {
 									if (dfdGet && dfdGet.state() === 'pending') {
 										if (typeof ev.data === 'object') {
@@ -833,7 +846,8 @@
 					var d = JSON.stringify({
 						files : [],
 						environment : {
-							lang: fm.lang.replace(/_/g, '-')
+							lang: fm.lang.replace(/_/g, '-'),
+							customIO: {"save": "app.echoToOE(\"Save\");"}
 						}
 					});
 					ifm.attr('src', orig + '/#' + encodeURI(d));
@@ -975,6 +989,7 @@
 						opts = Object.assign({
 							type: 'child',
 							parent: container.get(0),
+							output: {format: 'png'},
 							onSave: function(arg) {
 								// Check current file.hash, all callbacks are called on multiple instances
 								var mime = arg.toBlob().type,
@@ -1087,8 +1102,11 @@
 					node = $base.children('img:first'),
 					q;
 				if (base._canvas) {
-					q = $base.data('quty')? Math.max(Math.min($base.data('quty').val(), 100), 1) / 100 : void(0);
-					node.attr('src', base._canvas.toDataURL(self.file.mime, q));
+					if ($base.data('quty')) {
+						q = $base.data('quty').val();
+						q && this.fm.storage('jpgQuality', q);
+					}
+					node.attr('src', base._canvas.toDataURL(self.file.mime, q? Math.max(Math.min(q, 100), 1) / 100 : void(0)));
 				} else if (node.attr('src').substr(0, 5) !== 'data:') {
 					node.attr('src', imgBase64(node, this.file.mime));
 				}
@@ -1136,8 +1154,9 @@
 			load : function(base) {
 				var self = this,
 					fm = this.fm,
-					node = $(base).children('img:first'),
-					dialog = $(base).closest('.ui-dialog'),
+					$base = $(base),
+					node = $base.children('img:first'),
+					dialog = $base.closest('.ui-dialog'),
 					elfNode = fm.getUI(),
 					dfrd = $.Deferred(),
 					container = $('#elfinder-aviary-container'),
@@ -1176,17 +1195,36 @@
 						opts = {
 							apiKey: self.confObj.apiKey,
 							onSave: function(imageID, newURL) {
-								var ext;
+								var noChange = fm.arrayFlip(['jpg', 'png']),
+									ext;
 								featherEditor.showWaitIndicator();
 								ext = newURL.replace(/.+\.([^.]+)$/, '$1');
-								if (node.data('ext') !== ext) {
+								if (!noChange[node.data('ext')] && node.data('ext') !== ext) {
 									node.closest('.ui-dialog').trigger('changeType', {
 										extention: ext,
 										mime : ext2mime[ext]
 									});
+									node.data('mime', ext2mime[ext]);
+								} else {
+									node.data('mime', ext2mime[node.data('ext')]);
 								}
 								node.on('load error', function() {
+										var cavImg;
 										node.data('loading')(true);
+										if (quty && node.attr('src').substr(0, 5) !== 'data:') {
+											cavImg = document.createElement('img');
+											$(cavImg).attr('crossorigin', 'anonymous').on('load', function() {
+												// New Canvas
+												canvas = document.createElement('canvas');
+												canvas.width  = cavImg.width;
+												canvas.height = cavImg.height;
+												// Draw Image
+												canvas.getContext('2d').drawImage(cavImg, 0, 0);
+												base._canvas = canvas;
+												quty && quty.trigger('change');
+											});
+											cavImg.src = newURL;
+										}
 									})
 									.attr('crossorigin', 'anonymous')
 									.attr('src', newURL)
@@ -1201,7 +1239,8 @@
 							},
 							appendTo: container.get(0),
 							maxSize: 2048,
-							language: getLang()
+							language: getLang(),
+							fileFormat: 'png'
 						};
 						// trigger event 'editEditorPrepare'
 						self.trigger('Prepare', {
@@ -1213,7 +1252,7 @@
 						featherEditor = new Aviary.Feather(opts);
 						// return editor instance
 						dfrd.resolve(featherEditor);
-						$(base).on('saveAsFail', launch);
+						$base.on('saveAsFail', launch);
 					},
 					launch = function() {
 						dialog.addClass(fm.res('class', 'preventback'));
@@ -1226,8 +1265,35 @@
 						});
 						node.data('loading')(true);
 					},
-					featherEditor, extraOpts;
+					featherEditor, extraOpts, canvas, quty, qutyTm;
 				
+				// jpeg quality controls
+				if (self.file.mime === 'image/jpeg') {
+					$base.data('quality', fm.storage('jpgQuality') || fm.option('jpgQuality'));
+					quty = $('<input type="number" class="ui-corner-all elfinder-resize-quality elfinder-tabstop"/>')
+						.attr('min', '1')
+						.attr('max', '100')
+						.attr('title', '1 - 100')
+						.on('change', function() {
+							var q = quty.val();
+							$base.data('quality', q);
+							qutyTm && cancelAnimationFrame(qutyTm);
+							if (canvas) {
+								qutyTm = requestAnimationFrame(function() {
+									canvas.toBlob(function(blob) {
+										blob && quty.next('span').text(' (' + fm.formatSize(blob.size) + ')');
+									}, 'image/jpeg', Math.max(Math.min(q, 100), 1) / 100);
+								});
+							}
+						})
+						.val($base.data('quality'));
+					$('<div class="ui-dialog-buttonset elfinder-edit-extras elfinder-edit-extras-quality"/>')
+						.append(
+							$('<span>').html(fm.i18n('quality') + ' : '), quty, $('<span/>')
+						)
+						.prependTo($base.parent().next());
+				}
+
 				// load script then init
 				if (typeof Aviary === 'undefined') {
 					fm.loadScript(['https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js'], function() {
@@ -1241,10 +1307,15 @@
 			},
 			// Convert content url to data uri scheme to save content
 			save : function(base) {
-				var node = $(base).children('img:first');
-				if (node.attr('src').substr(0, 5) !== 'data:') {
-					node.attr('src', imgBase64(node, this.file.mime));
+				var node = $(base).children('img:first'),
+					q = $(base).data('quality');
+				if (base._canvas) {
+					q && this.fm.storage('jpgQuality', q);
+					node.attr('src', base._canvas.toDataURL(node.data('mime'), q? Math.max(Math.min(q, 100), 1) / 100 : void(0)));
+				} else if (node.attr('src').substr(0, 5) !== 'data:') {
+					node.attr('src', imgBase64(node, node.data('mime')));
 				}
+
 			}
 		},
 		{
@@ -1468,7 +1539,7 @@
 			},
 			load : function(textarea) {
 				var fm = this.fm,
-					cmUrl = fm.options.cdns.codemirror,
+					cmUrl = fm.convAbsUrl(fm.options.cdns.codemirror),
 					dfrd = $.Deferred(),
 					self = this,
 					start = function(CodeMirror) {
@@ -1519,7 +1590,7 @@
 							editor.setOption('mode', spec);
 							CodeMirror.autoLoadMode(editor, mode);
 							// show MIME:mode in title bar
-							base.prev().children('.elfinder-dialog-title').append(' (' + spec + ' : ' + mode + ')');
+							base.prev().children('.elfinder-dialog-title').append(' (' + spec + (mode != 'null'? ' : ' + mode : '') + ')');
 						}
 						
 						// editor base node
@@ -1898,7 +1969,7 @@
 				var self = this,
 					fm   = this.fm,
 					dfrd = $.Deferred(),
-					mode = self.confObj.ckeditor5Mode || 'inline',
+					mode = self.confObj.ckeditor5Mode || 'decoupled-document',
 					lang = (function() {
 						var l = fm.lang.toLowerCase().replace('_', '-');
 						if (l.substr(0, 2) === 'zh' && l !== 'zh-cn') {
@@ -1915,6 +1986,7 @@
 
 						// CKEditor5 configure options
 						opts = Object.assign({
+							toolbar: ["heading", "|", "fontSize", "fontFamily", "|", "bold", "italic", "underline", "strikethrough", "highlight", "|", "alignment", "|", "numberedList", "bulletedList", "blockQuote", "indent", "outdent", "|", "ckfinder", "link", "imageUpload", "insertTable", "mediaEmbed", "|", "undo", "redo"],
 							language: lang
 						}, self.confObj.ckeOpts);
 
@@ -1933,7 +2005,7 @@
 									fileRepo = editor.plugins.get('FileRepository'),
 									prevVars = {}, isImage, insertImages;
 								if (editor.ui.view.toolbar && (mode === 'classic' || mode === 'decoupled-document')) {
-									$(editnode).closest('.elfinder-dialog').children('.ui-widget-header').append(editor.ui.view.toolbar.element);
+									$(editnode).closest('.elfinder-dialog').children('.ui-widget-header').append($(editor.ui.view.toolbar.element).css({marginRight:'-1em',marginLeft:'-1em'}));
 								}
 								if (mode === 'classic') {
 									$(editnode).closest('.elfinder-edit-editor').css('overflow', 'auto');
@@ -2433,7 +2505,7 @@
 				$(ta).data('xhr', fm.request({
 					data: {
 						cmd: 'editor',
-						name: 'ZohoOffice',
+						name: ta.editor.confObj.info.cmdCheck,
 						method: 'init',
 						'args[target]': file.hash,
 						'args[lang]' : fm.lang,
@@ -2582,7 +2654,7 @@
 				}
 			},
 			mimes : ['*'],
-			html : '<iframe style="width:100%;max-height:100%;border:none;"></iframe>',
+			html : '<div style="width:100%;max-height:100%;"></div>',
 			// setup on elFinder bootup
 			setup : function(opts, fm) {
 				var mOpts = opts.extraOptions.onlineConvert || {maxSize:100,showLink:true};
@@ -2686,8 +2758,6 @@
 										convert: con,
 										options: opts
 									});
-								} else {
-									open(cat, con);
 								}
 							}).on('change', function(e) {
 								var t = $(e.target),
@@ -2771,7 +2841,7 @@
 							i = 0;
 						
 						if (!confObj.ext2mime) {
-							confObj.ext2mime = fm.arrayFlip(fm.mimeTypes);
+							confObj.ext2mime = Object.assign(fm.arrayFlip(fm.mimeTypes), ext2mime);
 						}
 						$.each(set.conv, function(t, c) {
 							var cname = t.toLowerCase(),
@@ -2817,25 +2887,15 @@
 						}
 						return btns;
 					})(),
-					ifm = $(this).hide(),
-					select = $('<div/>')
+					select = $(this)
 						.append(
 							btns,
-							$('<div class="elfinder-edit-onlineconvert-bottom-btn"/>').append(
-								$('<button/>')
-									.addClass(fm.UA.iOS? 'elfinder-button-ios-multiline' : '')
-									.html(fm.i18n('convertOn', 'Online-Convert.com'))
-									.on('click', function() {
-										open();
-									})
-							),
 							(set.showLink? $(set.link) : null)
-						)
-						.appendTo(ifm.parent().css({overflow: 'auto'})),
+						),
 					spnr = $('<div class="elfinder-edit-spinner elfinder-edit-onlineconvert"/>')
 						.hide()
 						.html('<span class="elfinder-spinner-text">' + fm.i18n('nowLoading') + '</span><span class="elfinder-spinner"/>')
-						.appendTo(ifm.parent()),
+						.appendTo(select.parent()),
 					_url = null,
 					url = function() {
 						var onetime;
@@ -2913,13 +2973,14 @@
 							}
 							fm.toast({
 								msg: fm.i18n('editorConvNoApi'),
-								mode: 'warning',
+								mode: 'error',
 								timeOut: 3000,
 								onHidden: function() {
 									uiToast.children().length === 1 && uiToast.appendTo(fm.getUI());
-									open(cat, con);
 								}
 							});
+							spnr.hide();
+							select.show();
 						}
 					},
 					setStatus = function(status) {
@@ -2963,61 +3024,9 @@
 							});
 						}
 					},
-					open = function(cat, con) {
-						var link;
-						if (cat && con) {
-							if (set.conv[cat] && set.conv[cat][con] && set.conv[cat][con].link) {
-								link = set.conv[cat][con].link.replace('%s', con);
-							} else {
-								link = cat === 'hash'? ('/' + con + '-generator') : ('/convert-to-' + con);
-							}
-							link = set.url.replace('%s', cat).replace('%s', link);
-						} else {
-							link = set.url.replace('%s', mode + '-conversion').replace('%s', '');
-						}
-						spnr.hide();
-						select.hide();
-						ifm.parent().css({overflow: fm.UA.iOS? 'auto' : 'hidden'});
-						$(ta).data('dfrd', url().done(function(url) {
-							var opts;
-							if (url) {
-								opts = {
-									css: {
-										height: '100%'
-									}
-								};
-								// trigger event 'editEditorPrepare'
-								ta.editor.trigger('Prepare', {
-									node: ta,
-									editorObj: void(0),
-									instance: ifm,
-									opts: opts
-								});
-								url = link + encodeURIComponent(fm.convAbsUrl(url));
-								ifm.attr('src', url).show().css(opts.css)
-									.one('load', function() {
-										uiToast.appendTo(ta.closest('.ui-dialog'));
-										fm.toast({
-											msg: fm.i18n('editorConvNeedUpload'),
-											mode: 'info',
-											timeOut: 15000,
-											onHidden: function() {
-												uiToast.children().length === 1 && uiToast.appendTo(fm.getUI());
-											},
-											button: {
-												text: 'btnYes'
-											}
-										});
-									});
-							} else {
-								data.error && fm.error(data.error);
-								ta.elfinderdialog('destroy');
-							}
-						}));
-					},
 					mode = 'document',
 					cl, m;
-				ifm.parent().addClass('overflow-scrolling-touch');
+				select.parent().css({overflow: 'auto'}).addClass('overflow-scrolling-touch');
 				if (m = file.mime.match(/^(audio|image|video)/)) {
 					mode = m[1];
 				}
@@ -3043,14 +3052,12 @@
 							setOptions(t);
 						});
 					}
-					ifm.parent().scrollTop(btns.children('.onlineconvert-fieldset-' + mode).offset().top);
+					select.parent().scrollTop(btns.children('.onlineconvert-fieldset-' + mode).offset().top);
 				}
 			},
 			load : function() {},
 			getContent : function() {},
 			save : function() {},
-			// Before dialog close
-			beforeclose : iframeClose,
 			// On dialog closed
 			close : function(ta) {
 				var fm = this.fm,

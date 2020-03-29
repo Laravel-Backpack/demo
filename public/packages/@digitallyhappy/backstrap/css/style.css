@@ -17384,6 +17384,35 @@ body {
   opacity: 1;
 }
 
+.sidebar.bg-white .nav-link.active,
+.sidebar.bg-white .nav-link:hover {
+  color: white !important;
+}
+
+.sidebar.bg-white a:not(:hover),
+.sidebar.bg-white a:not(:active),
+.sidebar.bg-white a:not(:focus),
+.sidebar.bg-white a:not(.open),
+.sidebar.bg-white a:not(.active),
+.sidebar.bg-white li {
+  color: #495057 !important;
+}
+
+.sidebar.bg-white .nav-dropdown.open {
+  background: #fbfbfb;
+  color: #495057 !important;
+}
+
+.sidebar.bg-white .nav-link.active {
+  background: #f6f6f6;
+  color: #467fd0 !important;
+}
+
+.sidebar.bg-white .nav-link.active .nav-icon,
+.sidebar.bg-white .nav-link.active:hover .nav-icon {
+  color: #467fd0 !important;
+}
+
 .sidebar-pills a.nav-link {
   color: white !important;
 }
@@ -17411,7 +17440,7 @@ body {
   background: rgba(0, 0, 0, 0.04) !important;
 }
 
-.sidebar-lg-show .sidebar-pills {
+.sidebar-pills {
   padding: 10px;
   width: 225px;
 }

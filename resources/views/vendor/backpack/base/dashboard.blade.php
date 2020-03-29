@@ -12,47 +12,51 @@
 	  'class' => 'row',
 	  'content' => [ // widgets 
 	        [
-			    'type'        => 'progress',
-			    'class'       => 'card text-white bg-primary mb-2',
-			    'value'       => $userCount,
-			    'description' => 'Registered users.',
-			    'progress'    => (int)$userCount/10*100, // integer
-			    'hint'        => 10-$userCount.' more until next milestone.',
+			    'type'        	=> 'progress_white',
+			    'class'       	=> 'card mb-2',
+	     		'progressClass'	=> 'progress-bar bg-primary',
+			    'value'       	=> $userCount,
+			    'description' 	=> 'Registered users.',
+			    'progress'    	=> (int)$userCount/10*100, // integer
+			    'hint'        	=> 10-$userCount.' more until next milestone.',
 			],
 			[
-			    'type'        => 'progress',
-			    'class'       => 'card text-white bg-warning mb-2',
+			    'type'        => 'progress_white',
+			    'class'       => 'card mb-2',
+			    'progressClass' => 'progress-bar bg-warning',
 			    'value'       => $productCount,
 			    'description' => 'Products.',
 			    'progress'    => (int)$productCount/75*100, // integer
-			    'hint'        => $productCount>75?'Easier to sell less than 75 products.':'Good. Good.',
+			    'hint'        => $productCount>75?'Try to stay under 75 products.':'Good. Good.',
 			],
 			[
-			    'type'        => 'progress',
-			    'class'       => 'card text-white bg-success border-0 mb-2',
+			    'type'        => 'progress_white',
+			    'class'       => 'card border-0 mb-2',
+			    'progressClass' => 'progress-bar bg-success',
 			    'value'       => $articleCount,
 			    'description' => 'Articles.',
 			    'progress'    => 100, // integer
 			    'hint'        => 'Great! Don\'t stop.',
 			],
 			[
-			    'type'        => 'progress',
-			    'class'       => 'card text-white '.($lastArticleDaysAgo>5?'bg-danger':'bg-success').' mb-2',
+			    'type'        => 'progress_white',
+			    'class'       => 'card mb-2',
 			    'value'       => $lastArticleDaysAgo.' days',
+			    'progressClass' => 'progress-bar '.($lastArticleDaysAgo>5?'bg-danger':'bg-success'),
 			    'description' => 'Since last article.',
 			    'progress'    => 100, // integer
 			    'hint'        => 'Post an article every 3-4 days.',
 			],
 	  ]
 	];
-    $widgets['before_content'][] = [
-        'type'        => 'jumbotron',
-        'wrapperClass'=> 'shadow-xs',
-        'heading'     => trans('backpack::base.welcome'),
-        'content'     => trans('backpack::base.use_sidebar'),
-        'button_link' => backpack_url('logout'),
-        'button_text' => trans('backpack::base.logout'),
-    ];
+    // $widgets['before_content'][] = [
+    //     'type'        => 'jumbotron',
+    //     'wrapperClass'=> 'shadow-xs',
+    //     'heading'     => trans('backpack::base.welcome'),
+    //     'content'     => trans('backpack::base.use_sidebar'),
+    //     'button_link' => backpack_url('logout'),
+    //     'button_text' => trans('backpack::base.logout'),
+    // ];
     $widgets['after_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',

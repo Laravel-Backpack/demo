@@ -19,6 +19,7 @@ Route::group([
     Route::crud('monster', 'MonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
+    Route::crud('dummy', 'DummyCrudController');
 
     // ---------------------------
     // Backpack DEMO Custom Routes

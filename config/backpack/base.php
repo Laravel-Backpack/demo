@@ -66,6 +66,13 @@ return [
     // Menu logo. You can replace this with an <img> tag if you have a logo.
     'project_logo'   => '<b>Back</b>pack',
 
+    // When clicking on the admin panel's top-left logo/name,
+    // where should the user be redirected?
+    // The string below will be passed through the url() helper.
+    // - default: '' (project root)
+    // - alternative: 'admin' (the admin's dashboard)
+    'home_link' => env('APP_ENV') === 'local' ? '/' : 'https://backpackforlaravel.com',
+
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
 

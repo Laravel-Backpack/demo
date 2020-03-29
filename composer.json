@@ -1,12 +1,12 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "backpack/demo",
+    "description": "A Laravel + Backpack installation to show off most features.",
+    "keywords": ["backpack", "laravel", "backpack for laravel", "admin panel", "crud"],
     "license": "proprietary",
     "type": "project",
     "require": {
-        "php": ">=7.2.0",
-        "laravel/framework": "^6.0",
+        "php": ">=7.3",
+        "laravel/framework": "^7.0",
         "fideloper/proxy": "^4.0",
         "backpack/crud": "^4.0.0",
         "backpack/logmanager": "^3.0.0",
@@ -18,18 +18,19 @@
         "backpack/backupmanager": "^2.0.0",
         "backpack/generators": "^2.0",
         "spatie/laravel-translatable": "^4.0",
-        "barryvdh/laravel-elfinder": "^0.4.3",
+        "barryvdh/laravel-elfinder": "^0.4.5",
         "spatie/laravel-backup": "^6.1",
-        "laravel/tinker": "^1.0",
-        "facade/ignition": "^1.11"
+        "laravel/tinker": "^2.1",
+        "facade/ignition": "^2.0",
+        "backpack/revise-operation": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^7.0",
+        "phpunit/phpunit" : "^9.0||^7.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
-        "laracasts/generators": "dev-master",
+        "laracasts/generators": "^1.0",
         "backpack/generators": "^2.0",
         "itsgoingd/clockwork": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
@@ -63,9 +64,13 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ]
+        ],
+        "test": "vendor/bin/phpunit --testdox"
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.3.9"
+        }
     }
 }
