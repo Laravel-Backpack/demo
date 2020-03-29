@@ -34,9 +34,9 @@ class DummyCrudController extends CrudController
 
         foreach ($this->groups() as $groupKey => $groupFields) {
             CRUD::addColumn([
-                'name' => $groupKey,
+                'name'     => $groupKey,
                 'label'    => str_replace('_', ' ', Str::title($groupKey)),
-                'type' => 'array_count',
+                'type'     => 'array_count',
             ]);
         }
     }
@@ -94,14 +94,15 @@ class DummyCrudController extends CrudController
                 $is_custom_html_field = $value['type'] == 'custom_html';
                 $does_not_have_label = !isset($value['label']);
                 $does_not_have_name = !isset($value['name']);
+
                 return $is_custom_html_field || $does_not_have_label || $does_not_have_name;
             })->pluck('label', 'name');
-            
+
             CRUD::addColumn([
-                'name' => $groupKey,
+                'name'     => $groupKey,
                 'label'    => str_replace('_', ' ', Str::title($groupKey)),
-                'type' => 'table',
-                'columns' => $validFields,
+                'type'     => 'table',
+                'columns'  => $validFields,
             ]);
         }
 
@@ -294,35 +295,35 @@ class DummyCrudController extends CrudController
         // Field Types: hidden, tinymce, datetime_picker, range
         $groups['extra_descriptions'] = [
             [   // Hidden
-                'name' => 'status',
-                'type' => 'hidden',
+                'name'    => 'status',
+                'type'    => 'hidden',
                 'default' => 'visible',
-                'label' => 'Status',
+                'label'   => 'Status',
             ],
             [   // TinyMCE
-                'name' => 'extra_description',
+                'name'  => 'extra_description',
                 'label' => 'Description',
-                'type' => 'tinymce',
+                'type'  => 'tinymce',
                 // optional overwrite of the configuration array
                 // 'options' => [ 'selector' => 'textarea.tinymce',  'skin' => 'dick-light', 'plugins' => 'image,link,media,anchor' ],
             ],
             [   // DateTime
-                'name' => 'date',
+                'name'  => 'date',
                 'label' => 'Date',
-                'type' => 'datetime_picker',
+                'type'  => 'datetime_picker',
                 // optional:
                 'datetime_picker_options' => [
-                    'format' => 'DD/MM/YYYY HH:mm',
-                    'language' => 'fr'
+                    'format'   => 'DD/MM/YYYY HH:mm',
+                    'language' => 'fr',
                 ],
                 'allows_null' => true,
                 // 'default' => '2017-05-12 11:59:59',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             [   // Range
-                'name' => 'range',
-                'label' => 'Range',
-                'type' => 'range',
+                'name'       => 'range',
+                'label'      => 'Range',
+                'type'       => 'range',
                 'attributes' => [
                     'min' => 0,
                     'max' => 10,
