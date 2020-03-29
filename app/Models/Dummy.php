@@ -22,6 +22,9 @@ class Dummy extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $casts = [
+        'extras' => 'array',
+    ];
 
     /*
     |--------------------------------------------------------------------------

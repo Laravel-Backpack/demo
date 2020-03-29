@@ -31,10 +31,14 @@ class DummyCrudController extends CrudController
     {
         CRUD::addColumn('name');
         CRUD::addColumn('description');
-        CRUD::addColumn([
-            'name' => 'extras',
-            'type' => 'array_count',
-        ]);
+
+        foreach ($this->groups() as $groupKey => $groupFields) {
+            CRUD::addColumn([
+                'name' => $groupKey,
+                'label'    => str_replace('_', ' ', Str::title($groupKey)),
+                'type' => 'array_count',
+            ]);
+        }
     }
 
     protected function setupCreateOperation()
@@ -45,6 +49,74 @@ class DummyCrudController extends CrudController
         CRUD::addField('name');
         CRUD::addField('description');
 
+        foreach ($this->groups() as $groupKey => $groupFields) {
+            CRUD::addField([
+                'name'     => $groupKey,
+                'label'    => str_replace('_', ' ', Str::title($groupKey)),
+                'type'     => 'repeatable',
+                'fake'     => true,
+                'store_in' => 'extras',
+                'fields'   => $groupFields,
+            ]);
+        }
+    }
+
+    protected function setupUpdateOperation()
+    {
+        $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->setupListOperation();
+        $this->crud->setOperationSetting('contentClass', 'col-md-12');
+
+        // for field types that have multiple name (ex: date_range)
+        // split those into two separate text fields
+        foreach ($this->groups() as $groupKey => $groupFields) {
+            CRUD::removeColumn($groupKey);
+
+            foreach ($groupFields as $key => $field) {
+                if (is_array($field['name'])) {
+                    foreach ($field['name'] as $name) {
+                        $newField = $field;
+                        $newField['name'] = $name;
+                        $newField['type'] = 'text';
+                        $groupFields[] = $newField;
+                    }
+                    unset($groupFields[$key]);
+                }
+            }
+
+            // only consider fields that have both name and label (needed for table column)
+            // reject custom_html fields (since they have no value)
+            $validFields = collect($groupFields)->reject(function ($value, $key) {
+                $is_custom_html_field = $value['type'] == 'custom_html';
+                $does_not_have_label = !isset($value['label']);
+                $does_not_have_name = !isset($value['name']);
+                return $is_custom_html_field || $does_not_have_label || $does_not_have_name;
+            })->pluck('label', 'name');
+            
+            CRUD::addColumn([
+                'name' => $groupKey,
+                'label'    => str_replace('_', ' ', Str::title($groupKey)),
+                'type' => 'table',
+                'columns' => $validFields,
+            ]);
+        }
+
+        CRUD::addColumn([
+            'name' => 'created_at',
+            'type' => 'datetime',
+        ]);
+        CRUD::addColumn([
+            'name' => 'updated_at',
+            'type' => 'datetime',
+        ]);
+    }
+
+    protected function groups()
+    {
         // Field Types: text, textarea
         $groups['question_and_answer'] = [
             [
@@ -61,7 +133,7 @@ class DummyCrudController extends CrudController
             ],
         ];
 
-        // Field Types: text, textarea
+        // Field Types: text, ckeditor
         $groups['testimonials'] = [
             [
                 'name'              => 'name',
@@ -84,7 +156,7 @@ class DummyCrudController extends CrudController
             [
                 'name'  => 'quote',
                 'label' => 'Quote',
-                'type'  => 'textarea',
+                'type'  => 'ckeditor',
             ],
         ];
 
@@ -219,34 +291,46 @@ class DummyCrudController extends CrudController
             ],
         ];
 
-        foreach ($groups as $groupKey => $groupFields) {
-            CRUD::addField([
-                'name'     => $groupKey,
-                'label'    => str_replace('_', ' ', Str::title($groupKey)),
-                'type'     => 'repeatable',
-                'fake'     => true,
-                'store_in' => 'extras',
-                'fields'   => $groupFields,
-            ]);
-        }
-    }
+        // Field Types: hidden, tinymce, datetime_picker, range
+        $groups['extra_descriptions'] = [
+            [   // Hidden
+                'name' => 'status',
+                'type' => 'hidden',
+                'default' => 'visible',
+                'label' => 'Status',
+            ],
+            [   // TinyMCE
+                'name' => 'extra_description',
+                'label' => 'Description',
+                'type' => 'tinymce',
+                // optional overwrite of the configuration array
+                // 'options' => [ 'selector' => 'textarea.tinymce',  'skin' => 'dick-light', 'plugins' => 'image,link,media,anchor' ],
+            ],
+            [   // DateTime
+                'name' => 'date',
+                'label' => 'Date',
+                'type' => 'datetime_picker',
+                // optional:
+                'datetime_picker_options' => [
+                    'format' => 'DD/MM/YYYY HH:mm',
+                    'language' => 'fr'
+                ],
+                'allows_null' => true,
+                // 'default' => '2017-05-12 11:59:59',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+            [   // Range
+                'name' => 'range',
+                'label' => 'Range',
+                'type' => 'range',
+                'attributes' => [
+                    'min' => 0,
+                    'max' => 10,
+                ],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+        ];
 
-    protected function setupUpdateOperation()
-    {
-        $this->setupCreateOperation();
-    }
-
-    protected function setupShowOperation()
-    {
-        $this->setupListOperation();
-
-        CRUD::addColumn([
-            'name' => 'created_at',
-            'type' => 'datetime',
-        ]);
-        CRUD::addColumn([
-            'name' => 'updated_at',
-            'type' => 'datetime',
-        ]);
+        return $groups;
     }
 }

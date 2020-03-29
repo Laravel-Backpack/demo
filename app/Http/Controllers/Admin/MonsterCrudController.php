@@ -385,7 +385,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([   // Hidden
             'name'    => 'hidden',
             'type'    => 'hidden',
-            'default' => 'hidden value',
+            'default' => '6318',
             'tab'     => 'Simple',
         ]);
 
