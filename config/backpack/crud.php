@@ -120,12 +120,12 @@ return [
         ],
 
         /*
-         * Revisions Operation
+         * Revise Operation
          */
-        'revisions' => [
+        'revise' => [
             // Define the size/looks of the content div for all CRUDs
-            // To override per view use $this->crud->setRevisionsTimelineContentClass('class-string')
-            'timelineContentClass' => 'col-md-12',
+            // To override per view use $this->crud->set('revise.timelineContentClass')
+            'timelineContentClass' => 'col-md-11',
         ],
 
     ],
