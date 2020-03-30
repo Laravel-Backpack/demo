@@ -534,7 +534,7 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('select_from_array')
                 ->type('dropdown')
                 ->label('Dropdown')
-                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
+                ->values(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select_from_array', $value);
                 })->apply();
@@ -578,7 +578,7 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('select2')
                 ->type('select2')
                 ->label('Select2')
-                ->options(function () {
+                ->values(function () {
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
                 })->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2', $value);
@@ -587,7 +587,7 @@ class FluentMonsterCrudController extends CrudController
         CRUD::filter('select2_multiple')
                 ->type('select2_multiple')
                 ->label('S2 multiple')
-                ->options(function () {
+                ->values(function () {
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
                 })->whenActive(function ($value) {
                     foreach (json_decode($values) as $key => $value) {
@@ -599,7 +599,7 @@ class FluentMonsterCrudController extends CrudController
                 ->type('select2_ajax')
                 ->label('S2 Ajax')
                 ->placeholder('Pick an article')
-                ->options(url('api/article-search'))
+                ->values(url('api/article-search'))
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2_from_ajax', $value);
                 })->apply();
