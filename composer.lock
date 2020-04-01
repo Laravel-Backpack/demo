@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.55",
+            "version": "4.0.58",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60"
+                "reference": "03432680d8ed839bcbd99ce57aed61bcf7a1b695"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/03432680d8ed839bcbd99ce57aed61bcf7a1b695",
+                "reference": "03432680d8ed839bcbd99ce57aed61bcf7a1b695",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-19T06:58:41+00:00"
+            "time": "2020-03-31T12:50:26+00:00"
         },
         {
             "name": "backpack/generators",
@@ -2612,16 +2612,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.31.0",
+            "version": "2.32.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d"
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
-                "reference": "bbc0ab53f41a4c6f223c18efcdbd9bc725eb5d2d",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
+                "reference": "f10e22cf546704fab1db4ad4b9dedbc5c797a0dc",
                 "shasum": ""
             },
             "require": {
@@ -2630,6 +2630,7 @@
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
+                "doctrine/orm": "^2.7",
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
                 "kylekatarnls/multi-tester": "^1.1",
                 "phpmd/phpmd": "^2.8",
@@ -2678,7 +2679,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-03-01T11:11:58+00:00"
+            "time": "2020-03-31T13:43:19+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -5106,16 +5107,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.0.5",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "e9b93f42a1fd6aec6a0872d59ee5c8219a7d584b"
+                "reference": "99b831770e10807dca0979518e2c89edffef5978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/e9b93f42a1fd6aec6a0872d59ee5c8219a7d584b",
-                "reference": "e9b93f42a1fd6aec6a0872d59ee5c8219a7d584b",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/99b831770e10807dca0979518e2c89edffef5978",
+                "reference": "99b831770e10807dca0979518e2c89edffef5978",
                 "shasum": ""
             },
             "require": {
@@ -5179,7 +5180,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-04T07:41:34+00:00"
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "symfony/translation-contracts",
