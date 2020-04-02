@@ -148,6 +148,17 @@ class MonsterCrudController extends CrudController
                     },
                 ],
             ],
+            [   // select_multiple: n-n relationship (with pivot table)
+                'label'     => 'Relationship_count', // Table column heading
+                'type'      => 'relationship_count',
+                'name'      => 'categories', // the method that defines the relationship in your Model
+                'entity'    => 'categories', // the method that defines the relationship in your Model
+                'wrapper'   => [
+                    'href' => function ($crud, $column, $entry, $related_key) {
+                        return backpack_url('category');
+                    },
+                ],
+            ],
             [
                 'name'  => 'video', // The db column name
                 'label' => 'Video', // Table column heading
@@ -731,6 +742,27 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
+        $this->crud->addField([   // URL
+            'name'  => 'video',
+            'label' => 'Video - link to video file on Youtube or Vimeo',
+            'type'  => 'video',
+            'tab'   => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+        ]);
+        
+        $this->crud->addField([   // Range
+            'name' => 'range',
+            'label' => 'Range',
+            'type' => 'range',
+            //optional
+            'attributes' => [
+                'min' => 0,
+                'max' => 10,
+            ],
+            'tab' => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+        ]);
+
         $this->crud->addField([
             'label'   => 'Icon Picker',
             'name'    => 'icon_picker',
@@ -772,13 +804,7 @@ class MonsterCrudController extends CrudController
 
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
-        $this->crud->addField([   // URL
-            'name'  => 'video',
-            'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type'  => 'video',
-            'tab'   => 'Miscellaneous',
-        ]);
-        // $table->string('range')->nullable;
+
 
         // $this->crud->removeField('name', 'update/create/both');
     }
