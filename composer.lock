@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.0.55",
+            "version": "4.0.58",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60"
+                "reference": "03432680d8ed839bcbd99ce57aed61bcf7a1b695"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
-                "reference": "ba3c0d3657c28b2d84abf6627ab7cc4583550b60",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/03432680d8ed839bcbd99ce57aed61bcf7a1b695",
+                "reference": "03432680d8ed839bcbd99ce57aed61bcf7a1b695",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-03-19T06:58:41+00:00"
+            "time": "2020-03-31T12:50:26+00:00"
         },
         {
             "name": "backpack/generators",
