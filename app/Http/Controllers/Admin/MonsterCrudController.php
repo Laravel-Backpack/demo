@@ -743,23 +743,23 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // URL
-            'name'  => 'video',
-            'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type'  => 'video',
-            'tab'   => 'Miscellaneous',
+            'name'              => 'video',
+            'label'             => 'Video - link to video file on Youtube or Vimeo',
+            'type'              => 'video',
+            'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
-        
+
         $this->crud->addField([   // Range
-            'name' => 'range',
+            'name'  => 'range',
             'label' => 'Range',
-            'type' => 'range',
+            'type'  => 'range',
             //optional
             'attributes' => [
                 'min' => 0,
                 'max' => 10,
             ],
-            'tab' => 'Miscellaneous',
+            'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
@@ -804,7 +804,6 @@ class MonsterCrudController extends CrudController
 
         // $table->string('url')->nullable;
         // $table->text('video')->nullable;
-
 
         // $this->crud->removeField('name', 'update/create/both');
     }
