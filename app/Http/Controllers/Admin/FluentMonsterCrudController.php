@@ -103,7 +103,8 @@ class FluentMonsterCrudController extends CrudController
         CRUD::enableDetailsRow();
         CRUD::setDetailsRowView('vendor.backpack.crud.details_row.monster');
         CRUD::enableExportButtons();
-        CRUD::addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning');
+        CRUD::button('open_google')->stack('line')->modelFunction('openGoogle')->makeFirst();
+        // dd(CRUD::buttons());
 
         $this->addCustomCrudFilters();
     }
@@ -230,6 +231,7 @@ class FluentMonsterCrudController extends CrudController
             ->wrapperAttributes(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
+        // TODO: make this work
         // CRUD::field(['start_date', 'end_date'])
         //     ->type('date_range')
         //     ->label('Date Range')
@@ -464,14 +466,31 @@ class FluentMonsterCrudController extends CrudController
         CRUD::field('color')
                 ->type('color')
                 ->label('Color picker (HTML5 spec)')
-                ->wrapperAttributes(['class' => 'form-group col-md-5'])
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 
         CRUD::field('color_picker')
                 ->type('color_picker')
                 ->label('Color picker (jQuery plugin)')
-                ->wrapperAttributes(['class' => 'form-group col-md-5'])
+                ->wrapperAttributes(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
+
+        CRUD::field('video')
+                ->type('video')
+                ->label('Video - link to video file on Youtube or Vimeo')
+                ->tab('Miscellaneous')
+                ->wrapperAttributes(['class' => 'form-group col-md-5']);
+        
+        CRUD::field('range')
+                ->type('range')
+                ->label('range')
+                // optional
+                ->attributes([
+                    'min' => 0,
+                    'max' => 10,
+                ])
+                ->tab('Miscellaneous')
+                ->wrapperAttributes(['class' => 'form-group col-md-5']);
 
         CRUD::field('icon_picker')
                 ->type('icon_picker')
@@ -505,15 +524,12 @@ class FluentMonsterCrudController extends CrudController
                 ->max(5)
                 ->tab('Miscellaneous');
 
-        // $table->string('url')->nullable;
-        // $table->text('video')->nullable;
-        CRUD::field('video')
-                ->type('video')
-                ->label('Video - link to video file on Youtube or Vimeo')
+        CRUD::field('url')
+                ->type('url')
+                ->label('URL')
                 ->tab('Miscellaneous');
-        // $table->string('range')->nullable;
 
-        // CRUD::field('text')->remove();
+        CRUD::field('url')->remove();
     }
 
     protected function setupUpdateOperation()
@@ -521,7 +537,7 @@ class FluentMonsterCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    public function addCustomCrudFilters()
+    protected function addCustomCrudFilters()
     {
         CRUD::filter('checkbox')
                 ->type('simple')

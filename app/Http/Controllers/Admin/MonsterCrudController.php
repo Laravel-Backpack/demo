@@ -177,6 +177,7 @@ class MonsterCrudController extends CrudController
     public function setupShowOperation()
     {
         $this->setupListOperation();
+
         $this->crud->set('show.contentClass', 'col-md-12');
 
         $this->crud->addColumn([   // SimpleMDE
@@ -469,6 +470,7 @@ class MonsterCrudController extends CrudController
             'attribute' => 'name',
             'model'     => "Backpack\NewsCRUD\app\Models\Category",
             'tab'       => 'Selects',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
         $this->crud->addField([    // SELECT2
@@ -499,10 +501,10 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([    // Relationship
             'label'     => 'Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>',
             'type'      => 'relationship',
-            'name'      => 'icon_id',
+            'name'      => 'icon',
             // 'entity'    => 'icon',
             'attribute' => 'name',
-            // 'tab'       => 'Selects',
+            'tab'       => 'Selects',
             'inline_create' => true, // TODO: make this work
             // 'data_source' => backpack_url('monster/fetch/icon'),
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
@@ -524,6 +526,7 @@ class MonsterCrudController extends CrudController
             'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
             'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'       => 'Selects',
+            // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
@@ -560,12 +563,12 @@ class MonsterCrudController extends CrudController
             'name'      => 'products',
             'entity'    => 'products',
             // 'attribute' => 'name',
-            // 'tab'       => 'Selects',
+            'tab'       => 'Selects',
             'ajax' => true,
             // 'inline_create' => true, // TODO: make it work like this too
             'inline_create'     => ['entity' => 'product'],
             'data_source'       => backpack_url('monster/fetch/product'),
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
         $this->crud->addField([   // CustomHTML
@@ -747,7 +750,7 @@ class MonsterCrudController extends CrudController
             'label' => 'Video - link to video file on Youtube or Vimeo',
             'type'  => 'video',
             'tab'   => 'Miscellaneous',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-5'],
         ]);
         
         $this->crud->addField([   // Range
@@ -760,7 +763,7 @@ class MonsterCrudController extends CrudController
                 'max' => 10,
             ],
             'tab' => 'Miscellaneous',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-5'],
         ]);
 
         $this->crud->addField([
@@ -769,6 +772,7 @@ class MonsterCrudController extends CrudController
             'type'    => 'icon_picker',
             'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
             'tab'     => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-2'],
         ]);
 
         $this->crud->addField([ // Table
@@ -802,11 +806,14 @@ class MonsterCrudController extends CrudController
             'tab'  => 'Miscellaneous',
         ]);
 
-        // $table->string('url')->nullable;
-        // $table->text('video')->nullable;
+        $this->crud->addField([
+            'name' => 'url',
+            'type' => 'url',
+            'label' => 'URL',
+            'tab' => 'Miscellaneous',
+        ]);
 
-
-        // $this->crud->removeField('name', 'update/create/both');
+        $this->crud->removeField('url');
     }
 
     protected function setupUpdateOperation()
@@ -814,7 +821,7 @@ class MonsterCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    public function addCustomCrudFilters()
+    protected function addCustomCrudFilters()
     {
         $this->crud->addFilter(
             [ // add a "simple" filter called Draft
@@ -929,9 +936,9 @@ class MonsterCrudController extends CrudController
                 'placeholder' => 'Pick an article',
             ],
             url('api/article-search'), // the ajax route
-        function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'select2_from_ajax', $value);
-        }
+            function ($value) { // if the filter is active
+                $this->crud->addClause('where', 'select2_from_ajax', $value);
+            }
         );
     }
 }
