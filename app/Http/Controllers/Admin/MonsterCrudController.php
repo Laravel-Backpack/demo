@@ -463,13 +463,13 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([    // SELECT
-            'label'     => 'Select (HTML Spec Select Input for 1-n relationship)',
-            'type'      => 'select',
-            'name'      => 'select',
-            'entity'    => 'category',
-            'attribute' => 'name',
-            'model'     => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'       => 'Selects',
+            'label'             => 'Select (HTML Spec Select Input for 1-n relationship)',
+            'type'              => 'select',
+            'name'              => 'select',
+            'entity'            => 'category',
+            'attribute'         => 'name',
+            'model'             => "Backpack\NewsCRUD\app\Models\Category",
+            'tab'               => 'Selects',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
@@ -503,8 +503,8 @@ class MonsterCrudController extends CrudController
             'type'      => 'relationship',
             'name'      => 'icon',
             // 'entity'    => 'icon',
-            'attribute' => 'name',
-            'tab'       => 'Selects',
+            'attribute'     => 'name',
+            'tab'           => 'Selects',
             'inline_create' => true, // TODO: make this work
             // 'data_source' => backpack_url('monster/fetch/icon'),
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
@@ -564,7 +564,7 @@ class MonsterCrudController extends CrudController
             'entity'    => 'products',
             // 'attribute' => 'name',
             'tab'       => 'Selects',
-            'ajax' => true,
+            'ajax'      => true,
             // 'inline_create' => true, // TODO: make it work like this too
             'inline_create'     => ['entity' => 'product'],
             'data_source'       => backpack_url('monster/fetch/product'),
@@ -746,13 +746,13 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // URL
-            'name'  => 'video',
-            'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type'  => 'video',
-            'tab'   => 'Miscellaneous',
+            'name'              => 'video',
+            'label'             => 'Video - link to video file on Youtube or Vimeo',
+            'type'              => 'video',
+            'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-5'],
         ]);
-        
+
         $this->crud->addField([   // Range
             'name'  => 'range',
             'label' => 'Range',
@@ -762,16 +762,16 @@ class MonsterCrudController extends CrudController
                 'min' => 0,
                 'max' => 10,
             ],
-            'tab' => 'Miscellaneous',
+            'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-5'],
         ]);
 
         $this->crud->addField([
-            'label'   => 'Icon Picker',
-            'name'    => 'icon_picker',
-            'type'    => 'icon_picker',
-            'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
-            'tab'     => 'Miscellaneous',
+            'label'             => 'Icon Picker',
+            'name'              => 'icon_picker',
+            'type'              => 'icon_picker',
+            'iconset'           => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
+            'tab'               => 'Miscellaneous',
             'wrapperAttributes' => ['class' => 'form-group col-md-2'],
         ]);
 
@@ -807,10 +807,10 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'url',
-            'type' => 'url',
+            'name'  => 'url',
+            'type'  => 'url',
             'label' => 'URL',
-            'tab' => 'Miscellaneous',
+            'tab'   => 'Miscellaneous',
         ]);
 
         $this->crud->removeField('url');

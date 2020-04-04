@@ -480,7 +480,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('Video - link to video file on Youtube or Vimeo')
                 ->tab('Miscellaneous')
                 ->wrapperAttributes(['class' => 'form-group col-md-5']);
-        
+
         CRUD::field('range')
                 ->type('range')
                 ->label('range')
