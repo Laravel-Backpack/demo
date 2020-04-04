@@ -754,9 +754,9 @@ class MonsterCrudController extends CrudController
         ]);
         
         $this->crud->addField([   // Range
-            'name' => 'range',
+            'name'  => 'range',
             'label' => 'Range',
-            'type' => 'range',
+            'type'  => 'range',
             //optional
             'attributes' => [
                 'min' => 0,
