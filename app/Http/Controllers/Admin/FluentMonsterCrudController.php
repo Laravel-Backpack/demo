@@ -53,7 +53,7 @@ class FluentMonsterCrudController extends CrudController
                     },
                 ]);
         CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
-        CRUD::column('created_at')->type('closure')->function(function ($entry) {
+        CRUD::column('created_at')->type('closure')->label('Created At')->function(function ($entry) {
             return 'Created on '.$entry->created_at;
         });
         CRUD::column('date')->type('date');
@@ -104,7 +104,6 @@ class FluentMonsterCrudController extends CrudController
         CRUD::setDetailsRowView('vendor.backpack.crud.details_row.monster');
         CRUD::enableExportButtons();
         CRUD::button('open_google')->stack('line')->modelFunction('openGoogle')->makeFirst();
-        // dd(CRUD::buttons());
 
         $this->addCustomCrudFilters();
     }
@@ -123,10 +122,11 @@ class FluentMonsterCrudController extends CrudController
         ]);
         CRUD::column('name')->type('array_count')->key('table_count')->label('Array count');
         CRUD::column('extras')->type('array')->key('array')->label('Array');
-        // CRUD::column('name')
-        //         ->type('multidimensional_array')
-        //         ->key('multidimensional_array')
-        //         ->visible_key('name');
+        CRUD::column('table')
+                ->key('multidimensional_array')
+                ->type('multidimensional_array')
+                ->label('Multidimensional Array')
+                ->visible_key('name');
         CRUD::column('category')
                 ->label('Model Function Attribute')
                 ->type('model_function_attribute')
@@ -142,32 +142,32 @@ class FluentMonsterCrudController extends CrudController
         CRUD::setOperationSetting('contentClass', 'col-md-12');
 
         CRUD::field('text')->type('text')->label('Text')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
+            ->tab('Simple')->size(6);
 
         CRUD::field('email')->type('email')->label('Email')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-6']);
 
         CRUD::field('textarea')->type('textarea')->label('Textarea')->tab('Simple');
         CRUD::field('number')->type('number')->label('Number')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-3']);
 
         CRUD::field('float')->type('number')->label('Float')->attributes(['step' => 'any'])
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-3']);
 
         CRUD::field('number_with_prefix')->type('number')
             ->prefix('$')->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-3']);
 
         CRUD::field('number_with_suffix')->type('number')
             ->suffix('.00')->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-3']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-3']);
 
         CRUD::field('text_with_both_prefix_and_suffix')->type('number')
             ->prefix('@')->suffix("<i class='la la-home'></i>")->fake(true)->store_in('extras')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-6']);
 
         CRUD::field('password')->type('password')
-            ->tab('Simple')->wrapperAttributes(['class' => 'form-group col-md-6']);
+            ->tab('Simple')->wrapper(['class' => 'form-group col-md-6']);
 
         CRUD::field('radio')->type('radio')->label('Status (radio)')->options([
             // the key will be stored in the db, the value will be shown as label;
@@ -186,12 +186,12 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::field('week')
             ->type('week')
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('month')
             ->type('month')
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('date')
@@ -201,7 +201,7 @@ class FluentMonsterCrudController extends CrudController
                 'pattern'     => '[0-9]{4}-[0-9]{2}-[0-9]{2}',
                 'placeholder' => 'yyyy-mm-dd',
             ])
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('date_picker')
@@ -212,13 +212,13 @@ class FluentMonsterCrudController extends CrudController
                 'format'   => 'dd-mm-yyyy',
                 'language' => 'en',
             ])
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('datetime')
             ->type('datetime')
             ->label('Datetime (HTML5 spec)')
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
         CRUD::field('datetime_picker')
@@ -228,19 +228,18 @@ class FluentMonsterCrudController extends CrudController
                 'format'   => 'DD/MM/YYYY HH:mm',
                 'language' => 'en',
             ])
-            ->wrapperAttributes(['class' => 'form-group col-md-6'])
+            ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
-        // TODO: make this work
-        // CRUD::field(['start_date', 'end_date'])
-        //     ->type('date_range')
-        //     ->label('Date Range')
-        //     ->default(['2020-03-28 01:01', '2020-04-05 02:00'])
-        //     ->date_range_options([
-        //         'timePicker' => true,
-        //         'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
-        //     ])
-        //     ->tab('Time and space');
+        CRUD::field(['start_date', 'end_date'])
+            ->type('date_range')
+            ->label('Date Range')
+            ->default(['2020-03-28 01:01', '2020-04-05 02:00'])
+            ->date_range_options([
+                'timePicker' => true,
+                'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
+            ])
+            ->tab('Time and space');
 
         CRUD::field('address')
             ->type('address')
@@ -261,7 +260,7 @@ class FluentMonsterCrudController extends CrudController
                 ->entity('category')
                 ->attribute('name')
                 ->model('Backpack\NewsCRUD\app\Models\Category')
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select2')
@@ -270,7 +269,7 @@ class FluentMonsterCrudController extends CrudController
                 ->entity('category')
                 ->attribute('name')
                 ->model('Backpack\NewsCRUD\app\Models\Category')
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select2_from_ajax')
@@ -282,7 +281,7 @@ class FluentMonsterCrudController extends CrudController
                 ->data_source(url('api/article'))
                 ->placeholder('Select an article')
                 ->minimum_input_length(2)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('icon_id')
@@ -292,7 +291,7 @@ class FluentMonsterCrudController extends CrudController
                 ->attribute('name')
                 // ->data_source(backpack_url('monster/fetch/icon'))
                 ->inline_create(true)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select_n_n_heading')->type('custom_html')->tab('Selects')
@@ -315,7 +314,7 @@ class FluentMonsterCrudController extends CrudController
                 ->model(\Backpack\NewsCRUD\app\Models\Category::class)
                 ->allows_null(true)
                 ->pivot(true)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('articles')
@@ -328,7 +327,7 @@ class FluentMonsterCrudController extends CrudController
                 ->placeholder('Select one or more articles')
                 ->minimum_input_length(2)
                 ->pivot(true)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('products')
@@ -340,7 +339,7 @@ class FluentMonsterCrudController extends CrudController
                 ->data_source(backpack_url('monster/fetch/product'))
                 // ->inline_create(true) // TODO: make it work this way too
                 ->inline_create(['entity' => 'product'])
-                // ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                // ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select_heading')->type('custom_html')->tab('Selects')
@@ -352,7 +351,7 @@ class FluentMonsterCrudController extends CrudController
                 ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
                 ->allows_null(true)
                 ->allows_multiple(false)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select2_from_array')
@@ -361,7 +360,7 @@ class FluentMonsterCrudController extends CrudController
                 ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
                 ->allows_null(true)
                 ->allows_multiple(false)
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('select_and_order')
@@ -466,20 +465,20 @@ class FluentMonsterCrudController extends CrudController
         CRUD::field('color')
                 ->type('color')
                 ->label('Color picker (HTML5 spec)')
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 
         CRUD::field('color_picker')
                 ->type('color_picker')
                 ->label('Color picker (jQuery plugin)')
-                ->wrapperAttributes(['class' => 'form-group col-md-6'])
+                ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 
         CRUD::field('video')
                 ->type('video')
                 ->label('Video - link to video file on Youtube or Vimeo')
                 ->tab('Miscellaneous')
-                ->wrapperAttributes(['class' => 'form-group col-md-5']);
+                ->wrapper(['class' => 'form-group col-md-5']);
         
         CRUD::field('range')
                 ->type('range')
@@ -490,13 +489,13 @@ class FluentMonsterCrudController extends CrudController
                     'max' => 10,
                 ])
                 ->tab('Miscellaneous')
-                ->wrapperAttributes(['class' => 'form-group col-md-5']);
+                ->wrapper(['class' => 'form-group col-md-5']);
 
         CRUD::field('icon_picker')
                 ->type('icon_picker')
                 ->label('Icon Picker')
                 ->iconset('fontawesome')
-                ->wrapperAttributes(['class' => 'form-group col-md-2'])
+                ->wrapper(['class' => 'form-group col-md-2'])
                 ->tab('Miscellaneous');
 
         CRUD::field('table')
@@ -544,7 +543,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('Simple')
                 ->whenActive(function () {
                     CRUD::addClause('where', 'checkbox', '1');
-                })->apply();
+                });
 
         CRUD::filter('select_from_array')
                 ->type('dropdown')
@@ -552,14 +551,14 @@ class FluentMonsterCrudController extends CrudController
                 ->values(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select_from_array', $value);
-                })->apply();
+                });
 
         CRUD::filter('text')
                 ->type('text')
                 ->label('Text')
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'text', 'LIKE', "%$value%");
-                })->apply();
+                });
 
         CRUD::filter('number')
                 ->type('range')
@@ -572,14 +571,14 @@ class FluentMonsterCrudController extends CrudController
                         CRUD::addClause('where', 'number', '>=', (float) $range->from);
                         CRUD::addClause('where', 'number', '<=', (float) $range->to);
                     }
-                })->apply();
+                });
 
         CRUD::filter('date')
                 ->type('date')
                 ->label('Date')
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'date', '=', $value);
-                })->apply();
+                });
 
         CRUD::filter('date_range')
                 ->type('date_range')
@@ -588,7 +587,7 @@ class FluentMonsterCrudController extends CrudController
                     $dates = json_decode($value);
                     CRUD::addClause('where', 'date', '>=', $dates->from);
                     CRUD::addClause('where', 'date', '<=', $dates->to);
-                })->apply();
+                });
 
         CRUD::filter('select2')
                 ->type('select2')
@@ -597,18 +596,18 @@ class FluentMonsterCrudController extends CrudController
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
                 })->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2', $value);
-                })->apply();
+                });
 
         CRUD::filter('select2_multiple')
                 ->type('select2_multiple')
                 ->label('S2 multiple')
                 ->values(function () {
                     return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
-                })->whenActive(function ($value) {
+                })->whenActive(function ($values) {
                     foreach (json_decode($values) as $key => $value) {
                         CRUD::addClause('orWhere', 'select2', $value);
                     }
-                })->apply();
+                });
 
         CRUD::filter('select2_from_ajax')
                 ->type('select2_ajax')
@@ -617,6 +616,6 @@ class FluentMonsterCrudController extends CrudController
                 ->values(url('api/article-search'))
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2_from_ajax', $value);
-                })->apply();
+                });
     }
 }
