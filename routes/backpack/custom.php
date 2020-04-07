@@ -22,6 +22,7 @@ Route::group([
     Route::crud('fluent-monster', 'FluentMonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
+    Route::crud('dummy', 'DummyCrudController');
 
     // ------------------
     // AJAX Chart Widgets

@@ -18,6 +18,7 @@
         "backpack/backupmanager": "^2.0.0",
         "backpack/generators": "^2.0",
         "spatie/laravel-translatable": "^4.0",
+        "barryvdh/laravel-elfinder": "^0.4.5",
         "spatie/laravel-backup": "^6.1",
         "laravel/tinker": "^2.1",
         "facade/ignition": "^2.0",
@@ -34,7 +35,8 @@
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
         "laracasts/generators": "^1.0",
         "backpack/generators": "^2.0",
-        "itsgoingd/clockwork": "^4.0"
+        "itsgoingd/clockwork": "^4.0",
+        "barryvdh/laravel-debugbar": "^3.2"
     },
     "autoload": {
         "classmap": [
