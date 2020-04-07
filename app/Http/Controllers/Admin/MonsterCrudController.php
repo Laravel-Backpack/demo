@@ -41,19 +41,11 @@ class MonsterCrudController extends CrudController
                 'name'  => 'image', // The db column name
                 'label' => 'Image', // Table column heading
                 'type'  => 'image',
-                // 'prefix' => 'folder/subfolder/',
-                // optional width/height if 25px is not ok with you
-                // 'height' => '30px',
-                // 'width' => '30px',
             ],
             [
                 'name'  => 'base64_image', // The db column name
                 'label' => 'Base64 Image', // Table column heading
                 'type'  => 'image',
-                // 'prefix' => 'folder/subfolder/',
-                // optional width/height if 25px is not ok with you
-                // 'height' => '30px',
-                // 'width' => '30px',
             ],
             [
                 'name'  => 'checkbox',
@@ -90,19 +82,16 @@ class MonsterCrudController extends CrudController
                 'name'  => 'name', // The db column name
                 'label' => 'Date', // Table column heading
                 'type'  => 'date',
-                // 'format' => 'l j F Y', // use something else than the base.default_date_format config value
             ],
             [
                 'name'  => 'name', // The db column name
                 'label' => 'Datetime', // Table column heading
                 'type'  => 'datetime',
-                // 'format' => 'l j F Y H:i:s', // use something else than the base.default_datetime_format config value
             ],
             [
                 'name'  => 'email', // The db column name
                 'label' => 'Email Address', // Table column heading
                 'type'  => 'email',
-                // 'limit' => 500, // if you want to truncate the text to a different number of characters
             ],
             [
                 // show both text and email values in one column
@@ -120,14 +109,6 @@ class MonsterCrudController extends CrudController
                 'name'  => 'number', // The db column name
                 'label' => 'Number', // Table column heading
                 'type'  => 'number',
-                // 'prefix' => "$",
-                // 'suffix' => " EUR",
-                // 'decimals' => 2,
-                // 'dec_point' => ',',
-                // 'thousands_sep' => '.',
-                // decimals, dec_point and thousands_sep are used to format the number;
-                // for details on how they work check out PHP's number_format() method, they're passed directly to it;
-                // https://www.php.net/manual/en/function.number-format.php
             ],
             [
                 'name'        => 'radio',
@@ -135,8 +116,7 @@ class MonsterCrudController extends CrudController
                 'type'        => 'radio',
                 'options'     => [0 => 'Draft', 1 => 'Published', 2 => 'Other'],
             ],
-            [
-                // 1-n relationship
+            [   // 1-n relationship
                 'label'     => 'Select', // Table column heading
                 'type'      => 'select',
                 'name'      => 'select', // the column that contains the ID of that connected entity;
@@ -149,14 +129,13 @@ class MonsterCrudController extends CrudController
                     },
                 ],
             ],
-            [ // select_from_array
+            [   // select_from_array
                 'name'    => 'select_from_array',
                 'label'   => 'Select_from_array',
                 'type'    => 'select_from_array',
                 'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
             ],
-            [
-                // select_multiple: n-n relationship (with pivot table)
+            [   // select_multiple: n-n relationship (with pivot table)
                 'label'     => 'Select_multiple', // Table column heading
                 'type'      => 'select_multiple',
                 'name'      => 'tags', // the method that defines the relationship in your Model
@@ -169,6 +148,17 @@ class MonsterCrudController extends CrudController
                     },
                 ],
             ],
+            [   // select_multiple: n-n relationship (with pivot table)
+                'label'     => 'Relationship_count', // Table column heading
+                'type'      => 'relationship_count',
+                'name'      => 'categories', // the method that defines the relationship in your Model
+                'entity'    => 'categories', // the method that defines the relationship in your Model
+                'wrapper'   => [
+                    'href' => function ($crud, $column, $entry, $related_key) {
+                        return backpack_url('category');
+                    },
+                ],
+            ],
             [
                 'name'  => 'video', // The db column name
                 'label' => 'Video', // Table column heading
@@ -176,19 +166,18 @@ class MonsterCrudController extends CrudController
             ],
         ]);
 
-        $this->addCustomCrudFilters();
-
         $this->crud->enableDetailsRow();
         $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
-
         $this->crud->enableExportButtons();
-
         $this->crud->addButtonFromModelFunction('line', 'open_google', 'openGoogle', 'beginning');
+
+        $this->addCustomCrudFilters();
     }
 
     public function setupShowOperation()
     {
         $this->setupListOperation();
+
         $this->crud->set('show.contentClass', 'col-md-12');
 
         $this->crud->addColumn([   // SimpleMDE
@@ -213,7 +202,6 @@ class MonsterCrudController extends CrudController
             'key'   => 'table_count',
             'label' => 'Array count', // Table column heading
             'type'  => 'array_count',
-            // 'suffix' => 'options', // if you want it to show "2 options" instead of "2 items"
         ]);
 
         $this->crud->addColumn([
@@ -237,9 +225,7 @@ class MonsterCrudController extends CrudController
             'label'         => 'Model Function Attribute', // Table column heading
             'type'          => 'model_function_attribute',
             'function_name' => 'getCategory', // the method in your Model
-            // 'function_parameters' => [$one, $two], // pass one/more parameters to that method
-            'attribute' => 'name',
-            // 'limit' => 100, // Limit the number of characters shown
+            'attribute'     => 'name',
         ]);
 
         $this->crud->addColumn([
@@ -290,37 +276,27 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number',
-            'label' => 'Number',
-            'type'  => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            // 'prefix' => "$",
-            // 'suffix' => ".00",
+            'name'              => 'number',
+            'label'             => 'Number',
+            'type'              => 'number',
             'tab'               => 'Simple',
             'wrapperAttributes' => ['class' => 'form-group col-md-3'],
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'float',
-            'label' => 'Float',
-            'type'  => 'number',
-            // optionals
-            'attributes' => ['step' => 'any'], // allow decimals
-            // 'prefix' => "$",
-            // 'suffix' => ".00",
+            'name'              => 'float',
+            'label'             => 'Float',
+            'type'              => 'number',
+            'attributes'        => ['step' => 'any'], // allow decimals
             'tab'               => 'Simple',
             'wrapperAttributes' => ['class' => 'form-group col-md-3'],
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number_with_prefix',
-            'label' => 'Number with prefix',
-            'type'  => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            'prefix' => '$',
-            // 'suffix' => ".00",
+            'name'              => 'number_with_prefix',
+            'label'             => 'Number with prefix',
+            'type'              => 'number',
+            'prefix'            => '$',
             'fake'              => true,
             'store_in'          => 'extras',
             'tab'               => 'Simple',
@@ -328,12 +304,9 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([   // Number
-            'name'  => 'number_with_suffix',
-            'label' => 'Number with suffix',
-            'type'  => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            // 'prefix' => "$",
+            'name'              => 'number_with_suffix',
+            'label'             => 'Number with suffix',
+            'type'              => 'number',
             'suffix'            => '.00',
             'fake'              => true,
             'store_in'          => 'extras',
@@ -490,13 +463,14 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([    // SELECT
-            'label'     => 'Select (HTML Spec Select Input for 1-n relationship)',
-            'type'      => 'select',
-            'name'      => 'select',
-            'entity'    => 'category',
-            'attribute' => 'name',
-            'model'     => "Backpack\NewsCRUD\app\Models\Category",
-            'tab'       => 'Selects',
+            'label'             => 'Select (HTML Spec Select Input for 1-n relationship)',
+            'type'              => 'select',
+            'name'              => 'select',
+            'entity'            => 'category',
+            'attribute'         => 'name',
+            'model'             => "Backpack\NewsCRUD\app\Models\Category",
+            'tab'               => 'Selects',
+            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
         $this->crud->addField([    // SELECT2
@@ -527,10 +501,10 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([    // Relationship
             'label'     => 'Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>',
             'type'      => 'relationship',
-            'name'      => 'icon_id',
+            'name'      => 'icon',
             // 'entity'    => 'icon',
-            'attribute' => 'name',
-            // 'tab'       => 'Selects',
+            'attribute'     => 'name',
+            'tab'           => 'Selects',
             'inline_create' => true, // TODO: make this work
             // 'data_source' => backpack_url('monster/fetch/icon'),
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
@@ -552,6 +526,7 @@ class MonsterCrudController extends CrudController
             'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
             'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
             'tab'       => 'Selects',
+            // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
         $this->crud->addField([       // Select2Multiple = n-n relationship (with pivot table)
@@ -588,12 +563,12 @@ class MonsterCrudController extends CrudController
             'name'      => 'products',
             'entity'    => 'products',
             // 'attribute' => 'name',
-            // 'tab'       => 'Selects',
-            'ajax' => true,
+            'tab'       => 'Selects',
+            'ajax'      => true,
             // 'inline_create' => true, // TODO: make it work like this too
             'inline_create'     => ['entity' => 'product'],
             'data_source'       => backpack_url('monster/fetch/product'),
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
         $this->crud->addField([   // CustomHTML
@@ -770,12 +745,34 @@ class MonsterCrudController extends CrudController
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
 
+        $this->crud->addField([   // URL
+            'name'              => 'video',
+            'label'             => 'Video - link to video file on Youtube or Vimeo',
+            'type'              => 'video',
+            'tab'               => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+        ]);
+
+        $this->crud->addField([   // Range
+            'name'  => 'range',
+            'label' => 'Range',
+            'type'  => 'range',
+            //optional
+            'attributes' => [
+                'min' => 0,
+                'max' => 10,
+            ],
+            'tab'               => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+        ]);
+
         $this->crud->addField([
-            'label'   => 'Icon Picker',
-            'name'    => 'icon_picker',
-            'type'    => 'icon_picker',
-            'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
-            'tab'     => 'Miscellaneous',
+            'label'             => 'Icon Picker',
+            'name'              => 'icon_picker',
+            'type'              => 'icon_picker',
+            'iconset'           => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
+            'tab'               => 'Miscellaneous',
+            'wrapperAttributes' => ['class' => 'form-group col-md-2'],
         ]);
 
         $this->crud->addField([ // Table
@@ -809,17 +806,14 @@ class MonsterCrudController extends CrudController
             'tab'  => 'Miscellaneous',
         ]);
 
-        // $table->string('url')->nullable;
-        // $table->text('video')->nullable;
-        $this->crud->addField([   // URL
-            'name'  => 'video',
-            'label' => 'Video - link to video file on Youtube or Vimeo',
-            'type'  => 'video',
+        $this->crud->addField([
+            'name'  => 'url',
+            'type'  => 'url',
+            'label' => 'URL',
             'tab'   => 'Miscellaneous',
         ]);
-        // $table->string('range')->nullable;
 
-        // $this->crud->removeField('name', 'update/create/both');
+        $this->crud->removeField('url');
     }
 
     protected function setupUpdateOperation()
@@ -827,7 +821,7 @@ class MonsterCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    public function addCustomCrudFilters()
+    protected function addCustomCrudFilters()
     {
         $this->crud->addFilter(
             [ // add a "simple" filter called Draft
@@ -942,9 +936,9 @@ class MonsterCrudController extends CrudController
                 'placeholder' => 'Pick an article',
             ],
             url('api/article-search'), // the ajax route
-        function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'select2_from_ajax', $value);
-        }
+            function ($value) { // if the filter is active
+                $this->crud->addClause('where', 'select2_from_ajax', $value);
+            }
         );
     }
 }

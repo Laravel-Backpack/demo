@@ -41,7 +41,7 @@ class Monster extends Model
 
     public function openGoogle($crud = false)
     {
-        return '<a class="btn btn-sm btn-link" target="_blank" href="http://google.com?q='.urlencode($this->text).'" data-toggle="tooltip" title="Just a demo custom button."><i class="fa fa-search"></i> Google it</a>';
+        return '<a class="btn btn-sm btn-link" target="_blank" href="http://google.com?q='.urlencode($this->text).'" data-toggle="tooltip" title="Just a demo custom button."><i class="la la-search"></i> Google it</a>';
     }
 
     public function getCategory()
@@ -148,7 +148,7 @@ class Monster extends Model
         }
 
         // if a base64 was sent, store it in the db
-        if (starts_with($value, 'data:image')) {
+        if (Str::startsWith($value, 'data:image')) {
             // 0. Make the image
             $image = \Image::make($value)->encode('jpg', 90);
 
