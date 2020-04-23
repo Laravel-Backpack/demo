@@ -176,7 +176,7 @@ pre[class*="language-"] {
   top: 0;
 }
 .mce-content-body .mce-offscreen-selection {
-  left: -9999999999px;
+  left: -2000000px;
   max-width: 1000000px;
   position: absolute;
 }
@@ -411,6 +411,10 @@ pre[class*="language-"] {
 .ephox-snooker-resizer-bar {
   background-color: #4099ff;
   opacity: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .ephox-snooker-resizer-cols {
   cursor: col-resize;

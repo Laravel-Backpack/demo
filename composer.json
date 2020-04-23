@@ -17,8 +17,6 @@
         "backpack/permissionmanager": "^6.0.0|4.1.x-dev as 5.0.99",
         "backpack/backupmanager": "^2.0.0",
         "spatie/laravel-translatable": "^4.0",
-        "barryvdh/laravel-elfinder": "^0.4.5",
-        "spatie/laravel-backup": "^6.1",
         "laravel/tinker": "^2.1",
         "facade/ignition": "^2.0",
         "intervention/image": "^2.3",

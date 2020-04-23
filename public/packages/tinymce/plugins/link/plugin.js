@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.0 (2020-02-13)
+ * Version: 5.2.1 (2020-03-25)
  */
 (function (domGlobals) {
     'use strict';
@@ -336,7 +336,7 @@
       return trimCaretContainers(text);
     };
     var isLink = function (elm) {
-      return elm && elm.nodeName === 'A' && !!elm.href;
+      return elm && elm.nodeName === 'A' && !!getHref(elm);
     };
     var hasLinks = function (elements) {
       return global$3.grep(elements, isLink).length > 0;
@@ -1630,7 +1630,7 @@
     var toggleActiveState = function (editor) {
       return function (api) {
         var nodeChangeHandler = function (e) {
-          return api.setActive(!editor.readonly && !!Utils.getAnchorElement(editor, e.element));
+          return api.setActive(!editor.mode.isReadOnly() && !!Utils.getAnchorElement(editor, e.element));
         };
         editor.on('NodeChange', nodeChangeHandler);
         return function () {
@@ -1640,7 +1640,8 @@
     };
     var toggleEnabledState = function (editor) {
       return function (api) {
-        api.setDisabled(!Utils.hasLinks(editor.dom.getParents(editor.selection.getStart())));
+        var parents = editor.dom.getParents(editor.selection.getStart());
+        api.setDisabled(!Utils.hasLinks(parents));
         var nodeChangeHandler = function (e) {
           return api.setDisabled(!Utils.hasLinks(e.parents));
         };

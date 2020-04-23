@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.0 (2020-02-13)
+ * Version: 5.2.1 (2020-03-25)
  */
 (function (domGlobals) {
     'use strict';
@@ -3225,34 +3225,34 @@
     var Styles = { resolve: styles.resolve };
 
     var col = function (column, x, y, w, h) {
-      var blocker = Element.fromTag('div');
-      setAll$1(blocker, {
+      var bar = Element.fromTag('div');
+      setAll$1(bar, {
         position: 'absolute',
         left: x - w / 2 + 'px',
         top: y + 'px',
         height: h + 'px',
         width: w + 'px'
       });
-      setAll(blocker, {
+      setAll(bar, {
         'data-column': column,
         'role': 'presentation'
       });
-      return blocker;
+      return bar;
     };
     var row$1 = function (r, x, y, w, h) {
-      var blocker = Element.fromTag('div');
-      setAll$1(blocker, {
+      var bar = Element.fromTag('div');
+      setAll$1(bar, {
         position: 'absolute',
         left: x + 'px',
         top: y - h / 2 + 'px',
         height: h + 'px',
         width: w + 'px'
       });
-      setAll(blocker, {
+      setAll(bar, {
         'data-row': r,
         'role': 'presentation'
       });
-      return blocker;
+      return bar;
     };
     var Bar = {
       col: col,
@@ -4991,6 +4991,46 @@
       editor.fire('TableSelectionClear');
     };
 
+    var point = Immutable('element', 'offset');
+    var delta = Immutable('element', 'deltaOffset');
+    var range$1 = Immutable('element', 'start', 'finish');
+    var points = Immutable('begin', 'end');
+    var text = Immutable('element', 'text');
+
+    var scan = function (universe, element, direction) {
+      if (universe.property().isText(element) && universe.property().getText(element).trim().length === 0 || universe.property().isComment(element)) {
+        return direction(element).bind(function (elem) {
+          return scan(universe, elem, direction).orThunk(function () {
+            return Option.some(elem);
+          });
+        });
+      } else {
+        return Option.none();
+      }
+    };
+    var toEnd = function (universe, element) {
+      if (universe.property().isText(element)) {
+        return universe.property().getText(element).length;
+      }
+      var children = universe.property().children(element);
+      return children.length;
+    };
+    var freefallRtl = function (universe, element) {
+      var candidate = scan(universe, element, universe.query().prevSibling).getOr(element);
+      if (universe.property().isText(candidate)) {
+        return point(candidate, toEnd(universe, candidate));
+      }
+      var children = universe.property().children(candidate);
+      return children.length > 0 ? freefallRtl(universe, children[children.length - 1]) : point(candidate, toEnd(universe, candidate));
+    };
+
+    var freefallRtl$1 = freefallRtl;
+
+    var universe$2 = DomUniverse();
+    var freefallRtl$2 = function (element) {
+      return freefallRtl$1(universe$2, element);
+    };
+
     var TableActions = function (editor, lazyWire) {
       var isTableBody = function (editor) {
         return name(getBody$1(editor)) === 'table';
@@ -5019,9 +5059,10 @@
               fireNewCell(editor, cell.dom());
             });
             return result.cursor().map(function (cell) {
+              var des = freefallRtl$2(cell);
               var rng = editor.dom.createRng();
-              rng.setStart(cell.dom(), 0);
-              rng.setEnd(cell.dom(), 0);
+              rng.setStart(des.element().dom(), des.offset());
+              rng.setEnd(des.element().dom(), des.offset());
               return rng;
             });
           }) : Option.none();
@@ -6488,6 +6529,7 @@
     var bind$2 = function (element, event, handler) {
       return bind$1(element, event, filter$1, handler);
     };
+    var fromRawEvent$1 = fromRawEvent;
 
     var styles$1 = css('ephox-dragster');
     var Styles$2 = { resolve: styles$1.resolve };
@@ -7081,7 +7123,7 @@
       });
       editor.on('SwitchMode', function () {
         lazyResize().each(function (resize) {
-          if (editor.readonly) {
+          if (editor.mode.isReadOnly()) {
             resize.hideBars();
           } else {
             resize.showBars();
@@ -7219,14 +7261,14 @@
       var start = getStart$1(selection);
       return defaultView(start);
     };
-    var range$1 = SimRange.create;
+    var range$2 = SimRange.create;
     var Selection = {
       domRange: domRange,
       relative: relative,
       exact: exact,
       exactFromRange: exactFromRange,
       getWin: getWin,
-      range: range$1
+      range: range$2
     };
 
     var selectNodeContents = function (win, element) {
@@ -7899,29 +7941,23 @@
     var seekLeft = left$1;
     var seekRight = right$1;
 
-    var universe$2 = DomUniverse();
+    var universe$3 = DomUniverse();
     var before$4 = function (element, isRoot) {
-      return before$3(universe$2, element, isRoot);
+      return before$3(universe$3, element, isRoot);
     };
     var after$5 = function (element, isRoot) {
-      return after$4(universe$2, element, isRoot);
+      return after$4(universe$3, element, isRoot);
     };
     var seekLeft$1 = function (element, predicate, isRoot) {
-      return seekLeft(universe$2, element, predicate, isRoot);
+      return seekLeft(universe$3, element, predicate, isRoot);
     };
     var seekRight$1 = function (element, predicate, isRoot) {
-      return seekRight(universe$2, element, predicate, isRoot);
+      return seekRight(universe$3, element, predicate, isRoot);
     };
 
     var ancestor$2 = function (scope, predicate, isRoot) {
       return ancestor(scope, predicate, isRoot).isSome();
     };
-
-    var point = Immutable('element', 'offset');
-    var delta = Immutable('element', 'deltaOffset');
-    var range$2 = Immutable('element', 'start', 'finish');
-    var points = Immutable('begin', 'end');
-    var text = Immutable('element', 'text');
 
     var adt$5 = Adt.generate([
       { none: ['message'] },
@@ -8267,7 +8303,7 @@
         });
       });
     };
-    var scan = function (bridge, isRoot, element, offset, direction, numRetries) {
+    var scan$1 = function (bridge, isRoot, element, offset, direction, numRetries) {
       if (numRetries === 0) {
         return Option.none();
       }
@@ -8282,13 +8318,13 @@
           if (eq(element, cell) && offset === 0) {
             return tryAgain(bridge, element, offset, Carets.moveUp, direction);
           } else {
-            return scan(bridge, isRoot, cell, 0, direction, numRetries - 1);
+            return scan$1(bridge, isRoot, cell, 0, direction, numRetries - 1);
           }
         }, function (cell) {
           if (eq(element, cell) && offset === getEnd(cell)) {
             return tryAgain(bridge, element, offset, Carets.moveDown, direction);
           } else {
-            return scan(bridge, isRoot, cell, getEnd(cell), direction, numRetries - 1);
+            return scan$1(bridge, isRoot, cell, getEnd(cell), direction, numRetries - 1);
           }
         });
       });
@@ -8314,7 +8350,7 @@
     };
     var handle$2 = function (bridge, isRoot, direction) {
       return findSpot(bridge, isRoot, direction).bind(function (spot) {
-        return scan(bridge, isRoot, spot.element(), spot.offset(), direction, MAX_RETRIES).map(bridge.fromSitus);
+        return scan$1(bridge, isRoot, spot.element(), spot.offset(), direction, MAX_RETRIES).map(bridge.fromSitus);
       });
     };
     var TableKeys = { handle: handle$2 };
@@ -8884,7 +8920,7 @@
           });
         };
         var keyup = function (event) {
-          var wrappedEvent = wrapEvent(event);
+          var wrappedEvent = fromRawEvent$1(event);
           if (wrappedEvent.raw().shiftKey && SelectionKeys.isNavigation(wrappedEvent.raw().which)) {
             var rng = editor.selection.getRng();
             var start = Element.fromDom(rng.startContainer);
@@ -8895,7 +8931,7 @@
           }
         };
         var keydown = function (event) {
-          var wrappedEvent = wrapEvent(event);
+          var wrappedEvent = fromRawEvent$1(event);
           lazyResize().each(function (resize) {
             resize.hideBars();
           });
@@ -8911,28 +8947,6 @@
             resize.showBars();
           });
         };
-        var isMouseEvent = function (event) {
-          return event.hasOwnProperty('x') && event.hasOwnProperty('y');
-        };
-        var wrapEvent = function (event) {
-          var target = Element.fromDom(event.target);
-          var stop = function () {
-            event.stopPropagation();
-          };
-          var prevent = function () {
-            event.preventDefault();
-          };
-          var kill = compose(prevent, stop);
-          return {
-            target: constant(target),
-            x: constant(isMouseEvent(event) ? event.x : null),
-            y: constant(isMouseEvent(event) ? event.y : null),
-            stop: stop,
-            prevent: prevent,
-            kill: kill,
-            raw: constant(event)
-          };
-        };
         var isLeftMouse = function (raw) {
           return raw.button === 0;
         };
@@ -8940,21 +8954,24 @@
           if (raw.buttons === undefined) {
             return true;
           }
+          if (global$2.browser.isEdge() && raw.buttons === 0) {
+            return true;
+          }
           return (raw.buttons & 1) !== 0;
         };
         var mouseDown = function (e) {
           if (isLeftMouse(e) && hasInternalTarget(e)) {
-            mouseHandlers.mousedown(wrapEvent(e));
+            mouseHandlers.mousedown(fromRawEvent$1(e));
           }
         };
         var mouseOver = function (e) {
           if (isLeftButtonPressed(e) && hasInternalTarget(e)) {
-            mouseHandlers.mouseover(wrapEvent(e));
+            mouseHandlers.mouseover(fromRawEvent$1(e));
           }
         };
         var mouseUp = function (e) {
           if (isLeftMouse(e) && hasInternalTarget(e)) {
-            mouseHandlers.mouseup(wrapEvent(e));
+            mouseHandlers.mouseup(fromRawEvent$1(e));
           }
         };
         var getDoubleTap = function () {

@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.0 (2020-02-13)
+ * Version: 5.2.1 (2020-03-25)
  */
 (function (domGlobals) {
     'use strict';
@@ -494,6 +494,14 @@
       return filter(a1, function (x) {
         return !contains(a2, x);
       });
+    };
+    var mapToObject = function (xs, f) {
+      var r = {};
+      for (var i = 0, len = xs.length; i < len; i++) {
+        var x = xs[i];
+        r[String(x)] = f(x, i);
+      }
+      return r;
     };
     var pure = function (x) {
       return [x];
@@ -3768,7 +3776,7 @@
     };
     var initSize = constant(_initSize);
 
-    var nu$7 = Immutable('x', 'y', 'bubble', 'direction', 'label');
+    var nu$7 = Immutable('x', 'y', 'bubble', 'direction', 'boundsRestriction', 'label');
 
     var adt$2 = Adt.generate([
       { southeast: [] },
@@ -3798,6 +3806,50 @@
     var east = adt$2.east;
     var west = adt$2.west;
 
+    var getRestriction = function (anchor, restriction) {
+      switch (restriction) {
+      case 1:
+        return anchor.x();
+      case 0:
+        return anchor.x() + anchor.width();
+      case 2:
+        return anchor.y();
+      case 3:
+        return anchor.y() + anchor.height();
+      }
+    };
+    var boundsRestriction = function (anchor, restrictions) {
+      return mapToObject([
+        'left',
+        'right',
+        'top',
+        'bottom'
+      ], function (dir) {
+        return get(restrictions, dir).map(function (restriction) {
+          return getRestriction(anchor, restriction);
+        });
+      });
+    };
+    var adjustBounds = function (bounds, boundsRestrictions, bubbleOffsets) {
+      var applyRestriction = function (dir, current) {
+        var bubbleOffset = dir === 'top' || dir === 'bottom' ? bubbleOffsets.top() : bubbleOffsets.left();
+        return get(boundsRestrictions, dir).bind(identity).bind(function (restriction) {
+          if (dir === 'left' || dir === 'top') {
+            return restriction >= current ? Option.some(restriction) : Option.none();
+          } else {
+            return restriction <= current ? Option.some(restriction) : Option.none();
+          }
+        }).map(function (restriction) {
+          return restriction + bubbleOffset;
+        }).getOr(current);
+      };
+      var adjustedLeft = applyRestriction('left', bounds.x());
+      var adjustedTop = applyRestriction('top', bounds.y());
+      var adjustedRight = applyRestriction('right', bounds.right());
+      var adjustedBottom = applyRestriction('bottom', bounds.bottom());
+      return bounds$1(adjustedLeft, adjustedTop, adjustedRight - adjustedLeft, adjustedBottom - adjustedTop);
+    };
+
     var eastX = function (anchor) {
       return anchor.x();
     };
@@ -3823,28 +3875,40 @@
       return anchor.x() - element.width();
     };
     var southeast$1 = function (anchor, element, bubbles) {
-      return nu$7(eastX(anchor), southY(anchor), bubbles.southeast(), southeast(), 'layout-se');
+      return nu$7(eastX(anchor), southY(anchor), bubbles.southeast(), southeast(), boundsRestriction(anchor, {
+        left: 1,
+        top: 3
+      }), 'layout-se');
     };
     var southwest$1 = function (anchor, element, bubbles) {
-      return nu$7(westX(anchor, element), southY(anchor), bubbles.southwest(), southwest(), 'layout-sw');
+      return nu$7(westX(anchor, element), southY(anchor), bubbles.southwest(), southwest(), boundsRestriction(anchor, {
+        right: 0,
+        top: 3
+      }), 'layout-sw');
     };
     var northeast$1 = function (anchor, element, bubbles) {
-      return nu$7(eastX(anchor), northY(anchor, element), bubbles.northeast(), northeast(), 'layout-ne');
+      return nu$7(eastX(anchor), northY(anchor, element), bubbles.northeast(), northeast(), boundsRestriction(anchor, {
+        left: 1,
+        bottom: 2
+      }), 'layout-ne');
     };
     var northwest$1 = function (anchor, element, bubbles) {
-      return nu$7(westX(anchor, element), northY(anchor, element), bubbles.northwest(), northwest(), 'layout-nw');
+      return nu$7(westX(anchor, element), northY(anchor, element), bubbles.northwest(), northwest(), boundsRestriction(anchor, {
+        right: 0,
+        bottom: 2
+      }), 'layout-nw');
     };
     var north$1 = function (anchor, element, bubbles) {
-      return nu$7(middleX(anchor, element), northY(anchor, element), bubbles.north(), north(), 'layout-n');
+      return nu$7(middleX(anchor, element), northY(anchor, element), bubbles.north(), north(), boundsRestriction(anchor, { bottom: 2 }), 'layout-n');
     };
     var south$1 = function (anchor, element, bubbles) {
-      return nu$7(middleX(anchor, element), southY(anchor), bubbles.south(), south(), 'layout-s');
+      return nu$7(middleX(anchor, element), southY(anchor), bubbles.south(), south(), boundsRestriction(anchor, { top: 3 }), 'layout-s');
     };
     var east$1 = function (anchor, element, bubbles) {
-      return nu$7(eastEdgeX(anchor), centreY(anchor, element), bubbles.east(), east(), 'layout-e');
+      return nu$7(eastEdgeX(anchor), centreY(anchor, element), bubbles.east(), east(), boundsRestriction(anchor, { left: 0 }), 'layout-e');
     };
     var west$1 = function (anchor, element, bubbles) {
-      return nu$7(westEdgeX(anchor, element), centreY(anchor, element), bubbles.west(), west(), 'layout-w');
+      return nu$7(westEdgeX(anchor, element), centreY(anchor, element), bubbles.west(), west(), boundsRestriction(anchor, { right: 1 }), 'layout-w');
     };
     var all$2 = function () {
       return [
@@ -4283,8 +4347,10 @@
       var sizeInBounds = xFit && yFit;
       var deltaW = Math.abs(Math.min(width, xInBounds ? boundsX + boundsWidth - newX : boundsX - (newX + width)));
       var deltaH = Math.abs(Math.min(height, yInBounds ? boundsY + boundsHeight - newY : boundsY - (newY + height)));
-      var limitX = clamp(newX, bounds.x(), bounds.right());
-      var limitY = clamp(newY, bounds.y(), bounds.bottom());
+      var maxX = Math.max(bounds.x(), bounds.right() - width);
+      var maxY = Math.max(bounds.y(), bounds.bottom() - height);
+      var limitX = clamp(newX, bounds.x(), maxX);
+      var limitY = clamp(newY, bounds.y(), maxY);
       return {
         originInBounds: originInBounds,
         sizeInBounds: sizeInBounds,
@@ -4297,15 +4363,17 @@
     var attempt = function (candidate, width, height, bounds) {
       var candidateX = candidate.x();
       var candidateY = candidate.y();
-      var bubbleLeft = candidate.bubble().offset().left();
-      var bubbleTop = candidate.bubble().offset().top();
-      var boundsY = bounds.y();
-      var boundsBottom = bounds.bottom();
-      var boundsX = bounds.x();
-      var boundsRight = bounds.right();
+      var bubbleOffsets = candidate.bubble().offset();
+      var bubbleLeft = bubbleOffsets.left();
+      var bubbleTop = bubbleOffsets.top();
+      var adjustedBounds = adjustBounds(bounds, candidate.boundsRestriction(), bubbleOffsets);
+      var boundsY = adjustedBounds.y();
+      var boundsBottom = adjustedBounds.bottom();
+      var boundsX = adjustedBounds.x();
+      var boundsRight = adjustedBounds.right();
       var newX = candidateX + bubbleLeft;
       var newY = candidateY + bubbleTop;
-      var _a = calcReposition(newX, newY, width, height, bounds), originInBounds = _a.originInBounds, sizeInBounds = _a.sizeInBounds, limitX = _a.limitX, limitY = _a.limitY, deltaW = _a.deltaW, deltaH = _a.deltaH;
+      var _a = calcReposition(newX, newY, width, height, adjustedBounds), originInBounds = _a.originInBounds, sizeInBounds = _a.sizeInBounds, limitX = _a.limitX, limitY = _a.limitY, deltaW = _a.deltaW, deltaH = _a.deltaH;
       var upAvailable = constant(limitY + deltaH - boundsY);
       var downAvailable = constant(boundsBottom - limitY);
       var maxHeight = cataVertical(candidate.direction(), downAvailable, downAvailable, upAvailable);
@@ -5186,16 +5254,28 @@
       return anchor.y();
     };
     var southeast$2 = function (anchor, element, bubbles) {
-      return nu$7(eastX$1(anchor), southY$1(anchor), bubbles.southeast(), southeast(), 'link-layout-se');
+      return nu$7(eastX$1(anchor), southY$1(anchor), bubbles.southeast(), southeast(), boundsRestriction(anchor, {
+        left: 0,
+        top: 2
+      }), 'link-layout-se');
     };
     var southwest$2 = function (anchor, element, bubbles) {
-      return nu$7(westX$1(anchor, element), southY$1(anchor), bubbles.southwest(), southwest(), 'link-layout-sw');
+      return nu$7(westX$1(anchor, element), southY$1(anchor), bubbles.southwest(), southwest(), boundsRestriction(anchor, {
+        right: 1,
+        top: 2
+      }), 'link-layout-sw');
     };
     var northeast$2 = function (anchor, element, bubbles) {
-      return nu$7(eastX$1(anchor), northY$1(anchor, element), bubbles.northeast(), northeast(), 'link-layout-ne');
+      return nu$7(eastX$1(anchor), northY$1(anchor, element), bubbles.northeast(), northeast(), boundsRestriction(anchor, {
+        left: 0,
+        bottom: 3
+      }), 'link-layout-ne');
     };
     var northwest$2 = function (anchor, element, bubbles) {
-      return nu$7(westX$1(anchor, element), northY$1(anchor, element), bubbles.northwest(), northwest(), 'link-layout-nw');
+      return nu$7(westX$1(anchor, element), northY$1(anchor, element), bubbles.northwest(), northwest(), boundsRestriction(anchor, {
+        right: 1,
+        bottom: 3
+      }), 'link-layout-nw');
     };
     var all$3 = function () {
       return [
@@ -5583,7 +5663,6 @@
     };
 
     var schema$3 = objOfOnly([
-      defaulted$1('isExtraPart', constant(false)),
       optionObjOf('fireEventInstead', [defaulted$1('event', repositionRequested())]),
       strictFunction('doReposition')
     ]);
@@ -8696,9 +8775,9 @@
             }
           }),
           Receiving.config({
-            channels: __assign(__assign({}, receivingChannel(__assign({ isExtraPart: constant(false) }, detail.fireDismissalEventInstead.map(function (fe) {
+            channels: __assign(__assign({}, receivingChannel(__assign({ isExtraPart: spec.isExtraPart }, detail.fireDismissalEventInstead.map(function (fe) {
               return { fireEventInstead: { event: fe.event } };
-            }).getOr({})))), receivingChannel$1(__assign(__assign({ isExtraPart: constant(false) }, detail.fireRepositionEventInstead.map(function (fe) {
+            }).getOr({})))), receivingChannel$1(__assign(__assign({}, detail.fireRepositionEventInstead.map(function (fe) {
               return { fireEventInstead: { event: fe.event } };
             }).getOr({})), { doReposition: reposition })))
           })
@@ -8722,6 +8801,7 @@
         optionObjOf('fireDismissalEventInstead', [defaulted$1('event', dismissRequested())]),
         optionObjOf('fireRepositionEventInstead', [defaulted$1('event', repositionRequested())]),
         defaulted$1('getRelated', Option.none),
+        defaulted$1('isExtraPart', never),
         defaulted$1('eventOrder', Option.none)
       ],
       factory: factory,
@@ -8775,22 +8855,34 @@
       return anchor.y() + anchor.height() - element.height();
     };
     var southeast$3 = function (anchor, element, bubbles) {
-      return nu$7(westEdgeX$1(anchor), southY$2(anchor, element), bubbles.innerSoutheast(), southeast(), 'layout-se');
+      return nu$7(eastEdgeX$1(anchor, element), southY$2(anchor, element), bubbles.innerSoutheast(), northwest(), boundsRestriction(anchor, {
+        right: 0,
+        bottom: 3
+      }), 'layout-inner-se');
     };
     var southwest$3 = function (anchor, element, bubbles) {
-      return nu$7(eastEdgeX$1(anchor, element), southY$2(anchor, element), bubbles.innerSouthwest(), southwest(), 'layout-sw');
+      return nu$7(westEdgeX$1(anchor), southY$2(anchor, element), bubbles.innerSouthwest(), northeast(), boundsRestriction(anchor, {
+        left: 1,
+        bottom: 3
+      }), 'layout-inner-sw');
     };
     var northeast$3 = function (anchor, element, bubbles) {
-      return nu$7(westEdgeX$1(anchor), northY$2(anchor), bubbles.innerNortheast(), northeast(), 'layout-ne');
+      return nu$7(eastEdgeX$1(anchor, element), northY$2(anchor), bubbles.innerNortheast(), southwest(), boundsRestriction(anchor, {
+        right: 0,
+        top: 2
+      }), 'layout-inner-ne');
     };
     var northwest$3 = function (anchor, element, bubbles) {
-      return nu$7(eastEdgeX$1(anchor, element), northY$2(anchor), bubbles.innerNorthwest(), northwest(), 'layout-nw');
+      return nu$7(westEdgeX$1(anchor), northY$2(anchor), bubbles.innerNorthwest(), southeast(), boundsRestriction(anchor, {
+        left: 1,
+        top: 2
+      }), 'layout-inner-nw');
     };
     var north$3 = function (anchor, element, bubbles) {
-      return nu$7(middleX$1(anchor, element), northY$2(anchor), bubbles.innerNorth(), north(), 'layout-n');
+      return nu$7(middleX$1(anchor, element), northY$2(anchor), bubbles.innerNorth(), south(), boundsRestriction(anchor, { top: 2 }), 'layout-inner-n');
     };
     var south$3 = function (anchor, element, bubbles) {
-      return nu$7(middleX$1(anchor, element), southY$2(anchor, element), bubbles.innerSouth(), south(), 'layout-s');
+      return nu$7(middleX$1(anchor, element), southY$2(anchor, element), bubbles.innerSouth(), north(), boundsRestriction(anchor, { bottom: 3 }), 'layout-inner-s');
     };
 
     var global$2 = tinymce.util.Tools.resolve('tinymce.util.Delay');
@@ -13958,12 +14050,7 @@
               });
             }
           }),
-          Receiving.config({
-            channels: __assign(__assign({}, receivingChannel({ isExtraPart: constant(false) })), receivingChannel$1({
-              isExtraPart: constant(false),
-              doReposition: doRepositionMenus
-            }))
-          })
+          Receiving.config({ channels: __assign(__assign({}, receivingChannel({ isExtraPart: never })), receivingChannel$1({ doReposition: doRepositionMenus })) })
         ])
       };
     };
@@ -14285,10 +14372,18 @@
         },
         layouts: {
           onRtl: function () {
-            return [southeast$1];
+            return [
+              southwest$1,
+              southeast$1,
+              south$1
+            ];
           },
           onLtr: function () {
-            return [southwest$1];
+            return [
+              southeast$1,
+              southwest$1,
+              south$1
+            ];
           }
         },
         components: [],
@@ -20796,29 +20891,31 @@
       bottom: [],
       top: []
     };
-    var getInlineDialogAnchor = function (bodyElement, lazyAnchorbar, useEditableAreaAnchor) {
+    var getInlineDialogAnchor = function (contentAreaElement, lazyAnchorbar, useEditableAreaAnchor) {
+      var bubble = nu$8(-12, 12, bubbleAlignments);
+      var overrides = { maxHeightFunction: expandable() };
       var editableAreaAnchor = function () {
         return {
           anchor: 'node',
-          root: bodyElement(),
-          node: Option.from(bodyElement()),
-          bubble: nu$8(-12, -12, bubbleAlignments),
+          root: getBody(owner(contentAreaElement())),
+          node: Option.from(contentAreaElement()),
+          bubble: bubble,
           layouts: {
             onRtl: function () {
-              return [northeast$3];
+              return [northwest$3];
             },
             onLtr: function () {
-              return [northwest$3];
+              return [northeast$3];
             }
           },
-          overrides: { maxHeightFunction: expandable() }
+          overrides: overrides
         };
       };
       var standardAnchor = function () {
         return {
           anchor: 'hotspot',
           hotspot: lazyAnchorbar(),
-          bubble: nu$8(-12, 12, bubbleAlignments),
+          bubble: bubble,
           layouts: {
             onRtl: function () {
               return [southeast$1];
@@ -20827,17 +20924,17 @@
               return [southwest$1];
             }
           },
-          overrides: { maxHeightFunction: expandable() }
+          overrides: overrides
         };
       };
       return useEditableAreaAnchor ? editableAreaAnchor : standardAnchor;
     };
-    var getBannerAnchor = function (bodyElement, lazyAnchorbar, useEditableAreaAnchor) {
+    var getBannerAnchor = function (contentAreaElement, lazyAnchorbar, useEditableAreaAnchor) {
       var editableAreaAnchor = function () {
         return {
           anchor: 'node',
-          root: bodyElement(),
-          node: Option.from(bodyElement()),
+          root: getBody(owner(contentAreaElement())),
+          node: Option.from(contentAreaElement()),
           layouts: {
             onRtl: function () {
               return [north$3];
@@ -20890,10 +20987,13 @@
       var bodyElement = function () {
         return Element.fromDom(editor.getBody());
       };
+      var contentAreaElement = function () {
+        return Element.fromDom(editor.getContentAreaContainer());
+      };
       var useEditableAreaAnchor = useFixedToolbarContainer || !isToolbarLocationTop(editor);
       return {
-        inlineDialog: getInlineDialogAnchor(bodyElement, lazyAnchorbar, useEditableAreaAnchor),
-        banner: getBannerAnchor(bodyElement, lazyAnchorbar, useEditableAreaAnchor),
+        inlineDialog: getInlineDialogAnchor(contentAreaElement, lazyAnchorbar, useEditableAreaAnchor),
+        banner: getBannerAnchor(contentAreaElement, lazyAnchorbar, useEditableAreaAnchor),
         cursor: getCursorAnchor(editor, bodyElement),
         node: getNodeAnchor(bodyElement)
       };
@@ -21845,10 +21945,9 @@
             }
           }),
           Receiving.config({
-            channels: __assign(__assign({}, receivingChannel(__assign({ isExtraPart: constant(false) }, detail.fireDismissalEventInstead.map(function (fe) {
+            channels: __assign(__assign({}, receivingChannel(__assign({ isExtraPart: never }, detail.fireDismissalEventInstead.map(function (fe) {
               return { fireEventInstead: { event: fe.event } };
             }).getOr({})))), receivingChannel$1({
-              isExtraPart: constant(false),
               doReposition: function () {
                 Sandboxing.getState(Coupling.getCoupled(button, 'toolbarSandbox')).each(function (toolbar) {
                   position$2(button, toolbar, detail, spec.layouts);
@@ -22439,12 +22538,12 @@
     };
     var setupReadonlyModeSwitch = function (editor, uiComponents) {
       editor.on('init', function () {
-        if (editor.readonly) {
+        if (editor.mode.isReadOnly()) {
           toggleToReadOnly(uiComponents, true);
         }
       });
       editor.on('SwitchMode', function () {
-        return toggleToReadOnly(uiComponents, editor.readonly);
+        return toggleToReadOnly(uiComponents, editor.mode.isReadOnly());
       });
       if (isReadOnly(editor)) {
         editor.setMode('readonly');
@@ -22543,7 +22642,8 @@
           var headerBounds = absolute$1(headerElem);
           var docElem = documentElement(headerElem);
           var docBounds = absolute$1(docElem);
-          return bounds$1(headerBounds.x() + overflowXOffset, docBounds.y(), headerBounds.width() - overflowXOffset * 2, docBounds.height());
+          var minTop = Math.min(docBounds.y(), headerBounds.x());
+          return bounds$1(headerBounds.x() + overflowXOffset, minTop, headerBounds.width() - overflowXOffset * 2, Math.max(docBounds.height(), headerBounds.bottom() - minTop));
         },
         parts: __assign(__assign({}, baseSpec.parts), {
           overflow: {
@@ -23492,15 +23592,22 @@
       var isRoot = function (elem) {
         return eq(elem, rootElem);
       };
+      var isOutsideRoot = function (startNode) {
+        return !isRoot(startNode) && !contains$2(rootElem, startNode);
+      };
       var startNode = Element.fromDom(editor.selection.getNode());
-      if (contains$2(startNode, rootElem)) {
+      if (isOutsideRoot(startNode)) {
         return Option.none();
       }
       return matchTargetWith(startNode, scopes.inNodeScope).orThunk(function () {
         return matchTargetWith(startNode, scopes.inEditorScope).orThunk(function () {
-          return ancestor(startNode, function (elem) {
-            return isRoot(elem) ? Option.none() : matchTargetWith(elem, scopes.inNodeScope);
-          }, isRoot);
+          if (isRoot(startNode)) {
+            return Option.none();
+          } else {
+            return ancestor(startNode, function (elem) {
+              return matchTargetWith(elem, scopes.inNodeScope);
+            }, isRoot);
+          }
         });
       });
     };
@@ -24748,6 +24855,9 @@
         }
       };
       var launchContextToolbar = function () {
+        if (!editor.hasFocus()) {
+          return;
+        }
         var scopes = getScopes();
         ToolbarLookup.lookup(scopes, editor).fold(function () {
           lastAnchor.set(Option.none());
@@ -24770,7 +24880,7 @@
       editor.on('init', function () {
         editor.on(hideContextToolbarEvent, forceHide);
         editor.on('ScrollContent ScrollWindow longpress', hideOrRepositionIfNecessary);
-        editor.on('click keyup SetContent ObjectResized ResizeEditor', function (e) {
+        editor.on('click keyup focus SetContent ObjectResized ResizeEditor', function () {
           resetTimer(global$2.setEditorTimeout(editor, launchContextToolbar, 0));
         });
         editor.on('focusout', function (e) {
@@ -24782,7 +24892,7 @@
           }, 0);
         });
         editor.on('SwitchMode', function () {
-          if (editor.readonly) {
+          if (editor.mode.isReadOnly()) {
             lastAnchor.set(Option.none());
             InlineView.hide(contextbar);
           }
@@ -26525,11 +26635,15 @@
       return width.getOr(getWidthSetting(editor));
     };
 
-    var getTargetPosition = function (targetElm, isToolbarTop) {
+    var getTargetPosAndHeight = function (targetElm, isToolbarTop) {
       var pos = box(targetElm);
-      return isToolbarTop ? pos.y() : pos.bottom();
+      return {
+        pos: isToolbarTop ? pos.y() : pos.bottom(),
+        height: pos.height()
+      };
     };
     var render$1 = function (editor, uiComponents, rawUiConfig, backstage, args) {
+      var mothership = uiComponents.mothership, uiMothership = uiComponents.uiMothership, outerContainer = uiComponents.outerContainer;
       var floatContainer;
       var DOM = global$3.DOM;
       var useFixedToolbarContainer = useFixedContainer(editor);
@@ -26537,10 +26651,9 @@
       var targetElm = Element.fromDom(args.targetNode);
       var editorMaxWidthOpt = getMaxWidthSetting(editor).or(getWidth$1(editor));
       var toolbarMode = getToolbarMode(editor);
-      var isSplitFloatingToolbar = toolbarMode === ToolbarMode.floating;
-      var isSplitToolbar = toolbarMode === ToolbarMode.sliding || isSplitFloatingToolbar;
+      var isSplitToolbar = toolbarMode === ToolbarMode.sliding || toolbarMode === ToolbarMode.floating;
       var isToolbarTop = isToolbarLocationTop(editor);
-      var prevPos = Cell(getTargetPosition(targetElm, isToolbarTop));
+      var prevPosAndHeight = Cell(getTargetPosAndHeight(targetElm, isToolbarTop));
       var visible = Cell(false);
       inline(editor);
       var updateChromePosition = function (toolbar) {
@@ -26551,7 +26664,7 @@
         }) : 0;
         var targetBounds = box(targetElm);
         var top = isToolbarTop ? targetBounds.y() - get$6(floatContainer.element()) + offset : targetBounds.bottom();
-        setAll$1(uiComponents.outerContainer.element(), {
+        setAll$1(outerContainer.element(), {
           position: 'absolute',
           top: Math.round(top) + 'px',
           left: Math.round(targetBounds.x()) + 'px'
@@ -26562,52 +26675,51 @@
         });
         set$2(floatContainer.element(), 'max-width', maxWidth + 'px');
       };
+      var repositionFloatingUiComponents = function () {
+        uiMothership.broadcastOn([repositionPopups()], {});
+      };
       var updateChromeUi = function (resetDocking) {
         if (resetDocking === void 0) {
           resetDocking = false;
         }
         if (isSplitToolbar) {
-          OuterContainer.refreshToolbar(uiComponents.outerContainer);
+          OuterContainer.refreshToolbar(outerContainer);
         }
         if (!useFixedToolbarContainer) {
-          var toolbar_1 = OuterContainer.getToolbar(uiComponents.outerContainer);
+          var toolbar_1 = OuterContainer.getToolbar(outerContainer);
           updateChromePosition(toolbar_1);
         }
         if (isSticky) {
           resetDocking ? Docking.reset(floatContainer) : Docking.refresh(floatContainer);
         }
-        if (isSplitFloatingToolbar) {
-          OuterContainer.getToolbar(uiComponents.outerContainer).each(function (toolbar) {
-            SplitFloatingToolbar.reposition(toolbar);
-          });
-        }
+        repositionFloatingUiComponents();
       };
       var show = function () {
         visible.set(true);
-        set$2(uiComponents.outerContainer.element(), 'display', 'flex');
+        set$2(outerContainer.element(), 'display', 'flex');
         DOM.addClass(editor.getBody(), 'mce-edit-focus');
-        remove$6(uiComponents.uiMothership.element(), 'display');
+        remove$6(uiMothership.element(), 'display');
         updateChromeUi();
       };
       var hide = function () {
         visible.set(false);
         if (uiComponents.outerContainer) {
-          set$2(uiComponents.outerContainer.element(), 'display', 'none');
+          set$2(outerContainer.element(), 'display', 'none');
           DOM.removeClass(editor.getBody(), 'mce-edit-focus');
         }
-        set$2(uiComponents.uiMothership.element(), 'display', 'none');
+        set$2(uiMothership.element(), 'display', 'none');
       };
       var render = function () {
         if (floatContainer) {
           show();
           return;
         }
-        floatContainer = OuterContainer.getHeader(uiComponents.outerContainer).getOrDie();
+        floatContainer = OuterContainer.getHeader(outerContainer).getOrDie();
         var uiContainer = getUiContainer(editor);
-        attachSystem(uiContainer, uiComponents.mothership);
-        attachSystem(uiContainer, uiComponents.uiMothership);
+        attachSystem(uiContainer, mothership);
+        attachSystem(uiContainer, uiMothership);
         setToolbar(editor, uiComponents, rawUiConfig, backstage);
-        OuterContainer.setMenubar(uiComponents.outerContainer, identifyMenus(editor, rawUiConfig));
+        OuterContainer.setMenubar(outerContainer, identifyMenus(editor, rawUiConfig));
         show();
         editor.on('activate', show);
         editor.on('deactivate', hide);
@@ -26618,10 +26730,16 @@
         });
         editor.on('NodeChange keydown', function () {
           global$2.requestAnimationFrame(function () {
-            var pos = getTargetPosition(targetElm, isToolbarTop);
-            if (visible.get() && pos !== prevPos.get()) {
-              updateChromeUi(true);
-              prevPos.set(pos);
+            var posAndHeight = getTargetPosAndHeight(targetElm, isToolbarTop);
+            var prev = prevPosAndHeight.get();
+            if (visible.get()) {
+              if (posAndHeight.pos !== prev.pos) {
+                updateChromeUi(true);
+                prevPosAndHeight.set(posAndHeight);
+              } else if (posAndHeight.height !== prev.height) {
+                repositionFloatingUiComponents();
+                prevPosAndHeight.set(posAndHeight);
+              }
             }
           });
         });
@@ -26635,7 +26753,7 @@
         }
       });
       setupReadonlyModeSwitch(editor, uiComponents);
-      return { editorContainer: uiComponents.outerContainer.element().dom() };
+      return { editorContainer: outerContainer.element().dom() };
     };
     var Inline = { render: render$1 };
 
@@ -26942,7 +27060,7 @@
         return editor.undoManager ? editor.undoManager[type]() : false;
       };
       var onUndoStateChange = function () {
-        api.setDisabled(editor.readonly || !checkState());
+        api.setDisabled(editor.mode.isReadOnly() || !checkState());
       };
       api.setDisabled(!checkState());
       editor.on('Undo Redo AddUndo TypingUndo ClearUndos SwitchMode', onUndoStateChange);
@@ -30074,287 +30192,6 @@
       return ModalDialog.parts().body(bodySpec);
     };
 
-    var initCommonEvents = function (fireApiEvent, extras) {
-      return [
-        runWithTarget(focusin(), NavigableObject.onFocus),
-        fireApiEvent(formCloseEvent, function (api, spec) {
-          extras.onClose();
-          spec.onClose();
-        }),
-        fireApiEvent(formCancelEvent, function (api, spec, _event, self) {
-          spec.onCancel(api);
-          emit(self, formCloseEvent);
-        }),
-        run(formUnblockEvent, function (c, se) {
-          return extras.onUnblock();
-        }),
-        run(formBlockEvent, function (c, se) {
-          return extras.onBlock(se.event());
-        })
-      ];
-    };
-    var initUrlDialog = function (getInstanceApi, extras) {
-      var fireApiEvent = function (eventName, f) {
-        return run(eventName, function (c, se) {
-          withSpec(c, function (spec, _c) {
-            f(getInstanceApi(), spec, se.event(), c);
-          });
-        });
-      };
-      var withSpec = function (c, f) {
-        Reflecting.getState(c).get().each(function (currentDialog) {
-          f(currentDialog, c);
-        });
-      };
-      return __spreadArrays(initCommonEvents(fireApiEvent, extras), [fireApiEvent(formActionEvent, function (api, spec, event) {
-          spec.onAction(api, { name: event.name() });
-        })]);
-    };
-    var initDialog = function (getInstanceApi, extras) {
-      var fireApiEvent = function (eventName, f) {
-        return run(eventName, function (c, se) {
-          withSpec(c, function (spec, _c) {
-            f(getInstanceApi(), spec, se.event(), c);
-          });
-        });
-      };
-      var withSpec = function (c, f) {
-        Reflecting.getState(c).get().each(function (currentDialogInit) {
-          f(currentDialogInit.internalDialog, c);
-        });
-      };
-      return __spreadArrays(initCommonEvents(fireApiEvent, extras), [
-        fireApiEvent(formSubmitEvent, function (api, spec) {
-          return spec.onSubmit(api);
-        }),
-        fireApiEvent(formChangeEvent, function (api, spec, event) {
-          spec.onChange(api, { name: event.name() });
-        }),
-        fireApiEvent(formActionEvent, function (api, spec, event, component) {
-          var focusIn = function () {
-            return Keying.focusIn(component);
-          };
-          var current = active();
-          spec.onAction(api, {
-            name: event.name(),
-            value: event.value()
-          });
-          active().fold(function () {
-            focusIn();
-          }, function (focused) {
-            if (!contains$2(component.element(), focused) || has$1(focused, 'disabled')) {
-              focusIn();
-            } else if (contains$2(focused, current.getOrNull()) && has$1(current.getOrDie(), 'disabled')) {
-              focusIn();
-            }
-          });
-        }),
-        fireApiEvent(formTabChangeEvent, function (api, spec, event) {
-          spec.onTabChange(api, {
-            newTabName: event.name(),
-            oldTabName: event.oldName()
-          });
-        }),
-        runOnDetached(function (component) {
-          var api = getInstanceApi();
-          Representing.setValue(component, api.getData());
-        })
-      ]);
-    };
-    var SilverDialogEvents = {
-      initUrlDialog: initUrlDialog,
-      initDialog: initDialog
-    };
-
-    var makeButton = function (button, backstage) {
-      return renderFooterButton(button, button.type, backstage);
-    };
-    var lookup$2 = function (compInSystem, footerButtons, buttonName) {
-      return find(footerButtons, function (button) {
-        return button.name === buttonName;
-      }).bind(function (memButton) {
-        return memButton.memento.getOpt(compInSystem);
-      });
-    };
-    var renderComponents = function (_data, state) {
-      var footerButtons = state.map(function (s) {
-        return s.footerButtons;
-      }).getOr([]);
-      var buttonGroups = partition(footerButtons, function (button) {
-        return button.align === 'start';
-      });
-      var makeGroup = function (edge, buttons) {
-        return Container.sketch({
-          dom: {
-            tag: 'div',
-            classes: ['tox-dialog__footer-' + edge]
-          },
-          components: map(buttons, function (button) {
-            return button.memento.asSpec();
-          })
-        });
-      };
-      var startButtons = makeGroup('start', buttonGroups.pass);
-      var endButtons = makeGroup('end', buttonGroups.fail);
-      return [
-        startButtons,
-        endButtons
-      ];
-    };
-    var renderFooter = function (initSpec, backstage) {
-      var updateState = function (_comp, data) {
-        var footerButtons = map(data.buttons, function (button) {
-          var memButton = record(makeButton(button, backstage));
-          return {
-            name: button.name,
-            align: button.align,
-            memento: memButton
-          };
-        });
-        var lookupByName = function (compInSystem, buttonName) {
-          return lookup$2(compInSystem, footerButtons, buttonName);
-        };
-        return Option.some({
-          lookupByName: lookupByName,
-          footerButtons: footerButtons
-        });
-      };
-      return {
-        dom: fromHtml$2('<div class="tox-dialog__footer"></div>'),
-        components: [],
-        behaviours: derive$1([Reflecting.config({
-            channel: footerChannel,
-            initialData: initSpec,
-            updateState: updateState,
-            renderComponents: renderComponents
-          })])
-      };
-    };
-    var renderInlineFooter = function (initSpec, backstage) {
-      return renderFooter(initSpec, backstage);
-    };
-    var renderModalFooter = function (initSpec, backstage) {
-      return ModalDialog.parts().footer(renderFooter(initSpec, backstage));
-    };
-
-    var getCompByName = function (access, name) {
-      var root = access.getRoot();
-      if (root.getSystem().isConnected()) {
-        var form_1 = Composing.getCurrent(access.getFormWrapper()).getOr(access.getFormWrapper());
-        return Form.getField(form_1, name).fold(function () {
-          var footer = access.getFooter();
-          var footerState = Reflecting.getState(footer);
-          return footerState.get().bind(function (f) {
-            return f.lookupByName(form_1, name);
-          });
-        }, function (comp) {
-          return Option.some(comp);
-        });
-      } else {
-        return Option.none();
-      }
-    };
-    var validateData = function (access, data) {
-      var root = access.getRoot();
-      return Reflecting.getState(root).get().map(function (dialogState) {
-        return getOrDie(asRaw('data', dialogState.dataValidator, data));
-      }).getOr(data);
-    };
-    var getDialogApi = function (access, doRedial, menuItemStates) {
-      var withRoot = function (f) {
-        var root = access.getRoot();
-        if (root.getSystem().isConnected()) {
-          f(root);
-        }
-      };
-      var getData = function () {
-        var root = access.getRoot();
-        var valueComp = root.getSystem().isConnected() ? access.getFormWrapper() : root;
-        var representedValues = Representing.getValue(valueComp);
-        var menuItemCurrentState = map$1(menuItemStates, function (cell) {
-          return cell.get();
-        });
-        return __assign(__assign({}, representedValues), menuItemCurrentState);
-      };
-      var setData = function (newData) {
-        withRoot(function (_) {
-          var prevData = instanceApi.getData();
-          var mergedData = __assign(__assign({}, prevData), newData);
-          var newInternalData = validateData(access, mergedData);
-          var form = access.getFormWrapper();
-          Representing.setValue(form, newInternalData);
-          each$1(menuItemStates, function (v, k) {
-            if (has(mergedData, k)) {
-              v.set(mergedData[k]);
-            }
-          });
-        });
-      };
-      var disable = function (name) {
-        getCompByName(access, name).each(Disabling.disable);
-      };
-      var enable = function (name) {
-        getCompByName(access, name).each(Disabling.enable);
-      };
-      var focus = function (name) {
-        getCompByName(access, name).each(Focusing.focus);
-      };
-      var block = function (message) {
-        if (!isString(message)) {
-          throw new Error('The dialogInstanceAPI.block function should be passed a blocking message of type string as an argument');
-        }
-        withRoot(function (root) {
-          emitWith(root, formBlockEvent, { message: message });
-        });
-      };
-      var unblock = function () {
-        withRoot(function (root) {
-          emit(root, formUnblockEvent);
-        });
-      };
-      var showTab = function (name) {
-        withRoot(function (_) {
-          var body = access.getBody();
-          var bodyState = Reflecting.getState(body);
-          if (bodyState.get().exists(function (b) {
-              return b.isTabPanel();
-            })) {
-            Composing.getCurrent(body).each(function (tabSection) {
-              TabSection.showTab(tabSection, name);
-            });
-          }
-        });
-      };
-      var redial = function (d) {
-        withRoot(function (root) {
-          var dialogInit = doRedial(d);
-          root.getSystem().broadcastOn([dialogChannel], dialogInit);
-          root.getSystem().broadcastOn([titleChannel], dialogInit.internalDialog);
-          root.getSystem().broadcastOn([bodyChannel], dialogInit.internalDialog);
-          root.getSystem().broadcastOn([footerChannel], dialogInit.internalDialog);
-          instanceApi.setData(dialogInit.initialData);
-        });
-      };
-      var close = function () {
-        withRoot(function (root) {
-          emit(root, formCloseEvent);
-        });
-      };
-      var instanceApi = {
-        getData: getData,
-        setData: setData,
-        disable: disable,
-        enable: enable,
-        focus: focus,
-        block: block,
-        unblock: unblock,
-        showTab: showTab,
-        redial: redial,
-        close: close
-      };
-      return instanceApi;
-    };
-
     var isTouch = global$8.deviceType.isTouch();
     var hiddenHeader = function (title, close) {
       return {
@@ -30689,6 +30526,296 @@
       }, {});
     };
 
+    var initCommonEvents = function (fireApiEvent, extras) {
+      return [
+        runWithTarget(focusin(), NavigableObject.onFocus),
+        fireApiEvent(formCloseEvent, function (api, spec) {
+          extras.onClose();
+          spec.onClose();
+        }),
+        fireApiEvent(formCancelEvent, function (api, spec, _event, self) {
+          spec.onCancel(api);
+          emit(self, formCloseEvent);
+        }),
+        run(formUnblockEvent, function (c, se) {
+          return extras.onUnblock();
+        }),
+        run(formBlockEvent, function (c, se) {
+          return extras.onBlock(se.event());
+        })
+      ];
+    };
+    var initUrlDialog = function (getInstanceApi, extras) {
+      var fireApiEvent = function (eventName, f) {
+        return run(eventName, function (c, se) {
+          withSpec(c, function (spec, _c) {
+            f(getInstanceApi(), spec, se.event(), c);
+          });
+        });
+      };
+      var withSpec = function (c, f) {
+        Reflecting.getState(c).get().each(function (currentDialog) {
+          f(currentDialog, c);
+        });
+      };
+      return __spreadArrays(initCommonEvents(fireApiEvent, extras), [fireApiEvent(formActionEvent, function (api, spec, event) {
+          spec.onAction(api, { name: event.name() });
+        })]);
+    };
+    var initDialog = function (getInstanceApi, extras, getSink) {
+      var fireApiEvent = function (eventName, f) {
+        return run(eventName, function (c, se) {
+          withSpec(c, function (spec, _c) {
+            f(getInstanceApi(), spec, se.event(), c);
+          });
+        });
+      };
+      var withSpec = function (c, f) {
+        Reflecting.getState(c).get().each(function (currentDialogInit) {
+          f(currentDialogInit.internalDialog, c);
+        });
+      };
+      return __spreadArrays(initCommonEvents(fireApiEvent, extras), [
+        fireApiEvent(formSubmitEvent, function (api, spec) {
+          return spec.onSubmit(api);
+        }),
+        fireApiEvent(formChangeEvent, function (api, spec, event) {
+          spec.onChange(api, { name: event.name() });
+        }),
+        fireApiEvent(formActionEvent, function (api, spec, event, component) {
+          var focusIn = function () {
+            return Keying.focusIn(component);
+          };
+          var isDisabled = function (focused) {
+            return has$1(focused, 'disabled') || getOpt(focused, 'aria-disabled').exists(function (val) {
+              return val === 'true';
+            });
+          };
+          var current = active();
+          spec.onAction(api, {
+            name: event.name(),
+            value: event.value()
+          });
+          active().fold(focusIn, function (focused) {
+            if (isDisabled(focused)) {
+              focusIn();
+            } else if (current.exists(function (cur) {
+                return contains$2(focused, cur) && isDisabled(cur);
+              })) {
+              focusIn();
+            } else {
+              getSink().toOption().filter(function (sink) {
+                return !contains$2(sink.element(), focused);
+              }).each(focusIn);
+            }
+          });
+        }),
+        fireApiEvent(formTabChangeEvent, function (api, spec, event) {
+          spec.onTabChange(api, {
+            newTabName: event.name(),
+            oldTabName: event.oldName()
+          });
+        }),
+        runOnDetached(function (component) {
+          var api = getInstanceApi();
+          Representing.setValue(component, api.getData());
+        })
+      ]);
+    };
+    var SilverDialogEvents = {
+      initUrlDialog: initUrlDialog,
+      initDialog: initDialog
+    };
+
+    var makeButton = function (button, backstage) {
+      return renderFooterButton(button, button.type, backstage);
+    };
+    var lookup$2 = function (compInSystem, footerButtons, buttonName) {
+      return find(footerButtons, function (button) {
+        return button.name === buttonName;
+      }).bind(function (memButton) {
+        return memButton.memento.getOpt(compInSystem);
+      });
+    };
+    var renderComponents = function (_data, state) {
+      var footerButtons = state.map(function (s) {
+        return s.footerButtons;
+      }).getOr([]);
+      var buttonGroups = partition(footerButtons, function (button) {
+        return button.align === 'start';
+      });
+      var makeGroup = function (edge, buttons) {
+        return Container.sketch({
+          dom: {
+            tag: 'div',
+            classes: ['tox-dialog__footer-' + edge]
+          },
+          components: map(buttons, function (button) {
+            return button.memento.asSpec();
+          })
+        });
+      };
+      var startButtons = makeGroup('start', buttonGroups.pass);
+      var endButtons = makeGroup('end', buttonGroups.fail);
+      return [
+        startButtons,
+        endButtons
+      ];
+    };
+    var renderFooter = function (initSpec, backstage) {
+      var updateState = function (_comp, data) {
+        var footerButtons = map(data.buttons, function (button) {
+          var memButton = record(makeButton(button, backstage));
+          return {
+            name: button.name,
+            align: button.align,
+            memento: memButton
+          };
+        });
+        var lookupByName = function (compInSystem, buttonName) {
+          return lookup$2(compInSystem, footerButtons, buttonName);
+        };
+        return Option.some({
+          lookupByName: lookupByName,
+          footerButtons: footerButtons
+        });
+      };
+      return {
+        dom: fromHtml$2('<div class="tox-dialog__footer"></div>'),
+        components: [],
+        behaviours: derive$1([Reflecting.config({
+            channel: footerChannel,
+            initialData: initSpec,
+            updateState: updateState,
+            renderComponents: renderComponents
+          })])
+      };
+    };
+    var renderInlineFooter = function (initSpec, backstage) {
+      return renderFooter(initSpec, backstage);
+    };
+    var renderModalFooter = function (initSpec, backstage) {
+      return ModalDialog.parts().footer(renderFooter(initSpec, backstage));
+    };
+
+    var getCompByName = function (access, name) {
+      var root = access.getRoot();
+      if (root.getSystem().isConnected()) {
+        var form_1 = Composing.getCurrent(access.getFormWrapper()).getOr(access.getFormWrapper());
+        return Form.getField(form_1, name).fold(function () {
+          var footer = access.getFooter();
+          var footerState = Reflecting.getState(footer);
+          return footerState.get().bind(function (f) {
+            return f.lookupByName(form_1, name);
+          });
+        }, function (comp) {
+          return Option.some(comp);
+        });
+      } else {
+        return Option.none();
+      }
+    };
+    var validateData = function (access, data) {
+      var root = access.getRoot();
+      return Reflecting.getState(root).get().map(function (dialogState) {
+        return getOrDie(asRaw('data', dialogState.dataValidator, data));
+      }).getOr(data);
+    };
+    var getDialogApi = function (access, doRedial, menuItemStates) {
+      var withRoot = function (f) {
+        var root = access.getRoot();
+        if (root.getSystem().isConnected()) {
+          f(root);
+        }
+      };
+      var getData = function () {
+        var root = access.getRoot();
+        var valueComp = root.getSystem().isConnected() ? access.getFormWrapper() : root;
+        var representedValues = Representing.getValue(valueComp);
+        var menuItemCurrentState = map$1(menuItemStates, function (cell) {
+          return cell.get();
+        });
+        return __assign(__assign({}, representedValues), menuItemCurrentState);
+      };
+      var setData = function (newData) {
+        withRoot(function (_) {
+          var prevData = instanceApi.getData();
+          var mergedData = __assign(__assign({}, prevData), newData);
+          var newInternalData = validateData(access, mergedData);
+          var form = access.getFormWrapper();
+          Representing.setValue(form, newInternalData);
+          each$1(menuItemStates, function (v, k) {
+            if (has(mergedData, k)) {
+              v.set(mergedData[k]);
+            }
+          });
+        });
+      };
+      var disable = function (name) {
+        getCompByName(access, name).each(Disabling.disable);
+      };
+      var enable = function (name) {
+        getCompByName(access, name).each(Disabling.enable);
+      };
+      var focus = function (name) {
+        getCompByName(access, name).each(Focusing.focus);
+      };
+      var block = function (message) {
+        if (!isString(message)) {
+          throw new Error('The dialogInstanceAPI.block function should be passed a blocking message of type string as an argument');
+        }
+        withRoot(function (root) {
+          emitWith(root, formBlockEvent, { message: message });
+        });
+      };
+      var unblock = function () {
+        withRoot(function (root) {
+          emit(root, formUnblockEvent);
+        });
+      };
+      var showTab = function (name) {
+        withRoot(function (_) {
+          var body = access.getBody();
+          var bodyState = Reflecting.getState(body);
+          if (bodyState.get().exists(function (b) {
+              return b.isTabPanel();
+            })) {
+            Composing.getCurrent(body).each(function (tabSection) {
+              TabSection.showTab(tabSection, name);
+            });
+          }
+        });
+      };
+      var redial = function (d) {
+        withRoot(function (root) {
+          var dialogInit = doRedial(d);
+          root.getSystem().broadcastOn([dialogChannel], dialogInit);
+          root.getSystem().broadcastOn([titleChannel], dialogInit.internalDialog);
+          root.getSystem().broadcastOn([bodyChannel], dialogInit.internalDialog);
+          root.getSystem().broadcastOn([footerChannel], dialogInit.internalDialog);
+          instanceApi.setData(dialogInit.initialData);
+        });
+      };
+      var close = function () {
+        withRoot(function (root) {
+          emit(root, formCloseEvent);
+        });
+      };
+      var instanceApi = {
+        getData: getData,
+        setData: setData,
+        disable: disable,
+        enable: enable,
+        focus: focus,
+        block: block,
+        unblock: unblock,
+        showTab: showTab,
+        redial: redial,
+        close: close
+      };
+      return instanceApi;
+    };
+
     var renderDialog$1 = function (dialogInit, extra, backstage) {
       var header = getHeader(dialogInit.internalDialog.title, backstage);
       var body = renderModalBody({ body: dialogInit.internalDialog.body }, backstage);
@@ -30699,7 +30826,7 @@
         return instanceApi;
       }, getEventExtras(function () {
         return dialog;
-      }, extra));
+      }, extra), backstage.shared.getSink);
       var dialogSize = dialogInit.internalDialog.size !== 'normal' ? dialogInit.internalDialog.size === 'large' ? ['tox-dialog--width-lg'] : ['tox-dialog--width-md'] : [];
       var spec = {
         header: header,
@@ -30760,7 +30887,7 @@
         onClose: function () {
           return extra.closeWindow();
         }
-      });
+      }, backstage.shared.getSink);
       var dialog = build$1({
         dom: {
           tag: 'div',
@@ -31086,6 +31213,9 @@
     var validateData$1 = function (data, validator) {
       return getOrDie(asRaw('data', validator, data));
     };
+    var isAlertOrConfirmDialog = function (target) {
+      return closest$4(target, '.tox-alert-dialog') || closest$4(target, '.tox-confirm-dialog');
+    };
     var inlineAdditionalBehaviours = function (editor, isStickyToolbar, isToolbarLocationTop) {
       if (isStickyToolbar && isToolbarLocationTop) {
         return [];
@@ -31190,7 +31320,10 @@
           }, isToolbarLocationTop$1 ? {} : { fireRepositionEventInstead: {} }), {
             inlineBehaviours: derive$1(__spreadArrays([config('window-manager-inline-events', [run(dismissRequested(), function (comp, se) {
                   emit(dialogUi.dialog, formCancelEvent);
-                })])], inlineAdditionalBehaviours(editor, isStickyToolbar$1, isToolbarLocationTop$1)))
+                })])], inlineAdditionalBehaviours(editor, isStickyToolbar$1, isToolbarLocationTop$1))),
+            isExtraPart: function (comp, target) {
+              return isAlertOrConfirmDialog(target);
+            }
           })));
           inlineDialog.set(inlineDialogComp);
           InlineView.showWithin(inlineDialogComp, anchor, premade$1(dialogUi.dialog), Option.some(body()));

@@ -64,6 +64,7 @@ body.elfinder #elfinder.ui-widget-content { border:none; }
 /* jquery-ui overwrites */
 .ui-widget-header {
 	background: #cccccc;
+	border: none;
 }
 
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
