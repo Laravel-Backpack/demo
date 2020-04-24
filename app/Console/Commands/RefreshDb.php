@@ -43,5 +43,6 @@ class RefreshDb extends Command
         Artisan::call('db:wipe --force');
         Artisan::call('migrate --force');
         Artisan::call('db:seed --force');
+        Artisan::call('backup:clean');
     }
 }
