@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b68df85c3db298a58586f674dea05e6",
+    "content-hash": "faced817dee4d769fbd59a045c0f0318",
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "2.0.5",
+            "version": "4.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "2c81380deea6163e2c982a388074ba9b7a4b258d"
+                "reference": "74d973cbc5b639161bc40be0c3f9c8807efd66c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/2c81380deea6163e2c982a388074ba9b7a4b258d",
-                "reference": "2c81380deea6163e2c982a388074ba9b7a4b258d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/74d973cbc5b639161bc40be0c3f9c8807efd66c5",
+                "reference": "74d973cbc5b639161bc40be0c3f9c8807efd66c5",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0",
-                "spatie/laravel-backup": "^6.0"
+                "backpack/crud": "^4.1.0",
+                "spatie/laravel-backup": "^6.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -67,7 +67,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2020-04-20T06:18:36+00:00"
+            "time": "2020-04-24T14:57:53+00:00"
         },
         {
             "name": "backpack/crud",
@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "507f31cccf9a5728ba6dd7928b55d46c2153e9e9"
+                "reference": "78a89604e4d8571671bb9ec6f2d626a1e8150078"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/507f31cccf9a5728ba6dd7928b55d46c2153e9e9",
-                "reference": "507f31cccf9a5728ba6dd7928b55d46c2153e9e9",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/78a89604e4d8571671bb9ec6f2d626a1e8150078",
+                "reference": "78a89604e4d8571671bb9ec6f2d626a1e8150078",
                 "shasum": ""
             },
             "require": {
@@ -152,20 +152,20 @@
                 "read",
                 "update"
             ],
-            "time": "2020-04-22T12:09:14+00:00"
+            "time": "2020-04-23T08:43:37+00:00"
         },
         {
             "name": "backpack/filemanager",
-            "version": "1.0.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "1d986ee70d395ee7e2980bf99dcbea37765a70a1"
+                "reference": "7dc68ae5b684f32f4d3cbcf1cdba804b0bf0a69c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/1d986ee70d395ee7e2980bf99dcbea37765a70a1",
-                "reference": "1d986ee70d395ee7e2980bf99dcbea37765a70a1",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/7dc68ae5b684f32f4d3cbcf1cdba804b0bf0a69c",
+                "reference": "7dc68ae5b684f32f4d3cbcf1cdba804b0bf0a69c",
                 "shasum": ""
             },
             "require": {
@@ -208,24 +208,24 @@
                 "filemanager",
                 "laravel"
             ],
-            "time": "2020-03-21T16:54:01+00:00"
+            "time": "2020-04-23T10:11:25+00:00"
         },
         {
             "name": "backpack/logmanager",
-            "version": "3.0.5",
+            "version": "4.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/LogManager.git",
-                "reference": "a4db303ebfa00c006586e513ed5c417c97921fbe"
+                "reference": "a7396330c86a79679c553a4dde855d4e2ac27600"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/a4db303ebfa00c006586e513ed5c417c97921fbe",
-                "reference": "a4db303ebfa00c006586e513ed5c417c97921fbe",
+                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/a7396330c86a79679c553a4dde855d4e2ac27600",
+                "reference": "a7396330c86a79679c553a4dde855d4e2ac27600",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0"
+                "backpack/crud": "^4.1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -268,25 +268,25 @@
                 "log manager",
                 "logs"
             ],
-            "time": "2020-04-20T05:44:01+00:00"
+            "time": "2020-04-24T14:42:08+00:00"
         },
         {
             "name": "backpack/menucrud",
-            "version": "v2.0.3",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "8935f84d111562d55c1770315bac3658128ca734"
+                "reference": "fd6d5f3744ef091867f286fe91ff17c965a355a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/8935f84d111562d55c1770315bac3658128ca734",
-                "reference": "8935f84d111562d55c1770315bac3658128ca734",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/fd6d5f3744ef091867f286fe91ff17c965a355a3",
+                "reference": "fd6d5f3744ef091867f286fe91ff17c965a355a3",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0",
-                "backpack/pagemanager": "^2.0"
+                "backpack/crud": "^4.1.0|^4.0.0",
+                "backpack/pagemanager": "^3.0|^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -327,7 +327,7 @@
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2020-03-05T09:21:15+00:00"
+            "time": "2020-04-24T14:30:00+00:00"
         },
         {
             "name": "backpack/newscrud",
@@ -390,20 +390,20 @@
         },
         {
             "name": "backpack/pagemanager",
-            "version": "2.0.7",
+            "version": "4.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "786d070a89569031335ad62fdf8a1ce23619e66d"
+                "reference": "453b569f3ddfd29be3767c2bbfac7abc8d9d1043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/786d070a89569031335ad62fdf8a1ce23619e66d",
-                "reference": "786d070a89569031335ad62fdf8a1ce23619e66d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/453b569f3ddfd29be3767c2bbfac7abc8d9d1043",
+                "reference": "453b569f3ddfd29be3767c2bbfac7abc8d9d1043",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0",
+                "backpack/crud": "^4.1.0",
                 "cviebrock/eloquent-sluggable": "^7.0||^6.0||4.8"
             },
             "require-dev": {
@@ -454,7 +454,7 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2020-03-05T07:43:58+00:00"
+            "time": "2020-04-24T14:19:37+00:00"
         },
         {
             "name": "backpack/permissionmanager",
@@ -599,20 +599,20 @@
         },
         {
             "name": "backpack/settings",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "65db49f06da9ecd577bc4622aa88f922da1b1236"
+                "reference": "1e004daf818f62c10c64de422a6380e28bc38f06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/65db49f06da9ecd577bc4622aa88f922da1b1236",
-                "reference": "65db49f06da9ecd577bc4622aa88f922da1b1236",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/1e004daf818f62c10c64de422a6380e28bc38f06",
+                "reference": "1e004daf818f62c10c64de422a6380e28bc38f06",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0"
+                "backpack/crud": "^4.1.0|^4.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -659,7 +659,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2020-04-13T07:54:08+00:00"
+            "time": "2020-04-24T14:33:48+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -2167,16 +2167,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.7.1",
+            "version": "v7.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4de129177f889cd7672e732d8808020adfb7b121"
+                "reference": "cdc6d7e6c744f4d8f7d61102aea9b111550cd297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4de129177f889cd7672e732d8808020adfb7b121",
-                "reference": "4de129177f889cd7672e732d8808020adfb7b121",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/cdc6d7e6c744f4d8f7d61102aea9b111550cd297",
+                "reference": "cdc6d7e6c744f4d8f7d61102aea9b111550cd297",
                 "shasum": ""
             },
             "require": {
@@ -2315,7 +2315,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-04-21T18:57:12+00:00"
+            "time": "2020-04-24T17:21:56+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2383,16 +2383,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c995966d35424bae20f76f8b31248099487a3f57"
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c995966d35424bae20f76f8b31248099487a3f57",
-                "reference": "c995966d35424bae20f76f8b31248099487a3f57",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9e780d972185e4f737a03bade0fd34a9e67bbf31",
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31",
                 "shasum": ""
             },
             "require": {
@@ -2453,7 +2453,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-04-20T13:36:51+00:00"
+            "time": "2020-04-24T13:39:56+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2959,16 +2959,16 @@
         },
         {
             "name": "prologue/alerts",
-            "version": "0.4.6",
+            "version": "0.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/prologuephp/alerts.git",
-                "reference": "4c621a541a7f16631deda9d1b2b075c182d251d1"
+                "reference": "631896b583129b2873df09b5295809c1244eddb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/prologuephp/alerts/zipball/4c621a541a7f16631deda9d1b2b075c182d251d1",
-                "reference": "4c621a541a7f16631deda9d1b2b075c182d251d1",
+                "url": "https://api.github.com/repos/prologuephp/alerts/zipball/631896b583129b2873df09b5295809c1244eddb1",
+                "reference": "631896b583129b2873df09b5295809c1244eddb1",
                 "shasum": ""
             },
             "require": {
@@ -3021,7 +3021,7 @@
                 "laravel",
                 "messages"
             ],
-            "time": "2020-03-03T08:33:38+00:00"
+            "time": "2020-04-24T06:00:16+00:00"
         },
         {
             "name": "psr/cache",
@@ -7757,22 +7757,40 @@
     ],
     "aliases": [
         {
-            "alias": "4.0.99",
-            "alias_normalized": "4.0.99.0",
+            "alias": "4.1.0",
+            "alias_normalized": "4.1.0.0",
             "version": "4.1.9999999.9999999-dev",
             "package": "backpack/crud"
         },
         {
-            "alias": "3.0.99",
-            "alias_normalized": "3.0.99.0",
-            "version": "dev-^4.0.0|4.1.x",
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "dev-^4.0|4.1.x",
+            "package": "backpack/logmanager"
+        },
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "4.1.9999999.9999999-dev",
+            "package": "backpack/pagemanager"
+        },
+        {
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "dev-^4.0|4.1.x",
             "package": "backpack/newscrud"
         },
         {
-            "alias": "5.0.99",
-            "alias_normalized": "5.0.99.0",
-            "version": "dev-^6.0.0|4.1.x",
+            "alias": "6.0.0",
+            "alias_normalized": "6.0.0.0",
+            "version": "dev-^6.0|4.1.x",
             "package": "backpack/permissionmanager"
+        },
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "dev-^3.0|4.1.x",
+            "package": "backpack/backupmanager"
         },
         {
             "alias": "3.0.0",
@@ -7784,8 +7802,11 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "backpack/crud": 20,
+        "backpack/logmanager": 20,
+        "backpack/pagemanager": 20,
         "backpack/newscrud": 20,
         "backpack/permissionmanager": 20,
+        "backpack/backupmanager": 20,
         "backpack/generators": 20
     },
     "prefer-stable": true,
