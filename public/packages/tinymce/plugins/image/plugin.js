@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.0 (2020-02-13)
+ * Version: 5.2.1 (2020-03-25)
  */
 (function (domGlobals) {
     'use strict';
@@ -2109,7 +2109,7 @@
         data.alt = meta.alt;
       }
       if (info.hasAccessibilityOptions) {
-        data.isDecorative = meta.isDecorative || false;
+        data.isDecorative = meta.isDecorative || data.isDecorative || false;
       }
       if (info.hasImageTitle && isString(meta.title)) {
         data.title = meta.title;

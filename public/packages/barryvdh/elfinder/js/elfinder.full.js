@@ -1,6 +1,6 @@
 /*!
  * elFinder - file manager for web
- * Version 2.1.55 (2020-03-18)
+ * Version 2.1.56 (2020-04-09)
  * http://elfinder.org
  * 
  * Copyright 2009-2020, Studio 42
@@ -10717,7 +10717,7 @@ if (!window.cancelAnimationFrame) {
  *
  * @type String
  **/
-elFinder.prototype.version = '2.1.55';
+elFinder.prototype.version = '2.1.56';
 
 
 
@@ -11203,7 +11203,7 @@ elFinder.prototype._options = {
 	cdns : {
 		// for editor etc.
 		ace        : 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.8',
-		codemirror : 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.0',
+		codemirror : 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2',
 		ckeditor   : 'https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.12.1',
 		ckeditor5  : 'https://cdn.ckeditor.com/ckeditor5/17.0.0',
 		tinymce    : 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.0',
@@ -11213,9 +11213,9 @@ elFinder.prototype._options = {
 		tui        : 'https://uicdn.toast.com',
 		// for quicklook etc.
 		hls        : 'https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.13.2/hls.min.js',
-		dash       : 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/3.0.2/dash.all.min.js',
+		dash       : 'https://cdnjs.cloudflare.com/ajax/libs/dashjs/3.0.3/dash.all.min.js',
 		flv        : 'https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.5.0/flv.min.js',
-		videojs    : 'https://cdnjs.cloudflare.com/ajax/libs/video.js/7.7.4',
+		videojs    : 'https://cdnjs.cloudflare.com/ajax/libs/video.js/7.7.5',
 		prettify   : 'https://cdn.jsdelivr.net/gh/google/code-prettify@f1c3473acd1e8ea8c8c1a60c56e89f5cdd06f915/loader/run_prettify.js',
 		psd        : 'https://cdnjs.cloudflare.com/ajax/libs/psd.js/3.2.0/psd.min.js',
 		rar        : 'https://cdn.jsdelivr.net/gh/nao-pon/rar.js@6cef13ec66dd67992fc7f3ea22f132d770ebaf8b/rar.min.js',
@@ -17368,10 +17368,10 @@ $.fn.elfindercwd = function(fm, options) {
 			
 			selectAllCheckbox = selectCheckbox? $('<div class="elfinder-cwd-selectall"><input type="checkbox"/></div>')
 				.attr('title', fm.i18n('selectall'))
-				.on('touchstart mousedown click', function(e) {
+				.on('click', function(e) {
 					e.stopPropagation();
 					e.preventDefault();
-					if ($(this).data('pending') || e.type === 'click') {
+					if ($(this).data('pending')) {
 						return false;
 					}
 					selectAllCheckbox.data('pending', true);
@@ -18236,7 +18236,7 @@ $.fn.elfinderdialog = function(opts, fm) {
 			headerBtns = {
 				close: function() {
 					titlebar.prepend($('<span class="ui-widget-header ui-dialog-titlebar-close ui-corner-all elfinder-titlebar-button"><span class="ui-icon ui-icon-closethick"/></span>')
-						.on('mousedown', function(e) {
+						.on('mousedown touchstart', function(e) {
 							e.preventDefault();
 							e.stopPropagation();
 							self.elfinderdialog('close');
@@ -18274,7 +18274,7 @@ $.fn.elfinderdialog = function(opts, fm) {
 							}
 						});
 						titlebar.prepend($('<span class="ui-widget-header ui-corner-all elfinder-titlebar-button elfinder-titlebar-full"><span class="ui-icon ui-icon-plusthick"/></span>')
-							.on('mousedown', function(e) {
+							.on('mousedown touchstart', function(e) {
 								var elm = $(this);
 								e.preventDefault();
 								e.stopPropagation();
@@ -18293,7 +18293,7 @@ $.fn.elfinderdialog = function(opts, fm) {
 					var btn, mnode, doffset;
 					if (opts.allowMinimize) {
 						btn = $('<span class="ui-widget-header ui-corner-all elfinder-titlebar-button elfinder-titlebar-minimize"><span class="ui-icon ui-icon-minusthick"/></span>')
-							.on('mousedown', function(e) {
+							.on('mousedown touchstart', function(e) {
 								var $this = $(this),
 									tray = fm.getUI('bottomtray'),
 									dumStyle = { width: 70, height: 24 },
@@ -23667,7 +23667,7 @@ elFinder.prototype.commands.download = function() {
 							} else {
 								dlName = zipdl.name;
 							}
-							if ((html5dl && (!fm.UA.Safari || fm.isSameOrigin(fm.options.url))) || linkdl) {
+							if (html5dl || linkdl) {
 								url = fm.options.url + (fm.options.url.indexOf('?') === -1 ? '?' : '&')
 								+ 'cmd=zipdl&download=1';
 								$.each([hashes[0], zipdl.file, dlName, zipdl.mime], function(key, val) {
@@ -23817,7 +23817,7 @@ elFinder.prototype.commands.download = function() {
 						}, fm.notifyDelay);
 						checkCookie(reqid);
 					}
-					if (html5dl && (!fm.UA.Safari || fm.isSameOrigin(url))) {
+					if (html5dl) {
 						click(link.attr('href', url)
 							.attr('download', fm.escape(files[i].name))
 							.get(0)
@@ -26581,7 +26581,7 @@ elFinder.prototype.commands.hide = function() {
 				} else if (file.mime.indexOf('image') !== -1) {
 					if (file.width && file.height) {
 						content.push(row.replace(l, msg.dim).replace(v, file.width+'x'+file.height));
-					} else {
+					} else if (file.size && file.size !== '0') {
 						content.push(row.replace(l, msg.dim).replace(v, tpl.spinner.replace('{text}', msg.calc).replace('{name}', 'dim')));
 						reqs.push(fm.request({
 							data : {cmd : 'dim', target : file.hash},
@@ -27126,12 +27126,27 @@ elFinder.prototype.commands.netmount = function() {
 
 	self.fm.bind('netmount', function(e) {
 		var d = e.data || null,
-			o = self.options;
+			o = self.options,
+			done = function() {
+				if (o[d.protocol] && typeof o[d.protocol].done == 'function') {
+					o[d.protocol].done(self.fm, d);
+					content.find('select,input').addClass('elfinder-tabstop');
+					self.dialog.elfinderdialog('tabstopsInit');
+				}
+			};
 		if (d && d.protocol) {
-			if (o[d.protocol] && typeof o[d.protocol].done == 'function') {
-				o[d.protocol].done(self.fm, d);
-				content.find('select,input').addClass('elfinder-tabstop');
-				self.dialog.elfinderdialog('tabstopsInit');
+			if (d.mode && d.mode === 'redirect') {
+				// To support of third-party cookie blocking (ITP) on CORS
+				// On iOS and iPadOS 13.4 and Safari 13.1 on macOS, the session cannot be continued when redirecting OAuth in CORS mode
+				self.fm.request({
+					data : {cmd : 'netmount', protocol : d.protocol, host: d.host, user : 'init', pass : 'return', options: d.options}, 
+					preventDefault : true
+				}).done(function(data) {
+					d = JSON.parse(data.body);
+					done();
+				});
+			} else {
+				done();
 			}
 		}
 	});

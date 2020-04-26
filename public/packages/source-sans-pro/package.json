@@ -1,28 +1,27 @@
 {
-  "_from": "source-sans-pro@3.6.0",
+  "_from": "source-sans-pro@^3.6",
   "_id": "source-sans-pro@3.6.0",
   "_inBundle": false,
   "_integrity": "sha512-C1RFUGu+YASuqpgDRInTM7Y6OwqeWNOuKn7v0P/4Kh66epTI4PYWwPWP5kdA4l/VqzBAWiqoz5dk0trof73R7w==",
   "_location": "/source-sans-pro",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "source-sans-pro@3.6.0",
+    "raw": "source-sans-pro@^3.6",
     "name": "source-sans-pro",
     "escapedName": "source-sans-pro",
-    "rawSpec": "3.6.0",
+    "rawSpec": "^3.6",
     "saveSpec": null,
-    "fetchSpec": "3.6.0"
+    "fetchSpec": "^3.6"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/source-sans-pro/-/source-sans-pro-3.6.0.tgz",
   "_shasum": "f4167065ebf096136b1b4f141dbd48886dda1486",
-  "_spec": "source-sans-pro@3.6.0",
-  "_where": "/Users/tabacitu/Sites/bpnpmupdate/vendor/backpack/crud",
+  "_spec": "source-sans-pro@^3.6",
+  "_where": "/Users/tabacitu/Sites/backpack-demo-beta2/vendor/backpack/crud",
   "author": {
     "name": "Paul D. Hunt"
   },

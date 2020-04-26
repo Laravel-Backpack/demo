@@ -6,7 +6,47 @@
  **/
 
 body.elfinder { margin:0; }
-body.elfinder #elfinder.ui-widget-content { border:none; }
+body #elfinder.ui-widget-content { 
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    color: #23282c;
+    border-radius: 3px!important;
+}
+
+.elfinder-cwd-icon:before {
+	background: #ccc;
+}
+
+#elfinder .ui-state-default, 
+#elfinder .ui-widget-content .ui-state-default, 
+#elfinder .ui-widget-header .ui-state-default {
+	background: #e6e6e6;
+}
+
+.elfinder-contextmenu .ui-state-hover {
+	color: black!important;
+}
+
+.elfinder-cwd-file.ui-state-hover, 
+.elfinder-cwd-file.ui-widget-content .ui-state-hover, 
+.elfinder-cwd-file.ui-widget-header .ui-state-hover, 
+.elfinder-cwd-file.ui-state-focus, 
+.elfinder-cwd-file.ui-widget-content .ui-state-focus, 
+.elfinder-cwd-file.ui-widget-header .ui-state-focus {
+	background: transparent!important;
+	/*border: 1px solid #ccc;*/
+}
+
+.elfinder-cwd-view-icons .elfinder-cwd-file .elfinder-cwd-filename.ui-state-hover, 
+.elfinder-cwd table td.ui-state-hover, 
+.elfinder-button-menu .ui-state-hover {
+	/*color: black!important;*/
+	/*font-weight: bold;*/
+}
+
+.elfinder .elfinder-contextmenu, .elfinder .elfinder-contextmenu-sub {
+	border: 1px solid #ccc!important;
+}
 
 /* input textarea */
 .elfinder input,
@@ -64,6 +104,7 @@ body.elfinder #elfinder.ui-widget-content { border:none; }
 /* jquery-ui overwrites */
 .ui-widget-header {
 	background: #cccccc;
+	border: none;
 }
 
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {

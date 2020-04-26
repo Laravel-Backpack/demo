@@ -1,12 +1,9 @@
 @extends(backpack_view('blank'))
 
 @php
-	$productCount = App\Models\Product::count();
-	$userCount = App\User::count();
-	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
-	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
-	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
-
+	// ---------------------
+	// JUMBOTRON widget demo
+	// ---------------------
 	// Widget::add([
  //        'type'        => 'jumbotron',
  //        'name' 		  => 'jumbotron',
@@ -16,26 +13,36 @@
  //        'button_link' => backpack_url('logout'),
  //        'button_text' => trans('backpack::base.logout'),
  //    ])->to('before_content')->makeFirst();
+
+	// -------------------------
+	// FLUENT SYNTAX for widgets
+	// -------------------------
+	// Using the progress_white widget
+	// 
+	// Obviously, you should NOT do any big queries directly in the view.
+	// In fact, it can be argued that you shouldn't add Widgets from blade files when you
+	// need them to show information from the DB.
+	// 
+	// But you do whatever you think it's best. Who am I, your mom?
+	$productCount = App\Models\Product::count();
+	$userCount = App\User::count();
+	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
+	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
+	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
  
+ 	// notice we use Widget::add() to add widgets to a certain group
 	Widget::add()->to('before_content')->type('div')->class('row')->content([
-		Widget::add()
+		// notice we use Widget::make() to add widgets as content (not in a group)
+		Widget::make()
 			->type('progress_white')
 			->class('card mb-2')
 			->progressClass('progress-bar bg-primary')
 			->value($userCount)
 			->description('Registered users.')
 			->progress((int)$userCount/10*100)
-			->hint(10-$userCount.' more until next milestone.')
-			->onlyHere(),
-		Widget::add()
-		    ->type('progress_white')
-		    ->class('card mb-2')
-		    ->progressClass('progress-bar bg-warning')
-		    ->value($productCount)
-		    ->description('Products.')
-		    ->progress((int)$productCount/75*100) // intege
-		    ->hint($productCount>75?'Try to stay under 75 products.':'Good. Good.')
-		    ->onlyHere(),
+			->hint(10-$userCount.' more until next milestone.'),
+		// alternatively, to use widgets as content, we can use the same add() method,
+		// but we need to use onlyHere() or remove() at the end
 		Widget::add()
 		    ->type('progress_white')
 		    ->class('card border-0 mb-2')
@@ -44,16 +51,28 @@
 		    ->description('Articles.')
 		    ->progress(100)
 		    ->hint('Great! Don\'t stop.')
-		    ->onlyHere(),
-		Widget::add()
+		    ->onlyHere(), 
+		// alternatively, you can just push the widget to a "hidden" group
+		Widget::make()
+			->group('hidden')
 		    ->type('progress_white')
 		    ->class('card mb-2')
 		    ->value($lastArticleDaysAgo.' days')
 		    ->progressClass('progress-bar '.($lastArticleDaysAgo>5?'bg-danger':'bg-success'))
 		    ->description('Since last article.')
 		    ->progress(100)
-		    ->hint('Post an article every 3-4 days.')
-		    ->onlyHere(),
+		    ->hint('Post an article every 3-4 days.'),
+		// both Widget::make() and Widget::add() accept an array as a parameter
+		// if you prefer defining your widgets as arrays
+	    Widget::make([
+			'type' => 'progress_white',
+			'class'=> 'card mb-2',
+			'progressClass' => 'progress-bar bg-warning',
+			'value' => $productCount,
+			'description' => 'Products.',
+			'progress' => (int)$productCount/75*100,
+			'hint' => $productCount>75?'Try to stay under 75 products.':'Good. Good.',
+		]),
 	]);
 
     $widgets['after_content'][] = [
@@ -226,5 +245,6 @@
 @endphp
 
 @section('content')
-	{{-- @include(backpack_view('inc.widgets'), [ 'widgets' => $widgets['after_content'] ]) --}}
+	{{-- In case widgets have been added to a 'content' group, show those widgets. --}}
+	@include(backpack_view('inc.widgets'), [ 'widgets' => app('widgets')->where('group', 'content')->toArray() ])
 @endsection
