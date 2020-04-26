@@ -26,6 +26,10 @@ class MonsterCrudController extends CrudController
     {
         return $this->fetch(\App\Models\Product::class);
     }
+    public function fetchProducts()
+    {
+        return $this->fetchProduct();
+    }
 
     public function fetchIcon()
     {
@@ -458,22 +462,38 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([   // CustomHTML
             'name'  => 'select_1_n_heading',
             'type'  => 'custom_html',
-            'value' => '<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>',
+            'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne)</h5>',
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addField([    // SELECT
-            'label'             => 'Select (HTML Spec Select Input for 1-n relationship)',
-            'type'              => 'select',
-            'name'              => 'select',
-            'entity'            => 'category',
-            'attribute'         => 'name',
-            'model'             => "Backpack\NewsCRUD\app\Models\Category",
+            'label'             => 'Address Street',
+            'name'              => 'address.street',
             'tab'               => 'Selects',
-            'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+        ]);
+        $this->crud->addField([    // SELECT
+            'label'             => 'Address Country',
+            'name'              => 'address.country',
+            'tab'               => 'Selects',
+            'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+        ]);
+        $this->crud->addField([    // SELECT
+            'label'             => 'Address Icon',
+            'name'              => 'address.icon',
+            'type' => 'relationship',
+            'tab'               => 'Selects',
+            'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+        ]);
+        
+        $this->crud->addField([   // CustomHTML
+            'name'  => 'select_n_n_heading',
+            'type'  => 'custom_html',
+            'value' => '<h5 class="mb-0 mt-3 text-primary">1-n Relationship (BelongsTo)</h5>',
+            'tab'   => 'Selects',
         ]);
 
-        $this->crud->addField([    // SELECT2
+         $this->crud->addField([    // SELECT2
             'label'             => 'Select2 (1-n relationship)',
             'type'              => 'select2',
             'name'              => 'select2',
@@ -483,7 +503,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Selects',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
-
+        
         $this->crud->addField([ // select2_from_ajax: 1-n relationship
             'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
             'type'                 => 'select2_from_ajax',
@@ -505,7 +525,7 @@ class MonsterCrudController extends CrudController
             // 'entity'    => 'icon',
             'attribute'     => 'name',
             'tab'           => 'Selects',
-            'inline_create' => true, // TODO: make this work
+            'inline_create' => true,
             // 'data_source' => backpack_url('monster/fetch/icon'),
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
@@ -513,19 +533,17 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([   // CustomHTML
             'name'  => 'select_n_n_heading',
             'type'  => 'custom_html',
-            'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
+            'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (BelongsToMany)</h5>',
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label'     => 'Select_multiple (n-n relationship with pivot table)',
-            'type'      => 'select_multiple',
-            'name'      => 'tags', // the method that defines the relationship in your Model
-            'entity'    => 'tags', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-            'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            'label'     => 'Relationship (n-n with InlineCreate) <span class="badge badge-warning">New in 4.1</span>',       
+            'name'      => 'products', // the method that defines the relationship in your Model
             'tab'       => 'Selects',
+            'inline_create' => [
+                'entity' => 'product'
+            ]
             // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
