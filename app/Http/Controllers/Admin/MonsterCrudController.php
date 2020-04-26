@@ -26,6 +26,7 @@ class MonsterCrudController extends CrudController
     {
         return $this->fetch(\App\Models\Product::class);
     }
+
     public function fetchProducts()
     {
         return $this->fetchProduct();
@@ -481,11 +482,11 @@ class MonsterCrudController extends CrudController
         $this->crud->addField([    // SELECT
             'label'             => 'Address Icon',
             'name'              => 'address.icon',
-            'type' => 'relationship',
+            'type'              => 'relationship',
             'tab'               => 'Selects',
             'wrapperAttributes' => ['class' => 'form-group col-md-4'],
         ]);
-        
+
         $this->crud->addField([   // CustomHTML
             'name'  => 'select_n_n_heading',
             'type'  => 'custom_html',
@@ -493,7 +494,7 @@ class MonsterCrudController extends CrudController
             'tab'   => 'Selects',
         ]);
 
-         $this->crud->addField([    // SELECT2
+        $this->crud->addField([    // SELECT2
             'label'             => 'Select2 (1-n relationship)',
             'type'              => 'select2',
             'name'              => 'select2',
@@ -503,7 +504,7 @@ class MonsterCrudController extends CrudController
             'tab'               => 'Selects',
             'wrapperAttributes' => ['class' => 'form-group col-md-6'],
         ]);
-        
+
         $this->crud->addField([ // select2_from_ajax: 1-n relationship
             'label'                => "Article <small class='font-light'>(select2_from_ajax for a 1-n relationship)</small>", // Table column heading
             'type'                 => 'select2_from_ajax',
@@ -538,12 +539,12 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([       // Select_Multiple = n-n relationship
-            'label'     => 'Relationship (n-n with InlineCreate) <span class="badge badge-warning">New in 4.1</span>',       
-            'name'      => 'products', // the method that defines the relationship in your Model
-            'tab'       => 'Selects',
+            'label'         => 'Relationship (n-n with InlineCreate) <span class="badge badge-warning">New in 4.1</span>',
+            'name'          => 'products', // the method that defines the relationship in your Model
+            'tab'           => 'Selects',
             'inline_create' => [
-                'entity' => 'product'
-            ]
+                'entity' => 'product',
+            ],
             // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
         ]);
 
