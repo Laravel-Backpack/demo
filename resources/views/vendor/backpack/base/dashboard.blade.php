@@ -2,7 +2,7 @@
 
 @php
 	$productCount = App\Models\Product::count();
-	$userCount = App\Models\BackpackUser::count();
+	$userCount = App\User::count();
 	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
 	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
 	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
