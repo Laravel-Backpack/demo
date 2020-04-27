@@ -19,13 +19,20 @@
                     soundPath: '{{ asset($dir.'/sounds') }}',
                     dialog: {width: 900, modal: true, title: 'Select a file'},
                     resizable: false,
+                    onlyMimes: @json(unserialize(urldecode(request('mimes')))),
                     commandsOptions: {
                         getfile: {
+                            multiple: {{ request('multiple') ? 'true' : 'false' }},
                             oncomplete: 'destroy'
                         }
                     },
                     getFileCallback: function (file) {
-                        window.parent.processSelectedFile(file.path, '{{ $input_id  }}');
+                        @if (request()->has('multiple') && request()->input('multiple') == 1)
+                            window.parent.processSelectedMultipleFiles(file, '{{ $input_id  }}');
+                        @else
+                            window.parent.processSelectedFile(file.path, '{{ $input_id  }}');
+                        @endif
+
                         parent.jQuery.colorbox.close();
                     }
                 }).elfinder('instance');
