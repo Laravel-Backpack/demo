@@ -18,5 +18,4 @@ class RenameAddressColumnFromMonsters extends Migration
             $table->string('address_field')->nullable();
         });
     }
-
 }

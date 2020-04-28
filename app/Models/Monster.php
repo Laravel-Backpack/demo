@@ -25,9 +25,9 @@ class Monster extends Model
     // protected $dates = [];
     protected $casts = [
         'address_field'         => 'array',
-        'video'           => 'array',
-        'upload_multiple' => 'array',
-        'browse_multiple' => 'array',
+        'video'                 => 'array',
+        'upload_multiple'       => 'array',
+        'browse_multiple'       => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array' => 'array',
         // 'select2_from_array' => 'array'
@@ -90,11 +90,13 @@ class Monster extends Model
         return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
     }
 
-    public function address() {
+    public function address()
+    {
         return $this->hasOne(\App\Models\Address::class);
     }
 
-    public function postalboxes() {
+    public function postalboxes()
+    {
         return $this->hasMany(\App\Models\PostalBox::class);
     }
 

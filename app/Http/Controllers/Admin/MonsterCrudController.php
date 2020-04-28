@@ -467,28 +467,28 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'address.street',
-            'label' => 'HasOne Address street',
+            'name'    => 'address.street',
+            'label'   => 'HasOne Address street',
             'wrapper' => [
-                'class' => 'form-group col-md-4'
+                'class' => 'form-group col-md-4',
             ],
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addField([
-            'name' => 'address.country',
-            'label' => 'HasOne Address country',
+            'name'    => 'address.country',
+            'label'   => 'HasOne Address country',
             'wrapper' => [
-                'class' => 'form-group col-md-4'
+                'class' => 'form-group col-md-4',
             ],
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addField([
-            'name' => 'address.icon',
-            'label' => 'HasOne Address icon',
+            'name'    => 'address.icon',
+            'label'   => 'HasOne Address icon',
             'wrapper' => [
-                'class' => 'form-group col-md-4'
+                'class' => 'form-group col-md-4',
             ],
             'tab'   => 'Selects',
         ]);
