@@ -19,10 +19,11 @@ class PostalBox extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['monster_id', 'postal_name'];
+    protected $fillable = ['monster_id','postal_name'];
+  
 
-    public function monster()
-    {
-        return $this->belongsTo('App\Models\Monster', 'monster_id');
+    public function monster() {
+        return $this->belongsTo('App\Models\Monster','monster_id');
     }
+
 }

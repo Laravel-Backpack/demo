@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterMonstersTableRemoveAddress extends Migration
+class RenameAddressColumnFromMonsters extends Migration
 {
     /**
      * Run the migrations.
@@ -15,20 +15,8 @@ class AlterMonstersTableRemoveAddress extends Migration
     {
         Schema::table('monsters', function (Blueprint $table) {
             $table->dropColumn('address');
+            $table->string('address_field')->nullable();
         });
-
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('monsters', function (Blueprint $table) {
-            $table->text('address')->nullable();
-        });
-
-    }
 }

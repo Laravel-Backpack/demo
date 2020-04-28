@@ -26,10 +26,12 @@ class CreateAddressTable extends Migration
             $table->string('postal_name')->nullable();
             $table->integer('monster_id');
         });
+
+
+       
     }
 
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('addresses');
         Schema::dropIfExists('postalboxes');
     }
