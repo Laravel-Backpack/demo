@@ -218,16 +218,16 @@
         },
         {
             "name": "backpack/logmanager",
-            "version": "v3.0.4",
+            "version": "3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/LogManager.git",
-                "reference": "06d106dec2c024b41f7883efccf9be5ea8855b80"
+                "reference": "a4db303ebfa00c006586e513ed5c417c97921fbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/06d106dec2c024b41f7883efccf9be5ea8855b80",
-                "reference": "06d106dec2c024b41f7883efccf9be5ea8855b80",
+                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/a4db303ebfa00c006586e513ed5c417c97921fbe",
+                "reference": "a4db303ebfa00c006586e513ed5c417c97921fbe",
                 "shasum": ""
             },
             "require": {
@@ -274,7 +274,7 @@
                 "log manager",
                 "logs"
             ],
-            "time": "2020-03-05T09:57:11+00:00"
+            "time": "2020-04-20T05:44:01+00:00"
         },
         {
             "name": "backpack/menucrud",
