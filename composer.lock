@@ -278,21 +278,21 @@
         },
         {
             "name": "backpack/menucrud",
-            "version": "v2.0.3",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/MenuCRUD.git",
-                "reference": "8935f84d111562d55c1770315bac3658128ca734"
+                "reference": "fd6d5f3744ef091867f286fe91ff17c965a355a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/8935f84d111562d55c1770315bac3658128ca734",
-                "reference": "8935f84d111562d55c1770315bac3658128ca734",
+                "url": "https://api.github.com/repos/Laravel-Backpack/MenuCRUD/zipball/fd6d5f3744ef091867f286fe91ff17c965a355a3",
+                "reference": "fd6d5f3744ef091867f286fe91ff17c965a355a3",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0",
-                "backpack/pagemanager": "^2.0"
+                "backpack/crud": "^4.1.0|^4.0.0",
+                "backpack/pagemanager": "^3.0|^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -333,7 +333,7 @@
                 "MenuCRUD",
                 "backpack"
             ],
-            "time": "2020-03-05T09:21:15+00:00"
+            "time": "2020-04-24T14:30:00+00:00"
         },
         {
             "name": "backpack/newscrud",
