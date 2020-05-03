@@ -143,8 +143,6 @@ class DummyCrudController extends CrudController
             'select_grouped',  // TODO
             'select2_grouped', // TODO
             'select2_grouped', // TODO
-            'select2_from_ajax', // TODO
-            'select2_from_ajax_multiple', // TODO
             'upload', // currently impossible to make it work inside repeatable;
             'upload_multiple',  // currently impossible to make it work inside repeatable;
         ];
