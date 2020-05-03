@@ -19,12 +19,22 @@ class DummyCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+
 
     public function setup()
     {
         $this->crud->setModel('App\Models\Dummy');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/dummy');
         $this->crud->setEntityNameStrings('dummy', 'dummies');
+    }
+
+    public function fetchIcon() {
+        return $this->fetch('App\Models\Icon');
+    }
+
+    public function fetchCategories() {
+        return $this->fetch(\Backpack\NewsCRUD\app\Models\Category::class);
     }
 
     protected function setupListOperation()
@@ -241,6 +251,38 @@ class DummyCrudController extends CrudController
                 'label'             => 'Publish Date',
                 'type'              => 'date',
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
+            ],
+        ];
+        
+        // Field Types: select2_from_ajax, select2_from_ajax_multiple
+        $groups['categories_icon'] = [
+            [   // SelectMultiple = n-n relationship (with pivot table)
+                'label'     => 'Categories',
+                'type'      => 'select2_from_ajax_multiple',
+                'data_source' => backpack_url('dummy/fetch/categories'),
+                'minimum_input_length' => 2,
+                'placeholder' => 'Select Categories',
+                'name'      => 'categories', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'method' => 'post',
+                'pivot' => true,
+                'multiple' => true,
+                // 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                'model'             => \App\Models\Icon::class, // foreign key model
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+            [   // SelectMultiple = n-n relationship (with pivot table)
+                'label'     => 'Icon',
+                'type'      => 'select2_from_ajax',
+                'data_source' => backpack_url('dummy/fetch/icon'),
+                'minimum_input_length' => 2,
+                'placeholder' => 'Select icon',
+                'name'      => 'icon_id', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'method' => 'post',
+                // 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                'model'             => \App\Models\Icon::class, // foreign key model
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
         ];
 
