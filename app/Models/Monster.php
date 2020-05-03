@@ -5,10 +5,12 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
 
 class Monster extends Model
 {
     use CrudTrait;
+    use HasRoles;
 
     /*
     |--------------------------------------------------------------------------
