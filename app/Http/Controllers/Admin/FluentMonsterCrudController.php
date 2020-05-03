@@ -139,7 +139,7 @@ class FluentMonsterCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(StoreRequest::class);
-        CRUD::setOperationSetting('contentClass', 'col-md-12');
+        CRUD::setOperationSetting('contentClass', 'col-md-12 bold-labels');
 
         CRUD::field('text')->type('text')->label('Text')
             ->tab('Simple')->size(6);
