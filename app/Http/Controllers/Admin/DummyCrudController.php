@@ -73,7 +73,7 @@ class DummyCrudController extends CrudController
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
 
         // for field types that have multiple name (ex: date_range)
-        // split those into two separate text fields
+        // split those into two separate text columns
         foreach ($this->groups() as $groupKey => $groupFields) {
             CRUD::removeColumn($groupKey);
 
@@ -119,6 +119,11 @@ class DummyCrudController extends CrudController
 
     protected function groups()
     {
+        // instead of manually defining all the field type here too
+        // let's pull all field types defined in MonsterCrudController instead
+        // since they're already nicely split by tab,
+        // we can split them exactly the same here, but into groups instead of tabs
+        // (one repeatable field for each tab in MonsterCrudController)
         $groups['simple'] = MonsterCrudController::getFieldsArrayForSimpleTab();
         $groups['time_and_space'] = MonsterCrudController::getFieldsArrayForTimeAndSpaceTab();
         $groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
@@ -127,6 +132,7 @@ class DummyCrudController extends CrudController
         $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
 
+        // some fields do not make sense, or do not work inside repeatable, so let's exclude them 
         $excludedFieldTypes = [
             'address', // TODO
             'address_google', // TODO
