@@ -6,6 +6,8 @@ use App\Http\Requests\DummyRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+use App\Http\Controllers\Admin\MonsterCrudController;
 
 /**
  * Class DummyCrudController.
@@ -118,235 +120,35 @@ class DummyCrudController extends CrudController
 
     protected function groups()
     {
-        // Field Types: text, textarea
-        $groups['question_and_answer'] = [
-            [
-                'name'              => 'question',
-                'label'             => 'Question',
-                'type'              => 'textarea',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [
-                'name'              => 'answer',
-                'label'             => 'Answer',
-                'type'              => 'textarea',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
+        $groups['simple'] = MonsterCrudController::getFieldsArrayForSimpleTab();
+        $groups['time_and_space'] = MonsterCrudController::getFieldsArrayForTimeAndSpaceTab();
+        $groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
+        $groups['selects'] = MonsterCrudController::getFieldsArrayForSelectsTab();
+        $groups['uploads'] = MonsterCrudController::getFieldsArrayForUploadsTab();
+        $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
+        $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
+
+        $excludedFieldTypes = [
+            'address', // TODO
+            'address_google', // TODO
+            'checklist_dependency', // only available in PermissionManager package
+            'enum', // doesn't make sense inside repeatable
+            'page_or_link', // only available in PageManager pacakge
+            'relationship', // TODO
+            'select_grouped',  // TODO
+            'select2_grouped', // TODO
+            'select2_grouped', // TODO
+            'select2_from_ajax', // TODO
+            'select2_from_ajax_multiple', // TODO
+            'upload', // currently impossible to make it work inside repeatable;
+            'upload_multiple',  // currently impossible to make it work inside repeatable;
         ];
 
-        // Field Types: text, ckeditor
-        $groups['testimonials'] = [
-            [
-                'name'              => 'name',
-                'label'             => 'Name',
-                'type'              => 'text',
-                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
-            ],
-            [
-                'name'              => 'position',
-                'label'             => 'Position',
-                'type'              => 'text',
-                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
-            ],
-            [
-                'name'              => 'company',
-                'label'             => 'Company',
-                'type'              => 'text',
-                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
-            ],
-            [
-                'name'  => 'quote',
-                'label' => 'Quote',
-                'type'  => 'ckeditor',
-            ],
-        ];
-
-        // Field Types: browse, text, checkbox
-        $groups['attachments'] = [
-            [   // Browse
-                'name'              => 'file',
-                'label'             => 'File',
-                'type'              => 'browse',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
-            ],
-            [
-                'name'              => 'description',
-                'label'             => 'Description',
-                'type'              => 'text',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
-            ],
-            [   // Checkbox
-                'name'              => 'visible',
-                'label'             => 'Visible',
-                'type'              => 'checkbox',
-                'wrapperAttributes' => ['class' => 'form-group col-md-2 pt-4'],
-            ],
-        ];
-
-        // Field Types: select, color
-        $groups['related_categories'] = [
-            [  // Select
-                'label'             => 'Category',
-                'type'              => 'select',
-                'name'              => 'category_id', // the db column for the foreign key
-                'entity'            => 'categories', // the method that defines the relationship in your Model
-                'attribute'         => 'name', // foreign key attribute that is shown to user
-                'model'             => \Backpack\NewsCRUD\app\Models\Category::class,
-                'wrapperAttributes' => ['class' => 'form-group col-md-9'],
-            ],
-            [   // Color
-                'name'              => 'background_color',
-                'label'             => 'Background Color',
-                'type'              => 'color',
-                'default'           => '#000000',
-                'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-            ],
-        ];
-
-        // Field Types: select2, color_picker
-        $groups['related_categories_second'] = [
-            [  // Select
-                'label'     => 'Categories',
-                'type'      => 'select2',
-                'name'      => 'categories', // the method that defines the relationship in your Model
-                'entity'    => 'categories', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                // 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                'model'             => \Backpack\NewsCRUD\app\Models\Category::class, // foreign key model
-                'wrapperAttributes' => ['class' => 'form-group col-md-9'],
-            ],
-            [   // Color
-                'name'              => 'background_color',
-                'label'             => 'Background Color',
-                'type'              => 'color_picker',
-                'default'           => '#000000',
-                'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-            ],
-        ];
-
-        // Field Types: select_multiple, date
-        $groups['scheduled_categories'] = [
-            [   // SelectMultiple = n-n relationship (with pivot table)
-                'label'     => 'Categories',
-                'type'      => 'select_multiple',
-                'name'      => 'categories', // the method that defines the relationship in your Model
-                'entity'    => 'categories', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                // 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                'model'             => \Backpack\NewsCRUD\app\Models\Category::class, // foreign key model
-                'wrapperAttributes' => ['class' => 'form-group col-md-9'],
-            ],
-            [   // Date
-                'name'              => 'publish_date',
-                'label'             => 'Publish Date',
-                'type'              => 'date',
-                'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-            ],
-        ];
-
-        // Field Types: select2_multiple, date_picker
-        $groups['scheduled_categories_second'] = [
-            [   // SelectMultiple = n-n relationship (with pivot table)
-                'label'     => 'Categories',
-                'type'      => 'select2_multiple',
-                'name'      => 'categories', // the method that defines the relationship in your Model
-                'entity'    => 'categories', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                // 'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                'model'             => \Backpack\NewsCRUD\app\Models\Category::class, // foreign key model
-                'wrapperAttributes' => ['class' => 'form-group col-md-9'],
-            ],
-            [   // Date
-                'name'              => 'publish_date',
-                'label'             => 'Publish Date',
-                'type'              => 'date_picker',
-                'wrapperAttributes' => ['class' => 'form-group col-md-3'],
-            ],
-        ];
-
-        // Field Types: number, date_range, custom_html
-        $groups['holidays'] = [
-            [
-                'name'              => 'number',
-                'label'             => 'Holiday Number',
-                'type'              => 'number',
-                'wrapperAttributes' => ['class' => 'form-group col-md-2'],
-            ],
-            [ // Date_range
-                'name'       => ['start_date', 'end_date'], // a unique name for this field
-                'label'      => 'Holiday Timeframe',
-                'type'       => 'date_range',
-                'default'    => ['2020-03-28 01:01', '2020-04-05 02:00'],
-                // OPTIONALS
-                // 'date_range_options' => [ // options sent to daterangepicker.js
-                //     'timePicker' => true,
-                //     'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
-                // ],
-                'wrapperAttributes' => ['class' => 'form-group col-md-8'],
-            ],
-            [   // CustomHTML
-                'name'              => 'separator',
-                'type'              => 'custom_html',
-                'value'             => '<br><strong>Some</strong>thing <i>else</i>',
-                'wrapperAttributes' => ['class' => 'form-group col-md-2'],
-            ],
-        ];
-
-        // Field Types: hidden, tinymce, datetime_picker, range
-        $groups['extra_descriptions'] = [
-            [   // Hidden
-                'name'    => 'status',
-                'type'    => 'hidden',
-                'default' => 'visible',
-                'label'   => 'Status',
-            ],
-            [   // TinyMCE
-                'name'  => 'extra_description',
-                'label' => 'Description',
-                'type'  => 'tinymce',
-                // optional overwrite of the configuration array
-                // 'options' => [ 'selector' => 'textarea.tinymce',  'skin' => 'dick-light', 'plugins' => 'image,link,media,anchor' ],
-            ],
-            [   // DateTime
-                'name'  => 'date',
-                'label' => 'Date',
-                'type'  => 'datetime_picker',
-                // optional:
-                'datetime_picker_options' => [
-                    'format'   => 'DD/MM/YYYY HH:mm',
-                    'language' => 'fr',
-                ],
-                'allows_null' => true,
-                // 'default' => '2017-05-12 11:59:59',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [   // Range
-                'name'       => 'range',
-                'label'      => 'Range',
-                'type'       => 'range',
-                'attributes' => [
-                    'min' => 0,
-                    'max' => 10,
-                ],
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            // [ // select_and_order
-            //     'name'    => 'select_and_order',
-            //     'label'   => 'Select_and_order',
-            //     'type'    => 'select_and_order',
-            //     'options' => [
-            //         1 => 'Option 1',
-            //         2 => 'Option 2',
-            //         3 => 'Option 3',
-            //         4 => 'Option 4',
-            //         5 => 'Option 5',
-            //         6 => 'Option 6',
-            //         7 => 'Option 7',
-            //         8 => 'Option 8',
-            //         9 => 'Option 9',
-            //     ],
-            // ]
-        ];
+        foreach ($groups as $groupKey => $fields) {
+            $groups[$groupKey] = Arr::where($fields, function($field) use ($excludedFieldTypes) {
+                return !in_array($field['type'], $excludedFieldTypes);
+            });
+        }
 
         return $groups;
     }
