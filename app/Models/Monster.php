@@ -90,11 +90,13 @@ class Monster extends Model
         return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
     }
 
-    public function address() {
+    public function address()
+    {
         return $this->hasOne('App\Models\Address');
     }
 
-    public function postalBoxes() {
+    public function postalBoxes()
+    {
         return $this->hasMany('App\Models\PostalBox', 'monster_id');
     }
 

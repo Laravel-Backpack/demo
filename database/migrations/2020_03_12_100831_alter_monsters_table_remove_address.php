@@ -16,7 +16,6 @@ class AlterMonstersTableRemoveAddress extends Migration
         Schema::table('monsters', function (Blueprint $table) {
             $table->dropColumn('address');
         });
-
     }
 
     /**
@@ -29,6 +28,5 @@ class AlterMonstersTableRemoveAddress extends Migration
         Schema::table('monsters', function (Blueprint $table) {
             $table->text('address')->nullable();
         });
-
     }
 }
