@@ -385,7 +385,7 @@ class MonsterCrudController extends CrudController
         );
     }
 
-    public static function getFieldsArrayForSimpleTab() 
+    public static function getFieldsArrayForSimpleTab()
     {
         return [
             [
@@ -489,7 +489,7 @@ class MonsterCrudController extends CrudController
                 'type'    => 'hidden',
                 'default' => '6318',
                 'tab'     => 'Simple',
-            ]
+            ],
         ];
     }
 
@@ -576,7 +576,7 @@ class MonsterCrudController extends CrudController
                 // optional
                 'store_as_json' => true,
                 'tab'           => 'Time and space',
-            ]
+            ],
         ];
     }
 
@@ -614,34 +614,34 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             [   // select_grouped
-                'label' => 'Select_grouped',
-                'type' => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
-                'name' => 'select_grouped_id',
-                'fake' => true,
-                'entity' => 'article',
-                'model' => 'Backpack\NewsCRUD\app\Models\Article',
-                'attribute' => 'title',
-                'group_by' => 'category', // the relationship to entity you want to use for grouping
-                'group_by_attribute' => 'name', // the attribute on related model, that you want shown
+                'label'                      => 'Select_grouped',
+                'type'                       => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
+                'name'                       => 'select_grouped_id',
+                'fake'                       => true,
+                'entity'                     => 'article',
+                'model'                      => 'Backpack\NewsCRUD\app\Models\Article',
+                'attribute'                  => 'title',
+                'group_by'                   => 'category', // the relationship to entity you want to use for grouping
+                'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'tab'                        => 'Relationships',
+                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
             ],
             [   // select_grouped
-                'label' => 'Select2_grouped',
-                'type' => 'select2_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
-                'name' => 'select2_grouped_id',
-                'fake' => true,
-                'entity' => 'article',
-                'attribute' => 'title',
-                'group_by' => 'category', // the relationship to entity you want to use for grouping
-                'group_by_attribute' => 'name', // the attribute on related model, that you want shown
+                'label'                      => 'Select2_grouped',
+                'type'                       => 'select2_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
+                'name'                       => 'select2_grouped_id',
+                'fake'                       => true,
+                'entity'                     => 'article',
+                'attribute'                  => 'title',
+                'group_by'                   => 'category', // the relationship to entity you want to use for grouping
+                'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'tab'                        => 'Relationships',
+                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
             ],
             [ // select2_from_ajax: 1-n relationship
-                'label'                => "Select2_from_ajax", // Table column heading
+                'label'                => 'Select2_from_ajax', // Table column heading
                 'type'                 => 'select2_from_ajax',
                 'name'                 => 'select2_from_ajax', // the column that contains the ID of that connected entity;
                 'entity'               => 'article', // the method that defines the relationship in your Model
@@ -694,7 +694,7 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             [ // Select2_from_ajax_multiple: n-n relationship with pivot table
-                'label'                => "Select2_from_ajax_multiple", // Table column heading
+                'label'                => 'Select2_from_ajax_multiple', // Table column heading
                 'type'                 => 'select2_from_ajax_multiple',
                 'name'                 => 'articles', // the column that contains the ID of that connected entity;
                 'entity'               => 'articles', // the method that defines the relationship in your Model
@@ -729,16 +729,16 @@ class MonsterCrudController extends CrudController
                 'model'     => "Backpack\PermissionManager\app\Models\Role",
                 'pivot'     => true,
                 'tab'       => 'Relationships',
-            ]
+            ],
         ];
     }
 
-    public static function getFieldsArrayForSelectsTab() 
+    public static function getFieldsArrayForSelectsTab()
     {
         // -----------------
         // SELECTS tab
         // -----------------
-        
+
         return [
             [ // CustomHTML
                 'name'  => 'select_heading',
@@ -783,11 +783,11 @@ class MonsterCrudController extends CrudController
                 ],
                 'fake' => true,
                 'tab'  => 'Selects',
-            ]
+            ],
         ];
     }
 
-    public static function getFieldsArrayForUploadsTab() 
+    public static function getFieldsArrayForUploadsTab()
     {
         // -----------------
         // UPLOADS tab
@@ -869,12 +869,12 @@ class MonsterCrudController extends CrudController
         return $fields;
     }
 
-    public static function getFieldsArrayForBigTextsTab() 
+    public static function getFieldsArrayForBigTextsTab()
     {
         // -----------------
         // BIG TEXTS tab
         // -----------------
-        
+
         return [
             [   // SimpleMDE
                 'name'  => 'simplemde',
@@ -906,16 +906,16 @@ class MonsterCrudController extends CrudController
                 'label' => 'TinyMCE',
                 'type'  => 'tinymce',
                 'tab'   => 'Big texts',
-            ]
+            ],
         ];
     }
 
-    public static function getFieldsArrayForMiscellaneousTab() 
+    public static function getFieldsArrayForMiscellaneousTab()
     {
         // -----------------
         // MISCELLANEOUS tab
         // -----------------
-        
+
         return [
             [   // Color
                 'name'  => 'color',
@@ -994,8 +994,7 @@ class MonsterCrudController extends CrudController
                 'type'  => 'url',
                 'label' => 'URL',
                 'tab'   => 'Miscellaneous',
-            ]
+            ],
         ];
     }
-
 }

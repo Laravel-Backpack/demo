@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\DummyRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
-use App\Http\Controllers\Admin\MonsterCrudController;
+use Illuminate\Support\Str;
 
 /**
  * Class DummyCrudController.
@@ -145,7 +144,7 @@ class DummyCrudController extends CrudController
         ];
 
         foreach ($groups as $groupKey => $fields) {
-            $groups[$groupKey] = Arr::where($fields, function($field) use ($excludedFieldTypes) {
+            $groups[$groupKey] = Arr::where($fields, function ($field) use ($excludedFieldTypes) {
                 return !in_array($field['type'], $excludedFieldTypes);
             });
         }
