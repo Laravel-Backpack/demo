@@ -14,11 +14,11 @@ class ArticleController extends Controller
     {
         $search_term = $request->input('q');
         $keys = $request->input('keys');
-        
+
         if ($keys) {
             // since we're also using this API endpoint inside a repeatable field
             // we take that into account, and if "keys" was passed we just
-            // find and return those entries  
+            // find and return those entries
             if (is_string($keys)) {
                 $keys = explode(',', $keys);
             }
@@ -28,8 +28,7 @@ class ArticleController extends Controller
             } else {
                 return Article::find($keys);
             }
-        }
-        elseif ($search_term) {
+        } elseif ($search_term) {
             $results = Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
         } else {
             $results = Article::paginate(10);
