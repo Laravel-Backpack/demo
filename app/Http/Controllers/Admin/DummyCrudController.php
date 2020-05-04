@@ -20,6 +20,7 @@ class DummyCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     public function setup()
     {
@@ -27,6 +28,22 @@ class DummyCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/dummy');
         $this->crud->setEntityNameStrings('dummy', 'dummies');
     }
+
+    public function fetchProduct()
+    {
+        return $this->fetch(\App\Models\Product::class);
+    }
+
+    public function fetchProducts()
+    {
+        return $this->fetch(\App\Models\Product::class);
+    }
+
+    public function fetchIcon()
+    {
+        return $this->fetch(\App\Models\Icon::class);
+    }
+
 
     protected function setupListOperation()
     {
@@ -148,8 +165,6 @@ class DummyCrudController extends CrudController
         $excludedFieldTypes = [
             'address', // TODO
             'address_google', // TODO
-            'relationship', // TODO
-
             'checklist_dependency', // only available in PermissionManager package
             'custom_html', // this works (of course), it's only used for heading, but the page looks better without them
             'enum', // doesn't make sense inside repeatable
