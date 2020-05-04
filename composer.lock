@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "400bb8827bb02fc8b6ad2d6502e3710afcb57936"
+                "reference": "00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/400bb8827bb02fc8b6ad2d6502e3710afcb57936",
-                "reference": "400bb8827bb02fc8b6ad2d6502e3710afcb57936",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9",
+                "reference": "00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-04T08:32:55+00:00"
+            "time": "2020-05-04T11:00:14+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -7760,9 +7760,9 @@
             "alias_normalized": "4.1.0.0",
             "version": "4.1.9999999.9999999-dev",
             "package": "backpack/crud"
-            "alias": "4.0.0",
         },
         {
+            "alias": "4.0.0",
             "alias_normalized": "4.0.0.0",
             "version": "dev-^4.0|4.1.x",
             "package": "backpack/logmanager"
