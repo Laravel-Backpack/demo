@@ -136,15 +136,14 @@ class DummyCrudController extends CrudController
         $excludedFieldTypes = [
             'address', // TODO
             'address_google', // TODO
-            'checklist_dependency', // only available in PermissionManager package
-            'enum', // doesn't make sense inside repeatable
-            'page_or_link', // only available in PageManager pacakge
             'relationship', // TODO
-            'select_grouped',  // TODO
-            'select2_grouped', // TODO
-            'select2_grouped', // TODO
             'select2_from_ajax', // TODO
             'select2_from_ajax_multiple', // TODO
+
+            'checklist_dependency', // only available in PermissionManager package
+            'custom_html', // this works (of course), it's only used for heading, but the page looks better without them
+            'enum', // doesn't make sense inside repeatable
+            'page_or_link', // only available in PageManager package
             'upload', // currently impossible to make it work inside repeatable;
             'upload_multiple',  // currently impossible to make it work inside repeatable;
         ];

@@ -603,16 +603,6 @@ class MonsterCrudController extends CrudController
                 'tab'               => 'Relationships',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [    // SELECT2
-                'label'             => 'Select2',
-                'type'              => 'select2',
-                'name'              => 'select2',
-                'entity'            => 'category',
-                'attribute'         => 'name',
-                'model'             => "Backpack\NewsCRUD\app\Models\Category",
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
             [   // select_grouped
                 'label'                      => 'Select_grouped',
                 'type'                       => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
@@ -627,18 +617,40 @@ class MonsterCrudController extends CrudController
                 'tab'                        => 'Relationships',
                 'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
             ],
-            [   // select_grouped
+            [    // SELECT2
+                'label'             => 'Select2',
+                'type'              => 'select2',
+                'name'              => 'select2',
+                'entity'            => 'category',
+                'attribute'         => 'name',
+                'model'             => "Backpack\NewsCRUD\app\Models\Category",
+                'tab'               => 'Relationships',
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+            ],
+            [   // select2_grouped
                 'label'                      => 'Select2_grouped',
                 'type'                       => 'select2_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
                 'name'                       => 'select2_grouped_id',
                 'fake'                       => true,
                 'entity'                     => 'article',
+                'model'                      => 'Backpack\NewsCRUD\app\Models\Article',
                 'attribute'                  => 'title',
                 'group_by'                   => 'category', // the relationship to entity you want to use for grouping
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
                 'tab'                        => 'Relationships',
-                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
+            ],
+            [   // select2_nested
+                'name' => 'select2_nested_id',
+                'label' => "Select2_nested",
+                'type' => 'select2_nested',
+                'fake' => true,
+                'entity' => 'category', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model' => "Backpack\NewsCRUD\app\Models\Category", // force foreign key model
+                'tab'                        => 'Relationships',
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [ // select2_from_ajax: 1-n relationship
                 'label'                => 'Select2_from_ajax', // Table column heading
