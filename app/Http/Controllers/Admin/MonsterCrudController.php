@@ -27,6 +27,11 @@ class MonsterCrudController extends CrudController
         return $this->fetch(\App\Models\Product::class);
     }
 
+    public function fetchProducts()
+    {
+        return $this->fetch(\App\Models\Product::class);
+    }
+
     public function fetchIcon()
     {
         return $this->fetch(\App\Models\Icon::class);
@@ -570,7 +575,7 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Time and space',
             ],
             [   // Address
-                'name'  => 'address',
+                'name'  => 'address_field',
                 'label' => 'Address (Algolia Places search)',
                 'type'  => 'address',
                 // optional
@@ -587,6 +592,9 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         return [
+            // -----------------
+            // 1-n relationships
+            // -----------------
             [   // CustomHTML
                 'name'  => 'select_1_n_heading',
                 'type'  => 'custom_html',
@@ -676,6 +684,9 @@ class MonsterCrudController extends CrudController
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
+            // -----------------
+            // n-n relationships
+            // -----------------
             [   // CustomHTML
                 'name'  => 'select_n_n_heading',
                 'type'  => 'custom_html',
@@ -742,6 +753,40 @@ class MonsterCrudController extends CrudController
                 'pivot'     => true,
                 'tab'       => 'Relationships',
             ],
+            // -----------------
+            // 1-1 relationships
+            // -----------------
+            [   // CustomHTML
+                'name'  => 'select_1_1_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne) <span class="badge badge-warning">New in 4.1</span></h5> ',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.street',
+                'label'   => 'Address.street (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.country',
+                'label'   => 'Address.country  (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.icon',
+                'label'   => 'Address.icon  (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+
         ];
     }
 

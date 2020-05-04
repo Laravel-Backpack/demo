@@ -132,6 +132,18 @@ class DummyCrudController extends CrudController
         $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
 
+        // eliminate fields that have 1-n relationships
+        // (determined by the fact that their names use dot notation)
+        foreach ($groups as $groupKey => $fields) {
+            $groups[$groupKey] = Arr::where($fields, function ($field) {
+                if (!is_string($field['name'])) {
+                    return true;
+                }
+
+                return strpos($field['name'], '.') == 0;
+            });
+        }
+
         // some fields do not make sense, or do not work inside repeatable, so let's exclude them
         $excludedFieldTypes = [
             'address', // TODO
