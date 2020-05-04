@@ -131,7 +131,7 @@ class DummyCrudController extends CrudController
         $groups['uploads'] = MonsterCrudController::getFieldsArrayForUploadsTab();
         $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
-        
+
         // eliminate fields that have 1-n relationships
         // (determined by the fact that their names use dot notation)
         foreach ($groups as $groupKey => $fields) {
@@ -140,7 +140,7 @@ class DummyCrudController extends CrudController
                     return true;
                 }
 
-                return strpos($field['name'], ".") == 0; 
+                return strpos($field['name'], '.') == 0;
             });
         }
 
