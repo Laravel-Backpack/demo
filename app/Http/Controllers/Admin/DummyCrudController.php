@@ -175,6 +175,9 @@ class DummyCrudController extends CrudController
 
         foreach ($groups as $groupKey => $fields) {
             $groups[$groupKey] = Arr::where($fields, function ($field) use ($excludedFieldTypes) {
+                if(!isset($field['type'])) {
+                    $field['type'] = 'relationship';
+                } 
                 return !in_array($field['type'], $excludedFieldTypes);
             });
         }

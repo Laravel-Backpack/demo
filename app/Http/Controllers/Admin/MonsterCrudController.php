@@ -684,6 +684,13 @@ class MonsterCrudController extends CrudController
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
+            [    // Relationship
+                'label'     => 'Relationship (no AJAX && infered attributes) <span class="badge badge-warning">New in 4.1</span>',
+                'name'      => 'icon',
+                'tab'           => 'Relationships',
+                // 'data_source' => backpack_url('monster/fetch/icon'),
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
             // -----------------
             // n-n relationships
             // -----------------
