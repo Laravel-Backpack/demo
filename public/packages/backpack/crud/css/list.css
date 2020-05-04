@@ -87,7 +87,8 @@
 	}
 
 	div.dataTables_wrapper div.dataTables_length select {
-		width: auto;
+		min-width: 3.6rem;
+		margin-right: 0.4rem;
 	}
 
 
