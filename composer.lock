@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "71cff08a82f925f014e815d2daa9190b6f2e5f5f"
+                "reference": "400bb8827bb02fc8b6ad2d6502e3710afcb57936"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/71cff08a82f925f014e815d2daa9190b6f2e5f5f",
-                "reference": "71cff08a82f925f014e815d2daa9190b6f2e5f5f",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/400bb8827bb02fc8b6ad2d6502e3710afcb57936",
+                "reference": "400bb8827bb02fc8b6ad2d6502e3710afcb57936",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-03T10:11:29+00:00"
+            "time": "2020-05-04T08:32:55+00:00"
         },
         {
             "name": "backpack/filemanager",
