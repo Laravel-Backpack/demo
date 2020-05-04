@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Dummy extends Model
 {
     use CrudTrait;
+    use HasRoles;
 
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +39,16 @@ class Dummy extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function article()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
+    }
 
     /*
     |--------------------------------------------------------------------------
