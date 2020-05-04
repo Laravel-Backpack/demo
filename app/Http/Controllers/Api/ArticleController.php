@@ -14,27 +14,17 @@ class ArticleController extends Controller
     {
         $search_term = $request->input('q');
         $keys = $request->input('keys');
-
-        if ($keys) {
-            // since we're also using this API endpoint inside a repeatable field
-            // we take that into account, and if "keys" was passed we just
-            // find and return those entries
-            if (is_string($keys)) {
-                $keys = explode(',', $keys);
-            }
-
-            if (is_array($keys) && count($keys) > 1) {
-                return Article::findMany($keys);
-            } else {
-                return Article::find($keys);
-            }
-        } elseif ($search_term) {
-            $results = Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
-        } else {
-            $results = Article::paginate(10);
+        
+        // keys are present when select2_from_ajax fields are initialized inside a repeatable field
+        if ($keys) { 
+            return Article::findMany($keys);
         }
 
-        return $results;
+        if ($search_term) {
+            return Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
+        } else {
+            return Article::paginate(10);
+        }
     }
 
     // used by the select2_from_ajax FILTER
@@ -46,10 +36,4 @@ class ArticleController extends Controller
 
         return $options;
     }
-
-    // No idea why or if this was ever used. If nobody cries we can remove it.
-    // public function show($id)
-    // {
-    //     return Article::find($id);
-    // }
 }
