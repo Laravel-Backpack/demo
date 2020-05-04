@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "56ffddd5f39bc418d348194bb683f07fc6b2d25b"
+                "reference": "71cff08a82f925f014e815d2daa9190b6f2e5f5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/56ffddd5f39bc418d348194bb683f07fc6b2d25b",
-                "reference": "56ffddd5f39bc418d348194bb683f07fc6b2d25b",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/71cff08a82f925f014e815d2daa9190b6f2e5f5f",
+                "reference": "71cff08a82f925f014e815d2daa9190b6f2e5f5f",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-03T08:03:49+00:00"
+            "time": "2020-05-03T10:11:29+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -3312,16 +3312,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.10.3",
+            "version": "v0.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "2bde2fa03e05dff0aee834598b951d6fc7c6fe02"
+                "reference": "a8aec1b2981ab66882a01cce36a49b6317dc3560"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/2bde2fa03e05dff0aee834598b951d6fc7c6fe02",
-                "reference": "2bde2fa03e05dff0aee834598b951d6fc7c6fe02",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/a8aec1b2981ab66882a01cce36a49b6317dc3560",
+                "reference": "a8aec1b2981ab66882a01cce36a49b6317dc3560",
                 "shasum": ""
             },
             "require": {
@@ -3380,7 +3380,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2020-04-07T06:44:48+00:00"
+            "time": "2020-05-03T19:32:03+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
