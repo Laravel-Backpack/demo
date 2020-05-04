@@ -28,7 +28,7 @@
     <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> 
             4.1 
-            <span class="badge badge-pill badge-warning ml-2">beta</span>
+            <span class="badge badge-pill badge-warning ml-2">New</span>
         </a>
         <div class="dropdown-menu">
             <div class="dropdown-header"><strong>Documentation</strong></div>

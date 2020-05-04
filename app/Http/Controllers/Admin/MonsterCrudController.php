@@ -26,9 +26,10 @@ class MonsterCrudController extends CrudController
     {
         return $this->fetch(\App\Models\Product::class);
     }
+
     public function fetchProducts()
     {
-        return $this->fetchProduct();
+        return $this->fetch(\App\Models\Product::class);
     }
 
     public function fetchIcon()
@@ -531,7 +532,7 @@ class MonsterCrudController extends CrudController
             ],
             [   // Date
                 'name'  => 'date_picker',
-                'label' => 'Date (jQuery plugin)',
+                'label' => 'Date picker (jQuery plugin)',
                 'type'  => 'date_picker',
                 // optional:
                 'date_picker_options' => [
@@ -574,7 +575,7 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Time and space',
             ],
             [   // Address
-                'name'  => 'address',
+                'name'  => 'address_field',
                 'label' => 'Address (Algolia Places search)',
                 'type'  => 'address',
                 // optional
@@ -591,6 +592,9 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         return [
+            // -----------------
+            // 1-n relationships
+            // -----------------
             [   // CustomHTML
                 'name'  => 'select_1_n_heading',
                 'type'  => 'custom_html',
@@ -601,16 +605,6 @@ class MonsterCrudController extends CrudController
                 'label'             => 'Select',
                 'type'              => 'select',
                 'name'              => 'select',
-                'entity'            => 'category',
-                'attribute'         => 'name',
-                'model'             => "Backpack\NewsCRUD\app\Models\Category",
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [    // SELECT2
-                'label'             => 'Select2',
-                'type'              => 'select2',
-                'name'              => 'select2',
                 'entity'            => 'category',
                 'attribute'         => 'name',
                 'model'             => "Backpack\NewsCRUD\app\Models\Category",
@@ -631,18 +625,40 @@ class MonsterCrudController extends CrudController
                 'tab'                        => 'Relationships',
                 'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
             ],
-            [   // select_grouped
+            [    // SELECT2
+                'label'             => 'Select2',
+                'type'              => 'select2',
+                'name'              => 'select2',
+                'entity'            => 'category',
+                'attribute'         => 'name',
+                'model'             => "Backpack\NewsCRUD\app\Models\Category",
+                'tab'               => 'Relationships',
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+            ],
+            [   // select2_grouped
                 'label'                      => 'Select2_grouped',
                 'type'                       => 'select2_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
                 'name'                       => 'select2_grouped_id',
                 'fake'                       => true,
                 'entity'                     => 'article',
+                'model'                      => 'Backpack\NewsCRUD\app\Models\Article',
                 'attribute'                  => 'title',
                 'group_by'                   => 'category', // the relationship to entity you want to use for grouping
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
                 'tab'                        => 'Relationships',
-                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
+            ],
+            [   // select2_nested
+                'name'                       => 'select2_nested_id',
+                'label'                      => 'Select2_nested',
+                'type'                       => 'select2_nested',
+                'fake'                       => true,
+                'entity'                     => 'category', // the method that defines the relationship in your Model
+                'attribute'                  => 'name', // foreign key attribute that is shown to user
+                'model'                      => "Backpack\NewsCRUD\app\Models\Category", // force foreign key model
+                'tab'                        => 'Relationships',
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [ // select2_from_ajax: 1-n relationship
                 'label'                => 'Select2_from_ajax', // Table column heading
@@ -668,6 +684,9 @@ class MonsterCrudController extends CrudController
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
+            // -----------------
+            // n-n relationships
+            // -----------------
             [   // CustomHTML
                 'name'  => 'select_n_n_heading',
                 'type'  => 'custom_html',
@@ -734,6 +753,40 @@ class MonsterCrudController extends CrudController
                 'pivot'     => true,
                 'tab'       => 'Relationships',
             ],
+            // -----------------
+            // 1-1 relationships
+            // -----------------
+            [   // CustomHTML
+                'name'  => 'select_1_1_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne) <span class="badge badge-warning">New in 4.1</span></h5> ',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.street',
+                'label'   => 'Address.street (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.country',
+                'label'   => 'Address.country  (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'address.icon',
+                'label'   => 'Address.icon  (auto-detected field type)',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+
         ];
     }
 
@@ -881,12 +934,6 @@ class MonsterCrudController extends CrudController
 
         return [
             [   // SimpleMDE
-                'name'  => 'simplemde',
-                'label' => 'SimpleMDE - JS library works but is unmaintained',
-                'type'  => 'easymde',
-                'tab'   => 'Big texts',
-            ],
-            [   // SimpleMDE
                 'name'  => 'easymde',
                 'label' => 'EasyMDE - markdown editor (well-maintained fork of SimpleMDE)',
                 'type'  => 'easymde',
@@ -909,6 +956,12 @@ class MonsterCrudController extends CrudController
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE',
                 'type'  => 'tinymce',
+                'tab'   => 'Big texts',
+            ],
+            [   // SimpleMDE
+                'name'  => 'simplemde',
+                'label' => 'SimpleMDE',
+                'type'  => 'easymde',
                 'tab'   => 'Big texts',
             ],
         ];

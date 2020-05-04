@@ -40,6 +40,16 @@ class Dummy extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function article()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
