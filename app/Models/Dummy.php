@@ -74,6 +74,7 @@ class Dummy extends Model
     {
         return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article', 'monster_id', 'article_id');
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

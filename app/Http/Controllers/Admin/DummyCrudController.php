@@ -44,7 +44,6 @@ class DummyCrudController extends CrudController
         return $this->fetch(\App\Models\Icon::class);
     }
 
-
     protected function setupListOperation()
     {
         CRUD::addColumn('name');
