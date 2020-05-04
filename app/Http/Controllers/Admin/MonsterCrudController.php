@@ -642,13 +642,13 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [   // select2_nested
-                'name' => 'select2_nested_id',
-                'label' => "Select2_nested",
-                'type' => 'select2_nested',
-                'fake' => true,
-                'entity' => 'category', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => "Backpack\NewsCRUD\app\Models\Category", // force foreign key model
+                'name'                       => 'select2_nested_id',
+                'label'                      => 'Select2_nested',
+                'type'                       => 'select2_nested',
+                'fake'                       => true,
+                'entity'                     => 'category', // the method that defines the relationship in your Model
+                'attribute'                  => 'name', // foreign key attribute that is shown to user
+                'model'                      => "Backpack\NewsCRUD\app\Models\Category", // force foreign key model
                 'tab'                        => 'Relationships',
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],

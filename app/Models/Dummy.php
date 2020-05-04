@@ -49,7 +49,7 @@ class Dummy extends Model
     {
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
     }
-    
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
