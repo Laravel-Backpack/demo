@@ -527,7 +527,7 @@ class MonsterCrudController extends CrudController
             ],
             [   // Date
                 'name'  => 'date_picker',
-                'label' => 'Date (jQuery plugin)',
+                'label' => 'Date picker (jQuery plugin)',
                 'type'  => 'date_picker',
                 // optional:
                 'date_picker_options' => [
@@ -889,12 +889,6 @@ class MonsterCrudController extends CrudController
 
         return [
             [   // SimpleMDE
-                'name'  => 'simplemde',
-                'label' => 'SimpleMDE - JS library works but is unmaintained',
-                'type'  => 'easymde',
-                'tab'   => 'Big texts',
-            ],
-            [   // SimpleMDE
                 'name'  => 'easymde',
                 'label' => 'EasyMDE - markdown editor (well-maintained fork of SimpleMDE)',
                 'type'  => 'easymde',
@@ -917,6 +911,12 @@ class MonsterCrudController extends CrudController
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE',
                 'type'  => 'tinymce',
+                'tab'   => 'Big texts',
+            ],
+            [   // SimpleMDE
+                'name'  => 'simplemde',
+                'label' => 'SimpleMDE',
+                'type'  => 'easymde',
                 'tab'   => 'Big texts',
             ],
         ];

@@ -137,8 +137,6 @@ class DummyCrudController extends CrudController
             'address', // TODO
             'address_google', // TODO
             'relationship', // TODO
-            'select2_from_ajax', // TODO
-            'select2_from_ajax_multiple', // TODO
 
             'checklist_dependency', // only available in PermissionManager package
             'custom_html', // this works (of course), it's only used for heading, but the page looks better without them

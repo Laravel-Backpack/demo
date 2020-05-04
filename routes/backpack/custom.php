@@ -8,7 +8,9 @@
 
 Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
-Route::get('api/article/{id}', 'App\Http\Controllers\Api\ArticleController@show');
+
+// No idea why or if this was ever used. If nobody cries we can remove it.
+// Route::get('api/article/{id}', 'App\Http\Controllers\Api\ArticleController@show');
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
