@@ -14,9 +14,9 @@ class ArticleController extends Controller
     {
         $search_term = $request->input('q');
         $keys = $request->input('keys');
-        
+
         // keys are present when select2_from_ajax fields are initialized inside a repeatable field
-        if ($keys) { 
+        if ($keys) {
             return Article::findMany($keys);
         }
 
