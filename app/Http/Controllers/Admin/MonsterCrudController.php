@@ -593,6 +593,79 @@ class MonsterCrudController extends CrudController
 
         return [
             // -----------------
+            // n-n relationships
+            // -----------------
+            [   // CustomHTML
+                'name'  => 'select_n_n_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
+                'tab'   => 'Relationships',
+            ],
+            [       // Select_Multiple = n-n relationship
+                'label'     => 'Select_multiple',
+                'type'      => 'select_multiple',
+                'name'      => 'tags', // the method that defines the relationship in your Model
+                'entity'    => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'       => 'Relationships',
+                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
+            ],
+            [       // Select2Multiple = n-n relationship (with pivot table)
+                'label'             => 'Select2_multiple',
+                'type'              => 'select2_multiple',
+                'name'              => 'categories', // the method that defines the relationship in your Model
+                'entity'            => 'categories', // the method that defines the relationship in your Model
+                'attribute'         => 'name', // foreign key attribute that is shown to user
+                'model'             => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
+                'allows_null'       => true,
+                'pivot'             => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'               => 'Relationships',
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+            [ // Select2_from_ajax_multiple: n-n relationship with pivot table
+                'label'                => 'Select2_from_ajax_multiple', // Table column heading
+                'type'                 => 'select2_from_ajax_multiple',
+                'name'                 => 'articles', // the column that contains the ID of that connected entity;
+                'entity'               => 'articles', // the method that defines the relationship in your Model
+                'attribute'            => 'title', // foreign key attribute that is shown to user
+                'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
+                'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'placeholder'          => 'Select one or more articles', // placeholder for the select
+                'minimum_input_length' => 2, // minimum characters to type before querying results
+                'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'                  => 'Relationships',
+                'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+            ],
+            [    // Relationship
+                'label'     => 'Relationship (also uses InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
+                'type'      => 'relationship',
+                'name'      => 'products',
+                'entity'    => 'products',
+                // 'attribute' => 'name',
+                'tab'       => 'Relationships',
+                'ajax'      => true,
+                // 'inline_create' => true, // TODO: make it work like this too
+                'inline_create'     => [
+                    'entity' => 'product',
+                    'modal_class' => 'modal-dialog modal-xl',
+                ],
+                'data_source'       => backpack_url('monster/fetch/product'),
+                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
+            ],
+            [
+                'label'     => 'Checklist',
+                'type'      => 'checklist',
+                'name'      => 'roles',
+                'entity'    => 'roles',
+                'attribute' => 'name',
+                'model'     => "Backpack\PermissionManager\app\Models\Role",
+                'pivot'     => true,
+                'tab'       => 'Relationships',
+            ],
+
+            // -----------------
             // 1-n relationships
             // -----------------
             [   // CustomHTML
@@ -685,81 +758,12 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             // -----------------
-            // n-n relationships
-            // -----------------
-            [   // CustomHTML
-                'name'  => 'select_n_n_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
-                'tab'   => 'Relationships',
-            ],
-            [       // Select_Multiple = n-n relationship
-                'label'     => 'Select_multiple',
-                'type'      => 'select_multiple',
-                'name'      => 'tags', // the method that defines the relationship in your Model
-                'entity'    => 'tags', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'       => 'Relationships',
-                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
-            ],
-            [       // Select2Multiple = n-n relationship (with pivot table)
-                'label'             => 'Select2_multiple',
-                'type'              => 'select2_multiple',
-                'name'              => 'categories', // the method that defines the relationship in your Model
-                'entity'            => 'categories', // the method that defines the relationship in your Model
-                'attribute'         => 'name', // foreign key attribute that is shown to user
-                'model'             => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
-                'allows_null'       => true,
-                'pivot'             => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [ // Select2_from_ajax_multiple: n-n relationship with pivot table
-                'label'                => 'Select2_from_ajax_multiple', // Table column heading
-                'type'                 => 'select2_from_ajax_multiple',
-                'name'                 => 'articles', // the column that contains the ID of that connected entity;
-                'entity'               => 'articles', // the method that defines the relationship in your Model
-                'attribute'            => 'title', // foreign key attribute that is shown to user
-                'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
-                'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
-                'placeholder'          => 'Select one or more articles', // placeholder for the select
-                'minimum_input_length' => 2, // minimum characters to type before querying results
-                'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'                  => 'Relationships',
-                'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
-            ],
-            [    // Relationship
-                'label'     => 'Relationship (also uses InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
-                'type'      => 'relationship',
-                'name'      => 'products',
-                'entity'    => 'products',
-                // 'attribute' => 'name',
-                'tab'       => 'Relationships',
-                'ajax'      => true,
-                // 'inline_create' => true, // TODO: make it work like this too
-                'inline_create'     => ['entity' => 'product'],
-                'data_source'       => backpack_url('monster/fetch/product'),
-                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
-            ],
-            [
-                'label'     => 'Checklist',
-                'type'      => 'checklist',
-                'name'      => 'roles',
-                'entity'    => 'roles',
-                'attribute' => 'name',
-                'model'     => "Backpack\PermissionManager\app\Models\Role",
-                'pivot'     => true,
-                'tab'       => 'Relationships',
-            ],
-            // -----------------
             // 1-1 relationships
             // -----------------
             [   // CustomHTML
                 'name'  => 'select_1_1_heading',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne) <span class="badge badge-warning">New in 4.1</span></h5> ',
+                'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne)</h5> ',
                 'tab'   => 'Relationships',
             ],
             [
