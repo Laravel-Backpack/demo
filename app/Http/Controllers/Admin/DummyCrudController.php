@@ -174,7 +174,7 @@ class DummyCrudController extends CrudController
                     return false;
                 }
 
-                // if no field type was set, the system will probably use text, number or relationship 
+                // if no field type was set, the system will probably use text, number or relationship
                 // and all of those are fine, they work well inside repeatable fields
                 if (!isset($field['type'])) {
                     return true;
