@@ -648,7 +648,7 @@ class MonsterCrudController extends CrudController
                 'ajax'      => true,
                 // 'inline_create' => true, // TODO: make it work like this too
                 'inline_create'     => [
-                    'entity' => 'product',
+                    'entity'      => 'product',
                     'modal_class' => 'modal-dialog modal-xl',
                 ],
                 'data_source'       => backpack_url('monster/fetch/product'),
