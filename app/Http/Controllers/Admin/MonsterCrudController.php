@@ -744,7 +744,7 @@ class MonsterCrudController extends CrudController
                 'placeholder'          => 'Select an article', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'tab'                  => 'Relationships',
-                'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes'    => ['class' => 'form-group col-md-12'],
             ],
             [    // Relationship
                 'label'     => 'Relationship (no AJAX; also uses InlineCreate) <span class="badge badge-warning">New in 4.1</span>',
@@ -754,6 +754,13 @@ class MonsterCrudController extends CrudController
                 'attribute'     => 'name',
                 'tab'           => 'Relationships',
                 'inline_create' => true, // TODO: make this work
+                // 'data_source' => backpack_url('monster/fetch/icon'),
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+            [    // Relationship
+                'label'         => 'Relationship (no AJAX, inferred attributes) <span class="badge badge-warning">New in 4.1</span>',
+                'name'          => 'icon',
+                'tab'           => 'Relationships',
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
