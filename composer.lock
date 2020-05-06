@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9"
+                "reference": "730f2fbbc7bf4df969d62b85e31740f3cfdc66a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9",
-                "reference": "00150a6e5c7e527d2f3121730dcf8ed4dcc2b6b9",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/730f2fbbc7bf4df969d62b85e31740f3cfdc66a6",
+                "reference": "730f2fbbc7bf4df969d62b85e31740f3cfdc66a6",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,6 @@
                 "doctrine/dbal": "^2.5",
                 "guzzlehttp/guzzle": "^6.3",
                 "laravel/framework": "^7.0|^6.0",
-                "nesbot/carbon": "^2.14",
                 "ocramius/package-versions": "^1.4",
                 "prologue/alerts": "^0.4.1"
             },
@@ -152,7 +151,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-04T11:00:14+00:00"
+            "time": "2020-05-06T12:43:31+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -1847,16 +1846,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.7.1",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130"
+                "reference": "17d0d3f266c8f925ebd035cd36f83cf802b47d4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
-                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/17d0d3f266c8f925ebd035cd36f83cf802b47d4a",
+                "reference": "17d0d3f266c8f925ebd035cd36f83cf802b47d4a",
                 "shasum": ""
             },
             "require": {
@@ -1904,7 +1903,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2020-01-15T10:00:00+00:00"
+            "time": "2020-05-05T12:28:07+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2167,16 +2166,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v7.9.2",
+            "version": "v7.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "757b155658ae6da429065ba8f22242fe599824f7"
+                "reference": "4110965660ffc459206a5f1e5c3b40354347cd08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/757b155658ae6da429065ba8f22242fe599824f7",
-                "reference": "757b155658ae6da429065ba8f22242fe599824f7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4110965660ffc459206a5f1e5c3b40354347cd08",
+                "reference": "4110965660ffc459206a5f1e5c3b40354347cd08",
                 "shasum": ""
             },
             "require": {
@@ -2315,7 +2314,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-04-28T16:09:20+00:00"
+            "time": "2020-05-05T22:17:38+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2383,16 +2382,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31"
+                "reference": "412639f7cfbc0b31ad2455b2fe965095f66ae505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9e780d972185e4f737a03bade0fd34a9e67bbf31",
-                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/412639f7cfbc0b31ad2455b2fe965095f66ae505",
+                "reference": "412639f7cfbc0b31ad2455b2fe965095f66ae505",
                 "shasum": ""
             },
             "require": {
@@ -2453,7 +2452,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-04-24T13:39:56+00:00"
+            "time": "2020-05-04T22:15:21+00:00"
         },
         {
             "name": "league/flysystem",
@@ -5668,16 +5667,16 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.3.2",
+            "version": "v3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "95c31aab33689cd4572d27038186886f4bfa63ae"
+                "reference": "57f2219f6d9efe41ed1bc880d86701c52f261bf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/95c31aab33689cd4572d27038186886f4bfa63ae",
-                "reference": "95c31aab33689cd4572d27038186886f4bfa63ae",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/57f2219f6d9efe41ed1bc880d86701c52f261bf5",
+                "reference": "57f2219f6d9efe41ed1bc880d86701c52f261bf5",
                 "shasum": ""
             },
             "require": {
@@ -5732,7 +5731,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2020-04-16T20:19:40+00:00"
+            "time": "2020-05-05T10:53:32+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -6000,16 +5999,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.16.2",
+            "version": "v1.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "40f375504a4dd8e59f779c3f3cac524777ddcde5"
+                "reference": "1a1605b8e9bacb34cc0c6278206d699772e1d372"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/40f375504a4dd8e59f779c3f3cac524777ddcde5",
-                "reference": "40f375504a4dd8e59f779c3f3cac524777ddcde5",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/1a1605b8e9bacb34cc0c6278206d699772e1d372",
+                "reference": "1a1605b8e9bacb34cc0c6278206d699772e1d372",
                 "shasum": ""
             },
             "require": {
@@ -6057,7 +6056,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2020-04-16T09:05:52+00:00"
+            "time": "2020-05-06T07:06:27+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -6749,16 +6748,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "b2560a0c33f7710e4d7f8780964193e8e8f8effe"
+                "reference": "cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/b2560a0c33f7710e4d7f8780964193e8e8f8effe",
-                "reference": "b2560a0c33f7710e4d7f8780964193e8e8f8effe",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c",
+                "reference": "cdc0db5aed8fbfaf475fbd95bfd7bab83c7a779c",
                 "shasum": ""
             },
             "require": {
@@ -6794,7 +6793,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2020-02-07T06:19:00+00:00"
+            "time": "2020-05-06T09:56:31+00:00"
         },
         {
             "name": "phpunit/phpunit",
