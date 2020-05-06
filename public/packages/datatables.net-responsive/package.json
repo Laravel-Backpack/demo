@@ -1,28 +1,33 @@
 {
-  "_from": "datatables.net-responsive@^2.2.3",
+  "_args": [
+    [
+      "datatables.net-responsive@2.2.3",
+      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
+    ]
+  ],
+  "_from": "datatables.net-responsive@2.2.3",
   "_id": "datatables.net-responsive@2.2.3",
   "_inBundle": false,
   "_integrity": "sha512-8D6VtZcyuH3FG0Hn5A4LPZQEOX3+HrRFM7HjpmsQc/nQDBbdeBLkJX4Sh/o1nzFTSneuT1Wh/lYZHVPpjcN+Sw==",
   "_location": "/datatables.net-responsive",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "datatables.net-responsive@^2.2.3",
+    "raw": "datatables.net-responsive@2.2.3",
     "name": "datatables.net-responsive",
     "escapedName": "datatables.net-responsive",
-    "rawSpec": "^2.2.3",
+    "rawSpec": "2.2.3",
     "saveSpec": null,
-    "fetchSpec": "^2.2.3"
+    "fetchSpec": "2.2.3"
   },
   "_requiredBy": [
     "/",
     "/datatables.net-responsive-bs4"
   ],
   "_resolved": "https://registry.npmjs.org/datatables.net-responsive/-/datatables.net-responsive-2.2.3.tgz",
-  "_shasum": "50a2b1b4955b16b32f573a3f00f473b0bfbee913",
-  "_spec": "datatables.net-responsive@^2.2.3",
-  "_where": "/Users/tabacitu/Sites/backpack-demo-beta2/vendor/backpack/crud",
+  "_spec": "2.2.3",
+  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"
@@ -30,12 +35,10 @@
   "bugs": {
     "url": "https://datatables.net/forums"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "datatables.net": "^1.10.15",
     "jquery": ">=1.7"
   },
-  "deprecated": false,
   "description": "Responsive for DataTables ",
   "files": [
     "js/**/*.js"

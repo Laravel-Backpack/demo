@@ -26,3 +26,7 @@
     color: #73818f;
     font-size: 0.9em;
 }
+
+.nav-tabs .nav-link:hover {
+	border-bottom: none;
+}
