@@ -75,12 +75,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "730f2fbbc7bf4df969d62b85e31740f3cfdc66a6"
+                "reference": "5c3330b83c98d63ef05f1dd1e168c91d5f92bfb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/730f2fbbc7bf4df969d62b85e31740f3cfdc66a6",
-                "reference": "730f2fbbc7bf4df969d62b85e31740f3cfdc66a6",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/5c3330b83c98d63ef05f1dd1e168c91d5f92bfb9",
+                "reference": "5c3330b83c98d63ef05f1dd1e168c91d5f92bfb9",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-06T12:43:31+00:00"
+            "time": "2020-05-06T15:01:42+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -3634,16 +3634,16 @@
         },
         {
             "name": "spatie/db-dumper",
-            "version": "2.16.0",
+            "version": "2.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "7c6d3b7f7191e1549aa5996b8ab371de31eec762"
+                "reference": "56448e8f41d4e8e83babf701d5708b1e597e8ec6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/7c6d3b7f7191e1549aa5996b8ab371de31eec762",
-                "reference": "7c6d3b7f7191e1549aa5996b8ab371de31eec762",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/56448e8f41d4e8e83babf701d5708b1e597e8ec6",
+                "reference": "56448e8f41d4e8e83babf701d5708b1e597e8ec6",
                 "shasum": ""
             },
             "require": {
@@ -3680,7 +3680,7 @@
                 "mysqldump",
                 "spatie"
             ],
-            "time": "2020-04-16T15:10:19+00:00"
+            "time": "2020-05-06T14:32:38+00:00"
         },
         {
             "name": "spatie/laravel-backup",
