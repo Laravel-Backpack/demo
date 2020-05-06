@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Backpack for Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -58,7 +58,7 @@
                 margin-top: 60px;
             }
             a:hover {
-                color: #467fd0;
+                color: #7C69EF;
             }
         </style>
     </head>
@@ -80,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Backpack
+                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo_color.png" alt="Backpack for Laravel">
                 </div>
 
                 <div class="links">
