@@ -36,6 +36,7 @@ return [
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
         'packages/backpack/base/css/bundle.css',
+        'assets/css/backpack_electric_purple_overlay.css',
 
         // Here's what's inside the bundle:
         // 'packages/@digitallyhappy/backstrap/css/style.min.css',
@@ -64,7 +65,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Back</b>pack',
+    'project_logo'   => '<b>Backpack</b>Beta',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -194,7 +195,7 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => App\Models\BackpackUser::class,
+    'user_model_fqn' => App\User::class,
 
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of clases

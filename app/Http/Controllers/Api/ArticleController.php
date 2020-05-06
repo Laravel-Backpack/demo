@@ -8,29 +8,32 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    // used by the select2_from_ajax and select2_fromAjax FIELDS
+    // inside MonsterCrudController, FluentMonsterCrudController and DummyCrudController
     public function index(Request $request)
     {
         $search_term = $request->input('q');
+        $keys = $request->input('keys');
 
-        if ($search_term) {
-            $results = Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
-        } else {
-            $results = Article::paginate(10);
+        // keys are present when select2_from_ajax fields are initialized inside a repeatable field
+        if ($keys) {
+            return Article::findMany($keys);
         }
 
-        return $results;
+        if ($search_term) {
+            return Article::where('title', 'LIKE', '%'.$search_term.'%')->paginate(10);
+        } else {
+            return Article::paginate(10);
+        }
     }
 
+    // used by the select2_from_ajax FILTER
+    // inside MonsterCrudController and FluentMonsterCrudController
     public function search(Request $request)
     {
         $term = $request->input('term');
         $options = Article::where('title', 'like', '%'.$term.'%')->get()->pluck('title', 'id');
 
         return $options;
-    }
-
-    public function show($id)
-    {
-        return Article::find($id);
     }
 }

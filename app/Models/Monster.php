@@ -5,10 +5,12 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
 
 class Monster extends Model
 {
     use CrudTrait;
+    use HasRoles;
 
     /*
     |--------------------------------------------------------------------------
@@ -20,14 +22,14 @@ class Monster extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['address', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'simplemde', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras'];
+    protected $fillable = ['address_field', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'simplemde', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address'         => 'array',
-        'video'           => 'array',
-        'upload_multiple' => 'array',
-        'browse_multiple' => 'array',
+        'address_field'         => 'array',
+        'video'                 => 'array',
+        'upload_multiple'       => 'array',
+        'browse_multiple'       => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array' => 'array',
         // 'select2_from_array' => 'array'
@@ -41,7 +43,7 @@ class Monster extends Model
 
     public function openGoogle($crud = false)
     {
-        return '<a class="btn btn-sm btn-link" target="_blank" href="http://google.com?q='.urlencode($this->text).'" data-toggle="tooltip" title="Just a demo custom button."><i class="fa fa-search"></i> Google it</a>';
+        return '<a class="btn btn-sm btn-link" target="_blank" href="http://google.com?q='.urlencode($this->text).'" data-toggle="tooltip" title="Just a demo custom button."><i class="la la-search"></i> Google it</a>';
     }
 
     public function getCategory()
@@ -57,27 +59,47 @@ class Monster extends Model
 
     public function article()
     {
-        return $this->belongsTo('Backpack\NewsCRUD\app\Models\Article', 'select2_from_ajax');
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
     }
 
     public function articles()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Article', 'monster_article');
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
     }
 
     public function category()
     {
-        return $this->belongsTo('Backpack\NewsCRUD\app\Models\Category', 'select');
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
     }
 
     public function categories()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Category', 'monster_category');
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Category::class, 'monster_category');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Tag', 'monster_tag');
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Tag::class, 'monster_tag');
+    }
+
+    public function icon()
+    {
+        return $this->belongsTo(\App\Models\Icon::class, 'icon_id');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
+    }
+
+    public function address()
+    {
+        return $this->hasOne(\App\Models\Address::class);
+    }
+
+    public function postalboxes()
+    {
+        return $this->hasMany(\App\Models\PostalBox::class);
     }
 
     /*
@@ -136,7 +158,7 @@ class Monster extends Model
         }
 
         // if a base64 was sent, store it in the db
-        if (starts_with($value, 'data:image')) {
+        if (Str::startsWith($value, 'data:image')) {
             // 0. Make the image
             $image = \Image::make($value)->encode('jpg', 90);
 

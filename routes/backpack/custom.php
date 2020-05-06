@@ -8,17 +8,26 @@
 
 Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
-Route::get('api/article/{id}', 'App\Http\Controllers\Api\ArticleController@show');
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
-    // CRUD resources and other admin routes
+    // -----
+    // CRUDs
+    // -----
     Route::crud('monster', 'MonsterCrudController');
+    Route::crud('fluent-monster', 'FluentMonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
+    Route::crud('dummy', 'DummyCrudController');
+
+    // ------------------
+    // AJAX Chart Widgets
+    // ------------------
+    Route::get('charts/users', 'Charts\LatestUsersChartController@response');
+    Route::get('charts/new-entries', 'Charts\NewEntriesChartController@response');
 
     // ---------------------------
     // Backpack DEMO Custom Routes

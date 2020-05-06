@@ -1,32 +1,32 @@
 {
   "_args": [
     [
-      "source-sans-pro@2.45.0",
-      "/Users/tabacitu/Sites/v40master/vendor/backpack/crud"
+      "source-sans-pro@3.6.0",
+      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
     ]
   ],
-  "_from": "source-sans-pro@2.45.0",
-  "_id": "source-sans-pro@2.45.0",
+  "_from": "source-sans-pro@3.6.0",
+  "_id": "source-sans-pro@3.6.0",
   "_inBundle": false,
-  "_integrity": "sha512-MBbmgyzlD0yCKAvJ4Q86s9BB8yXYld26joJh0DMD53j9aFJZYnFo/B7f4RKXDUfX9I4FyEfdr51lOaVioAOBHw==",
+  "_integrity": "sha512-C1RFUGu+YASuqpgDRInTM7Y6OwqeWNOuKn7v0P/4Kh66epTI4PYWwPWP5kdA4l/VqzBAWiqoz5dk0trof73R7w==",
   "_location": "/source-sans-pro",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "source-sans-pro@2.45.0",
+    "raw": "source-sans-pro@3.6.0",
     "name": "source-sans-pro",
     "escapedName": "source-sans-pro",
-    "rawSpec": "2.45.0",
+    "rawSpec": "3.6.0",
     "saveSpec": null,
-    "fetchSpec": "2.45.0"
+    "fetchSpec": "3.6.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/source-sans-pro/-/source-sans-pro-2.45.0.tgz",
-  "_spec": "2.45.0",
-  "_where": "/Users/tabacitu/Sites/v40master/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/source-sans-pro/-/source-sans-pro-3.6.0.tgz",
+  "_spec": "3.6.0",
+  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
   "author": {
     "name": "Paul D. Hunt"
   },
@@ -51,11 +51,11 @@
     "woff2",
     "variable"
   ],
-  "license": "SIL Open Font License 1.1",
+  "license": "OFL-1.1",
   "name": "source-sans-pro",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adobe-fonts/source-sans-pro.git#release"
   },
-  "version": "2.45.0"
+  "version": "3.6.0"
 }
