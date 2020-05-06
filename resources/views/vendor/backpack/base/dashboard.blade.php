@@ -34,40 +34,40 @@
 	Widget::add()->to('before_content')->type('div')->class('row')->content([
 		// notice we use Widget::make() to add widgets as content (not in a group)
 		Widget::make()
-			->type('progress_white')
-			->class('card mb-2')
-			->progressClass('progress-bar bg-primary')
+			->type('progress')
+			->class('card border-0 text-white bg-primary')
+			->progressClass('progress-bar')
 			->value($userCount)
 			->description('Registered users.')
-			->progress((int)$userCount/10*100)
-			->hint(10-$userCount.' more until next milestone.'),
+			->progress(100*(int)$userCount/1000)
+			->hint(1000-$userCount.' more until next milestone.'),
 		// alternatively, to use widgets as content, we can use the same add() method,
 		// but we need to use onlyHere() or remove() at the end
 		Widget::add()
-		    ->type('progress_white')
-		    ->class('card border-0 mb-2')
-		    ->progressClass('progress-bar bg-success')
+		    ->type('progress')
+		    ->class('card border-0 text-white bg-success')
+		    ->progressClass('progress-bar')
 		    ->value($articleCount)
 		    ->description('Articles.')
-		    ->progress(100)
+		    ->progress(80)
 		    ->hint('Great! Don\'t stop.')
 		    ->onlyHere(), 
 		// alternatively, you can just push the widget to a "hidden" group
 		Widget::make()
 			->group('hidden')
-		    ->type('progress_white')
-		    ->class('card mb-2')
+		    ->type('progress')
+		    ->class('card border-0 text-white bg-warning')
 		    ->value($lastArticleDaysAgo.' days')
-		    ->progressClass('progress-bar '.($lastArticleDaysAgo>5?'bg-danger':'bg-success'))
+		    ->progressClass('progress-bar')
 		    ->description('Since last article.')
-		    ->progress(100)
+		    ->progress(30)
 		    ->hint('Post an article every 3-4 days.'),
 		// both Widget::make() and Widget::add() accept an array as a parameter
 		// if you prefer defining your widgets as arrays
 	    Widget::make([
-			'type' => 'progress_white',
-			'class'=> 'card mb-2',
-			'progressClass' => 'progress-bar bg-warning',
+			'type' => 'progress',
+			'class'=> 'card border-0 text-white bg-dark',
+			'progressClass' => 'progress-bar',
 			'value' => $productCount,
 			'description' => 'Products.',
 			'progress' => (int)$productCount/75*100,
@@ -110,19 +110,11 @@
 	];
     $widgets['after_content'][] = [
 	  'type'         => 'alert',
-	  'class'        => 'alert alert-warning bg-dark border-0 mb-2',
+	  'class'        => 'alert alert-warning bg-dark border-0 mb-4',
 	  'heading'      => 'Demo Refreshes Every Hour on the Hour',
 	  'content'      => 'At hh:00, all custom entries are deleted, all files, everything. This cleanup is necessary because developers like to joke with their test entries, and mess with stuff. But you know that :-) Go ahead - make a developer smile.' ,
 	  'close_button' => true, // show close button or not
 	];
-
-    Widget::add('greenWidget')
-            ->type('alert')
-            ->group('before_content')
-            ->class('alert alert-success border-0 mb-2')
-            ->heading('This Demo uses Backpack 4.1 <span class="badge badge-pill badge-warning font-xs">beta</span>')
-            ->content('It includes <strong>new fields</strong> (repeatable, relationship), <strong>new operations</strong> (InlineCreate, Fetch), <strong>new widgets</strong> (chart) and a brand-new <strong>fluent syntax</strong> to work with Fields, Columns, Filters, Buttons and Widgets. For more information, take a look at the 4.1 <a href="https://backpackforlaravel.com/docs/4.1/release-notes" class="text-white text-underline"><u>release notes</u></a>.')
-            ->close_button(true);
 
     $widgets['before_content'][] = [
 	  'type' => 'div',
@@ -241,7 +233,6 @@
 
     	]
 	];
-	Widget::name('greenWidget')->makeFirst();
 @endphp
 
 @section('content')
