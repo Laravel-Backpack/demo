@@ -19,7 +19,7 @@ Route::group([
     Route::crud('role', 'RoleCrudController');
     Route::crud('user', 'UserCrudController');
 
-	if (app('env') == 'production') {
+    if (app('env') == 'production') {
         // disable delete and bulk delete for all CRUDs
         $cruds = ['user', 'role', 'permission'];
         foreach ($cruds as $name) {
