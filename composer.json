@@ -33,7 +33,8 @@
         "laracasts/generators": "^1.0",
         "backpack/generators": "^3.0|4.1.x-dev as 3.0.0",
         "itsgoingd/clockwork": "^4.0",
-        "barryvdh/laravel-debugbar": "^3.2"
+        "barryvdh/laravel-debugbar": "^3.2",
+        "laravel/dusk": "^6.1"
     },
     "autoload": {
         "classmap": [
@@ -46,7 +47,10 @@
     "autoload-dev": {
         "classmap": [
             "tests/TestCase.php"
-        ]
+        ],
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [
