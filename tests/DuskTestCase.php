@@ -13,7 +13,8 @@ abstract class DuskTestCase extends BaseTestCase
 
     protected static $migrationRun = false;
 
-    public function setUp(): void{
+    public function setUp(): void
+    {
         parent::setUp();
 
         // migrate and seed the database
