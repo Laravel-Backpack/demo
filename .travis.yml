@@ -13,6 +13,9 @@ matrix:
         - php: 8.0
         - php: nightly
 
+addons:
+  chrome: stable
+
 env:
   global:
     - APP_ENV=local
@@ -45,10 +48,23 @@ services: mysql
 before_install:
   - mysql -e "create database IF NOT EXISTS test;" -uroot
 
-install: travis_retry composer install --no-interaction --prefer-source
+
+install: 
+    - cp .env.testing .env
+    - travis_retry composer install --no-interaction --prefer-source
+    - php artisan key:generate
+    - php artisan dusk:chrome-driver
+
+
+before_script:
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
 
 script: vendor/bin/phpunit --coverage-clover=coverage.clover
 
+
 after_script:
+    - php artisan dusk
     - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
