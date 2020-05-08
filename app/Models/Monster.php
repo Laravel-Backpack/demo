@@ -26,13 +26,13 @@ class Monster extends Model
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
-        'address_algolia'         => 'array',
+        'address_algolia'       => 'object',
         'video'                 => 'array',
         'upload_multiple'       => 'array',
         'browse_multiple'       => 'array',
         // optional casts for select from array fields that allow multiple selection
-        // 'select_from_array' => 'array',
-        // 'select2_from_array' => 'array'
+        // 'select_from_array'     => 'array',
+        // 'select2_from_array'    => 'array'
     ];
 
     /*

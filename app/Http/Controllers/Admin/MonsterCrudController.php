@@ -575,8 +575,17 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Time and space',
             ],
             [   // Address
+                'name'  => 'address_algolia_string',
+                'label' => 'Address_algolia (saved in db as string)',
+                'type'  => 'address_algolia',
+                'fake'  => true,
+                // optional
+                // 'store_as_json' => true,
+                'tab'           => 'Time and space',
+            ],
+            [   // Address
                 'name'  => 'address_algolia',
-                'label' => 'Address (Algolia Places search)',
+                'label' => 'Address_algolia (stored in db as json)',
                 'type'  => 'address_algolia',
                 // optional
                 'store_as_json' => true,
