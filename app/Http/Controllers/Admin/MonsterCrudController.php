@@ -575,9 +575,9 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Time and space',
             ],
             [   // Address
-                'name'  => 'address_field',
+                'name'  => 'address_algolia',
                 'label' => 'Address (Algolia Places search)',
-                'type'  => 'address',
+                'type'  => 'address_algolia',
                 // optional
                 'store_as_json' => true,
                 'tab'           => 'Time and space',

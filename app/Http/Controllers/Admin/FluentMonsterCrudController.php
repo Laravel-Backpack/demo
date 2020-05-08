@@ -241,7 +241,7 @@ class FluentMonsterCrudController extends CrudController
             ])
             ->tab('Time and space');
 
-        CRUD::field('address')
+        CRUD::field('address_algolia')
             ->type('address')
             ->label('Address (Algolia Places search)')
             ->store_as_json(true)

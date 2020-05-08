@@ -14,7 +14,7 @@ class AlterMonstersTableAddRelationshipColumns extends Migration
     public function up()
     {
         Schema::table('monsters', function (Blueprint $table) {
-            $table->integer('icon_id')->nullable();
+            $table->integer('icon_id')->nullable()->after('week');
         });
 
         Schema::create('monster_product', function (Blueprint $table) {
