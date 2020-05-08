@@ -42,6 +42,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumns([
             'text',
             'textarea',
+            'articles', // relationship column
             [
                 'name'  => 'image', // The db column name
                 'label' => 'Image', // Table column heading
