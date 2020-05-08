@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "47d84cbb6b37478de25e9ccba001f773901e2ee0"
+                "reference": "6817d878b83095a51fa09769e0e265db5033ced0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/47d84cbb6b37478de25e9ccba001f773901e2ee0",
-                "reference": "47d84cbb6b37478de25e9ccba001f773901e2ee0",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/6817d878b83095a51fa09769e0e265db5033ced0",
+                "reference": "6817d878b83095a51fa09769e0e265db5033ced0",
                 "shasum": ""
             },
             "require": {
@@ -67,20 +67,20 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2020-05-06T17:05:04+00:00"
+            "time": "2020-05-08T08:51:55+00:00"
         },
         {
             "name": "backpack/crud",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "d0612499fa22d91f7302594313c60880c41c1180"
+                "reference": "91a8093ad1e55ad329d74994eaa2ed943fb0ec6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/d0612499fa22d91f7302594313c60880c41c1180",
-                "reference": "d0612499fa22d91f7302594313c60880c41c1180",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/91a8093ad1e55ad329d74994eaa2ed943fb0ec6a",
+                "reference": "91a8093ad1e55ad329d74994eaa2ed943fb0ec6a",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "read",
                 "update"
             ],
-            "time": "2020-05-06T16:10:35+00:00"
+            "time": "2020-05-08T08:34:41+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -330,16 +330,16 @@
         },
         {
             "name": "backpack/newscrud",
-            "version": "4.0.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/NewsCRUD.git",
-                "reference": "89d8e37b663234f7e143cbc23abfbce747f8a508"
+                "reference": "3ec7930f051f1f17cc6c82fc73776961abcaa4e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/89d8e37b663234f7e143cbc23abfbce747f8a508",
-                "reference": "89d8e37b663234f7e143cbc23abfbce747f8a508",
+                "url": "https://api.github.com/repos/Laravel-Backpack/NewsCRUD/zipball/3ec7930f051f1f17cc6c82fc73776961abcaa4e6",
+                "reference": "3ec7930f051f1f17cc6c82fc73776961abcaa4e6",
                 "shasum": ""
             },
             "require": {
@@ -385,20 +385,20 @@
                 "NewsCRUD",
                 "backpack"
             ],
-            "time": "2020-05-06T17:11:28+00:00"
+            "time": "2020-05-08T08:49:40+00:00"
         },
         {
             "name": "backpack/pagemanager",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "28519f6498036ed04fbd007138fb7fe2b1405602"
+                "reference": "dbafe26fe54d0ae3dbe5185517f80ebde3bde938"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/28519f6498036ed04fbd007138fb7fe2b1405602",
-                "reference": "28519f6498036ed04fbd007138fb7fe2b1405602",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/dbafe26fe54d0ae3dbe5185517f80ebde3bde938",
+                "reference": "dbafe26fe54d0ae3dbe5185517f80ebde3bde938",
                 "shasum": ""
             },
             "require": {
@@ -453,20 +453,20 @@
                 "presentation website",
                 "wordpress"
             ],
-            "time": "2020-05-06T17:03:13+00:00"
+            "time": "2020-05-08T08:58:02+00:00"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "120a927e2953044d6bef684ccd2fcec403e72068"
+                "reference": "9a757c8d406f33393d4fece9f8b69649573ec33d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/120a927e2953044d6bef684ccd2fcec403e72068",
-                "reference": "120a927e2953044d6bef684ccd2fcec403e72068",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/9a757c8d406f33393d4fece9f8b69649573ec33d",
+                "reference": "9a757c8d406f33393d4fece9f8b69649573ec33d",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2020-05-06T16:57:18+00:00"
+            "time": "2020-05-08T09:03:20+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -5607,16 +5607,16 @@
     "packages-dev": [
         {
             "name": "backpack/generators",
-            "version": "3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "d797a81fa13b766404ed18c2c9aef5b6c7148c66"
+                "reference": "6aa74c58840d8172885b6a7af620599ec3e0f962"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/d797a81fa13b766404ed18c2c9aef5b6c7148c66",
-                "reference": "d797a81fa13b766404ed18c2c9aef5b6c7148c66",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/6aa74c58840d8172885b6a7af620599ec3e0f962",
+                "reference": "6aa74c58840d8172885b6a7af620599ec3e0f962",
                 "shasum": ""
             },
             "require": {
@@ -5663,7 +5663,7 @@
                 "request",
                 "view"
             ],
-            "time": "2020-05-06T16:55:09+00:00"
+            "time": "2020-05-08T08:42:33+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -7040,16 +7040,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "c0c26c9188b538bfa985ae10c9f05d278f12060d"
+                "reference": "3e523c576f29dacecff309f35e4cc5a5c168e78a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/c0c26c9188b538bfa985ae10c9f05d278f12060d",
-                "reference": "c0c26c9188b538bfa985ae10c9f05d278f12060d",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3e523c576f29dacecff309f35e4cc5a5c168e78a",
+                "reference": "3e523c576f29dacecff309f35e4cc5a5c168e78a",
                 "shasum": ""
             },
             "require": {
@@ -7057,7 +7057,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0",
-                "symfony/process": "^4 || ^5"
+                "symfony/process": "^4.2 || ^5"
             },
             "type": "library",
             "extra": {
@@ -7092,7 +7092,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2020-02-07T06:09:38+00:00"
+            "time": "2020-05-08T05:01:12+00:00"
         },
         {
             "name": "sebastian/environment",
