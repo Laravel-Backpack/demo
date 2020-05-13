@@ -52,8 +52,8 @@ class NewEntriesChartController extends ChartController
         }
 
         $this->chart->dataset('Users', 'line', $users)
-            ->color('rgb(77, 189, 116)')
-            ->backgroundColor('rgba(77, 189, 116, 0.4)');
+            ->color('rgb(66, 186, 150)')
+            ->backgroundColor('rgba(66, 186, 150, 0.4)');
 
         $this->chart->dataset('Articles', 'line', $articles)
             ->color('rgb(96, 92, 168)')

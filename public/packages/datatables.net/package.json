@@ -1,35 +1,31 @@
 {
-  "_args": [
-    [
-      "datatables.net@1.10.20",
-      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "datatables.net@1.10.20",
-  "_id": "datatables.net@1.10.20",
+  "_from": "datatables.net@1.10.21",
+  "_id": "datatables.net@1.10.21",
   "_inBundle": false,
-  "_integrity": "sha512-4E4S7tTU607N3h0fZPkGmAtr9mwy462u+VJ6gxYZ8MxcRIjZqHy3Dv1GNry7i3zQCktTdWbULVKBbkAJkuHEnQ==",
+  "_integrity": "sha512-/bSZtxmf3GTpYcvEmwZ8q26I1yhSx8qklR2B+s1K8+/51UW/zc2zTYwJMqr/Z+iCYixAc00ildj4g2x0Qamolw==",
   "_location": "/datatables.net",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "datatables.net@1.10.20",
+    "raw": "datatables.net@1.10.21",
     "name": "datatables.net",
     "escapedName": "datatables.net",
-    "rawSpec": "1.10.20",
+    "rawSpec": "1.10.21",
     "saveSpec": null,
-    "fetchSpec": "1.10.20"
+    "fetchSpec": "1.10.21"
   },
   "_requiredBy": [
+    "#USER",
     "/",
     "/datatables.net-bs4",
     "/datatables.net-fixedheader",
     "/datatables.net-responsive"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.20.tgz",
-  "_spec": "1.10.20",
-  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.21.tgz",
+  "_shasum": "f1d35c8e5c3eb7f5caef39e80cd5b836a8c77103",
+  "_spec": "datatables.net@1.10.21",
+  "_where": "/Users/tabacitu/Sites/bp41softlaunched/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"
@@ -37,9 +33,11 @@
   "bugs": {
     "url": "https://datatables.net/forums"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "jquery": ">=1.7"
   },
+  "deprecated": false,
   "description": "DataTables for jQuery ",
   "files": [
     "js/**/*.js"
@@ -60,5 +58,5 @@
     "type": "git",
     "url": "git+https://github.com/DataTables/Dist-DataTables.git"
   },
-  "version": "1.10.20"
+  "version": "1.10.21"
 }

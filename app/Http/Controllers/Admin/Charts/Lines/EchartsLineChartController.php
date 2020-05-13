@@ -18,7 +18,7 @@ class EchartsLineChartController extends ChartController
         $this->chart->dataset('Yellow', 'line', [8, 1, 4, 3])
                     ->color('rgb(255, 193, 7)');
         $this->chart->dataset('Green', 'line', [1, 4, 7, 11])
-                    ->color('rgb(77, 189, 116)');
+                    ->color('rgb(66, 186, 150)');
         $this->chart->dataset('Purple', 'line', [2, 10, 5, 3])
                     ->color('rgb(96, 92, 168)');
 

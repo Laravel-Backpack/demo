@@ -21,8 +21,8 @@ class ChartjsLineChartController extends ChartController
                     ->color('rgb(255, 193, 7)')
                     ->backgroundColor('rgba(255, 193, 7, 0.4)');
         $this->chart->dataset('Green', 'line', [1, 4, 7, 11])
-                    ->color('rgb(77, 189, 116)')
-                    ->backgroundColor('rgba(77, 189, 116, 0.4)');
+                    ->color('rgb(66, 186, 150)')
+                    ->backgroundColor('rgba(66, 186, 150, 0.4)');
         $this->chart->dataset('Purple', 'line', [2, 10, 5, 3])
                     ->color('rgb(96, 92, 168)')
                     ->backgroundColor('rgba(96, 92, 168, 0.4)');
