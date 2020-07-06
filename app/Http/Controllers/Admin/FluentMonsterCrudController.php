@@ -45,7 +45,7 @@ class FluentMonsterCrudController extends CrudController
                 ->wrapper([
                     'element' => 'span',
                     'class'   => static function ($crud, $column, $entry) {
-                         return 'badge badge-' . ($entry->{$column['name']} ? 'success' : 'default');
+                        return 'badge badge-'.($entry->{$column['name']} ? 'success' : 'default');
                     },
                 ]);
         CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
