@@ -6,22 +6,23 @@
     "type": "project",
     "require": {
         "php": ">=7.3",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "fideloper/proxy": "^4.0",
-        "backpack/crud": "4.1.*",
+        "backpack/crud": "^4.1.22",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
-        "backpack/pagemanager": "^3.0.0",
+        "backpack/pagemanager": "^3.0.2",
         "backpack/menucrud": "^2.0.5",
-        "backpack/newscrud": "^4.0",
+        "backpack/newscrud": "^4.0.3",
         "backpack/permissionmanager": "^6.0",
         "backpack/backupmanager": "^3.0",
         "spatie/laravel-translatable": "^4.0",
         "laravel/tinker": "^2.1",
-        "facade/ignition": "^2.0",
+        "facade/ignition": "^2.3.6",
         "intervention/image": "^2.3",
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
+        "barryvdh/laravel-elfinder": "dev-l8-compatibility as 0.4.99",
         "consoletvs/charts": "6.*"
     },
     "require-dev": {
@@ -30,8 +31,8 @@
         "phpunit/phpunit" : "^9.0||^8.5||^7.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
-        "laracasts/generators": "^1.0",
-        "backpack/generators": "^3.0|4.1.x-dev as 3.0.0",
+        "laracasts/generators": "^2.0",
+        "backpack/generators": "^3.0",
         "itsgoingd/clockwork": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
     },
@@ -70,9 +71,15 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "7.3.9"
+            "php": "7.4.0"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/tabacitu/laravel-elfinder"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
