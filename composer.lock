@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "978391a527c6567f56e0fe391b2a9c91",
+    "content-hash": "55e91521f0543fcd9c2c02572d50255b",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -759,16 +759,16 @@
         },
         {
             "name": "barryvdh/laravel-elfinder",
-            "version": "dev-l8-compatibility",
+            "version": "v0.4.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tabacitu/laravel-elfinder.git",
-                "reference": "fd444851919390cfa1b28178a4cf2f727dfd6700"
+                "url": "https://github.com/barryvdh/laravel-elfinder.git",
+                "reference": "d3bc80dfa61d7bf8e76747ea26615b3f51bc0780"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tabacitu/laravel-elfinder/zipball/fd444851919390cfa1b28178a4cf2f727dfd6700",
-                "reference": "fd444851919390cfa1b28178a4cf2f727dfd6700",
+                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/d3bc80dfa61d7bf8e76747ea26615b3f51bc0780",
+                "reference": "d3bc80dfa61d7bf8e76747ea26615b3f51bc0780",
                 "shasum": ""
             },
             "require": {
@@ -795,6 +795,7 @@
                     "Barryvdh\\Elfinder\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -811,10 +812,7 @@
                 "laravel",
                 "tinymce"
             ],
-            "support": {
-                "source": "https://github.com/tabacitu/laravel-elfinder/tree/l8-compatibility"
-            },
-            "time": "2020-09-08T13:09:02+00:00"
+            "time": "2020-09-11T14:36:09+00:00"
         },
         {
             "name": "brick/math",
@@ -2358,16 +2356,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.0.4",
+            "version": "v8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2cf573991b1438393affdc94fd6129dcc42fd9fc"
+                "reference": "d769a497a20e4a374ff7454dde7eee65145e3659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2cf573991b1438393affdc94fd6129dcc42fd9fc",
-                "reference": "2cf573991b1438393affdc94fd6129dcc42fd9fc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d769a497a20e4a374ff7454dde7eee65145e3659",
+                "reference": "d769a497a20e4a374ff7454dde7eee65145e3659",
                 "shasum": ""
             },
             "require": {
@@ -2517,7 +2515,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-10T21:38:58+00:00"
+            "time": "2020-09-11T14:24:58+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -9426,18 +9424,9 @@
             "time": "2020-07-08T17:02:28+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "0.4.99",
-            "alias_normalized": "0.4.99.0",
-            "version": "dev-l8-compatibility",
-            "package": "barryvdh/laravel-elfinder"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "barryvdh/laravel-elfinder": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
