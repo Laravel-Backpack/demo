@@ -23,7 +23,8 @@
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
         "barryvdh/laravel-elfinder": "dev-l8-compatibility as 0.4.99",
-        "consoletvs/charts": "6.*"
+        "consoletvs/charts": "6.*",
+        "laravel/legacy-factories": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
