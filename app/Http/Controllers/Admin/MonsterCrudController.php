@@ -245,7 +245,7 @@ class MonsterCrudController extends CrudController
             'name'   => 'upload_multiple',
             'label'  => 'Upload Multiple',
             'type'   => 'upload_multiple',
-            'prefix' => 'uploads/',
+            // 'prefix' => 'uploads/',
         ]);
     }
 
