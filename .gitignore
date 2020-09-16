@@ -10,3 +10,4 @@ Homestead.json
 .packages
 .quarantine
 .tmb
+.phpunit.result.cache
