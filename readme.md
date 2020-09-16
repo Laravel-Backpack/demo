@@ -1,3 +1,22 @@
+<p align="left">
+    <br>
+    <a href="https://travis-ci.org/Laravel-Backpack/Demo" title="Build Status"><img src="https://img.shields.io/travis/Laravel-Backpack/Demo/master.svg?style=flat-square"></a>
+    <a href="https://styleci.io/repos/61656673" title="Style CI"><img src="https://styleci.io/repos/61656673/shield"></a>
+    <a href="https://scrutinizer-ci.com/g/laravel-backpack/demo" title="Quality Score"><img src="https://img.shields.io/scrutinizer/g/laravel-backpack/demo.svg?style=flat-square"></a>
+    <a href="https://scrutinizer-ci.com/g/laravel-backpack/demo/code-structure" title="Coverage Status"><img src="https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/demo.svg?style=flat-square"></a>
+    <a href="LICENSE.md" title="Software License"><img src="https://img.shields.io/badge/License-dual-blue"></a>
+    <br><br>
+    <a href="https://backpackforlaravel.com/">Website</a> | 
+    <a href="https://backpackforlaravel.com/docs/">Documentation</a> | 
+    <a href="https://backpackforlaravel.com/addons">Add-ons</a> | 
+    <a href="https://backpackforlaravel.com/pricing">Pricing</a> |
+    <a href="https://backpackforlaravel.com/need-freelancer-or-development-team">Services</a> | 
+    <a href="https://stackoverflow.com/questions/tagged/backpack-for-laravel">Stack Overflow</a> | 
+    <a href="https://www.reddit.com/r/BackpackForLaravel/">Reddit</a> | 
+    <a href="https://backpackforlaravel.com/articles">Blog</a> | 
+    <a href="https://backpackforlaravel.com/newsletter">Newsletter</a>
+</p>
+
 # Backpack\Demo
 
 Laravel BackPack's demo, which includes all Backpack packages.
