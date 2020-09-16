@@ -50,7 +50,7 @@ before_install:
 
 
 install: 
-    - cp .env.example .env
+    - cp .env.testing .env
     - travis_retry composer install --no-interaction --prefer-source
     - php artisan key:generate
     - php artisan dusk:update

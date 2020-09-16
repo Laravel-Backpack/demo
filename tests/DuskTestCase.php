@@ -46,11 +46,16 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function driver()
     {
-        $options = (new ChromeOptions())->addArguments([
+        $arguments = [
             '--disable-gpu',
-            '--headless',
             '--window-size=1920,1080',
-        ]);
+        ];
+
+        if (!env('APP_ENV') !== 'testing') {
+            $arguments[] = '--headless';
+        }
+
+        $options = (new ChromeOptions())->addArguments($arguments);
 
         return RemoteWebDriver::create(
             'http://localhost:9515',
