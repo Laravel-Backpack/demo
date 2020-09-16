@@ -42,6 +42,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumns([
             'text',
             'textarea',
+            'articles', // relationship column
             [
                 'name'  => 'image', // The db column name
                 'label' => 'Image', // Table column heading
@@ -244,7 +245,7 @@ class MonsterCrudController extends CrudController
             'name'   => 'upload_multiple',
             'label'  => 'Upload Multiple',
             'type'   => 'upload_multiple',
-            'prefix' => 'uploads/',
+            // 'prefix' => 'uploads/',
         ]);
     }
 
@@ -575,9 +576,18 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Time and space',
             ],
             [   // Address
-                'name'  => 'address_field',
-                'label' => 'Address (Algolia Places search)',
-                'type'  => 'address',
+                'name'  => 'address_algolia_string',
+                'label' => 'Address_algolia (saved in db as string)',
+                'type'  => 'address_algolia',
+                'fake'  => true,
+                // optional
+                // 'store_as_json' => true,
+                'tab'           => 'Time and space',
+            ],
+            [   // Address
+                'name'  => 'address_algolia',
+                'label' => 'Address_algolia (stored in db as json)',
+                'type'  => 'address_algolia',
                 // optional
                 'store_as_json' => true,
                 'tab'           => 'Time and space',

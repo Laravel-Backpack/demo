@@ -14,7 +14,7 @@ class AddBrowseMultipleToMonstersTable extends Migration
     public function up()
     {
         Schema::table('monsters', function (Blueprint $table) {
-            $table->text('browse_multiple')->nullable();
+            $table->text('browse_multiple')->nullable()->after('week');
         });
     }
 

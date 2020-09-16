@@ -1,33 +1,29 @@
 {
-  "_args": [
-    [
-      "datatables.net-fixedheader@3.1.6",
-      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "datatables.net-fixedheader@3.1.6",
-  "_id": "datatables.net-fixedheader@3.1.6",
+  "_from": "datatables.net-fixedheader@3.1.7",
+  "_id": "datatables.net-fixedheader@3.1.7",
   "_inBundle": false,
-  "_integrity": "sha512-EMx2JogtXEQObaF7ylgB+pY4/vWhu/plTZNf5EvNMAboRha6FT4+14CHIyARVM/bjySPU+6advtft02pW3KxJg==",
+  "_integrity": "sha512-WN2UFDn/i/6NAXMjyfd67Yfwm5lIdP8e1N1rBqQ30izZ8IituJKDFffVTi0y5S3SiwZzCpKFRvdLEehFtCaQng==",
   "_location": "/datatables.net-fixedheader",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "datatables.net-fixedheader@3.1.6",
+    "raw": "datatables.net-fixedheader@3.1.7",
     "name": "datatables.net-fixedheader",
     "escapedName": "datatables.net-fixedheader",
-    "rawSpec": "3.1.6",
+    "rawSpec": "3.1.7",
     "saveSpec": null,
-    "fetchSpec": "3.1.6"
+    "fetchSpec": "3.1.7"
   },
   "_requiredBy": [
+    "#USER",
     "/",
     "/datatables.net-fixedheader-bs4"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader/-/datatables.net-fixedheader-3.1.6.tgz",
-  "_spec": "3.1.6",
-  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader/-/datatables.net-fixedheader-3.1.7.tgz",
+  "_shasum": "d1d02f96f765e6d1877f9f799ded9b818074abaf",
+  "_spec": "datatables.net-fixedheader@3.1.7",
+  "_where": "/Users/tabacitu/Sites/bp41softlaunched/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"
@@ -35,10 +31,12 @@
   "bugs": {
     "url": "https://datatables.net/forums"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "datatables.net": "^1.10.15",
     "jquery": ">=1.7"
   },
+  "deprecated": false,
   "description": "FixedHeader for DataTables ",
   "files": [
     "js/**/*.js"
@@ -59,5 +57,5 @@
     "type": "git",
     "url": "git+https://github.com/DataTables/Dist-DataTables-FixedHeader.git"
   },
-  "version": "3.1.6"
+  "version": "3.1.7"
 }

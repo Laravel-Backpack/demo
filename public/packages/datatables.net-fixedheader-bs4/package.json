@@ -1,32 +1,28 @@
 {
-  "_args": [
-    [
-      "datatables.net-fixedheader-bs4@3.1.6",
-      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "datatables.net-fixedheader-bs4@3.1.6",
-  "_id": "datatables.net-fixedheader-bs4@3.1.6",
+  "_from": "datatables.net-fixedheader-bs4@3.1.7",
+  "_id": "datatables.net-fixedheader-bs4@3.1.7",
   "_inBundle": false,
-  "_integrity": "sha512-mat50UvCNhE5E2jhqEAO07LJ7I++pxFwpbNUfVtuFg866Tf3uHAKHgsXnsXW8kqiER931g4LbxO28axyquj1tw==",
+  "_integrity": "sha512-ahaiBOJ7OeJSMLUll7zXA03j1dvuHC3BvlCQhDZkG+vDrfGFdldd6zOhjPRdHZpmLArGGB6V270Rml8Yst3opg==",
   "_location": "/datatables.net-fixedheader-bs4",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "datatables.net-fixedheader-bs4@3.1.6",
+    "raw": "datatables.net-fixedheader-bs4@3.1.7",
     "name": "datatables.net-fixedheader-bs4",
     "escapedName": "datatables.net-fixedheader-bs4",
-    "rawSpec": "3.1.6",
+    "rawSpec": "3.1.7",
     "saveSpec": null,
-    "fetchSpec": "3.1.6"
+    "fetchSpec": "3.1.7"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader-bs4/-/datatables.net-fixedheader-bs4-3.1.6.tgz",
-  "_spec": "3.1.6",
-  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
+  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader-bs4/-/datatables.net-fixedheader-bs4-3.1.7.tgz",
+  "_shasum": "13e86e203a62b616f28883562f862e4c585729e8",
+  "_spec": "datatables.net-fixedheader-bs4@3.1.7",
+  "_where": "/Users/tabacitu/Sites/bp41softlaunched/vendor/backpack/crud",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"
@@ -34,11 +30,13 @@
   "bugs": {
     "url": "https://datatables.net/forums"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "datatables.net-bs4": "^1.10.15",
-    "datatables.net-fixedheader": "3.1.6",
+    "datatables.net-fixedheader": "3.1.7",
     "jquery": ">=1.7"
   },
+  "deprecated": false,
   "description": "FixedHeader for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
   "files": [
     "css/**/*.css",
@@ -57,5 +55,5 @@
   "main": "js/fixedHeader.bootstrap4.js",
   "name": "datatables.net-fixedheader-bs4",
   "style": "css/fixedHeader.bootstrap4.css",
-  "version": "3.1.6"
+  "version": "3.1.7"
 }

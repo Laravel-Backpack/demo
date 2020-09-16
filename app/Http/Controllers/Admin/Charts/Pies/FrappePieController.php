@@ -14,7 +14,7 @@ class FrappePieController extends ChartController
         $this->chart->dataset('Red', 'pie', [10, 20, 80, 30]);
         // ->color([
         // 	'rgb(70, 127, 208)',
-        // 	'rgb(77, 189, 116)',
+        // 	'rgb(66, 186, 150)',
         // 	'rgb(96, 92, 168)',
         // 	'rgb(255, 193, 7)'
         // ]);

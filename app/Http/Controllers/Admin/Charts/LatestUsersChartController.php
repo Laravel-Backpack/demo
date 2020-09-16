@@ -46,7 +46,7 @@ class LatestUsersChartController extends ChartController
             $users_2_days_ago,
             $yesterday_users,
             $today_users,
-        ])->color('rgb(77, 189, 116, 1)')
-            ->backgroundColor('rgb(77, 189, 116, 0.4)');
+        ])->color('rgb(66, 186, 150, 1)')
+            ->backgroundColor('rgb(66, 186, 150, 0.4)');
     }
 }

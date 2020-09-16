@@ -14,8 +14,8 @@ class RenameAddressColumnFromMonsters extends Migration
     public function up()
     {
         Schema::table('monsters', function (Blueprint $table) {
-            if (!Schema::hasColumn('monsters', 'address_field')) {
-                $table->string('address_field')->nullable();
+            if (!Schema::hasColumn('monsters', 'address_algolia')) {
+                $table->text('address_algolia')->nullable()->after('week');
             }
         });
     }

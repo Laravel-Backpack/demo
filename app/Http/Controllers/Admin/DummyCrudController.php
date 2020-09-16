@@ -151,6 +151,7 @@ class DummyCrudController extends CrudController
         // some fields do not make sense, or do not work inside repeatable, so let's exclude them
         $excludedFieldTypes = [
             'address', // TODO
+            'address_algolia', // TODO
             'address_google', // TODO
             'checklist_dependency', // only available in PermissionManager package
             // 'custom_html', // this works (of course), it's only used for heading, but the page looks better without them
