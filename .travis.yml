@@ -53,6 +53,7 @@ install:
     - cp .env.example .env
     - travis_retry composer install --no-interaction --prefer-source
     - php artisan key:generate
+    - php artisan dusk:update
     - php artisan dusk:chrome-driver
 
 
