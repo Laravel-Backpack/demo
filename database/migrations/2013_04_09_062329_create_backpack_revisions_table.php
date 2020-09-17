@@ -11,7 +11,7 @@ class CreateBackpackRevisionsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('revisions')) {
+        if (! Schema::hasTable('revisions')) {
             Schema::create(
                 'revisions',
                 function ($table) {
