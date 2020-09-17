@@ -109,8 +109,8 @@ class DummyCrudController extends CrudController
             // reject custom_html fields (since they have no value)
             $validFields = collect($groupFields)->reject(function ($value, $key) {
                 $is_custom_html_field = $value['type'] == 'custom_html';
-                $does_not_have_label = ! isset($value['label']);
-                $does_not_have_name = ! isset($value['name']);
+                $does_not_have_label = !isset($value['label']);
+                $does_not_have_name = !isset($value['name']);
 
                 return $is_custom_html_field || $does_not_have_label || $does_not_have_name;
             })->pluck('label', 'name');
@@ -177,12 +177,12 @@ class DummyCrudController extends CrudController
 
                 // if no field type was set, the system will probably use text, number or relationship
                 // and all of those are fine, they work well inside repeatable fields
-                if (! isset($field['type'])) {
+                if (!isset($field['type'])) {
                     return true;
                 }
 
                 // exclude all field types that we KNOW don't work inside repeatable
-                return ! in_array($field['type'], $excludedFieldTypes);
+                return !in_array($field['type'], $excludedFieldTypes);
             });
         }
 
