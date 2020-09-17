@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Artisan;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Console\Command;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class RefreshDb extends Command
 {
