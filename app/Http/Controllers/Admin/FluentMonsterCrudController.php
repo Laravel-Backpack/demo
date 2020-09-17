@@ -17,7 +17,7 @@ class FluentMonsterCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel('App\Models\Monster');
+        CRUD::setModel(\App\Models\Monster::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/fluent-monster');
         CRUD::setEntityNameStrings('fluent monster', 'fluent monsters');
     }
