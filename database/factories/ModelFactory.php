@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 |
 */
 
-/**
+/*
  * Authentication - Users, Roles, Permissions.
  */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
