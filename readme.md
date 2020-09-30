@@ -19,7 +19,7 @@
 
 # Backpack\Demo
 
-Laravel BackPack's demo, which includes all Backpack packages.
+This is a quick Laravel installation that has Backpack for Laravel installed, along with most of its first-party add-ons. A few "demo entities" were also created to highlight the most important Backpack features.
 
 
 > ### Security updates and breaking changes
