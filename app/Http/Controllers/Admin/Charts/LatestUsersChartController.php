@@ -53,10 +53,10 @@ class LatestUsersChartController extends ChartController
     public function response()
     {
         $this->data();
-        
+
         return response($this->chart->api())
             ->withHeaders([
-                'Content-Type' => 'application/json'
+                'Content-Type' => 'application/json',
             ]);
     }
 }
