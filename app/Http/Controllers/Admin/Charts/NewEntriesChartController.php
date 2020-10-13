@@ -67,4 +67,14 @@ class NewEntriesChartController extends ChartController
             ->color('rgba(70, 127, 208, 1)')
             ->backgroundColor('rgba(70, 127, 208, 0.4)');
     }
+
+    public function response()
+    {
+        $this->data();
+        
+        return response($this->chart->api())
+            ->withHeaders([
+                'Content-Type' => 'application/json'
+            ]);
+    }
 }

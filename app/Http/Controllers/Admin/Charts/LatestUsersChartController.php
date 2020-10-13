@@ -49,4 +49,14 @@ class LatestUsersChartController extends ChartController
         ])->color('rgb(66, 186, 150, 1)')
             ->backgroundColor('rgb(66, 186, 150, 0.4)');
     }
+
+    public function response()
+    {
+        $this->data();
+        
+        return response($this->chart->api())
+            ->withHeaders([
+                'Content-Type' => 'application/json'
+            ]);
+    }
 }
