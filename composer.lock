@@ -6788,16 +6788,16 @@
     "packages-dev": [
         {
             "name": "backpack/generators",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "17a37c917abbee9f86d419914c1a805377018993"
+                "reference": "de9f46aee1bfb963907d9c9fe7cd35d5472b3d2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/17a37c917abbee9f86d419914c1a805377018993",
-                "reference": "17a37c917abbee9f86d419914c1a805377018993",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/de9f46aee1bfb963907d9c9fe7cd35d5472b3d2d",
+                "reference": "de9f46aee1bfb963907d9c9fe7cd35d5472b3d2d",
                 "shasum": ""
             },
             "require": {
@@ -6844,7 +6844,7 @@
                 "request",
                 "view"
             ],
-            "time": "2020-06-22T20:08:37+00:00"
+            "time": "2020-10-13T13:42:05+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
