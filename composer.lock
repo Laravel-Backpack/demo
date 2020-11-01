@@ -530,16 +530,16 @@
         },
         {
             "name": "backpack/revise-operation",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "548d93cbb6b4991971ba3c15c3345e8bb43be7ec"
+                "reference": "6208330fda66499d0670aad88c7025c4e9840c8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/548d93cbb6b4991971ba3c15c3345e8bb43be7ec",
-                "reference": "548d93cbb6b4991971ba3c15c3345e8bb43be7ec",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/6208330fda66499d0670aad88c7025c4e9840c8d",
+                "reference": "6208330fda66499d0670aad88c7025c4e9840c8d",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +592,7 @@
                 "laravel",
                 "revisionable"
             ],
-            "time": "2020-08-31T18:00:26+00:00"
+            "time": "2020-10-16T14:35:00+00:00"
         },
         {
             "name": "backpack/settings",
