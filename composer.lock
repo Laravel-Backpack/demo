@@ -457,16 +457,16 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "6.0.2",
+            "version": "6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "7757eeadae93d857f96136d987b6f2d0817b5626"
+                "reference": "a21231b4ca1bce0199e778aea21109043f4c6728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/7757eeadae93d857f96136d987b6f2d0817b5626",
-                "reference": "7757eeadae93d857f96136d987b6f2d0817b5626",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/a21231b4ca1bce0199e778aea21109043f4c6728",
+                "reference": "a21231b4ca1bce0199e778aea21109043f4c6728",
                 "shasum": ""
             },
             "require": {
@@ -526,7 +526,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2020-09-07T14:52:54+00:00"
+            "time": "2020-10-27T14:34:29+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -4147,16 +4147,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.16.0",
+            "version": "3.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "c5082ee84e0d128896b4a6864a8502d8c5f1df08"
+                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/c5082ee84e0d128896b4a6864a8502d8c5f1df08",
-                "reference": "c5082ee84e0d128896b4a6864a8502d8c5f1df08",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/35d40a45e49f5713f477823b571e05ef6a3a0394",
+                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394",
                 "shasum": ""
             },
             "require": {
@@ -4217,7 +4217,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-08-18T17:14:06+00:00"
+            "time": "2020-09-16T16:47:18+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
