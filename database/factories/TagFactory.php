@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class TagFactory extends Factory
 {
@@ -24,7 +23,7 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'name' => ucfirst($this->faker->unique()->word),
+            'name'       => ucfirst($this->faker->unique()->word),
             'created_at' => Carbon::now()->subDays(rand(0, 30)),
         ];
     }

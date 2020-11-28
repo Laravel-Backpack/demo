@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ProductFactory extends Factory
 {
@@ -24,10 +23,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => ucfirst($this->faker->unique()->sentence()),
+            'name'        => ucfirst($this->faker->unique()->sentence()),
             'description' => $this->faker->text(50),
-            'details' => $this->faker->text(800),
-            'price' => $this->faker->randomFloat(2, 1, 100),
+            'details'     => $this->faker->text(800),
+            'price'       => $this->faker->randomFloat(2, 1, 100),
             'category_id' => function () {
                 if (rand(1, 100) % 50 == 0) {
                     return Category::factory()->create()->id;

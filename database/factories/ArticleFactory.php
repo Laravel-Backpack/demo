@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ArticleFactory extends Factory
 {
@@ -25,12 +24,12 @@ class ArticleFactory extends Factory
     {
         return [
             'category_id' => rand(1, 8),
-            'title' => ucfirst($this->faker->unique()->sentence()),
-            'content' => $this->faker->text(800),
-            'status' => $this->faker->randomElement(['PUBLISHED', 'DRAFT']),
-            'date' => $this->faker->date(),
-            'featured' => $this->faker->boolean(),
-            'created_at' => Carbon::now()->subDays(rand(0, 30)),
+            'title'       => ucfirst($this->faker->unique()->sentence()),
+            'content'     => $this->faker->text(800),
+            'status'      => $this->faker->randomElement(['PUBLISHED', 'DRAFT']),
+            'date'        => $this->faker->date(),
+            'featured'    => $this->faker->boolean(),
+            'created_at'  => Carbon::now()->subDays(rand(0, 30)),
         ];
     }
 }

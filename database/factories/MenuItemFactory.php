@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\MenuItem;
 use App\Models\Page;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class MenuItemFactory extends Factory
 {
@@ -44,9 +43,9 @@ class MenuItemFactory extends Factory
         }
 
         return [
-            'name' => $name,
-            'type' => $type,
-            'link' => $link,
+            'name'    => $name,
+            'type'    => $type,
+            'link'    => $link,
             'page_id' => $page_id,
         ];
     }

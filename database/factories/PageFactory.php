@@ -26,10 +26,10 @@ class PageFactory extends Factory
 
         return [
             'template' => $this->faker->randomElement(['services', 'about_us']),
-            'name' => $title,
-            'title' => $title,
-            'slug' => Str::slug($title),
-            'content' => $this->faker->paragraphs(rand(3, 18), true),
+            'name'     => $title,
+            'title'    => $title,
+            'slug'     => Str::slug($title),
+            'content'  => $this->faker->paragraphs(rand(3, 18), true),
         ];
     }
 }

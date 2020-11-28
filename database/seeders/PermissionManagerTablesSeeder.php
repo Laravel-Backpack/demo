@@ -13,15 +13,15 @@ class PermissionManagerTablesSeeder extends Seeder
     ];
 
     protected $permissionsRoles = [
-        'manage news' => [1, 2],
-        'manage pages' => [1, 2],
-        'manage menu items' => [1, 2],
-        'manage users' => [1, 2],
-        'manage roles' => [1],
+        'manage news'        => [1, 2],
+        'manage pages'       => [1, 2],
+        'manage menu items'  => [1, 2],
+        'manage users'       => [1, 2],
+        'manage roles'       => [1],
         'manage permissions' => [1],
-        'file manager' => [1, 2],
-        'logs' => [1],
-        'backups' => [1],
+        'file manager'       => [1, 2],
+        'logs'               => [1],
+        'backups'            => [1],
     ];
 
     /**
