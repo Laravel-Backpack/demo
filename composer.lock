@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55e91521f0543fcd9c2c02572d50255b",
+    "content-hash": "92c12d337c85d62fbaa7454145f40a6c",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -7573,21 +7573,21 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.1.8",
+            "version": "v5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "0dc2e5be39de88b18719bb4f3cdacfa605ad2146"
+                "reference": "40e19d3db96c84b7ca68ac72baaee09b8c493ae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/0dc2e5be39de88b18719bb4f3cdacfa605ad2146",
-                "reference": "0dc2e5be39de88b18719bb4f3cdacfa605ad2146",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/40e19d3db96c84b7ca68ac72baaee09b8c493ae8",
+                "reference": "40e19d3db96c84b7ca68ac72baaee09b8c493ae8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=5.5",
+                "php": ">=5.6",
                 "psr/log": "1.*"
             },
             "type": "library",
@@ -7617,7 +7617,7 @@
                     "homepage": "https://twitter.com/itsgoingd"
                 }
             ],
-            "description": "php dev tools integrated to your browser",
+            "description": "php dev tools in your browser",
             "homepage": "https://underground.works/clockwork",
             "keywords": [
                 "Devtools",
@@ -7630,7 +7630,7 @@
             ],
             "support": {
                 "issues": "https://github.com/itsgoingd/clockwork/issues",
-                "source": "https://github.com/itsgoingd/clockwork/tree/v4.1.8"
+                "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.3"
             },
             "funding": [
                 {
@@ -7638,7 +7638,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-17T19:21:25+00:00"
+            "time": "2020-11-30T22:50:06+00:00"
         },
         {
             "name": "laracasts/generators",
