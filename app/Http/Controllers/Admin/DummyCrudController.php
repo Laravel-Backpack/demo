@@ -24,7 +24,7 @@ class DummyCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Dummy');
+        $this->crud->setModel(\App\Models\Dummy::class);
         $this->crud->setRoute(config('backpack.base.route_prefix').'/dummy');
         $this->crud->setEntityNameStrings('dummy', 'dummies');
     }

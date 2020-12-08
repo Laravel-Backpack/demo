@@ -17,7 +17,7 @@ class MonsterCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Monster');
+        $this->crud->setModel(\App\Models\Monster::class);
         $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
         $this->crud->setEntityNameStrings('monster', 'monsters');
     }
