@@ -16,6 +16,7 @@
     font-size: 0.9em;
 }
 
-.nav-tabs-custom  .nav-tabs .nav-link:hover {
-	border-bottom: 1px solid #fff;
+.nav-tabs .nav-link:hover {
+	border-bottom: none;
+	color: #384c74;
 }
