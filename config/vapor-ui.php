@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Middleware\CheckIfAdmin;
 use Laravel\VaporUi\Http\Middleware\EnsureEnvironmentVariables;
 use Laravel\VaporUi\Http\Middleware\EnsureUpToDateAssets;
 use Laravel\VaporUi\Http\Middleware\EnsureUserIsAuthorized;
-use App\Http\Middleware\CheckIfAdmin;
 
 return [
 
