@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "4.1.28",
+            "version": "4.1.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "011e818304b3ebac28b673c1c91018590bdceb12"
+                "reference": "2298dd028d6379ad93973226018d87c21aa2c6c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/011e818304b3ebac28b673c1c91018590bdceb12",
-                "reference": "011e818304b3ebac28b673c1c91018590bdceb12",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/2298dd028d6379ad93973226018d87c21aa2c6c5",
+                "reference": "2298dd028d6379ad93973226018d87c21aa2c6c5",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.1.28"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.1.29"
             },
-            "time": "2020-12-08T20:21:54+00:00"
+            "time": "2020-12-14T15:03:17+00:00"
         },
         {
             "name": "backpack/filemanager",
