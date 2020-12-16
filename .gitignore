@@ -10,3 +10,7 @@ Homestead.json
 .packages
 .quarantine
 .tmb
+.vapor/
+.env.production
+.env.staging
+

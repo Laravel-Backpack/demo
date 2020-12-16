@@ -23,7 +23,9 @@
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
         "consoletvs/charts": "6.*",
-        "laravel/legacy-factories": "^1.0"
+        "laravel/legacy-factories": "^1.0",
+        "laravel/vapor-core": "^2.10",
+        "laravel/vapor-ui": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -61,7 +63,8 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan vendor:publish --provider='Backpack\\CRUD\\BackpackServiceProvider' --tag=public --force"
+            "php artisan vendor:publish --provider='Backpack\\CRUD\\BackpackServiceProvider' --tag=public --force",
+            "@php artisan vapor-ui:publish --ansi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
