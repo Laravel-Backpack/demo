@@ -649,7 +649,7 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
             ],
             [    // Relationship
-                'label'     => 'Relationship (also uses InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>',
+                'label'     => 'BelongsToMany Selectable (also uses InlineCreate; Fetch using AJAX)',
                 'type'      => 'relationship',
                 'name'      => 'products',
                 'entity'    => 'products',
@@ -662,7 +662,28 @@ class MonsterCrudController extends CrudController
                     'modal_class' => 'modal-dialog modal-xl',
                 ],
                 'data_source'       => backpack_url('monster/fetch/product'),
-                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
+            [
+                'name'    => 'dummyproducts',
+                'label'   => 'BelongsToMany - with aditional pivot fields',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'pivot_wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                 'pivotFields' => [
+                   [
+                    'name' => 'notes',
+                    'type' => 'text',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ]
+                   ]
+                ],
+
+                'tab'   => 'Relationships',
             ],
             [
                 'label'     => 'Checklist',
@@ -681,7 +702,7 @@ class MonsterCrudController extends CrudController
             [   // CustomHTML
                 'name'  => 'select_1_n_heading',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">1-n Relationships (HasOne, BelongsTo)</h5>',
+                'value' => '<h5 class="mb-0 text-primary">1-n Relationships (BelongsTo)</h5>',
                 'tab'   => 'Relationships',
             ],
             [    // SELECT
@@ -758,7 +779,7 @@ class MonsterCrudController extends CrudController
             ],
             [    // Relationship - nothing is explicitly defined, not even the field type
                 'label'         => 'Relationship (no AJAX, inferred attributes) <span class="badge badge-warning">New in 4.1</span>',
-                'name'          => 'icon',
+                'name'          => 'icondummy',
                 'tab'           => 'Relationships',
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
@@ -781,12 +802,12 @@ class MonsterCrudController extends CrudController
             [   // CustomHTML
                 'name'  => 'select_1_1_heading',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">1-1 Relationships (HasOne)</h5> ',
+                'value' => '<h5 class="mb-0 text-primary">HasOne Relationship</h5> ',
                 'tab'   => 'Relationships',
             ],
-            [
+             [
                 'name'    => 'address.street',
-                'label'   => 'Address.street (auto-detected field type)',
+                'label'   => 'Street column in address table',
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -794,7 +815,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'address.country',
-                'label'   => 'Address.country  (auto-detected field type)',
+                'label'   => 'Country column in address table',
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -802,14 +823,100 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'address.icon',
-                'label'   => 'Address.icon  (auto-detected field type)',
+                'label'   => 'Relationship BelongsTo Icon in Address Model',
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
                 'tab'   => 'Relationships',
             ],
 
+            // -----------------
+            // Polymorphic relations
+            // -----------------
+            [   // CustomHTML
+                'name'  => 'select_1_1_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 text-primary">Polymorphic relationships</h5> ',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'comment.text',
+                'label'   => 'MorphOne Comment - text column in comments table',
+                'type' => 'ckeditor',
+                'wrapper' => [
+                    'class' => 'form-group col-md-12',
+                ],
+                'tab'   => 'Relationships',
+            ],  
+            [
+                'name'    => 'recommends',
+                'label'   => 'MorphToMany Recommends - with pivot fields',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'pivotFields' => [
+                   [
+                    'name' => 'text',
+                    'type' => 'text',
+                   ]
+                ],
+
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'bills',
+                'label'   => 'MorphToMany Bills - selectable',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+
+            
+             [
+                'name'    => 'stars',
+                'label'   => 'MorphMany - Starts',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                 'pivotFields' => [
+                   [
+                    'name' => 'title',
+                    'type' => 'text',
+                   ]
+                ],
+ 
+                'tab'   => 'Relationships',
+            ], 
+            [
+                'name'    => 'postalboxes',
+                'label'   => 'HasMany - creatable',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                //'force_delete' => true,
+                 'pivotFields' => [
+                   [
+                    'name' => 'postal_name',
+                    'type' => 'text',
+                   ]
+                ],  
+ 
+                'tab'   => 'Relationships',
+            ], 
+            [
+                'name'    => 'postalboxer',
+                'label'   => 'HasMany - selectable',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                //'force_delete' => true, 
+                'tab'   => 'Relationships',
+            ], 
+            
+    
         ];
+        
     }
 
     public static function getFieldsArrayForSelectsTab()
