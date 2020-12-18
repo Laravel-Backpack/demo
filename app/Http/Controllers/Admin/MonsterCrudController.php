@@ -673,14 +673,14 @@ class MonsterCrudController extends CrudController
                 'pivot_wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                 'pivotFields' => [
-                   [
-                    'name' => 'notes',
-                    'type' => 'text',
-                    'wrapper' => [
-                        'class' => 'form-group col-md-6',
-                    ]
-                   ]
+                'pivotFields' => [
+                    [
+                        'name'    => 'notes',
+                        'type'    => 'text',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                    ],
                 ],
 
                 'tab'   => 'Relationships',
@@ -805,7 +805,7 @@ class MonsterCrudController extends CrudController
                 'value' => '<h5 class="mb-0 text-primary">HasOne Relationship</h5> ',
                 'tab'   => 'Relationships',
             ],
-             [
+            [
                 'name'    => 'address.street',
                 'label'   => 'Street column in address table',
                 'wrapper' => [
@@ -842,12 +842,12 @@ class MonsterCrudController extends CrudController
             [
                 'name'    => 'comment.text',
                 'label'   => 'MorphOne Comment - text column in comments table',
-                'type' => 'ckeditor',
+                'type'    => 'ckeditor',
                 'wrapper' => [
                     'class' => 'form-group col-md-12',
                 ],
                 'tab'   => 'Relationships',
-            ],  
+            ],
             [
                 'name'    => 'recommends',
                 'label'   => 'MorphToMany Recommends - with pivot fields',
@@ -855,10 +855,10 @@ class MonsterCrudController extends CrudController
                     'class' => 'form-group col-md-6',
                 ],
                 'pivotFields' => [
-                   [
-                    'name' => 'text',
-                    'type' => 'text',
-                   ]
+                    [
+                        'name' => 'text',
+                        'type' => 'text',
+                    ],
                 ],
 
                 'tab'   => 'Relationships',
@@ -872,22 +872,21 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationships',
             ],
 
-            
-             [
+            [
                 'name'    => 'stars',
                 'label'   => 'MorphMany - Starts',
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
-                 'pivotFields' => [
-                   [
-                    'name' => 'title',
-                    'type' => 'text',
-                   ]
+                'pivotFields' => [
+                    [
+                        'name' => 'title',
+                        'type' => 'text',
+                    ],
                 ],
- 
+
                 'tab'   => 'Relationships',
-            ], 
+            ],
             [
                 'name'    => 'postalboxes',
                 'label'   => 'HasMany - creatable',
@@ -895,28 +894,26 @@ class MonsterCrudController extends CrudController
                     'class' => 'form-group col-md-4',
                 ],
                 //'force_delete' => true,
-                 'pivotFields' => [
-                   [
-                    'name' => 'postal_name',
-                    'type' => 'text',
-                   ]
-                ],  
- 
+                'pivotFields' => [
+                    [
+                        'name' => 'postal_name',
+                        'type' => 'text',
+                    ],
+                ],
+
                 'tab'   => 'Relationships',
-            ], 
+            ],
             [
                 'name'    => 'postalboxer',
                 'label'   => 'HasMany - selectable',
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
-                //'force_delete' => true, 
+                //'force_delete' => true,
                 'tab'   => 'Relationships',
-            ], 
-            
-    
+            ],
+
         ];
-        
     }
 
     public static function getFieldsArrayForSelectsTab()

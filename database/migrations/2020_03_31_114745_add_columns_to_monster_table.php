@@ -21,10 +21,11 @@ class AddColumnsToMonsterTable extends Migration
         });
     }
 
-    public function down() {
+    public function down()
+    {
         Schema::table('monsters', function (Blueprint $table) {
-           $table->dropColumn('belongs_to_nullable');
-           $table->dropColumn('belongs_to_non_nullable');
+            $table->dropColumn('belongs_to_nullable');
+            $table->dropColumn('belongs_to_non_nullable');
         });
     }
 }

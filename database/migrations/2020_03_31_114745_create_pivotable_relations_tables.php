@@ -16,7 +16,7 @@ class CreatePivotableRelationsTables extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text')->nullable();
-            $table->string('commentable_type'); 
+            $table->string('commentable_type');
             $table->bigInteger('commentable_id');
             $table->timestamps();
         });
@@ -24,7 +24,7 @@ class CreatePivotableRelationsTables extends Migration
         Schema::create('recommendables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text')->nullable();
-            $table->string('recommendable_type'); 
+            $table->string('recommendable_type');
             $table->bigInteger('recommendable_id');
             $table->bigInteger('recommend_id');
             $table->timestamps();
@@ -33,7 +33,7 @@ class CreatePivotableRelationsTables extends Migration
         Schema::create('billables', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text')->nullable();
-            $table->string('billable_type'); 
+            $table->string('billable_type');
             $table->bigInteger('billable_id');
             $table->bigInteger('bill_id');
             $table->timestamps();
@@ -65,15 +65,16 @@ class CreatePivotableRelationsTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('stars', function(Blueprint $table) {
+        Schema::create('stars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('starable_type'); 
+            $table->string('starable_type');
             $table->bigInteger('starable_id');
             $table->string('title')->nullable();
         });
     }
 
-    public function down() {
+    public function down()
+    {
         Schema::dropIfExists('recommendables');
         Schema::dropIfExists('comments');
         Schema::dropIfExists('recommends');
@@ -83,6 +84,4 @@ class CreatePivotableRelationsTables extends Migration
         Schema::dropIfExists('monster_productdummy');
         Schema::dropIfExists('postalboxers');
     }
-
-
 }
