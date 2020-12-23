@@ -54,7 +54,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-Use this parameters in your .env file
+Use these parameters in your .env file
 
 ```
 APP_URL=http://localhost
@@ -131,4 +131,3 @@ If you are looking for a developer/team to help you build an admin panel on Lara
 
 [link-author]: http://tabacitu.ro
 [link-contributors]: ../../contributors
-
