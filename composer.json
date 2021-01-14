@@ -22,7 +22,7 @@
         "intervention/image": "^2.3",
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
-        "consoletvs/charts": "6.*",
+        "consoletvs/charts": "7.*",
         "laravel/legacy-factories": "^1.0"
     },
     "require-dev": {
