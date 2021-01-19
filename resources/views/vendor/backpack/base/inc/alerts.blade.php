@@ -18,15 +18,11 @@
       var $alerts_from_php = JSON.parse('@json(\Alert::getMessages())');
   
       // get the alerts from the localstorage
-      var $alerts_from_localstorage = localStorage.getItem('backpack_alerts');
-  
-      if($alerts_from_localstorage !== null) {
-          $alerts_from_localstorage = JSON.parse($alerts_from_localstorage);
-      }
+      var $alerts_from_localstorage = JSON.parse(localStorage.getItem('backpack_alerts')) ?? {};
   
       // merge both php alerts and localstorage alerts
       Object.entries($alerts_from_php).forEach(([type, msg]) => {
-        if(typeof $alerts_from_php[type] === undefined) {
+        if(typeof $alerts_from_php[type] !== 'undefined') {
             $alerts_from_localstorage[type].push(msg);
         }else{
             $alerts_from_localstorage[type] = msg;
