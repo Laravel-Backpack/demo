@@ -9,17 +9,6 @@
     color: #ff0000;
 }
 
-.tab-container .nav-tabs-custom {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	background: none;
-}
-
-.tab-content {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
 .help-block {
 	margin-top: .25rem;
 	margin-bottom: .25rem;
@@ -29,4 +18,5 @@
 
 .nav-tabs .nav-link:hover {
 	border-bottom: none;
+	color: #384c74;
 }
