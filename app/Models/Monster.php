@@ -139,7 +139,7 @@ class Monster extends Model
     public function setImageAttribute($value)
     {
         if (app('env') == 'production') {
-            \Alert::warning('In the online demo the images don\'t get uploaded.');
+            \Alert::warning('In the online demo the images don\'t get uploaded.')->flash();
 
             return true;
         }
@@ -199,7 +199,7 @@ class Monster extends Model
     public function setUploadMultipleAttribute($value)
     {
         if (app('env') == 'production') {
-            \Alert::warning('In the online demo the files don\'t get uploaded.');
+            \Alert::warning('In the online demo the files don\'t get uploaded.')->flash();
 
             return true;
         }
