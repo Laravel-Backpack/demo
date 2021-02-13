@@ -26,12 +26,8 @@
         });
 
         for (var type in $alerts_from_localstorage) {
-            for(var message in $alerts_from_localstorage[type]) {
-                new Noty({
-                    type: type,
-                    text: $alerts_from_localstorage[type][message]
-                }).show();
-            }
+            let messages = new Set($alerts_from_localstorage[type]);
+            messages.forEach(text => new Noty({type, text}).show());
         }
 
         // in the end, remove backpack alerts from localStorage
