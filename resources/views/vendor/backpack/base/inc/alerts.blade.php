@@ -2,7 +2,7 @@
 <script type="text/javascript">
     // This is intentionaly run after dom loads so this way we can avoid showing duplicate alerts
     // when the user is beeing redirected by persistent table, that happens before this event triggers.
-    window.addEventListener('DOMContentLoaded', function() {
+    $(document).ready(function() {
         Noty.overrideDefaults({
             layout: 'topRight',
             theme: 'backstrap',
