@@ -64,7 +64,7 @@ class CreateMonstersTable extends Migration
 
         $columnType = config("database.connections.{$connection}.driver") === 'pgsql' ? 'BYTEA' : 'MEDIUMBLOB';
 
-        DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType}");
+        DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType} NULL");
     }
 
     /**
