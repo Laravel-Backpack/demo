@@ -59,7 +59,7 @@ class CreateMonstersTable extends Migration
         });
 
         $prefix = DB::getTablePrefix();
-        
+
         $connection = config('database.default');
 
         $columnType = config("database.connections.{$connection}.driver") === 'pgsql' ? 'BYTEA' : 'MEDIUMBLOB';
