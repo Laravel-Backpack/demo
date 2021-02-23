@@ -2,7 +2,7 @@
 <script type="text/javascript">
     // This is intentionaly run after dom loads so this way we can avoid showing duplicate alerts
     // when the user is beeing redirected by persistent table, that happens before this event triggers.
-document.onreadystatechange = function () {
+document.addEventListener('readystatechange', () => {
     if (document.readyState == "interactive") {
         Noty.overrideDefaults({
             layout: 'topRight',
