@@ -15,7 +15,6 @@ class CreateMonstersTable extends Migration
         Schema::create('monsters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('address')->nullable();
-            $table->binary('base64_image')->nullable();
             $table->string('browse')->nullable();
             $table->boolean('checkbox')->nullable();
             $table->text('wysiwyg')->nullable();
@@ -60,7 +59,12 @@ class CreateMonstersTable extends Migration
         });
 
         $prefix = DB::getTablePrefix();
-        DB::statement("ALTER TABLE {$prefix}monsters MODIFY base64_image MEDIUMBLOB");
+        
+        $connection = config('database.default');
+
+        $columnType = config("database.connections.{$connection}.driver") === 'pgsql' ? 'BYTEA' : 'MEDIUMBLOB';
+
+        DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType}");
     }
 
     /**
