@@ -58,7 +58,6 @@ class CreateMonstersTable extends Migration
             $table->text('extras')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**
