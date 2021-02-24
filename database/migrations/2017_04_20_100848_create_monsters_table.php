@@ -58,9 +58,6 @@ class CreateMonstersTable extends Migration
             $table->text('extras')->nullable();
             $table->timestamps();
         });
-
-        $prefix = DB::getTablePrefix();
-        DB::statement("ALTER TABLE {$prefix}monsters MODIFY base64_image MEDIUMBLOB");
     }
 
     /**
