@@ -13,13 +13,13 @@ class CreateMonstersTable extends Migration
     public function up()
     {
         $driver = DB::getDriverName();
-        
-        switch($driver) {
-            case 'pgsql' : $columnType = 'BYTEA';
+
+        switch ($driver) {
+            case 'pgsql': $columnType = 'BYTEA';
             break;
-            case 'mysql' : $columnType = 'MEDIUMBLOB';     
+            case 'mysql': $columnType = 'MEDIUMBLOB';
         }
-        
+
         Schema::create('monsters', function (Blueprint $table) use ($columnType) {
             $table->increments('id');
             $table->string('address')->nullable();
@@ -70,7 +70,7 @@ class CreateMonstersTable extends Migration
         });
 
         $prefix = DB::getTablePrefix();
-        
+
         if (isset($columnType)) {
             DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType} NULL");
         }
