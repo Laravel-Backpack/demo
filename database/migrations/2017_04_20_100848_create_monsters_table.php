@@ -12,9 +12,20 @@ class CreateMonstersTable extends Migration
      */
     public function up()
     {
-        Schema::create('monsters', function (Blueprint $table) {
+        $driver = DB::getDriverName();
+        
+        switch($driver) {
+            case 'pgsql' : $columnType = 'BYTEA';
+            break;
+            case 'mysql' : $columnType = 'MEDIUMBLOB';     
+        }
+        
+        Schema::create('monsters', function (Blueprint $table) use ($columnType) {
             $table->increments('id');
             $table->string('address')->nullable();
+            if (!isset($columnType)) {
+                $table->binary('base64_image');
+            }
             $table->string('browse')->nullable();
             $table->boolean('checkbox')->nullable();
             $table->text('wysiwyg')->nullable();
@@ -59,12 +70,10 @@ class CreateMonstersTable extends Migration
         });
 
         $prefix = DB::getTablePrefix();
-
-        $connection = config('database.default');
-
-        $columnType = config("database.connections.{$connection}.driver") === 'pgsql' ? 'BYTEA' : 'MEDIUMBLOB';
-
-        DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType} NULL");
+        
+        if (isset($columnType)) {
+            DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType} NULL");
+        }
     }
 
     /**
