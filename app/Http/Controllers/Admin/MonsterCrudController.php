@@ -20,6 +20,8 @@ class MonsterCrudController extends CrudController
         $this->crud->setModel(\App\Models\Monster::class);
         $this->crud->setRoute(config('backpack.base.route_prefix').'/monster');
         $this->crud->setEntityNameStrings('monster', 'monsters');
+
+        $this->crud->set('show.setFromDb', false);
     }
 
     public function fetchProduct()
@@ -208,13 +210,6 @@ class MonsterCrudController extends CrudController
             'key'   => 'table_count',
             'label' => 'Array count', // Table column heading
             'type'  => 'array_count',
-        ]);
-
-        $this->crud->addColumn([
-            'name'  => 'extras', // The db column name
-            'key'   => 'array',
-            'label' => 'Array', // Table column heading
-            'type'  => 'array',
         ]);
 
         $this->crud->addColumn([
