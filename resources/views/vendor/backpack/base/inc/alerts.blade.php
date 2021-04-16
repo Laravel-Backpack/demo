@@ -15,7 +15,8 @@ document.onreadystatechange = function () {
         var $alerts_from_php = JSON.parse('@json(\Alert::getMessages())');
 
         // get the alerts from the localstorage
-        var $alerts_from_localstorage = JSON.parse(localStorage.getItem('backpack_alerts')) ?? {};
+        var $alerts_from_localstorage = JSON.parse(localStorage.getItem('backpack_alerts'))
+                ? JSON.parse(localStorage.getItem('backpack_alerts')) : {};
 
         // merge both php alerts and localstorage alerts
         Object.entries($alerts_from_php).forEach(([type, messages]) => {
