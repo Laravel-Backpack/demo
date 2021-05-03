@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.7.0 (2021-02-10)
+ * Version: 5.7.1 (2021-03-17)
  */
 (function () {
     'use strict';
@@ -11454,7 +11454,7 @@
     var isContentEditableFalse$6 = isContentEditableFalse;
     var ControlSelection = function (selection, editor) {
       var elementSelectionAttr = 'data-mce-selected';
-      var dom = editor.dom, each = Tools.each;
+      var dom = editor.dom, each$2 = Tools.each;
       var selectedElm, selectedElmGhost, resizeHelper, selectedHandle, resizeBackdrop;
       var startX, startY, selectedElmX, selectedElmY, startW, startH, ratio, resizeStarted;
       var width, height;
@@ -11507,13 +11507,16 @@
           editor.selection.select(target);
         }
       };
-      var getResizeTarget = function (elm) {
+      var getResizeTargets = function (elm) {
         if (dom.is(elm, 'figure.image')) {
-          return elm.querySelector('img');
+          return [elm.querySelector('img')];
         } else if (dom.hasClass(elm, 'mce-preview-object') && isNonNullable(elm.firstElementChild)) {
-          return elm.firstElementChild;
+          return [
+            elm,
+            elm.firstElementChild
+          ];
         } else {
-          return elm;
+          return [elm];
         }
       };
       var isResizable = function (elm) {
@@ -11540,11 +11543,21 @@
           return elm.cloneNode(true);
         }
       };
+      var setSizeProp = function (element, name, value) {
+        if (isNonNullable(value)) {
+          var targets = getResizeTargets(element);
+          each(targets, function (target) {
+            if (target.style[name] || !editor.schema.isValid(target.nodeName.toLowerCase(), name)) {
+              dom.setStyle(target, name, value);
+            } else {
+              dom.setAttrib(target, name, '' + value);
+            }
+          });
+        }
+      };
       var setGhostElmSize = function (ghostElm, width, height) {
-        dom.setStyles(getResizeTarget(ghostElm), {
-          width: width,
-          height: height
-        });
+        setSizeProp(ghostElm, 'width', width);
+        setSizeProp(ghostElm, 'height', height);
       };
       var resizeGhostElement = function (e) {
         var deltaX, deltaY, proportional;
@@ -11602,19 +11615,9 @@
       var endGhostResize = function () {
         var wasResizeStarted = resizeStarted;
         resizeStarted = false;
-        var setSizeProp = function (name, value) {
-          if (value) {
-            var target = getResizeTarget(selectedElm);
-            if (target.style[name] || !editor.schema.isValid(target.nodeName.toLowerCase(), name)) {
-              dom.setStyle(target, name, value);
-            } else {
-              dom.setAttrib(target, name, '' + value);
-            }
-          }
-        };
         if (wasResizeStarted) {
-          setSizeProp('width', width);
-          setSizeProp('height', height);
+          setSizeProp(selectedElm, 'width', width);
+          setSizeProp(selectedElm, 'height', height);
         }
         dom.unbind(editableDoc, 'mousemove', resizeGhostElement);
         dom.unbind(editableDoc, 'mouseup', endGhostResize);
@@ -11648,13 +11651,14 @@
         var e = editor.fire('ObjectSelected', { target: targetElm });
         var selectedValue = dom.getAttrib(selectedElm, elementSelectionAttr, '1');
         if (isResizable(targetElm) && !e.isDefaultPrevented()) {
-          each(resizeHandles, function (handle, name) {
+          each$2(resizeHandles, function (handle, name) {
             var handleElm;
             var startDrag = function (e) {
+              var target = getResizeTargets(selectedElm)[0];
               startX = e.screenX;
               startY = e.screenY;
-              startW = getResizeTarget(selectedElm).clientWidth;
-              startH = getResizeTarget(selectedElm).clientHeight;
+              startW = target.clientWidth;
+              startH = target.clientHeight;
               ratio = startH / startW;
               selectedHandle = handle;
               selectedHandle.name = name;
@@ -11754,7 +11758,7 @@
         if (resizeStarted || editor.removed) {
           return;
         }
-        each(dom.select('img[data-mce-selected],hr[data-mce-selected]'), function (img) {
+        each$2(dom.select('img[data-mce-selected],hr[data-mce-selected]'), function (img) {
           img.removeAttribute(elementSelectionAttr);
         });
         controlElm = e.type === 'mousedown' ? e.target : selection.getNode();
@@ -13420,7 +13424,7 @@
         var attributesRequired, attributesDefault, attributesForced;
         var anyAttributesRequired, attrValue, idCount = 0;
         var decode = Entities.decode;
-        var filteredUrlAttrs = Tools.makeMap('src,href,data,background,formaction,poster,xlink:href');
+        var filteredUrlAttrs = Tools.makeMap('src,href,data,background,action,formaction,poster,xlink:href');
         var scriptUriRegExp = /((java|vb)script|mhtml):/i;
         var parsingMode = format === 'html' ? 0 : 1;
         var processEndTag = function (name) {
@@ -28825,8 +28829,8 @@
       suffix: null,
       $: DomQuery,
       majorVersion: '5',
-      minorVersion: '7.0',
-      releaseDate: '2021-02-10',
+      minorVersion: '7.1',
+      releaseDate: '2021-03-17',
       editors: legacyEditors,
       i18n: I18n,
       activeEditor: null,

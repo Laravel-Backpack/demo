@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.7.0 (2021-02-10)
+ * Version: 5.7.1 (2021-03-17)
  */
 (function () {
     'use strict';
@@ -28393,6 +28393,14 @@
     };
     var separator$3 = { type: 'separator' };
     var makeContextItem = function (item) {
+      var commonMenuItem = function (item) {
+        return {
+          text: item.text,
+          icon: item.icon,
+          disabled: item.disabled,
+          shortcut: item.shortcut
+        };
+      };
       if (isString(item)) {
         return item;
       } else {
@@ -28400,10 +28408,7 @@
         case 'separator':
           return separator$3;
         case 'submenu':
-          return {
-            type: 'nestedmenuitem',
-            text: item.text,
-            icon: item.icon,
+          return __assign(__assign({ type: 'nestedmenuitem' }, commonMenuItem(item)), {
             getSubmenuItems: function () {
               var items = item.getSubmenuItems();
               if (isString(items)) {
@@ -28412,14 +28417,9 @@
                 return map(items, makeContextItem);
               }
             }
-          };
+          });
         default:
-          return {
-            type: 'menuitem',
-            text: item.text,
-            icon: item.icon,
-            onAction: noarg(item.onAction)
-          };
+          return __assign(__assign({ type: 'menuitem' }, commonMenuItem(item)), { onAction: noarg(item.onAction) });
         }
       }
     };
@@ -28439,8 +28439,8 @@
     };
     var generateContextMenu = function (contextMenus, menuConfig, selectedElement) {
       var sections = foldl(menuConfig, function (acc, name) {
-        if (has(contextMenus, name)) {
-          var items = contextMenus[name].update(selectedElement);
+        return get$1(contextMenus, name.toLowerCase()).map(function (menu) {
+          var items = menu.update(selectedElement);
           if (isString(items)) {
             return addContextMenuGroup(acc, items.split(' '));
           } else if (items.length > 0) {
@@ -28449,9 +28449,9 @@
           } else {
             return acc;
           }
-        } else {
+        }).getOrThunk(function () {
           return acc.concat([name]);
-        }
+        });
       }, []);
       if (sections.length > 0 && isSeparator$1(sections[sections.length - 1])) {
         sections.pop();

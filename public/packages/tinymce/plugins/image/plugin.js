@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.7.0 (2021-02-10)
+ * Version: 5.7.1 (2021-03-17)
  */
 (function () {
     'use strict';
@@ -1563,7 +1563,7 @@
           if (results.length === 0) {
             return global$2.reject('Failed to upload image');
           } else if (results[0].status === false) {
-            return global$2.reject(results[0].error);
+            return global$2.reject(results[0].error.message);
           } else {
             return results[0];
           }

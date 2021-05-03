@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.7.0 (2021-02-10)
+ * Version: 5.7.1 (2021-03-17)
  */
 (function () {
     'use strict';
@@ -771,7 +771,7 @@
         return major.indexOf('@') === 0 ? 'X.X.X' : major + '.' + minor;
       };
       var version = getVersion(global$3.majorVersion, global$3.minorVersion);
-      var changeLogLink = '<a href="https://www.tinymce.com/docs/changelog/?utm_campaign=editor_referral&utm_medium=help_dialog&utm_source=tinymce" target="_blank">TinyMCE ' + version + '</a>';
+      var changeLogLink = '<a href="https://www.tiny.cloud/docs/changelog/?utm_campaign=editor_referral&utm_medium=help_dialog&utm_source=tinymce" target="_blank">TinyMCE ' + version + '</a>';
       var htmlPanel = {
         type: 'htmlpanel',
         html: '<p>' + global$2.translate([

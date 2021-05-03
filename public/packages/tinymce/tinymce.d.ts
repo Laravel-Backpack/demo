@@ -1031,13 +1031,13 @@ interface ChoiceMenuItemInstanceApi extends CommonMenuItemInstanceApi {
     isActive: () => boolean;
     setActive: (state: boolean) => void;
 }
-interface ContextMenuItem {
+interface ContextMenuItem extends CommonMenuItemSpec {
     text: string;
     icon?: string;
     type?: 'item';
     onAction: () => void;
 }
-interface ContextSubMenu {
+interface ContextSubMenu extends CommonMenuItemSpec {
     type: 'submenu';
     text: string;
     icon?: string;
