@@ -13,7 +13,7 @@ class MakeNotesNullableOnMonsterProduct extends Migration
      */
     public function up()
     {
-        Schema::table('monster_product', function(Blueprint $table) {
+        Schema::table('monster_product', function (Blueprint $table) {
             $table->string('notes')->nullable()->change();
         });
     }
