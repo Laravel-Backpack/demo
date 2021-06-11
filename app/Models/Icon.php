@@ -25,7 +25,7 @@ class Icon extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
-    public function identifiableName()
+    public function identifiableAttribute()
     {
         return 'icon';
     }
