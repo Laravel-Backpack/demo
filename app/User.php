@@ -4,6 +4,7 @@ namespace App;
 
 use Alert;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -13,6 +14,7 @@ class User extends Authenticatable
     use HasRoles;
     use CrudTrait;
     use Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
