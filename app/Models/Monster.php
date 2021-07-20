@@ -87,9 +87,19 @@ class Monster extends Model
         return $this->belongsTo(\App\Models\Icon::class, 'icon_id');
     }
 
+    public function icondummy()
+    {
+        return $this->belongsTo(\App\Models\Icon::class, 'belongs_to_non_nullable');
+    }
+
     public function products()
     {
         return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
+    }
+
+    public function dummyproducts()
+    {
+        return $this->belongsToMany(\App\Models\Product::class, 'monster_productdummy')->withPivot('notes');
     }
 
     public function address()
@@ -100,6 +110,31 @@ class Monster extends Model
     public function postalboxes()
     {
         return $this->hasMany(\App\Models\PostalBox::class);
+    }
+
+    public function postalboxer()
+    {
+        return $this->hasMany(\App\Models\PostalBoxer::class);
+    }
+
+    public function comment()
+    {
+        return $this->morphOne(\App\Models\Comment::class, 'commentable');
+    }
+
+    public function recommends()
+    {
+        return $this->morphToMany(\App\Models\Recommend::class, 'recommendable')->withPivot('text');
+    }
+
+    public function bills()
+    {
+        return $this->morphToMany(\App\Models\Bill::class, 'billable');
+    }
+
+    public function stars()
+    {
+        return $this->morphMany(\App\Models\Star::class, 'starable');
     }
 
     /*

@@ -23,7 +23,8 @@ class MonsterRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'text' => 'required|min:5|max:255',
+            'text'            => 'required|min:5|max:255',
+            'address.country' => 'required',
         ];
     }
 
