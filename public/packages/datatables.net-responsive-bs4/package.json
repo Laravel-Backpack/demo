@@ -1,58 +1,48 @@
 {
-  "_from": "datatables.net-responsive-bs4@2.2.4",
-  "_id": "datatables.net-responsive-bs4@2.2.4",
-  "_inBundle": false,
-  "_integrity": "sha512-72AFQbl4KAze0MrAWehmrMX3sB2fkLWvXs44zkLGnWx10Auw6F8LAZQ4qwsPI9gPGIl03KBCeGqqDoDqJnw38w==",
-  "_location": "/datatables.net-responsive-bs4",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "datatables.net-responsive-bs4@2.2.4",
     "name": "datatables.net-responsive-bs4",
-    "escapedName": "datatables.net-responsive-bs4",
-    "rawSpec": "2.2.4",
-    "saveSpec": null,
-    "fetchSpec": "2.2.4"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-responsive-bs4/-/datatables.net-responsive-bs4-2.2.4.tgz",
-  "_shasum": "0fef98a46b738ce2240d94a3be91ecf83c2a49b2",
-  "_spec": "datatables.net-responsive-bs4@2.2.4",
-  "_where": "/Users/tabacitu/Sites/bp41softlaunched/vendor/backpack/crud",
-  "author": {
-    "name": "SpryMedia Ltd",
-    "url": "http://datatables.net"
-  },
-  "bugs": {
-    "url": "https://datatables.net/forums"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "datatables.net-bs4": "^1.10.15",
-    "datatables.net-responsive": "2.2.4",
-    "jquery": ">=1.7"
-  },
-  "deprecated": false,
-  "description": "Responsive for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
-  "files": [
-    "css/**/*.css",
-    "js/**/*.js"
-  ],
-  "homepage": "https://datatables.net",
-  "keywords": [
-    "responsive",
-    "DataTables",
-    "jQuery",
-    "table",
-    "Bootstrap 4"
-  ],
-  "license": "MIT",
-  "main": "js/responsive.bootstrap4.js",
-  "name": "datatables.net-responsive-bs4",
-  "style": "css/responsive.bootstrap4.css",
-  "version": "2.2.4"
+    "description": "Responsive for DataTables with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)",
+    "main": "js/responsive.bootstrap4.js",
+    "style": "css/responsive.bootstrap4.css",
+    "types": "./types/responsive.bootstrap4.d.ts",
+    "version": "2.2.9",
+    "files": [
+        "css/**/*.css",
+        "js/**/*.js"
+    ],
+    "keywords": [
+        "Responsive",
+        "Bootstrap",
+        "Bootstrap4",
+        "Datatables",
+        "jQuery",
+        "table",
+        "filter",
+        "sort"
+    ],
+    "dependencies": {
+        "jquery": ">=1.7",
+        "datatables.net-bs4": "^1.10.15",
+        "datatables.net-responsive": "2.2.9"
+    },
+    "moduleType": [
+        "globals",
+        "amd",
+        "node"
+    ],
+    "ignore": [
+        "composer.json",
+        "datatables.json",
+        "package.json"
+    ],
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DataTables/Dist-DataTables-Responsive-Bootstrap4.git"
+    }
 }

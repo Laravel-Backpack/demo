@@ -1,61 +1,45 @@
 {
-  "_from": "datatables.net-fixedheader@3.1.7",
-  "_id": "datatables.net-fixedheader@3.1.7",
-  "_inBundle": false,
-  "_integrity": "sha512-WN2UFDn/i/6NAXMjyfd67Yfwm5lIdP8e1N1rBqQ30izZ8IituJKDFffVTi0y5S3SiwZzCpKFRvdLEehFtCaQng==",
-  "_location": "/datatables.net-fixedheader",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "datatables.net-fixedheader@3.1.7",
     "name": "datatables.net-fixedheader",
-    "escapedName": "datatables.net-fixedheader",
-    "rawSpec": "3.1.7",
-    "saveSpec": null,
-    "fetchSpec": "3.1.7"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/",
-    "/datatables.net-fixedheader-bs4"
-  ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader/-/datatables.net-fixedheader-3.1.7.tgz",
-  "_shasum": "d1d02f96f765e6d1877f9f799ded9b818074abaf",
-  "_spec": "datatables.net-fixedheader@3.1.7",
-  "_where": "/Users/tabacitu/Sites/bp41softlaunched/vendor/backpack/crud",
-  "author": {
-    "name": "SpryMedia Ltd",
-    "url": "http://datatables.net"
-  },
-  "bugs": {
-    "url": "https://datatables.net/forums"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "datatables.net": "^1.10.15",
-    "jquery": ">=1.7"
-  },
-  "deprecated": false,
-  "description": "FixedHeader for DataTables ",
-  "files": [
-    "js/**/*.js"
-  ],
-  "homepage": "https://datatables.net",
-  "keywords": [
-    "fixed headers",
-    "sticky",
-    "DataTables",
-    "jQuery",
-    "table",
-    "DataTables"
-  ],
-  "license": "MIT",
-  "main": "js/dataTables.fixedHeader.js",
-  "name": "datatables.net-fixedheader",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DataTables/Dist-DataTables-FixedHeader.git"
-  },
-  "version": "3.1.7"
+    "description": "FixedHeader for DataTables",
+    "main": "js/dataTables.fixedHeader.js",
+    "types": "./types/types.d.ts",
+    "version": "3.1.9",
+    "files": [
+        "js/**/*.js"
+    ],
+    "keywords": [
+        "FixedHeader",
+        "Fixed Headers",
+        "Sticky",
+        "Datatables",
+        "jQuery",
+        "table",
+        "filter",
+        "sort"
+    ],
+    "dependencies": {
+        "jquery": ">=1.7",
+        "datatables.net": "^1.10.15"
+    },
+    "moduleType": [
+        "globals",
+        "amd",
+        "node"
+    ],
+    "ignore": [
+        "composer.json",
+        "datatables.json",
+        "package.json"
+    ],
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DataTables/Dist-DataTables-FixedHeader.git"
+    }
 }
