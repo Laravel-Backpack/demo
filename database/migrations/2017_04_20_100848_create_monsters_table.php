@@ -22,12 +22,15 @@ class CreateMonstersTable extends Migration
             case 'mysql':
                 $columnType = 'MEDIUMBLOB';
                 break;
+                
+            default:
+                $columnType = false;
         }
 
         Schema::create('monsters', function (Blueprint $table) use ($columnType) {
             $table->increments('id');
             $table->string('address')->nullable();
-            if (!isset($columnType)) {
+            if (!$columnType) {
                 $table->binary('base64_image');
             }
             $table->string('browse')->nullable();
@@ -73,7 +76,7 @@ class CreateMonstersTable extends Migration
             $table->timestamps();
         });
 
-        if (isset($columnType)) {
+        if ($columnType) {
             DB::statement("ALTER TABLE {$prefix}monsters ADD base64_image {$columnType} NULL");
         }
     }
