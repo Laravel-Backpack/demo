@@ -22,7 +22,7 @@ class CreateMonstersTable extends Migration
             case 'mysql':
                 $columnType = 'MEDIUMBLOB';
                 break;
-                
+
             default:
                 $columnType = false;
         }
