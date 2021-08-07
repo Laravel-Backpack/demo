@@ -22,6 +22,9 @@ class CreateMonstersTable extends Migration
             case 'mysql':
                 $columnType = 'MEDIUMBLOB';
                 break;
+            case 'sqlite':
+                $columnType = 'BLOB';
+                break;
         }
 
         Schema::create('monsters', function (Blueprint $table) use ($columnType) {
