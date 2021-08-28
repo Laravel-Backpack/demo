@@ -108,7 +108,7 @@ class DummyCrudController extends CrudController
             // only consider fields that have both name and label (needed for table column)
             // reject custom_html fields (since they have no value)
             $validFields = collect($groupFields)->reject(function ($value, $key) {
-                $is_custom_html_field = $value['type'] == 'custom_html';
+                $is_custom_html_field = $value['type'] ?? '' == 'custom_html';
                 $does_not_have_label = !isset($value['label']);
                 $does_not_have_name = !isset($value['name']);
 
