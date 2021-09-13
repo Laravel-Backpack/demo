@@ -119,10 +119,9 @@ return [
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
-        // Google Analytics
-        'https://www.googletagmanager.com/gtag/js?id=UA-16782706-13',
-        'assets/js/ga.js',
-
+        // Plausible Analytics
+        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
+        
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
         'packages/backpack/base/js/bundle.js',
 
