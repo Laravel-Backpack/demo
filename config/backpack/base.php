@@ -121,7 +121,7 @@ return [
     'scripts' => [
         // Plausible Analytics
         'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
-        
+
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
         'packages/backpack/base/js/bundle.js',
 
