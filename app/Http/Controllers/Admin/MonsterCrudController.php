@@ -112,6 +112,7 @@ class MonsterCrudController extends CrudController
                     $query->orWhere('email', 'like', '%'.$searchTerm.'%');
                     $query->orWhere('text', 'like', '%'.$searchTerm.'%');
                 },
+                'escaped'       => true,
             ],
             [
                 'name'  => 'number', // The db column name
@@ -192,6 +193,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'simplemde',
             'label' => 'Markdown (SimpleMDE)',
             'type'  => 'markdown',
+            'escaped' => true,
         ]);
 
         $this->crud->addColumn([
