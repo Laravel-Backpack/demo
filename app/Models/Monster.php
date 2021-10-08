@@ -119,6 +119,26 @@ class Monster extends Model
         return $this->text.' '.$this->email;
     }
 
+    /**
+     * Because we don't trust that the 'easymde' db column does not already
+     * have some JS or HTML stored inside it, we will run strip_tags() on
+     * the value before it's ever used (both in Backpack and in the app).
+     */
+    public function getEasymdeAttribute($value)
+    {
+        return strip_tags($value);
+    }
+
+    /**
+     * Because we don't trust that the 'simplmde' db column does not already
+     * have some JS or HTML stored inside it, we will run strip_tags() on
+     * the value before it's ever used (both in Backpack and in the app).
+     */
+    public function getSimplemdeAttribute($value)
+    {
+        return strip_tags($value);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS
