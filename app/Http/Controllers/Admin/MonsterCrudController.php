@@ -193,7 +193,6 @@ class MonsterCrudController extends CrudController
             'name'    => 'simplemde',
             'label'   => 'Markdown (SimpleMDE)',
             'type'    => 'markdown',
-            'escaped' => true,
         ]);
 
         $this->crud->addColumn([
