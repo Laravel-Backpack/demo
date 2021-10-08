@@ -142,7 +142,7 @@ class Monster extends Model
     /**
      * Because we don't trust that the 'summernote' db column does not already
      * have some JS stored inside the HTML, we will sanitize the output using
-     * https://github.com/mewebstudio/Purifier
+     * https://github.com/mewebstudio/Purifier.
      */
     public function getSummernoteAttribute($value)
     {
