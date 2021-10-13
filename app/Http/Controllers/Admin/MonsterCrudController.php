@@ -189,9 +189,9 @@ class MonsterCrudController extends CrudController
 
         $this->crud->set('show.contentClass', 'col-md-12');
 
-        $this->crud->addColumn([   // SimpleMDE
-            'name'    => 'simplemde',
-            'label'   => 'Markdown (SimpleMDE)',
+        $this->crud->addColumn([   // EasyMDE
+            'name'    => 'easymde',
+            'label'   => 'Markdown (EasyMDE)',
             'type'    => 'markdown',
         ]);
 
@@ -951,12 +951,11 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         return [
-            [   // SimpleMDE
+            [   // EasyMDE
                 'name'  => 'easymde',
                 'label' => 'EasyMDE - markdown editor (well-maintained fork of SimpleMDE)',
                 'type'  => 'easymde',
                 'tab'   => 'Big texts',
-                'fake'  => true,
             ],
             [   // Summernote
                 'name'  => 'summernote',
@@ -974,12 +973,6 @@ class MonsterCrudController extends CrudController
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE',
                 'type'  => 'tinymce',
-                'tab'   => 'Big texts',
-            ],
-            [   // SimpleMDE
-                'name'  => 'simplemde',
-                'label' => 'SimpleMDE',
-                'type'  => 'easymde',
                 'tab'   => 'Big texts',
             ],
         ];
