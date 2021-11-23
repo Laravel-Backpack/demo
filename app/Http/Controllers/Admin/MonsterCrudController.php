@@ -502,18 +502,26 @@ class MonsterCrudController extends CrudController
         // -----------------
 
         return [
+            [   // Time
+                'name'              => 'time',
+                'label'             => 'Time',
+                'type'              => 'time',
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+                'tab'               => 'Time and space',
+                'fake'              => true,
+            ],
             [   // Month
                 'name'              => 'week',
                 'label'             => 'Week',
                 'type'              => 'week',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
                 'tab'               => 'Time and space',
             ],
             [   // Month
                 'name'              => 'month',
                 'label'             => 'Month',
                 'type'              => 'month',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
                 'tab'               => 'Time and space',
             ],
             [   // Date
