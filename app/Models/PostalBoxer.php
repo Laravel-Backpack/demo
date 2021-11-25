@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Venturecraft\Revisionable\RevisionableTrait;
 
-class Icon extends Model
+class PostalBoxer extends Model
 {
     use CrudTrait;
-    use RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -17,18 +15,13 @@ class Icon extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'icons';
+    protected $table = 'postalboxers';
     protected $primaryKey = 'id';
-    public $timestamps = true;
-    // protected $guarded = ['id'];
-    protected $fillable = ['name', 'icon'];
+    public $timestamps = false;
+    protected $fillable = ['monster_id', 'postal_name'];
+
     // protected $hidden = [];
     // protected $dates = [];
-
-    public function identifiableAttribute()
-    {
-        return 'icon';
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -42,9 +35,9 @@ class Icon extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function recommends()
+    public function monster()
     {
-        return $this->morphToMany(\App\Models\Recommend::class, 'recommendable');
+        return $this->belongsTo(\App\Models\Monster::class, 'monster_id');
     }
 
     /*
