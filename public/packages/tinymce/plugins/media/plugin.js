@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.10.0 (2021-10-11)
+ * Version: 5.9.2 (2021-09-08)
  */
 (function () {
     'use strict';
@@ -665,39 +665,6 @@
       }
     };
 
-    var isMediaElement = function (element) {
-      return element.hasAttribute('data-mce-object') || element.hasAttribute('data-ephox-embed-iri');
-    };
-    var setup$2 = function (editor) {
-      editor.on('click keyup touchend', function () {
-        var selectedNode = editor.selection.getNode();
-        if (selectedNode && editor.dom.hasClass(selectedNode, 'mce-preview-object')) {
-          if (editor.dom.getAttrib(selectedNode, 'data-mce-selected')) {
-            selectedNode.setAttribute('data-mce-selected', '2');
-          }
-        }
-      });
-      editor.on('ObjectSelected', function (e) {
-        var objectType = e.target.getAttribute('data-mce-object');
-        if (objectType === 'script') {
-          e.preventDefault();
-        }
-      });
-      editor.on('ObjectResized', function (e) {
-        var target = e.target;
-        if (target.getAttribute('data-mce-object')) {
-          var html = target.getAttribute('data-mce-html');
-          if (html) {
-            html = unescape(html);
-            target.setAttribute('data-mce-html', escape(updateHtml(html, {
-              width: String(e.width),
-              height: String(e.height)
-            })));
-          }
-        }
-      });
-    };
-
     var global$3 = tinymce.util.Tools.resolve('tinymce.util.Promise');
 
     var cache = {};
@@ -824,6 +791,9 @@
     };
     var snippetToData = function (editor, embedSnippet) {
       return htmlToData(getScripts(editor), embedSnippet);
+    };
+    var isMediaElement = function (element) {
+      return element.hasAttribute('data-mce-object') || element.hasAttribute('data-ephox-embed-iri');
     };
     var getEditorData = function (editor) {
       var element = editor.selection.getNode();
@@ -1158,7 +1128,7 @@
         });
         var sanitizedHtml = previewWrapper.attr('data-mce-html');
         if (isNonNullable(sanitizedHtml)) {
-          appendNodeContent(editor, name, previewNode, unescape(sanitizedHtml));
+          appendNodeContent(editor, name, previewNode, sanitizedHtml);
         }
       }
       var shimNode = new global$2('span', 1);
@@ -1238,7 +1208,7 @@
       };
     };
 
-    var setup$1 = function (editor) {
+    var setup$2 = function (editor) {
       editor.on('preInit', function () {
         var specialElements = editor.schema.getSpecialElements();
         global$8.each('video audio iframe object'.split(' '), function (name) {
@@ -1313,7 +1283,7 @@
       });
     };
 
-    var setup = function (editor) {
+    var setup$1 = function (editor) {
       editor.on('ResolveName', function (e) {
         var name;
         if (e.target.nodeType === 1 && (name = e.target.getAttribute('data-mce-object'))) {
@@ -1322,6 +1292,41 @@
       });
     };
 
+    var setup = function (editor) {
+      editor.on('click keyup touchend', function () {
+        var selectedNode = editor.selection.getNode();
+        if (selectedNode && editor.dom.hasClass(selectedNode, 'mce-preview-object')) {
+          if (editor.dom.getAttrib(selectedNode, 'data-mce-selected')) {
+            selectedNode.setAttribute('data-mce-selected', '2');
+          }
+        }
+      });
+      editor.on('ObjectSelected', function (e) {
+        var objectType = e.target.getAttribute('data-mce-object');
+        if (objectType === 'script') {
+          e.preventDefault();
+        }
+      });
+      editor.on('ObjectResized', function (e) {
+        var target = e.target;
+        if (target.getAttribute('data-mce-object')) {
+          var html = target.getAttribute('data-mce-html');
+          if (html) {
+            html = unescape(html);
+            target.setAttribute('data-mce-html', escape(updateHtml(html, {
+              width: String(e.width),
+              height: String(e.height)
+            })));
+          }
+        }
+      });
+    };
+
+    var stateSelectorAdapter = function (editor, selector) {
+      return function (buttonApi) {
+        return editor.selection.selectorChangedWithUnbind(selector.join(','), buttonApi.setActive).unbind;
+      };
+    };
     var register = function (editor) {
       var onAction = function () {
         return editor.execCommand('mceMedia');
@@ -1330,11 +1335,11 @@
         tooltip: 'Insert/edit media',
         icon: 'embed',
         onAction: onAction,
-        onSetup: function (buttonApi) {
-          var selection = editor.selection;
-          buttonApi.setActive(isMediaElement(selection.getNode()));
-          return selection.selectorChangedWithUnbind('img[data-mce-object],span[data-mce-object],div[data-ephox-embed-iri]', buttonApi.setActive).unbind;
-        }
+        onSetup: stateSelectorAdapter(editor, [
+          'img[data-mce-object]',
+          'span[data-mce-object]',
+          'div[data-ephox-embed-iri]'
+        ])
       });
       editor.ui.registry.addMenuItem('media', {
         icon: 'embed',
@@ -1347,9 +1352,9 @@
       global$9.add('media', function (editor) {
         register$1(editor);
         register(editor);
-        setup(editor);
         setup$1(editor);
         setup$2(editor);
+        setup(editor);
         return get(editor);
       });
     }

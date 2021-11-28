@@ -4,14 +4,14 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.10.0 (2021-10-11)
+ * Version: 5.9.2 (2021-09-08)
  */
 (function () {
     'use strict';
 
-    var global$7 = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$6 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$6 = tinymce.util.Tools.resolve('tinymce.util.VK');
+    var global$5 = tinymce.util.Tools.resolve('tinymce.util.VK');
 
     var typeOf = function (x) {
       var t = typeof x;
@@ -265,7 +265,7 @@
       return editor.getParam('link_default_protocol', 'http', 'string');
     };
 
-    var global$5 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global$4 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
     var getValue = function (item) {
       return isString(item.value) ? item.value : '';
@@ -281,7 +281,7 @@
     };
     var sanitizeList = function (list, extractValue) {
       var out = [];
-      global$5.each(list, function (item) {
+      global$4.each(list, function (item) {
         var text = getText(item);
         if (item.menu !== undefined) {
           var items = sanitizeList(item.menu, extractValue);
@@ -376,9 +376,7 @@
       return has(obj, key) && obj[key] !== undefined && obj[key] !== null;
     };
 
-    var global$4 = tinymce.util.Tools.resolve('tinymce.dom.TreeWalker');
-
-    var global$3 = tinymce.util.Tools.resolve('tinymce.util.URI');
+    var global$3 = tinymce.util.Tools.resolve('tinymce.dom.TreeWalker');
 
     var isAnchor = function (elm) {
       return elm && elm.nodeName.toLowerCase() === 'a';
@@ -391,7 +389,7 @@
         return [];
       } else {
         var contents = rng.cloneContents();
-        var walker = new global$4(contents.firstChild, contents);
+        var walker = new global$3(contents.firstChild, contents);
         var elements = [];
         var current = contents.firstChild;
         do {
@@ -413,7 +411,7 @@
       var rules = ['noopener'];
       var rels = rel ? rel.split(/\s+/) : [];
       var toString = function (rels) {
-        return global$5.trim(rels.sort().join(' '));
+        return global$4.trim(rels.sort().join(' '));
       };
       var addTargetRules = function (rels) {
         rels = removeTargetRules(rels);
@@ -421,7 +419,7 @@
       };
       var removeTargetRules = function (rels) {
         return rels.filter(function (val) {
-          return global$5.inArray(rules, val) === -1;
+          return global$4.inArray(rules, val) === -1;
         });
       };
       var newRels = isUnsafe ? addTargetRules(rels) : removeTargetRules(rels);
@@ -443,7 +441,7 @@
       return trimCaretContainers(text);
     };
     var hasLinks = function (elements) {
-      return global$5.grep(elements, isLink).length > 0;
+      return global$4.grep(elements, isLink).length > 0;
     };
     var hasLinksInSelection = function (rng) {
       return collectNodesInRange(rng, isLink).length > 0;
@@ -569,13 +567,8 @@
         return isNull(v) === false;
       });
     };
-    var sanitizeData = function (editor, data) {
-      var href = data.href;
-      return __assign(__assign({}, data), { href: global$3.isDomSafe(href, 'a', editor.settings) ? href : '' });
-    };
     var link = function (editor, attachState, data) {
-      var sanitizedData = sanitizeData(editor, data);
-      editor.hasPlugin('rtc', true) ? editor.execCommand('createlink', false, unwrapOptions(sanitizedData)) : linkDomMutation(editor, attachState, sanitizedData);
+      editor.hasPlugin('rtc', true) ? editor.execCommand('createlink', false, unwrapOptions(data)) : linkDomMutation(editor, attachState, data);
     };
     var unlink = function (editor) {
       editor.hasPlugin('rtc', true) ? editor.execCommand('unlink') : unlinkDomMutation(editor);
@@ -1069,7 +1062,7 @@
     var setupGotoLinks = function (editor) {
       editor.on('click', function (e) {
         var link = getLink(editor, e.target);
-        if (link && global$6.metaKeyPressed(e)) {
+        if (link && global$5.metaKeyPressed(e)) {
           e.preventDefault();
           gotoLink(editor, link);
         }
@@ -1277,7 +1270,7 @@
     };
 
     function Plugin () {
-      global$7.add('link', function (editor) {
+      global$6.add('link', function (editor) {
         setupButtons(editor);
         setupMenuItems(editor);
         setupContextMenu(editor);

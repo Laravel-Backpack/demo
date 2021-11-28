@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.10.0 (2021-10-11)
+ * Version: 5.9.2 (2021-09-08)
  */
 (function () {
     'use strict';
@@ -536,10 +536,6 @@
     };
     var isEmpty$1 = function (s) {
       return !isNotEmpty(s);
-    };
-    var toFloat = function (value) {
-      var num = parseFloat(value);
-      return isNaN(num) ? Optional.none() : Optional.some(num);
     };
 
     var normalVersionRegex = /.*?version\/\ ?([0-9]+)\.([0-9]+).*/;
@@ -1080,9 +1076,6 @@
     var parent = function (element) {
       return Optional.from(element.dom.parentNode).map(SugarElement.fromDom);
     };
-    var parentElement = function (element) {
-      return Optional.from(element.dom.parentElement).map(SugarElement.fromDom);
-    };
     var parents = function (element, isRoot) {
       var stop = isFunction(isRoot) ? isRoot : never;
       var dom = element.dom;
@@ -1098,6 +1091,9 @@
         }
       }
       return ret;
+    };
+    var offsetParent = function (element) {
+      return Optional.from(element.dom.offsetParent).map(SugarElement.fromDom);
     };
     var prevSibling = function (element) {
       return Optional.from(element.dom.previousSibling).map(SugarElement.fromDom);
@@ -1292,15 +1288,6 @@
         rawSet(dom, k, v);
       });
     };
-    var setOptions = function (element, attrs) {
-      each$1(attrs, function (v, k) {
-        v.fold(function () {
-          remove$7(element, k);
-        }, function (value) {
-          rawSet(element.dom, k, value);
-        });
-      });
-    };
     var get$b = function (element, key) {
       var v = element.dom.getAttribute(key);
       return v === null ? undefined : v;
@@ -1419,12 +1406,8 @@
     var getSpan = function (cell, type) {
       return getAttrValue(cell, type, 1);
     };
-    var hasColspan = function (cellOrCol) {
-      if (isTag('col')(cellOrCol)) {
-        return getAttrValue(cellOrCol, 'span', 1) > 1;
-      } else {
-        return getSpan(cellOrCol, 'colspan') > 1;
-      }
+    var hasColspan = function (cell) {
+      return getSpan(cell, 'colspan') > 1;
     };
     var hasRowspan = function (cell) {
       return getSpan(cell, 'rowspan') > 1;
@@ -1520,7 +1503,7 @@
     var fromTable$1 = function (table) {
       var rows = rows$1(table);
       var columnGroups$1 = columnGroups(table);
-      var elems = __spreadArray(__spreadArray([], columnGroups$1, true), rows, true);
+      var elems = __spreadArray(__spreadArray([], columnGroups$1), rows);
       return fromRowsOrColGroups(elems, getParentSection);
     };
     var fromPastedRows = function (elems, section) {
@@ -1631,6 +1614,8 @@
     var generate$1 = function (list) {
       var access = {};
       var cells = [];
+      var columns = {};
+      var colgroups = [];
       var tableOpt = head(list).map(function (rowData) {
         return rowData.element;
       }).bind(table);
@@ -1638,46 +1623,35 @@
       var maxRows = 0;
       var maxColumns = 0;
       var rowCount = 0;
-      var _a = partition(list, function (rowData) {
-          return rowData.section === 'colgroup';
-        }), colgroupRows = _a.pass, rows = _a.fail;
-      each$2(rows, function (rowData) {
-        var currentRow = [];
-        each$2(rowData.cells, function (rowCell) {
-          var start = 0;
-          while (access[key(rowCount, start)] !== undefined) {
-            start++;
-          }
-          var isLocked = hasNonNullableKey(lockedColumns, start.toString());
-          var current = extended(rowCell.element, rowCell.rowspan, rowCell.colspan, rowCount, start, isLocked);
-          for (var occupiedColumnPosition = 0; occupiedColumnPosition < rowCell.colspan; occupiedColumnPosition++) {
-            for (var occupiedRowPosition = 0; occupiedRowPosition < rowCell.rowspan; occupiedRowPosition++) {
-              var rowPosition = rowCount + occupiedRowPosition;
-              var columnPosition = start + occupiedColumnPosition;
-              var newpos = key(rowPosition, columnPosition);
-              access[newpos] = current;
-              maxColumns = Math.max(maxColumns, columnPosition + 1);
+      each$2(list, function (rowData) {
+        if (rowData.section === 'colgroup') {
+          columns = generateColumns(rowData);
+          colgroups = [colgroup(rowData.element, values(columns))];
+        } else {
+          var currentRow_1 = [];
+          each$2(rowData.cells, function (rowCell) {
+            var start = 0;
+            while (access[key(rowCount, start)] !== undefined) {
+              start++;
             }
-          }
-          currentRow.push(current);
-        });
-        maxRows++;
-        cells.push(rowdetail(rowData.element, currentRow, rowData.section));
-        rowCount++;
+            var isLocked = hasNonNullableKey(lockedColumns, start.toString());
+            var current = extended(rowCell.element, rowCell.rowspan, rowCell.colspan, rowCount, start, isLocked);
+            for (var occupiedColumnPosition = 0; occupiedColumnPosition < rowCell.colspan; occupiedColumnPosition++) {
+              for (var occupiedRowPosition = 0; occupiedRowPosition < rowCell.rowspan; occupiedRowPosition++) {
+                var rowPosition = rowCount + occupiedRowPosition;
+                var columnPosition = start + occupiedColumnPosition;
+                var newpos = key(rowPosition, columnPosition);
+                access[newpos] = current;
+                maxColumns = Math.max(maxColumns, columnPosition + 1);
+              }
+            }
+            currentRow_1.push(current);
+          });
+          maxRows++;
+          cells.push(rowdetail(rowData.element, currentRow_1, rowData.section));
+          rowCount++;
+        }
       });
-      var _b = last$2(colgroupRows).map(function (rowData) {
-          var columns = generateColumns(rowData);
-          var colgroup$1 = colgroup(rowData.element, values(columns));
-          return {
-            colgroups: [colgroup$1],
-            columns: columns
-          };
-        }).getOrThunk(function () {
-          return {
-            colgroups: [],
-            columns: {}
-          };
-        }), columns = _b.columns, colgroups = _b.colgroups;
       var grid$1 = grid(maxRows, maxColumns);
       return {
         grid: grid$1,
@@ -2432,46 +2406,6 @@
       };
     };
 
-    var needManualCalc = function () {
-      var browser = detect$3().browser;
-      return browser.isIE() || browser.isEdge();
-    };
-    var toNumber = function (px, fallback) {
-      return toFloat(px).getOr(fallback);
-    };
-    var getProp = function (element, name, fallback) {
-      return toNumber(get$a(element, name), fallback);
-    };
-    var getBoxSizing = function (element) {
-      return get$a(element, 'box-sizing');
-    };
-    var calcContentBoxSize = function (element, size, upper, lower) {
-      var paddingUpper = getProp(element, 'padding-' + upper, 0);
-      var paddingLower = getProp(element, 'padding-' + lower, 0);
-      var borderUpper = getProp(element, 'border-' + upper + '-width', 0);
-      var borderLower = getProp(element, 'border-' + lower + '-width', 0);
-      return size - paddingUpper - paddingLower - borderUpper - borderLower;
-    };
-    var getCalculatedHeight = function (element, boxSizing) {
-      var dom = element.dom;
-      var height = dom.getBoundingClientRect().height || dom.offsetHeight;
-      return boxSizing === 'border-box' ? height : calcContentBoxSize(element, height, 'top', 'bottom');
-    };
-    var getCalculatedWidth = function (element, boxSizing) {
-      var dom = element.dom;
-      var width = dom.getBoundingClientRect().width || dom.offsetWidth;
-      return boxSizing === 'border-box' ? width : calcContentBoxSize(element, width, 'left', 'right');
-    };
-    var getHeight$1 = function (element) {
-      return needManualCalc() ? getCalculatedHeight(element, getBoxSizing(element)) : getProp(element, 'height', element.dom.offsetHeight);
-    };
-    var getWidth = function (element) {
-      return needManualCalc() ? getCalculatedWidth(element, getBoxSizing(element)) : getProp(element, 'width', element.dom.offsetWidth);
-    };
-    var getInnerWidth = function (element) {
-      return getCalculatedWidth(element, 'content-box');
-    };
-
     var api$1 = Dimension('width', function (element) {
       return element.dom.offsetWidth;
     });
@@ -2481,8 +2415,6 @@
     var getOuter$2 = function (element) {
       return api$1.getOuter(element);
     };
-    var getInner = getInnerWidth;
-    var getRuntime$1 = getWidth;
 
     var columns = function (warehouse, isValidCell) {
       if (isValidCell === void 0) {
@@ -2605,7 +2537,6 @@
     var getOuter$1 = function (element) {
       return api.getOuter(element);
     };
-    var getRuntime = getHeight$1;
 
     var r = function (left, top) {
       var translate = function (x, y) {
@@ -2813,14 +2744,57 @@
       });
     };
 
+    var needManualCalc = function () {
+      var browser = detect$3().browser;
+      return browser.isIE() || browser.isEdge();
+    };
+    var toNumber = function (px, fallback) {
+      var num = parseFloat(px);
+      return isNaN(num) ? fallback : num;
+    };
+    var getProp = function (elm, name, fallback) {
+      return toNumber(get$a(elm, name), fallback);
+    };
+    var getCalculatedHeight = function (cell) {
+      var height = cell.dom.getBoundingClientRect().height;
+      var boxSizing = get$a(cell, 'box-sizing');
+      if (boxSizing === 'border-box') {
+        return height;
+      } else {
+        var paddingTop = getProp(cell, 'padding-top', 0);
+        var paddingBottom = getProp(cell, 'padding-bottom', 0);
+        var borderTop = getProp(cell, 'border-top-width', 0);
+        var borderBottom = getProp(cell, 'border-bottom-width', 0);
+        var borders = borderTop + borderBottom;
+        return height - paddingTop - paddingBottom - borders;
+      }
+    };
+    var getCalculatedWidth = function (cell) {
+      var width = cell.dom.getBoundingClientRect().width;
+      var boxSizing = get$a(cell, 'box-sizing');
+      if (boxSizing === 'border-box') {
+        return width;
+      } else {
+        var paddingLeft = getProp(cell, 'padding-left', 0);
+        var paddingRight = getProp(cell, 'padding-right', 0);
+        var borderLeft = getProp(cell, 'border-left-width', 0);
+        var borderRight = getProp(cell, 'border-right-width', 0);
+        var borders = borderLeft + borderRight;
+        return width - paddingLeft - paddingRight - borders;
+      }
+    };
+    var getHeight$1 = function (cell) {
+      return needManualCalc() ? getCalculatedHeight(cell) : getProp(cell, 'height', get$7(cell));
+    };
+    var getWidth = function (cell) {
+      return needManualCalc() ? getCalculatedWidth(cell) : getProp(cell, 'width', get$8(cell));
+    };
+
     var rPercentageBasedSizeRegex = /(\d+(\.\d+)?)%/;
     var rPixelBasedSizeRegex = /(\d+(\.\d+)?)px|em/;
-    var isCol$2 = isTag('col');
-    var getPercentSize = function (elm, outerGetter, innerGetter) {
-      var relativeParent = parentElement(elm).getOrThunk(function () {
-        return getBody$1(owner(elm));
-      });
-      return outerGetter(elm) / innerGetter(relativeParent) * 100;
+    var getPercentSize = function (elm, getter) {
+      var relativeParent = offsetParent(elm).getOr(getBody$1(owner(elm)));
+      return getter(elm) / getter(relativeParent) * 100;
     };
     var setPixelWidth = function (cell, amount) {
       set$1(cell, 'width', amount + 'px');
@@ -2832,7 +2806,9 @@
       set$1(cell, 'height', amount + 'px');
     };
     var getHeightValue = function (cell) {
-      return getRuntime(cell) + 'px';
+      return getRaw$2(cell, 'height').getOrThunk(function () {
+        return getHeight$1(cell) + 'px';
+      });
     };
     var convert = function (cell, number, getter, setter) {
       var newSize = table(cell).map(function (table) {
@@ -2843,7 +2819,7 @@
       return newSize;
     };
     var normalizePixelSize = function (value, cell, getter, setter) {
-      var number = parseFloat(value);
+      var number = parseInt(value, 10);
       return endsWith(value, '%') && name(cell) !== 'table' ? convert(cell, number, getter, setter) : number;
     };
     var getTotalHeight = function (cell) {
@@ -2858,24 +2834,57 @@
       var span = getSpan(cell, type);
       return v / span;
     };
-    var getRaw$1 = function (element, prop) {
-      return getRaw$2(element, prop).orThunk(function () {
-        return getOpt(element, prop).map(function (val) {
-          return val + 'px';
-        });
+    var getRawWidth$1 = function (element) {
+      var cssWidth = getRaw$2(element, 'width');
+      return cssWidth.fold(function () {
+        return Optional.from(get$b(element, 'width'));
+      }, function (width) {
+        return Optional.some(width);
       });
     };
-    var getRawWidth$1 = function (element) {
-      return getRaw$1(element, 'width');
+    var normalizePercentageWidth = function (cellWidth, tableSize) {
+      return cellWidth / tableSize.pixelWidth() * 100;
     };
-    var getRawHeight = function (element) {
-      return getRaw$1(element, 'height');
+    var choosePercentageSize = function (element, width, tableSize) {
+      var percentMatch = rPercentageBasedSizeRegex.exec(width);
+      if (percentMatch !== null) {
+        return parseFloat(percentMatch[1]);
+      } else {
+        var intWidth = getWidth(element);
+        return normalizePercentageWidth(intWidth, tableSize);
+      }
     };
-    var getPercentageWidth = function (cell) {
-      return getPercentSize(cell, get$8, getInner);
+    var getPercentageWidth = function (cell, tableSize) {
+      var width = getRawWidth$1(cell);
+      return width.fold(function () {
+        var intWidth = get$8(cell);
+        return normalizePercentageWidth(intWidth, tableSize);
+      }, function (w) {
+        return choosePercentageSize(cell, w, tableSize);
+      });
     };
-    var getPixelWidth$1 = function (cell) {
-      return isCol$2(cell) ? get$8(cell) : getRuntime$1(cell);
+    var normalizePixelWidth = function (cellWidth, tableSize) {
+      return cellWidth / 100 * tableSize.pixelWidth();
+    };
+    var choosePixelSize = function (element, width, tableSize) {
+      var pixelMatch = rPixelBasedSizeRegex.exec(width);
+      if (pixelMatch !== null) {
+        return parseInt(pixelMatch[1], 10);
+      }
+      var percentMatch = rPercentageBasedSizeRegex.exec(width);
+      if (percentMatch !== null) {
+        var floatWidth = parseFloat(percentMatch[1]);
+        return normalizePixelWidth(floatWidth, tableSize);
+      }
+      return getWidth(element);
+    };
+    var getPixelWidth$1 = function (cell, tableSize) {
+      var width = getRawWidth$1(cell);
+      return width.fold(function () {
+        return getWidth(cell);
+      }, function (w) {
+        return choosePixelSize(cell, w, tableSize);
+      });
     };
     var getHeight = function (cell) {
       return get$6(cell, 'rowspan', getTotalHeight);
@@ -2896,8 +2905,8 @@
     var getPixelTableWidth = function (table) {
       return get$8(table) + 'px';
     };
-    var getPercentTableWidth = function (table) {
-      return getPercentSize(table, get$8, getInner) + '%';
+    var getPercentTableWidth$1 = function (table) {
+      return getPercentSize(table, get$8) + '%';
     };
     var isPercentSizing$1 = function (table) {
       return getRawWidth$1(table).exists(function (size) {
@@ -2913,27 +2922,33 @@
       return getRawWidth$1(table).isNone();
     };
     var percentageBasedSizeRegex = constant(rPercentageBasedSizeRegex);
+    var pixelBasedSizeRegex = constant(rPixelBasedSizeRegex);
 
     var isCol$1 = isTag('col');
-    var getRawW = function (cell) {
-      return getRawWidth$1(cell).getOrThunk(function () {
-        return getPixelWidth$1(cell) + 'px';
+    var getRaw$1 = function (cell, property, getter) {
+      return getRaw$2(cell, property).getOrThunk(function () {
+        return getter(cell) + 'px';
       });
     };
+    var getRawW = function (cell, tableSize) {
+      var fallback = function (e) {
+        return isCol$1(e) ? get$8(e) : getPixelWidth$1(e, tableSize);
+      };
+      return getRaw$1(cell, 'width', fallback);
+    };
     var getRawH = function (cell) {
-      return getRawHeight(cell).getOrThunk(function () {
-        return getHeight(cell) + 'px';
-      });
+      return getRaw$1(cell, 'height', getHeight);
     };
     var justCols = function (warehouse) {
       return map$1(Warehouse.justColumns(warehouse), function (column) {
         return Optional.from(column.element);
       });
     };
+    var hasRawStyle = function (cell, prop) {
+      return getRaw$2(cell, prop).isSome();
+    };
     var isValidColumn = function (cell) {
-      var browser = detect$3().browser;
-      var supportsColWidths = browser.isChrome() || browser.isFirefox();
-      return isCol$1(cell) ? supportsColWidths : true;
+      return !isCol$1(cell) || hasRawStyle(cell, 'width');
     };
     var getDimension = function (cellOpt, index, backups, filter, getter, fallback) {
       return cellOpt.filter(filter).fold(function () {
@@ -2942,8 +2957,10 @@
         return getter(cell);
       });
     };
-    var getWidthFrom = function (warehouse, table, getWidth, fallback) {
-      var columnCells = columns(warehouse);
+    var getWidthFrom = function (warehouse, table, getWidth, fallback, tableSize) {
+      var columnCells = columns(warehouse, function (cell) {
+        return hasRawStyle(cell, 'width');
+      });
       var columns$1 = Warehouse.hasColumns(warehouse) ? justCols(warehouse) : columnCells;
       var backups = [Optional.some(width.edge(table))].concat(map$1(width.positions(columnCells, table), function (pos) {
         return pos.map(function (p) {
@@ -2954,7 +2971,7 @@
       return map$1(columns$1, function (cellOption, c) {
         return getDimension(cellOption, c, backups, colFilter, function (column) {
           if (isValidColumn(column)) {
-            return getWidth(column);
+            return getWidth(column, tableSize);
           } else {
             var cell = bindFrom(columnCells[c], identity);
             return getDimension(cell, c, backups, colFilter, function (cell) {
@@ -2969,8 +2986,8 @@
         return d + 'px';
       }).getOr('');
     };
-    var getRawWidths = function (warehouse, table) {
-      return getWidthFrom(warehouse, table, getRawW, getDeduced);
+    var getRawWidths = function (warehouse, table, tableSize) {
+      return getWidthFrom(warehouse, table, getRawW, getDeduced, tableSize);
     };
     var getPercentageWidths = function (warehouse, table, tableSize) {
       return getWidthFrom(warehouse, table, getPercentageWidth, function (deduced) {
@@ -2979,12 +2996,12 @@
         }, function (cellWidth) {
           return cellWidth / tableSize.pixelWidth() * 100;
         });
-      });
+      }, tableSize);
     };
     var getPixelWidths = function (warehouse, table, tableSize) {
       return getWidthFrom(warehouse, table, getPixelWidth$1, function (deduced) {
         return deduced.getOrThunk(tableSize.minCellWidth);
-      });
+      }, tableSize);
     };
     var getHeightFrom = function (warehouse, table, direction, getHeight, fallback) {
       var rows$1 = rows(warehouse);
@@ -3006,17 +3023,24 @@
       return getHeightFrom(warehouse, table, direction, getRawH, getDeduced);
     };
 
-    var widthLookup = function (table, getter) {
-      return function () {
-        if (inBody(table)) {
-          return getter(table);
-        } else {
-          return parseFloat(getRaw$2(table, 'width').getOr('0'));
-        }
+    var Cell = function (initial) {
+      var value = initial;
+      var get = function () {
+        return value;
+      };
+      var set = function (v) {
+        value = v;
+      };
+      return {
+        get: get,
+        set: set
       };
     };
+
     var noneSize = function (table) {
-      var getWidth = widthLookup(table, get$8);
+      var getWidth = function () {
+        return get$8(table);
+      };
       var zero = constant(0);
       var getWidths = function (warehouse, tableSize) {
         return getPixelWidths(warehouse, table, tableSize);
@@ -3034,32 +3058,32 @@
         label: 'none'
       };
     };
-    var percentageSize = function (table) {
-      var getFloatWidth = widthLookup(table, function (elem) {
-        return parseFloat(getPercentTableWidth(elem));
-      });
-      var getWidth = widthLookup(table, get$8);
+    var percentageSize = function (initialWidth, table) {
+      var floatWidth = Cell(parseFloat(initialWidth));
+      var pixelWidth = Cell(get$8(table));
       var getCellDelta = function (delta) {
-        return delta / getWidth() * 100;
+        return delta / pixelWidth.get() * 100;
       };
       var singleColumnWidth = function (w, _delta) {
         return [100 - w];
       };
       var minCellWidth = function () {
-        return minWidth() / getWidth() * 100;
+        return minWidth() / pixelWidth.get() * 100;
       };
       var adjustTableWidth = function (delta) {
-        var currentWidth = getFloatWidth();
+        var currentWidth = floatWidth.get();
         var change = delta / 100 * currentWidth;
         var newWidth = currentWidth + change;
         setPercentageWidth(table, newWidth);
+        floatWidth.set(newWidth);
+        pixelWidth.set(get$8(table));
       };
       var getWidths = function (warehouse, tableSize) {
         return getPercentageWidths(warehouse, table, tableSize);
       };
       return {
-        width: getFloatWidth,
-        pixelWidth: getWidth,
+        width: floatWidth.get,
+        pixelWidth: pixelWidth.get,
         getWidths: getWidths,
         getCellDelta: getCellDelta,
         singleColumnWidth: singleColumnWidth,
@@ -3070,8 +3094,9 @@
         label: 'percent'
       };
     };
-    var pixelSize = function (table) {
-      var getWidth = widthLookup(table, get$8);
+    var pixelSize = function (initialWidth, table) {
+      var width = Cell(initialWidth);
+      var getWidth = width.get;
       var getCellDelta = identity;
       var singleColumnWidth = function (w, delta) {
         var newNext = Math.max(minWidth(), w + delta);
@@ -3080,6 +3105,7 @@
       var adjustTableWidth = function (delta) {
         var newWidth = getWidth() + delta;
         setPixelWidth(table, newWidth);
+        width.set(newWidth);
       };
       var getWidths = function (warehouse, tableSize) {
         return getPixelWidths(warehouse, table, tableSize);
@@ -3100,10 +3126,15 @@
     var chooseSize = function (element, width) {
       var percentMatch = percentageBasedSizeRegex().exec(width);
       if (percentMatch !== null) {
-        return percentageSize(element);
-      } else {
-        return pixelSize(element);
+        return percentageSize(percentMatch[1], element);
       }
+      var pixelMatch = pixelBasedSizeRegex().exec(width);
+      if (pixelMatch !== null) {
+        var intWidth = parseInt(pixelMatch[1], 10);
+        return pixelSize(intWidth, element);
+      }
+      var fallbackWidth = get$8(element);
+      return pixelSize(fallbackWidth, element);
     };
     var getTableSize = function (table) {
       var width = getRawWidth$1(table);
@@ -3400,7 +3431,6 @@
         row: createRow$1(doc),
         cell: newCell,
         replace: replace$1,
-        colGap: createCol(doc),
         gap: createCell(doc)
       };
     };
@@ -3411,7 +3441,6 @@
         row: createRow$1(doc),
         cell: createCell(doc),
         replace: pasteReplace,
-        colGap: createCol(doc),
         gap: createCell(doc)
       };
     };
@@ -4140,7 +4169,7 @@
     var getUnit = function (newSize) {
       return validate(newSize).fold(constant('px'), constant('px'), constant('%'));
     };
-    var redistribute = function (table, optWidth, optHeight) {
+    var redistribute = function (table, optWidth, optHeight, tableSize) {
       var warehouse = Warehouse.fromTable(table);
       var rows = warehouse.all;
       var cells = Warehouse.justCells(warehouse);
@@ -4148,7 +4177,7 @@
       optWidth.each(function (newWidth) {
         var widthUnit = getUnit(newWidth);
         var totalWidth = get$8(table);
-        var oldWidths = getRawWidths(warehouse, table);
+        var oldWidths = getRawWidths(warehouse, table, tableSize);
         var nuWidths = redistribute$1(oldWidths, totalWidth, newWidth);
         if (Warehouse.hasColumns(warehouse)) {
           redistributeToColumns(nuWidths, columns, widthUnit);
@@ -4169,6 +4198,7 @@
     var isPercentSizing = isPercentSizing$1;
     var isPixelSizing = isPixelSizing$1;
     var isNoneSizing = isNoneSizing$1;
+    var getPercentTableWidth = getPercentTableWidth$1;
 
     var getGridSize = function (table) {
       var warehouse = Warehouse.fromTable(table);
@@ -5094,12 +5124,9 @@
       };
     });
     var determineDefaultStyles = function (editor) {
-      var _a;
       if (isPixelsForced(editor)) {
-        var dom = editor.dom;
-        var parentBlock = (_a = dom.getParent(editor.selection.getStart(), dom.isBlock)) !== null && _a !== void 0 ? _a : editor.getBody();
-        var contentWidth = getInner(SugarElement.fromDom(parentBlock));
-        return __assign(__assign({}, defaultStyles), { width: contentWidth + 'px' });
+        var editorWidth = editor.getBody().offsetWidth;
+        return __assign(__assign({}, defaultStyles), { width: editorWidth + 'px' });
       } else if (isResponsiveForced(editor)) {
         return filter$1(defaultStyles, function (_value, key) {
           return key !== 'width';
@@ -5230,9 +5257,12 @@
 
     var get$4 = function (editor, table) {
       if (isPercentagesForced(editor)) {
-        return TableSize.percentageSize(table);
+        var width = getRawWidth(editor, table.dom).filter(isPercentage$1).getOrThunk(function () {
+          return getPercentTableWidth(table);
+        });
+        return TableSize.percentageSize(width, table);
       } else if (isPixelsForced(editor)) {
-        return TableSize.pixelSize(table);
+        return TableSize.pixelSize(get$8(table), table);
       } else {
         return TableSize.getTableSize(table);
       }
@@ -5241,14 +5271,14 @@
     var cleanupLegacyAttributes = function (element) {
       remove$7(element, 'width');
     };
-    var convertToPercentSize = function (table) {
-      var newWidth = getPercentTableWidth(table);
-      redistribute(table, Optional.some(newWidth), Optional.none());
+    var convertToPercentSize = function (table, tableSize) {
+      var newWidth = getPercentTableWidth$1(table);
+      redistribute(table, Optional.some(newWidth), Optional.none(), tableSize);
       cleanupLegacyAttributes(table);
     };
-    var convertToPixelSize = function (table) {
+    var convertToPixelSize = function (table, tableSize) {
       var newWidth = getPixelTableWidth(table);
-      redistribute(table, Optional.some(newWidth), Optional.none());
+      redistribute(table, Optional.some(newWidth), Optional.none(), tableSize);
       cleanupLegacyAttributes(table);
     };
     var convertToNoneSize = function (table) {
@@ -5262,8 +5292,14 @@
       cleanupLegacyAttributes(table);
     };
 
-    var enforcePercentage = convertToPercentSize;
-    var enforcePixels = convertToPixelSize;
+    var enforcePercentage = function (editor, table) {
+      var tableSizing = get$4(editor, table);
+      convertToPercentSize(table, tableSizing);
+    };
+    var enforcePixels = function (editor, table) {
+      var tableSizing = get$4(editor, table);
+      convertToPixelSize(table, tableSizing);
+    };
     var enforceNone = convertToNoneSize;
     var syncPixels = function (table) {
       var warehouse = Warehouse.fromTable(table);
@@ -5329,7 +5365,7 @@
       var afterCornerResize = function (table, origin, width) {
         var isRightEdgeResize = endsWith(origin, 'e');
         if (startRawW === '') {
-          enforcePercentage(table);
+          enforcePercentage(editor, table);
         }
         if (width !== startW && startRawW !== '') {
           set$1(table, 'width', startRawW);
@@ -5390,12 +5426,12 @@
             editor.dom.addClass(clone, 'mce-' + getColumnResizingBehaviour(editor) + '-columns');
           });
           if (!isPixelSizing(table) && isPixelsForced(editor)) {
-            enforcePixels(table);
+            enforcePixels(editor, table);
           } else if (!isPercentSizing(table) && isPercentagesForced(editor)) {
-            enforcePercentage(table);
+            enforcePercentage(editor, table);
           }
           if (isNoneSizing(table) && startsWith(e.origin, barResizerPrefix)) {
-            enforcePercentage(table);
+            enforcePercentage(editor, table);
           }
           startW = e.width;
           startRawW = isResponsiveForced(editor) ? '' : getRawWidth(editor, targetElm).getOr('');
@@ -5482,12 +5518,7 @@
       }
     };
 
-    var isHeaderCell = isTag('th');
-    var isHeaderCells = function (cells) {
-      return forall(cells, function (cell) {
-        return isHeaderCell(cell.element);
-      });
-    };
+    var isTableHeaderCell = isTag('th');
     var getRowHeaderType = function (isHeaderRow, isHeaderCells) {
       if (isHeaderRow && isHeaderCells) {
         return 'sectionCells';
@@ -5513,7 +5544,7 @@
     };
     var findCommonCellType = function (cells) {
       var headerCells = filter$2(cells, function (cell) {
-        return isHeaderCell(cell.element);
+        return isTableHeaderCell(cell.element);
       });
       if (headerCells.length === 0) {
         return Optional.some('td');
@@ -5741,13 +5772,13 @@
       return index.getOr(xs.length);
     };
     var subgrid = function (grid, row, column, comparator) {
-      var gridRow = getRow(grid, row);
-      var isColRow = gridRow.section === 'colgroup';
-      var colspan = findDiff(gridRow.cells.slice(column), comparator);
-      var rowspan = isColRow ? 1 : findDiff(getColumn(grid.slice(row), column), comparator);
+      var restOfRow = getRow(grid, row).cells.slice(column);
+      var endColIndex = findDiff(restOfRow, comparator);
+      var restOfColumn = getColumn(grid, column).slice(row);
+      var endRowIndex = findDiff(restOfColumn, comparator);
       return {
-        colspan: colspan,
-        rowspan: rowspan
+        colspan: endColIndex,
+        rowspan: endRowIndex
       };
     };
 
@@ -5778,16 +5809,10 @@
     var toGrid = function (warehouse, generators, isNew) {
       var grid = [];
       each$2(warehouse.colgroups, function (colgroup) {
-        var colgroupCols = [];
-        for (var columnIndex = 0; columnIndex < warehouse.grid.columns; columnIndex++) {
-          var element = Warehouse.getColumnAt(warehouse, columnIndex).map(function (column) {
-            return elementnew(column.element, isNew, false);
-          }).getOrThunk(function () {
-            return elementnew(generators.colGap(), true, false);
-          });
-          colgroupCols.push(element);
-        }
-        grid.push(rowcells(colgroup.element, colgroupCols, 'colgroup', isNew));
+        var cols = map$1(colgroup.columns, function (column) {
+          return elementnew(column.element, isNew, false);
+        });
+        grid.push(rowcells(colgroup.element, cols, 'colgroup', isNew));
       });
       for (var rowIndex = 0; rowIndex < warehouse.grid.rows; rowIndex++) {
         var rowCells = [];
@@ -6318,125 +6343,51 @@
       return cols.concat(rows.slice(0, start)).concat(rows.slice(finish + 1));
     };
 
-    var notInStartRow = function (grid, rowIndex, colIndex, comparator) {
-      return getCellElement(grid[rowIndex], colIndex) !== undefined && (rowIndex > 0 && comparator(getCellElement(grid[rowIndex - 1], colIndex), getCellElement(grid[rowIndex], colIndex)));
-    };
-    var notInStartColumn = function (row, index, comparator) {
-      return index > 0 && comparator(getCellElement(row, index - 1), getCellElement(row, index));
-    };
-    var isDuplicatedCell = function (grid, rowIndex, colIndex, comparator) {
-      return notInStartRow(grid, rowIndex, colIndex, comparator) || notInStartColumn(grid[rowIndex], colIndex, comparator);
-    };
-    var rowReplacerPredicate = function (targetRow, columnHeaders) {
-      var entireTableIsHeader = forall(columnHeaders, identity) && isHeaderCells(targetRow.cells);
-      return entireTableIsHeader ? always : function (cell, _rowIndex, colIndex) {
-        var type = name(cell.element);
-        return !(type === 'th' && columnHeaders[colIndex]);
-      };
-    };
-    var columnReplacePredicate = function (targetColumn, rowHeaders) {
-      var entireTableIsHeader = forall(rowHeaders, identity) && isHeaderCells(targetColumn);
-      return entireTableIsHeader ? always : function (cell, rowIndex, _colIndex) {
-        var type = name(cell.element);
-        return !(type === 'th' && rowHeaders[rowIndex]);
-      };
-    };
-    var determineScope = function (applyScope, element, newScope, isInHeader) {
-      var hasSpan = function (scope) {
-        return scope === 'row' ? hasRowspan(element) : hasColspan(element);
-      };
-      var getScope = function (scope) {
-        return hasSpan(scope) ? scope + 'group' : scope;
-      };
-      if (applyScope) {
-        return isHeaderCell(element) ? getScope(newScope) : null;
-      } else if (isInHeader && isHeaderCell(element)) {
-        var oppositeScope = newScope === 'row' ? 'col' : 'row';
-        return getScope(oppositeScope);
-      } else {
-        return null;
-      }
-    };
-    var rowScopeGenerator = function (applyScope, columnHeaders) {
-      return function (cell, rowIndex, columnIndex) {
-        return Optional.some(determineScope(applyScope, cell.element, 'col', columnHeaders[columnIndex]));
-      };
-    };
-    var columnScopeGenerator = function (applyScope, rowHeaders) {
-      return function (cell, rowIndex) {
-        return Optional.some(determineScope(applyScope, cell.element, 'row', rowHeaders[rowIndex]));
-      };
-    };
     var replace = function (cell, comparator, substitute) {
       return elementnew(substitute(cell.element, comparator), true, cell.isLocked);
     };
-    var replaceIn = function (grid, targets, comparator, substitute, replacer, genScope, shouldReplace) {
+    var replaceIn = function (grid, targets, comparator, substitute, replacer) {
       var isTarget = function (cell) {
         return exists(targets, function (target) {
           return comparator(cell.element, target.element);
         });
       };
-      return map$1(grid, function (row, rowIndex) {
-        return mapCells(row, function (cell, colIndex) {
-          if (isTarget(cell)) {
-            var newCell_1 = shouldReplace(cell, rowIndex, colIndex) ? replacer(cell, comparator, substitute) : cell;
-            genScope(newCell_1, rowIndex, colIndex).each(function (scope) {
-              setOptions(newCell_1.element, { scope: Optional.from(scope) });
-            });
-            return newCell_1;
-          } else {
-            return cell;
-          }
+      return map$1(grid, function (row) {
+        return mapCells(row, function (cell) {
+          return isTarget(cell) ? replacer(cell, comparator, substitute) : cell;
         });
       });
     };
-    var getColumnCells = function (rows, columnIndex, comparator) {
-      return bind$2(rows, function (row, i) {
-        return isDuplicatedCell(rows, i, columnIndex, comparator) ? [] : [getCell(row, columnIndex)];
-      });
+    var notStartRow = function (grid, rowIndex, colIndex, comparator) {
+      return getCellElement(grid[rowIndex], colIndex) !== undefined && (rowIndex > 0 && comparator(getCellElement(grid[rowIndex - 1], colIndex), getCellElement(grid[rowIndex], colIndex)));
     };
-    var getRowCells = function (rows, rowIndex, comparator) {
-      var targetRow = rows[rowIndex];
-      return bind$2(targetRow.cells, function (item, i) {
-        return isDuplicatedCell(rows, rowIndex, i, comparator) ? [] : [item];
-      });
+    var notStartColumn = function (row, index, comparator) {
+      return index > 0 && comparator(getCellElement(row, index - 1), getCellElement(row, index));
     };
-    var replaceColumns = function (grid, indexes, applyScope, comparator, substitution) {
+    var replaceColumn = function (grid, index, comparator, substitution) {
       var rows = extractGridDetails(grid).rows;
-      var targets = bind$2(indexes, function (index) {
-        return getColumnCells(rows, index, comparator);
+      var targets = bind$2(rows, function (row, i) {
+        var alreadyAdded = notStartRow(rows, i, index, comparator) || notStartColumn(row, index, comparator);
+        return alreadyAdded ? [] : [getCell(row, index)];
       });
-      var rowHeaders = map$1(grid, function (row) {
-        return isHeaderCells(row.cells);
-      });
-      var shouldReplaceCell = columnReplacePredicate(targets, rowHeaders);
-      var scopeGenerator = columnScopeGenerator(applyScope, rowHeaders);
-      return replaceIn(grid, targets, comparator, substitution, replace, scopeGenerator, shouldReplaceCell);
+      return replaceIn(grid, targets, comparator, substitution, replace);
     };
-    var replaceRows = function (grid, indexes, section, applyScope, comparator, substitution, tableSection) {
+    var replaceRow = function (grid, index, section, comparator, substitution, tableSection) {
       var _a = extractGridDetails(grid), cols = _a.cols, rows = _a.rows;
-      var targetRow = rows[indexes[0]];
-      var targets = bind$2(indexes, function (index) {
-        return getRowCells(rows, index, comparator);
+      var targetRow = rows[index];
+      var targets = bind$2(targetRow.cells, function (item, i) {
+        var alreadyAdded = notStartRow(rows, index, i, comparator) || notStartColumn(targetRow, i, comparator);
+        return alreadyAdded ? [] : [item];
       });
-      var columnHeaders = map$1(targetRow.cells, function (_cell, index) {
-        return isHeaderCells(getColumnCells(rows, index, comparator));
-      });
-      var newRows = __spreadArray([], rows, true);
-      each$2(indexes, function (index) {
-        newRows[index] = tableSection.transformRow(rows[index], section);
-      });
-      var newGrid = cols.concat(newRows);
-      var shouldReplaceCell = rowReplacerPredicate(targetRow, columnHeaders);
-      var scopeGenerator = rowScopeGenerator(applyScope, columnHeaders);
-      return replaceIn(newGrid, targets, comparator, substitution, tableSection.transformCell, scopeGenerator, shouldReplaceCell);
+      var newRows = __spreadArray([], rows);
+      newRows[index] = tableSection.transformRow(targetRow, section);
+      return replaceIn(cols.concat(newRows), targets, comparator, substitution, tableSection.transformCell);
     };
-    var replaceCells = function (grid, details, comparator, substitution) {
+    var replaceCell = function (grid, rowIndex, columnIndex, comparator, substitution) {
       var rows = extractGridDetails(grid).rows;
-      var targetCells = map$1(details, function (detail) {
-        return getCell(rows[detail.row], detail.column);
-      });
-      return replaceIn(grid, targetCells, comparator, substitution, replace, Optional.none, always);
+      var targetRow = rows[rowIndex];
+      var targetCell = getCell(targetRow, columnIndex);
+      return replaceIn(grid, [targetCell], comparator, substitution, replace);
     };
 
     var uniqueColumns = function (details) {
@@ -6497,7 +6448,7 @@
       };
       return { getOrInit: getOrInit };
     };
-    var transform = function (tag) {
+    var transform = function (tag, scope) {
       return function (generators) {
         var list = [];
         var find = function (element, comparator) {
@@ -6506,7 +6457,7 @@
           });
         };
         var makeNew = function (element) {
-          var attrs = tag === 'td' ? { scope: null } : {};
+          var attrs = isUndefined(scope) ? {} : { scope: scope };
           var cell = generators.replace(element, tag, attrs);
           list.push({
             item: element,
@@ -6791,42 +6742,48 @@
       return bundle(newGrid, details[0].row, targetIndex);
     };
     var opMakeColumnsHeader = function (initialGrid, details, comparator, genWrappers) {
+      var replacer = function (currentGrid, column) {
+        return replaceColumn(currentGrid, column.column, comparator, genWrappers.replaceOrInit);
+      };
       var columns = uniqueColumns(details);
-      var columnIndexes = map$1(columns, function (detail) {
-        return detail.column;
-      });
-      var newGrid = replaceColumns(initialGrid, columnIndexes, true, comparator, genWrappers.replaceOrInit);
+      var newGrid = foldl(columns, replacer, initialGrid);
       return bundle(newGrid, details[0].row, details[0].column);
     };
     var opMakeCellsHeader = function (initialGrid, details, comparator, genWrappers) {
-      var newGrid = replaceCells(initialGrid, details, comparator, genWrappers.replaceOrInit);
+      var replacer = function (currentGrid, detail) {
+        return replaceCell(currentGrid, detail.row, detail.column, comparator, genWrappers.replaceOrInit);
+      };
+      var newGrid = foldl(details, replacer, initialGrid);
       return bundle(newGrid, details[0].row, details[0].column);
     };
     var opUnmakeColumnsHeader = function (initialGrid, details, comparator, genWrappers) {
+      var replacer = function (currentGrid, column) {
+        return replaceColumn(currentGrid, column.column, comparator, genWrappers.replaceOrInit);
+      };
       var columns = uniqueColumns(details);
-      var columnIndexes = map$1(columns, function (detail) {
-        return detail.column;
-      });
-      var newGrid = replaceColumns(initialGrid, columnIndexes, false, comparator, genWrappers.replaceOrInit);
+      var newGrid = foldl(columns, replacer, initialGrid);
       return bundle(newGrid, details[0].row, details[0].column);
     };
     var opUnmakeCellsHeader = function (initialGrid, details, comparator, genWrappers) {
-      var newGrid = replaceCells(initialGrid, details, comparator, genWrappers.replaceOrInit);
+      var replacer = function (currentGrid, detail) {
+        return replaceCell(currentGrid, detail.row, detail.column, comparator, genWrappers.replaceOrInit);
+      };
+      var newGrid = foldl(details, replacer, initialGrid);
       return bundle(newGrid, details[0].row, details[0].column);
     };
-    var makeRowsSection = function (section, applyScope) {
+    var makeRowsSection = function (section) {
       return function (initialGrid, details, comparator, genWrappers, tableSection) {
+        var replacer = function (currentGrid, detail) {
+          return replaceRow(currentGrid, detail.row, section, comparator, genWrappers.replaceOrInit, tableSection);
+        };
         var rows = uniqueRows(details);
-        var rowIndexes = map$1(rows, function (detail) {
-          return detail.row;
-        });
-        var newGrid = replaceRows(initialGrid, rowIndexes, section, applyScope, comparator, genWrappers.replaceOrInit, tableSection);
+        var newGrid = foldl(rows, replacer, initialGrid);
         return bundle(newGrid, details[0].row, details[0].column);
       };
     };
-    var opMakeRowsHeader = makeRowsSection('thead', true);
-    var opMakeRowsBody = makeRowsSection('tbody', false);
-    var opMakeRowsFooter = makeRowsSection('tfoot', false);
+    var opMakeRowsHeader = makeRowsSection('thead');
+    var opMakeRowsBody = makeRowsSection('tbody');
+    var opMakeRowsFooter = makeRowsSection('tfoot');
     var opEraseColumns = function (grid, extractDetail, _comparator, _genWrappers) {
       var columns = uniqueColumns(extractDetail.details);
       var newGrid = deleteColumnsAt(grid, map$1(columns, function (column) {
@@ -6990,21 +6947,19 @@
         });
       };
     };
-    var headerCellGenerator = Generators.transform('th');
-    var bodyCellGenerator = Generators.transform('td');
     var insertRowsBefore = run(opInsertRowsBefore, onCells, noop, noop, Generators.modification);
     var insertRowsAfter = run(opInsertRowsAfter, onCells, noop, noop, Generators.modification);
     var insertColumnsBefore = run(opInsertColumnsBefore, insertColumnsExtractor(true), adjustAndRedistributeWidths, noop, Generators.modification);
     var insertColumnsAfter = run(opInsertColumnsAfter, insertColumnsExtractor(false), adjustAndRedistributeWidths, noop, Generators.modification);
     var eraseColumns = run(opEraseColumns, eraseColumnsExtractor, adjustAndRedistributeWidths, prune, Generators.modification);
     var eraseRows = run(opEraseRows, onCells, noop, prune, Generators.modification);
-    var makeColumnsHeader = run(opMakeColumnsHeader, onUnlockedCells, noop, noop, headerCellGenerator);
-    var unmakeColumnsHeader = run(opUnmakeColumnsHeader, onUnlockedCells, noop, noop, bodyCellGenerator);
-    var makeRowsHeader = run(opMakeRowsHeader, onUnlockedCells, noop, noop, headerCellGenerator);
-    var makeRowsBody = run(opMakeRowsBody, onUnlockedCells, noop, noop, bodyCellGenerator);
-    var makeRowsFooter = run(opMakeRowsFooter, onUnlockedCells, noop, noop, bodyCellGenerator);
-    var makeCellsHeader = run(opMakeCellsHeader, onUnlockedCells, noop, noop, headerCellGenerator);
-    var unmakeCellsHeader = run(opUnmakeCellsHeader, onUnlockedCells, noop, noop, bodyCellGenerator);
+    var makeColumnsHeader = run(opMakeColumnsHeader, onUnlockedCells, noop, noop, Generators.transform('th', 'row'));
+    var unmakeColumnsHeader = run(opUnmakeColumnsHeader, onUnlockedCells, noop, noop, Generators.transform('td', null));
+    var makeRowsHeader = run(opMakeRowsHeader, onUnlockedCells, noop, noop, Generators.transform('th', 'col'));
+    var makeRowsBody = run(opMakeRowsBody, onUnlockedCells, noop, noop, Generators.transform('td', null));
+    var makeRowsFooter = run(opMakeRowsFooter, onUnlockedCells, noop, noop, Generators.transform('td', null));
+    var makeCellsHeader = run(opMakeCellsHeader, onUnlockedCells, noop, noop, Generators.transform('th'));
+    var unmakeCellsHeader = run(opUnmakeCellsHeader, onUnlockedCells, noop, noop, Generators.transform('td'));
     var mergeCells = run(opMergeCells, onUnlockedMergable, resize, noop, Generators.merging);
     var unmergeCells = run(opUnmergeCells, onUnlockedUnmergable, resize, noop, Generators.merging);
     var pasteCells = run(opPasteCells, onPaste, resize, noop, Generators.modification);
@@ -7264,11 +7219,11 @@
       });
       return descendant(getBody(editor), 'table[data-mce-id="__mce"]').map(function (table) {
         if (isPixelsForced(editor)) {
-          enforcePixels(table);
+          enforcePixels(editor, table);
         } else if (isResponsiveForced(editor)) {
           enforceNone(table);
         } else if (isPercentagesForced(editor) || isPercentage(defaultStyles.width)) {
-          enforcePercentage(table);
+          enforcePercentage(editor, table);
         }
         removeDataStyle(table);
         remove$7(table, 'data-mce-id');
@@ -7382,7 +7337,7 @@
         var maxColRange = lastSelectedCell.column + lastSelectedCell.colspan;
         var fakeColGroups = generateColGroup(house, minColRange, maxColRange);
         var fakeRows = generateRows(house, minColRange, maxColRange);
-        return __spreadArray(__spreadArray([], fakeColGroups, true), fakeRows, true);
+        return __spreadArray(__spreadArray([], fakeColGroups), fakeRows);
       });
     };
 
@@ -7539,20 +7494,6 @@
         var a = rgba[3];
         return fromRgba(rgbaColour(r, g, b, a));
       });
-    };
-
-    var Cell = function (initial) {
-      var value = initial;
-      var get = function () {
-        return value;
-      };
-      var set = function (v) {
-        value = v;
-      };
-      return {
-        get: get,
-        set: set
-      };
     };
 
     var singleton = function (doRevoke) {
@@ -8644,9 +8585,9 @@
           if (!isForcedSizing) {
             table(cellOrCaption, isRoot).each(function (table) {
               if (sizing === 'relative' && !isPercentSizing(table)) {
-                enforcePercentage(table);
+                enforcePercentage(editor, table);
               } else if (sizing === 'fixed' && !isPixelSizing(table)) {
-                enforcePixels(table);
+                enforcePixels(editor, table);
               } else if (sizing === 'responsive' && !isNoneSizing(table)) {
                 enforceNone(table);
               }
@@ -10439,9 +10380,6 @@
         var keycode = realEvent.which;
         var shiftKey = realEvent.shiftKey === true;
         var handler = retrieve$1(container, annotations.selectedSelector).fold(function () {
-          if (isNavigation(keycode) && !shiftKey) {
-            annotations.clearBeforeUpdate(container);
-          }
           if (isDown(keycode) && shiftKey) {
             return curry(select, bridge, container, isRoot, down, finish, start, annotations.selectRange);
           } else if (isUp(keycode) && shiftKey) {
@@ -10485,7 +10423,7 @@
               rc(0, +1),
               rc(+1, 0)
             ]);
-          } else if (isNavigation(keycode) && !shiftKey) {
+          } else if (isNavigation(keycode) && shiftKey === false) {
             return clearToNavigate;
           } else {
             return Optional.none;
@@ -10498,7 +10436,7 @@
           var realEvent = event.raw;
           var keycode = realEvent.which;
           var shiftKey = realEvent.shiftKey === true;
-          if (!shiftKey) {
+          if (shiftKey === false) {
             return Optional.none();
           }
           if (isNavigation(keycode)) {
@@ -10583,7 +10521,7 @@
         onClear();
       };
       var clearBeforeUpdate = function (container) {
-        var sels = descendants(container, ephemera.selectedSelector + ',' + ephemera.firstSelectedSelector + ',' + ephemera.lastSelectedSelector);
+        var sels = descendants(container, ephemera.selectedSelector);
         each$2(sels, removeSelectionAttributes);
       };
       var selectRange = function (container, cells, start, finish) {

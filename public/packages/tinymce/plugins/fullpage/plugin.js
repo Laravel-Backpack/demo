@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.10.0 (2021-10-11)
+ * Version: 5.9.2 (2021-09-08)
  */
 (function () {
     'use strict';
@@ -532,6 +532,7 @@
 
     function Plugin () {
       global$4.add('fullpage', function (editor) {
+        console.warn('The fullpage plugin has been deprecated and marked for removal in TinyMCE 6.0');
         var headState = Cell(''), footState = Cell('');
         register$1(editor, headState);
         register(editor);
