@@ -8,7 +8,7 @@
         "php": ">=7.3",
         "laravel/framework": "^8.0",
         "fideloper/proxy": "^4.0",
-        "backpack/crud": "^4.1.22",
+        "backpack/crud": "4.2.x-dev as 4.1.99",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/pagemanager": "^3.0.2",
@@ -55,10 +55,11 @@
             "php -r \"copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate"
+            "php artisan key:generate",
+            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall"
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
