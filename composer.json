@@ -59,7 +59,7 @@
             "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
