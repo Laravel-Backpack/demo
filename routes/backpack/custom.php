@@ -45,4 +45,17 @@ Route::group([
             });
         }
     }
+    Route::group([
+        'prefix'    => 'pet-shop',
+        'namespace' => 'PetShop',
+    ], function () {
+        Route::get('about', 'PetShopController@about');
+        Route::crud('owner', 'OwnerCrudController');
+        Route::crud('invoice', 'InvoiceCrudController');
+        Route::crud('pet', 'PetCrudController');
+        Route::crud('passport', 'PassportCrudController');
+        Route::crud('skill', 'SkillCrudController');
+        Route::crud('comment', 'CommentCrudController');
+        Route::crud('badge', 'BadgeCrudController');
+    });
 }); // this should be the absolute last line of this file

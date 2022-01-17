@@ -5,34 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class InvoiceItem extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'commentable_type',
-        'commentable_id',
-        'user_id',
+        'invoice_id',
+        'order',
+        'description',
+        'quantity',
+        'unit_price',
     ];
 
     protected $casts = [
-        'id' => 'integer',
+        'id'         => 'integer',
+        'invoice_id' => 'integer',
+        'quantity'   => 'float',
+        'unit_price' => 'float',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    protected $table = 'comments';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    protected $guarded = ['id'];
-    // protected $hidden = [];
-    // protected $dates = [];
+    protected $appends = [
+        'subtotal',
+    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -46,14 +41,9 @@ class Comment extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function commentable()
+    public function invoice()
     {
-        return $this->morphTo();
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(\App\Models\Invoice::class);
     }
 
     /*
@@ -67,6 +57,11 @@ class Comment extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+
+    public function getSubtotalAttribute()
+    {
+        return $this->quantity * $this->unit_price;
+    }
 
     /*
     |--------------------------------------------------------------------------

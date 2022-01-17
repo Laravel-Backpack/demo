@@ -5,34 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Invoice extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'commentable_type',
-        'commentable_id',
-        'user_id',
+        'owner_id',
+        'series',
+        'number',
+        'issuance_date',
+        'due_date',
     ];
 
     protected $casts = [
-        'id' => 'integer',
+        'id'            => 'integer',
+        'owner_id'      => 'integer',
+        'issuance_date' => 'date',
+        'due_date'      => 'date',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    protected $table = 'comments';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
-    protected $guarded = ['id'];
-    // protected $hidden = [];
-    // protected $dates = [];
+    protected $appends = [
+        'total',
+    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -46,14 +41,14 @@ class Comment extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function commentable()
+    public function owner()
     {
-        return $this->morphTo();
+        return $this->belongsTo(\App\Models\Owner::class, 'owner_id');
     }
 
-    public function user()
+    public function items()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->hasMany(\App\Models\InvoiceItem::class);
     }
 
     /*
@@ -67,6 +62,11 @@ class Comment extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+
+    public function getTotalAttribute()
+    {
+        return $this->items->sum('subtotal');
+    }
 
     /*
     |--------------------------------------------------------------------------
