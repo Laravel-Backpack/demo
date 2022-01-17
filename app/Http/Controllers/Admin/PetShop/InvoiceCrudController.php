@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class InvoiceCrudController
- * @package App\Http\Controllers\Admin
+ * Class InvoiceCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class InvoiceCrudController extends CrudController
@@ -28,7 +28,7 @@ class InvoiceCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Invoice::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/pet-shop/invoice');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/invoice');
         CRUD::setEntityNameStrings('invoice', 'invoices');
     }
 
@@ -36,6 +36,7 @@ class InvoiceCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -52,6 +53,7 @@ class InvoiceCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -73,18 +75,18 @@ class InvoiceCrudController extends CrudController
                 ],
             ],
             [
-                'name' => 'quantity',
-                'type' => 'number',
-                'attributes' => ["step" => "any"],
-                'wrapper' => [
+                'name'       => 'quantity',
+                'type'       => 'number',
+                'attributes' => ['step' => 'any'],
+                'wrapper'    => [
                     'class' => 'form-group col-md-2',
                 ],
             ],
             [
-                'name' => 'unit_price',
-                'type' => 'number',
-                'attributes' => ["step" => "any"],
-                'wrapper' => [
+                'name'       => 'unit_price',
+                'type'       => 'number',
+                'attributes' => ['step' => 'any'],
+                'wrapper'    => [
                     'class' => 'form-group col-md-2',
                 ],
             ],
@@ -95,6 +97,7 @@ class InvoiceCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()
@@ -108,7 +111,6 @@ class InvoiceCrudController extends CrudController
 
         CRUD::column('total');
     }
-
 
     public function fetchOwner()
     {

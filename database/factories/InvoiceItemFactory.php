@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class InvoiceItemFactory extends Factory
 {
@@ -24,11 +23,11 @@ class InvoiceItemFactory extends Factory
     public function definition()
     {
         return [
-            'invoice_id' => Invoice::factory(),
-            'order' => $this->faker->randomNumber(),
+            'invoice_id'  => Invoice::factory(),
+            'order'       => $this->faker->randomNumber(),
             'description' => $this->faker->text,
-            'quantity' => $this->faker->randomFloat(0, 0, 9999999999.),
-            'unit_price' => $this->faker->randomFloat(0, 0, 9999999999.),
+            'quantity'    => $this->faker->randomFloat(0, 0, 9999999999.),
+            'unit_price'  => $this->faker->randomFloat(0, 0, 9999999999.),
         ];
     }
 }

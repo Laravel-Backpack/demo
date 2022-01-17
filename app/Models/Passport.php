@@ -37,13 +37,12 @@ class Passport extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'pet_id' => 'integer',
+        'id'            => 'integer',
+        'pet_id'        => 'integer',
         'issuance_date' => 'date',
-        'expiry_date' => 'date',
-        'birth_date' => 'date',
+        'expiry_date'   => 'date',
+        'birth_date'    => 'date',
     ];
-
 
     public function pet()
     {

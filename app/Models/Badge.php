@@ -28,7 +28,6 @@ class Badge extends Model
         'id' => 'integer',
     ];
 
-
     public function owners()
     {
         return $this->morphedByMany(\App\Models\Owner::class, 'badgeable');

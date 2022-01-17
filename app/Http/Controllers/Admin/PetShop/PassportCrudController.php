@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PassportCrudController
- * @package App\Http\Controllers\Admin
+ * Class PassportCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class PassportCrudController extends CrudController
@@ -27,7 +27,7 @@ class PassportCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Passport::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/pet-shop/passport');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/passport');
         CRUD::setEntityNameStrings('passport', 'passports');
     }
 
@@ -35,6 +35,7 @@ class PassportCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -56,7 +57,7 @@ class PassportCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);.
          */
     }
 
@@ -64,6 +65,7 @@ class PassportCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -89,33 +91,33 @@ class PassportCrudController extends CrudController
             ['name' => 'colour', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
             ['name' => 'notes', 'type' => 'textarea'],
             ['name' => 'country', 'type' => 'select_from_array', 'options' => [
-                'Austria' => 'Austria',
-                'Belgium' => 'Belgium',
-                'Bulgaria' => 'Bulgaria',
-                'Croatia' => 'Croatia',
+                'Austria'            => 'Austria',
+                'Belgium'            => 'Belgium',
+                'Bulgaria'           => 'Bulgaria',
+                'Croatia'            => 'Croatia',
                 'Republic of Cyprus' => 'Republic of Cyprus',
-                'Czech Republic' => 'Czech Republic',
-                'Denmark' => 'Denmark',
-                'Estonia' => 'Estonia',
-                'Finland' => 'Finland',
-                'France' => 'France',
-                'Germany' => 'Germany',
-                'Greece' => 'Greece',
-                'Hungary' => 'Hungary',
-                'Ireland' => 'Ireland',
-                'Italy' => 'Italy',
-                'Latvia' => 'Latvia',
-                'Lithuania' => 'Lithuania',
-                'Luxembourg' => 'Luxembourg',
-                'Malta' => 'Malta',
-                'Netherlands' => 'Netherlands',
-                'Poland' => 'Poland',
-                'Portugal' => 'Portugal',
-                'Romania' => 'Romania',
-                'Slovakia' => 'Slovakia',
-                'Slovenia' => 'Slovenia',
-                'Spain' => 'Spain',
-                'Sweden' => 'Sweden',
+                'Czech Republic'     => 'Czech Republic',
+                'Denmark'            => 'Denmark',
+                'Estonia'            => 'Estonia',
+                'Finland'            => 'Finland',
+                'France'             => 'France',
+                'Germany'            => 'Germany',
+                'Greece'             => 'Greece',
+                'Hungary'            => 'Hungary',
+                'Ireland'            => 'Ireland',
+                'Italy'              => 'Italy',
+                'Latvia'             => 'Latvia',
+                'Lithuania'          => 'Lithuania',
+                'Luxembourg'         => 'Luxembourg',
+                'Malta'              => 'Malta',
+                'Netherlands'        => 'Netherlands',
+                'Poland'             => 'Poland',
+                'Portugal'           => 'Portugal',
+                'Romania'            => 'Romania',
+                'Slovakia'           => 'Slovakia',
+                'Slovenia'           => 'Slovenia',
+                'Spain'              => 'Spain',
+                'Sweden'             => 'Sweden',
             ]],
         ];
     }
@@ -124,6 +126,7 @@ class PassportCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()

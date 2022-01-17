@@ -31,7 +31,6 @@ class Comment extends Model
         'id' => 'integer',
     ];
 
-
     public function user()
     {
         return $this->belongsTo(\App\User::class);

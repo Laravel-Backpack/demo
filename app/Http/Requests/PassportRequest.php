@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PassportRequest extends FormRequest
@@ -26,19 +25,19 @@ class PassportRequest extends FormRequest
     public function rules()
     {
         return [
-            'pet' => 'required|integer|exists:pets,id',
-            'number' => 'required|string',
+            'pet'           => 'required|integer|exists:pets,id',
+            'number'        => 'required|string',
             'issuance_date' => 'required|date',
-            'expiry_date' => 'nullable|date',
-            'first_name' => 'required|string',
-            'middle_name' => 'nullable|string',
-            'last_name' => 'required|string',
-            'birth_date' => 'required|date',
-            'species' => 'required|string',
-            'breed' => 'nullable|string',
-            'colour' => 'nullable|string',
-            'notes' => 'nullable|string',
-            'country' => 'required|string',
+            'expiry_date'   => 'nullable|date',
+            'first_name'    => 'required|string',
+            'middle_name'   => 'nullable|string',
+            'last_name'     => 'required|string',
+            'birth_date'    => 'required|date',
+            'species'       => 'required|string',
+            'breed'         => 'nullable|string',
+            'colour'        => 'nullable|string',
+            'notes'         => 'nullable|string',
+            'country'       => 'required|string',
         ];
     }
 

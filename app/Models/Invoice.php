@@ -19,16 +19,15 @@ class Invoice extends Model
     ];
 
     protected $casts = [
-        'id' => 'integer',
-        'owner_id' => 'integer',
+        'id'            => 'integer',
+        'owner_id'      => 'integer',
         'issuance_date' => 'date',
-        'due_date' => 'date',
+        'due_date'      => 'date',
     ];
 
     protected $appends = [
-        'total'
+        'total',
     ];
-
 
     /*
     |--------------------------------------------------------------------------

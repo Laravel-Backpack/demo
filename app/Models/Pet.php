@@ -28,7 +28,6 @@ class Pet extends Model
         'id' => 'integer',
     ];
 
-
     public function owners()
     {
         return $this->belongsToMany(\App\Models\Owner::class)->withPivot('role');

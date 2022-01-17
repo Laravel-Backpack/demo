@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class PetCrudController
- * @package App\Http\Controllers\Admin
+ * Class PetCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class PetCrudController extends CrudController
@@ -27,7 +27,7 @@ class PetCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Pet::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/pet-shop/pet');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/pet');
         CRUD::setEntityNameStrings('pet', 'pets');
     }
 
@@ -35,6 +35,7 @@ class PetCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -51,6 +52,7 @@ class PetCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -59,7 +61,7 @@ class PetCrudController extends CrudController
 
         CRUD::field('nickname');
         CRUD::field('avatar.url')->type('browse')->label('Avatar');
-        CRUD::field('owners')->subfields([ ['name' => 'role', 'type' => 'text'], ]);
+        CRUD::field('owners')->subfields([['name' => 'role', 'type' => 'text']]);
         CRUD::field('skills');
         CRUD::field('passport')->subfields(\App\Http\Controllers\Admin\PetShop\PassportCrudController::passportFields());
         CRUD::field('comments');
@@ -70,6 +72,7 @@ class PetCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()
