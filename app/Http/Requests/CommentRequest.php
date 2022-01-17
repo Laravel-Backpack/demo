@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CommentRequest extends FormRequest
@@ -26,10 +25,10 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|string',
+            'body'             => 'required|string',
             'commentable_type' => 'required|string',
-            'commentable_id' => 'required|integer',
-            'user_id' => 'required|string',
+            'commentable_id'   => 'required|integer',
+            'user_id'          => 'required|string',
         ];
     }
 

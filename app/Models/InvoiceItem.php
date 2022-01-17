@@ -19,16 +19,15 @@ class InvoiceItem extends Model
     ];
 
     protected $casts = [
-        'id' => 'integer',
+        'id'         => 'integer',
         'invoice_id' => 'integer',
-        'quantity' => 'float',
+        'quantity'   => 'float',
         'unit_price' => 'float',
     ];
 
     protected $appends = [
-        'subtotal'
+        'subtotal',
     ];
-
 
     /*
     |--------------------------------------------------------------------------

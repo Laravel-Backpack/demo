@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InvoiceRequest extends FormRequest
@@ -26,17 +25,17 @@ class InvoiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'owner' => 'required|integer|exists:owners,id',
-            'series' => 'required|string',
-            'number' => 'required|integer',
+            'owner'         => 'required|integer|exists:owners,id',
+            'series'        => 'required|string',
+            'number'        => 'required|integer',
             'issuance_date' => 'required|date',
-            'due_date' => 'nullable|date',
+            'due_date'      => 'nullable|date',
 
             // 'items.*.invoice_id' => 'required|integer|exists:invoices,id',
-            'items.*.order' => 'nullable|integer',
+            'items.*.order'       => 'nullable|integer',
             'items.*.description' => 'required|string',
-            'items.*.quantity' => 'required|numeric',
-            'items.*.unit_price' => 'required|numeric',
+            'items.*.quantity'    => 'required|numeric',
+            'items.*.unit_price'  => 'required|numeric',
         ];
     }
 

@@ -28,7 +28,6 @@ class Skill extends Model
         'id' => 'integer',
     ];
 
-
     public function pets()
     {
         return $this->belongsToMany(\App\Models\Pet::class);

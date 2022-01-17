@@ -46,7 +46,7 @@ Route::group([
         }
     }
     Route::group([
-        'prefix' => 'pet-shop',
+        'prefix'    => 'pet-shop',
         'namespace' => 'PetShop',
     ], function () {
         Route::get('about', 'PetShopController@about');

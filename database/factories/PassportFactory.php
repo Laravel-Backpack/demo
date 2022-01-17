@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Passport;
 use App\Models\Pet;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PassportFactory extends Factory
 {
@@ -24,19 +23,19 @@ class PassportFactory extends Factory
     public function definition()
     {
         return [
-            'pet_id' => Pet::factory(),
-            'number' => $this->faker->word,
+            'pet_id'        => Pet::factory(),
+            'number'        => $this->faker->word,
             'issuance_date' => $this->faker->date(),
-            'expiry_date' => $this->faker->date(),
-            'first_name' => $this->faker->firstName,
-            'middle_name' => $this->faker->word,
-            'last_name' => $this->faker->lastName,
-            'birth_date' => $this->faker->date(),
-            'species' => $this->faker->word,
-            'breed' => $this->faker->word,
-            'colour' => $this->faker->word,
-            'notes' => $this->faker->text,
-            'country' => $this->faker->country,
+            'expiry_date'   => $this->faker->date(),
+            'first_name'    => $this->faker->firstName,
+            'middle_name'   => $this->faker->word,
+            'last_name'     => $this->faker->lastName,
+            'birth_date'    => $this->faker->date(),
+            'species'       => $this->faker->word,
+            'breed'         => $this->faker->word,
+            'colour'        => $this->faker->word,
+            'notes'         => $this->faker->text,
+            'country'       => $this->faker->country,
         ];
     }
 }

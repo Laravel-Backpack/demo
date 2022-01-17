@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PetRequest extends FormRequest
@@ -26,7 +25,7 @@ class PetRequest extends FormRequest
     public function rules()
     {
         return [
-            'nickname' => 'required|string',
+            'nickname'   => 'required|string',
             'avatar.url' => 'required',
         ];
     }
