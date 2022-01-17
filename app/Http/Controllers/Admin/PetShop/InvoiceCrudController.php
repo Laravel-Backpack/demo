@@ -66,25 +66,10 @@ class InvoiceCrudController extends CrudController
         CRUD::field('due_date')->size(3);
         CRUD::field('items')->subfields([
             [
-                'name' => 'order',
-                'type' => 'number',
-                'wrapper' => [
-                    'class' => 'form-group col-md-1',
-                ],
-            ],
-            [
                 'name' => 'description',
                 'type' => 'text',
                 'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-            ],
-            [
-                'name' => 'unit',
-                'label' => 'U.M.',
-                'type' => 'text',
-                'wrapper' => [
-                    'class' => 'form-group col-md-1',
+                    'class' => 'form-group col-md-8',
                 ],
             ],
             [
@@ -103,7 +88,7 @@ class InvoiceCrudController extends CrudController
                     'class' => 'form-group col-md-2',
                 ],
             ],
-        ]);
+        ])->reorder('order');
     }
 
     /**
