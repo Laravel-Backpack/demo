@@ -49,7 +49,7 @@ Route::group([
         'prefix'    => 'pet-shop',
         'namespace' => 'PetShop',
     ], function () {
-        Route::get('about', 'PetShopController@about');
+        Route::get('about', function() { return view('admin.petshop_about'); });
         Route::crud('owner', 'OwnerCrudController');
         Route::crud('invoice', 'InvoiceCrudController');
         Route::crud('pet', 'PetCrudController');
