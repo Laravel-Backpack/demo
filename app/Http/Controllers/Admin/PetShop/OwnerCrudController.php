@@ -57,14 +57,14 @@ class OwnerCrudController extends CrudController
         CRUD::setValidation(OwnerRequest::class);
 
         CRUD::field('name');
-        CRUD::field('avatar.url')->type('browse')->label('Avatar');
+        CRUD::field('avatar.url')->type('browse')->label('Avatar')->hint('<small class="float-right">Edit one attribute on a <code>morphMany</code> related item (1-1).</small>');
         CRUD::field('pets')->subfields([
             ['name' => 'role', 'type' => 'text'],
-        ]);
-        CRUD::field('comments');
+        ])->hint('<small class="float-right">Choose related entries with a <code>belongsToMany</code> relationship and pivot fields (n-n with pivot).</small>');
+        CRUD::field('comments')->hint('<small class="float-right">Choose related entries with a <code>morphMany</code> relationship (1-n).</small>');
         CRUD::field('badges')->subfields([
             ['name' => 'note', 'type' => 'text'],
-        ]);
+        ])->hint('<small class="float-right">Choose related entries with a <code>morphToMany</code> relationship and pivot fields (n-n with pivot).</small>');
     }
 
     /**

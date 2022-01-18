@@ -31,7 +31,7 @@ class InvoiceRequest extends FormRequest
             'issuance_date' => 'required|date',
             'due_date'      => 'nullable|date',
 
-            // 'items.*.invoice_id' => 'required|integer|exists:invoices,id',
+            'items'               => 'required',
             'items.*.order'       => 'nullable|integer',
             'items.*.description' => 'required|string',
             'items.*.quantity'    => 'required|numeric',

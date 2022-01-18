@@ -60,12 +60,12 @@ class PetCrudController extends CrudController
         CRUD::setValidation(PetRequest::class);
 
         CRUD::field('nickname');
-        CRUD::field('avatar.url')->type('browse')->label('Avatar');
-        CRUD::field('owners')->subfields([['name' => 'role', 'type' => 'text']]);
-        CRUD::field('skills');
-        CRUD::field('passport')->subfields(\App\Http\Controllers\Admin\PetShop\PassportCrudController::passportFields());
-        CRUD::field('comments');
-        CRUD::field('badges');
+        CRUD::field('avatar.url')->type('browse')->label('Avatar')->hint('<small class="float-right">Edit one attribute on a <code>morphMany</code> related item (1-1).</small>');
+        CRUD::field('owners')->subfields([['name' => 'role', 'type' => 'text']])->hint('<small class="float-right">Choose related Owners over a <code>belongsToMany</code> relationship, and edit "role" on the pivot table (n-n).</small>');
+        CRUD::field('skills')->hint('<small class="float-right">Choose related Skills over a <code>belongsToMany</code> relationship (n-n).</small>');
+        CRUD::field('passport')->subfields(\App\Http\Controllers\Admin\PetShop\PassportCrudController::passportFields())->hint('<small class="float-right">Create, update or delete a related <code>hasOne</code> entry entirely (1-n).</small>');
+        CRUD::field('comments')->hint('<small class="float-right">Choose related Comments over a <code>morphMany</code> relationship (n-n).</small>');
+        CRUD::field('badges')->hint('<small class="float-right">Choose related Badges over a <code>morphToMany</code> relationship (n-n).</small>');
     }
 
     /**
