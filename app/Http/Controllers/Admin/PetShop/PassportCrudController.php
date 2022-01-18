@@ -53,12 +53,6 @@ class PassportCrudController extends CrudController
         CRUD::column('colour');
         CRUD::column('notes');
         CRUD::column('country');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);.
-         */
     }
 
     /**
@@ -79,17 +73,7 @@ class PassportCrudController extends CrudController
     public static function passportFields()
     {
         return [
-            ['name' => 'number', 'type' => 'number', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'issuance_date', 'type' => 'date', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'expiry_date', 'type' => 'date', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'first_name', 'type' => 'text'],
-            ['name' => 'middle_name', 'type' => 'text'],
-            ['name' => 'last_name', 'type' => 'text'],
-            ['name' => 'birth_date', 'type' => 'date'],
-            ['name' => 'species', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'breed', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'colour', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
-            ['name' => 'notes', 'type' => 'textarea'],
+            ['name' => 'number', 'type' => 'number', 'wrapperAttributes' => ['class' => 'form-group col-md-6']],
             ['name' => 'country', 'type' => 'select_from_array', 'options' => [
                 'Austria'            => 'Austria',
                 'Belgium'            => 'Belgium',
@@ -118,7 +102,18 @@ class PassportCrudController extends CrudController
                 'Slovenia'           => 'Slovenia',
                 'Spain'              => 'Spain',
                 'Sweden'             => 'Sweden',
-            ]],
+            ], 'wrapperAttributes' => ['class' => 'form-group col-md-6']],
+            ['name' => 'issuance_date', 'type' => 'date', 'wrapperAttributes' => ['class' => 'form-group col-md-6']],
+            ['name' => 'expiry_date', 'type' => 'date', 'wrapperAttributes' => ['class' => 'form-group col-md-6']],
+            ['name' => 'first_name', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'middle_name', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'last_name', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'birth_date', 'type' => 'date'],
+            ['name' => 'species', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'breed', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'colour', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
+            ['name' => 'notes', 'type' => 'textarea'],
+
         ];
     }
 
