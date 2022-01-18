@@ -26,6 +26,10 @@ class OwnerRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'avatar.url' => 'required|string',
+
+            'pets.*.pets' => 'required',
+            'pets.*.role' => 'required|string',
         ];
     }
 
