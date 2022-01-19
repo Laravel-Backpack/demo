@@ -68,8 +68,8 @@ class InvoiceCrudController extends CrudController
         CRUD::field('due_date')->size(3);
         CRUD::field('items')->subfields([
             [
-                'name' => 'description',
-                'type' => 'text',
+                'name'    => 'description',
+                'type'    => 'text',
                 'wrapper' => [
                     'class' => 'form-group col-md-8',
                 ],
