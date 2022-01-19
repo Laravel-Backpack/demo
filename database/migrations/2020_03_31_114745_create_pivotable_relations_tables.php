@@ -13,13 +13,13 @@ class CreatePivotableRelationsTables extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('text')->nullable();
-            $table->string('commentable_type');
-            $table->bigInteger('commentable_id');
-            $table->timestamps();
-        });
+//         Schema::create('comments', function (Blueprint $table) {
+//             $table->bigIncrements('id');
+//             $table->string('text')->nullable();
+//             $table->string('commentable_type');
+//             $table->bigInteger('commentable_id');
+//             $table->timestamps();
+//         });
 
         Schema::create('recommendables', function (Blueprint $table) {
             $table->bigIncrements('id');
