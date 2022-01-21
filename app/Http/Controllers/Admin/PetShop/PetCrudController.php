@@ -26,7 +26,7 @@ class PetCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Pet::class);
+        CRUD::setModel(\App\Models\PetShop\Pet::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/pet');
         CRUD::setEntityNameStrings('pet', 'pets');
     }

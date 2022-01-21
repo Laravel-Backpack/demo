@@ -27,7 +27,7 @@ class InvoiceCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Invoice::class);
+        CRUD::setModel(\App\Models\PetShop\Invoice::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/invoice');
         CRUD::setEntityNameStrings('invoice', 'invoices');
     }
@@ -63,7 +63,7 @@ class InvoiceCrudController extends CrudController
 
         CRUD::field('owner')->ajax(true)->minimum_input_length(0)->inline_create(true);
         CRUD::field('series')->size(3)->default('INV');
-        CRUD::field('number')->size(3)->default((\App\Models\Invoice::max('number') ?? 0) + 1);
+        CRUD::field('number')->size(3)->default((\App\Models\PetShop\Invoice::max('number') ?? 0) + 1);
         CRUD::field('issuance_date')->size(3)->default(date('Y-m-d'));
         CRUD::field('due_date')->size(3);
         CRUD::field('items')->subfields([
@@ -114,6 +114,6 @@ class InvoiceCrudController extends CrudController
 
     public function fetchOwner()
     {
-        return $this->fetch(\App\Models\Owner::class);
+        return $this->fetch(\App\Models\PetShop\Owner::class);
     }
 }

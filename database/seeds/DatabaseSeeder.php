@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PermissionManagerTablesSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(CountryTableSeeder::class);
+        $this->call(UniversesSeeder::class);
 
         factory(App\Models\Product::class, 210)->create();
         factory(App\Models\Monster::class, 140)->create();
@@ -25,5 +27,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Recommend::class, 10)->create();
         factory(App\Models\Bill::class, 30)->create();
         factory(App\Models\PostalBoxer::class, 30)->create();
+
+        
     }
 }

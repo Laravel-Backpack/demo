@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Avatar extends Model
+class Badge extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
@@ -16,9 +16,7 @@ class Avatar extends Model
      * @var array
      */
     protected $fillable = [
-        'url',
-        'avatarable_id',
-        'avatarable_type',
+        'name',
     ];
 
     /**
@@ -30,8 +28,13 @@ class Avatar extends Model
         'id' => 'integer',
     ];
 
-    public function avatarable()
+    public function owners()
     {
-        return $this->morphTo();
+        return $this->morphedByMany(\App\Models\PetShop\Owner::class, 'badgeable');
+    }
+
+    public function pets()
+    {
+        return $this->morphedByMany(\App\Models\PetShop\Pet::class, 'badgeable');
     }
 }

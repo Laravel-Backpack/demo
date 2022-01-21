@@ -57,29 +57,27 @@ class Monster extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function article()
-    {
+    public function article() {
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
     }
 
-    public function articles()
+    public function wish() {
+        return $this->hasOne(\App\Models\Wish::class);
+    }
+
+    public function address()
     {
-        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
+        return $this->hasOne(\App\Models\Address::class);
+    }
+
+    public function graffiti()
+    {
+        return $this->belongsTo(\App\Models\Graffiti::class, 'graffiti_id');
     }
 
     public function category()
     {
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Category::class, 'monster_category');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Tag::class, 'monster_tag');
     }
 
     public function icon()
@@ -92,21 +90,6 @@ class Monster extends Model
         return $this->belongsTo(\App\Models\Icon::class, 'belongs_to_non_nullable');
     }
 
-    public function products()
-    {
-        return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
-    }
-
-    public function dummyproducts()
-    {
-        return $this->belongsToMany(\App\Models\Product::class, 'monster_productdummy')->withPivot('notes');
-    }
-
-    public function address()
-    {
-        return $this->hasOne(\App\Models\Address::class);
-    }
-
     public function postalboxes()
     {
         return $this->hasMany(\App\Models\PostalBox::class);
@@ -117,9 +100,45 @@ class Monster extends Model
         return $this->hasMany(\App\Models\PostalBoxer::class);
     }
 
-    public function comment()
+    public function articles()
     {
-        return $this->morphOne(\App\Models\Comment::class, 'commentable');
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
+    } 
+
+    public function categories()
+    {
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Category::class, 'monster_category');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Tag::class, 'monster_tag');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
+    }
+
+    public function dummyproducts()
+    {
+        return $this->belongsToMany(\App\Models\Product::class, 'monster_productdummy')->withPivot('notes');
+    }
+    
+    public function countries() {
+        return $this->belongsToMany(\App\Models\Country::class, 'countries_monsters');
+    }
+
+    
+
+    public function sentiment()
+    {
+        return $this->morphOne(\App\Models\Sentiment::class, 'sentimentable');
+    }
+
+    public function ball()
+    {
+        return $this->morphOne(\App\Models\Ball::class, 'ballable');
     }
 
     public function recommends()
@@ -135,6 +154,11 @@ class Monster extends Model
     public function stars()
     {
         return $this->morphMany(\App\Models\Star::class, 'starable');
+    }
+
+    public function universes()
+    {
+        return $this->morphMany(\App\Models\Universe::class, 'universable');
     }
 
     /*

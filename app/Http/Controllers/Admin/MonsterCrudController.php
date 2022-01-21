@@ -39,6 +39,11 @@ class MonsterCrudController extends CrudController
         return $this->fetch(\App\Models\Icon::class);
     }
 
+    public function fetchArticle()
+    {
+        return $this->fetch(\App\Models\Article::class);
+    }
+
     public function setupListOperation()
     {
         $this->crud->addColumns([
@@ -255,7 +260,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFields(static::getFieldsArrayForRelationshipsTab());
         $this->crud->addFields(static::getFieldsArrayForSelectsTab());
         $this->crud->addFields(static::getFieldsArrayForUploadsTab());
-        $this->crud->addFields(static::getFieldsArrayForBigTextsTab());
+        $this->crud->addFields(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addFields(static::getFieldsArrayForMiscellaneousTab());
 
         $this->crud->removeField('url');
@@ -607,25 +612,214 @@ class MonsterCrudController extends CrudController
 
         return [
             // -----------------
-            // n-n relationships
+            // 1-1 hasOne
             // -----------------
             [   // CustomHTML
-                'name'  => 'select_n_n_heading',
+                'name'  => 'select_1_1_heading',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">n-n Relationship with Pivot Table (HasMany, BelongsToMany)</h5>',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">hasOne (1-1)<a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#hasone-1-1-relationship"><small class="text-danger">(view docs)</small></a></h5>',
                 'tab'   => 'Relationships',
             ],
-            [       // Select_Multiple = n-n relationship
-                'label'     => 'Select_multiple',
-                'type'      => 'select_multiple',
-                'name'      => 'tags', // the method that defines the relationship in your Model
-                'entity'    => 'tags', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
-                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'       => 'Relationships',
-                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
+            [
+                'name'    => 'address.street',
+                'label'   => '`street` field in `addresses` table',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
             ],
+            [
+                'name'    => 'address.country',
+                'label'   => 'Country relation in Address model',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name' => 'wish',
+                'label' => 'HasOne when the relation is optional',
+                'subfields' => [
+                    [
+                        'name' => 'country_id',
+                        'entity' => 'wish.country',
+                        'type' => 'relationship',
+                    ],
+                    [
+                        'name' => 'body'
+                    ],
+                ],
+                'tab'   => 'Relationships',
+            ],
+
+            // -----------------
+            // n-1 belongsTo
+            // -----------------
+            [   // CustomHTML
+                'name'  => 'select_n_1_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">belongsTo (n-1) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongsto-n-1-relationship"><small class="text-danger">(view docs)</small></a></h5>',
+                'tab'   => 'Relationships',
+            ],
+            [   
+                'name'              => 'category',
+                'tab'               => 'Relationships',
+                'wrapperAttributes' => ['class' => 'col-md-12'],
+            ],
+            // -----------------
+            // 1-n hasMany
+            // -----------------
+            [  
+                'name'  => 'select_1_n_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">HasMany (1-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#hasmany-1-n-relationship"><small class="text-danger">(view docs)</small></a></h5>',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'postalboxes',
+                'label'   => 'Create the related entries',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'subfields' => [
+                    [
+                        'name' => 'postal_name',
+                        'type' => 'text',
+                    ],
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'postalboxer',
+                'label'   => 'Select from related entries',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            // -----------------
+            // n-n belongsToMany
+            // -----------------
+            [  
+                'name'  => 'select_n_n_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">BelongsToMany (n-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongstomany-n-n-relationship"><small class="text-danger">(view docs)</small></a></h5>',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'dummyproducts',
+                'label'   => 'Save aditinal pivot fields',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'pivotSelect' => [
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ]
+                ],
+                'subfields' => [
+                    [
+                        'name'    => 'notes',
+                        'type'    => 'text',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                    ],
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name' => 'countries',
+                'label' => 'Simple attach relation',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            // -----------------
+            // 1-1 morphOne - Polymorphic
+            // -----------------
+            [  
+                'name'  => 'select_1_1_poli_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">morphOne (1-1 polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphone-1-1-polymorphic-relationship"><small class="text-danger">(view docs)</small></a></h5>',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'sentiment.text',
+                'label'   => '`text` field in sentiments table',
+                'type'    => 'ckeditor',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'sentiment.user',
+                'label'   => '`user` relation on Sentiment model',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationships',
+            ],
+
+            [
+                'name'    => 'ball',
+                'wrapper' => [
+                    'class' => 'form-group col-md-12',
+                ],
+                'subfields' => [
+                    [
+                        'name' => 'name',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                    ],
+                    [
+                        'name' => 'country_id',
+                        'entity' => 'ball.country',
+                        'type' => 'relationship',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                        
+                    ]
+                ],
+                'tab'   => 'Relationships',
+            ],
+            // -----------------
+            // 1-n morphMany - Polymorphic
+            // -----------------
+            [  
+                'name'  => 'select_1_n_poli_heading',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">morphMany (1-n polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphmany-1-n-polymorphic-relationship"><small class="text-danger">(view docs)</small></a></h5>',
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'stars',
+                'label'   => 'Creatable',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'subfields' => [
+                    [
+                        'name' => 'title',
+                        'type' => 'text',
+                    ],
+                ],
+
+                'tab'   => 'Relationships',
+            ],
+            [
+                'name'    => 'universes',
+                'label'   => 'Selectable',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                'tab'   => 'Relationships',
+            ],
+                     
             [       // Select2Multiple = n-n relationship (with pivot table)
                 'label'             => 'Select2_multiple',
                 'type'              => 'select2_multiple',
@@ -668,27 +862,7 @@ class MonsterCrudController extends CrudController
                 'data_source'       => backpack_url('monster/fetch/product'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [
-                'name'    => 'dummyproducts',
-                'label'   => 'BelongsToMany - with aditional pivot fields',
-                'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-                'pivot_wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-                'pivotFields' => [
-                    [
-                        'name'    => 'notes',
-                        'type'    => 'text',
-                        'wrapper' => [
-                            'class' => 'form-group col-md-6',
-                        ],
-                    ],
-                ],
-
-                'tab'   => 'Relationships',
-            ],
+            
             [
                 'label'     => 'Checklist',
                 'type'      => 'checklist',
@@ -703,22 +877,8 @@ class MonsterCrudController extends CrudController
             // -----------------
             // 1-n relationships
             // -----------------
-            [   // CustomHTML
-                'name'  => 'select_1_n_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">1-n Relationships (BelongsTo)</h5>',
-                'tab'   => 'Relationships',
-            ],
-            [    // SELECT
-                'label'             => 'Select',
-                'type'              => 'select',
-                'name'              => 'select',
-                'entity'            => 'category',
-                'attribute'         => 'name',
-                'model'             => "Backpack\NewsCRUD\app\Models\Category",
-                'tab'               => 'Relationships',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
+
+            
             [   // select_grouped
                 'label'                      => 'Select_grouped',
                 'type'                       => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
@@ -803,55 +963,12 @@ class MonsterCrudController extends CrudController
             // -----------------
             // 1-1 relationships
             // -----------------
-            [   // CustomHTML
-                'name'  => 'select_1_1_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">HasOne Relationship</h5> ',
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'address.street',
-                'label'   => 'Street column in address table',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'address.country',
-                'label'   => 'Country column in address table',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'address.icon',
-                'label'   => 'Relationship BelongsTo Icon in Address Model',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                'tab'   => 'Relationships',
-            ],
-
+           
             // -----------------
             // Polymorphic relations
             // -----------------
-            [   // CustomHTML
-                'name'  => 'select_1_1_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 text-primary">Polymorphic relationships</h5> ',
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'comment.text',
-                'label'   => 'MorphOne Comment - text column in comments table',
-                'type'    => 'ckeditor',
-                'wrapper' => [
-                    'class' => 'form-group col-md-12',
-                ],
-                'tab'   => 'Relationships',
-            ],
+            
+            
             [
                 'name'    => 'recommends',
                 'label'   => 'MorphToMany Recommends - with pivot fields',
@@ -876,46 +993,8 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationships',
             ],
 
-            [
-                'name'    => 'stars',
-                'label'   => 'MorphMany - Starts',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                'pivotFields' => [
-                    [
-                        'name' => 'title',
-                        'type' => 'text',
-                    ],
-                ],
-
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'postalboxes',
-                'label'   => 'HasMany - creatable',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                //'force_delete' => true,
-                'pivotFields' => [
-                    [
-                        'name' => 'postal_name',
-                        'type' => 'text',
-                    ],
-                ],
-
-                'tab'   => 'Relationships',
-            ],
-            [
-                'name'    => 'postalboxer',
-                'label'   => 'HasMany - selectable',
-                'wrapper' => [
-                    'class' => 'form-group col-md-4',
-                ],
-                //'force_delete' => true,
-                'tab'   => 'Relationships',
-            ],
+            
+            
 
         ];
     }
@@ -970,6 +1049,17 @@ class MonsterCrudController extends CrudController
                 ],
                 'fake' => true,
                 'tab'  => 'Selects',
+            ],
+            [       // Select_Multiple = n-n relationship
+                'label'     => 'Select_multiple',
+                'type'      => 'select_multiple',
+                'name'      => 'tags', // the method that defines the relationship in your Model
+                'entity'    => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+                'tab'       => 'Relationships',
+                // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
             ],
         ];
     }
@@ -1056,7 +1146,7 @@ class MonsterCrudController extends CrudController
         return $fields;
     }
 
-    public static function getFieldsArrayForBigTextsTab()
+    public static function getFieldsArrayForWysiwygEditorsTab()
     {
         // -----------------
         // BIG TEXTS tab

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -43,7 +43,7 @@ class InvoiceItem extends Model
 
     public function invoice()
     {
-        return $this->belongsTo(\App\Models\Invoice::class);
+        return $this->belongsTo(\App\Models\PetShop\Invoice::class);
     }
 
     /*

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -43,12 +43,12 @@ class Invoice extends Model
 
     public function owner()
     {
-        return $this->belongsTo(\App\Models\Owner::class, 'owner_id');
+        return $this->belongsTo(\App\Models\PetShop\Owner::class, 'owner_id');
     }
 
     public function items()
     {
-        return $this->hasMany(\App\Models\InvoiceItem::class);
+        return $this->hasMany(\App\Models\PetShop\InvoiceItem::class);
     }
 
     /*

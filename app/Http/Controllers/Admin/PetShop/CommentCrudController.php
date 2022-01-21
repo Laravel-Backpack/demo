@@ -26,7 +26,7 @@ class CommentCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Comment::class);
+        CRUD::setModel(\App\Models\PetShop\Comment::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/comment');
         CRUD::setEntityNameStrings('comment', 'comments');
     }

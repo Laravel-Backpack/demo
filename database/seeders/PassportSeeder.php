@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Passport;
+use App\Models\PetShop\Passport;
 use Illuminate\Database\Seeder;
 
 class PassportSeeder extends Seeder
