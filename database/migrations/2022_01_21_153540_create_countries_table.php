@@ -24,8 +24,6 @@ class CreateCountriesTable extends Migration
             $table->bigInteger('monster_id');
             $table->bigInteger('country_id');
         });
-
-        
     }
 
     /**

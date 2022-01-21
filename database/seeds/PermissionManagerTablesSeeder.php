@@ -13,13 +13,13 @@ class PermissionManagerTablesSeeder extends Seeder
      */
     public function run()
     {
-        if(Role::all()->isEmpty()) {
+        if (Role::all()->isEmpty()) {
             Role::create(['name' => 'superadmin', 'guard_name' => 'web'])->users()->sync([1]);
             Role::create(['name' => 'admin', 'guard_name' => 'web']);
             Role::create(['name' => 'member', 'guard_name' => 'web']);
         }
 
-        if(Permission::all()->isEmpty()) {
+        if (Permission::all()->isEmpty()) {
             Permission::create(['name' => 'manage news', 'guard_name' => 'web'])->roles()->sync([1, 2]);
             Permission::create(['name' => 'manage pages', 'guard_name' => 'web'])->roles()->sync([1, 2]);
             Permission::create(['name' => 'manage menu items', 'guard_name' => 'web'])->roles()->sync([1, 2]);

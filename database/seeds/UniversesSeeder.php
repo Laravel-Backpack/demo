@@ -14,19 +14,19 @@ class UniversesSeeder extends Seeder
     {
         Universe::insert([
             [
-                'title' => 'universe 1',
+                'title'            => 'universe 1',
                 'universable_type' => '',
-                'universable_id' => 0
+                'universable_id'   => 0,
             ],
             [
-                'title' => 'universe 2',
+                'title'            => 'universe 2',
                 'universable_type' => '',
-                'universable_id' => 0
+                'universable_id'   => 0,
             ],
             [
-                'title' => 'universe 3',
+                'title'            => 'universe 3',
                 'universable_type' => '',
-                'universable_id' => 0
+                'universable_id'   => 0,
             ],
         ]);
     }

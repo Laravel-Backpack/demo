@@ -637,16 +637,16 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationships',
             ],
             [
-                'name' => 'wish',
-                'label' => 'HasOne when the relation is optional',
+                'name'      => 'wish',
+                'label'     => 'HasOne when the relation is optional',
                 'subfields' => [
                     [
-                        'name' => 'country_id',
+                        'name'   => 'country_id',
                         'entity' => 'wish.country',
-                        'type' => 'relationship',
+                        'type'   => 'relationship',
                     ],
                     [
-                        'name' => 'body'
+                        'name' => 'body',
                     ],
                 ],
                 'tab'   => 'Relationships',
@@ -661,7 +661,7 @@ class MonsterCrudController extends CrudController
                 'value' => '<h5 class="mb-0 mt-3 text-primary">belongsTo (n-1) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongsto-n-1-relationship"><small class="text-danger">(view docs)</small></a></h5>',
                 'tab'   => 'Relationships',
             ],
-            [   
+            [
                 'name'              => 'category',
                 'tab'               => 'Relationships',
                 'wrapperAttributes' => ['class' => 'col-md-12'],
@@ -669,7 +669,7 @@ class MonsterCrudController extends CrudController
             // -----------------
             // 1-n hasMany
             // -----------------
-            [  
+            [
                 'name'  => 'select_1_n_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-3 text-primary">HasMany (1-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#hasmany-1-n-relationship"><small class="text-danger">(view docs)</small></a></h5>',
@@ -700,7 +700,7 @@ class MonsterCrudController extends CrudController
             // -----------------
             // n-n belongsToMany
             // -----------------
-            [  
+            [
                 'name'  => 'select_n_n_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-3 text-primary">BelongsToMany (n-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongstomany-n-n-relationship"><small class="text-danger">(view docs)</small></a></h5>',
@@ -715,7 +715,7 @@ class MonsterCrudController extends CrudController
                 'pivotSelect' => [
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
-                    ]
+                    ],
                 ],
                 'subfields' => [
                     [
@@ -729,8 +729,8 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationships',
             ],
             [
-                'name' => 'countries',
-                'label' => 'Simple attach relation',
+                'name'    => 'countries',
+                'label'   => 'Simple attach relation',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -739,7 +739,7 @@ class MonsterCrudController extends CrudController
             // -----------------
             // 1-1 morphOne - Polymorphic
             // -----------------
-            [  
+            [
                 'name'  => 'select_1_1_poli_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-3 text-primary">morphOne (1-1 polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphone-1-1-polymorphic-relationship"><small class="text-danger">(view docs)</small></a></h5>',
@@ -770,27 +770,27 @@ class MonsterCrudController extends CrudController
                 ],
                 'subfields' => [
                     [
-                        'name' => 'name',
+                        'name'    => 'name',
                         'wrapper' => [
                             'class' => 'form-group col-md-6',
                         ],
                     ],
                     [
-                        'name' => 'country_id',
-                        'entity' => 'ball.country',
-                        'type' => 'relationship',
+                        'name'    => 'country_id',
+                        'entity'  => 'ball.country',
+                        'type'    => 'relationship',
                         'wrapper' => [
                             'class' => 'form-group col-md-6',
                         ],
-                        
-                    ]
+
+                    ],
                 ],
                 'tab'   => 'Relationships',
             ],
             // -----------------
             // 1-n morphMany - Polymorphic
             // -----------------
-            [  
+            [
                 'name'  => 'select_1_n_poli_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-3 text-primary">morphMany (1-n polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphmany-1-n-polymorphic-relationship"><small class="text-danger">(view docs)</small></a></h5>',
@@ -819,7 +819,7 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab'   => 'Relationships',
             ],
-                     
+
             [       // Select2Multiple = n-n relationship (with pivot table)
                 'label'             => 'Select2_multiple',
                 'type'              => 'select2_multiple',
@@ -862,7 +862,7 @@ class MonsterCrudController extends CrudController
                 'data_source'       => backpack_url('monster/fetch/product'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            
+
             [
                 'label'     => 'Checklist',
                 'type'      => 'checklist',
@@ -878,7 +878,6 @@ class MonsterCrudController extends CrudController
             // 1-n relationships
             // -----------------
 
-            
             [   // select_grouped
                 'label'                      => 'Select_grouped',
                 'type'                       => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
@@ -963,12 +962,11 @@ class MonsterCrudController extends CrudController
             // -----------------
             // 1-1 relationships
             // -----------------
-           
+
             // -----------------
             // Polymorphic relations
             // -----------------
-            
-            
+
             [
                 'name'    => 'recommends',
                 'label'   => 'MorphToMany Recommends - with pivot fields',
@@ -992,9 +990,6 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab'   => 'Relationships',
             ],
-
-            
-            
 
         ];
     }

@@ -13,7 +13,7 @@ class Wish extends Model
     protected $fillable = [
         'body',
         'monster_id',
-        'country_id'
+        'country_id',
     ];
 
     protected $casts = [
@@ -45,11 +45,13 @@ class Wish extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function monster() {
+    public function monster()
+    {
         return $this->belongsTo(\App\Models\Monster::class);
     }
 
-    public function country() {
+    public function country()
+    {
         return $this->belongsTo(\App\Models\Country::class);
     }
 
