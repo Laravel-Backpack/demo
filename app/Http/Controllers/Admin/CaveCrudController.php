@@ -73,20 +73,42 @@ class CaveCrudController extends CrudController
 
     public static function getMonsterSubfields()
     {
-        return array_merge(
+        $field_types_that_dont_work = [
+            'date_range', // TODO
+            'select_grouped',
+            'select2_nested',
+            'select2_grouped',
+            'upload',
+            'upload_multiple',
+
+            // relationship fields
+            'relationship',
+            'select',
+            'select2',
+            'select_grouped',
+            'select_multiple',
+            'select2_multiple',
+            'select2_nested',
+            'select2_grouped',
+            'checklist',
+            'select2_from_ajax',
+            'select2_from_ajax_multiple',
+        ];
+
+        $subfields = array_merge(
             MonsterCrudController::getFieldsArrayForSimpleTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
                 'value' => '<hr>'
             ]],
-            // MonsterCrudController::getFieldsArrayForTimeAndSpaceTab(),
+            MonsterCrudController::getFieldsArrayForTimeAndSpaceTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
                 'value' => '<hr>'
             ]],
-            // MonsterCrudController::getFieldsArrayForRelationshipsTab(),
+            MonsterCrudController::getFieldsArrayForRelationshipsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
@@ -104,7 +126,7 @@ class CaveCrudController extends CrudController
                 'type'  => 'custom_html',
                 'value' => '<hr>'
             ]],
-            // MonsterCrudController::getFieldsArrayForBigTextsTab(),
+            MonsterCrudController::getFieldsArrayForBigTextsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
@@ -112,5 +134,17 @@ class CaveCrudController extends CrudController
             ]],
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );
+
+        foreach ($subfields as $key => $subfield) {
+            if (!isset($subfield['type'])) {
+                unset($subfields[$key]);
+                continue;
+            }
+            if (in_array($subfield['type'], $field_types_that_dont_work)) {
+                unset($subfields[$key]);
+            }
+        }
+
+        return $subfields;
     }
 }

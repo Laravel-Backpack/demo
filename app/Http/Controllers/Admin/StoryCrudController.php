@@ -54,25 +54,10 @@ class StoryCrudController extends CrudController
         CRUD::setValidation(StoryRequest::class);
         CRUD::setOperationSetting('contentClass', 'col-md-12');
 
-        $subfields = HeroCrudController::getMonsterSubfields();
-
-        // add the "hero." prefix to all subfield names
-        // foreach ($subfields as $key => $subfield) {
-        //     $subfields[$key]['name'] = 'hero.'.$subfield['name'];
-        //     $subfields[$key]['label'] = 'Monster '.$subfield['name'];
-        // }
-
-        // add a subfield for the hero name (the only subfield without a hasOne relationship)
-        // $subfields = array_merge([[
-        //         'name' => 'name',
-        //         'type' => 'text',
-        //         'label' => 'Hero name',
-        // ]], $subfields);
-
         CRUD::field('name');
         CRUD::field('monsters')
             ->label('Monsters <span class="badge badge-pill badge-warning">New</span>')
-            ->subfields($subfields)
+            ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Create/update/delete related Monsters over a <code>hasMany</code> relationship (1-n).</small>');
     }
 
@@ -85,5 +70,10 @@ class StoryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public static function getMonsterSubfields()
+    {
+        return CaveCrudController::getMonsterSubfields();
     }
 }

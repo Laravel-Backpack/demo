@@ -74,44 +74,6 @@ class HeroCrudController extends CrudController
 
     public static function getMonsterSubfields()
     {
-        return array_merge(
-            MonsterCrudController::getFieldsArrayForSimpleTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            // MonsterCrudController::getFieldsArrayForTimeAndSpaceTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            // MonsterCrudController::getFieldsArrayForRelationshipsTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            MonsterCrudController::getFieldsArrayForSelectsTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            MonsterCrudController::getFieldsArrayForUploadsTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            // MonsterCrudController::getFieldsArrayForBigTextsTab(),
-            [[   // CustomHTML
-                'name'  => 'separator',
-                'type'  => 'custom_html',
-                'value' => '<hr>'
-            ]],
-            MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
-        );
+        return CaveCrudController::getMonsterSubfields();
     }
 }
