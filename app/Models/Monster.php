@@ -72,6 +72,21 @@ class Monster extends Model
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
     }
 
+    public function cave()
+    {
+        return $this->belongsTo(\App\Models\Cave::class, 'cave_id');
+    }
+
+    public function hero()
+    {
+        return $this->belongsTo(\App\Models\Hero::class, 'hero_id');
+    }
+
+    public function story()
+    {
+        return $this->belongsTo(\App\Models\Story::class, 'story_id');
+    }
+
     public function categories()
     {
         return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Category::class, 'monster_category');

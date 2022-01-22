@@ -14,10 +14,17 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
-    // -----
-    // CRUDs
-    // -----
+    // ----------------
+    // Monsters & Stuff
+    // ----------------
     Route::crud('monster', 'MonsterCrudController');
+    Route::crud('hero', 'HeroCrudController');
+    Route::crud('story', 'StoryCrudController');
+    Route::crud('cave', 'CaveCrudController');
+
+    // ----------------
+    // Other entities
+    // ----------------
     Route::crud('fluent-monster', 'FluentMonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
@@ -35,7 +42,7 @@ Route::group([
     // ---------------------------
     if (app('env') == 'production') {
         // disable delete and bulk delete for all CRUDs
-        $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
+        $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission', 'hero', 'story', 'cave', 'owner', 'invoice', 'pet', 'passport', 'skill', 'comment', 'badge'];
         foreach ($cruds as $name) {
             Route::delete($name.'/{id}', function () {
                 return false;
@@ -49,7 +56,9 @@ Route::group([
         'prefix'    => 'pet-shop',
         'namespace' => 'PetShop',
     ], function () {
-        Route::get('about', function () { return view('admin.petshop_about'); });
+        Route::get('about', function () {
+            return view('admin.petshop_about');
+        });
         Route::crud('owner', 'OwnerCrudController');
         Route::crud('invoice', 'InvoiceCrudController');
         Route::crud('pet', 'PetCrudController');
