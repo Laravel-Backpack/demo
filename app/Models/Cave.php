@@ -28,7 +28,6 @@ class Cave extends Model
         'id' => 'integer',
     ];
 
-
     public function monster()
     {
         return $this->hasOne(\App\Models\Monster::class);

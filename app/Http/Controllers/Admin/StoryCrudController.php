@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Http\Controllers\Admin\HeroCrudController;
 
 /**
- * Class StoryCrudController
- * @package App\Http\Controllers\Admin
+ * Class StoryCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class StoryCrudController extends CrudController
@@ -28,7 +27,7 @@ class StoryCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Story::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/story');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/story');
         CRUD::setEntityNameStrings('story', 'stories');
     }
 
@@ -36,6 +35,7 @@ class StoryCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -47,6 +47,7 @@ class StoryCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -65,6 +66,7 @@ class StoryCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()
