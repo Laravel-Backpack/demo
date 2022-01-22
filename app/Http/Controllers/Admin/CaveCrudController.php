@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class CaveCrudController
- * @package App\Http\Controllers\Admin
+ * Class CaveCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class CaveCrudController extends CrudController
@@ -27,7 +27,7 @@ class CaveCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Cave::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/cave');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/cave');
         CRUD::setEntityNameStrings('cave', 'caves');
     }
 
@@ -35,6 +35,7 @@ class CaveCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -46,6 +47,7 @@ class CaveCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -64,6 +66,7 @@ class CaveCrudController extends CrudController
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()
@@ -78,37 +81,37 @@ class CaveCrudController extends CrudController
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForTimeAndSpaceTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForRelationshipsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForSelectsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForUploadsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForBigTextsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );

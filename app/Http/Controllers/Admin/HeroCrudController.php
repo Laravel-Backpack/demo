@@ -7,8 +7,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class HeroCrudController
- * @package App\Http\Controllers\Admin
+ * Class HeroCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class HeroCrudController extends CrudController
@@ -27,7 +27,7 @@ class HeroCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Hero::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/hero');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/hero');
         CRUD::setEntityNameStrings('hero', 'heroes');
     }
 
@@ -35,6 +35,7 @@ class HeroCrudController extends CrudController
      * Define what happens when the List operation is loaded.
      *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     protected function setupListOperation()
@@ -46,6 +47,7 @@ class HeroCrudController extends CrudController
      * Define what happens when the Create operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
+     *
      * @return void
      */
     protected function setupCreateOperation()
@@ -58,13 +60,13 @@ class HeroCrudController extends CrudController
             ->label('Stories <span class="badge badge-pill badge-warning">New</span>')
             ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Select the related Story over a <code>belongsToMany</code> relationship (n-n) with extra pivot fields.</small>');
-        ;
     }
 
     /**
      * Define what happens when the Update operation is loaded.
      *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
+     *
      * @return void
      */
     protected function setupUpdateOperation()
@@ -79,37 +81,37 @@ class HeroCrudController extends CrudController
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForTimeAndSpaceTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForRelationshipsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForSelectsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForUploadsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             // MonsterCrudController::getFieldsArrayForBigTextsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
-                'value' => '<hr>'
+                'value' => '<hr>',
             ]],
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );
