@@ -41,6 +41,8 @@ class StoryCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
+        CRUD::column('monsters')->attribute('text');
+        CRUD::column('heroes');
     }
 
     /**

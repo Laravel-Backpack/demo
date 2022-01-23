@@ -41,6 +41,7 @@ class CaveCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
+        CRUD::column('monster')->attribute('text');
     }
 
     /**
@@ -83,19 +84,6 @@ class CaveCrudController extends CrudController
             'select2_grouped',
             'upload',
             'upload_multiple',
-
-            // relationship fields
-            'relationship',
-            'select',
-            'select2',
-            'select_grouped',
-            'select_multiple',
-            'select2_multiple',
-            'select2_nested',
-            'select2_grouped',
-            'checklist',
-            'select2_from_ajax',
-            'select2_from_ajax_multiple',
         ];
 
         $subfields = array_merge(

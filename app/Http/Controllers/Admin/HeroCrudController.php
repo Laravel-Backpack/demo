@@ -41,6 +41,8 @@ class HeroCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
+        CRUD::column('monster');
+        CRUD::column('stories');
     }
 
     /**
