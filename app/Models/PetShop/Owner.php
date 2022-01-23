@@ -40,7 +40,7 @@ class Owner extends Model
 
     public function avatar()
     {
-        return $this->morphOne(\App\Models\PetShop\PetShop\Avatar::class, 'avatarable');
+        return $this->morphOne(\App\Models\PetShop\Avatar::class, 'avatarable');
     }
 
     public function comments()
