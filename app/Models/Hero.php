@@ -36,6 +36,7 @@ class Hero extends Model
 
     public function stories()
     {
-        return $this->belongsToMany(\App\Models\Story::class, 'monsters');
+        return $this->belongsToMany(\App\Models\Story::class, 'monsters')
+                    ->withPivot((new \App\Models\Monster())->getFillable());
     }
 }
