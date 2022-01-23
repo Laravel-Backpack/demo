@@ -630,23 +630,25 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'address.street',
-                'label'   => 'address.street',
+                'label'   => 'Address Street',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
+                'hint' => 'Edit attribute of a HasOne related item (eg. address.street)',
                 'tab'   => 'Relationship',
             ],
             [
                 'name'    => 'address.country',
-                'label'   => 'address.country()',
+                'label'    => 'Address Country',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
+                'hint'   => 'Edit relation of a HasOne related item (eg. address.country())',
                 'tab'   => 'Relationship',
             ],
             [
                 'name'      => 'wish',
-                'label'     => 'HasOne when the relation is optional',
+                'label'     => 'Wish',
                 'subfields' => [
                     [
                         'name' => 'country',
@@ -658,6 +660,7 @@ class MonsterCrudController extends CrudController
                         'name' => 'universes',
                     ],
                 ],
+                'hint' => '<span class="float-right">Edit multiple attributes on the HasOne related entry, by defining "subfields".</span>',
                 'tab'   => 'Relationship',
             ],
 
@@ -759,7 +762,7 @@ class MonsterCrudController extends CrudController
             [
                 'name'    => 'sentiment.text',
                 'label'   => '`text` field in sentiments table',
-                'type'    => 'ckeditor',
+                'type'    => 'textarea',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -811,7 +814,7 @@ class MonsterCrudController extends CrudController
                 'name'    => 'stars',
                 'label'   => 'Creatable',
                 'wrapper' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-6',
                 ],
                 'subfields' => [
                     [
@@ -826,7 +829,7 @@ class MonsterCrudController extends CrudController
                 'name'    => 'universes',
                 'label'   => 'Selectable',
                 'wrapper' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-6',
                 ],
                 'tab'   => 'Relationship',
             ],
