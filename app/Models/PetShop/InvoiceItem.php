@@ -1,32 +1,32 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class InvoiceItem extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $fillable = [
-        'owner_id',
-        'series',
-        'number',
-        'issuance_date',
-        'due_date',
+        'invoice_id',
+        'order',
+        'description',
+        'quantity',
+        'unit_price',
     ];
 
     protected $casts = [
-        'id'            => 'integer',
-        'owner_id'      => 'integer',
-        'issuance_date' => 'date',
-        'due_date'      => 'date',
+        'id'         => 'integer',
+        'invoice_id' => 'integer',
+        'quantity'   => 'float',
+        'unit_price' => 'float',
     ];
 
     protected $appends = [
-        'total',
+        'subtotal',
     ];
 
     /*
@@ -41,14 +41,9 @@ class Invoice extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function owner()
+    public function invoice()
     {
-        return $this->belongsTo(\App\Models\Owner::class, 'owner_id');
-    }
-
-    public function items()
-    {
-        return $this->hasMany(\App\Models\InvoiceItem::class);
+        return $this->belongsTo(\App\Models\PetShop\Invoice::class);
     }
 
     /*
@@ -63,9 +58,9 @@ class Invoice extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function getTotalAttribute()
+    public function getSubtotalAttribute()
     {
-        return $this->items->sum('subtotal');
+        return $this->quantity * $this->unit_price;
     }
 
     /*

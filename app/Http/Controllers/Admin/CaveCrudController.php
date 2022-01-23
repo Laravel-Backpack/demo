@@ -99,13 +99,13 @@ class CaveCrudController extends CrudController
                 'type'  => 'custom_html',
                 'value' => '<hr>',
             ]],
-            MonsterCrudController::getFieldsArrayForRelationshipsTab(),
+            MonsterCrudController::getFieldsArrayForSelectsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
                 'value' => '<hr>',
             ]],
-            MonsterCrudController::getFieldsArrayForSelectsTab(),
+            MonsterCrudController::getFieldsArrayForRelationshipsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',
@@ -117,7 +117,7 @@ class CaveCrudController extends CrudController
                 'type'  => 'custom_html',
                 'value' => '<hr>',
             ]],
-            MonsterCrudController::getFieldsArrayForBigTextsTab(),
+            MonsterCrudController::getFieldsArrayForWysiwygEditorsTab(),
             [[   // CustomHTML
                 'name'  => 'separator',
                 'type'  => 'custom_html',

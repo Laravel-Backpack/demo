@@ -27,7 +27,7 @@ class OwnerCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Owner::class);
+        CRUD::setModel(\App\Models\PetShop\Owner::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/owner');
         CRUD::setEntityNameStrings('owner', 'owners');
     }

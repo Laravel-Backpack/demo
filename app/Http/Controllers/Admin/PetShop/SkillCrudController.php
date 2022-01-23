@@ -26,7 +26,7 @@ class SkillCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Skill::class);
+        CRUD::setModel(\App\Models\PetShop\Skill::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/skill');
         CRUD::setEntityNameStrings('skill', 'skills');
     }

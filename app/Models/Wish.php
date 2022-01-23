@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Wish extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $fillable = [
         'body',
-        'commentable_type',
-        'commentable_id',
-        'user_id',
+        'monster_id',
+        'country_id',
     ];
 
     protected $casts = [
@@ -27,7 +26,7 @@ class Comment extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'comments';
+    protected $table = 'wishes';
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $guarded = ['id'];
@@ -46,16 +45,20 @@ class Comment extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function commentable()
+    public function monster()
     {
-        return $this->morphTo();
+        return $this->belongsTo(\App\Models\Monster::class);
     }
 
-    public function user()
+    public function country()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(\App\Models\Country::class);
     }
 
+    public function universes()
+    {
+        return $this->belongsToMany(\App\Models\Universe::class, 'universes_wishes');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

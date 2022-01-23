@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Badge;
+use App\Models\PetShop\Badge;
 use Illuminate\Database\Seeder;
 
 class BadgeSeeder extends Seeder

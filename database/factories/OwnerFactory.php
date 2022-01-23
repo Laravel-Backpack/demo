@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Owner;
+use App\Models\PetShop\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OwnerFactory extends Factory

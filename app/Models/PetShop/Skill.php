@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Badge extends Model
+class Skill extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
@@ -28,13 +28,8 @@ class Badge extends Model
         'id' => 'integer',
     ];
 
-    public function owners()
-    {
-        return $this->morphedByMany(\App\Models\Owner::class, 'badgeable');
-    }
-
     public function pets()
     {
-        return $this->morphedByMany(\App\Models\Pet::class, 'badgeable');
+        return $this->belongsToMany(\App\Models\PetShop\Pet::class);
     }
 }
