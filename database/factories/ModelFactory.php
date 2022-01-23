@@ -112,7 +112,6 @@ $factory->define(App\Models\Monster::class, function (Faker\Generator $faker) {
     return [
         'text'                    => ucfirst($faker->unique()->sentence()),
         'wysiwyg'                 => $faker->text(800),
-        'simplemde'               => $faker->text(800),
         'summernote'              => $faker->text(800),
         'tinymce'                 => $faker->text(800),
         'textarea'                => $faker->text(250),

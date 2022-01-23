@@ -26,7 +26,7 @@ class BadgeCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Badge::class);
+        CRUD::setModel(\App\Models\PetShop\Badge::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/badge');
         CRUD::setEntityNameStrings('badge', 'badges');
     }

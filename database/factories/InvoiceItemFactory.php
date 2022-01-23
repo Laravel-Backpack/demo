@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Invoice;
-use App\Models\InvoiceItem;
+use App\Models\PetShop\Invoice;
+use App\Models\PetShop\InvoiceItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class InvoiceItemFactory extends Factory

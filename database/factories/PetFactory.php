@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Pet;
+use App\Models\PetShop\Pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PetFactory extends Factory

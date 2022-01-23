@@ -1,33 +1,38 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InvoiceItem extends Model
+class Comment extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $fillable = [
-        'invoice_id',
-        'order',
-        'description',
-        'quantity',
-        'unit_price',
+        'body',
+        'commentable_type',
+        'commentable_id',
+        'user_id',
     ];
 
     protected $casts = [
-        'id'         => 'integer',
-        'invoice_id' => 'integer',
-        'quantity'   => 'float',
-        'unit_price' => 'float',
+        'id' => 'integer',
     ];
 
-    protected $appends = [
-        'subtotal',
-    ];
+    /*
+    |--------------------------------------------------------------------------
+    | GLOBAL VARIABLES
+    |--------------------------------------------------------------------------
+    */
+
+    protected $table = 'comments';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+    protected $guarded = ['id'];
+    // protected $hidden = [];
+    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -41,9 +46,14 @@ class InvoiceItem extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function invoice()
+    public function commentable()
     {
-        return $this->belongsTo(\App\Models\Invoice::class);
+        return $this->morphTo();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
     }
 
     /*
@@ -57,11 +67,6 @@ class InvoiceItem extends Model
     | ACCESORS
     |--------------------------------------------------------------------------
     */
-
-    public function getSubtotalAttribute()
-    {
-        return $this->quantity * $this->unit_price;
-    }
 
     /*
     |--------------------------------------------------------------------------

@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Passport;
-use App\Models\Pet;
+use App\Models\PetShop\Passport;
+use App\Models\PetShop\Pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PassportFactory extends Factory
