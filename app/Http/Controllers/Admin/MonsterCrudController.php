@@ -639,18 +639,21 @@ class MonsterCrudController extends CrudController
             [
                 'name' => 'wish',
                 'label' => 'HasOne when the relation is optional',
-                'subfields' => [
+                'subfields' => [ 
                     [
-                        'name' => 'country_id',
-                        'entity' => 'wish.country',
-                        'type' => 'relationship',
+                        'name' => 'wish.country',
                     ],
                     [
                         'name' => 'body'
                     ],
+                    [
+                        'name' => 'wish.universes',
+                    ]
                 ],
                 'tab'   => 'Relationships',
             ],
+
+            // wish.country // wish.body // wish.universes
 
             // -----------------
             // n-1 belongsTo
@@ -992,10 +995,6 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab'   => 'Relationships',
             ],
-
-            
-            
-
         ];
     }
 

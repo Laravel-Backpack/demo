@@ -20,6 +20,13 @@ class CreateWishesTable extends Migration
             $table->text('body');
             $table->timestamps();
         });
+
+        Schema::create('universes_wishes', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('universe_id');
+            $table->bigInteger('wish_id');
+            $table->string('name')->nullable();
+        });
     }
 
     /**
@@ -30,5 +37,6 @@ class CreateWishesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('wishes');
+        Schema::dropIfExists('universes_wishes');
     }
 }

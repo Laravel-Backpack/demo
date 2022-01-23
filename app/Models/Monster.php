@@ -129,8 +129,6 @@ class Monster extends Model
         return $this->belongsToMany(\App\Models\Country::class, 'countries_monsters');
     }
 
-    
-
     public function sentiment()
     {
         return $this->morphOne(\App\Models\Sentiment::class, 'sentimentable');
