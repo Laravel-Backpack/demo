@@ -634,17 +634,17 @@ class MonsterCrudController extends CrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'hint' => 'Edit attribute of a HasOne related item (eg. address.street)',
+                'hint'  => 'Edit attribute of a HasOne related item (eg. address.street)',
                 'tab'   => 'Relationship',
             ],
             [
-                'name'    => 'address.country',
+                'name'     => 'address.country',
                 'label'    => 'Address Country',
-                'wrapper' => [
+                'wrapper'  => [
                     'class' => 'form-group col-md-6',
                 ],
                 'hint'   => 'Edit relation of a HasOne related item (eg. address.country())',
-                'tab'   => 'Relationship',
+                'tab'    => 'Relationship',
             ],
             [
                 'name'      => 'wish',
@@ -660,7 +660,7 @@ class MonsterCrudController extends CrudController
                         'name' => 'universes',
                     ],
                 ],
-                'hint' => '<span class="float-right">Edit multiple attributes on the HasOne related entry, by defining "subfields".</span>',
+                'hint'  => '<span class="float-right">Edit multiple attributes on the HasOne related entry, by defining "subfields".</span>',
                 'tab'   => 'Relationship',
             ],
 
