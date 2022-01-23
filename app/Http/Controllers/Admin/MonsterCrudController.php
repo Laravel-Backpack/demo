@@ -637,9 +637,9 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationship',
             ],
             [
-                'name'    => 'address.country',
+                'name'     => 'address.country',
                 'label'    => 'HasOne (1-1) <small>towards a relationship on related model</small>',
-                'wrapper' => [
+                'wrapper'  => [
                     'class' => 'form-group col-md-6',
                 ],
                 'tab'   => 'Relationship',
@@ -648,14 +648,14 @@ class MonsterCrudController extends CrudController
                 'name'              => 'category',
                 'label'             => 'BelongsTo (n-1)',
                 'tab'               => 'Relationship',
-                'wrapper' => [
+                'wrapper'           => [
                     'class' => 'form-group col-md-6',
                 ],
             ],
             [
                 'name'    => 'postalboxer',
                 'label'   => 'HasMany (1-n)',
-                'tab'   => 'Relationship',
+                'tab'     => 'Relationship',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -663,9 +663,8 @@ class MonsterCrudController extends CrudController
             [
                 'name'    => 'countries',
                 'label'   => 'BelongsToMany (n-n)',
-                'tab'   => 'Relationship',
+                'tab'     => 'Relationship',
             ],
-
 
             // -----------------------------------
             // Direct relationships with subfields
@@ -697,8 +696,8 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationship',
             ],
             [
-                'name'    => 'postalboxes',
-                'label'   => 'HasMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'name'      => 'postalboxes',
+                'label'     => 'HasMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'subfields' => [
                     [
                         'name' => 'postal_name',
