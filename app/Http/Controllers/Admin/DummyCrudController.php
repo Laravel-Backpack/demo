@@ -145,7 +145,7 @@ class DummyCrudController extends CrudController
         $groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
         $groups['selects'] = MonsterCrudController::getFieldsArrayForSelectsTab();
         $groups['uploads'] = MonsterCrudController::getFieldsArrayForUploadsTab();
-        $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
+        $groups['big_texts'] = MonsterCrudController::getFieldsArrayForWysiwygEditorsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
 
         // some fields do not make sense, or do not work inside repeatable, so let's exclude them
