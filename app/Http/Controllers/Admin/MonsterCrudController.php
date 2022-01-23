@@ -614,41 +614,72 @@ class MonsterCrudController extends CrudController
             [   // CustomHTML
                 'name'  => 'relationship_heading',
                 'type'  => 'custom_html',
-                'value' => "<p class='text-muted mb-0'>All the examples in this tab <code>relationship</code> field type. This field type changes its interface depending on what relationship it is used on, and whether or not you've defined 'subfields' for it. So we've provided examples for each relationship type. Then examples for a few <i>extra features</i> of the repeatable field.</p>",
+                'value' => "<p class='text-muted mb-0'>All the examples in this tab <strong>relationship</strong> field type. This field type changes its interface depending on what relationship it is used on, and whether or not you've defined 'subfields' for it. So we've provided examples for each relationship type. Then examples for a few <i>extra features</i> of the repeatable field.</p>",
                 'tab'   => 'Relationship',
             ],
-
-            // -----------------
-            // 1-1 hasOne
-            // -----------------
-
             [   // CustomHTML
-                'name'  => 'relationship_1_1_heading',
+                'name'  => 'relationship_direct_relationships',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">HasOne (1-1)<a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#hasone-1-1-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
+                'value' => '<h5 class="mb-0 mt-3 text-primary">Direct Relationships</h5>',
                 'tab'   => 'Relationship',
             ],
+
+            // --------------------
+            // Direct relationships
+            // --------------------
+
             [
                 'name'    => 'address.street',
-                'label'   => 'Address Street',
+                'label'   => 'HasOne (1-1) <small>towards an attribute on related model</small>',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'hint'  => 'Edit attribute of a HasOne related item (eg. address.street)',
                 'tab'   => 'Relationship',
             ],
             [
-                'name'     => 'address.country',
-                'label'    => 'Address Country',
-                'wrapper'  => [
+                'name'    => 'address.country',
+                'label'    => 'HasOne (1-1) <small>towards a relationship on related model</small>',
+                'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'hint'   => 'Edit relation of a HasOne related item (eg. address.country())',
-                'tab'    => 'Relationship',
+                'tab'   => 'Relationship',
+            ],
+            [
+                'name'              => 'category',
+                'label'             => 'BelongsTo (n-1)',
+                'tab'               => 'Relationship',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ],
+            [
+                'name'    => 'postalboxer',
+                'label'   => 'HasMany (1-n)',
+                'tab'   => 'Relationship',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ],
+            [
+                'name'    => 'countries',
+                'label'   => 'BelongsToMany (n-n)',
+                'tab'   => 'Relationship',
+            ],
+
+
+            // -----------------------------------
+            // Direct relationships with subfields
+            // -----------------------------------
+
+            [   // CustomHTML
+                'name'  => 'relationship_direct_relationships_with_subfields',
+                'type'  => 'custom_html',
+                'value' => '<h5 class="mb-0 mt-4 text-primary">Direct Relationships + Subfields</h5>',
+                'tab'   => 'Relationship',
             ],
             [
                 'name'      => 'wish',
-                'label'     => 'Wish',
+                'label'     => 'HasOne (1-1) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'subfields' => [
                     [
                         'name' => 'country',
@@ -660,71 +691,30 @@ class MonsterCrudController extends CrudController
                         'name' => 'universes',
                     ],
                 ],
-                'hint'  => '<span class="float-right">Edit multiple attributes on the HasOne related entry, by defining "subfields".</span>',
-                'tab'   => 'Relationship',
-            ],
-
-            // wish.country // wish.body // wish.universes
-
-            // -----------------
-            // n-1 belongsTo
-            // -----------------
-            [   // CustomHTML
-                'name'  => 'relationship_n_1_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">BelongsTo (n-1) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongsto-n-1-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
-                'tab'   => 'Relationship',
-            ],
-            [
-                'name'              => 'category',
-                'tab'               => 'Relationship',
-                'wrapperAttributes' => ['class' => 'col-md-12'],
-            ],
-            // -----------------
-            // 1-n hasMany
-            // -----------------
-            [
-                'name'  => 'relationship_1_n_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-4 text-primary">HasMany (1-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#hasmany-1-n-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
+                'wrapper' => [
+                    'class' => 'form-group col-md-4',
+                ],
                 'tab'   => 'Relationship',
             ],
             [
                 'name'    => 'postalboxes',
-                'label'   => 'Create the related entries',
-                'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
+                'label'   => 'HasMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'subfields' => [
                     [
                         'name' => 'postal_name',
                         'type' => 'text',
                     ],
                 ],
-                'tab'   => 'Relationship',
-            ],
-            [
-                'name'    => 'postalboxer',
-                'label'   => 'Select from related entries',
                 'wrapper' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ],
-                'tab'   => 'Relationship',
-            ],
-            // -----------------
-            // n-n belongsToMany
-            // -----------------
-            [
-                'name'  => 'relationship_n_n_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">BelongsToMany (n-n) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#belongstomany-n-n-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
                 'tab'   => 'Relationship',
             ],
             [
                 'name'    => 'dummyproducts',
-                'label'   => 'Save aditinal pivot fields',
+                'label'   => 'BelongsToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'wrapper' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ],
                 'pivotSelect' => [
                     'wrapper' => [
@@ -742,27 +732,21 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab'   => 'Relationship',
             ],
-            [
-                'name'    => 'countries',
-                'label'   => 'Simple attach relation',
-                'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-                'tab'   => 'Relationship',
-            ],
-            // -----------------
-            // 1-1 morphOne - Polymorphic
-            // -----------------
-            [
-                'name'  => 'relationship_1_1_poli_heading',
+
+            // -------------------------
+            // Polymorphic Relationships
+            // -------------------------
+
+            [   // CustomHTML
+                'name'  => 'relationship_polymorphic_relationships',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">MorphOne (1-1 polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphone-1-1-polymorphic-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
+                'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Polymorphic Relationships</h5>',
                 'tab'   => 'Relationship',
             ],
             [
                 'name'    => 'sentiment.text',
-                'label'   => '`text` field in sentiments table',
-                'type'    => 'textarea',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards an attribute</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'type'    => 'relationship',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -770,17 +754,45 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'sentiment.user',
-                'label'   => '`user` relation on Sentiment model',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards a relation</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationship',
+            ],
+            [
+                'name'    => 'universes',
+                'label'   => 'MorphMany (1-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+                'tab'   => 'Relationship',
+            ],
+            [
+                'name'    => 'bills',
+                'label'   => 'MorphToMany (n-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
                 'tab'   => 'Relationship',
             ],
 
+            // -------------------------------------
+            // Polymorphic Relationships + Subfields
+            // -------------------------------------
+
+            [   // CustomHTML
+                'name'  => 'relationship_polymorphic_relationships_with_subfields',
+                'type'  => 'custom_html',
+                'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Polymorphic Relationships + Subfields</h5>',
+                'tab'   => 'Relationship',
+            ],
+
             [
                 'name'    => 'ball',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'wrapper' => [
-                    'class' => 'form-group col-md-12',
+                    'class' => 'form-group col-md-4',
                 ],
                 'subfields' => [
                     [
@@ -801,20 +813,11 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab'   => 'Relationship',
             ],
-            // -----------------
-            // 1-n morphMany - Polymorphic
-            // -----------------
-            [
-                'name'  => 'relationship_1_n_poli_heading',
-                'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">morphMany (1-n polymorphic) <a target="_blank" href="https://backpackforlaravel.com/docs/4.2-dev/crud-how-to#morphmany-1-n-polymorphic-relationship"><small class="text-muted"> Docs <i class="la la-angle-double-right"></i> </small></a></h5>',
-                'tab'   => 'Relationship',
-            ],
             [
                 'name'    => 'stars',
-                'label'   => 'Creatable',
+                'label'   => 'MorphMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'wrapper' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ],
                 'subfields' => [
                     [
@@ -826,23 +829,45 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationship',
             ],
             [
-                'name'    => 'universes',
-                'label'   => 'Selectable',
+                'name'    => 'recommends',
+                'label'   => 'MorphToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
                 'wrapper' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
+                ],
+                'subfields' => [
+                    [
+                        'name' => 'text',
+                        'type' => 'text',
+                    ],
                 ],
                 'tab'   => 'Relationship',
             ],
 
+            // ----------------------------
+            // Relationships Extra Features
+            // ----------------------------
+
             [
                 'name'  => 'relationship_extra_features',
                 'type'  => 'custom_html',
-                'value' => '<h5 class="mb-0 mt-3 text-primary">Extra features</a></h5>',
+                'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Extra Features</a></h5>',
                 'tab'   => 'Relationship',
             ],
 
+            [    // Relationship - everything is explicitly defined
+                'label'         => 'BelongsTo + InlineCreate',
+                'type'          => 'relationship',
+                'name'          => 'fallback_icon',
+                'fake'          => true,
+                'entity'        => 'icon',
+                'attribute'     => 'name',
+                'tab'           => 'Relationship',
+                'inline_create' => true,
+                // 'data_source' => backpack_url('monster/fetch/icon'),
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+            ],
             [    // Relationship
-                'label'     => 'BelongsToMany Selectable (also uses InlineCreate; Fetch using AJAX)',
+                'label'     => 'BelongsToMany + AJAX + InlineCreate',
                 'type'      => 'relationship',
                 'name'      => 'products',
                 'entity'    => 'products',
@@ -857,56 +882,12 @@ class MonsterCrudController extends CrudController
                 'data_source'       => backpack_url('monster/fetch/product'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-
             [    // Relationship - nothing is explicitly defined, not even the field type
-                'label'         => 'Relationship (no AJAX, inferred attributes) <span class="badge badge-warning">New in 4.1</span>',
+                'label'         => 'Relationship (all field attributes are guessed)',
                 'name'          => 'icondummy',
                 'tab'           => 'Relationship',
                 // 'data_source' => backpack_url('monster/fetch/icon'),
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [    // Relationship - everything is explicitly defined
-                'label'         => 'Relationship (no AJAX; also uses InlineCreate) <span class="badge badge-warning">New in 4.1</span>',
-                'type'          => 'relationship',
-                'name'          => 'fallback_icon',
-                'fake'          => true,
-                'entity'        => 'icon',
-                'attribute'     => 'name',
-                'tab'           => 'Relationship',
-                'inline_create' => true,
-                // 'data_source' => backpack_url('monster/fetch/icon'),
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            // -----------------
-            // 1-1 relationships
-            // -----------------
-
-            // -----------------
-            // Polymorphic relations
-            // -----------------
-
-            [
-                'name'    => 'recommends',
-                'label'   => 'MorphToMany Recommends - with pivot fields',
-                'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-                'pivotFields' => [
-                    [
-                        'name' => 'text',
-                        'type' => 'text',
-                    ],
-                ],
-
-                'tab'   => 'Relationship',
-            ],
-            [
-                'name'    => 'bills',
-                'label'   => 'MorphToMany Bills - selectable',
-                'wrapper' => [
-                    'class' => 'form-group col-md-6',
-                ],
-                'tab'   => 'Relationship',
+                'wrapperAttributes' => ['class' => 'form-group col-md-12'],
             ],
         ];
     }
