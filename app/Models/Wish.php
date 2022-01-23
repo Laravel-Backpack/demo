@@ -55,7 +55,8 @@ class Wish extends Model
         return $this->belongsTo(\App\Models\Country::class);
     }
 
-    public function universes() {
+    public function universes()
+    {
         return $this->belongsToMany(\App\Models\Universe::class, 'universes_wishes');
     }
     /*
