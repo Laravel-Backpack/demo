@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "996f9b3cc13a66871f4e889fabbe9eee7f6c9719"
+                "reference": "1f3b090a8b36d40667882a5d8d3fd2178244ca06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/996f9b3cc13a66871f4e889fabbe9eee7f6c9719",
-                "reference": "996f9b3cc13a66871f4e889fabbe9eee7f6c9719",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/1f3b090a8b36d40667882a5d8d3fd2178244ca06",
+                "reference": "1f3b090a8b36d40667882a5d8d3fd2178244ca06",
                 "shasum": ""
             },
             "require": {
@@ -93,8 +93,8 @@
                 "digitallyhappy/assets": "^2.0.1",
                 "doctrine/dbal": "^2.5|^3.0",
                 "guzzlehttp/guzzle": "^7.0|^6.3",
-                "laravel/framework": "^8.0",
-                "prologue/alerts": "^0.4.1"
+                "laravel/framework": "^9.0|^8.26",
+                "prologue/alerts": "^1.0|^0.4"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0|^5.0|^4.0|^3.0",
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.2"
             },
-            "time": "2021-12-31T06:06:14+00:00"
+            "time": "2022-01-23T12:18:50+00:00"
         },
         {
             "name": "backpack/filemanager",
