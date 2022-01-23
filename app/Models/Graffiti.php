@@ -49,7 +49,8 @@ class Graffiti extends Model
         return $this->belongsTo(\App\User::class);
     }
 
-    public function monsters() {
+    public function monsters()
+    {
         return $this->hasMany(\App\Models\Monster::class, 'graffiti_id');
     }
 

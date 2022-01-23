@@ -13,14 +13,14 @@ class CreatePivotableRelationsTables extends Migration
      */
     public function up()
     {
-         Schema::create('sentiments', function (Blueprint $table) {
-             $table->bigIncrements('id');
-             $table->string('text')->nullable();
-             $table->string('sentimentable_type');
-             $table->bigInteger('sentimentable_id');
-             $table->bigInteger('user_id');
-             $table->timestamps();
-         });
+        Schema::create('sentiments', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('text')->nullable();
+            $table->string('sentimentable_type');
+            $table->bigInteger('sentimentable_id');
+            $table->bigInteger('user_id');
+            $table->timestamps();
+        });
 
         Schema::create('recommendables', function (Blueprint $table) {
             $table->bigIncrements('id');

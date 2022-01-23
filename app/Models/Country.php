@@ -34,7 +34,8 @@ class Country extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function addresses() {
+    public function addresses()
+    {
         return $this->hasMany(\App\Models\Address::class);
     }
 

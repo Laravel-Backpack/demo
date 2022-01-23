@@ -27,7 +27,5 @@ class DatabaseSeeder extends Seeder
         factory(App\Models\Recommend::class, 10)->create();
         factory(App\Models\Bill::class, 30)->create();
         factory(App\Models\PostalBoxer::class, 30)->create();
-
-        
     }
 }

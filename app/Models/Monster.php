@@ -57,11 +57,13 @@ class Monster extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function article() {
+    public function article()
+    {
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
     }
 
-    public function wish() {
+    public function wish()
+    {
         return $this->hasOne(\App\Models\Wish::class);
     }
 
@@ -103,7 +105,7 @@ class Monster extends Model
     public function articles()
     {
         return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
-    } 
+    }
 
     public function categories()
     {
@@ -124,8 +126,9 @@ class Monster extends Model
     {
         return $this->belongsToMany(\App\Models\Product::class, 'monster_productdummy')->withPivot('notes');
     }
-    
-    public function countries() {
+
+    public function countries()
+    {
         return $this->belongsToMany(\App\Models\Country::class, 'countries_monsters');
     }
 
