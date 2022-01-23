@@ -961,7 +961,6 @@ class MonsterCrudController extends CrudController
                 'tab'  => 'Selects',
             ],
 
-
             // -----------------
             // 1-n relationships
             // -----------------
@@ -1034,7 +1033,6 @@ class MonsterCrudController extends CrudController
                 'tab'                  => 'Selects',
                 'wrapperAttributes'    => ['class' => 'form-group col-md-4'],
             ],
-
 
             [ // CustomHTML
                 'name'  => 'selects_n_n_heading',
