@@ -649,13 +649,13 @@ class MonsterCrudController extends CrudController
                 'label'     => 'HasOne when the relation is optional',
                 'subfields' => [
                     [
-                        'name' => 'wish.country',
+                        'name' => 'country',
                     ],
                     [
                         'name' => 'body',
                     ],
                     [
-                        'name' => 'wish.universes',
+                        'name' => 'universes',
                     ],
                 ],
                 'tab'   => 'Relationship',
@@ -788,7 +788,7 @@ class MonsterCrudController extends CrudController
                     ],
                     [
                         'name'    => 'country_id',
-                        'entity'  => 'ball.country',
+                        'entity'  => 'country',
                         'type'    => 'relationship',
                         'wrapper' => [
                             'class' => 'form-group col-md-6',
