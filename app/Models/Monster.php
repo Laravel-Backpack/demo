@@ -72,6 +72,21 @@ class Monster extends Model
         return $this->hasOne(\App\Models\Address::class);
     }
 
+    public function cave()
+    {
+        return $this->belongsTo(\App\Models\Cave::class, 'cave_id');
+    }
+
+    public function hero()
+    {
+        return $this->belongsTo(\App\Models\Hero::class, 'hero_id');
+    }
+
+    public function story()
+    {
+        return $this->belongsTo(\App\Models\Story::class, 'story_id');
+    }
+
     public function graffiti()
     {
         return $this->belongsTo(\App\Models\Graffiti::class, 'graffiti_id');
