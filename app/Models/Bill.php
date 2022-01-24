@@ -18,7 +18,7 @@ class Bill extends Model
     protected $table = 'bills';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['title'];
+    protected $fillable = ['text'];
     // protected $hidden = [];
     // protected $dates = [];
 

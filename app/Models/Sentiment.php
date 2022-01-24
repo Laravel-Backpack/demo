@@ -11,9 +11,7 @@ class Sentiment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'sentimentable_type',
-        'sentimentable_id',
+        'text',
         'user_id',
     ];
 

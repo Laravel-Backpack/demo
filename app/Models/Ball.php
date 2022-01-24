@@ -11,10 +11,8 @@ class Ball extends Model
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'ballable_type',
-        'ballable_id',
-        'user_id',
+        'name',
+        'country_id'
     ];
 
     protected $casts = [

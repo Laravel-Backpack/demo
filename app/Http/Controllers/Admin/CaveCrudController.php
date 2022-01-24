@@ -57,10 +57,19 @@ class CaveCrudController extends CrudController
         CRUD::setOperationSetting('contentClass', 'col-md-12');
 
         CRUD::field('name');
-        CRUD::field('monster')
+        // fluent is not working.
+        /* CRUD::field('monster')
             ->label('Monster <span class="badge badge-pill badge-warning">New</span>')
+            -entity('hghghg')
             ->subfields(self::getMonsterSubfields())
-            ->hint('<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>');
+            ->hint('<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>'); */
+
+            $this->crud->addField([
+                'name' => 'monster',
+                'label' => 'Monster <span class="badge badge-pill badge-warning">New</span>',
+                'subfields' => self::getMonsterSubfields(),
+                'hint' => '<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>'
+            ]);
     }
 
     /**
@@ -84,6 +93,7 @@ class CaveCrudController extends CrudController
             'select2_grouped',
             'upload',
             'upload_multiple',
+            'checklist',
         ];
 
         $subfields = array_merge(
@@ -126,15 +136,11 @@ class CaveCrudController extends CrudController
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );
 
-        foreach ($subfields as $key => $subfield) {
-            if (!isset($subfield['type'])) {
-                unset($subfields[$key]);
-                continue;
-            }
-            if (in_array($subfield['type'], $field_types_that_dont_work)) {
+         foreach ($subfields as $key => $subfield) {
+            if (isset($subfield['type']) && in_array($subfield['type'], $field_types_that_dont_work)) {
                 unset($subfields[$key]);
             }
-        }
+        } 
 
         return $subfields;
     }
