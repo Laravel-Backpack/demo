@@ -64,12 +64,12 @@ class CaveCrudController extends CrudController
             ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>'); */
 
-            $this->crud->addField([
-                'name' => 'monster',
-                'label' => 'Monster <span class="badge badge-pill badge-warning">New</span>',
-                'subfields' => self::getMonsterSubfields(),
-                'hint' => '<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>'
-            ]);
+        $this->crud->addField([
+            'name'      => 'monster',
+            'label'     => 'Monster <span class="badge badge-pill badge-warning">New</span>',
+            'subfields' => self::getMonsterSubfields(),
+            'hint'      => '<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>',
+        ]);
     }
 
     /**
@@ -136,11 +136,11 @@ class CaveCrudController extends CrudController
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );
 
-         foreach ($subfields as $key => $subfield) {
+        foreach ($subfields as $key => $subfield) {
             if (isset($subfield['type']) && in_array($subfield['type'], $field_types_that_dont_work)) {
                 unset($subfields[$key]);
             }
-        } 
+        }
 
         return $subfields;
     }

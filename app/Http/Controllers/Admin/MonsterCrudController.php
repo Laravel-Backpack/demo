@@ -801,7 +801,7 @@ class MonsterCrudController extends CrudController
                         ],
                     ],
                     [
-                        'name' => 'country',
+                        'name'    => 'country',
                         'wrapper' => [
                             'class' => 'form-group col-md-6',
                         ],
