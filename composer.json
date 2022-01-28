@@ -44,6 +44,9 @@
         }
     ],
     "autoload": {
+        "files": [
+            "app/helpers.php"
+        ],
         "classmap": [
             "database"
         ],
