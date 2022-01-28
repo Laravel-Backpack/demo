@@ -575,7 +575,7 @@ class MonsterCrudController extends CrudController
             ],
             [ // Date_range
                 'name'       => ['start_date', 'end_date'], // a unique name for this field
-                'label'      => 'Date Range' .backpack_pro_badge(),
+                'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
                 'default'    => ['2020-03-28 01:01', '2020-04-05 02:00'],
                 // OPTIONALS
