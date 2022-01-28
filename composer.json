@@ -36,7 +36,13 @@
         "backpack/generators": "^3.0",
         "itsgoingd/clockwork": "^5.0",
         "barryvdh/laravel-debugbar": "^3.2"
-    },
+    },    
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.backpackforlaravel.com/"
+        }
+    ],
     "autoload": {
         "classmap": [
             "database"
