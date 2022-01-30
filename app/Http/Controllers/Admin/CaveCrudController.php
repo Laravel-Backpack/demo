@@ -126,11 +126,17 @@ class CaveCrudController extends CrudController
             MonsterCrudController::getFieldsArrayForMiscellaneousTab(),
         );
 
+
+        $unsuportedRelations = ['dummyproducts', 'recommends', 'stars', 'bills', 'ball', 'wish', 'postalboxes',];
         foreach ($subfields as $key => $subfield) {
-            if (!isset($subfield['type'])) {
+            if (in_array($subfield['name'], $unsuportedRelations)) {
                 unset($subfields[$key]);
-                continue;
             }
+           
+            if (!isset($subfield['type'])) {
+                continue;
+            }      
+
             if (in_array($subfield['type'], $field_types_that_dont_work)) {
                 unset($subfields[$key]);
             }

@@ -16,7 +16,6 @@ class CreateBallsTable extends Migration
         Schema::create('balls', function (Blueprint $table) {
             $table->id();
             $table->morphs('ballable');
-            $table->bigInteger('monster_id');
             $table->bigInteger('country_id')->nullable();
             $table->text('name');
             $table->timestamps();

@@ -79,24 +79,12 @@ class StoryCrudController extends CrudController
     public static function getMonsterSubfields()
     {
         $subfields = CaveCrudController::getMonsterSubfields();
-
+        $unsuportedRelations = ['dummyproducts', 'recommends', 'stars', 'bills', 'ball', 'wish', 'postalboxes'];
         foreach ($subfields as $key => $subfield) {
-            // fake fields don't work here for some reason
-            // TODO: fix the problem and remove this
-            if (isset($subfield['fake']) && $subfield['fake']) {
+            if (in_array($subfield['name'], $unsuportedRelations)) {
                 unset($subfields[$key]);
-                continue;
-            }
-            // multiple fields don't work here for some reason
-            // TODO: fix the problem and remove this
-            if (isset($subfield['pivot']) && $subfield['pivot']) {
-                unset($subfields[$key]);
-                continue;
-            }
-            // fields from the "relationship" tab don't work here for some reason
-            // TODO: fix the problem and remove this
-            if (isset($subfield['tab']) && $subfield['tab'] == 'Relationships') {
-                unset($subfields[$key]);
+            } 
+            if (!isset($subfield['type'])) {
                 continue;
             }
         }
