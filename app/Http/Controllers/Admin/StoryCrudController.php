@@ -83,7 +83,7 @@ class StoryCrudController extends CrudController
         foreach ($subfields as $key => $subfield) {
             if (in_array($subfield['name'], $unsuportedRelations)) {
                 unset($subfields[$key]);
-            } 
+            }
             if (!isset($subfield['type'])) {
                 continue;
             }
