@@ -97,6 +97,11 @@ class Monster extends Model
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
     }
 
+    public function categorySelect2()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select2');
+    }
+
     public function icon()
     {
         return $this->belongsTo(\App\Models\Icon::class, 'icon_id');

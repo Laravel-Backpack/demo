@@ -18,7 +18,7 @@ class CreatePivotableRelationsTables extends Migration
             $table->string('text')->nullable();
             $table->string('sentimentable_type');
             $table->bigInteger('sentimentable_id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
 

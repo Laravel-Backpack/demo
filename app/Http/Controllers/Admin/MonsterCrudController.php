@@ -987,7 +987,7 @@ class MonsterCrudController extends CrudController
                 'label'             => 'Select2'.backpack_pro_badge(),
                 'type'              => 'select2',
                 'name'              => 'select2',
-                'entity'            => 'category',
+                'entity'            => 'categorySelect2',
                 'attribute'         => 'name',
                 'model'             => "Backpack\NewsCRUD\app\Models\Category",
                 'tab'               => 'Selects',

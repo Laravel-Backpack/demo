@@ -78,17 +78,6 @@ class StoryCrudController extends CrudController
 
     public static function getMonsterSubfields()
     {
-        $subfields = CaveCrudController::getMonsterSubfields();
-        $unsuportedRelations = ['dummyproducts', 'recommends', 'stars', 'bills', 'ball', 'wish', 'postalboxes'];
-        foreach ($subfields as $key => $subfield) {
-            if (in_array($subfield['name'], $unsuportedRelations)) {
-                unset($subfields[$key]);
-            }
-            if (!isset($subfield['type'])) {
-                continue;
-            }
-        }
-
-        return $subfields;
+        return CaveCrudController::getMonsterSubfields();
     }
 }

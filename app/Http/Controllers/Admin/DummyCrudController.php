@@ -143,7 +143,7 @@ class DummyCrudController extends CrudController
         $groups['simple'] = MonsterCrudController::getFieldsArrayForSimpleTab();
         $groups['time_and_space'] = MonsterCrudController::getFieldsArrayForTimeAndSpaceTab();
         $groups['selects'] = MonsterCrudController::getFieldsArrayForSelectsTab();
-        $groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
+        //$groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
         $groups['uploads'] = MonsterCrudController::getFieldsArrayForUploadsTab();
         $groups['big_texts'] = MonsterCrudController::getFieldsArrayForWysiwygEditorsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
