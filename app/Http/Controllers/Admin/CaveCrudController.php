@@ -84,7 +84,7 @@ class CaveCrudController extends CrudController
             'select2_grouped',
             'upload',
             'upload_multiple',
-            'select_and_order'
+            'select_and_order',
         ];
 
         $subfields = array_merge(

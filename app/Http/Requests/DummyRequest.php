@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Validator;
 
 class DummyRequest extends FormRequest
 {
@@ -26,10 +25,10 @@ class DummyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|min:5|max:255',
-            'description' => 'required',
+            'name'               => 'required|min:5|max:255',
+            'description'        => 'required',
             'simple.*.text'      => 'required|min:10|max:255',
-            'simple.*.email' => 'required|email',
+            'simple.*.email'     => 'required|email',
         ];
     }
 
