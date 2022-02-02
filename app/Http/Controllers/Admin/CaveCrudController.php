@@ -79,9 +79,6 @@ class CaveCrudController extends CrudController
     {
         $field_types_that_dont_work = [
             'date_range', // TODO
-            'select2_nested',
-            'select_grouped',
-            'select2_grouped',
             'upload',
             'upload_multiple',
             'select_and_order',
