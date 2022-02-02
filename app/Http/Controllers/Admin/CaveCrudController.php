@@ -79,11 +79,12 @@ class CaveCrudController extends CrudController
     {
         $field_types_that_dont_work = [
             'date_range', // TODO
-            'select_grouped',
             'select2_nested',
+            'select_grouped',
             'select2_grouped',
             'upload',
             'upload_multiple',
+            'select_and_order',
         ];
 
         $subfields = array_merge(
@@ -127,10 +128,14 @@ class CaveCrudController extends CrudController
         );
 
         foreach ($subfields as $key => $subfield) {
-            if (!isset($subfield['type'])) {
+            if (isset($subfield['subfields'])) {
                 unset($subfields[$key]);
+            }
+
+            if (!isset($subfield['type'])) {
                 continue;
             }
+
             if (in_array($subfield['type'], $field_types_that_dont_work)) {
                 unset($subfields[$key]);
             }

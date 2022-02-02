@@ -11,10 +11,8 @@ class Ball extends Model
     use HasFactory;
 
     protected $fillable = [
-        'body',
-        'ballable_type',
-        'ballable_id',
-        'user_id',
+        'name',
+        'country_id',
     ];
 
     protected $casts = [
@@ -54,11 +52,6 @@ class Ball extends Model
     public function country()
     {
         return $this->belongsTo(\App\Models\Country::class);
-    }
-
-    public function monster()
-    {
-        return $this->belongsTo(\App\Models\Monster::class);
     }
 
     /*

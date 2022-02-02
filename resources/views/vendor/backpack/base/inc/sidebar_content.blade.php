@@ -44,7 +44,7 @@
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon la la-optin-monster"></i> <span>Monsters</span></a></li>
       <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span class="badge badge-pill badge-warning">New</span></a></li>
       <li class='nav-item'><a class='nav-link' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span class="badge badge-pill badge-warning">New</span></a></li>
-      <li class='nav-item'><a class='nav-link' href='{{ backpack_url('hero') }}'><i class='nav-icon la la-mask'></i> Heroes <span class="badge badge-pill badge-warning">New</span></a></li>
+      {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('hero') }}'><i class='nav-icon la la-mask'></i> Heroes <span class="badge badge-pill badge-warning">New</span></a></li> --}}
   </ul>
 </li>
 
