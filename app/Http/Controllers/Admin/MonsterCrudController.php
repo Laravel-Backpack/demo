@@ -955,6 +955,16 @@ class MonsterCrudController extends CrudController
                 'value' => '<h5 class="mb-0 text-primary">1-n Relationship (belongsTo, morphTo)</h5>',
                 'tab'   => 'Selects',
             ],
+            [   // select
+                'label'                      => 'Select'.backpack_free_badge(),
+                'type'                       => 'select', //https://github.com/Laravel-Backpack/CRUD/issues/502
+                'name'                       => 'select',
+                'entity'                     => 'category',
+                'attribute'                  => 'name',
+                'fake'                       => true,
+                'tab'                        => 'Selects',
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
+            ],
             [   // select_grouped
                 'label'                      => 'Select_grouped'.backpack_free_badge(),
                 'type'                       => 'select_grouped', //https://github.com/Laravel-Backpack/CRUD/issues/502
@@ -967,7 +977,7 @@ class MonsterCrudController extends CrudController
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
                 'tab'                        => 'Selects',
-                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [   // select2_grouped
                 'label'                      => 'Select2_grouped'.backpack_pro_badge(),
@@ -981,7 +991,7 @@ class MonsterCrudController extends CrudController
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
                 'tab'                        => 'Selects',
-                'wrapperAttributes'          => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [    // SELECT2
                 'label'             => 'Select2'.backpack_pro_badge(),
