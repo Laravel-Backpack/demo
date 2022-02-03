@@ -567,20 +567,20 @@
         },
         {
             "name": "backpack/revise-operation",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "f05e69ffbce8c13de348862bdfdbef7ac0332e1d"
+                "reference": "85b540217c092fd79f98ce802dcd843a2f6afb9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/f05e69ffbce8c13de348862bdfdbef7ac0332e1d",
-                "reference": "f05e69ffbce8c13de348862bdfdbef7ac0332e1d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/85b540217c092fd79f98ce802dcd843a2f6afb9b",
+                "reference": "85b540217c092fd79f98ce802dcd843a2f6afb9b",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0|^4.1.0",
+                "backpack/crud": "^4.0.0|^4.1.0|^4.2.0",
                 "venturecraft/revisionable": "1.*"
             },
             "require-dev": {
@@ -631,9 +631,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/revise-operation/issues",
-                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.7"
+                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.8"
             },
-            "time": "2021-04-13T05:23:55+00:00"
+            "time": "2022-01-19T18:14:19+00:00"
         },
         {
             "name": "backpack/settings",
@@ -7654,21 +7654,21 @@
         },
         {
             "name": "venturecraft/revisionable",
-            "version": "1.38.0",
+            "version": "1.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VentureCraft/revisionable.git",
-                "reference": "7dd938dd3b4abe0ff1bbd7aaf8245f3d66dce205"
+                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/7dd938dd3b4abe0ff1bbd7aaf8245f3d66dce205",
-                "reference": "7dd938dd3b4abe0ff1bbd7aaf8245f3d66dce205",
+                "url": "https://api.github.com/repos/VentureCraft/revisionable/zipball/24ef304dfe7fe64362cc815faab0fc80030d0c59",
+                "reference": "24ef304dfe7fe64362cc815faab0fc80030d0c59",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0|^8.0",
-                "laravel/framework": "~5.4|^6.0|^7.0|^8.0",
+                "illuminate/support": "~4.0|~5.0|~5.1|^6.0|^7.0|^8.0|^9.0",
+                "laravel/framework": "~5.4|^6.0|^7.0|^8.0|^9.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -7714,7 +7714,7 @@
                 "issues": "https://github.com/VentureCraft/revisionable/issues",
                 "source": "https://github.com/VentureCraft/revisionable"
             },
-            "time": "2021-03-31T00:15:38+00:00"
+            "time": "2022-01-20T05:56:12+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
