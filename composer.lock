@@ -418,21 +418,21 @@
         },
         {
             "name": "backpack/pagemanager",
-            "version": "3.0.9",
+            "version": "3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PageManager.git",
-                "reference": "4af5039fcf3d8a909f0d37bba814ec1d4a32c943"
+                "reference": "2c9ecb1799bd5ab7f3b5c6e3fdfc341bd55f1878"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/4af5039fcf3d8a909f0d37bba814ec1d4a32c943",
-                "reference": "4af5039fcf3d8a909f0d37bba814ec1d4a32c943",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PageManager/zipball/2c9ecb1799bd5ab7f3b5c6e3fdfc341bd55f1878",
+                "reference": "2c9ecb1799bd5ab7f3b5c6e3fdfc341bd55f1878",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.1.0",
-                "cviebrock/eloquent-sluggable": "^8.0||^7.0||^6.0||4.8"
+                "backpack/crud": "^4.2.0|^4.1.0",
+                "cviebrock/eloquent-sluggable": "^9.0||^8.0||^7.0||^6.0||4.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -484,9 +484,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/PageManager/issues",
-                "source": "https://github.com/Laravel-Backpack/PageManager/tree/3.0.9"
+                "source": "https://github.com/Laravel-Backpack/PageManager/tree/3.0.10"
             },
-            "time": "2021-05-04T05:04:23+00:00"
+            "time": "2022-01-19T18:54:52+00:00"
         },
         {
             "name": "backpack/permissionmanager",
