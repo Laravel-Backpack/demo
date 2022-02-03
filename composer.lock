@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "ad33731e6d6b878ee45b91e2aa4e8abd961c576a"
+                "reference": "4b043e152fce342a4b187a4b52946160ecd1cb66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/ad33731e6d6b878ee45b91e2aa4e8abd961c576a",
-                "reference": "ad33731e6d6b878ee45b91e2aa4e8abd961c576a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/4b043e152fce342a4b187a4b52946160ecd1cb66",
+                "reference": "4b043e152fce342a4b187a4b52946160ecd1cb66",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.1.0",
-                "spatie/laravel-backup": "^6.1"
+                "backpack/crud": "^4.1.0|^4.2.0",
+                "spatie/laravel-backup": "^8.0|^7.0|^6.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -69,9 +69,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/BackupManager/issues",
-                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.3"
+                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.4"
             },
-            "time": "2021-04-14T04:12:18+00:00"
+            "time": "2022-01-19T08:26:05+00:00"
         },
         {
             "name": "backpack/crud",
@@ -9247,16 +9247,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.11",
+            "version": "9.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2406855036db1102126125537adb1406f7242fdd"
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2406855036db1102126125537adb1406f7242fdd",
-                "reference": "2406855036db1102126125537adb1406f7242fdd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
                 "shasum": ""
             },
             "require": {
@@ -9334,7 +9334,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.11"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
             "funding": [
                 {
@@ -9346,7 +9346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-25T07:07:57+00:00"
+            "time": "2022-01-24T07:33:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
