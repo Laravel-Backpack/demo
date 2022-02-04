@@ -4,10 +4,11 @@
     "main": "js/fixedHeader.bootstrap4.js",
     "style": "css/fixedHeader.bootstrap4.css",
     "types": "./types/fixedHeader.bootstrap4.d.ts",
-    "version": "3.1.9",
+    "version": "3.2.1",
     "files": [
         "css/**/*.css",
-        "js/**/*.js"
+        "js/**/*.js",
+        "types/**/*.d.ts"
     ],
     "keywords": [
         "FixedHeader",
@@ -22,9 +23,9 @@
         "sort"
     ],
     "dependencies": {
-        "jquery": ">=1.7",
-        "datatables.net-bs4": "^1.10.15",
-        "datatables.net-fixedheader": "3.1.9"
+        "datatables.net-fixedheader": ">=3.2.0",
+        "datatables.net-bs4": ">=1.11.3",
+        "jquery": ">=1.7"
     },
     "moduleType": [
         "globals",
