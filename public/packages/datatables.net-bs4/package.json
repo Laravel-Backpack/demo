@@ -1,30 +1,48 @@
 {
     "name": "datatables.net-bs4",
-    "version": "1.10.24",
-    "description": "DataTables for jQuery with styling for [Bootstrap 4](http://getbootstrap.com/)",
+    "description": "DataTables for jQuery with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)",
+    "main": "js/dataTables.bootstrap4.js",
+    "style": "css/dataTables.bootstrap4.css",
+    "types": "./types/dataTables.bootstrap4.d.ts",
+    "version": "1.11.4",
     "files": [
         "css/**/*.css",
-        "js/**/*.js"
+        "js/**/*.js",
+        "types/**/*.d.ts",
+        "images/*"
     ],
-    "main": "./js/dataTables.bootstrap4.js",
-    "style": "./css/dataTables.bootstrap4.css",
     "keywords": [
-        "filter",
-        "sort",
-        "DataTables",
+        "Bootstrap",
+        "Bootstrap4",
+        "Datatables",
         "jQuery",
         "table",
-        "Bootstrap 4"
+        "filter",
+        "sort"
     ],
-    "homepage": "https://datatables.net",
-    "bugs": "https://datatables.net/forums",
-    "license": "MIT",
+    "dependencies": {
+        "datatables.net": ">=1.11.3",
+        "jquery": ">=1.7"
+    },
+    "moduleType": [
+        "globals",
+        "amd",
+        "node"
+    ],
+    "ignore": [
+        "composer.json",
+        "datatables.json",
+        "package.json"
+    ],
     "author": {
         "name": "SpryMedia Ltd",
         "url": "http://datatables.net"
     },
-    "dependencies": {
-        "jquery": ">=1.7",
-        "datatables.net": "1.10.24"
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DataTables/Dist-DataTables-Bootstrap4.git"
     }
 }

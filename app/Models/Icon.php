@@ -42,6 +42,11 @@ class Icon extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function recommends()
+    {
+        return $this->morphToMany(\App\Models\Recommend::class, 'recommendable');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -110,23 +110,23 @@ $factory->define(Backpack\MenuCRUD\app\Models\MenuItem::class, function (Faker\G
 
 $factory->define(App\Models\Monster::class, function (Faker\Generator $faker) {
     return [
-        'text'            => ucfirst($faker->unique()->sentence()),
-        'wysiwyg'         => $faker->text(800),
-        'simplemde'       => $faker->text(800),
-        'summernote'      => $faker->text(800),
-        'tinymce'         => $faker->text(800),
-        'textarea'        => $faker->text(250),
-        'text'            => $faker->text(120),
-        'date'            => $faker->date(),
-        'start_date'      => $faker->date(),
-        'end_date'        => $faker->date(),
-        'datetime'        => $faker->datetime(),
-        'datetime_picker' => $faker->datetime(),
-        'email'           => $faker->email(),
-        'checkbox'        => $faker->boolean(),
-        'number'          => rand(),
-        'float'           => rand(),
-        'select'          => function () {
+        'text'                    => ucfirst($faker->unique()->sentence()),
+        'wysiwyg'                 => $faker->text(800),
+        'summernote'              => $faker->text(800),
+        'tinymce'                 => $faker->text(800),
+        'textarea'                => $faker->text(250),
+        'text'                    => $faker->text(120),
+        'date'                    => $faker->date(),
+        'start_date'              => $faker->date(),
+        'end_date'                => $faker->date(),
+        'datetime'                => $faker->datetime(),
+        'datetime_picker'         => $faker->datetime(),
+        'email'                   => $faker->email(),
+        'checkbox'                => $faker->boolean(),
+        'number'                  => rand(),
+        'float'                   => rand(),
+        'belongs_to_non_nullable' => 0,
+        'select'                  => function () {
             if (rand(1, 100) % 50 == 0) {
                 return factory(Backpack\NewsCRUD\app\Models\Category::class)->create()->id;
             } else {
@@ -151,5 +151,29 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
                 return rand(1, 10);
             }
         },
+    ];
+});
+
+$factory->define(App\Models\Recommend::class, function (Faker\Generator $faker) {
+    $title = ucfirst($faker->unique()->words(rand(1, 3), true));
+
+    return [
+        'title' => $title,
+    ];
+});
+
+$factory->define(App\Models\Bill::class, function (Faker\Generator $faker) {
+    $title = ucfirst($faker->unique()->words(rand(1, 3), true));
+
+    return [
+        'title' => $title,
+    ];
+});
+
+$factory->define(App\Models\PostalBoxer::class, function (Faker\Generator $faker) {
+    $title = ucfirst($faker->unique()->words(rand(1, 3), true));
+
+    return [
+        'postal_name' => $title,
     ];
 });
