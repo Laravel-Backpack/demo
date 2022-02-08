@@ -28,6 +28,6 @@ class Address extends Model
 
     public function country()
     {
-        return $this->belongsTo(\App\Models\country::class);
+        return $this->belongsTo(\App\Models\Country::class);
     }
 }
