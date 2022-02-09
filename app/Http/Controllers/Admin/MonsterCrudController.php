@@ -961,6 +961,7 @@ class MonsterCrudController extends CrudController
                 'name'                       => 'select',
                 'entity'                     => 'category',
                 'attribute'                  => 'name',
+                'model'                      => 'Backpack\NewsCRUD\app\Models\Category',
                 'fake'                       => true,
                 'tab'                        => 'Selects',
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
