@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d72e7659ebdaf6e26f9f1bd778e7fc8",
+    "content-hash": "6015f4689121df5336f16ef66077b879",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "v5.x-dev",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "9b817ddd74f0358f15fbf02ed3b142b72589964a"
+                "reference": "8ed9515e1ea5daf3c0377c3c9080c8210196776b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/9b817ddd74f0358f15fbf02ed3b142b72589964a",
-                "reference": "9b817ddd74f0358f15fbf02ed3b142b72589964a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/8ed9515e1ea5daf3c0377c3c9080c8210196776b",
+                "reference": "8ed9515e1ea5daf3c0377c3c9080c8210196776b",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/v5"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.0.4"
             },
-            "time": "2022-02-04T12:08:47+00:00"
+            "time": "2022-02-11T08:10:42+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -10574,9 +10574,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "backpack/crud": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
