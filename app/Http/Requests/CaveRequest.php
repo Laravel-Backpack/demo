@@ -26,6 +26,7 @@ class CaveRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'monster.*.text' => 'required|string',
         ];
     }
 
