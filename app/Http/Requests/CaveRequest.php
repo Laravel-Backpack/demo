@@ -25,7 +25,7 @@ class CaveRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'name'           => 'required|string',
             'monster.*.text' => 'required|string',
         ];
     }
