@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6015f4689121df5336f16ef66077b879",
+    "content-hash": "bbd0a94152457d7fcb09834a08f96e06",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -775,52 +775,6 @@
             "time": "2022-02-08T11:51:05+00:00"
         },
         {
-            "name": "balping/json-raw-encoder",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.com/balping/json-raw-encoder.git",
-                "reference": "e2b0ab888342b0716f1f0628e2fa13b345c5f276"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/balping%2Fjson-raw-encoder/repository/archive.zip?sha=e2b0ab888342b0716f1f0628e2fa13b345c5f276",
-                "reference": "e2b0ab888342b0716f1f0628e2fa13b345c5f276",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Balping\\JsonRaw\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Balázs Dura-Kovács"
-                }
-            ],
-            "description": "Encode arrays to json with raw JS objects (eg. callbacks) in them",
-            "keywords": [
-                "callback",
-                "encode",
-                "json"
-            ],
-            "support": {
-                "issues": "https://gitlab.com/api/v4/projects/6731265/issues"
-            },
-            "time": "2020-06-06T16:24:31+00:00"
-        },
-        {
             "name": "barryvdh/elfinder-flysystem-driver",
             "version": "v0.3.0",
             "source": {
@@ -1002,6 +956,46 @@
             "time": "2021-08-15T20:50:18+00:00"
         },
         {
+            "name": "chartisan/php",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chartisan/PHP.git",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chartisan/PHP/zipball/85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "reference": "85d2352077800e9bcb411aec1ff7e4d23eef93a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Chartisan\\PHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik Campobadal Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "Chartisan's PHP backend",
+            "support": {
+                "issues": "https://github.com/Chartisan/PHP/issues",
+                "source": "https://github.com/Chartisan/PHP/tree/1.2.1"
+            },
+            "time": "2020-11-05T13:13:58+00:00"
+        },
+        {
             "name": "cocur/slugify",
             "version": "v4.1.0",
             "source": {
@@ -1150,23 +1144,25 @@
         },
         {
             "name": "consoletvs/charts",
-            "version": "6.5.6",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Chartisan/Charts.git",
-                "reference": "fc73038a006ddc2d6b277b9567ee01c6272448b3"
+                "reference": "b6c47dedeebf95c690f3604355ddb002677b6ae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Chartisan/Charts/zipball/fc73038a006ddc2d6b277b9567ee01c6272448b3",
-                "reference": "fc73038a006ddc2d6b277b9567ee01c6272448b3",
+                "url": "https://api.github.com/repos/Chartisan/Charts/zipball/b6c47dedeebf95c690f3604355ddb002677b6ae6",
+                "reference": "b6c47dedeebf95c690f3604355ddb002677b6ae6",
                 "shasum": ""
             },
             "require": {
-                "balping/json-raw-encoder": "^1.0",
-                "illuminate/console": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "php": ">=7.0"
+                "chartisan/php": "^1.2.0",
+                "illuminate/console": "^7.14.1|^8.0|^9.0",
+                "illuminate/contracts": "^7.14.1|^8.0|^9.0",
+                "illuminate/http": "^7.14.1|^8.0|^9.0",
+                "illuminate/support": "^7.14.1|^8.0|^9.0",
+                "php": ">=7.4"
             },
             "type": "library",
             "extra": {
@@ -1187,14 +1183,14 @@
             ],
             "authors": [
                 {
-                    "name": "Èrik Campobadal Forés",
+                    "name": "Èrik C. Forés",
                     "email": "soc@erik.cat"
                 }
             ],
-            "description": "The laravel charting package",
+            "description": "The missing charting library on laravel, powered by Chartisan",
             "support": {
                 "issues": "https://github.com/Chartisan/Charts/issues",
-                "source": "https://github.com/Chartisan/Charts/tree/6.5.6"
+                "source": "https://github.com/Chartisan/Charts/tree/7.3.0"
             },
             "funding": [
                 {
@@ -1206,7 +1202,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-01-20T05:36:01+00:00"
+            "time": "2022-02-09T15:10:47+00:00"
         },
         {
             "name": "creativeorange/gravatar",
