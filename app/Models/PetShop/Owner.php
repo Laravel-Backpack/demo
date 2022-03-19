@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,26 +30,26 @@ class Owner extends Model
 
     public function invoices()
     {
-        return $this->hasMany(\App\Models\Invoice::class);
+        return $this->hasMany(\App\Models\PetShop\Invoice::class);
     }
 
     public function pets()
     {
-        return $this->belongsToMany(\App\Models\Pet::class)->withPivot('role');
+        return $this->belongsToMany(\App\Models\PetShop\Pet::class)->withPivot('role');
     }
 
     public function avatar()
     {
-        return $this->morphOne(\App\Models\Avatar::class, 'avatarable');
+        return $this->morphOne(\App\Models\PetShop\Avatar::class, 'avatarable');
     }
 
     public function comments()
     {
-        return $this->morphMany(\App\Models\Comment::class, 'commentable');
+        return $this->morphMany(\App\Models\PetShop\Comment::class, 'commentable', null, null, 'user_id');
     }
 
     public function badges()
     {
-        return $this->morphToMany(\App\Models\Badge::class, 'badgeable')->withPivot('note');
+        return $this->morphToMany(\App\Models\PetShop\Badge::class, 'badgeable')->withPivot('note');
     }
 }

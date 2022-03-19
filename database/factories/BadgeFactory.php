@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Badge;
+use App\Models\PetShop\Badge;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BadgeFactory extends Factory

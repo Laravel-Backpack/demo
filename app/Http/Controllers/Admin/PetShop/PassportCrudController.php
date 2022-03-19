@@ -26,7 +26,7 @@ class PassportCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Passport::class);
+        CRUD::setModel(\App\Models\PetShop\Passport::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/passport');
         CRUD::setEntityNameStrings('passport', 'passports');
     }

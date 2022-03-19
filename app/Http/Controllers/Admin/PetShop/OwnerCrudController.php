@@ -27,7 +27,7 @@ class OwnerCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Owner::class);
+        CRUD::setModel(\App\Models\PetShop\Owner::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/owner');
         CRUD::setEntityNameStrings('owner', 'owners');
     }
@@ -57,7 +57,7 @@ class OwnerCrudController extends CrudController
         CRUD::setValidation(OwnerRequest::class);
 
         CRUD::field('name');
-        CRUD::field('avatar.url')->type('browse')->label('Avatar')->hint('<small class="float-right">Edit one attribute on a <code>morphMany</code> related item (1-1).</small>');
+        CRUD::field('avatar.url')->type('browse')->label('Avatar')->hint('<small class="float-right">Edit one attribute on a <code>morphOne</code> related item (1-1).</small>');
         CRUD::field('pets')->subfields([
             ['name' => 'role', 'type' => 'text'],
         ])->hint('<small class="float-right">Choose related entries with a <code>belongsToMany</code> relationship and pivot fields (n-n with pivot).</small>');

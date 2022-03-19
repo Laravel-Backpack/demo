@@ -13,11 +13,12 @@ class CreatePivotableRelationsTables extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('sentiments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text')->nullable();
-            $table->string('commentable_type');
-            $table->bigInteger('commentable_id');
+            $table->string('sentimentable_type');
+            $table->bigInteger('sentimentable_id');
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
 
@@ -76,7 +77,7 @@ class CreatePivotableRelationsTables extends Migration
     public function down()
     {
         Schema::dropIfExists('recommendables');
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('sentiments');
         Schema::dropIfExists('recommends');
         Schema::dropIfExists('stars');
         Schema::dropIfExists('billables');

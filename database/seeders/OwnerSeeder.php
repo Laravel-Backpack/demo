@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Owner;
+use App\Models\PetShop\Owner;
 use Illuminate\Database\Seeder;
 
 class OwnerSeeder extends Seeder

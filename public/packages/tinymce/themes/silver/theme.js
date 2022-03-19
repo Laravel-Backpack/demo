@@ -4,7 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.10.0 (2021-10-11)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
@@ -121,7 +121,7 @@
     var never = constant$1(false);
     var always = constant$1(true);
 
-    var global$h = tinymce.util.Tools.resolve('tinymce.ThemeManager');
+    var global$g = tinymce.util.Tools.resolve('tinymce.ThemeManager');
 
     var __assign = function () {
       __assign = Object.assign || function __assign(t) {
@@ -1320,15 +1320,15 @@
       };
     };
 
-    var api$2 = Dimension('height', function (element) {
+    var api$3 = Dimension('height', function (element) {
       var dom = element.dom;
       return inBody(element) ? dom.getBoundingClientRect().height : dom.offsetHeight;
     });
     var get$b = function (element) {
-      return api$2.get(element);
+      return api$3.get(element);
     };
     var getOuter$2 = function (element) {
-      return api$2.getOuter(element);
+      return api$3.getOuter(element);
     };
     var setMax$1 = function (element, value) {
       var inclusions = [
@@ -1339,7 +1339,7 @@
         'border-bottom-width',
         'margin-bottom'
       ];
-      var absMax = api$2.max(element, value, inclusions);
+      var absMax = api$3.max(element, value, inclusions);
       set$7(element, 'max-height', absMax + 'px');
     };
 
@@ -1393,17 +1393,17 @@
       return boxPosition(dom);
     };
 
-    var api$1 = Dimension('width', function (element) {
+    var api$2 = Dimension('width', function (element) {
       return element.dom.offsetWidth;
     });
     var set$6 = function (element, h) {
-      return api$1.set(element, h);
+      return api$2.set(element, h);
     };
     var get$a = function (element) {
-      return api$1.get(element);
+      return api$2.get(element);
     };
     var getOuter$1 = function (element) {
-      return api$1.getOuter(element);
+      return api$2.getOuter(element);
     };
     var setMax = function (element, value) {
       var inclusions = [
@@ -1414,7 +1414,7 @@
         'border-right-width',
         'margin-right'
       ];
-      var absMax = api$1.max(element, value, inclusions);
+      var absMax = api$2.max(element, value, inclusions);
       set$7(element, 'max-width', absMax + 'px');
     };
 
@@ -4636,6 +4636,13 @@
       return singleton(function (s) {
         return s.unbind();
       });
+    };
+    var api$1 = function () {
+      var subject = destroyable();
+      var run = function (f) {
+        return subject.get().each(f);
+      };
+      return __assign(__assign({}, subject), { run: run });
     };
     var value$1 = function () {
       var subject = singleton(noop);
@@ -9400,7 +9407,7 @@
       return layout(anchor, element, bubbles, placee, bounds);
     };
 
-    var global$g = tinymce.util.Tools.resolve('tinymce.util.Delay');
+    var global$f = tinymce.util.Tools.resolve('tinymce.util.Delay');
 
     var factory$l = function (detail) {
       var events = events$a(detail.action);
@@ -9474,7 +9481,7 @@
       };
     };
 
-    var global$f = tinymce.util.Tools.resolve('tinymce.util.I18n');
+    var global$e = tinymce.util.Tools.resolve('tinymce.util.I18n');
 
     var rtlTransform = {
       'indent': true,
@@ -9496,7 +9503,7 @@
     };
     var getIconName = function (name, icons) {
       var lcName = name.toLowerCase();
-      if (global$f.isRtl()) {
+      if (global$e.isRtl()) {
         var rtlName = ensureTrailing(lcName, '-rtl');
         return has$2(icons, rtlName) ? rtlName : lcName;
       } else {
@@ -9515,7 +9522,7 @@
       return lookupIcon(name, icons).or(fallbackIcon).getOrThunk(defaultIcon(icons));
     };
     var needsRtlTransform = function (iconName) {
-      return global$f.isRtl() ? has$2(rtlTransform, iconName) : false;
+      return global$e.isRtl() ? has$2(rtlTransform, iconName) : false;
     };
     var addFocusableBehaviour = function () {
       return config('add-focusable', [runOnAttached(function (comp) {
@@ -9781,7 +9788,7 @@
         }, sharedBackstage.header.isPositionedAtTop() ? {} : { fireRepositionEventInstead: {} })));
         uiMothership.add(notificationWrapper);
         if (settings.timeout > 0) {
-          global$g.setTimeout(function () {
+          global$f.setTimeout(function () {
             close();
           }, settings.timeout);
         }
@@ -9908,7 +9915,7 @@
       };
     };
 
-    var global$e = tinymce.util.Tools.resolve('tinymce.dom.TextSeeker');
+    var global$d = tinymce.util.Tools.resolve('tinymce.dom.TextSeeker');
 
     var isBoundary = function (dom, node) {
       return dom.isBlock(node) || contains$2([
@@ -9919,7 +9926,7 @@
       ], node.nodeName) || dom.getContentEditable(node) === 'false';
     };
     var repeatLeft = function (dom, node, offset, process, rootNode) {
-      var search = global$e(dom, function (node) {
+      var search = global$d(dom, function (node) {
         return isBoundary(dom, node);
       });
       return Optional.from(search.backwards(node, offset, process, rootNode));
@@ -10070,7 +10077,7 @@
     };
     var AutocompleterEditorEvents = { setup: setup$e };
 
-    var global$d = tinymce.util.Tools.resolve('tinymce.util.Promise');
+    var global$c = tinymce.util.Tools.resolve('tinymce.util.Promise');
 
     var point = function (container, offset) {
       return {
@@ -10145,7 +10152,7 @@
       if (autocompleters.length === 0) {
         return Optional.none();
       }
-      var lookupData = global$d.all(map$2(autocompleters, function (ac) {
+      var lookupData = global$c.all(map$2(autocompleters, function (ac) {
         var fetchResult = ac.fetch(context.text, ac.maxResults, fetchOptions);
         return fetchResult.then(function (results) {
           return {
@@ -10927,9 +10934,9 @@
       return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     };
 
-    var global$c = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
+    var global$b = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
 
-    var global$b = tinymce.util.Tools.resolve('tinymce.EditorManager');
+    var global$a = tinymce.util.Tools.resolve('tinymce.EditorManager');
 
     var getSkinUrl = function (editor) {
       var skin = editor.getParam('skin');
@@ -10939,7 +10946,7 @@
         if (skinUrl) {
           skinUrl = editor.documentBaseURI.toAbsolute(skinUrl);
         } else {
-          skinUrl = global$b.baseURL + '/skins/ui/' + skinName;
+          skinUrl = global$a.baseURL + '/skins/ui/' + skinName;
         }
       }
       return skinUrl;
@@ -10954,7 +10961,7 @@
       return editor.getParam('height', Math.max(editor.getElement().offsetHeight, 200));
     };
     var getWidthSetting = function (editor) {
-      return editor.getParam('width', global$c.DOM.getStyle(editor.getElement(), 'width'));
+      return editor.getParam('width', global$b.DOM.getStyle(editor.getElement(), 'width'));
     };
     var getMinWidthSetting = function (editor) {
       return Optional.from(editor.getParam('min_width')).filter(isNumber);
@@ -11258,7 +11265,7 @@
       };
     };
 
-    var global$a = tinymce.util.Tools.resolve('tinymce.Env');
+    var global$9 = tinymce.util.Tools.resolve('tinymce.Env');
 
     var convertText = function (source) {
       var mac = {
@@ -11272,13 +11279,13 @@
         meta: 'Ctrl',
         access: 'Shift+Alt'
       };
-      var replace = global$a.mac ? mac : other;
+      var replace = global$9.mac ? mac : other;
       var shortcut = source.split('+');
       var updated = map$2(shortcut, function (segment) {
         var search = segment.toLowerCase().trim();
         return has$2(replace, search) ? replace[search] : segment;
       });
-      return global$a.mac ? updated.join('') : updated.join('+');
+      return global$9.mac ? updated.join('') : updated.join('+');
     };
 
     var renderIcon$1 = function (name, icons, classes) {
@@ -11296,7 +11303,7 @@
           tag: 'div',
           classes: [textClass]
         },
-        components: [text(global$f.translate(text$1))]
+        components: [text(global$e.translate(text$1))]
       };
     };
     var renderHtml = function (html, classes) {
@@ -11319,7 +11326,7 @@
               tag: style.tag,
               styles: style.styles
             },
-            components: [text(global$f.translate(text$1))]
+            components: [text(global$e.translate(text$1))]
           }]
       };
     };
@@ -11424,7 +11431,7 @@
     };
     var renderItemDomStructure = function (ariaLabel) {
       var domTitle = ariaLabel.map(function (label) {
-        return { attributes: { title: global$f.translate(label) } };
+        return { attributes: { title: global$e.translate(label) } };
       }).getOr({});
       return __assign({
         tag: 'div',
@@ -11506,10 +11513,10 @@
       }).getOr([]);
     };
     var encodeText = function (text) {
-      return global$c.DOM.encode(text);
+      return global$b.DOM.encode(text);
     };
     var replaceText = function (text, matchText) {
-      var translated = global$f.translate(text);
+      var translated = global$e.translate(text);
       var encoded = encodeText(translated);
       if (matchText.length > 0) {
         var escapedMatchRegex = new RegExp(escape(matchText), 'gi');
@@ -11882,14 +11889,14 @@
       });
     };
 
-    var global$9 = tinymce.util.Tools.resolve('tinymce.util.LocalStorage');
+    var global$8 = tinymce.util.Tools.resolve('tinymce.util.LocalStorage');
 
     var storageName = 'tinymce-custom-colors';
     function ColorCache (max) {
       if (max === void 0) {
         max = 10;
       }
-      var storageString = global$9.getItem(storageName);
+      var storageString = global$8.getItem(storageName);
       var localstorage = isString(storageString) ? JSON.parse(storageString) : [];
       var prune = function (list) {
         var diff = max - list.length;
@@ -11902,7 +11909,7 @@
         if (cache.length > max) {
           cache.pop();
         }
-        global$9.setItem(storageName, JSON.stringify(cache));
+        global$8.setItem(storageName, JSON.stringify(cache));
       };
       var remove = function (idx) {
         cache.splice(idx, 1);
@@ -12067,6 +12074,7 @@
       colorCache.add(color);
     };
 
+    var fallbackColor = '#000000';
     var getCurrentColor = function (editor, format) {
       var color;
       editor.dom.getParents(editor.selection.getStart(), function (elm) {
@@ -12075,7 +12083,7 @@
           color = color ? color : value;
         }
       });
-      return color;
+      return Optional.from(color);
     };
     var applyFormat = function (editor, format, value) {
       editor.undoManager.transact(function () {
@@ -12135,7 +12143,7 @@
             editor.execCommand('mceApplyTextcolor', format, color);
             onChoice(color);
           });
-        }, '#000000');
+        }, fallbackColor);
       } else if (value === 'remove') {
         onChoice('');
         editor.execCommand('mceRemoveTextcolor', format);
@@ -12162,7 +12170,7 @@
         presets: 'color',
         icon: name === 'forecolor' ? 'text-color' : 'highlight-bg-color',
         select: function (value) {
-          var optCurrentRgb = Optional.from(getCurrentColor(editor, format));
+          var optCurrentRgb = getCurrentColor(editor, format);
           return optCurrentRgb.bind(function (currentRgb) {
             return fromString(currentRgb).map(function (rgba) {
               var currentHex = fromRgba(rgba).value;
@@ -12173,9 +12181,7 @@
         columns: getColorCols$1(editor),
         fetch: getFetch$1(getColors$2(editor), hasCustomColors$1(editor)),
         onAction: function (_splitButtonApi) {
-          if (lastColor.get() !== null) {
-            applyColor(editor, format, lastColor.get(), noop);
-          }
+          applyColor(editor, format, lastColor.get(), noop);
         },
         onItemAction: function (_splitButtonApi, value) {
           applyColor(editor, format, value, function (newColor) {
@@ -12187,9 +12193,7 @@
           });
         },
         onSetup: function (splitButtonApi) {
-          if (lastColor.get() !== null) {
-            setIconColor(splitButtonApi, name, lastColor.get());
-          }
+          setIconColor(splitButtonApi, name, lastColor.get());
           var handler = function (e) {
             if (e.name === name) {
               setIconColor(splitButtonApi, e.name, e.color);
@@ -12275,8 +12279,8 @@
     };
     var register$a = function (editor) {
       registerCommands(editor);
-      var lastForeColor = Cell(null);
-      var lastBackColor = Cell(null);
+      var lastForeColor = Cell(fallbackColor);
+      var lastBackColor = Cell(fallbackColor);
       registerTextColorButton(editor, 'forecolor', 'forecolor', 'Text color', lastForeColor);
       registerTextColorButton(editor, 'backcolor', 'hilitecolor', 'Background color', lastBackColor);
       registerTextColorMenuItem(editor, 'forecolor', 'forecolor', 'Text color');
@@ -12447,20 +12451,21 @@
       });
     };
     var makeLabelText = function (row, col) {
-      return text(col + 1 + 'x' + (row + 1));
+      return text(col + 'x' + row);
     };
     var renderInsertTableMenuItem = function (spec) {
       var numRows = 10;
       var numColumns = 10;
       var sizeLabelId = generate$6('size-label');
       var cells = makeCells(sizeLabelId, numRows, numColumns);
+      var emptyLabelText = makeLabelText(0, 0);
       var memLabel = record({
         dom: {
           tag: 'span',
           classes: ['tox-insert-table-picker__label'],
           attributes: { id: sizeLabelId }
         },
-        components: [text('0x0')],
+        components: [emptyLabelText],
         behaviours: derive$1([Replacing.config({})])
       });
       return {
@@ -12479,16 +12484,19 @@
             components: makeComponents(cells).concat(memLabel.asSpec()),
             behaviours: derive$1([
               config('insert-table-picker', [
+                runOnAttached(function (c) {
+                  Replacing.set(memLabel.get(c), [emptyLabelText]);
+                }),
                 runWithTarget(cellOverEvent, function (c, t, e) {
-                  var row = e.event.row;
-                  var col = e.event.col;
+                  var _a = e.event, row = _a.row, col = _a.col;
                   selectCells(cells, row, col, numRows, numColumns);
-                  Replacing.set(memLabel.get(c), [makeLabelText(row, col)]);
+                  Replacing.set(memLabel.get(c), [makeLabelText(row + 1, col + 1)]);
                 }),
                 runWithTarget(cellExecuteEvent, function (c, _, e) {
+                  var _a = e.event, row = _a.row, col = _a.col;
                   spec.onAction({
-                    numRows: e.event.row + 1,
-                    numColumns: e.event.col + 1
+                    numRows: row + 1,
+                    numColumns: col + 1
                   });
                   emit(c, sandboxClose());
                 })
@@ -13686,7 +13694,7 @@
       active: ActiveTabstopping
     });
 
-    var global$8 = tinymce.util.Tools.resolve('tinymce.html.Entities');
+    var global$7 = tinymce.util.Tools.resolve('tinymce.html.Entities');
 
     var renderFormFieldWith = function (pLabel, pField, extraClasses, extraBehaviours) {
       var spec = renderFormFieldSpecWith(pLabel, pField, extraClasses, extraBehaviours);
@@ -13745,7 +13753,7 @@
       };
       var setContents = function (comp, items) {
         var htmlLines = map$2(items, function (item) {
-          var itemText = global$f.translate(item.text);
+          var itemText = global$e.translate(item.text);
           var textContent = spec.columns === 1 ? '<div class="tox-collection__item-label">' + itemText + '</div>' : '';
           var iconContent = '<div class="tox-collection__item-icon">' + item.icon + '</div>';
           var mapItemName = {
@@ -13757,7 +13765,7 @@
             return mapItemName[match];
           });
           var disabledClass = providersBackstage.isDisabled() ? ' tox-collection__item--state-disabled' : '';
-          return '<div class="tox-collection__item' + disabledClass + '" tabindex="-1" data-collection-item-value="' + global$8.encodeAllRaw(item.value) + '" title="' + ariaLabel + '" aria-label="' + ariaLabel + '">' + iconContent + textContent + '</div>';
+          return '<div class="tox-collection__item' + disabledClass + '" tabindex="-1" data-collection-item-value="' + global$7.encodeAllRaw(item.value) + '" title="' + ariaLabel + '" aria-label="' + ariaLabel + '">' + iconContent + textContent + '</div>';
         });
         var chunks = spec.columns !== 'auto' && spec.columns > 1 ? chunk$1(htmlLines, spec.columns) : [htmlLines];
         var html = map$2(chunks, function (ch) {
@@ -15109,12 +15117,12 @@
 
     var _sliderChangeEvent = 'slider.change.value';
     var sliderChangeEvent = constant$1(_sliderChangeEvent);
-    var isTouchEvent$1 = function (evt) {
+    var isTouchEvent$2 = function (evt) {
       return evt.type.indexOf('touch') !== -1;
     };
     var getEventSource = function (simulatedEvent) {
       var evt = simulatedEvent.event.raw;
-      if (isTouchEvent$1(evt)) {
+      if (isTouchEvent$2(evt)) {
         var touchEvent = evt;
         return touchEvent.touches !== undefined && touchEvent.touches.length === 1 ? Optional.some(touchEvent.touches[0]).map(function (t) {
           return SugarPosition(t.clientX, t.clientY);
@@ -16573,7 +16581,7 @@
       };
     };
 
-    var global$7 = tinymce.util.Tools.resolve('tinymce.Resource');
+    var global$6 = tinymce.util.Tools.resolve('tinymce.Resource');
 
     var isOldCustomEditor = function (spec) {
       return has$2(spec, 'init');
@@ -16590,7 +16598,7 @@
         behaviours: derive$1([
           config('custom-editor-events', [runOnAttached(function (component) {
               memReplaced.getOpt(component).each(function (ta) {
-                (isOldCustomEditor(spec) ? spec.init(ta.element.dom) : global$7.load(spec.scriptId, spec.scriptUrl).then(function (init) {
+                (isOldCustomEditor(spec) ? spec.init(ta.element.dom) : global$6.load(spec.scriptId, spec.scriptUrl).then(function (init) {
                   return init(ta.element.dom, spec.settings);
                 })).then(function (ea) {
                   initialValue.on(function (cvalue) {
@@ -16626,7 +16634,7 @@
       };
     };
 
-    var global$6 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global$5 = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
     var processors = objOf([
       defaulted('preprocess', identity$1),
@@ -16693,7 +16701,7 @@
 
     var defaultImageFileTypes = 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp';
     var filterByExtension = function (files, providersBackstage) {
-      var allowedImageFileTypes = global$6.explode(providersBackstage.getSetting('images_file_types', defaultImageFileTypes, 'string'));
+      var allowedImageFileTypes = global$5.explode(providersBackstage.getSetting('images_file_types', defaultImageFileTypes, 'string'));
       var isFileInAllowedTypes = function (file) {
         return exists(allowedImageFileTypes, function (type) {
           return endsWith(file.name.toLowerCase(), '.' + type.toLowerCase());
@@ -18927,9 +18935,7 @@
       };
     };
 
-    var global$5 = tinymce.util.Tools.resolve('tinymce.geom.Rect');
-
-    var global$4 = tinymce.util.Tools.resolve('tinymce.dom.DomQuery');
+    var global$4 = tinymce.util.Tools.resolve('tinymce.geom.Rect');
 
     var global$3 = tinymce.util.Tools.resolve('tinymce.util.Observable');
 
@@ -18950,78 +18956,96 @@
         height: scrollHeight < offsetHeight ? clientHeight : scrollHeight
       };
     };
+    var isTouchEvent$1 = function (e) {
+      return isNonNullable(e.changedTouches);
+    };
     var updateWithTouchData = function (e) {
-      var keys, i;
-      if (e.changedTouches) {
-        keys = 'screenX screenY pageX pageY clientX clientY'.split(' ');
-        for (i = 0; i < keys.length; i++) {
+      if (isTouchEvent$1(e)) {
+        var keys = 'screenX screenY pageX pageY clientX clientY'.split(' ');
+        for (var i = 0; i < keys.length; i++) {
           e[keys[i]] = e.changedTouches[0][keys[i]];
         }
       }
     };
     function DragHelper (id, settings) {
-      var $eventOverlay;
-      var doc = settings.document || document;
+      var _a, _b, _c;
+      var eventOverlay;
+      var handleEvents = [];
+      var overlayEvents = [];
+      var doc = (_a = settings.document) !== null && _a !== void 0 ? _a : document;
+      var root = (_b = settings.root) !== null && _b !== void 0 ? _b : doc;
+      var sugarDoc = SugarElement.fromDom(doc);
       var downButton;
-      var startX, startY;
-      var handleElement = doc.getElementById(settings.handle || id);
+      var startX;
+      var startY;
+      var handleElement = SugarElement.fromDom(root.getElementById((_c = settings.handle) !== null && _c !== void 0 ? _c : id));
       var start = function (e) {
+        var rawEvent = e.raw;
         var docSize = getDocumentSize(doc);
-        var cursor;
-        updateWithTouchData(e);
-        e.preventDefault();
-        downButton = e.button;
-        var handleElm = handleElement;
-        startX = e.screenX;
-        startY = e.screenY;
-        if (window.getComputedStyle) {
-          cursor = window.getComputedStyle(handleElm, null).getPropertyValue('cursor');
-        } else {
-          cursor = handleElm.runtimeStyle.cursor;
-        }
-        $eventOverlay = global$4('<div></div>').css({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: docSize.width,
-          height: docSize.height,
-          zIndex: 2147483647,
-          opacity: 0.0001,
+        updateWithTouchData(rawEvent);
+        e.prevent();
+        downButton = rawEvent.button;
+        startX = rawEvent.screenX;
+        startY = rawEvent.screenY;
+        var cursor = get$c(handleElement, 'cursor');
+        eventOverlay = SugarElement.fromTag('div', doc);
+        setAll(eventOverlay, {
+          'position': 'absolute',
+          'top': '0',
+          'left': '0',
+          'width': docSize.width + 'px',
+          'height': docSize.height + 'px',
+          'z-index': 2147483647 + '',
+          'opacity': '0.0001',
           cursor: cursor
-        }).appendTo(doc.body);
-        global$4(doc).on('mousemove touchmove', drag).on('mouseup touchend', stop);
-        settings.start(e);
+        });
+        append$2(getBody(sugarDoc), eventOverlay);
+        overlayEvents.push(bind(sugarDoc, 'mousemove', drag), bind(sugarDoc, 'touchmove', drag), bind(sugarDoc, 'mouseup', stop), bind(sugarDoc, 'touchend', stop));
+        settings.start(rawEvent);
       };
       var drag = function (e) {
-        updateWithTouchData(e);
-        if (e.button !== downButton) {
+        var rawEvent = e.raw;
+        updateWithTouchData(rawEvent);
+        if (rawEvent.button !== downButton) {
           return stop(e);
         }
-        e.deltaX = e.screenX - startX;
-        e.deltaY = e.screenY - startY;
-        e.preventDefault();
-        settings.drag(e);
+        rawEvent.deltaX = rawEvent.screenX - startX;
+        rawEvent.deltaY = rawEvent.screenY - startY;
+        e.prevent();
+        settings.drag(rawEvent);
       };
       var stop = function (e) {
-        updateWithTouchData(e);
-        global$4(doc).off('mousemove touchmove', drag).off('mouseup touchend', stop);
-        $eventOverlay.remove();
+        updateWithTouchData(e.raw);
+        each$1(overlayEvents, function (e) {
+          return e.unbind();
+        });
+        overlayEvents = [];
+        remove$5(eventOverlay);
         if (settings.stop) {
-          settings.stop(e);
+          settings.stop(e.raw);
         }
       };
       var destroy = function () {
-        global$4(handleElement).off();
+        each$1(overlayEvents.concat(handleEvents), function (e) {
+          return e.unbind();
+        });
+        overlayEvents = [];
+        handleEvents = [];
+        if (isNonNullable(eventOverlay)) {
+          remove$5(eventOverlay);
+        }
       };
-      global$4(handleElement).on('mousedown touchstart', start);
+      handleEvents.push(bind(handleElement, 'mousedown', start), bind(handleElement, 'touchstart', start));
       return { destroy: destroy };
     }
 
     var count = 0;
     var create$1 = function (currentRect, viewPortRect, clampRect, containerElm, action) {
       var dragHelpers;
+      var events = [];
       var prefix = 'tox-';
       var id = prefix + 'crid-' + count++;
+      var container = SugarElement.fromDom(containerElm);
       var handles = [
         {
           name: 'move',
@@ -19100,22 +19124,11 @@
         return getRelativeRect(clampRect, currentRect);
       };
       var moveRect = function (handle, startRect, deltaX, deltaY) {
-        var x, y, w, h, rect;
-        x = startRect.x;
-        y = startRect.y;
-        w = startRect.w;
-        h = startRect.h;
-        x += deltaX * handle.deltaX;
-        y += deltaY * handle.deltaY;
-        w += deltaX * handle.deltaW;
-        h += deltaY * handle.deltaH;
-        if (w < 20) {
-          w = 20;
-        }
-        if (h < 20) {
-          h = 20;
-        }
-        rect = currentRect = global$5.clamp({
+        var x = startRect.x + deltaX * handle.deltaX;
+        var y = startRect.y + deltaY * handle.deltaY;
+        var w = Math.max(20, startRect.w + deltaX * handle.deltaW);
+        var h = Math.max(20, startRect.h + deltaY * handle.deltaH);
+        var rect = currentRect = global$4.clamp({
           x: x,
           y: y,
           w: w,
@@ -19130,6 +19143,7 @@
           var startRect;
           return DragHelper(id, {
             document: containerElm.ownerDocument,
+            root: getRootNode(container).dom,
             handle: id + '-' + handle.name,
             start: function () {
               startRect = currentRect;
@@ -19139,22 +19153,55 @@
             }
           });
         };
-        global$4('<div id="' + id + '" class="' + prefix + 'croprect-container"' + ' role="grid" aria-dropeffect="execute">').appendTo(containerElm);
-        global$6.each(blockers, function (blocker) {
-          global$4('#' + id, containerElm).append('<div id="' + id + '-' + blocker + '"class="' + prefix + 'croprect-block" style="display: none" data-mce-bogus="all">');
+        var cropContainer = SugarElement.fromTag('div');
+        setAll$1(cropContainer, {
+          id: id,
+          'class': prefix + 'croprect-container',
+          'role': 'grid',
+          'aria-dropeffect': 'execute'
         });
-        global$6.each(handles, function (handle) {
-          global$4('#' + id, containerElm).append('<div id="' + id + '-' + handle.name + '" class="' + prefix + 'croprect-handle ' + prefix + 'croprect-handle-' + handle.name + '"' + 'style="display: none" data-mce-bogus="all" role="gridcell" tabindex="-1"' + ' aria-label="' + handle.label + '" aria-grabbed="false" title="' + handle.label + '">');
+        append$2(container, cropContainer);
+        each$1(blockers, function (blocker) {
+          descendant(container, '#' + id).each(function (blockerElm) {
+            var cropBlocker = SugarElement.fromTag('div');
+            setAll$1(cropBlocker, {
+              'id': id + '-' + blocker,
+              'class': prefix + 'croprect-block',
+              'data-mce-bogus': 'all'
+            });
+            set$7(cropBlocker, 'display', 'none');
+            append$2(blockerElm, cropBlocker);
+          });
         });
-        dragHelpers = global$6.map(handles, createDragHelper);
+        each$1(handles, function (handle) {
+          descendant(container, '#' + id).each(function (handleElm) {
+            var cropHandle = SugarElement.fromTag('div');
+            setAll$1(cropHandle, {
+              'id': id + '-' + handle.name,
+              'aria-label': handle.label,
+              'aria-grabbed': 'false',
+              'data-mce-bogus': 'all',
+              'role': 'gridcell',
+              'tabindex': '-1',
+              'title': handle.label
+            });
+            add$1(cropHandle, [
+              prefix + 'croprect-handle',
+              prefix + 'croprect-handle-' + handle.name
+            ]);
+            set$7(cropHandle, 'display', 'none');
+            append$2(handleElm, cropHandle);
+          });
+        });
+        dragHelpers = map$2(handles, createDragHelper);
         repaint(currentRect);
-        global$4(containerElm).on('focusin focusout', function (e) {
-          global$4(e.target).attr('aria-grabbed', e.type === 'focus' ? 'true' : 'false');
-        });
-        global$4(containerElm).on('keydown', function (e) {
+        var handleFocus = function (e) {
+          set$8(e.target, 'aria-grabbed', e.raw.type === 'focus' ? 'true' : 'false');
+        };
+        var handleKeydown = function (e) {
           var activeHandle;
-          global$6.each(handles, function (handle) {
-            if (e.target.id === id + '-' + handle.name) {
+          each$1(handles, function (handle) {
+            if (get$d(e.target, 'id') === id + '-' + handle.name) {
               activeHandle = handle;
               return false;
             }
@@ -19164,7 +19211,7 @@
             evt.preventDefault();
             moveRect(activeHandle, startRect, deltaX, deltaY);
           };
-          switch (e.keyCode) {
+          switch (e.raw.keyCode) {
           case global$2.LEFT:
             moveAndBlock(e, activeHandle, currentRect, -10, 0);
             break;
@@ -19179,43 +19226,47 @@
             break;
           case global$2.ENTER:
           case global$2.SPACEBAR:
-            e.preventDefault();
+            e.prevent();
             action();
             break;
           }
-        });
+        };
+        events.push(bind(container, 'focusin', handleFocus), bind(container, 'focusout', handleFocus), bind(container, 'keydown', handleKeydown));
       };
       var toggleVisibility = function (state) {
-        var selectors = global$6.map(handles, function (handle) {
+        var selectors = __spreadArray(__spreadArray([], map$2(handles, function (handle) {
           return '#' + id + '-' + handle.name;
-        }).concat(global$6.map(blockers, function (blocker) {
+        }), true), map$2(blockers, function (blocker) {
           return '#' + id + '-' + blocker;
-        })).join(',');
+        }), true).join(',');
+        var elems = descendants(container, selectors);
         if (state) {
-          global$4(selectors, containerElm).show();
+          each$1(elems, function (elm) {
+            return remove$6(elm, 'display');
+          });
         } else {
-          global$4(selectors, containerElm).hide();
+          each$1(elems, function (elm) {
+            return set$7(elm, 'display', 'none');
+          });
         }
       };
       var repaint = function (rect) {
-        var updateElementRect = function (name, rect) {
-          if (rect.h < 0) {
-            rect.h = 0;
-          }
-          if (rect.w < 0) {
-            rect.w = 0;
-          }
-          global$4('#' + id + '-' + name, containerElm).css({
-            left: rect.x,
-            top: rect.y,
-            width: rect.w,
-            height: rect.h
+        var updateElementRect = function (name, newRect) {
+          descendant(container, '#' + id + '-' + name).each(function (elm) {
+            setAll(elm, {
+              left: newRect.x + 'px',
+              top: newRect.y + 'px',
+              width: Math.max(0, newRect.w) + 'px',
+              height: Math.max(0, newRect.h) + 'px'
+            });
           });
         };
-        global$6.each(handles, function (handle) {
-          global$4('#' + id + '-' + handle.name, containerElm).css({
-            left: rect.w * handle.xMul + rect.x,
-            top: rect.h * handle.yMul + rect.y
+        each$1(handles, function (handle) {
+          descendant(container, '#' + id + '-' + handle.name).each(function (elm) {
+            setAll(elm, {
+              left: rect.w * handle.xMul + rect.x + 'px',
+              top: rect.h * handle.yMul + rect.y + 'px'
+            });
           });
         });
         updateElementRect('top', {
@@ -19260,13 +19311,17 @@
         repaint(currentRect);
       };
       var destroy = function () {
-        global$6.each(dragHelpers, function (helper) {
-          helper.destroy();
+        each$1(dragHelpers, function (helper) {
+          return helper.destroy();
         });
         dragHelpers = [];
+        each$1(events, function (e) {
+          return e.unbind();
+        });
+        events = [];
       };
       render();
-      var instance = global$6.extend({
+      var instance = __assign(__assign({}, global$3), {
         toggleVisibility: toggleVisibility,
         setClampRect: setClampRect,
         setRect: setRect,
@@ -19274,13 +19329,13 @@
         setInnerRect: setInnerRect,
         setViewPortRect: setViewPortRect,
         destroy: destroy
-      }, global$3);
+      });
       return instance;
     };
     var CropRect = { create: create$1 };
 
     var loadImage = function (image) {
-      return new global$d(function (resolve) {
+      return new global$c(function (resolve) {
         var loaded = function () {
           image.removeEventListener('load', loaded);
           resolve(image);
@@ -19301,7 +19356,7 @@
         }
       });
       var zoomState = Cell(1);
-      var cropRect = value$1();
+      var cropRect = api$1();
       var rectState = Cell({
         x: 0,
         y: 0,
@@ -19334,7 +19389,7 @@
           memBg.getOpt(panel).each(function (bg) {
             setAll(bg.element, css);
           });
-          cropRect.on(function (cRect) {
+          cropRect.run(function (cRect) {
             var rect = rectState.get();
             cRect.setRect({
               x: rect.x * zoom + left,
@@ -19387,7 +19442,7 @@
                 h: img.dom.naturalHeight
               };
               viewRectState.set(viewRect);
-              var rect = global$5.inflate(viewRect, -20, -20);
+              var rect = global$4.inflate(viewRect, -20, -20);
               rectState.set(rect);
               if (lastViewRect.w !== viewRect.w || lastViewRect.h !== viewRect.h) {
                 zoomFit(panel, img);
@@ -19407,12 +19462,12 @@
         });
       };
       var showCrop = function () {
-        cropRect.on(function (cRect) {
+        cropRect.run(function (cRect) {
           cRect.toggleVisibility(true);
         });
       };
       var hideCrop = function () {
-        cropRect.on(function (cRect) {
+        cropRect.run(function (cRect) {
           cRect.toggleVisibility(false);
         });
       };
@@ -19434,7 +19489,8 @@
           },
           {
             dom: { tag: 'div' },
-            behaviours: derive$1([config('image-panel-crop-events', [runOnAttached(function (comp) {
+            behaviours: derive$1([config('image-panel-crop-events', [
+                runOnAttached(function (comp) {
                   memContainer.getOpt(comp).each(function (container) {
                     var el = container.element.dom;
                     var cRect = CropRect.create({
@@ -19467,7 +19523,11 @@
                     });
                     cropRect.set(cRect);
                   });
-                })])])
+                }),
+                runOnDetached(function () {
+                  cropRect.clear();
+                })
+              ])])
           }
         ],
         containerBehaviours: derive$1([
@@ -19620,7 +19680,7 @@
         URL.revokeObjectURL(state.url);
       };
       var destroyStates = function (states) {
-        global$6.each(states, destroyState);
+        global$5.each(states, destroyState);
       };
       var destroyTempState = function () {
         tempState.on(destroyState);
@@ -21827,7 +21887,7 @@
     var isElement = function (node) {
       return isNonNullable(node) && node.nodeType === 1;
     };
-    var trim = global$6.trim;
+    var trim = global$5.trim;
     var hasContentEditableState = function (value) {
       return function (node) {
         if (isElement(node)) {
@@ -21935,7 +21995,7 @@
       }).isNone();
     };
     var getAllHistory = function () {
-      var unparsedHistory = global$9.getItem(STORAGE_KEY);
+      var unparsedHistory = global$8.getItem(STORAGE_KEY);
       if (unparsedHistory === null) {
         return {};
       }
@@ -21959,7 +22019,7 @@
       if (!isRecordOfUrlArray(history)) {
         throw new Error('Bad format for history:\n' + JSON.stringify(history));
       }
-      global$9.setItem(STORAGE_KEY, JSON.stringify(history));
+      global$8.setItem(STORAGE_KEY, JSON.stringify(history));
     };
     var getHistory = function (fileType) {
       var history = getAllHistory();
@@ -21982,7 +22042,7 @@
       return !!value;
     };
     var makeMap = function (value) {
-      return map$1(global$6.makeMap(value, /[, ]/), isTruthy);
+      return map$1(global$5.makeMap(value, /[, ]/), isTruthy);
     };
     var getPicker = function (editor) {
       return Optional.from(getFilePickerCallback(editor)).filter(isFunction);
@@ -22075,7 +22135,7 @@
             menuItems: function () {
               return editor.ui.registry.getAll().menuItems;
             },
-            translate: global$f.translate,
+            translate: global$e.translate,
             isDisabled: function () {
               return editor.mode.isReadOnly() || editor.ui.isDisabled();
             },
@@ -23804,9 +23864,9 @@
         }
       };
       editor.on('ProgressState', function (e) {
-        timer.on(global$g.clearTimeout);
+        timer.on(global$f.clearTimeout);
         if (isNumber(e.time)) {
-          var timerId = global$g.setEditorTimeout(editor, function () {
+          var timerId = global$f.setEditorTimeout(editor, function () {
             return toggle(e.state);
           }, e.time);
           timer.set(timerId);
@@ -24980,7 +25040,7 @@
     };
 
     var loadStylesheet = function (editor, stylesheetUrl, styleSheetLoader) {
-      return new global$d(function (resolve, reject) {
+      return new global$c(function (resolve, reject) {
         styleSheetLoader.load(stylesheetUrl, resolve, reject);
         editor.on('remove', function () {
           return styleSheetLoader.unload(stylesheetUrl);
@@ -24995,9 +25055,9 @@
       var isInShadowRoot$1 = isInShadowRoot(SugarElement.fromDom(editor.getElement()));
       if (isInShadowRoot$1) {
         var shadowDomSkinCss = skinUrl + '/skin.shadowdom.min.css';
-        return loadStylesheet(editor, shadowDomSkinCss, global$c.DOM.styleSheetLoader);
+        return loadStylesheet(editor, shadowDomSkinCss, global$b.DOM.styleSheetLoader);
       } else {
-        return global$d.resolve();
+        return global$c.resolve();
       }
     };
     var loadSkin = function (isInline, editor) {
@@ -25006,7 +25066,7 @@
         editor.contentCSS.push(skinUrl + (isInline ? '/content.inline' : '/content') + '.min.css');
       }
       if (isSkinDisabled(editor) === false && isString(skinUrl)) {
-        global$d.all([
+        global$c.all([
           loadUiSkins(editor, skinUrl),
           loadShadowDomUiSkins(editor, skinUrl)
         ]).then(fireSkinLoaded(editor), fireSkinLoadError(editor, 'Skin could not be loaded'));
@@ -26572,7 +26632,7 @@
 
     var InlineHeader = function (editor, targetElm, uiComponents, backstage, floatContainer) {
       var uiMothership = uiComponents.uiMothership, outerContainer = uiComponents.outerContainer;
-      var DOM = global$c.DOM;
+      var DOM = global$b.DOM;
       var useFixedToolbarContainer = useFixedContainer(editor);
       var isSticky = isStickyToolbar(editor);
       var editorMaxWidthOpt = getMaxWidthSetting(editor).or(getWidth(editor));
@@ -26748,7 +26808,7 @@
         return ui.update(true);
       });
       editor.on('NodeChange keydown', function (e) {
-        global$g.requestAnimationFrame(function () {
+        global$f.requestAnimationFrame(function () {
           return resizeContent(e);
         });
       });
@@ -26784,7 +26844,7 @@
         editor.nodeChanged();
       };
       var delayedRender = function () {
-        return global$g.setEditorTimeout(editor, render, 0);
+        return global$f.setEditorTimeout(editor, render, 0);
       };
       editor.on('show', render);
       editor.on('hide', ui.hide);
@@ -27403,7 +27463,7 @@
                   return active(getRootNode(elem));
                 });
               });
-              global$g.setTimeout(function () {
+              global$f.setTimeout(function () {
                 set$7(comp.element, 'width', newWidth + 'px');
               }, 0);
             }),
@@ -27624,7 +27684,7 @@
           });
         });
         editor.on('focusout', function (_e) {
-          global$g.setEditorTimeout(editor, function () {
+          global$f.setEditorTimeout(editor, function () {
             if (search(sink.element).isNone() && search(contextbar.element).isNone()) {
               close();
             }
@@ -27928,7 +27988,7 @@
       };
     };
     var registerFormatButtons = function (editor) {
-      global$6.each([
+      global$5.each([
         {
           name: 'bold',
           text: 'Bold',
@@ -27978,7 +28038,7 @@
       }
     };
     var registerCommandButtons = function (editor) {
-      global$6.each([
+      global$5.each([
         {
           name: 'cut',
           text: 'Cut',
@@ -28036,7 +28096,7 @@
       });
     };
     var registerCommandToggleButtons = function (editor) {
-      global$6.each([{
+      global$5.each([{
           name: 'blockquote',
           text: 'Blockquote',
           action: 'mceBlockQuote',
@@ -28056,7 +28116,7 @@
       registerCommandToggleButtons(editor);
     };
     var registerMenuItems$2 = function (editor) {
-      global$6.each([
+      global$5.each([
         {
           name: 'bold',
           text: 'Bold',
@@ -28267,7 +28327,7 @@
       }
     };
     var transposeContentAreaContainer = function (element, pos) {
-      var containerPos = global$c.DOM.getPos(element);
+      var containerPos = global$b.DOM.getPos(element);
       return transpose(pos, containerPos.x, containerPos.y);
     };
     var getPointAnchor = function (editor, e) {
@@ -28378,7 +28438,7 @@
     var setupiOSOverrides = function (editor) {
       var originalSelection = editor.selection.getRng();
       var selectionReset = function () {
-        global$g.setEditorTimeout(editor, function () {
+        global$f.setEditorTimeout(editor, function () {
           editor.selection.setRng(originalSelection);
         }, 10);
         unbindEventListeners();
@@ -29645,7 +29705,7 @@
 
     var renderStatusbar = function (editor, providersBackstage) {
       var renderBranding = function () {
-        var label = global$f.translate([
+        var label = global$e.translate([
           'Powered by {0}',
           'Tiny'
         ]);
@@ -29708,7 +29768,7 @@
       var deviceClasses = isTouch ? [touchPlatformClass] : [];
       var isToolbarBottom = isToolbarLocationBottom(editor);
       var uiContainer = getUiContainer(editor);
-      var dirAttributes = global$f.isRtl() ? { attributes: { dir: 'rtl' } } : {};
+      var dirAttributes = global$e.isRtl() ? { attributes: { dir: 'rtl' } } : {};
       var verticalDirAttributes = { attributes: (_a = {}, _a[Attribute] = isToolbarBottom ? AttributeValue.BottomToTop : AttributeValue.TopToBottom, _a) };
       var lazyHeader = function () {
         return lazyOuterContainer.bind(OuterContainer.getHeader);
@@ -29881,7 +29941,7 @@
         [partThrobber]
       ]);
       var isHidden = isDistractionFree(editor);
-      var attributes = __assign(__assign({ role: 'application' }, global$f.isRtl() ? { dir: 'rtl' } : {}), isHidden ? { 'aria-hidden': 'true' } : {});
+      var attributes = __assign(__assign({ role: 'application' }, global$e.isRtl() ? { dir: 'rtl' } : {}), isHidden ? { 'aria-hidden': 'true' } : {});
       var outerContainer = build$1(OuterContainer.sketch({
         dom: {
           tag: 'div',
@@ -30992,7 +31052,7 @@
               updateTabviewHeight(dialog, tabview, maxTabHeight);
               remove$6(tabview, 'visibility');
               showTab(allTabs, comp);
-              global$g.requestAnimationFrame(function () {
+              global$f.requestAnimationFrame(function () {
                 updateTabviewHeight(dialog, tabview, maxTabHeight);
               });
             });
@@ -31254,7 +31314,7 @@
       return ModalDialog.parts.body(bodySpec);
     };
 
-    var isTouch = global$a.deviceType.isTouch();
+    var isTouch = global$9.deviceType.isTouch();
     var hiddenHeader = function (title, close) {
       return {
         dom: {
@@ -32435,7 +32495,7 @@
     };
 
     function Theme () {
-      global$h.add('silver', function (editor) {
+      global$g.add('silver', function (editor) {
         var _a = setup$3(editor), uiMothership = _a.uiMothership, backstage = _a.backstage, renderUI = _a.renderUI, getUi = _a.getUi;
         Autocompleter.register(editor, backstage.shared);
         var windowMgr = setup({

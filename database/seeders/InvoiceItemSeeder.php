@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\InvoiceItem;
+use App\Models\PetShop\InvoiceItem;
 use Illuminate\Database\Seeder;
 
 class InvoiceItemSeeder extends Seeder

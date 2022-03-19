@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -46,6 +46,6 @@ class Passport extends Model
 
     public function pet()
     {
-        return $this->belongsTo(\App\Models\Pet::class, 'pet_id');
+        return $this->belongsTo(\App\Models\PetShop\Pet::class, 'pet_id');
     }
 }

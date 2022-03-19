@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PetShop;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class Avatar extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
@@ -16,7 +16,9 @@ class Skill extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'url',
+        'avatarable_id',
+        'avatarable_type',
     ];
 
     /**
@@ -28,8 +30,8 @@ class Skill extends Model
         'id' => 'integer',
     ];
 
-    public function pets()
+    public function avatarable()
     {
-        return $this->belongsToMany(\App\Models\Pet::class);
+        return $this->morphTo();
     }
 }
