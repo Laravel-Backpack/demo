@@ -251,7 +251,9 @@ class Monster extends Model
         // if the image was erased
         if ($value == null) {
             // delete the image from disk
-            \Storage::disk($disk)->delete($this->{$attribute_name});
+            if ($this->{$attribute_name}) {
+                \Storage::disk($disk)->delete($this->{$attribute_name});
+            }
 
             // set null in the database column
             $this->attributes[$attribute_name] = null;
