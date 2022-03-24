@@ -80,9 +80,6 @@
     },
     "config": {
         "preferred-install": "dist",
-        "platform": {
-            "php": "8.0.2"
-        },
         "allow-plugins": {
             "composer/package-versions-deprecated": true
         }
