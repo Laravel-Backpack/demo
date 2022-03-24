@@ -1,9 +1,10 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
 use App\Models\PetShop\Pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class PetFactory extends Factory
 {
@@ -14,6 +15,8 @@ class PetFactory extends Factory
      */
     protected $model = Pet::class;
 
+    protected $petNames = ['Juliet', 'Rose', 'Belle', 'Nicky', 'Stella', 'Bepi', 'Trix', 'Susy','Rex', 'Black', 'Chip', 'Charlie', 'Kobe', 'Alf', 'Arlo', 'Ben'];
+
     /**
      * Define the model's default state.
      *
@@ -22,7 +25,7 @@ class PetFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->word,
+            'nickname' => Arr::random($this->petNames),
         ];
     }
 }

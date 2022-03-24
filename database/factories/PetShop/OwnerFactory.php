@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
-use App\Models\PetShop\Badge;
+use App\Models\PetShop\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BadgeFactory extends Factory
+class OwnerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Badge::class;
+    protected $model = Owner::class;
 
     /**
      * Define the model's default state.
