@@ -5,27 +5,24 @@
     "license": "proprietary",
     "type": "project",
     "require": {
-        "php": ">=7.3",
-        "laravel/framework": "^8.0",
-        "fideloper/proxy": "^4.0",
-        "backpack/crud": "^5.0.4",
-        "backpack/pro": "^1.0",
+        "php": "^8.0",
+        "laravel/framework": "^9.0",
+        "backpack/crud": "^5.0",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
         "backpack/permissionmanager": "^6.0",
         "backpack/pagemanager": "^3.0",
         "backpack/menucrud": "^3.0",
-        "backpack/backupmanager": "^3.0",
-        "spatie/laravel-translatable": "^4.0",
+        "spatie/laravel-translatable": "^5.0",
         "laravel/tinker": "^2.1",
-        "facade/ignition": "^2.3.6",
+        "spatie/laravel-ignition": "^1.0",
         "intervention/image": "^2.3",
         "backpack/revise-operation": "^1.0",
-        "backpack/filemanager": "^1.0",
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
-        "mews/purifier": "^3.3"
+        "mews/purifier": "^3.3",
+        "backpack/filemanager": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -82,9 +79,6 @@
     },
     "config": {
         "preferred-install": "dist",
-        "platform": {
-            "php": "7.4.0"
-        },
         "allow-plugins": {
             "composer/package-versions-deprecated": true
         }

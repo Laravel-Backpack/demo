@@ -3,7 +3,7 @@
     "description": "FixedHeader for DataTables",
     "main": "js/dataTables.fixedHeader.js",
     "types": "./types/types.d.ts",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "files": [
         "js/**/*.js",
         "types/**/*.d.ts"
