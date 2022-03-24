@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\PetShop\Invoice;
 use App\Models\PetShop\InvoiceItem;
 use App\Models\PetShop\Owner;
-use Illuminate\Database\Seeder;
 use Carbon\CarbonImmutable;
 use Faker\Generator;
-use App\Models\PetShop\Invoice;
+use Illuminate\Database\Seeder;
 
 class OwnerSeeder extends Seeder
 {
@@ -24,16 +24,16 @@ class OwnerSeeder extends Seeder
 
         $owners = Owner::all();
 
-        foreach($owners as $owner) {
+        foreach ($owners as $owner) {
             // owner avatars
-            $avatar = rand(1,2);
+            $avatar = rand(1, 2);
             $owner->avatar()->create([
-                'url' => 'uploads/person'.$avatar.'.jpg'
+                'url' => 'uploads/person'.$avatar.'.jpg',
             ]);
 
             // owner invoices
-            $invoices = rand(1,3);
-            while($invoices) {
+            $invoices = rand(1, 3);
+            while ($invoices) {
                 $inssuanceDate = CarbonImmutable::parse($faker->dateTimeThisDecade());
                 $dueDate = $inssuanceDate->addMonths(1);
                 $invoice = Invoice::create([
@@ -45,8 +45,8 @@ class OwnerSeeder extends Seeder
 
                 ]);
                 // invoice items
-                $invoiceItems = rand(2,5);
-                while($invoiceItems) {
+                $invoiceItems = rand(2, 5);
+                while ($invoiceItems) {
                     InvoiceItem::create([
                         'invoice_id'  => $invoice->id,
                         'order'       => $faker->bothify('?????-#####'),

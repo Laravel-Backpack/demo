@@ -5,13 +5,12 @@ namespace Database\Seeders;
 use App\Models\PetShop\Badge;
 use App\Models\PetShop\Comment;
 use App\Models\PetShop\Owner;
-use Faker\Generator;
 use App\Models\PetShop\Pet;
 use App\Models\PetShop\Skill;
-use Database\Seeders\PetSeeder;
+use Carbon\CarbonImmutable;
+use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
-use Carbon\CarbonImmutable;
 
 class PetShopSeeder extends Seeder
 {
@@ -39,21 +38,21 @@ class PetShopSeeder extends Seeder
         $badges = Badge::all();
 
         // deal with pet stuff
-        foreach($pets as $pet) {
+        foreach ($pets as $pet) {
 
             // add one owner for the pet owners list
             $owner = $owners->random();
             $pet->owners()->sync([$owner->id => ['role' => Arr::random($this->ownerRoles)]]);
 
             // add 1-3 skills for each pet
-            $petSkills = $skills->random(rand(1,3))->pluck('id')->toArray();
+            $petSkills = $skills->random(rand(1, 3))->pluck('id')->toArray();
             $pet->skills()->sync($petSkills);
 
             // add the pet passport
             $petSpecie = array_rand($this->petSpeciesAndBreeds, 1);
             $petBreed = Arr::random($this->petSpeciesAndBreeds[$petSpecie]);
             $birthDate = CarbonImmutable::parse($faker->dateTimeThisDecade());
-            $passportDate = $birthDate->addDays(rand(11,25));
+            $passportDate = $birthDate->addDays(rand(11, 25));
             $passportExpiryDate = $passportDate->addYears(5);
             $pet->passport()->create([
                 'number'        => $faker->ean13(),
@@ -69,30 +68,29 @@ class PetShopSeeder extends Seeder
                 'notes'         => $faker->text,
                 'country'       => $faker->country,
             ]);
-        
 
             // add the avatar
-            $avatar = rand(1,3);
+            $avatar = rand(1, 3);
             $pet->avatar()->create([
-                'url' => 'uploads/animal'.$avatar.'.jpg'
+                'url' => 'uploads/animal'.$avatar.'.jpg',
             ]);
 
             // add comments
-            $comments = rand(1,5);
-            while($comments) {
+            $comments = rand(1, 5);
+            while ($comments) {
                 Comment::create([
-                    'body' => $faker->text,
+                    'body'             => $faker->text,
                     'commentable_type' => get_class($pet),
-                    'commentable_id' => $pet->id,
-                    'user_id' => 1
+                    'commentable_id'   => $pet->id,
+                    'user_id'          => 1,
                 ]);
                 $comments--;
             }
-            
+
             // add badges
-            $petBadges = []; 
-            $badgesToAdd = array_map(function($badge) use ($faker) {  return [$badge => ['note' => $faker->sentence]]; }, $badges->random(3)->pluck('id')->toArray());
-            foreach($badgesToAdd as $badge) {
+            $petBadges = [];
+            $badgesToAdd = array_map(function ($badge) use ($faker) {  return [$badge => ['note' => $faker->sentence]]; }, $badges->random(3)->pluck('id')->toArray());
+            foreach ($badgesToAdd as $badge) {
                 $petBadges[array_key_first($badge)] = $badge[array_key_first($badge)];
             }
             $pet->badges()->sync($petBadges);

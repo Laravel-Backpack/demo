@@ -15,7 +15,7 @@ class PetFactory extends Factory
      */
     protected $model = Pet::class;
 
-    protected $petNames = ['Juliet', 'Rose', 'Belle', 'Nicky', 'Stella', 'Bepi', 'Trix', 'Susy','Rex', 'Black', 'Chip', 'Charlie', 'Kobe', 'Alf', 'Arlo', 'Ben'];
+    protected $petNames = ['Juliet', 'Rose', 'Belle', 'Nicky', 'Stella', 'Bepi', 'Trix', 'Susy', 'Rex', 'Black', 'Chip', 'Charlie', 'Kobe', 'Alf', 'Arlo', 'Ben'];
 
     /**
      * Define the model's default state.

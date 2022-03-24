@@ -23,6 +23,7 @@ class SkillFactory extends Factory
     public function definition()
     {
         $skills = ['Jump', 'Sit', 'Bark', 'Lay Down', 'Fly', 'Run'];
+
         return [
             'name' => Arr::random($skills),
         ];

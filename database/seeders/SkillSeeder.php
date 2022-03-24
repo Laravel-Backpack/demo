@@ -15,8 +15,7 @@ class SkillSeeder extends Seeder
      */
     public function run()
     {
-
         $skills = ['Jump', 'Sit', 'Bark', 'Lay Down', 'Fly', 'Run'];
-        Skill::insert(array_map(function($skill) { return ['name' => $skill, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]; }, $skills));
+        Skill::insert(array_map(function ($skill) { return ['name' => $skill, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]; }, $skills));
     }
 }
