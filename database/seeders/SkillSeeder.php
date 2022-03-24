@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\PetShop\Skill;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class SkillSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class SkillSeeder extends Seeder
      */
     public function run()
     {
-        Skill::factory()->count(5)->create();
+
+        $skills = ['Jump', 'Sit', 'Bark', 'Lay Down', 'Fly', 'Run'];
+        Skill::insert(array_map(function($skill) { return ['name' => $skill, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]; }, $skills));
     }
 }
