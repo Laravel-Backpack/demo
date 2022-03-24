@@ -1,3 +1,22 @@
+<p align="left">
+    <br>
+    <a href="https://travis-ci.org/Laravel-Backpack/Demo" title="Build Status"><img src="https://img.shields.io/travis/Laravel-Backpack/Demo/master.svg?style=flat-square"></a>
+    <a href="https://styleci.io/repos/61656673" title="Style CI"><img src="https://styleci.io/repos/61656673/shield"></a>
+    <a href="https://scrutinizer-ci.com/g/laravel-backpack/demo" title="Quality Score"><img src="https://img.shields.io/scrutinizer/g/laravel-backpack/demo.svg?style=flat-square"></a>
+    <a href="https://scrutinizer-ci.com/g/laravel-backpack/demo/code-structure" title="Coverage Status"><img src="https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/demo.svg?style=flat-square"></a>
+    <a href="LICENSE.md" title="Software License"><img src="https://img.shields.io/badge/License-dual-blue"></a>
+    <br><br>
+    <a href="https://backpackforlaravel.com/">Website</a> | 
+    <a href="https://backpackforlaravel.com/docs/">Documentation</a> | 
+    <a href="https://backpackforlaravel.com/addons">Add-ons</a> | 
+    <a href="https://backpackforlaravel.com/pricing">Pricing</a> |
+    <a href="https://backpackforlaravel.com/need-freelancer-or-development-team">Services</a> | 
+    <a href="https://stackoverflow.com/questions/tagged/backpack-for-laravel">Stack Overflow</a> | 
+    <a href="https://www.reddit.com/r/BackpackForLaravel/">Reddit</a> | 
+    <a href="https://backpackforlaravel.com/articles">Blog</a> | 
+    <a href="https://backpackforlaravel.com/newsletter">Newsletter</a>
+</p>
+
 # Backpack\Demo
 
 Laravel BackPack's demo, which includes all Backpack packages.
@@ -44,6 +63,62 @@ Note: Depending on your configuration you may need to define a site within NGINX
 
 ![Example generated CRUD interface](https://backpackforlaravel.com/uploads/docs-4-0/getting_started/tag_crud_list_entries.png)
 
+## If using docker
+
+This package provides an example `docker-compose.yml` to launch your database and web server easily
+
+```
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
+Use these parameters in your .env file
+
+```
+APP_URL=http://localhost
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=backpackdemo
+DB_USERNAME=root
+DB_PASSWORD=asdf
+```
+
+Launch docker
+
+```
+docker-compose up -d
+```
+
+Create your database with following command
+
+```
+docker-compose exec db mysql -u root -pasdf -e "create database if not exists backpackdemo;"
+```
+
+Migrate and seed
+
+```
+php artisan migrate --seed
+```
+
+You should see the demo in your browser now
+
+```
+http://localhost/admin
+```
+
+To stop the server simply run
+
+```
+docker-compose down
+```
+
+Note: 
+
+In docker, to connect to your database from your GUI use `127.0.0.1` as your database host, instead of `localhost`
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -54,7 +129,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email hello@tabacitu.ro instead of using the issue tracker.
+If you discover any security related issues, please email tabacitu@backpackforlaravel.com instead of using the issue tracker.
 
 Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
@@ -75,4 +150,3 @@ If you are looking for a developer/team to help you build an admin panel on Lara
 
 [link-author]: http://tabacitu.ro
 [link-contributors]: ../../contributors
-

@@ -1,61 +1,51 @@
 {
-  "_args": [
-    [
-      "datatables.net-fixedheader-bs4@3.1.6",
-      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "datatables.net-fixedheader-bs4@3.1.6",
-  "_id": "datatables.net-fixedheader-bs4@3.1.6",
-  "_inBundle": false,
-  "_integrity": "sha512-mat50UvCNhE5E2jhqEAO07LJ7I++pxFwpbNUfVtuFg866Tf3uHAKHgsXnsXW8kqiER931g4LbxO28axyquj1tw==",
-  "_location": "/datatables.net-fixedheader-bs4",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "datatables.net-fixedheader-bs4@3.1.6",
     "name": "datatables.net-fixedheader-bs4",
-    "escapedName": "datatables.net-fixedheader-bs4",
-    "rawSpec": "3.1.6",
-    "saveSpec": null,
-    "fetchSpec": "3.1.6"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-fixedheader-bs4/-/datatables.net-fixedheader-bs4-3.1.6.tgz",
-  "_spec": "3.1.6",
-  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
-  "author": {
-    "name": "SpryMedia Ltd",
-    "url": "http://datatables.net"
-  },
-  "bugs": {
-    "url": "https://datatables.net/forums"
-  },
-  "dependencies": {
-    "datatables.net-bs4": "^1.10.15",
-    "datatables.net-fixedheader": "3.1.6",
-    "jquery": ">=1.7"
-  },
-  "description": "FixedHeader for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
-  "files": [
-    "css/**/*.css",
-    "js/**/*.js"
-  ],
-  "homepage": "https://datatables.net",
-  "keywords": [
-    "fixed headers",
-    "sticky",
-    "DataTables",
-    "jQuery",
-    "table",
-    "Bootstrap 4"
-  ],
-  "license": "MIT",
-  "main": "js/fixedHeader.bootstrap4.js",
-  "name": "datatables.net-fixedheader-bs4",
-  "style": "css/fixedHeader.bootstrap4.css",
-  "version": "3.1.6"
+    "description": "FixedHeader for DataTables with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)",
+    "main": "js/fixedHeader.bootstrap4.js",
+    "style": "css/fixedHeader.bootstrap4.css",
+    "types": "./types/fixedHeader.bootstrap4.d.ts",
+    "version": "3.2.1",
+    "files": [
+        "css/**/*.css",
+        "js/**/*.js",
+        "types/**/*.d.ts"
+    ],
+    "keywords": [
+        "FixedHeader",
+        "Fixed Headers",
+        "Sticky",
+        "Bootstrap",
+        "Bootstrap4",
+        "Datatables",
+        "jQuery",
+        "table",
+        "filter",
+        "sort"
+    ],
+    "dependencies": {
+        "datatables.net-fixedheader": ">=3.2.0",
+        "datatables.net-bs4": ">=1.11.3",
+        "jquery": ">=1.7"
+    },
+    "moduleType": [
+        "globals",
+        "amd",
+        "node"
+    ],
+    "ignore": [
+        "composer.json",
+        "datatables.json",
+        "package.json"
+    ],
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DataTables/Dist-DataTables-FixedHeader-Bootstrap4.git"
+    }
 }

@@ -56,25 +56,29 @@ return [
             'driver'                        => 'mysql',
             'host'                          => env('DB_HOST', 'localhost'),
             'port'                          => env('DB_PORT', '3306'),
-            'database'                      => env('DB_DATABASE', 'forge'),
-            'username'                      => env('DB_USERNAME', 'forge'),
+            'database'                      => env('DB_DATABASE', 'backpack_demo'),
+            'username'                      => env('DB_USERNAME', 'root'),
             'password'                      => env('DB_PASSWORD', ''),
             'charset'                       => 'utf8',
             'collation'                     => 'utf8_unicode_ci',
             'prefix'                        => '',
             'strict'                        => false,
             'engine'                        => null,
-            'dump_command_path'             => env('MYSQL_DUMP_PATH', '/Applications/MAMP/Library/bin/'), // only the path, so without 'mysqldump' or 'pg_dump'
-            'dump_command_timeout'          => 60 * 5, // 5 minute timeout
-            'dump_using_single_transaction' => true,
+            'dump'                          => [
+                'dump_binary_path' => env('MYSQL_DUMP_PATH', '/opt/homebrew/bin/'),
+                'use_single_transaction',
+                'timeout' => 60 * 5, // 5 minute timeout
+                // 'exclude_tables' => ['table1', 'table2'],
+                // 'add_extra_option' => '--optionname=optionvalue',
+            ],
         ],
 
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),
             'port'     => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
+            'database' => env('DB_DATABASE', 'backpack_demo'),
+            'username' => env('DB_USERNAME', 'tabacitu'),
             'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',

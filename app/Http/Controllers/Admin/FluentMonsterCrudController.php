@@ -17,7 +17,7 @@ class FluentMonsterCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel('App\Models\Monster');
+        CRUD::setModel(\App\Models\Monster::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/fluent-monster');
         CRUD::setEntityNameStrings('fluent monster', 'fluent monsters');
     }
@@ -44,12 +44,8 @@ class FluentMonsterCrudController extends CrudController
                 ->options([0 => 'Yes', 1 => 'No'])
                 ->wrapper([
                     'element' => 'span',
-                    'class'   => function ($crud, $column, $entry, $related_key) {
-                        if ($column['text'] == 'Yes') {
-                            return 'badge badge-success';
-                        }
-
-                        return 'badge badge-default';
+                    'class'   => static function ($crud, $column, $entry) {
+                        return 'badge badge-'.($entry->{$column['name']} ? 'default' : 'success');
                     },
                 ]);
         CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
@@ -114,7 +110,7 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::set('show.contentClass', 'col-md-12');
 
-        CRUD::column('simplemde')->type('markdown')->label('Markdown (SimpleMDE)');
+        CRUD::column('easymde')->type('markdown')->label('Markdown (EasyMDE)');
         CRUD::column('table')->type('table')->columns([
             'name'  => 'Name',
             'desc'  => 'Description',
@@ -241,7 +237,7 @@ class FluentMonsterCrudController extends CrudController
             ])
             ->tab('Time and space');
 
-        CRUD::field('address')
+        CRUD::field('address_algolia')
             ->type('address')
             ->label('Address (Algolia Places search)')
             ->store_as_json(true)
@@ -438,10 +434,11 @@ class FluentMonsterCrudController extends CrudController
         // BIG TEXTS tab
         // -----------------
 
-        CRUD::field('simplemde')
-                ->type('simplemde')
-                ->label('SimpleMDE - markdown editor')
-                ->tab('Big texts');
+        CRUD::field('easymde')
+                ->type('easymde')
+                ->label('EasyMDE - markdown editor')
+                ->tab('Big texts')
+                ->fake(true);
 
         CRUD::field('summernote')
                 ->type('summernote')

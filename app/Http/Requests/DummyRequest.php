@@ -25,8 +25,10 @@ class DummyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|min:5|max:255',
-            'description' => 'required',
+            'name'               => 'required|min:5|max:255',
+            'description'        => 'required',
+            'simple.*.text'      => 'required|min:10|max:255',
+            'simple.*.email'     => 'required|email',
         ];
     }
 

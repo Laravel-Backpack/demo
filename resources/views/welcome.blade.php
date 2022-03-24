@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Backpack for Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -58,9 +58,12 @@
                 margin-top: 60px;
             }
             a:hover {
-                color: #467fd0;
+                color: #7C69EF;
             }
         </style>
+
+        {{-- Plausibile.io analytics, proxied through a CloudFlare Worker --}}
+        <script defer data-domain="demo.backpackforlaravel.com" src="https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Backpack
+                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo.svg" width="278px" alt="Backpack for Laravel">
                 </div>
 
                 <div class="links">

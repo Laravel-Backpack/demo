@@ -54,9 +54,7 @@
 	}
 
   /*  DataTables Loading State Visual Improvements  */
-
-	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
-	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+  	#crudTable.dataTable.dtr-inline.collapsed>tbody>tr>.dtr-control:before {
 		background-color: transparent;
 		color: #636161;
 		font-family: 'Line Awesome Free';
@@ -65,7 +63,7 @@
 		content: "\f142";
 		font-size: 21px;
 		box-shadow: none;
-		margin-top: 8px;
+		margin-top: -12px;
 		border: none;
 	}
 
@@ -79,6 +77,10 @@
 
 	#crudTable td {
 		outline: none;
+		vertical-align: middle;
+	}
+
+	#crudTable td > span {
 		vertical-align: middle;
 	}
 
@@ -183,7 +185,6 @@
 	}
 
 	.dataTables_filter input {
-		margin-left: 0.5em;
 	    display: inline-block;
 	    width: auto;
 	    border-radius: 25px;
@@ -204,12 +205,33 @@
 		min-height: calc(100% - 98px);
 	}
 
-	#datatable_search_stack {
-		min-height: 35px;
+	@media(max-width: 576px) {
+		#datatable_search_stack {
+			margin-top: .5rem;
+		}
+
+		#datatable_search_stack label {
+			width: 100%;
+		}
+	
+		#datatable_search_stack input[type="search"] {
+			width: 100%;
+		}
 	}
 
-	#crudTable thead>tr>th, table.dataTable thead>tr>td {
+	#crudTable thead>tr>th, table.dataTable thead>tr>th {
 		padding-right: 30px;
+	}
+
+	#crudTable_wrapper .dt-buttons .dt-button-collection,
+	#crudTable_wrapper tr td .btn-group .dropdown-menu {
+		max-height: 340px;
+		overflow-y: auto;
+	}
+
+	#crudTable_wrapper .dt-buttons .dt-button-collection {
+		padding: 0;
+		border: 0;
 	}
 
 	.navbar-filters li>a:active,

@@ -4,14 +4,14 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
     var getFontSizeFormats = function (editor) {
       return editor.getParam('fontsize_formats');
@@ -31,17 +31,9 @@
     var setInlineStyles = function (editor, inline_styles) {
       editor.settings.inline_styles = inline_styles;
     };
-    var Settings = {
-      getFontFormats: getFontFormats,
-      getFontSizeFormats: getFontSizeFormats,
-      setFontSizeFormats: setFontSizeFormats,
-      setFontFormats: setFontFormats,
-      getFontSizeStyleValues: getFontSizeStyleValues,
-      setInlineStyles: setInlineStyles
-    };
 
     var overrideFormats = function (editor) {
-      var alignElements = 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', fontSizes = global$1.explode(Settings.getFontSizeStyleValues(editor)), schema = editor.schema;
+      var alignElements = 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table', fontSizes = global.explode(getFontSizeStyleValues(editor)), schema = editor.schema;
       editor.formatter.register({
         alignleft: {
           selector: alignElements,
@@ -62,11 +54,19 @@
         bold: [
           {
             inline: 'b',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'strong',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'span',
@@ -76,11 +76,19 @@
         italic: [
           {
             inline: 'i',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'em',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'span',
@@ -90,7 +98,11 @@
         underline: [
           {
             inline: 'u',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'span',
@@ -101,7 +113,11 @@
         strikethrough: [
           {
             inline: 'strike',
-            remove: 'all'
+            remove: 'all',
+            preserve_attributes: [
+              'class',
+              'style'
+            ]
           },
           {
             inline: 'span',
@@ -119,7 +135,7 @@
           toggle: false,
           attributes: {
             size: function (vars) {
-              return String(global$1.inArray(fontSizes, vars.value) + 1);
+              return String(global.inArray(fontSizes, vars.value) + 1);
             }
           }
         },
@@ -138,13 +154,13 @@
           clear_child_styles: true
         }
       });
-      global$1.each('b,i,u,strike'.split(','), function (name) {
+      global.each('b,i,u,strike'.split(','), function (name) {
         schema.addValidElements(name + '[*]');
       });
       if (!schema.getElementRule('font')) {
         schema.addValidElements('font[face|size|color|style]');
       }
-      global$1.each(alignElements.split(','), function (name) {
+      global.each(alignElements.split(','), function (name) {
         var rule = schema.getElementRule(name);
         if (rule) {
           if (!rule.attributes.align) {
@@ -157,12 +173,12 @@
     var overrideSettings = function (editor) {
       var defaultFontsizeFormats = '8pt=1 10pt=2 12pt=3 14pt=4 18pt=5 24pt=6 36pt=7';
       var defaultFontsFormats = 'Andale Mono=andale mono,monospace;' + 'Arial=arial,helvetica,sans-serif;' + 'Arial Black=arial black,sans-serif;' + 'Book Antiqua=book antiqua,palatino,serif;' + 'Comic Sans MS=comic sans ms,sans-serif;' + 'Courier New=courier new,courier,monospace;' + 'Georgia=georgia,palatino,serif;' + 'Helvetica=helvetica,arial,sans-serif;' + 'Impact=impact,sans-serif;' + 'Symbol=symbol;' + 'Tahoma=tahoma,arial,helvetica,sans-serif;' + 'Terminal=terminal,monaco,monospace;' + 'Times New Roman=times new roman,times,serif;' + 'Trebuchet MS=trebuchet ms,geneva,sans-serif;' + 'Verdana=verdana,geneva,sans-serif;' + 'Webdings=webdings;' + 'Wingdings=wingdings,zapf dingbats';
-      Settings.setInlineStyles(editor, false);
-      if (!Settings.getFontSizeFormats(editor)) {
-        Settings.setFontSizeFormats(editor, defaultFontsizeFormats);
+      setInlineStyles(editor, false);
+      if (!getFontSizeFormats(editor)) {
+        setFontSizeFormats(editor, defaultFontsizeFormats);
       }
-      if (!Settings.getFontFormats(editor)) {
-        Settings.setFontFormats(editor, defaultFontsFormats);
+      if (!getFontFormats(editor)) {
+        setFontFormats(editor, defaultFontsFormats);
       }
     };
     var setup = function (editor) {
@@ -171,11 +187,10 @@
         return overrideFormats(editor);
       });
     };
-    var Formats = { setup: setup };
 
     function Plugin () {
-      global.add('legacyoutput', function (editor) {
-        Formats.setup(editor);
+      global$1.add('legacyoutput', function (editor) {
+        setup(editor);
       });
     }
 

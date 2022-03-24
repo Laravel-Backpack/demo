@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
+    'access' => 'App\Library\Elfinder::checkAccess',
 
     /*
     |--------------------------------------------------------------------------

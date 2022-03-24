@@ -29,7 +29,7 @@ class RemoveBackpackuserModel extends Migration
         // if you've ended up with duplicate entries (both for App\User and App\Models\BackpackUser)
         // we can just delete them
         $userEntries = DB::table($table_name)
-            ->where('model_type', "App\User")
+            ->where('model_type', \App\User::class)
             ->get();
 
         foreach ($userEntries as $entry) {
@@ -44,7 +44,7 @@ class RemoveBackpackuserModel extends Migration
         DB::table($table_name)
             ->where('model_type', "App\Models\BackpackUser")
             ->update([
-                'model_type' => "App\User",
+                'model_type' => \App\User::class,
             ]);
     }
 }

@@ -24,7 +24,7 @@ class DummyCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Dummy');
+        $this->crud->setModel(\App\Models\Dummy::class);
         $this->crud->setRoute(config('backpack.base.route_prefix').'/dummy');
         $this->crud->setEntityNameStrings('dummy', 'dummies');
     }
@@ -108,7 +108,7 @@ class DummyCrudController extends CrudController
             // only consider fields that have both name and label (needed for table column)
             // reject custom_html fields (since they have no value)
             $validFields = collect($groupFields)->reject(function ($value, $key) {
-                $is_custom_html_field = $value['type'] == 'custom_html';
+                $is_custom_html_field = $value['type'] ?? '' == 'custom_html';
                 $does_not_have_label = !isset($value['label']);
                 $does_not_have_name = !isset($value['name']);
 
@@ -142,15 +142,15 @@ class DummyCrudController extends CrudController
         // (one repeatable field for each tab in MonsterCrudController)
         $groups['simple'] = MonsterCrudController::getFieldsArrayForSimpleTab();
         $groups['time_and_space'] = MonsterCrudController::getFieldsArrayForTimeAndSpaceTab();
-        $groups['relationships'] = MonsterCrudController::getFieldsArrayForRelationshipsTab();
         $groups['selects'] = MonsterCrudController::getFieldsArrayForSelectsTab();
         $groups['uploads'] = MonsterCrudController::getFieldsArrayForUploadsTab();
-        $groups['big_texts'] = MonsterCrudController::getFieldsArrayForBigTextsTab();
+        $groups['big_texts'] = MonsterCrudController::getFieldsArrayForWysiwygEditorsTab();
         $groups['miscellaneous'] = MonsterCrudController::getFieldsArrayForMiscellaneousTab();
 
         // some fields do not make sense, or do not work inside repeatable, so let's exclude them
         $excludedFieldTypes = [
             'address', // TODO
+            'address_algolia', // TODO
             'address_google', // TODO
             'checklist_dependency', // only available in PermissionManager package
             // 'custom_html', // this works (of course), it's only used for heading, but the page looks better without them

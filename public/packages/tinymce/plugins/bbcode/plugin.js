@@ -4,17 +4,17 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
     var html2bbcode = function (s) {
-      s = global$1.trim(s);
+      s = global.trim(s);
       var rep = function (re, str) {
         s = s.replace(re, str);
       };
@@ -58,7 +58,7 @@
       return s;
     };
     var bbcode2html = function (s) {
-      s = global$1.trim(s);
+      s = global.trim(s);
       var rep = function (re, str) {
         s = s.replace(re, str);
       };
@@ -77,22 +77,18 @@
       rep(/\[quote.*?\](.*?)\[\/quote\]/gi, '<span class="quoteStyle">$1</span>&nbsp;');
       return s;
     };
-    var Convert = {
-      html2bbcode: html2bbcode,
-      bbcode2html: bbcode2html
-    };
 
     function Plugin () {
-      global.add('bbcode', function (editor) {
+      global$1.add('bbcode', function (editor) {
         editor.on('BeforeSetContent', function (e) {
-          e.content = Convert.bbcode2html(e.content);
+          e.content = bbcode2html(e.content);
         });
         editor.on('PostProcess', function (e) {
           if (e.set) {
-            e.content = Convert.bbcode2html(e.content);
+            e.content = bbcode2html(e.content);
           }
           if (e.get) {
-            e.content = Convert.html2bbcode(e.content);
+            e.content = html2bbcode(e.content);
           }
         });
       });

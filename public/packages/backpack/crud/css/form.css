@@ -4,20 +4,9 @@
 *
 */
 
-.form-group.required label:not(:empty)::after {
+.form-group.required > label:not(:empty):not(.form-check-label)::after {
     content: ' *';
     color: #ff0000;
-}
-
-.tab-container .nav-tabs-custom {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	background: none;
-}
-
-.tab-content {
-	padding-top: 20px;
-	padding-bottom: 20px;
 }
 
 .help-block {
@@ -29,4 +18,23 @@
 
 .nav-tabs .nav-link:hover {
 	border-bottom: none;
+	color: #384c74;
+}
+
+form .select2-container--bootstrap .select2-selection--single,
+form .select2-container--bootstrap .select2-selection--multiple {
+	min-height: 38px;
+}
+form .select2-container--bootstrap .select2-selection--multiple .select2-search--inline .select2-search__field {
+	min-height: 36px;
+}
+form .select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+	margin-top: 6px;
+}
+form .select2-container--bootstrap .select2-selection--multiple .select2-selection__clear {
+	margin-top: 8px;
+}
+form .select2-container--bootstrap .select2-selection--single {
+	padding-top: 8px;
+	padding-bottom: 8px;
 }

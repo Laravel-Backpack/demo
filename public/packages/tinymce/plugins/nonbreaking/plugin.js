@@ -4,12 +4,12 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
     var getKeyboardSpaces = function (editor) {
       var spaces = editor.getParam('nonbreaking_force_tab', 0);
@@ -21,10 +21,6 @@
     };
     var wrapNbsps = function (editor) {
       return editor.getParam('nonbreaking_wrap', true, 'boolean');
-    };
-    var Settings = {
-      getKeyboardSpaces: getKeyboardSpaces,
-      wrapNbsps: wrapNbsps
     };
 
     var stringRepeat = function (string, repeats) {
@@ -44,63 +40,58 @@
       var nbspSpan = function () {
         return '<span class="' + classes() + '" contenteditable="false">' + stringRepeat('&nbsp;', times) + '</span>';
       };
-      var shouldWrap = Settings.wrapNbsps(editor);
+      var shouldWrap = wrapNbsps(editor);
       var html = shouldWrap || editor.plugins.visualchars ? nbspSpan() : stringRepeat('&nbsp;', times);
       editor.undoManager.transact(function () {
         return editor.insertContent(html);
       });
     };
-    var Actions = { insertNbsp: insertNbsp };
 
-    var register = function (editor) {
+    var register$1 = function (editor) {
       editor.addCommand('mceNonBreaking', function () {
-        Actions.insertNbsp(editor, 1);
+        insertNbsp(editor, 1);
       });
     };
-    var Commands = { register: register };
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.VK');
+    var global = tinymce.util.Tools.resolve('tinymce.util.VK');
 
     var setup = function (editor) {
-      var spaces = Settings.getKeyboardSpaces(editor);
+      var spaces = getKeyboardSpaces(editor);
       if (spaces > 0) {
         editor.on('keydown', function (e) {
-          if (e.keyCode === global$1.TAB && !e.isDefaultPrevented()) {
+          if (e.keyCode === global.TAB && !e.isDefaultPrevented()) {
             if (e.shiftKey) {
               return;
             }
             e.preventDefault();
             e.stopImmediatePropagation();
-            Actions.insertNbsp(editor, spaces);
+            insertNbsp(editor, spaces);
           }
         });
       }
     };
-    var Keyboard = { setup: setup };
 
-    var register$1 = function (editor) {
+    var register = function (editor) {
+      var onAction = function () {
+        return editor.execCommand('mceNonBreaking');
+      };
       editor.ui.registry.addButton('nonbreaking', {
         icon: 'non-breaking',
         tooltip: 'Nonbreaking space',
-        onAction: function () {
-          return editor.execCommand('mceNonBreaking');
-        }
+        onAction: onAction
       });
       editor.ui.registry.addMenuItem('nonbreaking', {
         icon: 'non-breaking',
         text: 'Nonbreaking space',
-        onAction: function () {
-          return editor.execCommand('mceNonBreaking');
-        }
+        onAction: onAction
       });
     };
-    var Buttons = { register: register$1 };
 
     function Plugin () {
-      global.add('nonbreaking', function (editor) {
-        Commands.register(editor);
-        Buttons.register(editor);
-        Keyboard.setup(editor);
+      global$1.add('nonbreaking', function (editor) {
+        register$1(editor);
+        register(editor);
+        setup(editor);
       });
     }
 

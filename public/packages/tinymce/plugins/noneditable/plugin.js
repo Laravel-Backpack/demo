@@ -4,14 +4,14 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.util.Tools');
+    var global = tinymce.util.Tools.resolve('tinymce.util.Tools');
 
     var getNonEditableClass = function (editor) {
       return editor.getParam('noneditable_noneditable_class', 'mceNonEditable');
@@ -26,11 +26,6 @@
       } else {
         return nonEditableRegExps;
       }
-    };
-    var Settings = {
-      getNonEditableClass: getNonEditableClass,
-      getEditableClass: getEditableClass,
-      getNonEditableRegExps: getNonEditableRegExps
     };
 
     var hasClass = function (checkClassName) {
@@ -63,18 +58,17 @@
         return;
       }
       while (i--) {
-        content = content.replace(nonEditableRegExps[i], replaceMatchWithSpan(editor, content, Settings.getNonEditableClass(editor)));
+        content = content.replace(nonEditableRegExps[i], replaceMatchWithSpan(editor, content, getNonEditableClass(editor)));
       }
       e.content = content;
     };
     var setup = function (editor) {
-      var editClass, nonEditClass;
       var contentEditableAttrName = 'contenteditable';
-      editClass = ' ' + global$1.trim(Settings.getEditableClass(editor)) + ' ';
-      nonEditClass = ' ' + global$1.trim(Settings.getNonEditableClass(editor)) + ' ';
+      var editClass = ' ' + global.trim(getEditableClass(editor)) + ' ';
+      var nonEditClass = ' ' + global.trim(getNonEditableClass(editor)) + ' ';
       var hasEditClass = hasClass(editClass);
       var hasNonEditClass = hasClass(nonEditClass);
-      var nonEditableRegExps = Settings.getNonEditableRegExps(editor);
+      var nonEditableRegExps = getNonEditableRegExps(editor);
       editor.on('PreInit', function () {
         if (nonEditableRegExps.length > 0) {
           editor.on('BeforeSetContent', function (e) {
@@ -111,11 +105,10 @@
         });
       });
     };
-    var FilterContent = { setup: setup };
 
     function Plugin () {
-      global.add('noneditable', function (editor) {
-        FilterContent.setup(editor);
+      global$1.add('noneditable', function (editor) {
+        setup(editor);
       });
     }
 

@@ -36,7 +36,6 @@ return [
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
         'packages/backpack/base/css/bundle.css',
-        'assets/css/backpack_electric_purple_overlay.css',
 
         // Here's what's inside the bundle:
         // 'packages/@digitallyhappy/backstrap/css/style.min.css',
@@ -65,7 +64,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Backpack</b>Beta',
+    'project_logo'   => '<b>Backpack</b>',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -120,6 +119,9 @@ return [
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
+        // Plausible Analytics
+        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
+
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
         'packages/backpack/base/js/bundle.js',
 

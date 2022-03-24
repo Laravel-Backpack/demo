@@ -1,45 +1,7 @@
 {
-  "_args": [
-    [
-      "source-sans-pro@3.6.0",
-      "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud"
-    ]
-  ],
-  "_from": "source-sans-pro@3.6.0",
-  "_id": "source-sans-pro@3.6.0",
-  "_inBundle": false,
-  "_integrity": "sha512-C1RFUGu+YASuqpgDRInTM7Y6OwqeWNOuKn7v0P/4Kh66epTI4PYWwPWP5kdA4l/VqzBAWiqoz5dk0trof73R7w==",
-  "_location": "/source-sans-pro",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "source-sans-pro@3.6.0",
-    "name": "source-sans-pro",
-    "escapedName": "source-sans-pro",
-    "rawSpec": "3.6.0",
-    "saveSpec": null,
-    "fetchSpec": "3.6.0"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/source-sans-pro/-/source-sans-pro-3.6.0.tgz",
-  "_spec": "3.6.0",
-  "_where": "/Users/tabacitu/Sites/bp41repeatable/vendor/backpack/crud",
-  "author": {
-    "name": "Paul D. Hunt"
-  },
-  "bugs": {
-    "url": "https://github.com/adobe-fonts/source-sans-pro/issues"
-  },
-  "contributors": [
-    {
-      "name": "Miguel Sousa"
-    }
-  ],
+  "name": "source-sans-pro",
+  "version": "3.6.0",
   "description": "Source Sans Pro is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.",
-  "homepage": "https://adobe-fonts.github.io/source-sans-pro",
   "keywords": [
     "font",
     "sans-serif",
@@ -51,11 +13,21 @@
     "woff2",
     "variable"
   ],
+  "homepage": "https://adobe-fonts.github.io/source-sans-pro",
+  "bugs": {
+    "url": "https://github.com/adobe-fonts/source-sans-pro/issues"
+  },
   "license": "OFL-1.1",
-  "name": "source-sans-pro",
+  "author": {
+    "name": "Paul D. Hunt"
+  },
+  "contributors": [
+    {
+      "name": "Miguel Sousa"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adobe-fonts/source-sans-pro.git#release"
-  },
-  "version": "3.6.0"
+  }
 }
