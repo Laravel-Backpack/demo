@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeders\PetShopSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(CountryTableSeeder::class);
         $this->call(UniversesSeeder::class);
+        $this->call(PetShopSeeder::class);
 
         factory(App\Models\Product::class, 210)->create();
         factory(App\Models\Monster::class, 140)->create();

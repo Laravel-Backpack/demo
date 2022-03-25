@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
 use App\Models\PetShop\Invoice;
 use App\Models\PetShop\InvoiceItem;

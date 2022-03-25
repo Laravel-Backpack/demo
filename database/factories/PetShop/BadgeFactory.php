@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
 use App\Models\PetShop\Badge;
 use Illuminate\Database\Eloquent\Factories\Factory;

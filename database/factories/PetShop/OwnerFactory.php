@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
-use App\Models\PetShop\Pet;
+use App\Models\PetShop\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PetFactory extends Factory
+class OwnerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Pet::class;
+    protected $model = Owner::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class PetFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->word,
+            'name' => $this->faker->name,
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
 use App\Models\PetShop\Passport;
 use App\Models\PetShop\Pet;
@@ -33,7 +33,7 @@ class PassportFactory extends Factory
             'birth_date'    => $this->faker->date(),
             'species'       => $this->faker->word,
             'breed'         => $this->faker->word,
-            'colour'        => $this->faker->word,
+            'colour'        => $this->faker->colorName(),
             'notes'         => $this->faker->text,
             'country'       => $this->faker->country,
         ];

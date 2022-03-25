@@ -1,9 +1,11 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\PetShop;
 
-use App\Models\PetShop\Invoice;
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use App\Models\PetShop\Owner;
+use App\Models\PetShop\Invoice;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class InvoiceFactory extends Factory
@@ -22,12 +24,14 @@ class InvoiceFactory extends Factory
      */
     public function definition()
     {
+        $date = $this->faker->date();
+
         return [
             'owner_id'      => Owner::factory(),
-            'series'        => $this->faker->word,
-            'number'        => $this->faker->randomNumber(),
-            'issuance_date' => $this->faker->date(),
-            'due_date'      => $this->faker->date(),
+            'series'        => Arr::random(['SRV', 'PRD']),
+            'number'        => $this->faker->randomNumber(4),
+            'issuance_date' => $date,
+            'due_date'      => Carbon::parse($date)->addDays(15),
         ];
     }
 }
