@@ -16,7 +16,11 @@ class PetShopSeeder extends Seeder
 {
     private $ownerRoles = ['Owner', 'Caretaker', 'Traineer'];
 
-    private $petSpeciesAndBreeds = ['Dog' => ['Yorkshire', 'Bulldog', 'Bull Terrier'], 'Cat' => ['Sphynx', 'Persa', 'Ragdoll'], 'Bird' => ['Pidgeon', 'Parrot']];
+    private $petSpeciesAndBreeds = [
+        'Dog'  => ['Yorkshire', 'Bulldog', 'Bull Terrier'],
+        'Cat'  => ['Sphynx', 'Persa', 'Ragdoll'],
+        'Bird' => ['Pidgeon', 'Parrot']
+    ];
 
     /**
      * Run the database seeds.
@@ -49,11 +53,12 @@ class PetShopSeeder extends Seeder
             $pet->skills()->sync($petSkills);
 
             // add the pet passport
-            $petSpecie = array_rand($this->petSpeciesAndBreeds, 1);
-            $petBreed = Arr::random($this->petSpeciesAndBreeds[$petSpecie]);
-            $birthDate = CarbonImmutable::parse($faker->dateTimeThisDecade());
-            $passportDate = $birthDate->addDays(rand(11, 25));
+            $petSpecie          = array_rand($this->petSpeciesAndBreeds, 1);
+            $petBreed           = Arr::random($this->petSpeciesAndBreeds[$petSpecie]);
+            $birthDate          = CarbonImmutable::parse($faker->dateTimeThisDecade());
+            $passportDate       = $birthDate->addDays(rand(11, 25));
             $passportExpiryDate = $passportDate->addYears(5);
+
             $pet->passport()->create([
                 'number'        => $faker->ean13(),
                 'issuance_date' => $passportDate->toDateString(),
@@ -89,7 +94,9 @@ class PetShopSeeder extends Seeder
 
             // add badges
             $petBadges = [];
-            $badgesToAdd = array_map(function ($badge) use ($faker) {  return [$badge => ['note' => $faker->sentence]]; }, $badges->random(3)->pluck('id')->toArray());
+            $badgesToAdd = array_map(function ($badge) use ($faker) {
+                return [$badge => ['note' => $faker->sentence]];
+            }, $badges->random(3)->pluck('id')->toArray());
             foreach ($badgesToAdd as $badge) {
                 $petBadges[array_key_first($badge)] = $badge[array_key_first($badge)];
             }
