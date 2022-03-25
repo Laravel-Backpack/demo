@@ -2,11 +2,11 @@
 
 namespace Database\Factories\PetShop;
 
-use Carbon\Carbon;
-use Illuminate\Support\Arr;
-use App\Models\PetShop\Owner;
 use App\Models\PetShop\Invoice;
+use App\Models\PetShop\Owner;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class InvoiceFactory extends Factory
 {
