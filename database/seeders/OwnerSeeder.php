@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\PetShop\Invoice;
-use App\Models\PetShop\InvoiceItem;
-use App\Models\PetShop\Owner;
-use Carbon\CarbonImmutable;
 use Faker\Generator;
+use Carbon\CarbonImmutable;
+use Illuminate\Support\Arr;
+use App\Models\PetShop\Owner;
+use App\Models\PetShop\Invoice;
 use Illuminate\Database\Seeder;
+use App\Models\PetShop\InvoiceItem;
 
 class OwnerSeeder extends Seeder
 {
@@ -38,10 +39,10 @@ class OwnerSeeder extends Seeder
                 $dueDate = $inssuanceDate->addMonths(1);
                 $invoice = Invoice::create([
                     'owner_id'      => $owner->id,
-                    'series'        => $faker->lexify('???'),
-                    'number'        => $faker->numerify('########'),
+                    'series'        => Arr::random(['SRV', 'PRD']),
+                    'number'        => $faker->numerify('####'),
                     'issuance_date' => $inssuanceDate->toDateString(),
-                    'due_date'      => $dueDate->toDateString(),
+                    'due_date'      => $dueDate->addDays(15)->toDateString(),
 
                 ]);
                 // invoice items
