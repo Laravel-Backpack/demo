@@ -8,11 +8,10 @@ use App\Models\Category;
 use App\Models\MenuItem;
 use App\Models\Monster;
 use App\Models\Page;
-use App\Models\Product;
 use App\Models\PostalBoxer;
+use App\Models\Product;
 use App\Models\Recommend;
 use App\Models\Tag;
-use Backpack\Settings\database\seeds\SettingsTableSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Bill;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BillFactory extends Factory

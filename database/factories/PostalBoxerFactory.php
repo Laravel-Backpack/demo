@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\PostalBoxer;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostalBoxerFactory extends Factory

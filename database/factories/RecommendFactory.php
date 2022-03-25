@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Recommend;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RecommendFactory extends Factory

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Config;
-use Backpack\PermissionManager\app\Models\Role;
 use Backpack\PermissionManager\app\Models\Permission;
+use Backpack\PermissionManager\app\Models\Role;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class PermissionManagerTablesSeeder extends Seeder
 {
