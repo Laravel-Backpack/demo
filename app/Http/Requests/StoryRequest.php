@@ -26,6 +26,7 @@ class StoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'monsters.*.text' => 'required|string',
         ];
     }
 
