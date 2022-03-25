@@ -19,7 +19,7 @@ class PetShopSeeder extends Seeder
     private $petSpeciesAndBreeds = [
         'Dog'  => ['Yorkshire', 'Bulldog', 'Bull Terrier'],
         'Cat'  => ['Sphynx', 'Persa', 'Ragdoll'],
-        'Bird' => ['Pidgeon', 'Parrot']
+        'Bird' => ['Pidgeon', 'Parrot'],
     ];
 
     /**
@@ -53,10 +53,10 @@ class PetShopSeeder extends Seeder
             $pet->skills()->sync($petSkills);
 
             // add the pet passport
-            $petSpecie          = array_rand($this->petSpeciesAndBreeds, 1);
-            $petBreed           = Arr::random($this->petSpeciesAndBreeds[$petSpecie]);
-            $birthDate          = CarbonImmutable::parse($faker->dateTimeThisDecade());
-            $passportDate       = $birthDate->addDays(rand(11, 25));
+            $petSpecie = array_rand($this->petSpeciesAndBreeds, 1);
+            $petBreed = Arr::random($this->petSpeciesAndBreeds[$petSpecie]);
+            $birthDate = CarbonImmutable::parse($faker->dateTimeThisDecade());
+            $passportDate = $birthDate->addDays(rand(11, 25));
             $passportExpiryDate = $passportDate->addYears(5);
 
             $pet->passport()->create([

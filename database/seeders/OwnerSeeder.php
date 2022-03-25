@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use Faker\Generator;
-use Carbon\CarbonImmutable;
-use Illuminate\Support\Arr;
-use App\Models\PetShop\Owner;
 use App\Models\PetShop\Invoice;
-use Illuminate\Database\Seeder;
 use App\Models\PetShop\InvoiceItem;
+use App\Models\PetShop\Owner;
+use Carbon\CarbonImmutable;
+use Faker\Generator;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class OwnerSeeder extends Seeder
 {
