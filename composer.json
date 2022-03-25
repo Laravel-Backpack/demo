@@ -22,7 +22,8 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "backpack/filemanager": "^2.0"
+        "backpack/filemanager": "^2.0",
+        "backpack/backupmanager": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
