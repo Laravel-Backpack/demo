@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v3.0.5",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "4c1878c4edfd37c0d2aa0adbe81add9dcb56d274"
+                "reference": "b0a7a795c0994098b7540902747d94d2a1652703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/4c1878c4edfd37c0d2aa0adbe81add9dcb56d274",
-                "reference": "4c1878c4edfd37c0d2aa0adbe81add9dcb56d274",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/b0a7a795c0994098b7540902747d94d2a1652703",
+                "reference": "b0a7a795c0994098b7540902747d94d2a1652703",
                 "shasum": ""
             },
             "require": {
@@ -69,9 +69,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/BackupManager/issues",
-                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.5"
+                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.7"
             },
-            "time": "2022-02-04T12:32:39+00:00"
+            "time": "2022-03-25T08:39:11+00:00"
         },
         {
             "name": "backpack/crud",
