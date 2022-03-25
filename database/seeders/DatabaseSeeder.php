@@ -1,11 +1,16 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Article;
+use App\Models\Bill;
 use App\Models\Category;
 use App\Models\MenuItem;
 use App\Models\Monster;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\PostalBoxer;
+use App\Models\Recommend;
 use App\Models\Tag;
 use Backpack\Settings\database\seeds\SettingsTableSeeder;
 use Illuminate\Database\Seeder;
@@ -19,15 +24,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Static seeders
         $this->call([
             IconsTableSeeder::class,
-            SettingsTableSeeder::class,
+            \Backpack\Settings\database\seeds\SettingsTableSeeder::class,
             PermissionManagerTablesSeeder::class,
             UsersTableSeeder::class,
+            CountryTableSeeder::class,
+            UniversesSeeder::class,
+            PetShopSeeder::class,
         ]);
 
         // Faker factories
+        Recommend::truncate();
+        Recommend::factory()->count(30)->create();
+
+        PostalBoxer::truncate();
+        PostalBoxer::factory()->count(30)->create();
+
+        Bill::truncate();
+        Bill::factory()->count(30)->create();
+
         Tag::truncate();
         Tag::factory()->count(21)->create();
 

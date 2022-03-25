@@ -1,8 +1,12 @@
 <?php
 
-use Backpack\PermissionManager\app\Models\Permission;
-use Backpack\PermissionManager\app\Models\Role;
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
+use Backpack\PermissionManager\app\Models\Role;
+use Backpack\PermissionManager\app\Models\Permission;
 
 class PermissionManagerTablesSeeder extends Seeder
 {

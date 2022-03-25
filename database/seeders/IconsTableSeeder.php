@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Icon;
 use Illuminate\Database\Seeder;
 

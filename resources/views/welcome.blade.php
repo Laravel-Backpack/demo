@@ -61,6 +61,9 @@
                 color: #7C69EF;
             }
         </style>
+
+        {{-- Plausibile.io analytics, proxied through a CloudFlare Worker --}}
+        <script defer data-domain="demo.backpackforlaravel.com" src="https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo_color.png" alt="Backpack for Laravel">
+                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo.svg" width="278px" alt="Backpack for Laravel">
                 </div>
 
                 <div class="links">

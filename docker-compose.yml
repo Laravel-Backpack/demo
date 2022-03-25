@@ -1,0 +1,27 @@
+version: "3.8"
+
+volumes:
+  mysql57:
+    name: mysql57
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: asdf
+      MYSQL_DATABASE: backpackdemo
+    volumes:
+      - mysql57:/var/lib/mysql
+
+  web:
+    image: webdevops/php-nginx:7.4-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+      WEB_ALIAS_DOMAIN: localhost

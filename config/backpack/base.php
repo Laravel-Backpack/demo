@@ -119,6 +119,9 @@ return [
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
+        // Plausible Analytics
+        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
+
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
         'packages/backpack/base/js/bundle.js',
 

@@ -23,6 +23,6 @@ class PostalBox extends Model
 
     public function monster()
     {
-        return $this->belongsTo('App\Models\Monster', 'monster_id');
+        return $this->belongsTo(\App\Models\Monster::class, 'monster_id');
     }
 }

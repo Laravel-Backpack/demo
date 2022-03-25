@@ -4,48 +4,45 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.Env');
+    var global = tinymce.util.Tools.resolve('tinymce.Env');
 
-    var register = function (editor) {
+    var register$1 = function (editor) {
       editor.addCommand('mcePrint', function () {
-        if (global$1.browser.isIE()) {
+        if (global.browser.isIE()) {
           editor.getDoc().execCommand('print', false, null);
         } else {
           editor.getWin().print();
         }
       });
     };
-    var Commands = { register: register };
 
-    var register$1 = function (editor) {
+    var register = function (editor) {
+      var onAction = function () {
+        return editor.execCommand('mcePrint');
+      };
       editor.ui.registry.addButton('print', {
         icon: 'print',
         tooltip: 'Print',
-        onAction: function () {
-          return editor.execCommand('mcePrint');
-        }
+        onAction: onAction
       });
       editor.ui.registry.addMenuItem('print', {
         text: 'Print...',
         icon: 'print',
-        onAction: function () {
-          return editor.execCommand('mcePrint');
-        }
+        onAction: onAction
       });
     };
-    var Buttons = { register: register$1 };
 
     function Plugin () {
-      global.add('print', function (editor) {
-        Commands.register(editor);
-        Buttons.register(editor);
+      global$1.add('print', function (editor) {
+        register$1(editor);
+        register(editor);
         editor.addShortcut('Meta+P', '', 'mcePrint');
       });
     }

@@ -25,7 +25,7 @@ class Icon extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
-    public function identifiableName()
+    public function identifiableAttribute()
     {
         return 'icon';
     }
@@ -41,6 +41,11 @@ class Icon extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function recommends()
+    {
+        return $this->morphToMany(\App\Models\Recommend::class, 'recommendable');
+    }
 
     /*
     |--------------------------------------------------------------------------

@@ -47,38 +47,50 @@ return [
     'connections' => [
 
         'sqlite' => [
-            'driver'   => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix'   => '',
+            'driver'                  => 'sqlite',
+            'url'                     => env('DATABASE_URL'),
+            'database'                => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix'                  => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
         'mysql' => [
             'driver'                        => 'mysql',
             'host'                          => env('DB_HOST', 'localhost'),
             'port'                          => env('DB_PORT', '3306'),
-            'database'                      => env('DB_DATABASE', 'forge'),
-            'username'                      => env('DB_USERNAME', 'forge'),
+            'database'                      => env('DB_DATABASE', 'backpack_demo'),
+            'username'                      => env('DB_USERNAME', 'root'),
             'password'                      => env('DB_PASSWORD', ''),
             'charset'                       => 'utf8',
             'collation'                     => 'utf8_unicode_ci',
             'prefix'                        => '',
             'strict'                        => false,
             'engine'                        => null,
-            'dump_command_path'             => env('MYSQL_DUMP_PATH', '/Applications/MAMP/Library/bin/'), // only the path, so without 'mysqldump' or 'pg_dump'
-            'dump_command_timeout'          => 60 * 5, // 5 minute timeout
-            'dump_using_single_transaction' => true,
+            'options'                       => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+            'dump'                          => [
+                'dump_binary_path' => env('MYSQL_DUMP_PATH', '/opt/homebrew/bin/'),
+                'use_single_transaction',
+                'timeout' => 60 * 5, // 5 minute timeout
+                // 'exclude_tables' => ['table1', 'table2'],
+                // 'add_extra_option' => '--optionname=optionvalue',
+            ],
         ],
 
         'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'localhost'),
-            'port'     => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
+            'driver'         => 'pgsql',
+            'url'            => env('DATABASE_URL'),
+            'host'           => env('DB_HOST', '127.0.0.1'),
+            'port'           => env('DB_PORT', '5432'),
+            'database'       => env('DB_DATABASE', 'forge'),
+            'username'       => env('DB_USERNAME', 'forge'),
+            'password'       => env('DB_PASSWORD', ''),
+            'charset'        => 'utf8',
+            'prefix'         => '',
+            'prefix_indexes' => true,
+            'search_path'    => 'public',
+            'sslmode'        => 'prefer',
         ],
 
     ],

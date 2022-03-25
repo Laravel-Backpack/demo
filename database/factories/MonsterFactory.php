@@ -23,23 +23,23 @@ class MonsterFactory extends Factory
     public function definition()
     {
         return [
-            'text'            => ucfirst($this->faker->unique()->sentence()),
-            'wysiwyg'         => $this->faker->text(800),
-            'simplemde'       => $this->faker->text(800),
-            'summernote'      => $this->faker->text(800),
-            'tinymce'         => $this->faker->text(800),
-            'textarea'        => $this->faker->text(250),
-            'text'            => $this->faker->text(120),
-            'date'            => $this->faker->date(),
-            'start_date'      => $this->faker->date(),
-            'end_date'        => $this->faker->date(),
-            'datetime'        => $this->faker->datetime(),
-            'datetime_picker' => $this->faker->datetime(),
-            'email'           => $this->faker->email(),
-            'checkbox'        => $this->faker->boolean(),
-            'number'          => rand(),
-            'float'           => rand(),
-            'select'          => function () {
+            'text'                    => ucfirst($this->faker->unique()->sentence()),
+            'wysiwyg'                 => $this->faker->text(800),
+            'summernote'              => $this->faker->text(800),
+            'tinymce'                 => $this->faker->text(800),
+            'textarea'                => $this->faker->text(250),
+            'text'                    => $this->faker->text(120),
+            'date'                    => $this->faker->date(),
+            'start_date'              => $this->faker->date(),
+            'end_date'                => $this->faker->date(),
+            'datetime'                => $this->faker->datetime(),
+            'datetime_picker'         => $this->faker->datetime(),
+            'email'                   => $this->faker->email(),
+            'checkbox'                => $this->faker->boolean(),
+            'number'                  => rand(),
+            'float'                   => rand(),
+            'belongs_to_non_nullable' => 0,
+            'select'                  => function () {
                 if (rand(1, 100) % 50 == 0) {
                     return Category::factory()->create()->id;
                 } else {

@@ -17,7 +17,7 @@ class FluentMonsterCrudController extends CrudController
 
     public function setup()
     {
-        CRUD::setModel('App\Models\Monster');
+        CRUD::setModel(\App\Models\Monster::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/fluent-monster');
         CRUD::setEntityNameStrings('fluent monster', 'fluent monsters');
     }
@@ -110,7 +110,7 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::set('show.contentClass', 'col-md-12');
 
-        CRUD::column('simplemde')->type('markdown')->label('Markdown (SimpleMDE)');
+        CRUD::column('easymde')->type('markdown')->label('Markdown (EasyMDE)');
         CRUD::column('table')->type('table')->columns([
             'name'  => 'Name',
             'desc'  => 'Description',
@@ -434,10 +434,11 @@ class FluentMonsterCrudController extends CrudController
         // BIG TEXTS tab
         // -----------------
 
-        CRUD::field('simplemde')
-                ->type('simplemde')
-                ->label('SimpleMDE - markdown editor')
-                ->tab('Big texts');
+        CRUD::field('easymde')
+                ->type('easymde')
+                ->label('EasyMDE - markdown editor')
+                ->tab('Big texts')
+                ->fake(true);
 
         CRUD::field('summernote')
                 ->type('summernote')

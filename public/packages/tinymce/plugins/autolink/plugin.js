@@ -4,17 +4,32 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
- * Version: 5.2.2 (2020-04-23)
+ * Version: 5.10.2 (2021-11-17)
  */
 (function () {
     'use strict';
 
-    var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
+    var global$1 = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
-    var global$1 = tinymce.util.Tools.resolve('tinymce.Env');
+    var checkRange = function (str, substr, start) {
+      return substr === '' || str.length >= substr.length && str.substr(start, start + substr.length) === substr;
+    };
+    var contains = function (str, substr) {
+      return str.indexOf(substr) !== -1;
+    };
+    var startsWith = function (str, prefix) {
+      return checkRange(str, prefix, 0);
+    };
 
+    var global = tinymce.util.Tools.resolve('tinymce.Env');
+
+    var link = function () {
+      return /(?:[A-Za-z][A-Za-z\d.+-]{0,14}:\/\/(?:[-.~*+=!&;:'%@?^${}(),\w]+@)?|www\.|[-;:&=+$,.\w]+@)[A-Za-z\d-]+(?:\.[A-Za-z\d-]+)*(?::\d+)?(?:\/(?:[-+~=.,%()\/\w]*[-+~=%()\/\w])?)?(?:\?(?:[-.~*+=!&;:'%@?^${}(),\/\w]+))?(?:#(?:[-.~*+=!&;:'%@?^${}(),\/\w]+))?/g;
+    };
+
+    var defaultLinkPattern = new RegExp('^' + link().source + '$', 'i');
     var getAutoLinkPattern = function (editor) {
-      return editor.getParam('autolink_pattern', /^(https?:\/\/|ssh:\/\/|ftp:\/\/|file:\/|www\.|(?:mailto:)?[A-Z0-9._%+\-]+@)(.+)$/i);
+      return editor.getParam('autolink_pattern', defaultLinkPattern);
     };
     var getDefaultLinkTarget = function (editor) {
       return editor.getParam('default_link_target', false);
@@ -22,29 +37,30 @@
     var getDefaultLinkProtocol = function (editor) {
       return editor.getParam('link_default_protocol', 'http', 'string');
     };
-    var Settings = {
-      getAutoLinkPattern: getAutoLinkPattern,
-      getDefaultLinkTarget: getDefaultLinkTarget,
-      getDefaultLinkProtocol: getDefaultLinkProtocol
-    };
 
-    var rangeEqualsDelimiterOrSpace = function (rangeString, delimiter) {
-      return rangeString === delimiter || rangeString === ' ' || rangeString.charCodeAt(0) === 160;
+    var rangeEqualsBracketOrSpace = function (rangeString) {
+      return /^[(\[{ \u00a0]$/.test(rangeString);
     };
-    var handleEclipse = function (editor) {
-      parseCurrentLine(editor, -1, '(');
+    var isTextNode = function (node) {
+      return node.nodeType === 3;
+    };
+    var isElement = function (node) {
+      return node.nodeType === 1;
+    };
+    var handleBracket = function (editor) {
+      return parseCurrentLine(editor, -1);
     };
     var handleSpacebar = function (editor) {
-      parseCurrentLine(editor, 0, '');
+      return parseCurrentLine(editor, 0);
     };
     var handleEnter = function (editor) {
-      parseCurrentLine(editor, -1, '');
+      return parseCurrentLine(editor, -1);
     };
     var scopeIndex = function (container, index) {
       if (index < 0) {
         index = 0;
       }
-      if (container.nodeType === 3) {
+      if (isTextNode(container)) {
         var len = container.data.length;
         if (index > len) {
           index = len;
@@ -53,27 +69,33 @@
       return index;
     };
     var setStart = function (rng, container, offset) {
-      if (container.nodeType !== 1 || container.hasChildNodes()) {
+      if (!isElement(container) || container.hasChildNodes()) {
         rng.setStart(container, scopeIndex(container, offset));
       } else {
         rng.setStartBefore(container);
       }
     };
     var setEnd = function (rng, container, offset) {
-      if (container.nodeType !== 1 || container.hasChildNodes()) {
+      if (!isElement(container) || container.hasChildNodes()) {
         rng.setEnd(container, scopeIndex(container, offset));
       } else {
         rng.setEndAfter(container);
       }
     };
-    var parseCurrentLine = function (editor, endOffset, delimiter) {
-      var rng, end, start, endContainer, bookmark, text, matches, prev, len, rngText;
-      var autoLinkPattern = Settings.getAutoLinkPattern(editor);
-      var defaultLinkTarget = Settings.getDefaultLinkTarget(editor);
-      if (editor.selection.getNode().tagName === 'A') {
+    var hasProtocol = function (url) {
+      return /^([A-Za-z][A-Za-z\d.+-]*:\/\/)|mailto:/.test(url);
+    };
+    var isPunctuation = function (char) {
+      return /[?!,.;:]/.test(char);
+    };
+    var parseCurrentLine = function (editor, endOffset) {
+      var end, endContainer, bookmark, text, prev, len, rngText;
+      var autoLinkPattern = getAutoLinkPattern(editor);
+      var defaultLinkTarget = getDefaultLinkTarget(editor);
+      if (editor.dom.getParent(editor.selection.getNode(), 'a[href]') !== null) {
         return;
       }
-      rng = editor.selection.getRng(true).cloneRange();
+      var rng = editor.selection.getRng().cloneRange();
       if (rng.startOffset < 5) {
         prev = rng.endContainer.previousSibling;
         if (!prev) {
@@ -92,11 +114,11 @@
         endContainer = prev;
       } else {
         endContainer = rng.endContainer;
-        if (endContainer.nodeType !== 3 && endContainer.firstChild) {
-          while (endContainer.nodeType !== 3 && endContainer.firstChild) {
+        if (!isTextNode(endContainer) && endContainer.firstChild) {
+          while (!isTextNode(endContainer) && endContainer.firstChild) {
             endContainer = endContainer.firstChild;
           }
-          if (endContainer.nodeType === 3) {
+          if (isTextNode(endContainer)) {
             setStart(rng, endContainer, 0);
             setEnd(rng, endContainer, endContainer.nodeValue.length);
           }
@@ -107,14 +129,14 @@
           end = rng.endOffset - 1 - endOffset;
         }
       }
-      start = end;
+      var start = end;
       do {
         setStart(rng, endContainer, end >= 2 ? end - 2 : 0);
         setEnd(rng, endContainer, end >= 1 ? end - 1 : 0);
         end -= 1;
         rngText = rng.toString();
-      } while (rngText !== ' ' && rngText !== '' && rngText.charCodeAt(0) !== 160 && end - 2 >= 0 && rngText !== delimiter);
-      if (rangeEqualsDelimiterOrSpace(rng.toString(), delimiter)) {
+      } while (!rangeEqualsBracketOrSpace(rngText) && end - 2 >= 0);
+      if (rangeEqualsBracketOrSpace(rng.toString())) {
         setStart(rng, endContainer, end);
         setEnd(rng, endContainer, start);
         end += 1;
@@ -126,21 +148,22 @@
         setEnd(rng, endContainer, start);
       }
       text = rng.toString();
-      if (text.charAt(text.length - 1) === '.') {
+      if (isPunctuation(text.charAt(text.length - 1))) {
         setEnd(rng, endContainer, start - 1);
       }
       text = rng.toString().trim();
-      matches = text.match(autoLinkPattern);
-      var protocol = Settings.getDefaultLinkProtocol(editor);
+      var matches = text.match(autoLinkPattern);
+      var protocol = getDefaultLinkProtocol(editor);
       if (matches) {
-        if (matches[1] === 'www.') {
-          matches[1] = protocol + '://www.';
-        } else if (/@$/.test(matches[1]) && !/^mailto:/.test(matches[1])) {
-          matches[1] = 'mailto:' + matches[1];
+        var url = matches[0];
+        if (startsWith(url, 'www.')) {
+          url = protocol + '://' + url;
+        } else if (contains(url, '@') && !hasProtocol(url)) {
+          url = 'mailto:' + url;
         }
         bookmark = editor.selection.getBookmark();
         editor.selection.setRng(rng);
-        editor.execCommand('createlink', false, matches[1] + matches[2]);
+        editor.execCommand('createlink', false, url);
         if (defaultLinkTarget !== false) {
           editor.dom.setAttrib(editor.selection.getNode(), 'target', defaultLinkTarget);
         }
@@ -155,7 +178,7 @@
           return handleEnter(editor);
         }
       });
-      if (global$1.browser.isIE()) {
+      if (global.browser.isIE()) {
         editor.on('focus', function () {
           if (!autoUrlDetectState) {
             autoUrlDetectState = true;
@@ -168,8 +191,8 @@
         return;
       }
       editor.on('keypress', function (e) {
-        if (e.keyCode === 41) {
-          return handleEclipse(editor);
+        if (e.keyCode === 41 || e.keyCode === 93 || e.keyCode === 125) {
+          return handleBracket(editor);
         }
       });
       editor.on('keyup', function (e) {
@@ -178,11 +201,10 @@
         }
       });
     };
-    var Keys = { setup: setup };
 
     function Plugin () {
-      global.add('autolink', function (editor) {
-        Keys.setup(editor);
+      global$1.add('autolink', function (editor) {
+        setup(editor);
       });
     }
 

@@ -24,7 +24,7 @@ class Monster extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['address_algolia', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'simplemde', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id'];
+    protected $fillable = ['address_algolia', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'easymde', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
@@ -64,14 +64,69 @@ class Monster extends Model
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Article::class, 'select2_from_ajax');
     }
 
-    public function articles()
+    public function wish()
     {
-        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
+        return $this->hasOne(\App\Models\Wish::class);
+    }
+
+    public function address()
+    {
+        return $this->hasOne(\App\Models\Address::class);
+    }
+
+    public function cave()
+    {
+        return $this->belongsTo(\App\Models\Cave::class, 'cave_id');
+    }
+
+    public function hero()
+    {
+        return $this->belongsTo(\App\Models\Hero::class, 'hero_id');
+    }
+
+    public function story()
+    {
+        return $this->belongsTo(\App\Models\Story::class, 'story_id');
+    }
+
+    public function graffiti()
+    {
+        return $this->belongsTo(\App\Models\Graffiti::class, 'graffiti_id');
     }
 
     public function category()
     {
         return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select');
+    }
+
+    public function categorySelect2()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select2');
+    }
+
+    public function icon()
+    {
+        return $this->belongsTo(\App\Models\Icon::class, 'icon_id');
+    }
+
+    public function icondummy()
+    {
+        return $this->belongsTo(\App\Models\Icon::class, 'belongs_to_non_nullable');
+    }
+
+    public function postalboxes()
+    {
+        return $this->hasMany(\App\Models\PostalBox::class);
+    }
+
+    public function postalboxer()
+    {
+        return $this->hasMany(\App\Models\PostalBoxer::class);
+    }
+
+    public function articles()
+    {
+        return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article');
     }
 
     public function categories()
@@ -84,24 +139,49 @@ class Monster extends Model
         return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Tag::class, 'monster_tag');
     }
 
-    public function icon()
-    {
-        return $this->belongsTo(\App\Models\Icon::class, 'icon_id');
-    }
-
     public function products()
     {
         return $this->belongsToMany(\App\Models\Product::class, 'monster_product');
     }
 
-    public function address()
+    public function dummyproducts()
     {
-        return $this->hasOne(\App\Models\Address::class);
+        return $this->belongsToMany(\App\Models\Product::class, 'monster_productdummy')->withPivot('notes');
     }
 
-    public function postalboxes()
+    public function countries()
     {
-        return $this->hasMany(\App\Models\PostalBox::class);
+        return $this->belongsToMany(\App\Models\Country::class, 'countries_monsters');
+    }
+
+    public function sentiment()
+    {
+        return $this->morphOne(\App\Models\Sentiment::class, 'sentimentable');
+    }
+
+    public function ball()
+    {
+        return $this->morphOne(\App\Models\Ball::class, 'ballable');
+    }
+
+    public function recommends()
+    {
+        return $this->morphToMany(\App\Models\Recommend::class, 'recommendable')->withPivot('text');
+    }
+
+    public function bills()
+    {
+        return $this->morphToMany(\App\Models\Bill::class, 'billable');
+    }
+
+    public function stars()
+    {
+        return $this->morphMany(\App\Models\Star::class, 'starable');
+    }
+
+    public function universes()
+    {
+        return $this->morphMany(\App\Models\Universe::class, 'universable');
     }
 
     /*
@@ -119,6 +199,26 @@ class Monster extends Model
     public function getTextAndEmailAttribute()
     {
         return $this->text.' '.$this->email;
+    }
+
+    /**
+     * Because we don't trust that the 'easymde' db column does not already
+     * have some JS or HTML stored inside it, we will run strip_tags() on
+     * the value before it's ever used (both in Backpack and in the app).
+     */
+    public function getEasymdeAttribute($value)
+    {
+        return strip_tags($value);
+    }
+
+    /**
+     * Because we don't trust that the 'summernote' db column does not already
+     * have some JS stored inside the HTML, we will sanitize the output using
+     * https://github.com/mewebstudio/Purifier.
+     */
+    public function getSummernoteAttribute($value)
+    {
+        return clean($value);
     }
 
     /*
@@ -141,7 +241,7 @@ class Monster extends Model
     public function setImageAttribute($value)
     {
         if (app('env') == 'production') {
-            \Alert::warning('In the online demo the images don\'t get uploaded.');
+            \Alert::warning('In the online demo the images don\'t get uploaded.')->flash();
 
             return true;
         }
@@ -153,7 +253,9 @@ class Monster extends Model
         // if the image was erased
         if ($value == null) {
             // delete the image from disk
-            \Storage::disk($disk)->delete($this->{$attribute_name});
+            if ($this->{$attribute_name}) {
+                \Storage::disk($disk)->delete($this->{$attribute_name});
+            }
 
             // set null in the database column
             $this->attributes[$attribute_name] = null;
@@ -201,7 +303,7 @@ class Monster extends Model
     public function setUploadMultipleAttribute($value)
     {
         if (app('env') == 'production') {
-            \Alert::warning('In the online demo the files don\'t get uploaded.');
+            \Alert::warning('In the online demo the files don\'t get uploaded.')->flash();
 
             return true;
         }
