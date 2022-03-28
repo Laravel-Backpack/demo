@@ -2,6 +2,7 @@
 
 @php
   $error_number = 503;
+  $exception_message = isset($exception) ? e($exception->getMessage()) : null;
 @endphp
 
 @section('title')
@@ -12,5 +13,5 @@
   @php
     $default_error_message = "The server is overloaded or down for maintenance. Please try again later.";
   @endphp
-  {!! isset($exception)? ($exception->getMessage()?$exception->getMessage():$default_error_message): $default_error_message !!}
+  {!! $exception_message ?? $default_error_message !!}
 @endsection
