@@ -34,6 +34,7 @@ class FluentMonsterCrudController extends CrudController
 
     public function setupListOperation()
     {
+        CRUD::setOperationSetting('responsiveTable', false);
         CRUD::column('text');
         CRUD::column('textarea');
         CRUD::column('image')->type('image');
