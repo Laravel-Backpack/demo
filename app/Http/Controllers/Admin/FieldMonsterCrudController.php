@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\MonsterRequest as StoreRequest;
-use Backpack\CRUD\app\Library\Widget;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 class FieldMonsterCrudController extends MonsterCrudController
 {
@@ -48,16 +46,16 @@ class FieldMonsterCrudController extends MonsterCrudController
 
         // MUST: when a checkbox is checked, show a second field;
         CRUD::field('visible')->type('checkbox')->fake(true)->tab('Top 10 Scenarios');
-        CRUD::field('visible_where')->type('text')->fake(true)->wrapperAttributes([ 'class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
+        CRUD::field('visible_where')->type('text')->fake(true)->wrapperAttributes(['class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
 
         // MUST: when a checkbox is checked, show a second field AND un-disable/un-readonly it;
         CRUD::field('displayed')->type('checkbox')->fake(true)->tab('Top 10 Scenarios');
-        CRUD::field('displayed_where')->type('text')->fake(true)->wrapperAttributes([ 'class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
+        CRUD::field('displayed_where')->type('text')->fake(true)->wrapperAttributes(['class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
 
         // MUST: when a radio has something specific selected, show a second field;
         CRUD::field('type')->type('radio')->options(['Type A', 'Type B', 'Type C', 'Other'])->inline(true)->fake(true)->tab('Top 10 Scenarios');
         // when type is Other, show an input to specify its type
-        CRUD::field('custom_type')->type('text')->fake(true)->wrapperAttributes([ 'class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
+        CRUD::field('custom_type')->type('text')->fake(true)->wrapperAttributes(['class' => 'form-group col-sm-11 offset-1'])->tab('Top 10 Scenarios');
 
         // MUST: when a select has something specific selected, show a second field;
         CRUD::field('parent')->type('select_from_array')->options([
@@ -68,8 +66,8 @@ class FieldMonsterCrudController extends MonsterCrudController
             5 => 'Parent 5',
             6 => 'Parent 6',
             6 => 'Other',
-        ])->fake(true)->wrapperAttributes([ 'class' => 'form-group col-sm-6'])->tab('Top 10 Scenarios');
-        CRUD::field('custom_parent')->type('text')->fake(true)->wrapperAttributes([ 'class' => 'form-group col-sm-6'])->tab('Top 10 Scenarios');
+        ])->fake(true)->wrapperAttributes(['class' => 'form-group col-sm-6'])->tab('Top 10 Scenarios');
+        CRUD::field('custom_parent')->type('text')->fake(true)->wrapperAttributes(['class' => 'form-group col-sm-6'])->tab('Top 10 Scenarios');
         CRUD::field('another_separator')->type('custom_html')->value('<hr>')->tab('Top 10 Scenarios');
 
         // MUST: when a checkbox is checked AND a select has a certain value, then show a third field;
@@ -93,5 +91,4 @@ class FieldMonsterCrudController extends MonsterCrudController
         CRUD::field('discounted_price')->type('number')->size(4)->tab('Top 10 Scenarios');
         CRUD::field('discount_percentage')->type('number')->size(4)->tab('Top 10 Scenarios');
     }
-
 }
