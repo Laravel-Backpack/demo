@@ -30,8 +30,8 @@ class FieldMonsterCrudController extends MonsterCrudController
         // then test each crud.field() method individually
         Widget::add()->type('script')->content('assets/js/monster/test-hide-field.js');
         Widget::add()->type('script')->content('assets/js/monster/test-show-field.js');
-        // Widget::add()->type('script')->content('assets/js/monster/test-enable-field.js');
-        // Widget::add()->type('script')->content('assets/js/monster/test-disable-field.js');
+        Widget::add()->type('script')->content('assets/js/monster/test-disable-field.js');
+        Widget::add()->type('script')->content('assets/js/monster/test-enable-field.js');
         Widget::add()->type('script')->content('assets/js/monster/test-require-field.js');
         Widget::add()->type('script')->content('assets/js/monster/test-unrequire-field.js');
         // Widget::add()->type('script')->content('assets/js/monster/test-custom-field.js');
