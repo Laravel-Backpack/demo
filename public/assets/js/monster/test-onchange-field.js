@@ -4,9 +4,9 @@
  * file is already loaded.
  */
 
-$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldUnrequire()">crud.field.onChange()</a>');
+$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldOnChange()">crud.field.onChange()</a>');
 
-function testCrudFieldUnrequire() {
+function testCrudFieldOnChange() {
     alert('Open your browser\'s console, then use each field you want to test. A line should be output in your console, every time a change event is triggered.');
 
     // add an onChange event on all fields
