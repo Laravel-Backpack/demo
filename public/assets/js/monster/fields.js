@@ -51,19 +51,7 @@ var monsterFields = [
     'easymde', // easymde PRO
     'icon_picker', // icon_picker PRO
     'image', // image PRO
-    // relationship PRO
-    'address.street',
-    'address.country',
-    'sentiment.text',
-    'sentiment.user',
-    'category',
-    'postalboxer',
-    'countries',
-    'universes',
-    'bills',
-    'fallback_icon',
-    'products',
-    'icondummy',
+    'address.street', 'address.country', 'sentiment.text', 'sentiment.user', 'category', 'postalboxer', 'countries', 'universes', 'bills', 'fallback_icon', 'products', 'icondummy', // relationship PRO
     // repeatable PRO
     'select2', // select2 (1-n relationship) PRO
     'categories', // select2_multiple (n-n relationship) PRO
