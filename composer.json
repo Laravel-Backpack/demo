@@ -78,7 +78,10 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-        "test": "vendor/bin/phpunit --testdox"
+        "test": "vendor/bin/phpunit --testdox",
+        "bp-assets-publish": "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force",
+        "bp-assets-link": "cd public && rm -rf packages || true && ln -s ../vendor/backpack/crud/src/public/packages && cd ../",
+        "bp-assets-unlink": "rm -rf public/packages || true && composer bp-assets-publish"
     },
     "config": {
         "preferred-install": "dist",
