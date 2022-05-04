@@ -65,31 +65,30 @@ class CommentCrudController extends CrudController
 
         CRUD::field('body');
         CRUD::field('commentable')->morphTypes([
-            'label' => 'overwritten label',
+            'label'   => 'overwritten label',
             'options' => [
                 'App\Models\Petshop\Owner' => 'Owners',
                 'App\Models\Petshop\Pet',
                 'monster',
-                'user' => 'Users'
+                'user' => 'Users',
             ],
         ])->morphIds([
-            'label' => 'overwritten label',
-            'options' => function($query) {
-
+            'label'   => 'overwritten label',
+            'options' => function ($query) {
                 $modelQuery = get_class($query->getModel());
 
                 // customize the query
-                if($modelQuery === 'App\Models\Monster') {
+                if ($modelQuery === 'App\Models\Monster') {
                     return $query->where('select', '>', '5');
                 }
 
                 // return an attribute that is not the identifiableAttribute on model
-                if($modelQuery === 'App\User') {
+                if ($modelQuery === 'App\User') {
                     return $query->pluck('email', 'id')->toArray();
                 }
 
                 return $query;
-            }
+            },
         ]);
         CRUD::field('user_id');
 
