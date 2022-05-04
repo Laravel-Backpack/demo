@@ -64,9 +64,34 @@ class CommentCrudController extends CrudController
         CRUD::setValidation(CommentRequest::class);
 
         CRUD::field('body');
-        CRUD::field('commentable_type')->type('text');
-        CRUD::field('commentable_id')->type('text');
-        CRUD::field('user');
+        CRUD::field('commentable')->morphTypes([
+            'label' => 'overwritten label',
+            'options' => [
+                'App\Models\Petshop\Owner' => 'Owners',
+                'App\Models\Petshop\Pet',
+                'monster',
+                'user' => 'Users'
+            ],
+        ])->morphIds([
+            'label' => 'overwritten label',
+            'options' => function($query) {
+
+                $modelQuery = get_class($query->getModel());
+
+                // customize the query
+                if($modelQuery === 'App\Models\Monster') {
+                    return $query->where('select', '>', '5');
+                }
+
+                // return an attribute that is not the identifiableAttribute on model
+                if($modelQuery === 'App\User') {
+                    return $query->pluck('email', 'id')->toArray();
+                }
+
+                return $query;
+            }
+        ]);
+        CRUD::field('user_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
