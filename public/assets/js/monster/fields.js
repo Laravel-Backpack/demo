@@ -35,7 +35,7 @@ var monsterFields = [
     'time', // time
     'upload', // upload
     'upload_multiple', // upload_multiple
-    'url', // url
+    // 'url', // url
     // view
     'week', // week
     'address_algolia', 'address_algolia_string', // address_algolia PRO
@@ -45,7 +45,7 @@ var monsterFields = [
     'base64_image', // base64_image PRO
     'wysiwyg', // ckeditor PRO
     'color_picker', // color_picker PRO
-    'start_date', 'end_date', // date_range PRO
+    'start_date', //'end_date', // date_range PRO
     'date_picker', // date_picker PRO
     'datetime_picker', // datetime_picker PRO
     'easymde', // easymde PRO
