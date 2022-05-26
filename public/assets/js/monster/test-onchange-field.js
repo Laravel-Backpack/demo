@@ -10,9 +10,9 @@ function testCrudFieldOnChange() {
     alert('Open your browser\'s console, then use each field you want to test. A line should be output in your console, every time a change event is triggered.');
 
     // add an onChange event on all fields
-    for (var i = 0; i <= monsterFields.length - 1; i++) {
-        crud.field(monsterFields[i]).onChange(function(e, fieldValue, fieldName, fieldType) {
-            console.log('Value for field ' + fieldName + ' (type ' + fieldType +') was changed to '+ fieldValue);
+    monsterFields.forEach(name => {
+        crud.field(name).onChange(field => {
+            console.log(`Value for field ${field.name} (type ${field.type}) was changed to ${field.value}`);
         });
-    }
+    });
 }
