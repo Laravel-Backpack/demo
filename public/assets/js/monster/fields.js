@@ -53,6 +53,7 @@ var monsterFields = [
     'image', // image PRO
     'address.street', 'address.country', 'sentiment.text', 'sentiment.user', 'category', 'postalboxer', 'countries', 'universes', 'bills', 'fallback_icon', 'icondummy', 'wish', 'postalboxes', 'ball', 'stars', 'recommends', 'products', // relationship PRO
     // repeatable PRO
+    'repeatable_example_2',
     'select2', // select2 (1-n relationship) PRO
     'categories', // select2_multiple (n-n relationship) PRO
     'select2_nested_id', // select2_nested PRO
