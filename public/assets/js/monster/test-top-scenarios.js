@@ -134,3 +134,10 @@
         calculate_discount_percentage();
     });
  });
+
+ //EXAMPLE 11
+ // USING SUBFIELDS
+ crud.field('repeatable_example_1').subfield('yes_or_no').change(function(e,value, rowNumber) {
+    crud.field('repeatable_example_1').subfield('if_no', rowNumber).enable(value == 'no').show(value == 'no');
+    crud.field('repeatable_example_1').subfield('if_yes', rowNumber).enable(value == 'yes').show(value == 'yes'); 
+});
