@@ -92,36 +92,36 @@ class FieldMonsterCrudController extends MonsterCrudController
         CRUD::field('discount_percentage')->type('number')->size(4)->tab('Top 10 Scenarios');
         CRUD::field('repeatable_example_1')->type('repeatable')->tab('Top 10 Scenarios')->store_in('extras')->subfields([
             [
-                'name' => 'yes_or_no',
-                'type' => 'select2_from_array',
-                'label' => 'Yes or No',
-                'options' => ['no' => 'no', 'yes'=> 'yes']
+                'name'    => 'yes_or_no',
+                'type'    => 'select2_from_array',
+                'label'   => 'Yes or No',
+                'options' => ['no' => 'no', 'yes'=> 'yes'],
             ],
             [
                 'name' => 'if_no',
-                'type' => 'text' 
+                'type' => 'text',
             ],
             [
                 'name' => 'if_yes',
-                'type' => 'text' 
+                'type' => 'text',
             ],
         ]);
-        
+
         CRUD::field('repeatable_example_2')->type('repeatable')->tab('Top 10 Scenarios')->store_in('extras')->subfields([
             [
-                'name' => 'how_many',
-                'type' => 'number',
+                'name'  => 'how_many',
+                'type'  => 'number',
                 'label' => 'How Many?',
-                'min' => 1,
-                'step' => 1
+                'min'   => 1,
+                'step'  => 1,
             ],
             [
                 'name' => 'if_more_than_10',
-                'type' => 'text' 
+                'type' => 'text',
             ],
             [
                 'name' => 'if_more_than_20',
-                'type' => 'text' 
+                'type' => 'text',
             ],
         ]);
     }
