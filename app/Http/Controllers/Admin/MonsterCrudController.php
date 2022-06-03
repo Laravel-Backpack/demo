@@ -263,7 +263,8 @@ class MonsterCrudController extends CrudController
         $this->crud->addFields(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addFields(static::getFieldsArrayForMiscellaneousTab());
 
-        $this->crud->removeField('url');
+        // if you want to test removeField, uncomment the following line
+        // $this->crud->removeField('url');
     }
 
     protected function setupUpdateOperation()

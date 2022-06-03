@@ -104,3 +104,12 @@ let calculate_discount_percentage = () => {
 crud.fields(['full_price', 'discounted_price']).forEach(field => {
   field.change(calculate_discount_percentage);
 });
+
+// EXAMPLE 11
+// SHOUD: when dropdown subfield changes, disable another subfield
+// TODO: change the example to a dedicated repeatable, in the last tab
+// (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
+crud.field('wish').subfield('country').change(function(e, value, rowNumber) {
+    console.log(value, rowNumber, value == '');
+    crud.field('wish').subfield('body', rowNumber).enable(value == '');
+ });
