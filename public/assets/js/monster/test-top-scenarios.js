@@ -88,7 +88,7 @@ let slugify = text =>
     .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-'
 
 crud.field('title').change(field => {
-  crud.field('slug').input.value = slugify(field.value);
+  crud.field('slug').input.val(slugify(field.value));
 });
 
 // EXAMPLE 10
@@ -96,8 +96,9 @@ crud.field('title').change(field => {
 let calculate_discount_percentage = () => {
   let full_price = crud.field('full_price').value;
   let discounted_price = crud.field('discounted_price').value;
+  let discount_percentage = (full_price - discounted_price) * 100 / full_price;
 
-  crud.field('discount_percentage').input.value = (full_price - discounted_price) * 100 / full_price;
+  crud.field('discount_percentage').input.val(discount_percentage);
 }
 
 crud.fields(['full_price', 'discounted_price']).forEach(field => {
