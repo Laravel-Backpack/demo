@@ -124,5 +124,12 @@ class FieldMonsterCrudController extends MonsterCrudController
                 'type' => 'text',
             ],
         ]);
+
+        CRUD::field('live_validation_select')->type('select2_from_array')->options([
+            'Zero', 'One', 'Two', 'Three'
+        ])->tab('Top 10 Scenarios')->size(4);
+        CRUD::field('live_validation_text')->type('text')->tab('Top 10 Scenarios')->size(4);
+        CRUD::field('live_validation_number')->type('number')->step(1)->tab('Top 10 Scenarios')->size(4);
+
     }
 }

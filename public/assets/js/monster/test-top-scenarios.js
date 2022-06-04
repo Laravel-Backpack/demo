@@ -121,3 +121,31 @@ crud.field('wish').subfield('country').change(function(field) {
     crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
 });
 
+ //EXAMPLE 12
+ // USING LIVE VALIDATION
+crud.field('live_validation_select').change(function(field) {
+    let textInput = crud.field('live_validation_text');
+    let numberInput = crud.field('live_validation_number');
+
+    if(!field.value) {
+      textInput.input.value = '';
+      textInput.input.classList.remove('is-invalid');
+      textInput.disable();
+      numberInput.disable().hide();
+    }else{
+      textInput.enable();
+      numberInput.enable().show();
+      numberInput.input.value = field.value;
+      numberInput.triggerChange()
+    }
+}).triggerChange();
+
+
+crud.field('live_validation_text').change(function(field) {
+  field.input.classList.toggle('is-invalid', field.value.length < 3);
+});
+
+crud.field('live_validation_number').change(function(field) {
+  field.input.classList.toggle('is-invalid', field.value % 2 != 0);
+});
+
