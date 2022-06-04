@@ -123,13 +123,18 @@ crud.field('wish').subfield('country').change(function(field) {
 
  //EXAMPLE 12
  // USING LIVE VALIDATION
+ // When the value of the select changes:
+ //     - if empty value, we will hide and disable the `NUMBER` and disable the `TEXT` field clearing the value.
+ //     - Any other selected value will update the `NUMBER` value with the selected number and enable the `TEXT` field
+ // The `TEXT` field will display a error red border while it has less than 5 characters.
+ // The `NUMBER` field will highlight the `odd` numbers with a red border
 crud.field('live_validation_select').change(function(field) {
     let textInput = crud.field('live_validation_text');
     let numberInput = crud.field('live_validation_number');
 
-    if(!field.value) {
+    if(field.value === '') {
       textInput.input.value = '';
-      textInput.input.classList.remove('is-invalid');
+      textInput.input.classList.remove('is-invalid'); // if it was invalid before the value changed, also remove the invalid class
       textInput.disable();
       numberInput.disable().hide();
     }else{
@@ -142,7 +147,7 @@ crud.field('live_validation_select').change(function(field) {
 
 
 crud.field('live_validation_text').change(function(field) {
-  field.input.classList.toggle('is-invalid', field.value.length < 3);
+  field.input.classList.toggle('is-invalid', field.value.length < 5);
 });
 
 crud.field('live_validation_number').change(function(field) {
