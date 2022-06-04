@@ -18,12 +18,9 @@ class FieldMonsterCrudController extends MonsterCrudController
 
     protected function setupCreateOperation()
     {
-        parent::setupCreateOperation();
-
         $this->setupFieldsForTopScenarios();
 
-        // TODO: remove this when the date_range field works ok
-        CRUD::removeField('start_date_end_date');
+        parent::setupCreateOperation();
 
         // load all the fields as a JS array
         Widget::add()->type('script')->content('assets/js/monster/fields.js');

@@ -4,7 +4,7 @@
  * file is already loaded.
  */
 
-$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldRequire()">crud.field.require()</a>');
+$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldRequire()">require()</a>');
 
 function testCrudFieldRequire() {
     // go through all Monster fields and require them
