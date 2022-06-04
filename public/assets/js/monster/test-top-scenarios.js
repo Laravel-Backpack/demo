@@ -116,7 +116,8 @@ crud.field('wish').subfield('country').change(function(e, value, rowNumber) {
 
  //EXAMPLE 11
  // USING SUBFIELDS
- crud.field('repeatable_example_1').subfield('yes_or_no').change(function(e,value, rowNumber) {
-    crud.field('repeatable_example_1').subfield('if_no', rowNumber).enable(value == 'no').show(value == 'no');
-    crud.field('repeatable_example_1').subfield('if_yes', rowNumber).enable(value == 'yes').show(value == 'yes'); 
+ crud.field('repeatable_example_1').subfield('yes_or_no').change(function(field) {
+    crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
+    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
 });
+
