@@ -109,9 +109,9 @@ crud.fields(['full_price', 'discounted_price']).forEach(field => {
 // SHOUD: when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
-crud.field('wish').subfield('country').change(function(e, value, rowNumber) {
-    console.log(value, rowNumber, value == '');
-    crud.field('wish').subfield('body', rowNumber).enable(value == '');
+crud.field('wish').subfield('country').change(function(field) {
+    console.log(field.value, field.rowNumber, field.value == '');
+    crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
  });
 
  //EXAMPLE 11
