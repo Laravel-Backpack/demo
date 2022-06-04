@@ -79,16 +79,18 @@ crud.field('visible').change(field => {
 
 // EXAMPLE 9
 // COULD: when a text input is written into, write into a second input (eg. slug);
-let slugify = text => 
-  text.toString().toLowerCase().trim()
-    .normalize('NFD')                // separate accent from letter
-    .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
-    .replace(/\s+/g, '-')            // replace spaces with -
-    .replace(/[^\w\-]+/g, '')        // remove all non-word chars
-    .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-'
+if(typeof myFunction !== 'slugify'){
+    let slugify = text =>
+      text.toString().toLowerCase().trim()
+        .normalize('NFD')                // separate accent from letter
+        .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
+        .replace(/\s+/g, '-')            // replace spaces with -
+        .replace(/[^\w\-]+/g, '')        // remove all non-word chars
+        .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-'
+}
 
 crud.field('title').change(field => {
-  crud.field('slug').input.value = slugify(field.value);
+  crud.field('title_url_segment').input.value = slugify(field.value);
 });
 
 // EXAMPLE 10
