@@ -109,14 +109,15 @@ crud.fields(['full_price', 'discounted_price']).forEach(field => {
 // SHOUD: when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
-crud.field('wish').subfield('country').change(function(e, value, rowNumber) {
-    console.log(value, rowNumber, value == '');
-    crud.field('wish').subfield('body', rowNumber).enable(value == '');
+crud.field('wish').subfield('country').change(function(field) {
+    console.log(field.value, field.rowNumber, field.value == '');
+    crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
  });
 
  //EXAMPLE 11
  // USING SUBFIELDS
- crud.field('repeatable_example_1').subfield('yes_or_no').change(function(e,value, rowNumber) {
-    crud.field('repeatable_example_1').subfield('if_no', rowNumber).enable(value == 'no').show(value == 'no');
-    crud.field('repeatable_example_1').subfield('if_yes', rowNumber).enable(value == 'yes').show(value == 'yes'); 
+ crud.field('repeatable_example_1').subfield('yes_or_no').change(function(field) {
+    crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
+    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
 });
+
