@@ -118,8 +118,8 @@ crud.field('wish').subfield('country').onChange(function(field) {
  // USING SUBFIELDS
  crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
     crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
-    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
-});
+    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
+}).change();
 
  //EXAMPLE 12
  // USING LIVE VALIDATION
@@ -128,7 +128,7 @@ crud.field('wish').subfield('country').onChange(function(field) {
  //     - Any other selected value will update the `NUMBER` value with the selected number and enable the `TEXT` field
  // The `TEXT` field will display a error red border while it has less than 5 characters.
  // The `NUMBER` field will highlight the `odd` numbers with a red border
-crud.field('live_validation_select').change(function(field) {
+crud.field('live_validation_select').onChange(function(field) {
     let textInput = crud.field('live_validation_text');
     let numberInput = crud.field('live_validation_number');
 
@@ -141,16 +141,16 @@ crud.field('live_validation_select').change(function(field) {
       textInput.enable();
       numberInput.enable().show();
       numberInput.input.value = field.value;
-      numberInput.triggerChange()
+      numberInput.change()
     }
-}).triggerChange();
+}).change();
 
 
-crud.field('live_validation_text').change(function(field) {
+crud.field('live_validation_text').onChange(function(field) {
   field.input.classList.toggle('is-invalid', field.value.length < 5);
 });
 
-crud.field('live_validation_number').change(function(field) {
+crud.field('live_validation_number').onChange(function(field) {
   field.input.classList.toggle('is-invalid', field.value % 2 != 0);
 });
 
