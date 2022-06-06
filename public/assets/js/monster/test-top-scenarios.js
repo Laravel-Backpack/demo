@@ -1,27 +1,27 @@
 // EXAMPLE 1
 // MUST: when a checkbox is checked, show a second field;
 crud.field('visible').onChange(field => {
-  crud.field('visible_where').show(field.value === 1);
-});
+  crud.field('visible_where').show(field.value == 1);
+}).change();
 
 // EXAMPLE 2
 // MUST: when a checkbox is checked, show a second field AND un-disable/un-readonly it;
 crud.field('displayed').onChange(field => {
   crud.field('displayed_where')
-    .show(field.value === 1)
-    .enable(field.value === 1);
-});
+    .show(field.value == 1)
+    .enable(field.value == 1);
+}).change();
 
 // EXAMPLE 3
 // MUST: when a radio has something specific selected, show a second field;
 crud.field('type').onChange(field => {
-  crud.field('custom_type').show(field.value === 3);
+  crud.field('custom_type').show(field.value == 3);
 }).change();
 
 // EXAMPLE 4
 // MUST: when a select has something specific selected, show a second field;
 crud.field('parent').onChange(field => {
-  crud.field('custom_parent').show(field.value === 6);
+  crud.field('custom_parent').show(field.value == 6);
 }).change();
 
 // EXAMPLE 5
@@ -30,12 +30,12 @@ let do_something = () => {
   console.log('Displayed AND custom parent.');
 }
 crud.field('displayed').onChange(field => {
-  if (field.value === 1 && crud.field('parent').value === 6) {
+  if (field.value === 1 && crud.field('parent').value == 6) {
     do_something();
   }
 });
 crud.field('parent').onChange(field => {
-  if (field.value === 6 && crud.field('displayed').value === 1) {
+  if (field.value === 6 && crud.field('displayed').value == 1) {
     do_something();
   }
 });
@@ -46,12 +46,12 @@ let do_something_else = () => {
   console.log('Displayed OR custom parent.');
 }
 crud.field('displayed').onChange(field => {
-  if (field.value === 1 || crud.field('parent').value === 6) {
+  if (field.value === 1 || crud.field('parent').value == 6) {
     do_something_else();
   }
 });
 crud.field('parent').onChange(field => {
-  if (field.value === 6 || crud.field('displayed').value === 1) {
+  if (field.value === 6 || crud.field('displayed').value == 1) {
     do_something_else();
   }
 });
@@ -74,7 +74,7 @@ crud.field('parent').onChange(field => {
 // EXAMPLE 8
 // SHOULD: when a checkbox is checked, automatically check a different checkbox or radio;
 crud.field('visible').onChange(field => {
-  crud.field('displayed').check(field.value === 1);
+  crud.field('displayed').check(field.value == 1);
 });
 
 // EXAMPLE 9
