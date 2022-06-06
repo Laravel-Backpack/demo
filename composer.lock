@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7284d033614353160e68cc4148ddd038",
+    "content-hash": "8544cb889da63599f400f2352456d4ec",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -166,6 +166,75 @@
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.0.14"
             },
             "time": "2022-04-13T17:45:24+00:00"
+        },
+        {
+            "name": "backpack/editable-columns",
+            "version": "1.0.13",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/editable-columns.git",
+                "reference": "927ff7af10695f750ed280f3b92c44aa99160741"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-927ff7af10695f750ed280f3b92c44aa99160741-zip-fca30b.zip",
+                "reference": "927ff7af10695f750ed280f3b92c44aa99160741",
+                "shasum": "224238380c41064058954cb8ceaf5ab82c370d35"
+            },
+            "require": {
+                "backpack/crud": "^4.1.0|^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~5|~6",
+                "phpunit/phpunit": "~9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\EditableColumns\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\EditableColumns\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Backpack\\EditableColumns\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit --testdox"
+                ]
+            },
+            "license": [
+                "EULA"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "cristian.tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "Add input columns to your tables, to let your admins edit values right then and there.",
+            "homepage": "https://github.com/backpack/editable-columns",
+            "keywords": [
+                "Backpack",
+                "Backpack Addon",
+                "Backpack for Laravel",
+                "EditableColumns",
+                "Laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/1.0.13",
+                "issues": "https://github.com/Laravel-Backpack/editable-columns/issues"
+            },
+            "time": "2022-05-21T17:08:43+00:00"
         },
         {
             "name": "backpack/filemanager",
