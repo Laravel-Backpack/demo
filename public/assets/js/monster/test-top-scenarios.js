@@ -118,6 +118,39 @@ crud.field('wish').subfield('country').onChange(function(field) {
  // USING SUBFIELDS
  crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
     crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
-    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
+    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
+}).change();
+
+ //EXAMPLE 12
+ // USING LIVE VALIDATION
+ // When the value of the select changes:
+ //     - if empty value, we will hide and disable the `NUMBER` and disable the `TEXT` field clearing the value.
+ //     - Any other selected value will update the `NUMBER` value with the selected number and enable the `TEXT` field
+ // The `TEXT` field will display a error red border while it has less than 5 characters.
+ // The `NUMBER` field will highlight the `odd` numbers with a red border
+crud.field('live_validation_select').onChange(function(field) {
+    let textInput = crud.field('live_validation_text');
+    let numberInput = crud.field('live_validation_number');
+
+    if(field.value === '') {
+      textInput.input.value = '';
+      textInput.input.classList.remove('is-invalid'); // if it was invalid before the value changed, also remove the invalid class
+      textInput.disable();
+      numberInput.disable().hide();
+    }else{
+      textInput.enable();
+      numberInput.enable().show();
+      numberInput.input.value = field.value;
+      numberInput.change()
+    }
+}).change();
+
+
+crud.field('live_validation_text').onChange(function(field) {
+  field.input.classList.toggle('is-invalid', field.value.length < 5);
+});
+
+crud.field('live_validation_number').onChange(function(field) {
+  field.input.classList.toggle('is-invalid', field.value % 2 != 0);
 });
 
