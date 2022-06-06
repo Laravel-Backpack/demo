@@ -6,7 +6,7 @@ crud.field('visible').onChange(field => {
 
 // EXAMPLE 2
 // MUST: when a checkbox is checked, show a second field AND un-disable/un-readonly it;
-crud.field('displayed').change(field => {
+crud.field('displayed').onChange(field => {
   crud.field('displayed_where')
     .show(field.value === 1)
     .enable(field.value === 1);
@@ -14,27 +14,27 @@ crud.field('displayed').change(field => {
 
 // EXAMPLE 3
 // MUST: when a radio has something specific selected, show a second field;
-crud.field('type').change(field => {
+crud.field('type').onChange(field => {
   crud.field('custom_type').show(field.value === 3);
-});
+}).change();
 
 // EXAMPLE 4
 // MUST: when a select has something specific selected, show a second field;
-crud.field('parent').change(field => {
+crud.field('parent').onChange(field => {
   crud.field('custom_parent').show(field.value === 6);
-});
+}).change();
 
 // EXAMPLE 5
 // MUST: when a checkbox is checked AND a select has a certain value, then do something;
 let do_something = () => {
   console.log('Displayed AND custom parent.');
 }
-crud.field('displayed').change(field => {
+crud.field('displayed').onChange(field => {
   if (field.value === 1 && crud.field('parent').value === 6) {
     do_something();
   }
 });
-crud.field('parent').change(field => {
+crud.field('parent').onChange(field => {
   if (field.value === 6 && crud.field('displayed').value === 1) {
     do_something();
   }
@@ -45,12 +45,12 @@ crud.field('parent').change(field => {
 let do_something_else = () => {
   console.log('Displayed OR custom parent.');
 }
-crud.field('displayed').change(field => {
+crud.field('displayed').onChange(field => {
   if (field.value === 1 || crud.field('parent').value === 6) {
     do_something_else();
   }
 });
-crud.field('parent').change(field => {
+crud.field('parent').onChange(field => {
   if (field.value === 6 || crud.field('displayed').value === 1) {
     do_something_else();
   }
@@ -58,7 +58,7 @@ crud.field('parent').change(field => {
 
 // EXAMPLE 7
 // SHOULD: when a select is a certain value, show a second field; if it's another value, show a third field;
-crud.field('parent').change(field => {
+crud.field('parent').onChange(field => {
   switch(field.value) {
     case 2:
       console.log('fake showing a second field');
@@ -73,7 +73,7 @@ crud.field('parent').change(field => {
 
 // EXAMPLE 8
 // SHOULD: when a checkbox is checked, automatically check a different checkbox or radio;
-crud.field('visible').change(field => {
+crud.field('visible').onChange(field => {
   crud.field('displayed').check(field.value === 1);
 });
 
@@ -87,7 +87,7 @@ let slugify = text =>
     .replace(/[^\w\-]+/g, '')        // remove all non-word chars
     .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-'
 
-crud.field('title').change(field => {
+crud.field('title').onChange(field => {
   crud.field('slug').input.value = slugify(field.value);
 });
 
@@ -102,21 +102,21 @@ let calculate_discount_percentage = () => {
 }
 
 crud.fields(['full_price', 'discounted_price']).forEach(field => {
-  field.change(calculate_discount_percentage);
+  field.onChange(calculate_discount_percentage);
 });
 
 // EXAMPLE 11
 // SHOUD: when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
-crud.field('wish').subfield('country').change(function(field) {
+crud.field('wish').subfield('country').onChange(function(field) {
     console.log(field.value, field.rowNumber, field.value == '');
     crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
  });
 
  //EXAMPLE 11
  // USING SUBFIELDS
- crud.field('repeatable_example_1').subfield('yes_or_no').change(function(field) {
+ crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
     crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
     crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes'); 
 });
