@@ -94,8 +94,8 @@ crud.field('title').onChange(field => {
 // EXAMPLE 10
 // COULD: when multiple inputs change, change a last input to calculate the total or smth;
 let calculate_discount_percentage = () => {
-  let full_price = crud.field('full_price').value;
-  let discounted_price = crud.field('discounted_price').value;
+  let full_price = Number(crud.field('full_price').value);
+  let discounted_price = Number(crud.field('discounted_price').value);
   let discount_percentage = (full_price - discounted_price) * 100 / full_price;
 
   crud.field('discount_percentage').input.value = discount_percentage;
