@@ -393,24 +393,24 @@ class FluentMonsterCrudController extends CrudController
                 ->label('HasMany')
                 ->size(6)
                 ->tab('Relationship');
-        
+
         CRUD::field('countries')
             ->label('BelongsToMany')
             ->size(6)
             ->tab('Relationship');
-        
+
         CRUD::field('wish')
             ->label('HasOne')
             ->size(4)
             ->subfields([
-                ['name' => 'country'], ['name' => 'body'], ['name' => 'universes']
+                ['name' => 'country'], ['name' => 'body'], ['name' => 'universes'],
             ])
             ->tab('Relationship');
         CRUD::field('postalboxes')
             ->label('HasMany')
             ->size(4)
             ->subfields([
-                ['name' => 'postal_name']
+                ['name' => 'postal_name'],
             ])
             ->tab('Relationship');
         CRUD::field('dummyproducts')
@@ -418,19 +418,19 @@ class FluentMonsterCrudController extends CrudController
             ->size(4)
             ->pivotSelect([
                 'wrapper' => [
-                    'class' => 'form-group col-md-6'
-                ]
+                    'class' => 'form-group col-md-6',
+                ],
             ])
             ->subfields([
                 [
-                    'name' => 'notes',
+                    'name'    => 'notes',
                     'wrapper' => [
-                        'class' => 'form-group col-md-6'
-                    ]
-                ]
+                        'class' => 'form-group col-md-6',
+                    ],
+                ],
             ])
             ->tab('Relationship');
-        
+
         CRUD::field('sentiment.text')
             ->label('MorphOne Sentiment - Text')
             ->size(6)
@@ -448,15 +448,15 @@ class FluentMonsterCrudController extends CrudController
             ->label('MorphToMany Bills')
             ->size(6)
             ->tab('Relationship');
-        
+
         CRUD::field('ball')
             ->label('MorphOne')
             ->size(4)
             ->subfields([
                 [
-                    'name' => 'name',
+                    'name'    => 'name',
                     'wrapper' => [
-                        'class' => 'form-group col-md-6'
+                        'class' => 'form-group col-md-6',
                     ],
                 ],
                 [
@@ -488,7 +488,7 @@ class FluentMonsterCrudController extends CrudController
                 ],
             ])
             ->tab('Relationship');
-        
+
         CRUD::field('fallback_icon')
             ->label('BelongsTo + InlineCreate')
             ->fake(true)
@@ -497,9 +497,7 @@ class FluentMonsterCrudController extends CrudController
             ->inline_create(true)
             ->size(6)
             ->tab('Relationship');
-        
-        
-        
+
         // -----------------
         // UPLOADS tab
         // -----------------
