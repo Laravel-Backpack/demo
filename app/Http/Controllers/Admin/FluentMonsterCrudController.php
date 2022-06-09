@@ -376,6 +376,127 @@ class FluentMonsterCrudController extends CrudController
                 ])
                 ->fake(true)
                 ->tab('Selects');
+        // -----------------
+        // RELATIONSHIPS tab
+        // -----------------
+
+        CRUD::field('address.street')
+                ->label('HasOne (1-1) <small>towards an attribute on related model</small>')
+                ->size(6)
+                ->tab('Relationship');
+        CRUD::field('address.country')
+                ->label('HasOne (1-1) <small>towards an attribute on related model</small>')
+                ->size(6)
+                ->tab('Relationship');
+
+        CRUD::field('postalboxer')
+                ->label('HasMany')
+                ->size(6)
+                ->tab('Relationship');
+
+        CRUD::field('countries')
+            ->label('BelongsToMany')
+            ->size(6)
+            ->tab('Relationship');
+
+        CRUD::field('wish')
+            ->label('HasOne')
+            ->size(4)
+            ->subfields([
+                ['name' => 'country'], ['name' => 'body'], ['name' => 'universes'],
+            ])
+            ->tab('Relationship');
+        CRUD::field('postalboxes')
+            ->label('HasMany')
+            ->size(4)
+            ->subfields([
+                ['name' => 'postal_name'],
+            ])
+            ->tab('Relationship');
+        CRUD::field('dummyproducts')
+            ->label('BelongsToMany')
+            ->size(4)
+            ->pivotSelect([
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ])
+            ->subfields([
+                [
+                    'name'    => 'notes',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                ],
+            ])
+            ->tab('Relationship');
+
+        CRUD::field('sentiment.text')
+            ->label('MorphOne Sentiment - Text')
+            ->size(6)
+            ->tab('Relationship');
+        CRUD::field('sentiment.user')
+            ->label('MorphOne Sentiment - User')
+            ->size(6)
+            ->tab('Relationship');
+
+        CRUD::field('universes')
+            ->label('MorphMany Universes')
+            ->size(6)
+            ->tab('Relationship');
+        CRUD::field('bills')
+            ->label('MorphToMany Bills')
+            ->size(6)
+            ->tab('Relationship');
+
+        CRUD::field('ball')
+            ->label('MorphOne')
+            ->size(4)
+            ->subfields([
+                [
+                    'name'    => 'name',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                ],
+                [
+                    'name'    => 'country_id',
+                    'entity'  => 'country',
+                    'type'    => 'relationship',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+
+                ],
+            ])
+            ->tab('Relationship');
+        CRUD::field('stars')
+            ->label('MorphMany')
+            ->size(4)
+            ->subfields([
+                [
+                    'name' => 'title',
+                ],
+            ])
+            ->tab('Relationship');
+        CRUD::field('recommends')
+            ->label('MorphToMany')
+            ->size(4)
+            ->subfields([
+                [
+                    'name' => 'name',
+                ],
+            ])
+            ->tab('Relationship');
+
+        CRUD::field('fallback_icon')
+            ->label('BelongsTo + InlineCreate')
+            ->fake(true)
+            ->entity('icon')
+            ->attribute('name')
+            ->inline_create(true)
+            ->size(6)
+            ->tab('Relationship');
 
         // -----------------
         // UPLOADS tab
