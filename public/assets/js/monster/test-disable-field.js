@@ -4,7 +4,7 @@
  * file is already loaded.
  */
 
-$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldDisable()">crud.field.disable()</a>');
+$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldDisable()">disable()</a>');
 
 function testCrudFieldDisable() {
     // go through all Monster fields and disable them
