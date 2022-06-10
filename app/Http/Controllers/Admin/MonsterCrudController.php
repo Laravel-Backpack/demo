@@ -263,6 +263,17 @@ class MonsterCrudController extends CrudController
         $this->crud->addFields(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addFields(static::getFieldsArrayForMiscellaneousTab());
 
+        if (env('GOOGLE_PLACES_KEY')) {
+            $this->crud->addField([   // Address_google
+                'name'          => 'address_google',
+                'label'         => 'Address_google '.backpack_pro_badge(),
+                'type'          => 'address_google',
+                'fake'          => true,
+                'store_as_json' => true,
+                'tab'           => 'Time and space',
+            ]);
+        }
+
         // if you want to test removeField, uncomment the following line
         // $this->crud->removeField('url');
     }
@@ -270,6 +281,9 @@ class MonsterCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+
+        // disable editing the slug when editing
+        $this->crud->field('slug')->target('')->attributes(['readonly' => 'readonly']);
     }
 
     protected function addCustomCrudFilters()
@@ -402,7 +416,18 @@ class MonsterCrudController extends CrudController
                 'type'              => 'text',
                 'tab'               => 'Simple',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
+                ],
+            ],
+            [
+                'name'              => 'slug',
+                'label'             => 'Slug'.backpack_pro_badge(),
+                'type'              => 'slug',
+                'target'            => 'text',
+                'tab'               => 'Simple',
+                'fake'              => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [
@@ -411,7 +436,7 @@ class MonsterCrudController extends CrudController
                 'type'              => 'email',
                 'tab'               => 'Simple',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [   // Textarea
