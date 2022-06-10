@@ -27,6 +27,7 @@ Route::group([
     // ----------------
     Route::crud('fluent-monster', 'FluentMonsterCrudController');
     Route::crud('field-monster', 'FieldMonsterCrudController');
+    Route::crud('editable-monster', 'EditableMonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
     Route::crud('dummy', 'DummyCrudController');
