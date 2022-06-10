@@ -81,7 +81,7 @@ class FieldMonsterCrudController extends MonsterCrudController
 
         // COULD: when a text input is written into, write into a second input (eg. slug);
         CRUD::field('title')->size(6)->tab('Top 10 Scenarios');
-        CRUD::field('slug')->size(6)->tab('Top 10 Scenarios');
+        CRUD::field('title_url_segment')->size(6)->tab('Top 10 Scenarios');
 
         // COULD: when multiple inputs change, change a last input to calculate the total or smth;
         CRUD::field('full_price')->type('number')->size(4)->tab('Top 10 Scenarios');
