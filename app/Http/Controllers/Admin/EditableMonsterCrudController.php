@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\MonsterRequest;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 class EditableMonsterCrudController extends MonsterCrudController
@@ -10,11 +11,10 @@ class EditableMonsterCrudController extends MonsterCrudController
 
     public function setup()
     {
-        $this->crud->setModel(\App\Models\Monster::class);
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/editable-monster');
-        $this->crud->setEntityNameStrings('editable monster', 'editable monsters');
+        parent::setup();
 
-        $this->crud->set('show.setFromDb', false);
+        CRUD::setRoute(config('backpack.base.route_prefix').'/editable-monster');
+        CRUD::setEntityNameStrings('editable monster', 'editable monsters');
     }
 
     public function setupListOperation()
@@ -26,7 +26,6 @@ class EditableMonsterCrudController extends MonsterCrudController
         CRUD::column('email')
             ->label('Email')
             ->type('view')->view('backpack.editable-columns::columns.editable_text');
-        CRUD::column('text_and_email');
 
         // demo editable_switch column
         CRUD::column('checkbox')
@@ -34,15 +33,22 @@ class EditableMonsterCrudController extends MonsterCrudController
             ->type('view')->view('backpack.editable-columns::columns.editable_switch');
 
         // demo editable_checkbox column
-        CRUD::column('editable_checkbox')
-            ->label('Editable checkbox')
-            ->type('view')->view('backpack.editable-columns::columns.editable_checkbox')
-            ->fake(true);
+        // CRUD::column('editable_checkbox')
+        //     ->label('Editable checkbox')
+        //     ->type('view')->view('backpack.editable-columns::columns.editable_checkbox')
+        //     ->fake(true);
 
         // demo editable_select column
         CRUD::column('select_from_array')
                 ->label('Editable Select')
                 ->type('view')->view('backpack.editable-columns::columns.editable_select')
                 ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three']);
+
+        CRUD::column('text_and_email');
+    }
+
+    protected function setupMinorUpdateOperation()
+    {
+        $this->crud->setValidation(MonsterRequest::class);
     }
 }
