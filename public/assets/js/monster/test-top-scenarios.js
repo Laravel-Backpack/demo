@@ -79,7 +79,7 @@ crud.field('visible').onChange(field => {
 
 // EXAMPLE 9
 // when a text input is written into, write into a second input (eg. slug);
-crud.field('title').change(field => {
+crud.field('title').onChange(function(field) {
   crud.field('title_url_segment').input.value = field.value.toString().toLowerCase().trim()
           .normalize('NFD')                // separate accent from letter
           .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
