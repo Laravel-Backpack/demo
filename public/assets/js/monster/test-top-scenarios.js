@@ -1,11 +1,11 @@
 // EXAMPLE 1
-// MUST: when a checkbox is checked, show a second field;
+// when a checkbox is checked, show a second field;
 crud.field('visible').onChange(field => {
   crud.field('visible_where').show(field.value == 1);
 }).change();
 
 // EXAMPLE 2
-// MUST: when a checkbox is checked, show a second field AND un-disable/un-readonly it;
+// when a checkbox is checked, show a second field AND un-disable/un-readonly it;
 crud.field('displayed').onChange(field => {
   crud.field('displayed_where')
     .show(field.value == 1)
@@ -13,19 +13,19 @@ crud.field('displayed').onChange(field => {
 }).change();
 
 // EXAMPLE 3
-// MUST: when a radio has something specific selected, show a second field;
+// when a radio has something specific selected, show a second field;
 crud.field('type').onChange(field => {
   crud.field('custom_type').show(field.value == 3);
 }).change();
 
 // EXAMPLE 4
-// MUST: when a select has something specific selected, show a second field;
+// when a select has something specific selected, show a second field;
 crud.field('parent').onChange(field => {
   crud.field('custom_parent').show(field.value == 6);
 }).change();
 
 // EXAMPLE 5
-// MUST: when a checkbox is checked AND a select has a certain value, then do something;
+// when a checkbox is checked AND a select has a certain value, then do something;
 let do_something = () => {
   console.log('Displayed AND custom parent.');
 }
@@ -41,7 +41,7 @@ crud.field('parent').onChange(field => {
 });
 
 // EXAMPLE 6
-// MUST: when a checkbox is checked OR a select has a certain value, then show a third field;
+// when a checkbox is checked OR a select has a certain value, then show a third field;
 let do_something_else = () => {
   console.log('Displayed OR custom parent.');
 }
@@ -57,7 +57,7 @@ crud.field('parent').onChange(field => {
 });
 
 // EXAMPLE 7
-// SHOULD: when a select is a certain value, show a second field; if it's another value, show a third field;
+// when a select is a certain value, show a second field; if it's another value, show a third field;
 crud.field('parent').onChange(field => {
   switch(field.value) {
     case 2:
@@ -69,16 +69,16 @@ crud.field('parent').onChange(field => {
     default:
       console.log('not doing anything');
   }
-})
+});
 
 // EXAMPLE 8
-// SHOULD: when a checkbox is checked, automatically check a different checkbox or radio;
+// when a checkbox is checked, automatically check a different checkbox or radio;
 crud.field('visible').onChange(field => {
   crud.field('displayed').check(field.value == 1);
 });
 
 // EXAMPLE 9
-// COULD: when a text input is written into, write into a second input (eg. slug);
+// when a text input is written into, write into a second input (eg. slug);
 let slugify = text => 
   text.toString().toLowerCase().trim()
     .normalize('NFD')                // separate accent from letter
@@ -92,7 +92,7 @@ crud.field('title').onChange(field => {
 });
 
 // EXAMPLE 10
-// COULD: when multiple inputs change, change a last input to calculate the total or smth;
+// when multiple inputs change, change a last input to calculate the total or smth;
 let calculate_discount_percentage = () => {
   let full_price = Number(crud.field('full_price').value);
   let discounted_price = Number(crud.field('discounted_price').value);
@@ -106,7 +106,7 @@ crud.fields(['full_price', 'discounted_price']).forEach(field => {
 });
 
 // EXAMPLE 11
-// SHOUD: when dropdown subfield changes, disable another subfield
+// when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
 crud.field('wish').subfield('country').onChange(function(field) {
@@ -114,14 +114,14 @@ crud.field('wish').subfield('country').onChange(function(field) {
     crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
  });
 
- //EXAMPLE 11
- // USING SUBFIELDS
+ // EXAMPLE 11
+ // Using subfields
  crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
     crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
     crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
 }).change();
 
- //EXAMPLE 12
+ // EXAMPLE 12
  // USING LIVE VALIDATION
  // When the value of the select changes:
  //     - if empty value, we will hide and disable the `NUMBER` and disable the `TEXT` field clearing the value.
