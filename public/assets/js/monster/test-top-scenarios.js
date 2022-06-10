@@ -154,3 +154,26 @@ crud.field('live_validation_number').onChange(function(field) {
   field.input.classList.toggle('is-invalid', field.value % 2 != 0);
 });
 
+// EXAMPLE 13
+// In date_range, when start_date and date_range are less than 7 days apart, show a bubble
+function checkIfOneWeekOrMore() {
+    let start_date = new Date(crud.field('start_date').value);
+    let end_date = new Date(crud.field('end_date').value);
+    var days_between = parseInt((end_date - start_date)/1000/60/60)/24;
+
+    if (days_between < 7) {
+        new Noty({
+            type: "warning",
+            text: 'We recommend you choose a time interval that is 7 days or more.',
+        }).show();
+    }
+}
+
+// Solution 1: we target the "fake" date_range input directly
+crud.field('start_date,end_date').onChange(field => checkIfOneWeekOrMore());
+
+// Solution 2: we can target start_date and end_date individually
+// but then when the date_range changes, there will be multiple
+// events triggered, so muultiple bubbles triggered
+// crud.field('start_date').onChange(field => checkIfOneWeekOrMore());
+// crud.field('end_date').onChange(field => checkIfOneWeekOrMore());
