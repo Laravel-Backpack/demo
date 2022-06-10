@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0cbddbc38a53fb4cc58dbdf2cd1e5d0",
+    "content-hash": "bec9f3304268f8ec6ffaa4584057fa4d",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -169,17 +169,17 @@
         },
         {
             "name": "backpack/editable-columns",
-            "version": "1.0.13",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/editable-columns.git",
-                "reference": "927ff7af10695f750ed280f3b92c44aa99160741"
+                "reference": "b41d44acfd1f0c61d8fcb3d8e269822447f10815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-927ff7af10695f750ed280f3b92c44aa99160741-zip-fca30b.zip",
-                "reference": "927ff7af10695f750ed280f3b92c44aa99160741",
-                "shasum": "224238380c41064058954cb8ceaf5ab82c370d35"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-b41d44acfd1f0c61d8fcb3d8e269822447f10815-zip-82a7ca.zip",
+                "reference": "b41d44acfd1f0c61d8fcb3d8e269822447f10815",
+                "shasum": "e9d611fd2e98ba29a6b7e38cb5f89db0a172ec30"
             },
             "require": {
                 "backpack/crud": "^4.1.0|^5.0"
@@ -231,10 +231,10 @@
                 "Laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/1.0.13",
+                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/editable-columns/issues"
             },
-            "time": "2022-05-21T17:08:43+00:00"
+            "time": "2022-06-06T10:40:16+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -10629,9 +10629,18 @@
             "time": "2021-07-28T10:34:58+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "backpack/editable-columns",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "backpack/editable-columns": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
