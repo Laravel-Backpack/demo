@@ -22,26 +22,27 @@ class EditableMonsterCrudController extends MonsterCrudController
         // demo editable_text column
         CRUD::column('text')
             ->label('Text')
-            ->type('view')->view('backpack.editable-columns::columns.editable_text');
+            ->type('editable_text');
+
         CRUD::column('email')
             ->label('Email')
-            ->type('view')->view('backpack.editable-columns::columns.editable_text');
+            ->type('editable_text');
 
         // demo editable_switch column
         CRUD::column('checkbox')
             ->label('Editable Switch')
-            ->type('view')->view('backpack.editable-columns::columns.editable_switch');
+            ->type('editable_switch');
 
         // demo editable_checkbox column
         // CRUD::column('editable_checkbox')
         //     ->label('Editable checkbox')
-        //     ->type('view')->view('backpack.editable-columns::columns.editable_checkbox')
+        //     ->type('editable_checkbox')
         //     ->fake(true);
 
         // demo editable_select column
         CRUD::column('select_from_array')
                 ->label('Editable Select')
-                ->type('view')->view('backpack.editable-columns::columns.editable_select')
+                ->type('editable_select')
                 ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three']);
 
         CRUD::column('text_and_email');
