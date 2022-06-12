@@ -24,7 +24,7 @@
         "mews/purifier": "^3.3",
         "backpack/filemanager": "^2.0",
         "backpack/backupmanager": "^3.0",
-        "backpack/editable-columns": "dev-main as 1.0.0"
+        "backpack/editable-columns": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
