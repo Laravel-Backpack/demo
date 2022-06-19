@@ -79,13 +79,13 @@ crud.field('visible').onChange(field => {
 
 // EXAMPLE 9
 // when a text input is written into, write into a second input (eg. slug);
-crud.field('title').onChange(function(field) {
+crud.field('title').onChange(field => {
   crud.field('title_url_segment').input.value = field.value.toString().toLowerCase().trim()
-          .normalize('NFD')                // separate accent from letter
-          .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
-          .replace(/\s+/g, '-')            // replace spaces with -
-          .replace(/[^\w\-]+/g, '')        // remove all non-word chars
-          .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-';
+    .normalize('NFD')                // separate accent from letter
+    .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
+    .replace(/\s+/g, '-')            // replace spaces with -
+    .replace(/[^\w\-]+/g, '')        // remove all non-word chars
+    .replace(/\-\-+/g, '-')          // replace multiple '-' with single '-';
 });
 
 // EXAMPLE 10
@@ -106,16 +106,16 @@ crud.fields(['full_price', 'discounted_price']).forEach(field => {
 // when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
-crud.field('wish').subfield('country').onChange(function(field) {
-    console.log(field.value, field.rowNumber, field.value == '');
-    crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
- });
+crud.field('wish').subfield('country').onChange(field => {
+  console.log(field.value, field.rowNumber, field.value == '');
+  crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
+});
 
- // EXAMPLE 11
- // Using subfields
- crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
-    crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
-    crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
+// EXAMPLE 11
+// Using subfields
+crud.field('repeatable_example_1').subfield('yes_or_no').onChange(field => {
+  crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
+  crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
 }).change();
 
  // EXAMPLE 12
@@ -125,49 +125,49 @@ crud.field('wish').subfield('country').onChange(function(field) {
  //     - Any other selected value will update the `NUMBER` value with the selected number and enable the `TEXT` field
  // The `TEXT` field will display a error red border while it has less than 5 characters.
  // The `NUMBER` field will highlight the `odd` numbers with a red border
-crud.field('live_validation_select').onChange(function(field) {
-    let textInput = crud.field('live_validation_text');
-    let numberInput = crud.field('live_validation_number');
+crud.field('live_validation_select').onChange(field => {
+  let textInput = crud.field('live_validation_text');
+  let numberInput = crud.field('live_validation_number');
 
-    if(field.value === '') {
-      textInput.input.value = '';
-      textInput.input.classList.remove('is-invalid'); // if it was invalid before the value changed, also remove the invalid class
-      textInput.disable();
-      numberInput.disable().hide();
-    }else{
-      textInput.enable();
-      numberInput.enable().show();
-      numberInput.input.value = field.value;
-      numberInput.change()
-    }
+  if(field.value === '') {
+    textInput.input.value = '';
+    textInput.input.classList.remove('is-invalid'); // if it was invalid before the value changed, also remove the invalid class
+    textInput.disable();
+    numberInput.disable().hide();
+  } else {
+    textInput.enable();
+    numberInput.enable().show();
+    numberInput.input.value = field.value;
+    numberInput.change()
+  }
 }).change();
 
 
-crud.field('live_validation_text').onChange(function(field) {
+crud.field('live_validation_text').onChange(field => {
   field.input.classList.toggle('is-invalid', field.value.length < 5);
 });
 
-crud.field('live_validation_number').onChange(function(field) {
+crud.field('live_validation_number').onChange(field => {
   field.input.classList.toggle('is-invalid', field.value % 2 != 0);
 });
 
 // EXAMPLE 13
 // In date_range, when start_date and date_range are less than 7 days apart, show a bubble
-function checkIfOneWeekOrMore() {
-    let start_date = new Date(crud.field('start_date').value);
-    let end_date = new Date(crud.field('end_date').value);
-    var days_between = parseInt((end_date - start_date)/1000/60/60)/24;
+let checkIfOneWeekOrMore = () => {
+  let start_date = new Date(crud.field('start_date').value);
+  let end_date = new Date(crud.field('end_date').value);
+  let days_between = parseInt((end_date - start_date)/1000/60/60)/24;
 
-    if (days_between < 7) {
-        new Noty({
-            type: "warning",
-            text: 'We recommend you choose a time interval that is 7 days or more.',
-        }).show();
-    }
+  if (days_between < 7) {
+    new Noty({
+      type: "warning",
+      text: 'We recommend you choose a time interval that is 7 days or more.',
+    }).show();
+  }
 }
 
 // Solution 1: we target the "fake" date_range input directly
-crud.field('start_date,end_date').onChange(field => checkIfOneWeekOrMore());
+crud.field('start_date,end_date').onChange(checkIfOneWeekOrMore);
 
 // Solution 2: we can target start_date and end_date individually
 // but then when the date_range changes, there will be multiple
