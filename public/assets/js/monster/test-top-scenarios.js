@@ -79,7 +79,7 @@ crud.field('visible').onChange(field => {
 
 // EXAMPLE 9
 // when a text input is written into, write into a second input (eg. slug);
-crud.field('title').onChange(field => {
+crud.field('title').onChange(function(field) {
   crud.field('title_url_segment').input.value = field.value.toString().toLowerCase().trim()
     .normalize('NFD')                // separate accent from letter
     .replace(/[\u0300-\u036f]/g, '') // remove all separated accents
@@ -98,7 +98,7 @@ let calculate_discount_percentage = () => {
   crud.field('discount_percentage').input.value = discount_percentage;
 }
 
-crud.fields(['full_price', 'discounted_price']).forEach(field => {
+crud.fields(['full_price', 'discounted_price']).forEach(function(field) {
   field.onChange(calculate_discount_percentage);
 });
 
@@ -106,7 +106,7 @@ crud.fields(['full_price', 'discounted_price']).forEach(field => {
 // when dropdown subfield changes, disable another subfield
 // TODO: change the example to a dedicated repeatable, in the last tab
 // (right now it's in the Relationship tab, under Direct Relationships + Subfields... HasOne)
-crud.field('wish').subfield('country').onChange(field => {
+crud.field('wish').subfield('country').onChange(function(field) {
   console.log(field.value, field.rowNumber, field.value == '');
   crud.field('wish').subfield('body', field.rowNumber).enable(field.value == '');
 });
@@ -143,24 +143,24 @@ crud.field('live_validation_select').onChange(field => {
 }).change();
 
 
-crud.field('live_validation_text').onChange(field => {
+crud.field('live_validation_text').onChange(function(field) {
   field.input.classList.toggle('is-invalid', field.value.length < 5);
 });
 
-crud.field('live_validation_number').onChange(field => {
+crud.field('live_validation_number').onChange(function(field) {
   field.input.classList.toggle('is-invalid', field.value % 2 != 0);
 });
 
 // EXAMPLE 13
 // In date_range, when start_date and date_range are less than 7 days apart, show a bubble
-let checkIfOneWeekOrMore = () => {
+function checkIfOneWeekOrMore() {
   let start_date = new Date(crud.field('start_date').value);
   let end_date = new Date(crud.field('end_date').value);
   let days_between = parseInt((end_date - start_date)/1000/60/60)/24;
 
   if (days_between < 7) {
     new Noty({
-      type: "warning",
+      type: 'warning',
       text: 'We recommend you choose a time interval that is 7 days or more.',
     }).show();
   }
