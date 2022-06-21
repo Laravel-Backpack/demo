@@ -98,7 +98,7 @@ let calculate_discount_percentage = () => {
   crud.field('discount_percentage').input.value = discount_percentage;
 }
 
-crud.fields(['full_price', 'discounted_price']).forEach(function(field) {
+crud.fields(['full_price', 'discounted_price']).forEach(field => {
   field.onChange(calculate_discount_percentage);
 });
 
@@ -113,7 +113,7 @@ crud.field('wish').subfield('country').onChange(function(field) {
 
 // EXAMPLE 11
 // Using subfields
-crud.field('repeatable_example_1').subfield('yes_or_no').onChange(field => {
+crud.field('repeatable_example_1').subfield('yes_or_no').onChange(function(field) {
   crud.field('repeatable_example_1').subfield('if_no', field.rowNumber).show(field.value == 'no').enable(field.value == 'no');
   crud.field('repeatable_example_1').subfield('if_yes', field.rowNumber).show(field.value == 'yes').enable(field.value == 'yes');
 }).change();
@@ -125,7 +125,7 @@ crud.field('repeatable_example_1').subfield('yes_or_no').onChange(field => {
  //     - Any other selected value will update the `NUMBER` value with the selected number and enable the `TEXT` field
  // The `TEXT` field will display a error red border while it has less than 5 characters.
  // The `NUMBER` field will highlight the `odd` numbers with a red border
-crud.field('live_validation_select').onChange(field => {
+crud.field('live_validation_select').onChange(function(field) {
   let textInput = crud.field('live_validation_text');
   let numberInput = crud.field('live_validation_number');
 
