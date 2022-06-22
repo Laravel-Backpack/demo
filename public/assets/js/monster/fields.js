@@ -65,6 +65,7 @@ var monsterFields = [
     'table', 'fake_table', // table PRO
     'tinymce', // tinymce PRO
     'video', // video PRO
+    'slug', // slug PRO
     // 'wysiwyg', // wysiwyg PRO - included in ckeditor and summernote
 ];
 
