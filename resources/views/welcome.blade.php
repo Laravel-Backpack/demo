@@ -83,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logo.svg" width="278px" alt="Backpack for Laravel">
+                    <img src="https://backpackforlaravel.com/presentation/img/backpack/logos/backpack_logomark.svg" width="160px" alt="Backpack for Laravel">
                 </div>
 
                 <div class="links">

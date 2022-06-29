@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^9.0",
-        "backpack/crud": "^5.0",
+        "backpack/crud": "^5.1",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
@@ -23,7 +23,8 @@
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
         "backpack/filemanager": "^2.0",
-        "backpack/backupmanager": "^3.0"
+        "backpack/backupmanager": "^3.0",
+        "backpack/editable-columns": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
