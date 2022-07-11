@@ -169,17 +169,17 @@
         },
         {
             "name": "backpack/editable-columns",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/editable-columns.git",
-                "reference": "6e67e815b3e238f2a4571028a0ae6799f1d95794"
+                "reference": "cf08aaea52e5123b571d310a04b04ff0d7cc885b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-6e67e815b3e238f2a4571028a0ae6799f1d95794-zip-68e448.zip",
-                "reference": "6e67e815b3e238f2a4571028a0ae6799f1d95794",
-                "shasum": "4e5cac33be8e5d9219c12afa8aa7f3ee84ccd059"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-cf08aaea52e5123b571d310a04b04ff0d7cc885b-zip-b03356.zip",
+                "reference": "cf08aaea52e5123b571d310a04b04ff0d7cc885b",
+                "shasum": "0b7469f7d3d04216b8a8f00731a62c808d8d5008"
             },
             "require": {
                 "backpack/crud": "^5.0"
@@ -231,10 +231,10 @@
                 "Laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/2.0.4",
+                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/2.0.5",
                 "issues": "https://github.com/Laravel-Backpack/editable-columns/issues"
             },
-            "time": "2022-06-20T09:08:59+00:00"
+            "time": "2022-07-11T07:45:47+00:00"
         },
         {
             "name": "backpack/filemanager",
