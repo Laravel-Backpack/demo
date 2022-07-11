@@ -19,6 +19,12 @@ class EditableMonsterCrudController extends MonsterCrudController
 
     public function setupListOperation()
     {
+        CRUD::addButtonFromView('top', 'fake-editable-columns', 'fake-editable-columns');
+
+        if (request()->query->get('fake')) {
+            return $this->setupListOperationFake();
+        }
+
         // demo editable_text column
         CRUD::column('text')
             ->label('Text')
@@ -30,22 +36,51 @@ class EditableMonsterCrudController extends MonsterCrudController
 
         // demo editable_switch column
         CRUD::column('checkbox')
-            ->label('Editable Switch')
+            ->label('Switch')
             ->type('editable_switch');
 
         // demo editable_checkbox column
         // CRUD::column('editable_checkbox')
         //     ->label('Editable checkbox')
-        //     ->type('editable_checkbox')
-        //     ->fake(true);
+        //     ->type('editable_checkbox');
 
         // demo editable_select column
         CRUD::column('select_from_array')
-                ->label('Editable Select')
-                ->type('editable_select')
-                ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three']);
+            ->label('Select')
+            ->type('editable_select')
+            ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three']);
 
         CRUD::column('text_and_email');
+    }
+
+    public function setupListOperationFake()
+    {
+        CRUD::addButtonFromView('top', 'fake-editable-columns', 'fake-editable-columns');
+
+        // demo fake editable_text column
+        CRUD::column('fake-text')
+            ->label('Fake Text')
+            ->type('editable_text')
+            ->fake(true);
+
+        // demo fake editable_switch column
+        CRUD::column('fake-switch')
+            ->label('Fake Switch')
+            ->type('editable_switch')
+            ->fake(true);
+
+        // demo fake editable_checkbox column
+        CRUD::column('fake-checkbox')
+            ->label('Fake Checkbox')
+            ->type('editable_checkbox')
+            ->fake(true);
+
+        // demo fake editable_select column
+        CRUD::column('fake-select')
+            ->label('Fake Select')
+            ->type('editable_select')
+            ->options(['one' => 'One', 'two' => 'Two', 'three' => 'Three'])
+            ->fake(true);
     }
 
     protected function setupMinorUpdateOperation()
