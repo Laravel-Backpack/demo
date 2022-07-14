@@ -399,6 +399,7 @@ class MonsterCrudController extends CrudController
                 'type'        => 'select2_ajax',
                 'label'       => 'S2 Ajax',
                 'placeholder' => 'Pick an article',
+                'method'      => 'POST',
             ],
             url('api/article-search'), // the ajax route
             function ($value) { // if the filter is active
@@ -1049,6 +1050,7 @@ class MonsterCrudController extends CrudController
                 'attribute'            => 'title', // foreign key attribute that is shown to user
                 'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
                 'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'method'               => 'POST', // route method, either GET or POST
                 'placeholder'          => 'Select an article', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'tab'                  => 'Selects',
@@ -1102,6 +1104,7 @@ class MonsterCrudController extends CrudController
                 'attribute'            => 'title', // foreign key attribute that is shown to user
                 'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
                 'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'method'               => 'POST', // route method, either GET or POST
                 'placeholder'          => 'Select one or more articles', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?

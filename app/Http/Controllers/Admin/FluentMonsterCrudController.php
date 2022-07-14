@@ -276,6 +276,7 @@ class FluentMonsterCrudController extends CrudController
                 ->attribute('title')
                 ->model('Backpack\NewsCRUD\app\Models\Article')
                 ->data_source(url('api/article'))
+                ->method('POST')
                 ->placeholder('Select an article')
                 ->minimum_input_length(2)
                 ->wrapper(['class' => 'form-group col-md-6'])
@@ -323,6 +324,7 @@ class FluentMonsterCrudController extends CrudController
                 ->data_source(url('api/article'))
                 ->placeholder('Select one or more articles')
                 ->minimum_input_length(2)
+                ->method('post')
                 ->pivot(true)
                 ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
@@ -612,6 +614,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('S2 Ajax')
                 ->placeholder('Pick an article')
                 ->values(url('api/article-search'))
+                ->method('POST')
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2_from_ajax', $value);
                 });
