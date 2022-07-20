@@ -31,7 +31,7 @@
         "mockery/mockery": "1.5.*",
         "phpunit/phpunit" : "^9.0||^8.5||^7.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
+        "symfony/dom-crawler": "^6.0.9",
         "laracasts/generators": "^2.0",
         "backpack/generators": "^3.1",
         "barryvdh/laravel-debugbar": "^3.2"
