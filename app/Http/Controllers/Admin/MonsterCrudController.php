@@ -706,7 +706,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'      => 'wish',
-                'label'     => 'HasOne (1-1) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'     => 'HasOne (1-1) <small>+ subfields</small>'.backpack_new_badge(),
                 'subfields' => [
                     [
                         'name' => 'country',
@@ -725,7 +725,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'      => 'postalboxes',
-                'label'     => 'HasMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'     => 'HasMany (1-n) <small>+ subfields</small>'.backpack_new_badge(),
                 'subfields' => [
                     [
                         'name' => 'postal_name',
@@ -739,7 +739,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'dummyproducts',
-                'label'   => 'BelongsToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'BelongsToMany (n-n) <small>+ subfields for pivot table</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -772,7 +772,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'sentiment.text',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>towards an attribute</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards an attribute</small>'.backpack_new_badge(),
                 'type'    => 'relationship',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
@@ -781,7 +781,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'sentiment.user',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>towards a relation</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards a relation</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -789,7 +789,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'universes',
-                'label'   => 'MorphMany (1-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphMany (1-n)'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -797,7 +797,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'bills',
-                'label'   => 'MorphToMany (n-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphToMany (n-n)'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -817,7 +817,7 @@ class MonsterCrudController extends CrudController
 
             [
                 'name'    => 'ball',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>+ subfields</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -842,7 +842,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'stars',
-                'label'   => 'MorphMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphMany (1-n) <small>+ subfields</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -857,7 +857,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'recommends',
-                'label'   => 'MorphToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphToMany (n-n) <small>+ subfields for pivot table</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],

@@ -284,7 +284,7 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::field('icon_id')
                 ->type('relationship')
-                ->label('Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                ->label('Relationship (1-n with InlineCreate; no AJAX)'.backpack_new_badge('New in 4.1'))
                 // ->entity('icon')
                 ->attribute('name')
                 // ->data_source(backpack_url('monster/fetch/icon'))
@@ -331,7 +331,7 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::field('products')
                 ->type('relationship')
-                ->label('Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                ->label('Relationship (n-n with InlineCreate; Fetch using AJAX)'.backpack_new_badge('New in 4.1'))
                 ->entity('products')
                 // ->attribute('name')
                 ->ajax(true)
