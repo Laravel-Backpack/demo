@@ -520,7 +520,7 @@ class MonsterCrudController extends CrudController
             ],
             [   // Switch
                 'name'  => 'switch',
-                'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_pro_badge(),
+                'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_free_badge(),
                 'type'  => 'switch',
                 'tab'   => 'Simple',
                 'fake'  => true,
