@@ -173,7 +173,9 @@ class FluentMonsterCrudController extends CrudController
             2 => 'Other',
         ])->inline(true)->tab('Simple');
 
-        CRUD::field('checkbox')->type('checkbox')->label('I have not read the termins and conditions and I never will (checkbox)')->tab('Simple');
+        CRUD::field('checkbox')->type('checkbox')->label('I have not read the terms and conditions and I never will (checkbox)')->tab('Simple');
+
+        CRUD::field('switch')->type('switch')->label('I have not read the terms and conditions and I never will (switch)')->tab('Simple')->fake(true);
 
         CRUD::field('hidden')->type('hidden')->default('hidden value')->tab('Simple');
 

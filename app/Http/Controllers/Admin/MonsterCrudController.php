@@ -518,6 +518,13 @@ class MonsterCrudController extends CrudController
                 'type'  => 'checkbox',
                 'tab'   => 'Simple',
             ],
+            [   // Switch
+                'name'  => 'switch',
+                'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_pro_badge(),
+                'type'  => 'switch',
+                'tab'   => 'Simple',
+                'fake'  => true,
+            ],
             [   // Hidden
                 'name'    => 'hidden',
                 'type'    => 'hidden',
