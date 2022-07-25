@@ -59,7 +59,7 @@ class StoryCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('monsters')
-            ->label('Monsters <span class="badge badge-pill badge-warning">New</span>')
+            ->label('Monsters'.backpack_new_badge())
             ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Create/update/delete related Monsters over a <code>hasMany</code> relationship (1-n).</small>');
     }

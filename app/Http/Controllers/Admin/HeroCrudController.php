@@ -59,7 +59,7 @@ class HeroCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('stories')
-            ->label('Stories <span class="badge badge-pill badge-warning">New</span>')
+            ->label('Stories'.backpack_new_badge())
             ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Select the related Story over a <code>belongsToMany</code> relationship (n-n) with extra pivot fields.</small>');
     }

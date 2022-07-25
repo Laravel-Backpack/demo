@@ -58,7 +58,7 @@ class CaveCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('monster')
-            ->label('Monster <span class="badge badge-pill badge-warning">New</span>')
+            ->label('Monster '.backpack_new_badge())
             ->subfields(self::getMonsterSubfields())
             ->hint('<small class="float-right">Define the related Monster over a <code>hasOne</code> relationship (1-1).</small>');
     }
