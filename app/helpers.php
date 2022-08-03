@@ -10,7 +10,7 @@ if (!function_exists('backpack_pro_badge')) {
      */
     function backpack_pro_badge(string $string = 'PRO')
     {
-        return '<a href="https://backpackforlaravel.com/pricing" target="_blank" class="badge badge-pill badge-primary ml-2 mr-2">'.$string.'</a>';
+        return '<a href="https://backpackforlaravel.com/pricing" target="_blank" class="badge badge-pill badge-primary ml-2 mr-2" tabindex="-1">'.$string.'</a>';
     }
 }
 

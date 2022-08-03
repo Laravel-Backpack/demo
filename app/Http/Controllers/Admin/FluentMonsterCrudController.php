@@ -173,7 +173,9 @@ class FluentMonsterCrudController extends CrudController
             2 => 'Other',
         ])->inline(true)->tab('Simple');
 
-        CRUD::field('checkbox')->type('checkbox')->label('I have not read the termins and conditions and I never will (checkbox)')->tab('Simple');
+        CRUD::field('checkbox')->type('checkbox')->label('I have not read the terms and conditions and I never will (checkbox)')->tab('Simple');
+
+        CRUD::field('switch')->type('switch')->label('I have not read the terms and conditions and I never will (switch)')->tab('Simple')->fake(true);
 
         CRUD::field('hidden')->type('hidden')->default('hidden value')->tab('Simple');
 
@@ -276,6 +278,7 @@ class FluentMonsterCrudController extends CrudController
                 ->attribute('title')
                 ->model('Backpack\NewsCRUD\app\Models\Article')
                 ->data_source(url('api/article'))
+                ->method('POST')
                 ->placeholder('Select an article')
                 ->minimum_input_length(2)
                 ->wrapper(['class' => 'form-group col-md-6'])
@@ -283,7 +286,7 @@ class FluentMonsterCrudController extends CrudController
 
         CRUD::field('icon_id')
                 ->type('relationship')
-                ->label('Relationship (1-n with InlineCreate; no AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                ->label('Relationship (1-n with InlineCreate; no AJAX)'.backpack_new_badge('New in 4.1'))
                 // ->entity('icon')
                 ->attribute('name')
                 // ->data_source(backpack_url('monster/fetch/icon'))
@@ -323,13 +326,14 @@ class FluentMonsterCrudController extends CrudController
                 ->data_source(url('api/article'))
                 ->placeholder('Select one or more articles')
                 ->minimum_input_length(2)
+                ->method('post')
                 ->pivot(true)
                 ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Selects');
 
         CRUD::field('products')
                 ->type('relationship')
-                ->label('Relationship (n-n with InlineCreate; Fetch using AJAX) <span class="badge badge-warning">New in 4.1</span>')
+                ->label('Relationship (n-n with InlineCreate; Fetch using AJAX)'.backpack_new_badge('New in 4.1'))
                 ->entity('products')
                 // ->attribute('name')
                 ->ajax(true)
@@ -612,6 +616,7 @@ class FluentMonsterCrudController extends CrudController
                 ->label('S2 Ajax')
                 ->placeholder('Pick an article')
                 ->values(url('api/article-search'))
+                ->method('POST')
                 ->whenActive(function ($value) {
                     CRUD::addClause('where', 'select2_from_ajax', $value);
                 });

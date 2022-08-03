@@ -399,6 +399,7 @@ class MonsterCrudController extends CrudController
                 'type'        => 'select2_ajax',
                 'label'       => 'S2 Ajax',
                 'placeholder' => 'Pick an article',
+                'method'      => 'POST',
             ],
             url('api/article-search'), // the ajax route
             function ($value) { // if the filter is active
@@ -516,6 +517,13 @@ class MonsterCrudController extends CrudController
                 'label' => 'I have not read the terms and conditions and I never will (checkbox)'.backpack_free_badge(),
                 'type'  => 'checkbox',
                 'tab'   => 'Simple',
+            ],
+            [   // Switch
+                'name'  => 'switch',
+                'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_free_badge(),
+                'type'  => 'switch',
+                'tab'   => 'Simple',
+                'fake'  => true,
             ],
             [   // Hidden
                 'name'    => 'hidden',
@@ -705,7 +713,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'      => 'wish',
-                'label'     => 'HasOne (1-1) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'     => 'HasOne (1-1) <small>+ subfields</small>'.backpack_new_badge(),
                 'subfields' => [
                     [
                         'name' => 'country',
@@ -724,7 +732,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'      => 'postalboxes',
-                'label'     => 'HasMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'     => 'HasMany (1-n) <small>+ subfields</small>'.backpack_new_badge(),
                 'subfields' => [
                     [
                         'name' => 'postal_name',
@@ -738,7 +746,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'dummyproducts',
-                'label'   => 'BelongsToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'BelongsToMany (n-n) <small>+ subfields for pivot table</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -771,7 +779,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'sentiment.text',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>towards an attribute</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards an attribute</small>'.backpack_new_badge(),
                 'type'    => 'relationship',
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
@@ -780,7 +788,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'sentiment.user',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>towards a relation</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>towards a relation</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -788,7 +796,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'universes',
-                'label'   => 'MorphMany (1-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphMany (1-n)'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -796,7 +804,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'bills',
-                'label'   => 'MorphToMany (n-n) <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphToMany (n-n)'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -816,7 +824,7 @@ class MonsterCrudController extends CrudController
 
             [
                 'name'    => 'ball',
-                'label'   => 'MorphOne (1-1 polymorphic) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphOne (1-1 polymorphic) <small>+ subfields</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -841,7 +849,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'stars',
-                'label'   => 'MorphMany (1-n) <small>+ subfields</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphMany (1-n) <small>+ subfields</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -856,7 +864,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'    => 'recommends',
-                'label'   => 'MorphToMany (n-n) <small>+ subfields for pivot table</small> <span class="badge badge-pill badge-warning mr-4">New</span>',
+                'label'   => 'MorphToMany (n-n) <small>+ subfields for pivot table</small>'.backpack_new_badge(),
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -1049,6 +1057,7 @@ class MonsterCrudController extends CrudController
                 'attribute'            => 'title', // foreign key attribute that is shown to user
                 'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
                 'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'method'               => 'POST', // route method, either GET or POST
                 'placeholder'          => 'Select an article', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'tab'                  => 'Selects',
@@ -1102,6 +1111,7 @@ class MonsterCrudController extends CrudController
                 'attribute'            => 'title', // foreign key attribute that is shown to user
                 'model'                => "Backpack\NewsCRUD\app\Models\Article", // foreign key model
                 'data_source'          => url('api/article'), // url to controller search function (with /{id} should return model)
+                'method'               => 'POST', // route method, either GET or POST
                 'placeholder'          => 'Select one or more articles', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
