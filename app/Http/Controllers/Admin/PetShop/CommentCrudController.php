@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\PetShop;
 
 use App\Http\Requests\CommentRequest;
+use App\Models\PetShop\Pet;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -18,6 +20,11 @@ class CommentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use FetchOperation;
+
+    public function fetchPets() {
+        return $this->fetch(Pet::class);
+    }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -64,33 +71,18 @@ class CommentCrudController extends CrudController
         CRUD::setValidation(CommentRequest::class);
 
         CRUD::field('body');
-        CRUD::field('commentable')->morphTypes([
-            'label'   => 'overwritten label',
-            'options' => [
-                'App\Models\Petshop\Owner' => 'Owners',
-                'App\Models\Petshop\Pet',
-                'monster',
-                'user' => 'Users',
-            ],
-        ])->morphIds([
-            'label'   => 'overwritten label',
-            'options' => function ($query) {
-                $modelQuery = get_class($query->getModel());
-
-                // customize the query
-                if ($modelQuery === 'App\Models\Monster') {
-                    return $query->where('select', '>', '5');
-                }
-
-                // return an attribute that is not the identifiableAttribute on model
-                if ($modelQuery === 'App\User') {
-                    return $query->pluck('email', 'id')->toArray();
-                }
-
-                return $query;
-            },
-        ]);
-        CRUD::field('user_id');
+        
+        CRUD::field('commentable')
+            ->addMorphOption('App\Models\PetShop\Owner', 'Owners')
+            ->addMorphOption('monster')
+            ->addMorphOption('App\Models\PetShop\Pet', 'Pets', [
+                'data_source' => backpack_url('pet-shop/comment/fetch/pets'),
+                'minimum_input_length' => 2,
+                'placeholder' => 'select a fluffy pet'
+            ])
+            ->addMorphOption('user', 'Users');
+            
+            CRUD::field('user_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
