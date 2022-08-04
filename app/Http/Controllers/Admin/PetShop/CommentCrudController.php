@@ -22,7 +22,8 @@ class CommentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use FetchOperation;
 
-    public function fetchPets() {
+    public function fetchPets()
+    {
         return $this->fetch(Pet::class);
     }
 
@@ -71,18 +72,18 @@ class CommentCrudController extends CrudController
         CRUD::setValidation(CommentRequest::class);
 
         CRUD::field('body');
-        
+
         CRUD::field('commentable')
             ->addMorphOption('App\Models\PetShop\Owner', 'Owners')
             ->addMorphOption('monster')
             ->addMorphOption('App\Models\PetShop\Pet', 'Pets', [
-                'data_source' => backpack_url('pet-shop/comment/fetch/pets'),
+                'data_source'          => backpack_url('pet-shop/comment/fetch/pets'),
                 'minimum_input_length' => 2,
-                'placeholder' => 'select a fluffy pet'
+                'placeholder'          => 'select a fluffy pet',
             ])
             ->addMorphOption('user', 'Users');
-            
-            CRUD::field('user_id');
+
+        CRUD::field('user_id');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
