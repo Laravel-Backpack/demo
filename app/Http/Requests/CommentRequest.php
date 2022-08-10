@@ -26,8 +26,8 @@ class CommentRequest extends FormRequest
     {
         return [
             'body'             => 'required|string',
-            'commentable_type' => 'required|string',
-            'commentable_id'   => 'required|integer',
+            'commentable.commentable_type' => 'required|string',
+            'commentable.commentable_id'   => 'required|integer',
             'user_id'          => 'required|string',
         ];
     }

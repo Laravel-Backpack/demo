@@ -74,15 +74,16 @@ class CommentCrudController extends CrudController
         CRUD::field('body');
 
         CRUD::field('commentable')
-            ->addMorphOption('App\Models\PetShop\Owner', 'Owners')
+            ->addMorphOption('App\Models\PetShop\Owner', 'Owners', ['attribute' => 'name'])
             ->addMorphOption('monster')
             ->addMorphOption('App\Models\PetShop\Pet', 'Pets', [
                 'data_source'          => backpack_url('pet-shop/comment/fetch/pets'),
                 'minimum_input_length' => 2,
-                'placeholder'          => 'select a fluffy pet',
+                'placeholder'          => 'Select a fluffy pet',
             ])
-            ->addMorphOption('user', 'Users');
-
+            ->addMorphOption('user', 'Users')
+            ->morphTypeField(['wrapper' => ['class' => 'form-group col-md-4']])
+            ->morphIdField(['wrapper' => ['class' => 'form-group col-md-8']]);
         CRUD::field('user_id');
 
         /**
