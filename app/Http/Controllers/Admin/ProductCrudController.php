@@ -102,28 +102,28 @@ class ProductCrudController extends CrudController
 
         // Fake repeatable with translations
         CRUD::addField([ // Extra Features
-            'name' => 'extra_features',
-            'label' => 'Extra Features',
-            'type' => 'repeatable',
-            'tab' => 'Texts',
-            'store_in' => 'extras',
-            'fake' => true,
+            'name'      => 'extra_features',
+            'label'     => 'Extra Features',
+            'type'      => 'repeatable',
+            'tab'       => 'Texts',
+            'store_in'  => 'extras',
+            'fake'      => true,
             'subfields' => [
                 [
-                    'name' => 'feature',
+                    'name'    => 'feature',
                     'wrapper' => [
                         'class' => 'col-md-3',
                     ],
                 ],
                 [
-                    'name' => 'value',
+                    'name'    => 'value',
                     'wrapper' => [
                         'class' => 'col-md-6',
                     ],
                 ],
                 [
-                    'name' => 'quantity',
-                    'type' => 'number',
+                    'name'    => 'quantity',
+                    'type'    => 'number',
                     'wrapper' => [
                         'class' => 'col-md-3',
                     ],
