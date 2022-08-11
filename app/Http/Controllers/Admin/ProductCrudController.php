@@ -100,19 +100,35 @@ class ProductCrudController extends CrudController
             'tab' => 'Texts',
         ]);
 
-        CRUD::addField([ // Table
-            'name'            => 'extra_features',
-            'label'           => 'Extra Features',
-            'type'            => 'table',
-            'entity_singular' => 'extra feature', // used on the "Add X" button
-            'columns'         => [
-                'name' => 'Feature',
-                'desc' => 'Value',
-            ],
+        // Fake repeatable with translations
+        CRUD::addField([ // Extra Features
+            'name' => 'extra_features',
+            'label' => 'Extra Features',
+            'type' => 'repeatable',
+            'tab' => 'Texts',
+            'store_in' => 'extras',
             'fake' => true,
-            'max'  => 25, // maximum rows allowed in the table
-            'min'  => 0, // minimum rows allowed in the table
-            'tab'  => 'Texts',
+            'subfields' => [
+                [
+                    'name' => 'feature',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+                [
+                    'name' => 'value',
+                    'wrapper' => [
+                        'class' => 'col-md-6',
+                    ],
+                ],
+                [
+                    'name' => 'quantity',
+                    'type' => 'number',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+            ],
         ]);
 
         CRUD::addField([  // Select2
