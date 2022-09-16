@@ -52,7 +52,7 @@ class CommentRequest extends FormRequest
     public function messages()
     {
         return [
-            'commentable.commentable_id' => 'This field is required.'
+            'commentable.commentable_id' => 'This field is required.',
         ];
     }
 }
