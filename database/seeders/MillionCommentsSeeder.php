@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\Models\PetShop\Owner;
 use App\Models\PetShop\Pet;
 use Faker\Generator;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MillionCommentsSeeder extends Seeder
 {
@@ -22,8 +22,8 @@ class MillionCommentsSeeder extends Seeder
         $pets = Pet::all();
         $faker = app()->make(Generator::class);
         DB::beginTransaction();
-        for($i = 1; $i <= 100; $i++) {
-            $commentable_type = $i%2 == 0 ? $owners->random() : $pets->random();
+        for ($i = 1; $i <= 100; $i++) {
+            $commentable_type = $i % 2 == 0 ? $owners->random() : $pets->random();
             DB::table('comments')->insert($this->buildBulkComments($faker->text, get_class($commentable_type), $commentable_type->getKey()));
         }
         DB::commit();
