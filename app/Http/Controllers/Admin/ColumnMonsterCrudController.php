@@ -5,29 +5,30 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class ColumnMonsterCrudController
- * @package App\Http\Controllers\Admin
+ * Class ColumnMonsterCrudController.
+ *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
 class ColumnMonsterCrudController extends MonsterCrudController
 {
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
     {
         CRUD::setModel(\App\Models\Monster::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/column-monster');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/column-monster');
         CRUD::setEntityNameStrings('column monster', 'column monsters');
         $this->crud->set('show.setFromDb', false);
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     *
      * @return void
      */
     public function setupListOperation()
@@ -41,12 +42,11 @@ class ColumnMonsterCrudController extends MonsterCrudController
         $this->crud->addColumns(static::getColumnsArrayForMiscellaneousTab());
 
         parent::setupListOperation();
-        
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);.
          */
     }
 
@@ -875,7 +875,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
                 'type'              => 'video',
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                
             ],
             [   // Range
                 'name'  => 'range',
@@ -887,7 +887,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     'max' => 10,
                 ],
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                
             ],
             [
                 'label'             => 'Icon Picker'.backpack_pro_badge(),
@@ -895,7 +895,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'              => 'icon_picker',
                 'iconset'           => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-2'],
+                
             ],
             [ // Table
                 'name'            => 'table',
