@@ -132,14 +132,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'fake'              => true,
                 'store_in'          => 'extras',
                 'tab'               => 'Simple',
-                
+
             ],
             [   // Password
                 'name'              => 'password',
                 'label'             => 'Password'.backpack_free_badge(),
                 'type'              => 'password',
                 'tab'               => 'Simple',
-                
+
             ],
             [
                 'name'    => 'radio', // the name of the db column
@@ -187,14 +187,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'time',
                 'label'             => 'Time'.backpack_free_badge(),
                 'type'              => 'time',
-                
+
                 'tab'               => 'Time and space',
             ],
             [   // Month
                 'name'              => 'week',
                 'label'             => 'Week'.backpack_free_badge(),
                 'type'              => 'week',
-                
+
                 'tab'               => 'Time and space',
             ],
             [   // Month
@@ -207,7 +207,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'       => 'date',
                 'label'      => 'Date (HTML5 spec)'.backpack_free_badge(),
                 'type'       => 'date',
-                
+
                 'tab'               => 'Time and space',
             ],
             [   // Date
@@ -215,34 +215,34 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'date_picker',
                 'label' => 'Date picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'date_picker',
-                
+
                 'tab'               => 'Time and space',
             ],
             [   // DateTime
                 'name'              => 'datetime',
                 'label'             => 'Datetime (HTML5 spec)'.backpack_free_badge(),
                 'type'              => 'datetime',
-                
+
                 'tab'               => 'Time and space',
             ],
             [   // DateTime
                 'name'  => 'datetime_picker',
                 'label' => 'Datetime picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'datetime_picker',
-                
+
                 'tab'               => 'Time and space',
             ],
             [ // Date_range
                 'name'       => 'start_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                'tab' => 'Time and space',
+                'tab'        => 'Time and space',
             ],
             [ // Date_range
                 'name'       => 'end_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                'tab' => 'Time and space',
+                'tab'        => 'Time and space',
             ],
             [   // Address
                 'name'  => 'address_algolia_string',
@@ -253,9 +253,9 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'tab'           => 'Time and space',
             ],
             [   // Address
-                'name'  => 'address_algolia',
-                'label' => 'Address_algolia (stored in db as json)'.backpack_pro_badge(),
-                'type'  => 'address_algolia',
+                'name'          => 'address_algolia',
+                'label'         => 'Address_algolia (stored in db as json)'.backpack_pro_badge(),
+                'type'          => 'address_algolia',
                 'tab'           => 'Time and space',
             ],
         ];
@@ -520,7 +520,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'tab'           => 'Relationship',
                 'inline_create' => true,
                 // 'data_source' => backpack_url('monster/fetch/icon'),
-                
+
             ],
             [    // Relationship
                 'label'     => 'BelongsToMany + AJAX + InlineCreate',
@@ -536,7 +536,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     'modal_class' => 'modal-dialog modal-xl',
                 ],
                 'data_source'       => backpack_url('monster/fetch/product'),
-                
+
             ],
             [    // Relationship - nothing is explicitly defined, not even the field type
                 'label'         => 'Relationship (all field attributes are guessed)',
@@ -570,7 +570,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'allows_null'       => true,
                 'tab'               => 'Selects',
                 'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
-                
+
             ],
             [ // select2_from_array
                 'name'              => 'select2_from_array',
@@ -580,13 +580,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'allows_null'       => true,
                 'tab'               => 'Selects',
                 'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
-                
+
             ],
             [ // select_and_order
                 'name'    => 'select_and_order',
                 'label'   => 'Select_and_order'.backpack_pro_badge(),
                 'type'    => 'select_and_order',
-                'tab'  => 'Selects',
+                'tab'     => 'Selects',
             ],
 
             // -----------------
@@ -646,7 +646,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'attribute'         => 'name',
                 'model'             => "Backpack\NewsCRUD\app\Models\Category",
                 'tab'               => 'Selects',
-                
+
             ],
             [   // select2_nested
                 'name'                       => 'select2_nested_id',
@@ -711,7 +711,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'allows_null'       => true,
                 'pivot'             => true, // on create&update, do you need to add/delete pivot table entries?
                 'tab'               => 'Selects',
-                
+
             ],
             [ // Select2_from_ajax_multiple: n-n relationship with pivot table
                 'label'                => 'Select2_from_ajax_multiple'.backpack_pro_badge(), // Table column heading
@@ -860,7 +860,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'  => 'color',
                 // 'wrapperAttributes' => ['class' => 'col-md-6'],
                 'tab'               => 'Miscellaneous',
-                
+
             ],
             [   // Color
                 'name'  => 'color_picker',
@@ -868,14 +868,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'  => 'color_picker',
                 // 'wrapperAttributes' => ['class' => 'col-md-6'],
                 'tab'               => 'Miscellaneous',
-                
+
             ],
             [   // URL
                 'name'              => 'video',
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
                 'type'              => 'video',
                 'tab'               => 'Miscellaneous',
-                
+
             ],
             [   // Range
                 'name'  => 'range',
@@ -887,7 +887,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     'max' => 10,
                 ],
                 'tab'               => 'Miscellaneous',
-                
+
             ],
             [
                 'label'             => 'Icon Picker'.backpack_pro_badge(),
@@ -895,7 +895,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'              => 'icon_picker',
                 'iconset'           => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
                 'tab'               => 'Miscellaneous',
-                
+
             ],
             [ // Table
                 'name'            => 'table',
