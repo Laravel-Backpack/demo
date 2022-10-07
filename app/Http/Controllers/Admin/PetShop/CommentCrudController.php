@@ -45,11 +45,7 @@ class CommentCrudController extends CrudController
         // CRUD::column('commentable_id');
         CRUD::column('user');
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);.
-         */
+        CRUD::setOperationSetting('showEntryCount', false);
     }
 
     /**
@@ -67,12 +63,6 @@ class CommentCrudController extends CrudController
         CRUD::field('commentable_type')->type('text');
         CRUD::field('commentable_id')->type('text');
         CRUD::field('user');
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));.
-         */
     }
 
     /**
