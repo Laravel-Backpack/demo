@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class MillionCommentsSeeder extends Seeder
 {
+    public $faker;
+    public $owners;
+    public $pets;
+    public $texts;
+
+    public function __construct() {
+        $this->faker = app()->make(Generator::class);
+        $this->owners = Owner::all();
+        $this->pets = Pet::all();
+    }
+
     /**
      * Run the database seeds.
      *
@@ -18,20 +29,25 @@ class MillionCommentsSeeder extends Seeder
     public function run()
     {
         DB::disableQueryLog();
-        $owners = Owner::all();
-        $pets = Pet::all();
-        $faker = app()->make(Generator::class);
         DB::beginTransaction();
-        for ($i = 1; $i <= 100; $i++) {
-            $commentable_type = $i % 2 == 0 ? $owners->random() : $pets->random();
-            DB::table('comments')->insert($this->buildBulkComments($faker->text, get_class($commentable_type), $commentable_type->getKey()));
+
+        for ($i = 1; $i <= 1000; $i++) {
+            $body = $this->faker->text;
+            $commentable = $i % 2 == 0 ? $this->owners->random() : $this->pets->random();
+            $commentable_type = get_class($commentable);
+            $commentable_id = $commentable->getKey();
+
+            $comments = array_fill(0, 1000, [
+                'body' => $body,
+                'commentable_type' => $commentable_type,
+                'commentable_id' => $commentable_id,
+                'user_id' => rand(1, 50),
+            ]);
+
+            DB::table('comments')->insertOrIgnore($comments);
         }
+
         DB::commit();
         DB::enableQueryLog();
-    }
-
-    public function buildBulkComments($text, $commentable_type, $commentable_id)
-    {
-        return array_fill(0, 10000, ['body' => $text, 'commentable_type' => $commentable_type, 'commentable_id' => $commentable_id, 'user_id' => 1]);
     }
 }
