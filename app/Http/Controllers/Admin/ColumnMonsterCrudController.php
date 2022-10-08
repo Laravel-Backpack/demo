@@ -57,7 +57,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'text',
                 'label'             => 'Text'.backpack_free_badge(),
                 'type'              => 'text',
-                
+
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -67,7 +67,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Slug'.backpack_pro_badge(),
                 'type'              => 'slug',
                 'target'            => 'text',
-                
+
                 'fake'              => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
@@ -77,7 +77,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'email',
                 'label'             => 'Email'.backpack_free_badge(),
                 'type'              => 'email',
-                
+
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -86,13 +86,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'textarea',
                 'label' => 'Textarea'.backpack_free_badge(),
                 'type'  => 'textarea',
-                
+
             ],
             [   // Number
                 'name'              => 'number',
                 'label'             => 'Number'.backpack_free_badge(),
                 'type'              => 'number',
-                
+
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -100,7 +100,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Float'.backpack_free_badge(),
                 'type'              => 'number',
                 'attributes'        => ['step' => 'any'], // allow decimals
-                
+
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -110,7 +110,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'prefix'            => '$',
                 'fake'              => true,
                 'store_in'          => 'extras',
-                
+
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -120,7 +120,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'suffix'            => '.00',
                 'fake'              => true,
                 'store_in'          => 'extras',
-                
+
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -131,14 +131,12 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'suffix'            => "<i class='fa fa-home'></i>",
                 'fake'              => true,
                 'store_in'          => 'extras',
-                
 
             ],
             [   // Password
                 'name'              => 'password',
                 'label'             => 'Password'.backpack_free_badge(),
                 'type'              => 'password',
-                
 
             ],
             [
@@ -150,19 +148,19 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     1 => 'Published',
                     2 => 'Other',
                 ],
-                
+
             ],
             [   // Checkbox
                 'name'  => 'checkbox',
                 'label' => 'I have not read the terms and conditions and I never will (checkbox)'.backpack_free_badge(),
                 'type'  => 'checkbox',
-                
+
             ],
             [   // Switch
                 'name'  => 'switch',
                 'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_free_badge(),
                 'type'  => 'switch',
-                
+
                 'fake'  => true,
             ],
             [   // Hidden
@@ -186,27 +184,24 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Time'.backpack_free_badge(),
                 'type'              => 'time',
 
-                
             ],
             [   // Month
                 'name'              => 'week',
                 'label'             => 'Week'.backpack_free_badge(),
                 'type'              => 'week',
 
-                
             ],
             [   // Month
                 'name'              => 'month',
                 'label'             => 'Month'.backpack_free_badge(),
                 'type'              => 'month',
-                
+
             ],
             [   // Date
                 'name'       => 'date',
                 'label'      => 'Date (HTML5 spec)'.backpack_free_badge(),
                 'type'       => 'date',
 
-                
             ],
             [   // Date
                 // <span class="badge badge-pill badge-primary">PRO</span>
@@ -214,21 +209,18 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label' => 'Date picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'date_picker',
 
-                
             ],
             [   // DateTime
                 'name'              => 'datetime',
                 'label'             => 'Datetime (HTML5 spec)'.backpack_free_badge(),
                 'type'              => 'datetime',
 
-                
             ],
             [   // DateTime
                 'name'  => 'datetime_picker',
                 'label' => 'Datetime picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'datetime_picker',
 
-                
             ],
             [ // Date_range
                 'name'       => 'start_date', // a unique name for this field
