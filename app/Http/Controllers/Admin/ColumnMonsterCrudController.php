@@ -165,7 +165,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'    => 'hidden',
                 'type'    => 'hidden',
                 'default' => '6318',
-                
+
             ],
         ];
     }
@@ -224,13 +224,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'       => 'start_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                
+
             ],
             [ // Date_range
                 'name'       => 'end_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                
+
             ],
             [   // Address
                 'name'  => 'address_algolia_string',
@@ -238,13 +238,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'  => 'address_algolia',
                 // optional
                 // 'store_as_json' => true,
-                
+
             ],
             [   // Address
                 'name'          => 'address_algolia',
                 'label'         => 'Address_algolia (stored in db as json)'.backpack_pro_badge(),
                 'type'          => 'address_algolia',
-                
+
             ],
         ];
     }
