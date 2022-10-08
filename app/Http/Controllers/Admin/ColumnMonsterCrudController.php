@@ -57,7 +57,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'text',
                 'label'             => 'Text'.backpack_free_badge(),
                 'type'              => 'text',
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -67,7 +67,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Slug'.backpack_pro_badge(),
                 'type'              => 'slug',
                 'target'            => 'text',
-                'tab'               => 'Simple',
+                
                 'fake'              => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
@@ -77,7 +77,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'email',
                 'label'             => 'Email'.backpack_free_badge(),
                 'type'              => 'email',
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
@@ -86,13 +86,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'textarea',
                 'label' => 'Textarea'.backpack_free_badge(),
                 'type'  => 'textarea',
-                'tab'   => 'Simple',
+                
             ],
             [   // Number
                 'name'              => 'number',
                 'label'             => 'Number'.backpack_free_badge(),
                 'type'              => 'number',
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -100,7 +100,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Float'.backpack_free_badge(),
                 'type'              => 'number',
                 'attributes'        => ['step' => 'any'], // allow decimals
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -110,7 +110,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'prefix'            => '$',
                 'fake'              => true,
                 'store_in'          => 'extras',
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -120,7 +120,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'suffix'            => '.00',
                 'fake'              => true,
                 'store_in'          => 'extras',
-                'tab'               => 'Simple',
+                
                 'wrapperAttributes' => ['class' => 'form-group col-md-3'],
             ],
             [   // Number
@@ -131,14 +131,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'suffix'            => "<i class='fa fa-home'></i>",
                 'fake'              => true,
                 'store_in'          => 'extras',
-                'tab'               => 'Simple',
+                
 
             ],
             [   // Password
                 'name'              => 'password',
                 'label'             => 'Password'.backpack_free_badge(),
                 'type'              => 'password',
-                'tab'               => 'Simple',
+                
 
             ],
             [
@@ -150,21 +150,19 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     1 => 'Published',
                     2 => 'Other',
                 ],
-                // optional
-                'inline' => true, // show the radios all on the same line?
-                'tab'    => 'Simple',
+                
             ],
             [   // Checkbox
                 'name'  => 'checkbox',
                 'label' => 'I have not read the terms and conditions and I never will (checkbox)'.backpack_free_badge(),
                 'type'  => 'checkbox',
-                'tab'   => 'Simple',
+                
             ],
             [   // Switch
                 'name'  => 'switch',
                 'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_free_badge(),
                 'type'  => 'switch',
-                'tab'   => 'Simple',
+                
                 'fake'  => true,
             ],
             [   // Hidden
@@ -188,27 +186,27 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label'             => 'Time'.backpack_free_badge(),
                 'type'              => 'time',
 
-                'tab'               => 'Time and space',
+                
             ],
             [   // Month
                 'name'              => 'week',
                 'label'             => 'Week'.backpack_free_badge(),
                 'type'              => 'week',
 
-                'tab'               => 'Time and space',
+                
             ],
             [   // Month
                 'name'              => 'month',
                 'label'             => 'Month'.backpack_free_badge(),
                 'type'              => 'month',
-                'tab'               => 'Time and space',
+                
             ],
             [   // Date
                 'name'       => 'date',
                 'label'      => 'Date (HTML5 spec)'.backpack_free_badge(),
                 'type'       => 'date',
 
-                'tab'               => 'Time and space',
+                
             ],
             [   // Date
                 // <span class="badge badge-pill badge-primary">PRO</span>
@@ -216,21 +214,21 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label' => 'Date picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'date_picker',
 
-                'tab'               => 'Time and space',
+                
             ],
             [   // DateTime
                 'name'              => 'datetime',
                 'label'             => 'Datetime (HTML5 spec)'.backpack_free_badge(),
                 'type'              => 'datetime',
 
-                'tab'               => 'Time and space',
+                
             ],
             [   // DateTime
                 'name'  => 'datetime_picker',
                 'label' => 'Datetime picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'datetime_picker',
 
-                'tab'               => 'Time and space',
+                
             ],
             [ // Date_range
                 'name'       => 'start_date', // a unique name for this field
