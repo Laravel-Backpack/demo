@@ -160,14 +160,12 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'switch',
                 'label' => 'I have not read the terms and conditions and I never will (switch)'.backpack_free_badge(),
                 'type'  => 'switch',
-
-                'fake'  => true,
             ],
             [   // Hidden
                 'name'    => 'hidden',
                 'type'    => 'hidden',
                 'default' => '6318',
-                'tab'     => 'Simple',
+                
             ],
         ];
     }
@@ -226,13 +224,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'       => 'start_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                'tab'        => 'Time and space',
+                
             ],
             [ // Date_range
                 'name'       => 'end_date', // a unique name for this field
                 'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                'tab'        => 'Time and space',
+                
             ],
             [   // Address
                 'name'  => 'address_algolia_string',
@@ -240,13 +238,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'  => 'address_algolia',
                 // optional
                 // 'store_as_json' => true,
-                'tab'           => 'Time and space',
+                
             ],
             [   // Address
                 'name'          => 'address_algolia',
                 'label'         => 'Address_algolia (stored in db as json)'.backpack_pro_badge(),
                 'type'          => 'address_algolia',
-                'tab'           => 'Time and space',
+                
             ],
         ];
     }
