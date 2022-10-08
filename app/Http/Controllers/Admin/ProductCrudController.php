@@ -29,15 +29,15 @@ class ProductCrudController extends CrudController
     {
         CRUD::addColumns(['name']); // add multiple columns, at the end of the stack
         CRUD::addColumn([
-            'name' => 'status',
-            'type' => 'enum',
+            'name'          => 'status',
+            'type'          => 'enum',
             'enum_function' => 'getReadableStatus',
         ]);
         CRUD::addColumn([
-            'name' => 'condition',
-            'type' => 'enum',
-            'enum_class' => 'App\Enums\ProductCondition',
-            'enum_function' => 'getReadableCondition'
+            'name'          => 'condition',
+            'type'          => 'enum',
+            'enum_class'    => 'App\Enums\ProductCondition',
+            'enum_function' => 'getReadableCondition',
         ]);
         CRUD::addColumn([
             'name'           => 'price',
@@ -171,15 +171,15 @@ class ProductCrudController extends CrudController
             'name'  => 'status',
             'label' => 'Status',
             'type'  => 'enum',
-            'tab' => 'Basic Info',
+            'tab'   => 'Basic Info',
         ]);
         CRUD::addField([   // Number
-            'name'  => 'condition',
-            'label' => 'Condition',
-            'type'  => 'enum',
-            'tab' => 'Basic Info',
-            'enum_class' => 'App\Enums\ProductCondition',
-            'enum_function' => 'getReadableCondition'
+            'name'          => 'condition',
+            'label'         => 'Condition',
+            'type'          => 'enum',
+            'tab'           => 'Basic Info',
+            'enum_class'    => 'App\Enums\ProductCondition',
+            'enum_function' => 'getReadableCondition',
         ]);
 
         CRUD::addFields([

@@ -13,7 +13,7 @@ enum ProductStatus: string
         return match ($this) {
             ProductStatus::INSTOCK => 'Is in Stock',
             ProductStatus::NOSTOCK => 'Is out of stock',
-            ProductStatus::ONHOLD => 'Is on hold',
+            ProductStatus::ONHOLD  => 'Is on hold',
         };
     }
 }

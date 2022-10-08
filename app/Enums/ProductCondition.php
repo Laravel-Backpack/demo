@@ -11,8 +11,8 @@ enum ProductCondition
     public function getReadableCondition()
     {
         return match ($this) {
-            ProductCondition::NEW => 'New Product',
-            ProductCondition::USED => 'Used Product',
+            ProductCondition::NEW    => 'New Product',
+            ProductCondition::USED   => 'Used Product',
             ProductCondition::BROKEN => '!!BROKEN!!',
         };
     }

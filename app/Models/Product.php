@@ -31,7 +31,7 @@ class Product extends Model
     public $casts = [
         'features'       => 'object',
         'extra_features' => 'object',
-        'status'         => ProductStatus::class
+        'status'         => ProductStatus::class,
     ];
 
     /*
