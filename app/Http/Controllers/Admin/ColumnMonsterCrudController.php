@@ -260,13 +260,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'relationship_heading',
                 'type'  => 'custom_html',
                 'value' => "<p class='text-muted mb-0'>All the examples in this tab <strong>relationship</strong> field type. This field type changes its interface depending on what relationship it is used on, and whether or not you've defined 'subfields' for it. So we've provided examples for each relationship type. Then examples for a few <i>extra features</i> of the repeatable field.</p>",
-                'tab'   => 'Relationship',
+                
             ],
             [   // CustomHTML
                 'name'  => 'relationship_direct_relationships',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-3 text-primary">Direct Relationships '.backpack_pro_badge().'</h5>',
-                'tab'   => 'Relationship',
+                
             ],
 
             // --------------------
@@ -279,7 +279,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'     => 'address.country',
@@ -287,12 +287,12 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper'  => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'              => 'category',
                 'label'             => 'BelongsTo (n-1)',
-                'tab'               => 'Relationship',
+                
                 'wrapper'           => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -300,7 +300,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             [
                 'name'    => 'postalboxer',
                 'label'   => 'HasMany (1-n)',
-                'tab'     => 'Relationship',
+                
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
@@ -308,7 +308,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             [
                 'name'    => 'countries',
                 'label'   => 'BelongsToMany (n-n)',
-                'tab'     => 'Relationship',
+                
             ],
 
             // -----------------------------------
@@ -319,7 +319,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'relationship_direct_relationships_with_subfields',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 mt-4 text-primary">Direct Relationships + Subfields '.backpack_pro_badge().'</h5>',
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'      => 'wish',
@@ -338,7 +338,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'      => 'postalboxes',
@@ -352,7 +352,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-4',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'dummyproducts',
@@ -374,7 +374,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                         ],
                     ],
                 ],
-                'tab'   => 'Relationship',
+                
             ],
 
             // -------------------------
@@ -385,7 +385,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'relationship_polymorphic_relationships',
                 'type'  => 'custom_html',
                 'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Polymorphic Relationships '.backpack_pro_badge().'</h5>',
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'sentiment.text',
@@ -394,7 +394,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'sentiment.user',
@@ -402,7 +402,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'universes',
@@ -410,7 +410,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'bills',
@@ -418,7 +418,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'wrapper' => [
                     'class' => 'form-group col-md-6',
                 ],
-                'tab'   => 'Relationship',
+                
             ],
 
             // -------------------------------------
@@ -429,7 +429,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'relationship_polymorphic_relationships_with_subfields',
                 'type'  => 'custom_html',
                 'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Polymorphic Relationships + Subfields  '.backpack_pro_badge().'</h5>',
-                'tab'   => 'Relationship',
+                
             ],
 
             [
@@ -455,7 +455,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
 
                     ],
                 ],
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'stars',
@@ -470,7 +470,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     ],
                 ],
 
-                'tab'   => 'Relationship',
+                
             ],
             [
                 'name'    => 'recommends',
@@ -484,7 +484,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                         'type' => 'text',
                     ],
                 ],
-                'tab'   => 'Relationship',
+                
             ],
 
             // ----------------------------
@@ -495,18 +495,15 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'relationship_extra_features',
                 'type'  => 'custom_html',
                 'value' => '<hr class="mt-5 mb-5"><h5 class="mb-0 mt-3 text-primary">Extra Features  '.backpack_pro_badge().'</a></h5>',
-                'tab'   => 'Relationship',
+                
             ],
 
             [    // Relationship - everything is explicitly defined
                 'label'         => 'BelongsTo + InlineCreate',
                 'type'          => 'relationship',
                 'name'          => 'fallback_icon',
-                'fake'          => true,
                 'entity'        => 'icon',
                 'attribute'     => 'name',
-                'tab'           => 'Relationship',
-                'inline_create' => true,
                 // 'data_source' => backpack_url('monster/fetch/icon'),
 
             ],
@@ -516,8 +513,6 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'      => 'products',
                 'entity'    => 'products',
                 // 'attribute' => 'name',
-                'tab'       => 'Relationship',
-                'ajax'      => true,
                 // 'inline_create' => true, // TODO: make it work like this too
                 'inline_create'     => [
                     'entity'      => 'product',
@@ -529,7 +524,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             [    // Relationship - nothing is explicitly defined, not even the field type
                 'label'         => 'Relationship (all field attributes are guessed)',
                 'name'          => 'icondummy',
-                'tab'           => 'Relationship',
+                
                 // 'data_source' => backpack_url('monster/fetch/icon'),
                 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
             ],
@@ -547,7 +542,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'selects_no_relationship_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 text-primary">No Relationship</h5>',
-                'tab'   => 'Selects',
+                
             ],
 
             [ // select_from_array
@@ -556,7 +551,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'              => 'select_from_array',
                 'options'           => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
                 'allows_null'       => true,
-                'tab'               => 'Selects',
+                
                 'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
 
             ],
@@ -566,7 +561,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'type'              => 'select2_from_array',
                 'options'           => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
                 'allows_null'       => true,
-                'tab'               => 'Selects',
+                
                 'allows_multiple'   => false, // OPTIONAL; needs you to cast this to array in your model;
 
             ],
@@ -574,7 +569,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'    => 'select_and_order',
                 'label'   => 'Select_and_order'.backpack_pro_badge(),
                 'type'    => 'select_and_order',
-                'tab'     => 'Selects',
+                
             ],
 
             // -----------------
@@ -585,7 +580,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'selects_1_n_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 text-primary">1-n Relationship (belongsTo, morphTo)</h5>',
-                'tab'   => 'Selects',
+                
             ],
             [   // select
                 'label'                      => 'Select'.backpack_free_badge(),
@@ -595,7 +590,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'attribute'                  => 'name',
                 'model'                      => 'Backpack\NewsCRUD\app\Models\Category',
                 'fake'                       => true,
-                'tab'                        => 'Selects',
+                
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [   // select_grouped
@@ -609,7 +604,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'group_by'                   => 'category', // the relationship to entity you want to use for grouping
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
-                'tab'                        => 'Selects',
+                
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [   // select2_grouped
@@ -623,7 +618,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'group_by'                   => 'category', // the relationship to entity you want to use for grouping
                 'group_by_attribute'         => 'name', // the attribute on related model, that you want shown
                 'group_by_relationship_back' => 'articles', // relationship from related model back to this model
-                'tab'                        => 'Selects',
+                
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [    // SELECT2
@@ -633,7 +628,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'entity'            => 'categorySelect2',
                 'attribute'         => 'name',
                 'model'             => "Backpack\NewsCRUD\app\Models\Category",
-                'tab'               => 'Selects',
+                
 
             ],
             [   // select2_nested
@@ -644,7 +639,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'entity'                     => 'category', // the method that defines the relationship in your Model
                 'attribute'                  => 'name', // foreign key attribute that is shown to user
                 'model'                      => "Backpack\NewsCRUD\app\Models\Category", // force foreign key model
-                'tab'                        => 'Selects',
+                
                 'wrapperAttributes'          => ['class' => 'form-group col-md-4'],
             ],
             [ // select2_from_ajax: 1-n relationship
@@ -658,7 +653,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'method'               => 'POST', // route method, either GET or POST
                 'placeholder'          => 'Select an article', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
-                'tab'                  => 'Selects',
+                
                 'wrapperAttributes'    => ['class' => 'form-group col-md-4'],
             ],
 
@@ -666,7 +661,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'selects_n_n_heading',
                 'type'  => 'custom_html',
                 'value' => '<h5 class="mb-0 text-primary mt-3">n-n Relationship (belongsToMany, morphToMany)</h5>',
-                'tab'   => 'Selects',
+                
             ],
             [
                 'label'     => 'Checklist'.backpack_free_badge(),
@@ -675,8 +670,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'entity'    => 'roles',
                 'attribute' => 'name',
                 'model'     => "Backpack\PermissionManager\app\Models\Role",
-                'pivot'     => true,
-                'tab'       => 'Selects',
+                
             ],
             [       // Select_Multiple = n-n relationship
                 'label'     => 'Select_multiple'.backpack_free_badge(),
@@ -686,7 +680,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model'     => "Backpack\NewsCRUD\app\Models\Tag", // foreign key model
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'       => 'Selects',
+                
                 // 'wrapperAttributes' => ['class' => 'form-group col-md-12'],
             ],
             [       // Select2Multiple = n-n relationship (with pivot table)
@@ -698,7 +692,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'model'             => "Backpack\NewsCRUD\app\Models\Category", // foreign key model
                 'allows_null'       => true,
                 'pivot'             => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'               => 'Selects',
+                
 
             ],
             [ // Select2_from_ajax_multiple: n-n relationship with pivot table
@@ -713,7 +707,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'placeholder'          => 'Select one or more articles', // placeholder for the select
                 'minimum_input_length' => 2, // minimum characters to type before querying results
                 'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
-                'tab'                  => 'Selects',
+                
                 'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
             ],
         ];
@@ -732,7 +726,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'      => 'separator',
                 'type'      => 'custom_html',
                 'value'     => '<p><small><strong>Note: </strong>In the online demo we\'ve restricted the upload and media library fields a lot, or hidden them entirely. To test them out, you can <a target="_blank" href="https://backpackforlaravel.com/docs/demo">download and install this demo admin panel</a> in your local environment.</small></p>',
-                'tab'       => 'Uploads',
+                
             ];
         }
 
@@ -740,14 +734,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
             'name'  => 'browse',
             'label' => 'Browse (using elFinder)'.backpack_pro_badge(),
             'type'  => 'browse',
-            'tab'   => 'Uploads',
+            
         ];
 
         $fields[] = [   // Browse multiple
             'name'     => 'browse_multiple',
             'label'    => 'Browse multiple'.backpack_pro_badge(),
             'type'     => 'browse_multiple',
-            'tab'      => 'Uploads',
+            
             'sortable' => true,
             // 'multiple' => true, // enable/disable the multiple selection functionality
             // 'mime_types' => null, // visible mime prefixes; ex. ['image'] or ['application/pdf']
@@ -761,7 +755,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             'disk'   => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
             // optional:
             // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
-            'tab' => 'Uploads',
+            
         ];
 
         $fields[] = [   // Upload
@@ -772,7 +766,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             // 'disk' => 'uploads', // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
             // optional:
             // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URL's this will make a URL that is valid for the number of minutes specified
-            'tab' => 'Uploads',
+            
         ];
 
         $fields[] = [ // base64_image
@@ -783,7 +777,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
             'crop'         => true, // set to true to allow cropping, false to disable
             'src'          => null, // null to read straight from DB, otherwise set to model accessor function
-            'tab'          => 'Uploads',
+            
         ];
 
         $fields[] = [ // image
@@ -795,7 +789,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
             // 'disk' => config('backpack.base.root_disk_name'), // in case you need to show images from a different disk
             // 'prefix' => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
-            'tab' => 'Uploads',
+            
         ];
 
         return $fields;
@@ -812,25 +806,25 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'  => 'easymde',
                 'label' => 'EasyMDE - markdown editor'.backpack_pro_badge(),
                 'type'  => 'easymde',
-                'tab'   => 'WYSIWYG Editors',
+                
             ],
             [   // Summernote
                 'name'  => 'summernote',
                 'label' => 'Summernote editor'.backpack_free_badge(),
                 'type'  => 'summernote',
-                'tab'   => 'WYSIWYG Editors',
+                
             ],
             [   // CKEditor
                 'name'  => 'wysiwyg',
                 'label' => 'CKEditor - also called the WYSIWYG field'.backpack_pro_badge(),
                 'type'  => 'ckeditor',
-                'tab'   => 'WYSIWYG Editors',
+                
             ],
             [   // TinyMCE
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE'.backpack_pro_badge(),
                 'type'  => 'tinymce',
-                'tab'   => 'WYSIWYG Editors',
+                
             ],
         ];
     }
@@ -847,7 +841,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label' => 'Color picker (HTML5 spec)'.backpack_free_badge(),
                 'type'  => 'color',
                 // 'wrapperAttributes' => ['class' => 'col-md-6'],
-                'tab'               => 'Miscellaneous',
+                
 
             ],
             [   // Color
@@ -855,14 +849,14 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'label' => 'Color picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'color_picker',
                 // 'wrapperAttributes' => ['class' => 'col-md-6'],
-                'tab'               => 'Miscellaneous',
+                
 
             ],
             [   // URL
                 'name'              => 'video',
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
                 'type'              => 'video',
-                'tab'               => 'Miscellaneous',
+                
 
             ],
             [   // Range
@@ -874,7 +868,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     'min' => 0,
                     'max' => 10,
                 ],
-                'tab'               => 'Miscellaneous',
+                
 
             ],
             [
@@ -882,7 +876,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'name'              => 'icon_picker',
                 'type'              => 'icon_picker',
                 'iconset'           => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
-                'tab'               => 'Miscellaneous',
+                
 
             ],
             [ // Table
@@ -897,7 +891,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 ],
                 'max' => 5, // maximum rows allowed in the table
                 'min' => 0, // minimum rows allowed in the table
-                'tab' => 'Miscellaneous',
+                
             ],
             [ // Table
                 'name'            => 'fake_table',
@@ -912,13 +906,12 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 'fake' => true,
                 'max'  => 5, // maximum rows allowed in the table
                 'min'  => 0, // minimum rows allowed in the table
-                'tab'  => 'Miscellaneous',
+                
             ],
             [
                 'name'  => 'url',
                 'type'  => 'url',
                 'label' => 'URL'.backpack_free_badge(),
-                'tab'   => 'Miscellaneous',
             ],
         ];
     }
