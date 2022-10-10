@@ -18,6 +18,12 @@ class PetCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+
+    public function fetchComments()
+    {
+        return $this->fetch('App\Models\PetShop\Comment');
+    }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -64,7 +70,7 @@ class PetCrudController extends CrudController
         CRUD::field('owners')->subfields([['name' => 'role', 'type' => 'text']])->hint('<small class="float-right">Choose related Owners over a <code>belongsToMany</code> relationship, and edit "role" on the pivot table (n-n).</small>');
         CRUD::field('skills')->hint('<small class="float-right">Choose related Skills over a <code>belongsToMany</code> relationship (n-n).</small>');
         CRUD::field('passport')->subfields(\App\Http\Controllers\Admin\PetShop\PassportCrudController::passportFields())->hint('<small class="float-right">Create, update or delete a related <code>hasOne</code> entry entirely (1-n).</small>');
-        CRUD::field('comments')->hint('<small class="float-right">Choose related Comments over a <code>morphMany</code> relationship (n-n).</small>');
+        CRUD::field('comments')->ajax('true')->hint('<small class="float-right">Choose related Comments over a <code>morphMany</code> relationship (n-n).</small>');
         CRUD::field('badges')->hint('<small class="float-right">Choose related Badges over a <code>morphToMany</code> relationship (n-n).</small>');
     }
 
