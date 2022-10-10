@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         Tag::factory()->count(21)->create();
 
         Category::truncate();
-        Category::factory()->count(4)->create();
+        Category::factory()->count(40)->create();
 
         Article::truncate();
         Article::factory()->count(1031)->create();

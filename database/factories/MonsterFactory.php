@@ -39,13 +39,7 @@ class MonsterFactory extends Factory
             'number'                  => rand(),
             'float'                   => rand(),
             'belongs_to_non_nullable' => 0,
-            'select'                  => function () {
-                if (rand(1, 100) % 50 == 0) {
-                    return Category::factory()->create()->id;
-                } else {
-                    return rand(1, 10);
-                }
-            },
+            'select'                  => rand(1, 40),
         ];
     }
 }
