@@ -19,6 +19,12 @@ class OwnerCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+
+    public function fetchComments()
+    {
+        return $this->fetch('App\Models\PetShop\Comment');
+    }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -61,7 +67,7 @@ class OwnerCrudController extends CrudController
         CRUD::field('pets')->subfields([
             ['name' => 'role', 'type' => 'text'],
         ])->hint('<small class="float-right">Choose related entries with a <code>belongsToMany</code> relationship and pivot fields (n-n with pivot).</small>');
-        CRUD::field('comments')->hint('<small class="float-right">Choose related entries with a <code>morphMany</code> relationship (1-n).</small>');
+        CRUD::field('comments')->ajax('true')->hint('<small class="float-right">Choose related entries with a <code>morphMany</code> relationship (1-n).</small>');
         CRUD::field('badges')->subfields([
             ['name' => 'note', 'type' => 'text'],
         ])->hint('<small class="float-right">Choose related entries with a <code>morphToMany</code> relationship and pivot fields (n-n with pivot).</small>');
