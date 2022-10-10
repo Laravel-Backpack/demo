@@ -15,7 +15,8 @@ class MillionCommentsSeeder extends Seeder
     public $pets;
     public $texts;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->faker = app()->make(Generator::class);
         $this->owners = Owner::all();
         $this->pets = Pet::all();
@@ -38,10 +39,10 @@ class MillionCommentsSeeder extends Seeder
             $commentable_id = $commentable->getKey();
 
             $comments = array_fill(0, 1000, [
-                'body' => $body,
+                'body'             => $body,
                 'commentable_type' => $commentable_type,
-                'commentable_id' => $commentable_id,
-                'user_id' => rand(1, 50),
+                'commentable_id'   => $commentable_id,
+                'user_id'          => rand(1, 50),
             ]);
 
             DB::table('comments')->insertOrIgnore($comments);
