@@ -125,19 +125,9 @@ class ColumnMonsterCrudController extends MonsterCrudController
             ],
             [ // Date_range
                 'name'       => 'start_date', // a unique name for this field
-                'label'      => 'Date Range Start'.backpack_pro_badge(),
+                'label'      => 'Date Range'.backpack_pro_badge(),
                 'type'       => 'date_range',
-                // OPTIONALS
-                'date_range_options' => [ // options sent to daterangepicker.js
-                    'timePicker' => true,
-                    'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
-                ],
-                'tab' => 'Time and space',
-            ],
-            [ // Date_range
-                'name'       => 'end_date', // a unique name for this field
-                'label'      => 'Date Range End'.backpack_pro_badge(),
-                'type'       => 'date_range',
+                'default'    => ['2020-03-28 01:01', '2020-04-05 02:00'],
                 // OPTIONALS
                 'date_range_options' => [ // options sent to daterangepicker.js
                     'timePicker' => true,
