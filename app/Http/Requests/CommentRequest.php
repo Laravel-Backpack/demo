@@ -25,10 +25,10 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'                         => 'required|string',
+            'body' => 'required|string',
             'commentable.commentable_type' => 'required|string',
-            'commentable.commentable_id'   => 'required|integer',
-            'user_id'                      => 'required|string',
+            'commentable.commentable_id' => 'required|integer',
+            'user' => 'required',
         ];
     }
 
