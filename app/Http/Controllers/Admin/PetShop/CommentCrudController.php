@@ -73,9 +73,9 @@ class CommentCrudController extends CrudController
             ->addMorphOption('App\Models\PetShop\Owner', 'Owner', ['attribute' => 'name'])
             ->addMorphOption('monster')
             ->addMorphOption('App\Models\PetShop\Pet', 'Pet', [
-                'data_source' => backpack_url('pet-shop/comment/fetch/pets'),
+                'data_source'          => backpack_url('pet-shop/comment/fetch/pets'),
                 'minimum_input_length' => 2,
-                'placeholder' => 'Select a fluffy pet',
+                'placeholder'          => 'Select a fluffy pet',
             ])
             ->addMorphOption('user')
             ->morphTypeField(['wrapper' => ['class' => 'form-group col-md-4']])
