@@ -53,11 +53,7 @@ class CommentCrudController extends CrudController
         // CRUD::column('commentable_id');
         CRUD::column('user');
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);.
-         */
+        CRUD::setOperationSetting('showEntryCount', false);
     }
 
     /**
@@ -72,7 +68,6 @@ class CommentCrudController extends CrudController
         CRUD::setValidation(CommentRequest::class);
 
         CRUD::field('body');
-
         CRUD::field('commentable')
             ->label('For')
             ->addMorphOption('App\Models\PetShop\Owner', 'Owner', ['attribute' => 'name'])
@@ -85,13 +80,7 @@ class CommentCrudController extends CrudController
             ->addMorphOption('user')
             ->morphTypeField(['wrapper' => ['class' => 'form-group col-md-4']])
             ->morphIdField(['wrapper' => ['class' => 'form-group col-md-8']]);
-        CRUD::field('user_id');
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));.
-         */
+        CRUD::field('user');
     }
 
     /**

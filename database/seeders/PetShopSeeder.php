@@ -35,6 +35,7 @@ class PetShopSeeder extends Seeder
         $this->call(OwnerSeeder::class);
         $this->call(SkillSeeder::class);
         $this->call(BadgeSeeder::class);
+        $this->call(MillionCommentsSeeder::class);
 
         $pets = Pet::all();
         $owners = Owner::all();
