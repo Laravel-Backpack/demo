@@ -30,6 +30,9 @@ class CreatePassportsTable extends Migration
             $table->string('colour')->nullable();
             $table->text('notes')->nullable();
             $table->string('country');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('full_address')->nullable();
             $table->timestamps();
         });
 

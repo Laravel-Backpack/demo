@@ -29,6 +29,8 @@ class Passport extends Model
         'colour',
         'notes',
         'country',
+        'lat',
+        'lng',
     ];
 
     /**
@@ -37,15 +39,30 @@ class Passport extends Model
      * @var array
      */
     protected $casts = [
-        'id'            => 'integer',
-        'pet_id'        => 'integer',
+        'id' => 'integer',
+        'pet_id' => 'integer',
         'issuance_date' => 'date',
-        'expiry_date'   => 'date',
-        'birth_date'    => 'date',
+        'expiry_date' => 'date',
+        'birth_date' => 'date',
     ];
 
     public function pet()
     {
         return $this->belongsTo(\App\Models\PetShop\Pet::class, 'pet_id');
+    }
+
+    protected function location(): \Illuminate\Database\Eloquent\Casts\Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => json_encode(['lat' => $attributes['lat'] ?? '', 'lng' => $attributes['lng'] ?? '', 'formatted_address' => $attributes['full_address'] ?? ''], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_THROW_ON_ERROR),
+            set: function($value) {
+                $location = json_decode($value);
+                return [
+                    'lat' => $location->lat ?? '',
+                    'lng' => $location->lng ?? '',
+                    'full_address' => $location->formatted_address ?? ''
+                ];
+            }
+        );
     }
 }
