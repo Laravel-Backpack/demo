@@ -25,10 +25,10 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'             => 'required|string',
-            'commentable_type' => 'required|string',
-            'commentable_id'   => 'required|integer',
-            'user_id'          => 'required|string',
+            'body'                         => 'required|string',
+            'commentable.commentable_type' => 'required|string',
+            'commentable.commentable_id'   => 'required|integer',
+            'user'                         => 'required',
         ];
     }
 
@@ -52,7 +52,7 @@ class CommentRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'commentable.commentable_id' => 'This field is required.',
         ];
     }
 }

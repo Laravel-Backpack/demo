@@ -37,6 +37,8 @@ class Monster extends Model
         // 'select2_from_array'    => 'array'
     ];
 
+    public $identifiableAttribute = 'text';
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
