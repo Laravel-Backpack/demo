@@ -37,12 +37,9 @@ class ColumnMonsterCrudController extends MonsterCrudController
 
         $timeSpaceColumns = static::getFieldsArrayForTimeAndSpaceTab();
         // Removing "time_range" column definition as time_range name is in array & array column functionality is in progress
-        if($timeSpaceColumns)
-        {
-            foreach($timeSpaceColumns as $columnKey => $timeSpaceColumn)
-            {
-                if($timeSpaceColumn['type'] == "date_range")
-                {
+        if ($timeSpaceColumns) {
+            foreach ($timeSpaceColumns as $columnKey => $timeSpaceColumn) {
+                if ($timeSpaceColumn['type'] == 'date_range') {
                     unset($timeSpaceColumns[$columnKey]);
                 }
             }
