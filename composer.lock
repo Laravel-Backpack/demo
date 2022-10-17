@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "5.3.13",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "114b7d53b0569e6499375511ab39013a957e1903"
+                "reference": "ebbe9a12760538cf20e9c174d7d113b5ed8e8040"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/114b7d53b0569e6499375511ab39013a957e1903",
-                "reference": "114b7d53b0569e6499375511ab39013a957e1903",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/ebbe9a12760538cf20e9c174d7d113b5ed8e8040",
+                "reference": "ebbe9a12760538cf20e9c174d7d113b5ed8e8040",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 "digitallyhappy/assets": "^2.0.1",
                 "doctrine/dbal": "^2.5|^3.0",
                 "guzzlehttp/guzzle": "^7.0|^6.3",
-                "laravel/framework": "^9.0|^8.26",
+                "laravel/framework": "^9.0|^8.69",
                 "prologue/alerts": "^1.0|^0.4"
             },
             "require-dev": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.3.13"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.4.0"
             },
-            "time": "2022-09-28T12:45:30+00:00"
+            "time": "2022-10-17T10:33:38+00:00"
         },
         {
             "name": "backpack/editable-columns",
