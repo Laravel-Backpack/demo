@@ -27,7 +27,18 @@ class ProductCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        CRUD::addColumns(['name', 'description']); // add multiple columns, at the end of the stack
+        CRUD::addColumns(['name']); // add multiple columns, at the end of the stack
+        CRUD::addColumn([
+            'name'          => 'status',
+            'type'          => 'enum',
+            'enum_function' => 'getReadableStatus',
+        ]);
+        CRUD::addColumn([
+            'name'          => 'condition',
+            'type'          => 'enum',
+            'enum_class'    => 'App\Enums\ProductCondition',
+            'enum_function' => 'getReadableCondition',
+        ]);
         CRUD::addColumn([
             'name'           => 'price',
             'type'           => 'number',
@@ -155,6 +166,20 @@ class ProductCrudController extends CrudController
             //    'class' => 'form-group col-md-6'
             //  ], // extra HTML attributes for the field wrapper - mostly for resizing fields
             'tab' => 'Basic Info',
+        ]);
+        CRUD::addField([   // Number
+            'name'  => 'status',
+            'label' => 'Status',
+            'type'  => 'enum',
+            'tab'   => 'Basic Info',
+        ]);
+        CRUD::addField([   // Number
+            'name'          => 'condition',
+            'label'         => 'Condition',
+            'type'          => 'enum',
+            'tab'           => 'Basic Info',
+            'enum_class'    => 'App\Enums\ProductCondition',
+            'enum_function' => 'getReadableCondition',
         ]);
 
         CRUD::addFields([
