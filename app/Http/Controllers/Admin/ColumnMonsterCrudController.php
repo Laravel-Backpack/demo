@@ -43,7 +43,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
             {
                 if($timeSpaceColumn['type'] == "date_range")
                 {
-                    @unset($timeSpaceColumns[$columnKey]);
+                    unset($timeSpaceColumns[$columnKey]);
                 }
             }
         }
