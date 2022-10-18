@@ -630,7 +630,7 @@ class MonsterCrudController extends CrudController
         if (env('GOOGLE_PLACES_KEY')) {
             $fields[] = [   // Address_google
                 'name'          => 'address_google',
-                'label'         => 'Address_google ' . backpack_pro_badge(),
+                'label'         => 'Address_google '.backpack_pro_badge(),
                 'type'          => 'address_google',
                 'fake'          => true,
                 'store_as_json' => true,
