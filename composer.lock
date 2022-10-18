@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "5.4.0",
+            "version": "5.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "ebbe9a12760538cf20e9c174d7d113b5ed8e8040"
+                "reference": "da63612d0c9a674c79bd50f31d76ae9ada7eaac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/ebbe9a12760538cf20e9c174d7d113b5ed8e8040",
-                "reference": "ebbe9a12760538cf20e9c174d7d113b5ed8e8040",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/da63612d0c9a674c79bd50f31d76ae9ada7eaac8",
+                "reference": "da63612d0c9a674c79bd50f31d76ae9ada7eaac8",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.4.0"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.4.2"
             },
-            "time": "2022-10-17T10:33:38+00:00"
+            "time": "2022-10-17T17:33:26+00:00"
         },
         {
             "name": "backpack/editable-columns",
