@@ -45,10 +45,22 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
         }
 
+        $relationshipColumns = static::getFieldsArrayForRelationshipsTab();
+        //echo '<pre>'; print_r($relationshipColumns); exit;
+
+        // Removing "time_range" column definition as time_range name is in array & array column functionality is in progress
+        if ($relationshipColumns) {
+            foreach ($relationshipColumns as $columnKey => $relationshipColumn) {
+                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
+                    unset($relationshipColumns[$columnKey]);
+                }
+            }
+        }
+
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
         $this->crud->addColumns(static::getFieldsArrayForSelectsTab());
-        $this->crud->addColumns(static::getFieldsArrayForRelationshipsTab());
+        $this->crud->addColumns($relationshipColumns);
         $this->crud->addColumns(static::getFieldsArrayForUploadsTab());
         $this->crud->addColumns(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addColumns(static::getFieldsArrayForMiscellaneousTab());
