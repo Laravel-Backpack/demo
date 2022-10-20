@@ -36,19 +36,21 @@ class ColumnMonsterCrudController extends MonsterCrudController
         $this->crud->disableResponsiveTable();
 
         $timeSpaceColumns = static::getFieldsArrayForTimeAndSpaceTab();
-        // Removing "time_range" column definition as time_range name is in array & array column functionality is in progress
+        // Changed "time_range" column definition (changed "name" in comma separeated & convert "name" key in column definition)
         if ($timeSpaceColumns) {
             foreach ($timeSpaceColumns as $columnKey => $timeSpaceColumn) {
                 if ($timeSpaceColumn['type'] == 'date_range') {
                     unset($timeSpaceColumns[$columnKey]);
+
+                    // Creating new variable array to over-ride date_range column as that is "unset" above
+                    $timeSpaceColumnDateRange = array('name' => 'start_date,end_date', 'label' => $timeSpaceColumn['label'], 'type' => $timeSpaceColumn['type']);
+                    $timeSpaceColumns[$columnKey] = $timeSpaceColumnDateRange;
                 }
             }
         }
 
         $relationshipColumns = static::getFieldsArrayForRelationshipsTab();
-        //echo '<pre>'; print_r($relationshipColumns); exit;
-
-        // Removing "time_range" column definition as time_range name is in array & array column functionality is in progress
+        // Removing "custom_html" column definition
         if ($relationshipColumns) {
             foreach ($relationshipColumns as $columnKey => $relationshipColumn) {
                 if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
