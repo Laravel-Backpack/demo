@@ -40,10 +40,12 @@ class ColumnMonsterCrudController extends MonsterCrudController
         if ($timeSpaceColumns) {
             foreach ($timeSpaceColumns as $columnKey => $timeSpaceColumn) {
                 if ($timeSpaceColumn['type'] == 'date_range') {
+                    $dateRangeFieldName = $timeSpaceColumn['name'];
+                    $dateRangeColumnName = implode(",", $dateRangeFieldName);
                     unset($timeSpaceColumns[$columnKey]);
 
                     // Creating new variable array to over-ride date_range column as that is "unset" above
-                    $timeSpaceColumnDateRange = ['name' => 'start_date,end_date', 'label' => $timeSpaceColumn['label'], 'type' => $timeSpaceColumn['type']];
+                    $timeSpaceColumnDateRange = ['name' => $dateRangeColumnName, 'label' => $timeSpaceColumn['label'], 'type' => $timeSpaceColumn['type']];
                     $timeSpaceColumns[$columnKey] = $timeSpaceColumnDateRange;
                 }
             }
