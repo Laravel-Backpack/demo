@@ -61,13 +61,26 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
         }
 
+        $miscellaneousColumns = static::getFieldsArrayForMiscellaneousTab();
+        // Adding extra attributes in "range" column definition
+        if ($miscellaneousColumns) {
+            foreach ($miscellaneousColumns as $columnKey => $miscellaneousColumn) {
+                if (isset($miscellaneousColumn['type']) && ($miscellaneousColumn['type'] == 'range')) {
+                    // Creating new variable array to over-ride date_range column as that is "unset" above
+                    $miscColumnRange = ['name' => $miscellaneousColumn['name'], 'label' => $miscellaneousColumn['label'], 'type' => $miscellaneousColumn['type'], 'progress_class' => 'progress-bar bg-success', 'is_striped' => '1', 'attributes' => $miscellaneousColumn['attributes'], 'tab' => $miscellaneousColumn['tab'], 'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes']];
+
+                    $miscellaneousColumns[$columnKey] = $miscColumnRange;
+                }
+            }
+        }
+
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
         $this->crud->addColumns(static::getFieldsArrayForSelectsTab());
         $this->crud->addColumns($relationshipColumns);
         $this->crud->addColumns(static::getFieldsArrayForUploadsTab());
         $this->crud->addColumns(static::getFieldsArrayForWysiwygEditorsTab());
-        $this->crud->addColumns(static::getFieldsArrayForMiscellaneousTab());
+        $this->crud->addColumns($miscellaneousColumns);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
