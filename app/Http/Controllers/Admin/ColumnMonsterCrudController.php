@@ -68,16 +68,16 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 if (isset($miscellaneousColumn['type']) && ($miscellaneousColumn['type'] == 'range')) {
                     // Creating new variable array to over-ride date_range column as that is "unset" above
                     $miscColumnRange = [
-                        'name' => $miscellaneousColumn['name'],
-                        'label' => $miscellaneousColumn['label'],
-                        'type' => $miscellaneousColumn['type'],
-                        'progress_class' => 'bg-success',
-                        'is_striped' => '1',
-                        'attributes' => $miscellaneousColumn['attributes'],
-                        'tab' => $miscellaneousColumn['tab'],
-                        'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes']
+                        'name'              => $miscellaneousColumn['name'],
+                        'label'             => $miscellaneousColumn['label'],
+                        'type'              => $miscellaneousColumn['type'],
+                        'progress_class'    => 'bg-success',
+                        'is_striped'        => '1',
+                        'attributes'        => $miscellaneousColumn['attributes'],
+                        'tab'               => $miscellaneousColumn['tab'],
+                        'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes'],
                     ];
-                    
+
                     $miscellaneousColumns[$columnKey] = $miscColumnRange;
                 }
             }
