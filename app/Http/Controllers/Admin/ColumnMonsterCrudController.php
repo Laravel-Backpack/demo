@@ -65,7 +65,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
         // Adding extra attributes in "range" column definition
         if ($miscellaneousColumns) {
             foreach ($miscellaneousColumns as $columnKey => $miscellaneousColumn) {
-                if (isset($miscellaneousColumn['type']) && ($miscellaneousColumn['type'] == 'range')) {
+                if ($miscellaneousColumn['type'] == 'range') {
                     // Creating new variable array to over-ride date_range column as that is "unset" above
                     $miscColumnRange = [
                         'name'              => $miscellaneousColumn['name'],
@@ -74,6 +74,22 @@ class ColumnMonsterCrudController extends MonsterCrudController
                         'progress_class'    => 'bg-success',
                         'is_striped'        => '1',
                         'attributes'        => $miscellaneousColumn['attributes'],
+                        'tab'               => $miscellaneousColumn['tab'],
+                        'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes'],
+                    ];
+
+                    $miscellaneousColumns[$columnKey] = $miscColumnRange;
+                }
+                else if ($miscellaneousColumn['type'] == 'color' || $miscellaneousColumn['type'] == 'color_picker') {
+                    // Creating new variable array to over-ride date_range column as that is "unset" above
+                    // Over-write Show color hex setting by variable
+                    $showColorHex = "0";
+
+                    $miscColumnRange = [
+                        'name'              => $miscellaneousColumn['name'],
+                        'label'             => $miscellaneousColumn['label'],
+                        'type'              => $miscellaneousColumn['type'],
+                        'showColorHex'      => isset($miscellaneousColumn['showColorHex']) ? "1" : $showColorHex,
                         'tab'               => $miscellaneousColumn['tab'],
                         'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes'],
                     ];
