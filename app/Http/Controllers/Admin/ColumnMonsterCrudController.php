@@ -79,17 +79,16 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     ];
 
                     $miscellaneousColumns[$columnKey] = $miscColumnRange;
-                }
-                else if ($miscellaneousColumn['type'] == 'color' || $miscellaneousColumn['type'] == 'color_picker') {
+                } elseif ($miscellaneousColumn['type'] == 'color' || $miscellaneousColumn['type'] == 'color_picker') {
                     // Creating new variable array to over-ride date_range column as that is "unset" above
                     // Over-write Show color hex setting by variable
-                    $showColorHex = "0";
+                    $showColorHex = '0';
 
                     $miscColumnRange = [
                         'name'              => $miscellaneousColumn['name'],
                         'label'             => $miscellaneousColumn['label'],
                         'type'              => $miscellaneousColumn['type'],
-                        'showColorHex'      => isset($miscellaneousColumn['showColorHex']) ? "1" : $showColorHex,
+                        'showColorHex'      => isset($miscellaneousColumn['showColorHex']) ? '1' : $showColorHex,
                         'tab'               => $miscellaneousColumn['tab'],
                         'wrapperAttributes' => $miscellaneousColumn['wrapperAttributes'],
                     ];
