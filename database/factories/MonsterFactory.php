@@ -39,6 +39,7 @@ class MonsterFactory extends Factory
             'float'                   => rand(),
             'belongs_to_non_nullable' => 0,
             'select'                  => rand(1, 40),
+            'icon_id'                 => rand(1, 4),
         ];
     }
 }
