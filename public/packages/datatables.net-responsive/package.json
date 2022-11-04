@@ -3,9 +3,10 @@
     "description": "Responsive for DataTables",
     "main": "js/dataTables.responsive.js",
     "types": "./types/types.d.ts",
-    "version": "2.2.9",
+    "version": "2.3.0",
     "files": [
-        "js/**/*.js"
+        "js/**/*.js",
+        "types/**/*.d.ts"
     ],
     "keywords": [
         "Responsive",
@@ -16,8 +17,8 @@
         "sort"
     ],
     "dependencies": {
-        "jquery": ">=1.7",
-        "datatables.net": "^1.10.15"
+        "datatables.net": ">=1.11.3",
+        "jquery": ">=1.7"
     },
     "moduleType": [
         "globals",

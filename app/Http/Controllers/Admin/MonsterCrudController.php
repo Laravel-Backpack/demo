@@ -92,12 +92,12 @@ class MonsterCrudController extends CrudController
                 },
             ],
             [
-                'name'  => 'name', // The db column name
+                'name'  => 'date', // The db column name
                 'label' => 'Date', // Table column heading
                 'type'  => 'date',
             ],
             [
-                'name'  => 'name', // The db column name
+                'name'  => 'datetime', // The db column name
                 'label' => 'Datetime', // Table column heading
                 'type'  => 'datetime',
             ],

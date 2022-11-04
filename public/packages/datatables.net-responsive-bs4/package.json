@@ -4,10 +4,11 @@
     "main": "js/responsive.bootstrap4.js",
     "style": "css/responsive.bootstrap4.css",
     "types": "./types/responsive.bootstrap4.d.ts",
-    "version": "2.2.9",
+    "version": "2.3.0",
     "files": [
         "css/**/*.css",
-        "js/**/*.js"
+        "js/**/*.js",
+        "types/**/*.d.ts"
     ],
     "keywords": [
         "Responsive",
@@ -20,9 +21,9 @@
         "sort"
     ],
     "dependencies": {
-        "jquery": ">=1.7",
-        "datatables.net-bs4": "^1.10.15",
-        "datatables.net-responsive": "2.2.9"
+        "datatables.net-responsive": ">=2.2.9",
+        "datatables.net-bs4": ">=1.11.3",
+        "jquery": ">=1.7"
     },
     "moduleType": [
         "globals",

@@ -28,8 +28,11 @@ class Comment extends Model
     */
 
     protected $table = 'comments';
+
     protected $primaryKey = 'id';
+
     public $timestamps = true;
+
     protected $guarded = ['id'];
     // protected $hidden = [];
     // protected $dates = [];
