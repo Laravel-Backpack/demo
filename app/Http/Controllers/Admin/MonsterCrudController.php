@@ -494,7 +494,7 @@ class MonsterCrudController extends CrudController
             ],
             [   // Phone
                 'name'              => 'phone',
-                'label'             => 'Phone' . backpack_pro_badge(),
+                'label'             => 'Phone'.backpack_pro_badge(),
                 'type'              => 'phone',
                 'fake'              => true,
                 'store_in'          => 'extras',
