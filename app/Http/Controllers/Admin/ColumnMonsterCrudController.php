@@ -61,7 +61,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     $wrapperClasses = explode(' ', $column['wrapper']['class'] ?? '');
                     $classes = [];
                     foreach ($wrapperClasses as $class) {
-                        if (! str_starts_with($class, 'col-')) {
+                        if (!str_starts_with($class, 'col-')) {
                             array_push($classes, $class);
                         }
                     }
@@ -107,7 +107,6 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
         }
 
-        
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
         $this->crud->addColumns($selectTabColumns = static::getFieldsArrayForSelectsTab());
