@@ -55,18 +55,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
         // Removing "custom_html" column definition
         if ($relationshipColumns) {
             foreach ($relationshipColumns as $columnKey => &$relationshipColumn) {
-                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
-                    unset($relationshipColumns[$columnKey]);
-
-                    continue;
-                }
                 // unset the `col-` bootstrap size classes as they would break the columns in the table.
                 // we should do this in all columns this is just a draft for relationships
                 if (isset($column['wrapper']['class'])) {
                     $wrapperClasses = explode(' ', $column['wrapper']['class'] ?? '');
                     $classes = [];
                     foreach ($wrapperClasses as $class) {
-                        if (!str_starts_with($class, 'col-')) {
+                        if (! str_starts_with($class, 'col-')) {
                             array_push($classes, $class);
                         }
                     }
@@ -112,40 +107,20 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
         }
 
-        $selectTabColumns = static::getFieldsArrayForSelectsTab();
-        // Removing "custom_html" column definition
-        if ($selectTabColumns) {
-            foreach ($selectTabColumns as $columnKey => &$relationshipColumn) {
-                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
-                    unset($selectTabColumns[$columnKey]);
-
-                    continue;
-                }
-            }
-        }
-
-        $uploadTabColumns = static::getFieldsArrayForUploadsTab();
-        // Removing "custom_html" column definition
-        if ($uploadTabColumns) {
-            foreach ($uploadTabColumns as $columnKey => &$relationshipColumn) {
-                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
-                    unset($uploadTabColumns[$columnKey]);
-
-                    continue;
-                }
-            }
-        }
-
+        
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
-        $this->crud->addColumns($selectTabColumns);
+        $this->crud->addColumns($selectTabColumns = static::getFieldsArrayForSelectsTab());
         $this->crud->addColumns($relationshipColumns);
-        $this->crud->addColumns($uploadTabColumns);
+        $this->crud->addColumns(static::getFieldsArrayForUploadsTab());
         $this->crud->addColumns(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addColumns($miscellaneousColumns);
 
+        // remove all custom_html columns
         foreach ($this->crud->columns() as $key => $column) {
-            $this->crud->modifyColumn($key, $this->crud->makeSureFieldHasNecessaryAttributes($column));
+            if (isset($column['type']) && ($column['type'] === 'custom_html')) {
+                $this->crud->removeColumn($columnKey);
+            }
         }
         /**
          * Columns can be defined using the fluent syntax or array syntax:

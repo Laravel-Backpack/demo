@@ -722,6 +722,9 @@ class MonsterCrudController extends CrudController
                     ],
                     [
                         'name' => 'body',
+                        'wrapper' => [
+                            'class' => 'text-danger'
+                        ]
                     ],
                     [
                         'name' => 'universes',
