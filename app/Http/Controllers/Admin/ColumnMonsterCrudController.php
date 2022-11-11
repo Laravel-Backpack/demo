@@ -112,11 +112,35 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
         }
 
+        $selectTabColumns = static::getFieldsArrayForSelectsTab();
+        // Removing "custom_html" column definition
+        if ($selectTabColumns) {
+            foreach ($selectTabColumns as $columnKey => &$relationshipColumn) {
+                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
+                    unset($selectTabColumns[$columnKey]);
+
+                    continue;
+                }
+            }
+        }
+
+        $uploadTabColumns = static::getFieldsArrayForUploadsTab();
+        // Removing "custom_html" column definition
+        if ($uploadTabColumns) {
+            foreach ($uploadTabColumns as $columnKey => &$relationshipColumn) {
+                if (isset($relationshipColumn['type']) && ($relationshipColumn['type'] == 'custom_html')) {
+                    unset($uploadTabColumns[$columnKey]);
+
+                    continue;
+                }
+            }
+        }
+
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
-        $this->crud->addColumns(static::getFieldsArrayForSelectsTab());
+        $this->crud->addColumns($selectTabColumns);
         $this->crud->addColumns($relationshipColumns);
-        $this->crud->addColumns(static::getFieldsArrayForUploadsTab());
+        $this->crud->addColumns($uploadTabColumns);
         $this->crud->addColumns(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addColumns($miscellaneousColumns);
 
