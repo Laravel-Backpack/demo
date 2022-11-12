@@ -34,7 +34,7 @@
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
         "laracasts/generators": "^2.0",
         "backpack/generators": "^3.1",
-        "barryvdh/laravel-debugbar": "^3.2"
+        "backpack/devtools": "^1.2"
     },
     "repositories": [
         {
