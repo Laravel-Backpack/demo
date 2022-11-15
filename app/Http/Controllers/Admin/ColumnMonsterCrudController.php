@@ -61,7 +61,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     $wrapperClasses = explode(' ', $column['wrapper']['class'] ?? '');
                     $classes = [];
                     foreach ($wrapperClasses as $class) {
-                        if (!str_starts_with($class, 'col-')) {
+                        if (! str_starts_with($class, 'col-')) {
                             array_push($classes, $class);
                         }
                     }
@@ -116,8 +116,8 @@ class ColumnMonsterCrudController extends MonsterCrudController
         $this->crud->addColumns($miscellaneousColumns);
 
         // remove all custom_html columns
-        foreach ($this->crud->columns() as $key => $column) {
-            if (isset($column['type']) && ($column['type'] === 'custom_html')) {
+        foreach ($this->crud->columns() as $columnKey => $column) {
+            if (isset($column['type']) && $column['type'] === 'custom_html') {
                 $this->crud->removeColumn($columnKey);
             }
         }
