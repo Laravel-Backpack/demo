@@ -61,7 +61,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                     $wrapperClasses = explode(' ', $column['wrapper']['class'] ?? '');
                     $classes = [];
                     foreach ($wrapperClasses as $class) {
-                        if (! str_starts_with($class, 'col-')) {
+                        if (!str_starts_with($class, 'col-')) {
                             array_push($classes, $class);
                         }
                     }
