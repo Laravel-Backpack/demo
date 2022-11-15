@@ -279,8 +279,10 @@ class Monster extends Model
             // 2. Store the image on disk.
             \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
 
-            // 3. Delete the previous image, if there was one.
-            \Storage::disk($disk)->delete($this->{$attribute_name});
+            // delete previous image from the disk
+            if ($this->{$attribute_name}) {
+                \Storage::disk($disk)->delete($this->{$attribute_name});
+            }
 
             // 4. Save the public path to the database
             // but first, remove "public/" from the path, since we're pointing to it from the root folder
