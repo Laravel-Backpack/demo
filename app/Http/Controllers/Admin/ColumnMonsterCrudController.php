@@ -36,14 +36,13 @@ class ColumnMonsterCrudController extends MonsterCrudController
         $this->crud->disableResponsiveTable();
 
         $timeSpaceColumns = static::getFieldsArrayForTimeAndSpaceTab();
-       
+
         foreach ($timeSpaceColumns as $columnKey => $column) {
             // transform field array names into comma separated string
-            if(is_array($column['name'])) {
+            if (is_array($column['name'])) {
                 $timeSpaceColumns[$columnKey]['name'] = implode(',', $column['name']);
             }
         }
-
 
         $this->crud->addColumns(static::getFieldsArrayForSimpleTab());
         $this->crud->addColumns($timeSpaceColumns);
@@ -51,9 +50,8 @@ class ColumnMonsterCrudController extends MonsterCrudController
         $this->crud->addColumns(static::getFieldsArrayForRelationshipsTab());
         $this->crud->addColumns(static::getFieldsArrayForUploadsTab());
         $this->crud->addColumns(static::getFieldsArrayForWysiwygEditorsTab());
-        $this->crud->addColumns(static::getFieldsArrayForMiscellaneousTab()); 
+        $this->crud->addColumns(static::getFieldsArrayForMiscellaneousTab());
 
-        
         foreach ($this->crud->columns() as $columnKey => $column) {
             // remove all custom_html columns
             if (isset($column['type']) && $column['type'] === 'custom_html') {
