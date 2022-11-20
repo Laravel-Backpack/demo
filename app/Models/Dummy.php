@@ -9,6 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Dummy extends Model
 {
     use CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
     use HasRoles;
 
     /*

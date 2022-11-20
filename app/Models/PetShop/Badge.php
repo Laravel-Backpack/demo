@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Badge extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
     use HasFactory;
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PostalBox extends Model
 {
     use CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
 
     /*
     |--------------------------------------------------------------------------

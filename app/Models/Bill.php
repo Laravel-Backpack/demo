@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bill extends Model
 {
     use CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
     use HasFactory;
 
     /*

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
 
     /*
     |--------------------------------------------------------------------------

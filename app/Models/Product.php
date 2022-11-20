@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use CrudTrait;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
     use HasTranslations;
     use HasFactory;
 

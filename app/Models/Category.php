@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends OriginalCategory
 {
     use HasFactory;
+    use \Backpack\ActivityLog\app\Traits\LogsActivity;
 }

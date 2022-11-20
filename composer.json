@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^9.0",
+        "backpack/activity-log": "dev-main",
         "backpack/crud": "^5.1",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
@@ -40,6 +41,10 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/activity-log/"
         }
     ],
     "autoload": {
