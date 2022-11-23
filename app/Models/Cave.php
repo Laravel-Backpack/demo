@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cave extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    use \Backpack\ActivityLog\app\Traits\LogsActivity;
+    use \Backpack\ActivityLog\Traits\LogsActivity;
     use HasFactory;
 
     /**

@@ -9,7 +9,7 @@ use Venturecraft\Revisionable\RevisionableTrait;
 class Icon extends Model
 {
     use CrudTrait;
-    use \Backpack\ActivityLog\app\Traits\LogsActivity;
+    use \Backpack\ActivityLog\Traits\LogsActivity;
     use RevisionableTrait;
 
     /*

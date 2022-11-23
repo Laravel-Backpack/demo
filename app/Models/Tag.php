@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Tag extends OriginalTag
 {
     use HasFactory;
-    use \Backpack\ActivityLog\app\Traits\LogsActivity;
+    use \Backpack\ActivityLog\Traits\LogsActivity;
 }
