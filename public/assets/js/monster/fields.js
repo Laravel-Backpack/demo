@@ -36,6 +36,7 @@ var monsterFields = [
     'upload', // upload
     'upload_multiple', // upload_multiple
     'url', // url
+    'switch', // switch
     // view
     'week', // week
     'address_algolia', 'address_algolia_string', // address_algolia PRO
