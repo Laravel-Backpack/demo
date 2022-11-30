@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "5.4.7",
+            "version": "5.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6e1bb116de9f3091530cb9b11edcceb4d252daa8"
+                "reference": "8110e1ff07db2dae68fef6e6f0ad947805650577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6e1bb116de9f3091530cb9b11edcceb4d252daa8",
-                "reference": "6e1bb116de9f3091530cb9b11edcceb4d252daa8",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/8110e1ff07db2dae68fef6e6f0ad947805650577",
+                "reference": "8110e1ff07db2dae68fef6e6f0ad947805650577",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.4.7"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/5.4.9"
             },
-            "time": "2022-10-31T16:17:25+00:00"
+            "time": "2022-11-30T15:30:02+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -638,20 +638,20 @@
         },
         {
             "name": "backpack/pro",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "65ffdd8f5811180e358d7292ded0918e63699284"
+                "reference": "8af61596a5037d629257ba8561a9f85e36c876e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-65ffdd8f5811180e358d7292ded0918e63699284-zip-43e9b6.zip",
-                "reference": "65ffdd8f5811180e358d7292ded0918e63699284",
-                "shasum": "c51cb216365dde9121e0756aac45fd427d6bb609"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-8af61596a5037d629257ba8561a9f85e36c876e3-zip-410cdb.zip",
+                "reference": "8af61596a5037d629257ba8561a9f85e36c876e3",
+                "shasum": "a0b13557ceb8af9ac107a8dbb309130a96e0353c"
             },
             "require": {
-                "backpack/crud": "^5.4.6"
+                "backpack/crud": "^5.4.9"
             },
             "require-dev": {
                 "orchestra/testbench": "~5|~6",
@@ -700,10 +700,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/1.3.1",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/1.4.0",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2022-10-27T05:51:33+00:00"
+            "time": "2022-11-30T15:42:12+00:00"
         },
         {
             "name": "backpack/revise-operation",
