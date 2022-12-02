@@ -35,16 +35,25 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'packages/backpack/base/css/bundle.css',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/backpack/base/css/bundle.css',
 
         // Here's what's inside the bundle:
-        // 'packages/@digitallyhappy/backstrap/css/style.min.css',
-        // 'packages/animate.css/animate.min.css',
-        // 'packages/noty/noty.css',
+        // 'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/@digitallyhappy/backstrap/css/style.min.css',
+        // 'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/animate.css/animate.min.css',
+        // 'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/noty/noty.css',
 
         // Load the fonts separately (so that you can replace them at will):
-        'packages/source-sans-pro/source-sans-pro.css',
-        'packages/line-awesome/css/line-awesome.min.css',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/source-sans-pro.css',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/WOFF2/TTF/SourceSansPro-Bold.ttf.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/WOFF2/TTF/SourceSansPro-Semibold.ttf.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/WOFF2/TTF/SourceSansPro-Regular.ttf.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/WOFF2/TTF/SourceSansPro-Light.ttf.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/source-sans-pro/WOFF2/TTF/SourceSansPro-It.ttf.woff2',
+
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/line-awesome/css/line-awesome.min.css',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/line-awesome/fonts/la-regular-400.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/line-awesome/fonts/la-solid-900.woff2',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/line-awesome/fonts/la-brands-400.woff2',
 
         // Example (the fonts above, loaded from CDN instead)
         // 'https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css',
@@ -123,7 +132,7 @@ return [
         'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
 
         // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
-        'packages/backpack/base/js/bundle.js',
+        'https://cdn.jsdelivr.net/gh/laravel-backpack/crud@5.4.7/src/public/packages/backpack/base/js/bundle.js',
 
         // examples (everything inside the bundle, loaded from CDN)
         // 'https://code.jquery.com/jquery-3.4.1.min.js',
