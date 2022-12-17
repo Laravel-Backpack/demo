@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\PetShop;
 
 use App\Http\Requests\CommentRequest;
+use App\Models\PetShop\Pet;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -18,6 +20,12 @@ class CommentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use FetchOperation;
+
+    public function fetchPets()
+    {
+        return $this->fetch(Pet::class);
+    }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -59,9 +67,19 @@ class CommentCrudController extends CrudController
     {
         CRUD::setValidation(CommentRequest::class);
 
-        CRUD::field('body');
-        CRUD::field('commentable_type')->type('text');
-        CRUD::field('commentable_id')->type('text');
+        CRUD::field('body')->type('easymde');
+        CRUD::field('commentable')
+            ->label('For')
+            ->addMorphOption('App\Models\PetShop\Owner', 'Owner', ['attribute' => 'name'])
+            ->addMorphOption('monster')
+            ->addMorphOption('App\Models\PetShop\Pet', 'Pet', [
+                'data_source'          => backpack_url('pet-shop/comment/fetch/pets'),
+                'minimum_input_length' => 2,
+                'placeholder'          => 'Select a fluffy pet',
+            ])
+            ->addMorphOption('user')
+            ->morphTypeField(['wrapper' => ['class' => 'form-group col-md-4']])
+            ->morphIdField(['wrapper' => ['class' => 'form-group col-md-8']]);
         CRUD::field('user');
     }
 
