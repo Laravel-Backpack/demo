@@ -32,7 +32,7 @@ class Passport extends Model
         'country',
         'lat',
         'lng',
-        'location'
+        'location',
     ];
 
     /**
