@@ -66,7 +66,7 @@ class PassportCrudController extends CrudController
     {
         CRUD::setValidation(PassportRequest::class);
 
-        CRUD::field('pet')->wrapper(['class' => 'form-group col-md-6']);
+        CRUD::field('pet');
         CRUD::addFields(self::passportFields());
     }
 

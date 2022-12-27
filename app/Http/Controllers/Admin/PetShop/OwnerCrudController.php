@@ -62,7 +62,7 @@ class OwnerCrudController extends CrudController
     {
         CRUD::setValidation(OwnerRequest::class);
 
-        CRUD::field('name')->wrapper(['class' => 'form-group col-md-6']);
+        CRUD::field('name');
         CRUD::field('avatar.url')->type('browse')->label('Avatar')->hint('<small class="float-right">Edit one attribute on a <code>morphOne</code> related item (1-1).</small>');
         CRUD::field('pets')->subfields([
             ['name' => 'role', 'type' => 'text'],
