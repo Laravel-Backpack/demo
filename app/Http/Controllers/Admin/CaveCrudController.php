@@ -136,7 +136,7 @@ class CaveCrudController extends CrudController
                 unset($subfields[$key]);
             }
 
-            if (! isset($subfield['type'])) {
+            if (!isset($subfield['type'])) {
                 continue;
             }
 
