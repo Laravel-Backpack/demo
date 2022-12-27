@@ -16,7 +16,7 @@ class Owner extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'address',
+        'name',
     ];
 
     /**
