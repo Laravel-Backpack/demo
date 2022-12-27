@@ -275,7 +275,7 @@ class MonsterCrudController extends CrudController
 
             $this->crud->addField([
                 'name'    => 'location',
-                'label'   => 'Google_map ' . backpack_pro_badge(),
+                'label'   => 'Google_map '.backpack_pro_badge(),
                 'type'    => 'google_map',
                 'fake'    => true,
                 'tab'     => 'Time and space',
