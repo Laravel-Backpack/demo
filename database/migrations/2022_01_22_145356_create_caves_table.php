@@ -16,6 +16,9 @@ class CreateCavesTable extends Migration
         Schema::create('caves', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('full_address')->nullable();
             $table->timestamps();
         });
     }

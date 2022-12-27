@@ -264,6 +264,17 @@ class MonsterCrudController extends CrudController
         $this->crud->addFields(static::getFieldsArrayForMiscellaneousTab());
 
         if (env('GOOGLE_PLACES_KEY')) {
+            $this->crud->addField([
+                'name'  => 'location',
+                'label' => 'Google Map '.backpack_pro_badge(),
+                'type'  => 'google_map',
+                'fake'  => true,
+                'tab'   => 'Time and space',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ]);
+
             $this->crud->addField([   // Address_google
                 'name'          => 'address_google',
                 'label'         => 'Address_google '.backpack_pro_badge(),
@@ -271,8 +282,11 @@ class MonsterCrudController extends CrudController
                 'fake'          => true,
                 'store_as_json' => true,
                 'tab'           => 'Time and space',
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
             ]);
-        }
+        } 
 
         // if you want to test removeField, uncomment the following line
         // $this->crud->removeField('url');

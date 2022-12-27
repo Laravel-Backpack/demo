@@ -68,13 +68,6 @@ class PassportCrudController extends CrudController
 
         CRUD::field('pet')->wrapper(['class' => 'form-group col-md-6']);
         CRUD::addFields(self::passportFields());
-        if (env('GOOGLE_PLACES_KEY')) {
-            CRUD::addField([
-                'name'  => 'location',
-                'label' => 'Address',
-                'type'  => 'google_map',
-            ])->afterField('number');
-        }
     }
 
     public static function passportFields()
