@@ -272,6 +272,14 @@ class MonsterCrudController extends CrudController
                 'store_as_json' => true,
                 'tab'           => 'Time and space',
             ]);
+
+            $this->crud->addField([
+                'name'    => 'location',
+                'label'   => 'Google_map '.backpack_pro_badge(),
+                'type'    => 'google_map',
+                'fake'    => true,
+                'tab'     => 'Time and space',
+            ]);
         }
 
         // if you want to test removeField, uncomment the following line

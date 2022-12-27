@@ -638,17 +638,17 @@
         },
         {
             "name": "backpack/pro",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "e2e570c5eba1679d227002955e000c0bcdddaad6"
+                "reference": "c0a06e816c2b2fbfa8dad614276173d47af1fb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-e2e570c5eba1679d227002955e000c0bcdddaad6-zip-e14d9f.zip",
-                "reference": "e2e570c5eba1679d227002955e000c0bcdddaad6",
-                "shasum": "6367d0cf0cbaf06694ee0dbd474961e075111698"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-c0a06e816c2b2fbfa8dad614276173d47af1fb4b-zip-a4e35c.zip",
+                "reference": "c0a06e816c2b2fbfa8dad614276173d47af1fb4b",
+                "shasum": "ebcad3444df185707de27900de7d65b37f821216"
             },
             "require": {
                 "backpack/crud": "^5.4.9"
@@ -700,10 +700,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/1.4.1",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/1.5.0",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2022-12-13T12:26:58+00:00"
+            "time": "2022-12-27T18:55:22+00:00"
         },
         {
             "name": "backpack/revise-operation",
