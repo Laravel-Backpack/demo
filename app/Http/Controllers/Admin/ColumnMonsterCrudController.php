@@ -60,16 +60,32 @@ class ColumnMonsterCrudController extends MonsterCrudController
             }
             // unset the `col-` bootstrap size classes as they would break the columns in the table.
             if (isset($column['wrapper']['class'])) {
-                $wrapperClasses = explode(' ', $column['wrapper']['class'] ?? '');
-                $classes = [];
-                foreach ($wrapperClasses as $class) {
-                    if (!str_starts_with($class, 'col-')) {
-                        array_push($classes, $class);
+                $column['wrapper']['class'] = $this->removeBootstrapSizingClasses($column['wrapper']['class']);
+            }
+
+            if(isset($column['subfields'])) {
+                $subfields = $column['subfields'];
+                foreach ($subfields as $subfieldKey => $subfield) {
+                    if (isset($subfield['wrapper']['class'])) {
+                        $subfields[$subfieldKey]['wrapper']['class'] = $this->removeBootstrapSizingClasses($subfield['wrapper']['class']);
                     }
                 }
-                $column['wrapper']['class'] = implode(' ', $classes);
+                $column['subfields'] = $subfields;
             }
             $this->crud->modifyColumn($columnKey, $column);
         }
+    }
+
+    private function removeBootstrapSizingClasses($classes)
+    {
+        $classes = explode(' ', $classes);
+        $newClasses = [];
+        foreach ($classes as $class) {
+            if (!str_starts_with($class, 'col-')) {
+                array_push($newClasses, $class);
+            }
+        }
+
+        return implode(' ', $newClasses);
     }
 }
