@@ -22,6 +22,7 @@ var monsterFields = [
     'hidden', // hidden
     'month', // month
     'number', 'float', 'number_with_prefix', 'number_with_suffix', 'text_with_both_prefix_and_suffix', // number
+    'phone', // phone
     'password', // password
     'radio', // radio
     'range', // range
@@ -36,6 +37,7 @@ var monsterFields = [
     'upload', // upload
     'upload_multiple', // upload_multiple
     'url', // url
+    'switch', // switch
     // view
     'week', // week
     'address_algolia', 'address_algolia_string', // address_algolia PRO

@@ -263,6 +263,25 @@ class MonsterCrudController extends CrudController
         $this->crud->addFields(static::getFieldsArrayForWysiwygEditorsTab());
         $this->crud->addFields(static::getFieldsArrayForMiscellaneousTab());
 
+        if (env('GOOGLE_PLACES_KEY')) {
+            $this->crud->addField([   // Address_google
+                'name'          => 'address_google',
+                'label'         => 'Address_google '.backpack_pro_badge(),
+                'type'          => 'address_google',
+                'fake'          => true,
+                'store_as_json' => true,
+                'tab'           => 'Time and space',
+            ]);
+
+            $this->crud->addField([
+                'name'    => 'location',
+                'label'   => 'Google_map '.backpack_pro_badge(),
+                'type'    => 'google_map',
+                'fake'    => true,
+                'tab'     => 'Time and space',
+            ]);
+        }
+
         // if you want to test removeField, uncomment the following line
         // $this->crud->removeField('url');
     }
@@ -479,14 +498,23 @@ class MonsterCrudController extends CrudController
                 'fake'              => true,
                 'store_in'          => 'extras',
                 'tab'               => 'Simple',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
+            ],
+            [   // Phone
+                'name'              => 'phone',
+                'label'             => 'Phone'.backpack_pro_badge(),
+                'type'              => 'phone',
+                'fake'              => true,
+                'store_in'          => 'extras',
+                'tab'               => 'Simple',
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
             ],
             [   // Password
                 'name'              => 'password',
                 'label'             => 'Password'.backpack_free_badge(),
                 'type'              => 'password',
                 'tab'               => 'Simple',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-4'],
             ],
             [
                 'name'    => 'radio', // the name of the db column
