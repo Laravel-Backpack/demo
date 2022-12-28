@@ -63,7 +63,7 @@ class ColumnMonsterCrudController extends MonsterCrudController
                 $column['wrapper']['class'] = $this->removeBootstrapSizingClasses($column['wrapper']['class']);
             }
 
-            if(isset($column['subfields'])) {
+            if (isset($column['subfields'])) {
                 $subfields = $column['subfields'];
                 foreach ($subfields as $subfieldKey => $subfield) {
                     if (isset($subfield['wrapper']['class'])) {
