@@ -8,7 +8,7 @@
         "php": "^8.0",
         "laravel/framework": "^9.0",
         "digitallyhappy/assets": "dev-bassets as 2.99.99",
-        "backpack/crud": "dev-v6 as 5.99.99",
+        "backpack/crud": "v6.x-dev as 5.99.99",
         "backpack/pro": "dev-bassets as 1.99.99",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
@@ -74,18 +74,14 @@
             "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
         "test": "vendor/bin/phpunit --testdox",
-        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear",
-        "bp-assets-publish": "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force",
-        "bp-assets-link": "cd public && rm -rf packages || true && ln -s ../vendor/backpack/crud/src/public/packages && cd ../",
-        "bp-assets-unlink": "rm -rf public/packages || true && composer bp-assets-publish"
+        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear"
     },
     "config": {
         "preferred-install": "dist",

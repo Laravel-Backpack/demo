@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96a369e1e1feca9ecfd537994eb12a9f",
-    "content-hash": "731ddb1f00b62bc53da2adfaf4e86923",
+    "content-hash": "0d58c0381ca9835b003068241374d651",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -76,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "dev-bassets",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "7211e62b6663ca4d437641bf701e338a015b7320"
+                "reference": "7472d9dbc6ae447ba39b1e3ac12533f972ca0cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/7211e62b6663ca4d437641bf701e338a015b7320",
-                "reference": "7211e62b6663ca4d437641bf701e338a015b7320",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/7472d9dbc6ae447ba39b1e3ac12533f972ca0cf2",
+                "reference": "7472d9dbc6ae447ba39b1e3ac12533f972ca0cf2",
                 "shasum": ""
             },
             "require": {
@@ -164,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/bassets"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
             },
-            "time": "2022-12-10T16:30:43+00:00"
+            "time": "2023-01-04T10:19:23+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -652,7 +651,7 @@
                 "shasum": "ceabeab2c335bbd47c95b9dc5f2712dc01bf0b83"
             },
             "require": {
-                "backpack/crud": "^5.4.9"
+                "backpack/crud": "^5.4.6"
             },
             "require-dev": {
                 "orchestra/testbench": "~5|~6",
@@ -2795,16 +2794,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.45.1",
+            "version": "v9.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "faeb20d3fc61b69790068161ab42bcf2d5faccbc"
+                "reference": "62b05b6de5733d89378a279e40230a71e5ab5d92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/faeb20d3fc61b69790068161ab42bcf2d5faccbc",
-                "reference": "faeb20d3fc61b69790068161ab42bcf2d5faccbc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/62b05b6de5733d89378a279e40230a71e5ab5d92",
+                "reference": "62b05b6de5733d89378a279e40230a71e5ab5d92",
                 "shasum": ""
             },
             "require": {
@@ -2977,7 +2976,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-12-21T19:37:46+00:00"
+            "time": "2023-01-03T15:12:31+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -5300,16 +5299,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.6.3",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "2db918babd96f87b73fc26e4195f5a19328dd123"
+                "reference": "1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/2db918babd96f87b73fc26e4195f5a19328dd123",
-                "reference": "2db918babd96f87b73fc26e4195f5a19328dd123",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc",
+                "reference": "1a2b4bd3d48c72526c0ba417687e5c56b5cf49bc",
                 "shasum": ""
             },
             "require": {
@@ -5386,7 +5385,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-26T15:13:03+00:00"
+            "time": "2023-01-03T19:28:04+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -8003,16 +8002,16 @@
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.5",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19"
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/4348a3a06651827a27d989ad1d13efec6bb49b19",
-                "reference": "4348a3a06651827a27d989ad1d13efec6bb49b19",
+                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/c42125b83a4fa63b187fdf29f9c93cb7733da30c",
+                "reference": "c42125b83a4fa63b187fdf29f9c93cb7733da30c",
                 "shasum": ""
             },
             "require": {
@@ -8050,9 +8049,9 @@
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "support": {
                 "issues": "https://github.com/tijsverkoyen/CssToInlineStyles/issues",
-                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.5"
+                "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.6"
             },
-            "time": "2022-09-12T13:28:28+00:00"
+            "time": "2023-01-03T09:29:04+00:00"
         },
         {
             "name": "venturecraft/revisionable",
@@ -10558,7 +10557,7 @@
     "aliases": [
         {
             "package": "backpack/crud",
-            "version": "dev-bassets",
+            "version": "6.9999999.9999999.9999999-dev",
             "alias": "5.99.99",
             "alias_normalized": "5.99.99.0"
         },
