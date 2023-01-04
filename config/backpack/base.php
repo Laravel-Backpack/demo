@@ -35,23 +35,8 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'packages/backpack/base/css/bundle.css',
-
-        // Here's what's inside the bundle:
-        // 'packages/@digitallyhappy/backstrap/css/style.min.css',
-        // 'packages/animate.css/animate.min.css',
-        // 'packages/noty/noty.css',
-
-        // Load the fonts separately (so that you can replace them at will):
-        'packages/source-sans-pro/source-sans-pro.css',
-        'packages/line-awesome/css/line-awesome.min.css',
-
-        // Example (the fonts above, loaded from CDN instead)
-        // 'https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css',
-        // 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic',
-
-        // Example (load font-awesome instead of line-awesome):
-        // 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css',
+        // 'styles/example.css',
+        // 'https://some-cdn.com/example.css',
     ],
 
     // CSS files that are loaded in all pages, using Laravel's mix() helper
@@ -119,25 +104,7 @@ return [
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
-        // Plausible Analytics
-        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
-
-        // Backstrap includes jQuery, Bootstrap, CoreUI, PNotify, Popper
-        'packages/backpack/base/js/bundle.js',
-
-        // examples (everything inside the bundle, loaded from CDN)
-        // 'https://code.jquery.com/jquery-3.4.1.min.js',
-        // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
-        // 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
-        // 'https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js',
-        // 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
-        // 'https://unpkg.com/sweetalert/dist/sweetalert.min.js',
-        // 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js'
-
-        // examples (VueJS or React)
-        // 'https://unpkg.com/vue@2.4.4/dist/vue.min.js',
-        // 'https://unpkg.com/react@16/umd/react.production.min.js',
-        // 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js',
+        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js', // Plausible Analytics
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper

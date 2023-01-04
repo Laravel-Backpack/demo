@@ -7,7 +7,9 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^9.0",
-        "backpack/crud": "^5.1",
+        "digitallyhappy/assets": "dev-bassets as 2.99.99",
+        "backpack/crud": "dev-v6 as 5.99.99",
+        "backpack/pro": "dev-bassets as 1.99.99",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
