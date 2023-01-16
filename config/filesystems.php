@@ -65,6 +65,13 @@ return [
             'root'   => public_path('uploads'),
         ],
 
+        'products' => [ // used for demonstration purposes on Products controler
+            'driver' => 'local',
+            'root'   => storage_path('app/public/products'),
+            'url' => '/products',
+            'visibility' => 'public'
+        ],
+
         'backups' => [ // used for Backpack/BackupManager
             'driver' => 'local',
             'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
@@ -83,6 +90,10 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+    ],
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+        public_path('products') => storage_path('app/public/products'),
     ],
 
 ];
