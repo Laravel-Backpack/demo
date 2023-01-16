@@ -229,52 +229,50 @@ class ProductCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'name'   => 'specifications',
-            'type'   => 'upload_multiple',
-            'disk'   => 'products',
-            'upload' => true,
-            'tab'    => 'Product Media',
+            'name'    => 'specifications',
+            'type'    => 'upload_multiple',
+            'disk'    => 'products',
+            'upload'  => true,
+            'tab'     => 'Product Media',
             'wrapper' => [
                 'class' => 'form-group col-md-3',
             ],
         ]);
 
         CRUD::addField([
-                'name'    => 'image_drm',
-                'label'   => 'Image DRM',
-                'type'    => 'upload',
-                'disk'    => 'products',
-                'tab'     => 'Product Media',
-                'upload'  => true,
-                'wrapper' => [
-                    'class' => 'form-group col-md-3',
-                ],
-            ]);
-        
+            'name'    => 'image_drm',
+            'label'   => 'Image DRM',
+            'type'    => 'upload',
+            'disk'    => 'products',
+            'tab'     => 'Product Media',
+            'upload'  => true,
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
+
         CRUD::addField([
-            'name' => 'gallery',
-            'type' => 'repeatable',
-            'tab' => 'Product Media',
+            'name'      => 'gallery',
+            'type'      => 'repeatable',
+            'tab'       => 'Product Media',
             'subfields' => [
                 [
-                    'name' => 'image_title',
-                    'type' => 'text',
+                    'name'    => 'image_title',
+                    'type'    => 'text',
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
                 ],
                 [
-                    'name' => 'image',
-                    'type' => 'image',
-                    'disk' => 'products',
+                    'name'    => 'image',
+                    'type'    => 'image',
+                    'disk'    => 'products',
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
                 ],
-            ]
+            ],
         ]);
-        
-             
 
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }

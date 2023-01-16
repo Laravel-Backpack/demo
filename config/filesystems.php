@@ -66,10 +66,10 @@ return [
         ],
 
         'products' => [ // used for demonstration purposes on Products controler
-            'driver' => 'local',
-            'root'   => storage_path('app/public/products'),
-            'url' => '/products',
-            'visibility' => 'public'
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/products'),
+            'url'        => '/products',
+            'visibility' => 'public',
         ],
 
         'backups' => [ // used for Backpack/BackupManager
@@ -92,7 +92,7 @@ return [
 
     ],
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        public_path('storage')  => storage_path('app/public'),
         public_path('products') => storage_path('app/public/products'),
     ],
 
