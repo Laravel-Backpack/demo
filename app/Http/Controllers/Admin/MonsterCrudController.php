@@ -107,6 +107,12 @@ class MonsterCrudController extends CrudController
                 'type'  => 'email',
             ],
             [
+                'name' => 'status',
+                'type' => 'enum',
+                'label' => 'Enum',
+                'enum_function' => 'getReadableStatus',
+            ],
+            [
                 // show both text and email values in one column
                 // this column is here to demo and test the custom searchLogic functionality
                 'name'          => 'model_function',
@@ -528,6 +534,12 @@ class MonsterCrudController extends CrudController
                 // optional
                 'inline' => true, // show the radios all on the same line?
                 'tab'    => 'Simple',
+            ],
+            [
+                'name'  => 'status',
+                'label' => 'Status (enum)'.backpack_free_badge(),
+                'type'  => 'enum',
+                'tab'   => 'Simple',
             ],
             [   // Checkbox
                 'name'  => 'checkbox',

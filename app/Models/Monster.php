@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
+use App\Enums\MonsterStatus;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Spatie\Permission\Traits\HasRoles;
 
 class Monster extends Model
 {
@@ -37,6 +38,7 @@ class Monster extends Model
         'upload_multiple'       => 'array',
         'browse_multiple'       => 'array',
         'wysiwyg'               => 'json',
+        'status' => MonsterStatus::class,
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array'     => 'array',
         // 'select2_from_array'    => 'array'
