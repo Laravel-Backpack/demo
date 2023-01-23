@@ -1268,7 +1268,7 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'WYSIWYG Editors',
             ],
             [   // CKEditor
-                'name'  => 'wysiwyg',
+                'name'  => 'ckeditor',
                 'label' => 'CKEditor - also called the WYSIWYG field'.backpack_pro_badge(),
                 'type'  => 'ckeditor',
                 'tab'   => 'WYSIWYG Editors',
@@ -1279,6 +1279,12 @@ class MonsterCrudController extends CrudController
                 'type'  => 'tinymce',
                 'tab'   => 'WYSIWYG Editors',
             ],
+            [   // Wysiwyg
+                'name'  => 'wysiwyg',
+                'label' => 'Wysiwyg'.backpack_pro_badge(),
+                'type'  => 'wysiwyg',
+                'tab'   => 'WYSIWYG Editors',
+            ]
         ];
     }
 
