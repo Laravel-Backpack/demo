@@ -254,6 +254,44 @@ class MonsterCrudController extends CrudController
             'type'   => 'upload_multiple',
             // 'prefix' => 'uploads/',
         ]);
+
+        $this->crud->addColumn([
+            'name' => 'switch',
+            'label' => 'Checkbox',
+            'type' => 'checkbox',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'my_custom_html',
+            'label' => 'Custom HTML',
+            'type' => 'custom_html',
+            'value' => '<span class="text-danger">Something</span>',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'features',
+            'label' => 'JSON',
+            'type' => 'json',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'id',
+            'type' => 'number',
+            'label' => '#',
+            'orderable' => false,
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'browse_multiple',
+            'type' => 'array',
+            'label' => 'Array',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'dummyproducts',
+            'type' => 'relationship',
+            'label' => 'Relationship', // Table column heading
+         ]);
     }
 
     protected function setupCreateOperation()
