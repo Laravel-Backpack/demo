@@ -290,8 +290,191 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'dummyproducts',
             'type' => 'relationship',
-            'label' => 'Relationship', // Table column heading
-         ]);
+            'label' => 'Relationship',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'address_algolia',
+            'type' => 'address_algolia',
+            'label' => 'Address Algolia',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'address_google',
+            'type' => 'address_google',
+            'label' => 'Address Google',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'browse',
+            'type' => 'browse',
+            'label' => 'Browse',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'roles',
+            'type' => 'checklist',
+            'label' => 'Checklist',
+            'entity' => 'roles',
+            'attribute' => 'name',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'ckeditor',
+            'type' => 'ckeditor',
+            'label' => 'Ckeditor',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'color',
+            'type' => 'color',
+            'label' => 'Color',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'color_picker',
+            'type' => 'color_picker',
+            'label' => 'Color Picker',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'date_picker',
+            'type' => 'date_picker',
+            'label' => 'Date Picker',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'datetime_picker',
+            'type' => 'datetime_picker',
+            'label' => 'Datetime Picker',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'location',
+            'type' => 'google_map',
+            'label' => 'Google Map',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'icon_picker',
+            'type' => 'icon_picker',
+            'label' => 'Icon Picker',
+            'iconset' => 'fontawesome',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'month',
+            'type' => 'month',
+            'label' => 'Month',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'range',
+            'type' => 'range',
+            'label' => 'Range',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select_and_order',
+            'type' => 'select_and_order',
+            'label' => 'Select And Order',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select_grouped_id',
+            'type' => 'select_grouped',
+            'label' => 'Select Grouped',
+            'entity' => 'article',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select2',
+            'type' => 'select2',
+            'label' => 'Select2',
+            'entity' => 'categorySelect2',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select2_from_ajax',
+            'type' => 'select2_from_ajax',
+            'label' => 'Select2 From Ajax',
+            'entity' => 'article',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select2_from_array',
+            'type' => 'select2_from_array',
+            'label' => 'Select2 From Array',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select2_grouped_id',
+            'type' => 'select2_grouped',
+            'label' => 'Select2 Grouped',
+            'entity' => 'article',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'categories',
+            'type' => 'select2_multiple',
+            'label' => 'Select2 Multiple',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'select2_nested_id',
+            'type' => 'select2_nested',
+            'label' => 'Select2 Nested',
+            'entity' => 'category',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'slug',
+            'type' => 'slug',
+            'label' => 'Slug',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'summernote',
+            'type' => 'summernote',
+            'label' => 'Summernote',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'time',
+            'type' => 'time',
+            'label' => 'Time',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'tinymce',
+            'type' => 'tinymce',
+            'label' => 'TinyMCE',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'upload',
+            'type' => 'upload',
+            'label' => 'Upload',
+            'disk'   => 'uploads',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'url',
+            'type' => 'url',
+            'label' => 'URL',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'week',
+            'type' => 'week',
+            'label' => 'Week',
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'wysiwyg',
+            'type' => 'wysiwyg',
+            'label' => 'Wysiwyg',
+        ]);
     }
 
     protected function setupCreateOperation()
