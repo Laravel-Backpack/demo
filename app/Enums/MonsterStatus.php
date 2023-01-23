@@ -11,9 +11,9 @@ enum MonsterStatus: string
     public function getReadableStatus()
     {
         return match ($this) {
-            MonsterStatus::WORKING => 'Is working',
+            MonsterStatus::WORKING    => 'Is working',
             MonsterStatus::NOTWORKING => 'Is not working',
-            MonsterStatus::DONTKNOW  => 'We didn\'t know',
+            MonsterStatus::DONTKNOW   => 'We didn\'t know',
         };
     }
 }
