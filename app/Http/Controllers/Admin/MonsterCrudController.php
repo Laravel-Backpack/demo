@@ -1367,6 +1367,34 @@ class MonsterCrudController extends CrudController
                 'label' => 'URL'.backpack_free_badge(),
                 'tab'   => 'Miscellaneous',
             ],
+            [
+                'name' => 'features',
+                'label' => 'Features'.backpack_pro_badge(),
+                'type' => 'repeatable',
+                'fake' => true,
+                'subfields' => [
+                    [
+                        'name'    => 'feature',
+                        'wrapper' => [
+                            'class' => 'col-md-3',
+                        ],
+                    ],
+                    [
+                        'name'    => 'value',
+                        'wrapper' => [
+                            'class' => 'col-md-6',
+                        ],
+                    ],
+                    [
+                        'name'    => 'quantity',
+                        'type'    => 'number',
+                        'wrapper' => [
+                            'class' => 'col-md-3',
+                        ],
+                    ],
+                ],
+                'tab' => 'Miscellaneous',
+            ]
         ];
     }
 }
