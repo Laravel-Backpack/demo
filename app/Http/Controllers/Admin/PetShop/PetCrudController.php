@@ -86,4 +86,9 @@ class PetCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+    public function setupBulkTrashOperation()
+    {
+        $this->setupTrashOperation();
+    }
 }
