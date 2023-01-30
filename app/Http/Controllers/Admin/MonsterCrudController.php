@@ -14,6 +14,7 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DropzoneOperation;
 
     public function setup()
     {
@@ -1214,6 +1215,21 @@ class MonsterCrudController extends CrudController
             'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
             // 'disk' => config('backpack.base.root_disk_name'), // in case you need to show images from a different disk
             // 'prefix' => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
+            'tab' => 'Uploads',
+        ];
+
+        $fields[] = [ // dropzone
+            'label' => 'Dropzone'.backpack_pro_badge(),
+            'name' => 'dropzone',
+            'type' => 'dropzone',
+            'disk' => 'public',
+            'destination_path' => 'products/',
+            'image_width' => 800,
+            'image_height' => 600,
+            'mimes' => 'image/*',
+            'max_file_size' => 5, // MB
+            'thumb_prefix' => '',
+            'hint' => 'Some info',
             'tab' => 'Uploads',
         ];
 
