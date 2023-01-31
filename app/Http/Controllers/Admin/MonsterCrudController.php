@@ -70,10 +70,10 @@ class MonsterCrudController extends CrudController
                     'element' => 'span',
                     'class'   => function ($crud, $column, $entry, $related_key) {
                         if ($column['text'] == 'Yes') {
-                            return 'badge badge-success';
+                            return 'badge bg-success';
                         }
 
-                        return 'badge badge-default';
+                        return 'badge bg-default';
                     },
                 ],
             ],
@@ -575,7 +575,7 @@ class MonsterCrudController extends CrudController
                 'tab'               => 'Time and space',
             ],
             [   // Date
-                // <span class="badge badge-pill badge-primary">PRO</span>
+                // <span class="badge badge-pill bg-primary">PRO</span>
                 'name'  => 'date_picker',
                 'label' => 'Date picker (jQuery plugin)'.backpack_pro_badge(),
                 'type'  => 'date_picker',
@@ -1248,14 +1248,6 @@ class MonsterCrudController extends CrudController
                 'name'  => 'color',
                 'label' => 'Color picker (HTML5 spec)'.backpack_free_badge(),
                 'type'  => 'color',
-                // 'wrapperAttributes' => ['class' => 'col-md-6'],
-                'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [   // Color
-                'name'  => 'color_picker',
-                'label' => 'Color picker (jQuery plugin)'.backpack_pro_badge(),
-                'type'  => 'color_picker',
                 // 'wrapperAttributes' => ['class' => 'col-md-6'],
                 'tab'               => 'Miscellaneous',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],

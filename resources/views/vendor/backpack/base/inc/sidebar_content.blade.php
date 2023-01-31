@@ -42,9 +42,9 @@
   <a class="nav-link nav-group-toggle" href="#"><i class="nav-icon la la-optin-monster"></i> Monsters & Stuff</a>
   <ul class="nav-dropdown-items nav-group-items">
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon la la-optin-monster"></i> <span>Monsters</span></a></li>
-      <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span class="badge badge-pill badge-warning">New</span></a></li>
-      <li class='nav-item'><a class='nav-link' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span class="badge badge-pill badge-warning">New</span></a></li>
-      {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('hero') }}'><i class='nav-icon la la-mask'></i> Heroes <span class="badge badge-pill badge-warning">New</span></a></li> --}}
+      <li class='nav-item'><a class='nav-link' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span class="badge badge-pill bg-warning">New</span></a></li>
+      <li class='nav-item'><a class='nav-link' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span class="badge badge-pill bg-warning">New</span></a></li>
+      {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('hero') }}'><i class='nav-icon la la-mask'></i> Heroes <span class="badge badge-pill bg-warning">New</span></a></li> --}}
   </ul>
 </li>
 
@@ -62,7 +62,7 @@
 
 
 <li class="nav-group">
-  <a class="nav-link nav-group-toggle" href="#"><i class="nav-icon la la-dog"></i> Pet Shop <span class="badge badge-pill badge-warning mr-4">New</span></a>
+  <a class="nav-link nav-group-toggle" href="#"><i class="nav-icon la la-dog"></i> Pet Shop <span class="badge badge-pill bg-warning mr-4">New</span></a>
   <ul class="nav-dropdown-items nav-group-items">
       <li class='nav-item'><a class='nav-link' href='{{ backpack_url('pet-shop/about') }}'><i class='nav-icon la la-question'></i> About</a></li>
       <li class='nav-item'><a class='nav-link' href='{{ backpack_url('pet-shop/invoice') }}'><i class='nav-icon la la-file-text'></i> Invoices</a></li>
