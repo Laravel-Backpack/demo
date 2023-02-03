@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61a5a23eb4fa491381efe3fb1f313b6",
+    "content-hash": "5ae6a0ca2d54493c2b2df24a3cdbbbd7",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -75,16 +75,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "v6.x-dev",
+            "version": "dev-bootstrap5-theme-coreui-v4-legacy",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "4aa68fcdf09c126c13a4bdd1e30752785bf235ee"
+                "reference": "07e9f5d7aa9daafcf0ac7d30c4fb77d76687e138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/4aa68fcdf09c126c13a4bdd1e30752785bf235ee",
-                "reference": "4aa68fcdf09c126c13a4bdd1e30752785bf235ee",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/07e9f5d7aa9daafcf0ac7d30c4fb77d76687e138",
+                "reference": "07e9f5d7aa9daafcf0ac7d30c4fb77d76687e138",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/bassets-removed-bundle-themes"
             },
-            "time": "2023-01-30T15:48:09+00:00"
+            "time": "2023-01-31T02:33:53+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -638,20 +638,20 @@
         },
         {
             "name": "backpack/pro",
-            "version": "v6.x-dev",
+            "version": "dev-bootstrap5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "2457bffa2ab4ad10c0d72042015a0c3c6dfbae7e"
+                "reference": "44ee1e1375adefa2fa8ec1ec7be6e8e0ecac5543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-2457bffa2ab4ad10c0d72042015a0c3c6dfbae7e-zip-6f41a4.zip",
-                "reference": "2457bffa2ab4ad10c0d72042015a0c3c6dfbae7e",
-                "shasum": "02e63d973aa6cb853af141b7a102159881b0ae15"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-44ee1e1375adefa2fa8ec1ec7be6e8e0ecac5543-zip-f604d5.zip",
+                "reference": "44ee1e1375adefa2fa8ec1ec7be6e8e0ecac5543",
+                "shasum": "11507856365bb1ef8733556e99f1d5c333e3fca7"
             },
             "require": {
-                "backpack/crud": "^5.4.9"
+                "backpack/crud": "^5.4.6"
             },
             "require-dev": {
                 "orchestra/testbench": "~5|~6",
@@ -700,10 +700,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/v6",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/bootstrap5",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-01-30T15:57:59+00:00"
+            "time": "2023-01-31T02:36:31+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -10560,13 +10560,13 @@
     "aliases": [
         {
             "package": "backpack/crud",
-            "version": "6.9999999.9999999.9999999-dev",
+            "version": "dev-bootstrap5-theme-coreui-v4-legacy",
             "alias": "5.99.99",
             "alias_normalized": "5.99.99.0"
         },
         {
             "package": "backpack/pro",
-            "version": "6.9999999.9999999.9999999-dev",
+            "version": "dev-bootstrap5",
             "alias": "1.99.99",
             "alias_normalized": "1.99.99.0"
         },
