@@ -1222,13 +1222,6 @@ class MonsterCrudController extends CrudController
             'label' => 'Dropzone'.backpack_pro_badge(),
             'name' => 'dropzone',
             'type' => 'dropzone',
-            'disk' => 'public',
-            'destination_path' => 'products/',
-            'image_width' => 800,
-            'image_height' => 600,
-            'mimes' => 'image/*',
-            'max_file_size' => 5, // MB
-            'thumb_prefix' => '',
             'hint' => 'Some info',
             'tab' => 'Uploads',
         ];
