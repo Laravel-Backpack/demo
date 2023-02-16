@@ -224,8 +224,7 @@ class Monster extends Model
      */
     public function getSummernoteAttribute($value)
     {
-        //return clean($value);
-        return $value;
+        return clean($value);
     }
 
     /*

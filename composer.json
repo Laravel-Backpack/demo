@@ -25,7 +25,8 @@
         "venturecraft/revisionable": "dev-patch-1 as 1.1.99",
         "backpack/newscrud": "^4.0",
         "backpack/menucrud": "^3.0",
-        "backpack/revise-operation": "^1.0"
+        "backpack/revise-operation": "^1.0",
+        "mews/purifier": "dev-patch-1 as 3.3"
         
     },
     "require-dev": {
@@ -45,6 +46,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/pxpm/revisionable.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/pxpm/Purifier.git"
         },
         {
             "type": "composer",
