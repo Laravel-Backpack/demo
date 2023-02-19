@@ -276,4 +276,7 @@ return [
     */
 
     'license_code' => env('BACKPACK_LICENSE', false),
+
+    'temp_disk_name' => 'public',
+    'temp_upload_folder_name' => 'backpack/temp',
 ];

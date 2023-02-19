@@ -14,7 +14,7 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DropzoneOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation;
 
     public function setup()
     {
@@ -282,6 +282,66 @@ class MonsterCrudController extends CrudController
                 'tab'     => 'Time and space',
             ]);
         }
+
+        $this->crud->field('photos')->type('dropzone')->disk('public')->prefix('assets/monsters')->tab('Uploads');
+
+        \App\Models\Monster::saving(function($entry) {
+            $temp_disk = config('backpack.base.temp_disk_name') ?? 'public';
+            $temp_folder = config('backpack.base.temp_upload_folder_name') ?? 'backpack/temp';
+            $updated_files = [];
+
+            foreach ($entry->dropzone as $key => $value) {
+                if (!empty($value['delete']) && $value['delete']  == 1) {
+                    // If the file was deleted
+                    \Storage::disk($temp_disk)->delete($value['path']);
+                } else if(!empty($value['path']) && strpos($value['path'], $temp_folder) !== false) {
+                    // If the file was uploaded and entity submitted
+                    try {
+                        $name = substr($value['path'], strrpos($value['path'], '/') + 1);
+                        $move = \Storage::disk('public')->move($value['path'], 'uploads/monsters/' . $name);
+        
+                        if($move) {
+                            $value['path'] = str_replace($temp_folder, 'uploads/monsters', $value['path']);
+                            $value['url'] = str_replace($temp_folder, 'uploads/monsters', $value['url']);
+                            $updated_files[] = $value;
+                        }
+                    } catch (\Throwable $th) {
+                        dd($th);
+                    }
+                } else {
+                    // If the file was not changed
+                    $updated_files[] = $value;
+                }
+
+                $entry->dropzone = $updated_files;
+            }
+        });
+
+        $this->crud->addField([ // Extra Files
+            'name' => 'extra_files',
+            'label' => 'Extra files',
+            'type' => 'repeatable',
+            'tab' => 'Uploads',
+            'store_in'  => 'extras',
+            'fake' => true,
+            'subfields' => [
+                [
+                    'name' => 'type',
+                    'wrapper' => [
+                        'class' => 'col-md-6',
+                    ],
+                ],
+                [
+                    'name' => 'files',
+                    'type' => 'dropzone',
+                    'disk' => 'public',
+                    'hint' => 'Upload files here',
+                    'wrapper' => [
+                        'class' => 'col-md-6',
+                    ],
+                ],
+            ],
+        ]);
 
         // if you want to test removeField, uncomment the following line
         // $this->crud->removeField('url');
@@ -1222,6 +1282,7 @@ class MonsterCrudController extends CrudController
             'label' => 'Dropzone'.backpack_pro_badge(),
             'name' => 'dropzone',
             'type' => 'dropzone',
+            'disk' => 'public',
             'hint' => 'Some info',
             'tab' => 'Uploads',
         ];

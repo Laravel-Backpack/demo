@@ -32,6 +32,7 @@ class Monster extends Model
         'video'                 => 'array',
         'upload_multiple'       => 'array',
         'browse_multiple'       => 'array',
+        'dropzone'              => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array'     => 'array',
         // 'select2_from_array'    => 'array'
