@@ -35,23 +35,6 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css',
-        'https://unpkg.com/@coreui/coreui@4.2.4/dist/css/coreui.min.css',
-        'https://unpkg.com/animate.css@4.1.1/animate.compat.css',
-        'https://unpkg.com/noty@3.2.0-beta-deprecated/lib/noty.css',
-
-        'https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css',
-        'https://coreui.io/demos/bootstrap/4.2/free/vendors/simplebar/css/simplebar.css',
-        'https://coreui.io/demos/bootstrap/4.2/free/css/vendors/simplebar.css',
-        'https://coreui.io/demos/bootstrap/4.2/free/css/style.css',
-
-        // Load the fonts separately (so that you can replace them at will):
-        ['https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap', true, [], 'style'],
-
-        'https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff2',
-        'https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff2',
-        'https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff2',
     ],
 
     // CSS files that are loaded in all pages, using Laravel's mix() helper
@@ -119,23 +102,7 @@ return [
 
     // JS files that are loaded in all pages, using Laravel's asset() helper
     'scripts' => [
-        // Plausible Analytics
-        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',
-
-        'https://unpkg.com/jquery@3.6.1/dist/jquery.min.js',
-        'https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js',
-        'https://unpkg.com/noty@3.2.0-beta-deprecated/lib/noty.min.js',
-        'https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.min.js',
-        'https://unpkg.com/@coreui/coreui@4.2.4/dist/js/coreui.min.js',
-        'https://unpkg.com/pace-js@1.2.4/pace.min.js',
-        'https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js',
-
-        'https://unpkg.com/simplebar@latest/dist/simplebar.min.js',
-
-        // examples (VueJS or React)
-        // 'https://unpkg.com/vue@2.4.4/dist/vue.min.js',
-        // 'https://unpkg.com/react@16/umd/react.production.min.js',
-        // 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js',
+        'https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js',  // Plausible Analytics
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper
