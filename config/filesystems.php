@@ -48,17 +48,14 @@ return [
             'root'   => storage_path('app'),
         ],
 
-        // 'public' => [
-        //     'driver'     => 'local',
-        //     'root'       => storage_path('app/public'),
-        //     'visibility' => 'public',
-        // ],
-
         'public' => [
-            'driver'     => 'local',
-            'root'       => public_path(),
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
+            'throw' => false,
         ],
+
 
         'uploads' => [ // used for Backpack/CRUD (in elFinder)
             'driver' => 'local',
