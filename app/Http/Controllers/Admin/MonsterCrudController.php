@@ -285,7 +285,7 @@ class MonsterCrudController extends CrudController
 
         $this->crud->field('photos')->type('dropzone')->disk('public')->prefix('assets/monsters')->tab('Uploads');
 
-        \App\Models\Monster::saving(function($entry) {
+        \App\Models\Monster::saving(function ($entry) {
             $temp_disk = config('backpack.base.temp_disk_name') ?? 'public';
             $temp_folder = config('backpack.base.temp_upload_folder_name') ?? 'backpack/temp';
             $updated_files = [];
@@ -299,13 +299,13 @@ class MonsterCrudController extends CrudController
             }
 
             foreach ($entry->dropzone as $key => $value) {
-                if(!empty($value) && strpos($value, $temp_folder) !== false) {
+                if (!empty($value) && strpos($value, $temp_folder) !== false) {
                     // If the file was uploaded and entity submitted
                     try {
                         $name = substr($value, strrpos($value, '/') + 1);
-                        $move = \Storage::disk('public')->move($value, 'uploads/monsters/' . $name);
-        
-                        if($move) {
+                        $move = \Storage::disk('public')->move($value, 'uploads/monsters/'.$name);
+
+                        if ($move) {
                             $value = str_replace($temp_folder, 'uploads/monsters', $value);
                             $updated_files[] = $value;
                         }
@@ -322,24 +322,24 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addField([ // Extra Files
-            'name' => 'extra_files',
-            'label' => 'Extra files',
-            'type' => 'repeatable',
-            'tab' => 'Uploads',
+            'name'      => 'extra_files',
+            'label'     => 'Extra files',
+            'type'      => 'repeatable',
+            'tab'       => 'Uploads',
             'store_in'  => 'extras',
-            'fake' => true,
+            'fake'      => true,
             'subfields' => [
                 [
-                    'name' => 'type',
+                    'name'    => 'type',
                     'wrapper' => [
                         'class' => 'col-md-6',
                     ],
                 ],
                 [
-                    'name' => 'files',
-                    'type' => 'dropzone',
-                    'disk' => 'public',
-                    'hint' => 'Upload files here',
+                    'name'    => 'files',
+                    'type'    => 'dropzone',
+                    'disk'    => 'public',
+                    'hint'    => 'Upload files here',
                     'wrapper' => [
                         'class' => 'col-md-6',
                     ],
@@ -1284,11 +1284,11 @@ class MonsterCrudController extends CrudController
 
         $fields[] = [ // dropzone
             'label' => 'Dropzone'.backpack_pro_badge(),
-            'name' => 'dropzone',
-            'type' => 'dropzone',
-            'disk' => 'public',
-            'hint' => 'Some info',
-            'tab' => 'Uploads',
+            'name'  => 'dropzone',
+            'type'  => 'dropzone',
+            'disk'  => 'public',
+            'hint'  => 'Some info',
+            'tab'   => 'Uploads',
         ];
 
         return $fields;
