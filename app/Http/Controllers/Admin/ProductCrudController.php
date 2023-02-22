@@ -206,73 +206,70 @@ class ProductCrudController extends CrudController
             ],
         ]);
 
-        CRUD::addField([
-            'name'    => 'main_image',
-            'label'   => 'Main Image',
-            'type'    => 'image',
-            'disk'    => 'products',
-            'tab'     => 'Product Media',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
+        CRUD::field('main_image')
+                ->label('Main Image')
+                ->type('image')
+                ->tab('Product Media')
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->withMedia();
 
-        CRUD::addField([
-            'name'    => 'secondary_image',
-            'label'   => 'Secondary Image',
-            'type'    => 'image',
-            'disk'    => 'products',
-            'tab'     => 'Product Media',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
+        CRUD::field('privacy_policy')
+                ->label('Privacy policy document')
+                ->type('upload')
+                ->tab('Product Media')
+                ->upload(true)
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->withMedia();
 
-        CRUD::addField([
-            'name'    => 'specifications',
-            'type'    => 'upload_multiple',
-            'disk'    => 'products',
-            'upload'  => true,
-            'tab'     => 'Product Media',
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
+        CRUD::field('product_specifications')
+                ->label('Specifications')
+                ->type('upload_multiple')
+                ->tab('Product Media')
+                ->upload(true)
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->withMedia();
 
-        CRUD::addField([
-            'name'    => 'image_drm',
-            'label'   => 'Image DRM',
-            'type'    => 'upload',
-            'disk'    => 'products',
-            'tab'     => 'Product Media',
-            'upload'  => true,
-            'wrapper' => [
-                'class' => 'form-group col-md-3',
-            ],
-        ]);
-
-        CRUD::addField([
-            'name'      => 'gallery',
-            'type'      => 'repeatable',
-            'tab'       => 'Product Media',
-            'subfields' => [
-                [
-                    'name'    => 'image_title',
-                    'type'    => 'text',
-                    'wrapper' => [
-                        'class' => 'form-group col-md-6',
+        CRUD::field('gallery')
+                ->type('repeatable')
+                ->tab('Product Media')
+                ->subfields([
+                    [
+                        'name'    => 'image_title',
+                        'type'    => 'text',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
                     ],
-                ],
-                [
-                    'name'    => 'image',
-                    'type'    => 'image',
-                    'disk'    => 'products',
-                    'wrapper' => [
-                        'class' => 'form-group col-md-6',
+                    [
+                        'name'    => 'gallery_image',
+                        'label'   => 'image',
+                        'type'    => 'image',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                        'withMedia' => true,
                     ],
-                ],
-            ],
-        ]);
+                    [
+                        'name'    => 'gallery_image_drm',
+                        'label'   => 'Image DRM',
+                        'type'    => 'upload',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                        'withMedia' => true,
+                    ],
+                    [
+                        'name'    => 'gallery_image_specifications',
+                        'label'   => 'Image Specifications',
+                        'type'    => 'upload_multiple',
+                        'wrapper' => [
+                            'class' => 'form-group col-md-6',
+                        ],
+                        'withMedia' => true,
+                    ],
+
+                ])
+                ->withMedia();
 
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }

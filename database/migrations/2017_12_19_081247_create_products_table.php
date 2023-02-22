@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->json('features')->nullable();
             $table->integer('price');
             $table->integer('category_id');
-            $table->text('main_image')->nullable();
             $table->json('gallery')->nullable();
             $table->json('extras')->nullable();
             $table->timestamps();
