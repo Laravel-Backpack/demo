@@ -40,7 +40,7 @@ class Product extends Model implements HasMedia
         'features'       => 'object',
         'extra_features' => 'object',
         'status'         => ProductStatus::class,
-        'gallery'        => 'json'
+        'gallery'        => 'json',
     ];
 
     /*
