@@ -290,19 +290,23 @@ class MonsterCrudController extends CrudController
             $temp_folder = config('backpack.base.temp_upload_folder_name') ?? 'backpack/temp';
             $updated_files = [];
 
+            // Check if some fields were deleted and delete from disk
+            if ($entry->dropzone != $entry->getOriginal('dropzone')) {
+                $deleted = array_diff($entry->getOriginal('dropzone'), $entry->dropzone);
+                foreach ($deleted as $key => $value) {
+                    \Storage::disk($temp_disk)->delete($value);
+                }
+            }
+
             foreach ($entry->dropzone as $key => $value) {
-                if (!empty($value['delete']) && $value['delete']  == 1) {
-                    // If the file was deleted
-                    \Storage::disk($temp_disk)->delete($value['path']);
-                } else if(!empty($value['path']) && strpos($value['path'], $temp_folder) !== false) {
+                if(!empty($value) && strpos($value, $temp_folder) !== false) {
                     // If the file was uploaded and entity submitted
                     try {
-                        $name = substr($value['path'], strrpos($value['path'], '/') + 1);
-                        $move = \Storage::disk('public')->move($value['path'], 'uploads/monsters/' . $name);
+                        $name = substr($value, strrpos($value, '/') + 1);
+                        $move = \Storage::disk('public')->move($value, 'uploads/monsters/' . $name);
         
                         if($move) {
-                            $value['path'] = str_replace($temp_folder, 'uploads/monsters', $value['path']);
-                            $value['url'] = str_replace($temp_folder, 'uploads/monsters', $value['url']);
+                            $value = str_replace($temp_folder, 'uploads/monsters', $value);
                             $updated_files[] = $value;
                         }
                     } catch (\Throwable $th) {
