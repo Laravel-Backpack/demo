@@ -129,7 +129,7 @@ return [
         ],
 
         'dropzone' => [
-            'temporaryDisk' => 'public',
+            'temporaryDisk'      => 'public',
             'temporaryDirectory' => 'backpack/temp',
         ],
     ],

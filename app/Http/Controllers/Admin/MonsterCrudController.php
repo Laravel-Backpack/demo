@@ -285,10 +285,10 @@ class MonsterCrudController extends CrudController
 
         $this->crud->field('photos')->type('dropzone')->tab('Uploads');
 
-        \App\Models\Monster::saving(function($entry) {
+        \App\Models\Monster::saving(function ($entry) {
             $temp_disk = $this->crud->getOperationSetting('temporaryDisk') ?? 'public';
             $temp_directory = $this->crud->getOperationSetting('temporaryDirectory') ?? 'backpack/temp';
-            
+
             $updated_files = [];
 
             // Check if some fields were deleted and delete from disk
@@ -300,13 +300,13 @@ class MonsterCrudController extends CrudController
             }
 
             foreach ($entry->dropzone as $key => $value) {
-                if(!empty($value) && strpos($value, $temp_directory) !== false) {
+                if (!empty($value) && strpos($value, $temp_directory) !== false) {
                     // If the file was uploaded and entity submitted
                     try {
                         $name = substr($value, strrpos($value, '/') + 1);
-                        $move = \Storage::disk('public')->move($value, 'uploads/monsters/' . $name);
-        
-                        if($move) {
+                        $move = \Storage::disk('public')->move($value, 'uploads/monsters/'.$name);
+
+                        if ($move) {
                             $value = str_replace($temp_directory, 'uploads/monsters', $value);
                             $updated_files[] = $value;
                         }
