@@ -128,6 +128,10 @@ return [
             'timelineContentClass' => 'col-md-11',
         ],
 
+        'dropzone' => [
+            'temporaryDisk' => 'public',
+            'temporaryDirectory' => 'backpack/temp',
+        ],
     ],
 
     /*

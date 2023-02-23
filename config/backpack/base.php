@@ -277,7 +277,6 @@ return [
 
     'license_code' => env('BACKPACK_LICENSE', false),
 
-    'temp_disk_name' => 'public',
-    'temp_upload_folder_name' => 'backpack/temp',
-    'temp_upload_purge_older_than_minutes' => 60,
+    // Set in minutes how often need to clean Dropzone temporary files
+    'purge_temporary_files_oldest_than' => 60,
 ];

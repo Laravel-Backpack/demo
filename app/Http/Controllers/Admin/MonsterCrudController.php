@@ -283,15 +283,16 @@ class MonsterCrudController extends CrudController
             ]);
         }
 
-        $this->crud->field('photos')->type('dropzone')->disk('public')->prefix('assets/monsters')->tab('Uploads');
+        $this->crud->field('photos')->type('dropzone')->tab('Uploads');
 
         \App\Models\Monster::saving(function($entry) {
-            $temp_disk = config('backpack.base.temp_disk_name') ?? 'public';
-            $temp_folder = config('backpack.base.temp_upload_folder_name') ?? 'backpack/temp';
+            $temp_disk = $this->crud->getOperationSetting('temporaryDisk') ?? 'public';
+            $temp_directory = $this->crud->getOperationSetting('temporaryDirectory') ?? 'backpack/temp';
+            
             $updated_files = [];
 
             // Check if some fields were deleted and delete from disk
-            if ($entry->dropzone != $entry->getOriginal('dropzone')) {
+            if (!empty($entry->getOriginal('dropzone')) && $entry->dropzone != $entry->getOriginal('dropzone')) {
                 $deleted = array_diff($entry->getOriginal('dropzone'), $entry->dropzone);
                 foreach ($deleted as $key => $value) {
                     \Storage::disk($temp_disk)->delete($value);
@@ -299,14 +300,14 @@ class MonsterCrudController extends CrudController
             }
 
             foreach ($entry->dropzone as $key => $value) {
-                if(!empty($value) && strpos($value, $temp_folder) !== false) {
+                if(!empty($value) && strpos($value, $temp_directory) !== false) {
                     // If the file was uploaded and entity submitted
                     try {
                         $name = substr($value, strrpos($value, '/') + 1);
                         $move = \Storage::disk('public')->move($value, 'uploads/monsters/' . $name);
         
                         if($move) {
-                            $value = str_replace($temp_folder, 'uploads/monsters', $value);
+                            $value = str_replace($temp_directory, 'uploads/monsters', $value);
                             $updated_files[] = $value;
                         }
                     } catch (\Throwable $th) {
