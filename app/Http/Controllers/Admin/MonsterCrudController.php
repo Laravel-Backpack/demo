@@ -323,24 +323,24 @@ class MonsterCrudController extends CrudController
         });
 
         $this->crud->addField([ // Extra Files
-            'name' => 'extra_files',
-            'label' => 'Extra files',
-            'type' => 'repeatable',
-            'tab' => 'Uploads',
+            'name'      => 'extra_files',
+            'label'     => 'Extra files',
+            'type'      => 'repeatable',
+            'tab'       => 'Uploads',
             'store_in'  => 'extras',
-            'fake' => true,
+            'fake'      => true,
             'subfields' => [
                 [
-                    'name' => 'type',
+                    'name'    => 'type',
                     'wrapper' => [
                         'class' => 'col-md-6',
                     ],
                 ],
                 [
-                    'name' => 'files',
-                    'type' => 'dropzone',
-                    'disk' => 'public',
-                    'hint' => 'Upload files here',
+                    'name'    => 'files',
+                    'type'    => 'dropzone',
+                    'disk'    => 'public',
+                    'hint'    => 'Upload files here',
                     'wrapper' => [
                         'class' => 'col-md-6',
                     ],
@@ -1285,11 +1285,11 @@ class MonsterCrudController extends CrudController
 
         $fields[] = [ // dropzone
             'label' => 'Dropzone'.backpack_pro_badge(),
-            'name' => 'dropzone',
-            'type' => 'dropzone',
-            'disk' => 'public',
-            'hint' => 'Some info',
-            'tab' => 'Uploads',
+            'name'  => 'dropzone',
+            'type'  => 'dropzone',
+            'disk'  => 'public',
+            'hint'  => 'Some info',
+            'tab'   => 'Uploads',
         ];
 
         return $fields;
