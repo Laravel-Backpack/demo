@@ -1252,14 +1252,6 @@ class MonsterCrudController extends CrudController
                 'tab'               => 'Miscellaneous',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [   // Color
-                'name'  => 'color_picker',
-                'label' => 'Color picker (jQuery plugin)'.backpack_pro_badge(),
-                'type'  => 'color_picker',
-                // 'wrapperAttributes' => ['class' => 'col-md-6'],
-                'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
             [   // URL
                 'name'              => 'video',
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
