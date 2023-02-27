@@ -53,6 +53,7 @@
   <ul class="nav-dropdown-items">
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon la la-info-circle"></i> <span>Icons</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon la la-shopping-cart"></i> <span>Products</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ backpack_url('column-monster') }}"><i class="nav-icon la la-table"></i> Column monsters</a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('fluent-monster') }}"><i class="nav-icon la la-pastafarianism"></i> <span>Fluent Monsters</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('field-monster') }}"><i class="nav-icon la la-list-alt"></i> <span>Field Monsters</span></a></li>
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('editable-monster') }}"><i class="nav-icon la la-spell-check"></i> <span>Editable Monsters</span></a></li>
