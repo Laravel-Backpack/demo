@@ -40,7 +40,6 @@ var monsterFields = [
     'switch', // switch
     // view
     'week', // week
-    'address_algolia', 'address_algolia_string', // address_algolia PRO
     // address_google PRO
     'browse', // browse PRO
     'browse_multiple', // browse_multiple PRO
