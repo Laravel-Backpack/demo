@@ -869,23 +869,6 @@ class MonsterCrudController extends CrudController
                 ],
                 'tab' => 'Time and space',
             ],
-            [   // Address
-                'name'  => 'address_algolia_string',
-                'label' => 'Address_algolia (saved in db as string)'.backpack_pro_badge(),
-                'type'  => 'address_algolia',
-                'fake'  => true,
-                // optional
-                // 'store_as_json' => true,
-                'tab'           => 'Time and space',
-            ],
-            [   // Address
-                'name'  => 'address_algolia',
-                'label' => 'Address_algolia (stored in db as json)'.backpack_pro_badge(),
-                'type'  => 'address_algolia',
-                // optional
-                'store_as_json' => true,
-                'tab'           => 'Time and space',
-            ],
         ];
 
         if (env('GOOGLE_PLACES_KEY')) {
@@ -1524,20 +1507,12 @@ class MonsterCrudController extends CrudController
                 'tab'               => 'Miscellaneous',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [   // Color
-                'name'  => 'color_picker',
-                'label' => 'Color picker (jQuery plugin)'.backpack_pro_badge(),
-                'type'  => 'color_picker',
-                // 'wrapperAttributes' => ['class' => 'col-md-6'],
-                'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
-            ],
-            [   // URL
+            [   // Video
                 'name'              => 'video',
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
                 'type'              => 'video',
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             [   // Range
                 'name'  => 'range',
@@ -1549,9 +1524,9 @@ class MonsterCrudController extends CrudController
                     'max' => 10,
                 ],
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [
+            [   // Icon picker
                 'label'             => 'Icon Picker'.backpack_pro_badge(),
                 'name'              => 'icon_picker',
                 'type'              => 'icon_picker',

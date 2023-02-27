@@ -470,12 +470,6 @@ class FluentMonsterCrudController extends CrudController
                 ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 
-        CRUD::field('color_picker')
-                ->type('color_picker')
-                ->label('Color picker (jQuery plugin)')
-                ->wrapper(['class' => 'form-group col-md-6'])
-                ->tab('Miscellaneous');
-
         CRUD::field('video')
                 ->type('video')
                 ->label('Video - link to video file on Youtube or Vimeo')
