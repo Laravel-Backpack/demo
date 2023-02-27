@@ -1252,12 +1252,12 @@ class MonsterCrudController extends CrudController
                 'tab'               => 'Miscellaneous',
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [   // URL
+            [   // Video
                 'name'              => 'video',
                 'label'             => 'Video - link to video file on Youtube or Vimeo'.backpack_pro_badge(),
                 'type'              => 'video',
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
             [   // Range
                 'name'  => 'range',
@@ -1269,9 +1269,9 @@ class MonsterCrudController extends CrudController
                     'max' => 10,
                 ],
                 'tab'               => 'Miscellaneous',
-                'wrapperAttributes' => ['class' => 'form-group col-md-5'],
+                'wrapperAttributes' => ['class' => 'form-group col-md-6'],
             ],
-            [
+            [   // Icon picker
                 'label'             => 'Icon Picker'.backpack_pro_badge(),
                 'name'              => 'icon_picker',
                 'type'              => 'icon_picker',
