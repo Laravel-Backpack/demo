@@ -35,7 +35,7 @@
 		// notice we use Widget::make() to add widgets as content (not in a group)
 		Widget::make()
 			->type('progress')
-			->class('card border-0 text-white bg-primary')
+			->class('card border-0 text-white bg-info')
 			->progressClass('progress-bar')
 			->value($userCount)
 			->description('Registered users.')
@@ -66,7 +66,7 @@
 		// if you prefer defining your widgets as arrays
 	    Widget::make([
 			'type' => 'progress',
-			'class'=> 'card border-0 text-white bg-dark',
+			'class'=> 'card border-0 text-white bg-danger',
 			'progressClass' => 'progress-bar',
 			'value' => $productCount,
 			'description' => 'Products.',
