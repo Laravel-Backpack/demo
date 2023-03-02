@@ -14,7 +14,7 @@
         "backpack/permissionmanager": "^6.0",
         "backpack/pagemanager": "^3.0",
         "backpack/menucrud": "^3.0",
-        "spatie/laravel-translatable": "^5.0",
+        "spatie/laravel-translatable": "^6.3",
         "laravel/tinker": "^2.1",
         "spatie/laravel-ignition": "^1.0",
         "intervention/image": "^2.3",
