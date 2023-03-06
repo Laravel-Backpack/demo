@@ -1,4 +1,4 @@
-<li class="nav-item my-1">
+<li class="nav-item">
     <a class="nav-link" href="{{ backpack_url('dashboard') }}">
         <i class="nav-icon fs-2 me-2 la la-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
     </a>
@@ -6,8 +6,9 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
-<li class="px-3 fw-bold my-1">First-Party Addons</li>
-<li class="nav-item dropdown my-1">
+<li class="nav-separator">First-Party Addons</li>
+
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i class="nav-icon fs-2 me-2 la la-newspaper-o"></i> News</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('article') }}"><i class="nav-icon fs-2 me-2 la la-newspaper-o"></i> <span>Articles</span></a>
@@ -16,8 +17,8 @@
     </div>
 </li>
 
-<li class="nav-item my-1"><a class="nav-link" href="{{ backpack_url('page') }}"><i class="nav-icon fs-2 me-2 la la-file-o"></i> <span>Pages</span></a></li>
-<li class="nav-item my-1"><a class="nav-link" href="{{ backpack_url('menu-item') }}"><i class="nav-icon fs-2 me-2 la la-list"></i> <span>Menu</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('page') }}"><i class="nav-icon fs-2 me-2 la la-file-o"></i> <span>Pages</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-item') }}"><i class="nav-icon fs-2 me-2 la la-list"></i> <span>Menu</span></a></li>
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
@@ -29,7 +30,7 @@
     </div>
 </li>
 
-<li class="nav-item dropdown my-1">
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i class="nav-icon fs-2 me-2 la la-cogs"></i> Advanced</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('elfinder') }}"><i class="nav-icon fs-2 me-2 la la-files-o"></i> <span>File manager</span></a>
@@ -39,18 +40,18 @@
     </div>
 </li>
 
-<li class="px-3 fw-bold my-1">Example CRUDs</li>
+<li class="nav-separator">Example CRUDs</li>
 
-<li class="nav-item dropdown my-1">
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i class="nav-icon fs-2 me-2 la la-optin-monster"></i> Monsters & Stuff</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('monster') }}"><i class="nav-icon fs-2 me-2 la la-optin-monster"></i> <span>Monsters</span></a>
-        <a class='dropdown-item' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span class="badge badge-pill bg-warning ms-1">New</span></a>
-        <a class='dropdown-item' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span class="badge badge-pill bg-warning ms-1">New</span></a>
+        <a class='dropdown-item' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span class="badge badge-pill bg-warning">New</span></a>
+        <a class='dropdown-item' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span class="badge badge-pill bg-warning">New</span></a>
     </div>
 </li>
 
-<li class="nav-item dropdown my-1">
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i class="nav-icon fs-2 me-2 la la-question"></i> Other entities</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('icon') }}"><i class="nav-icon fs-2 me-2 la la-info-circle"></i> <span>Icons</span></a>
@@ -62,9 +63,9 @@
     </div>
 </li>
 
-<li class="nav-item dropdown my-1">
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon fs-2 me-2 la la-dog"></i> Pet Shop <small class="px-1 text-light badge-pill bg-warning ms-1">New</small>
+        <i class="nav-icon fs-2 me-2 la la-dog"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href='{{ backpack_url('pet-shop/about') }}'><i class='nav-icon la la-question'></i> About</a>
