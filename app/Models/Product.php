@@ -41,7 +41,7 @@ class Product extends Model implements HasMedia
         'extra_features' => 'object',
         'status'         => ProductStatus::class,
         'gallery'        => 'json',
-        'specifications' => 'array'
+        'specifications' => 'array',
     ];
 
     /*
