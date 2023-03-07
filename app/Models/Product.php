@@ -30,7 +30,7 @@ class Product extends Model implements HasMedia
     public $timestamps = true;
 
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras', 'status', 'condition', 'gallery'];
+    protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras', 'status', 'condition', 'gallery', 'main_image', 'privacy_policy', 'specifications'];
 
     // protected $hidden = [];
     // protected $dates = [];
@@ -41,6 +41,7 @@ class Product extends Model implements HasMedia
         'extra_features' => 'object',
         'status'         => ProductStatus::class,
         'gallery'        => 'json',
+        'specifications' => 'array'
     ];
 
     /*

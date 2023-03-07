@@ -211,65 +211,73 @@ class ProductCrudController extends CrudController
                 ->type('image')
                 ->tab('Product Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withMedia();
+                ->withUploads([
+                    'disk' => 'products',
+                ]);
 
         CRUD::field('privacy_policy')
                 ->label('Privacy policy document')
                 ->type('upload')
                 ->tab('Product Media')
-                ->upload(true)
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withMedia();
+                ->withUploads();
 
-        CRUD::field('product_specifications')
+        CRUD::field('specifications')
                 ->label('Specifications')
                 ->type('upload_multiple')
                 ->tab('Product Media')
-                ->upload(true)
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withMedia();
+                ->withUploads([
+                    'disk' => 'products',
+                ]);
 
         CRUD::field('gallery')
-                ->type('repeatable')
-                ->tab('Product Media')
-                ->subfields([
-                    [
-                        'name'    => 'image_title',
-                        'type'    => 'text',
-                        'wrapper' => [
-                            'class' => 'form-group col-md-6',
-                        ],
+            ->type('repeatable')
+            ->tab('Product Media')
+            ->subfields([
+                [
+                    'name'    => 'image_title',
+                    'type'    => 'text',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
                     ],
-                    [
-                        'name'    => 'gallery_image',
-                        'label'   => 'image',
-                        'type'    => 'image',
-                        'wrapper' => [
-                            'class' => 'form-group col-md-6',
-                        ],
-                        'withMedia' => true,
+                ],
+                [
+                    'name'    => 'gallery_image',
+                    'label'   => 'image',
+                    'type'    => 'image',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
                     ],
-                    [
-                        'name'    => 'gallery_image_drm',
-                        'label'   => 'Image DRM',
-                        'type'    => 'upload',
-                        'wrapper' => [
-                            'class' => 'form-group col-md-6',
-                        ],
-                        'withMedia' => true,
+                    'withUploads' => [
+                        'disk' => 'products',
                     ],
-                    [
-                        'name'    => 'gallery_image_specifications',
-                        'label'   => 'Image Specifications',
-                        'type'    => 'upload_multiple',
-                        'wrapper' => [
-                            'class' => 'form-group col-md-6',
-                        ],
-                        'withMedia' => true,
-                    ],
+                ],
 
-                ])
-                ->withMedia();
+                [
+                    'name'    => 'gallery_image_drm',
+                    'label'   => 'Image DRM',
+                    'type'    => 'upload',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withUploads' => [
+                        'disk' => 'products',
+                    ],
+                ],
+                [
+                    'name'    => 'gallery_image_specifications',
+                    'label'   => 'Image Specifications',
+                    'type'    => 'upload_multiple',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withUploads' => [
+                        'disk' => 'products',
+                    ],
+                ],
+            ])
+        ->withUploads();
 
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }
