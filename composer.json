@@ -9,7 +9,7 @@
         "laravel/framework": "^9.0",
         "digitallyhappy/assets": "dev-bassets as 2.99.99",
         "backpack/crud": "dev-coreuiv4 as 5.99.99",
-        "backpack/pro": "dev-coreuiv4 as 1.99.99",
+        "backpack/pro": "v6.x-dev as 1.99.99",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
