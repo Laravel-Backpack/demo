@@ -4,7 +4,7 @@
  * file is already loaded.
  */
 
-$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ms-3 mb-4" href="javascript:testCrudFieldHide()">hide()</a>');
+$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-4 ms-3 mb-4" href="javascript:testCrudFieldHide()">hide()</a>');
 
 function testCrudFieldHide() {
     // go through all Monster fields and hide them
