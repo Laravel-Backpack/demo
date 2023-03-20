@@ -70,10 +70,10 @@ class MonsterCrudController extends CrudController
                     'element' => 'span',
                     'class'   => function ($crud, $column, $entry, $related_key) {
                         if ($column['text'] == 'Yes') {
-                            return 'badge bg-success';
+                            return 'badge rounded-pill bg-success';
                         }
 
-                        return 'badge bg-default';
+                        return 'badge rounded-pill bg-danger';
                     },
                 ],
             ],
