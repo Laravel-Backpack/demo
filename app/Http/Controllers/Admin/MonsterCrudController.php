@@ -530,9 +530,9 @@ class MonsterCrudController extends CrudController
                 'label' => 'Simple',
             ],
             false, // the simple filter has no values, just the "Draft" label specified above
-        function () { // if the filter is active (the GET parameter "draft" exits)
-            $this->crud->addClause('where', 'checkbox', '1');
-        }
+            function () { // if the filter is active (the GET parameter "draft" exits)
+                $this->crud->addClause('where', 'checkbox', '1');
+            }
         );
 
         $this->crud->addFilter([ // dropdown filter
