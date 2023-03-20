@@ -240,12 +240,6 @@ class FluentMonsterCrudController extends CrudController
             ])
             ->tab('Time and space');
 
-        CRUD::field('address_algolia')
-            ->type('address')
-            ->label('Address (Algolia Places search)')
-            ->store_as_json(true)
-            ->tab('Time and space');
-
         // -----------------
         // SELECTS tab
         // -----------------
@@ -467,12 +461,6 @@ class FluentMonsterCrudController extends CrudController
         CRUD::field('color')
                 ->type('color')
                 ->label('Color picker (HTML5 spec)')
-                ->wrapper(['class' => 'form-group col-md-6'])
-                ->tab('Miscellaneous');
-
-        CRUD::field('color_picker')
-                ->type('color_picker')
-                ->label('Color picker (jQuery plugin)')
                 ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 

@@ -40,13 +40,11 @@ var monsterFields = [
     'switch', // switch
     // view
     'week', // week
-    'address_algolia', 'address_algolia_string', // address_algolia PRO
     // address_google PRO
     'browse', // browse PRO
     'browse_multiple', // browse_multiple PRO
     'base64_image', // base64_image PRO
     'wysiwyg', // ckeditor PRO
-    'color_picker', // color_picker PRO
     'start_date', 'end_date', // date_range PRO
     'date_picker', // date_picker PRO
     'datetime_picker', // datetime_picker PRO

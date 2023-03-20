@@ -5,7 +5,7 @@
     "license": "proprietary",
     "type": "project",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "laravel/framework": "^9.0",
         "digitallyhappy/assets": "dev-bassets as 2.99.99",
         "backpack/crud": "dev-tabler as 5.99.99",
