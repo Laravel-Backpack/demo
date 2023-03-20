@@ -8,7 +8,7 @@
         "php": "^8.1",
         "laravel/framework": "^9.0",
         "digitallyhappy/assets": "dev-bassets as 2.99.99",
-        "backpack/crud": "dev-tabler as 5.99.99",
+        "backpack/crud": "v6.x-dev as 5.99.99",
         "backpack/pro": "v6.x-dev as 1.99.99",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
@@ -39,8 +39,7 @@
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
         "laracasts/generators": "^2.0",
         "backpack/generators": "^3.1",
-        "barryvdh/laravel-debugbar": "^3.2",
-        "jeroen-g/laravel-packager": "^2.8"
+        "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": {
         "backpack/theme-coreuiv2": {
@@ -97,8 +96,7 @@
             "@php artisan package:discover"
         ],
         "test": "vendor/bin/phpunit --testdox",
-        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear",
-        "switched": "composer update --prefer-source -W && php artisan optimize:clear && php artisan basset:internalize"
+        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear"
     },
     "config": {
         "preferred-install": "dist",
