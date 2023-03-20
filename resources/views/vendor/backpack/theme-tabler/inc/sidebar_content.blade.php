@@ -9,7 +9,7 @@
 <li class="nav-separator">First-Party Addons</li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
             class="nav-icon fs-2 me-2 la la-newspaper-o"></i> News</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('article') }}"><i
@@ -28,7 +28,7 @@
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
             class="nav-icon fs-2 me-2 la la-group"></i> Authentication</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('user') }}"><i class="nav-icon fs-2 me-2 la la-user"></i>
@@ -41,7 +41,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
             class="nav-icon fs-2 me-2 la la-cogs"></i> Advanced</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('elfinder') }}"><i class="nav-icon fs-2 me-2 la la-files-o"></i>
@@ -58,7 +58,7 @@
 <li class="nav-separator">Example CRUDs</li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
             class="nav-icon fs-2 me-2 la la-optin-monster"></i> Monsters & Stuff</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('monster') }}"><i
@@ -71,7 +71,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true"><i
             class="nav-icon fs-2 me-2 la la-question"></i> Other entities</a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('icon') }}"><i class="nav-icon fs-2 me-2 la la-info-circle"></i>
@@ -90,7 +90,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon fs-2 me-2 la la-dog"></i> Pet Shop <span
             class="badge text-light badge-pill bg-warning">New</span>
     </a>
