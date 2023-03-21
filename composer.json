@@ -26,7 +26,10 @@
         "mews/purifier": "^3.3",
         "backpack/filemanager": "^2.0",
         "backpack/backupmanager": "^3.0",
-        "backpack/editable-columns": "^2.0"
+        "backpack/editable-columns": "^2.0",
+        "backpack/theme-coreuiv2": "dev-main",
+        "backpack/theme-coreuiv4": "dev-main",
+        "backpack/theme-tabler": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -38,12 +41,24 @@
         "backpack/generators": "^3.1",
         "barryvdh/laravel-debugbar": "^3.2"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "backpack/theme-coreuiv2": {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git"
+        },
+        "backpack/theme-coreuiv4": {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git"
+        },
+        "backpack/theme-tabler": {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/theme-tabler.git"
+        },
+        "0": {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
         }
-    ],
+    },
     "autoload": {
         "files": [
             "app/helpers.php"
@@ -81,8 +96,7 @@
             "@php artisan package:discover"
         ],
         "test": "vendor/bin/phpunit --testdox",
-        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear",
-        "switched": "composer update --prefer-source -W && php artisan optimize:clear && php artisan basset:internalize"
+        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear"
     },
     "config": {
         "preferred-install": "dist",

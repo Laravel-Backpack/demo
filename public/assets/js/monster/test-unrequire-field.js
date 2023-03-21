@@ -4,7 +4,7 @@
  * file is already loaded.
  */
 
-$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 mb-4" href="javascript:testCrudFieldUnrequire()">unrequire()</a>');
+$('nav[aria-label=breadcrumb]').append('<a class="btn btn-warning ml-1 ms-1 mb-4" href="javascript:testCrudFieldUnrequire()">unrequire()</a>');
 
 function testCrudFieldUnrequire() {
     // go through all Monster fields and unrequire them
