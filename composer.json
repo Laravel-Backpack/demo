@@ -24,7 +24,7 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "backpack/filemanager": "^2.0",
+        "backpack/filemanager": "dev-bassets as 2.99.99",
         "backpack/backupmanager": "^3.0",
         "backpack/editable-columns": "^2.0",
         "backpack/theme-coreuiv2": "dev-main",
