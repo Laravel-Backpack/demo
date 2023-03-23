@@ -63,9 +63,9 @@
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('monster') }}"><i
                 class="nav-icon fs-2 me-2 la la-optin-monster"></i> <span>Monsters</span></a>
-        <a class='dropdown-item' href='{{ backpack_url(' cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span
+        <a class='dropdown-item' href='{{ backpack_url('cave') }}'><i class='nav-icon la la-dungeon'></i> Caves <span
                 class="badge badge-pill bg-warning">New</span></a>
-        <a class='dropdown-item' href='{{ backpack_url(' story') }}'><i class='nav-icon la la-book'></i> Stories <span
+        <a class='dropdown-item' href='{{ backpack_url('story') }}'><i class='nav-icon la la-book'></i> Stories <span
                 class="badge badge-pill bg-warning">New</span></a>
     </div>
 </li>
@@ -95,18 +95,18 @@
             class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/about') }}'><i class='nav-icon la la-question'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/about') }}'><i class='nav-icon la la-question'></i>
             About</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/invoice') }}'><i class='nav-icon la la-file-text'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/invoice') }}'><i class='nav-icon la la-file-text'></i>
             Invoices</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/owner') }}'><i class='nav-icon la la-user'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/owner') }}'><i class='nav-icon la la-user'></i>
             Owners</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/pet') }}'><i class='nav-icon la la-dog'></i> Pets</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/badge') }}'><i class='nav-icon la la-certificate'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/pet') }}'><i class='nav-icon la la-dog'></i> Pets</a>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/badge') }}'><i class='nav-icon la la-certificate'></i>
             Badges</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/skill') }}'><i class='nav-icon la la-ribbon'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/skill') }}'><i class='nav-icon la la-ribbon'></i>
             Skills</a>
-        <a class="dropdown-item" href='{{ backpack_url(' pet-shop/comment') }}'><i class='nav-icon la la-comment'></i>
+        <a class="dropdown-item" href='{{ backpack_url('pet-shop/comment') }}'><i class='nav-icon la la-comment'></i>
             Comments</a>
     </div>
 </li>
