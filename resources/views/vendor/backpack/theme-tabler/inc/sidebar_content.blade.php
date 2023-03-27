@@ -6,10 +6,12 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
-<li class="nav-separator">First-Party Addons</li>
+@if(config('backpack.theme-tabler.nav_position') === 'left')
+    <li class="nav-separator">First-Party Addons</li>
+@endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-newspaper-o"></i>News
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -36,7 +38,7 @@
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-group"></i> Authentication
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -53,7 +55,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-cogs"></i> Advanced
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -72,10 +74,12 @@
     </div>
 </li>
 
+@if(config('backpack.theme-tabler.nav_position') === 'left')
 <li class="nav-separator">Example CRUDs</li>
+@endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-optin-monster"></i> Monsters & Stuff
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -92,7 +96,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-question"></i> Other entities
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -119,7 +123,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="false" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-dog"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -133,8 +137,7 @@
             <i class='nav-icon la la-user'></i>Owners
         </a>
         <a class="dropdown-item" href='{{ backpack_url('pet-shop/pet') }}'>
-            <i class='nav-icon la la-dog'></i> Pets</a><a class="dropdown-item" href='{{ backpack_url('pet-shop/badge')
-}}'>
+            <i class='nav-icon la la-dog'></i> Pets</a><a class="dropdown-item" href='{{ backpack_url('pet-shop/badge') }}'>
             <i class='nav-icon la la-certificate'></i>Badges
         </a>
         <a class="dropdown-item" href='{{ backpack_url('pet-shop/skill') }}'>
