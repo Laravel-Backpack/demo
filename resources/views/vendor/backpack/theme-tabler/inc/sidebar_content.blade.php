@@ -6,7 +6,7 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
-@if(config('backpack.theme-tabler.nav_position') === 'left')
+@if(backpack_theme_config('layout.menu') !== 'horizontal')
     <li class="nav-separator">First-Party Addons</li>
 @endif
 
@@ -74,7 +74,7 @@
     </div>
 </li>
 
-@if(config('backpack.theme-tabler.nav_position') === 'left')
+@if(backpack_theme_config('layout.menu') !== 'horizontal')
 <li class="nav-separator">Example CRUDs</li>
 @endif
 
