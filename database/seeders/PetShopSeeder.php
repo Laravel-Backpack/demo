@@ -44,7 +44,6 @@ class PetShopSeeder extends Seeder
 
         // deal with pet stuff
         foreach ($pets as $pet) {
-
             // add one owner for the pet owners list
             $owner = $owners->random();
             $pet->owners()->sync([$owner->id => ['role' => Arr::random($this->ownerRoles)]]);
