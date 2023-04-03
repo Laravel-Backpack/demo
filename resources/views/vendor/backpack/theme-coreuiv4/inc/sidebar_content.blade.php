@@ -1,5 +1,8 @@
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon la la-dashboard"></i>
-        <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
+<li class="nav-item">
+    <a class="nav-link" href="{{ backpack_url('dashboard') }}">
+        <i class="nav-icon la la-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
+    </a>
+</li>
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
