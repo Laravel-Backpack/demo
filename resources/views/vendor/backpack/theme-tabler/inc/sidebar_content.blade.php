@@ -11,7 +11,7 @@
 @endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-newspaper-o"></i>News
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -38,7 +38,7 @@
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-group"></i> Authentication
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -55,7 +55,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-cogs"></i> Advanced
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -79,7 +79,7 @@
 @endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-optin-monster"></i> Monsters & Stuff
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -96,7 +96,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-question"></i> Other entities
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -123,7 +123,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ config('backpack.theme-tabler.nav_position') === 'left' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-dog"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
