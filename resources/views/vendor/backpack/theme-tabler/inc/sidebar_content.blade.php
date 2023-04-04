@@ -68,6 +68,11 @@
         <a class="dropdown-item" href="{{ backpack_url('log') }}">
             <i class="nav-icon la la-terminal"></i>Logs
         </a>
+        @if(config('backpack.base.view_namespace') === 'backpack.theme-tabler::')
+        <a class="dropdown-item" href="{{ backpack_url('layout') }}">
+            <i class="nav-icon la la-icons"></i>Layouts
+        </a>
+        @endif
         <a class="dropdown-item" href="{{ backpack_url('setting') }}">
             <i class="nav-icon la la-cog"></i>Settings
         </a>
