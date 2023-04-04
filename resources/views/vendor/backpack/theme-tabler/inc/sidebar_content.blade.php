@@ -1,18 +1,18 @@
 <li class="nav-item">
     <a class="nav-link" href="{{ backpack_url('dashboard') }}">
-        <i class="nav-icon la la-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
+        <i class="nav-icon la la-dashboard d-block d-lg-none d-xl-block"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
     </a>
 </li>
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
-@if(!\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout())
+@if(backpack_theme_config('layout') === 'vertical')
     <li class="nav-separator">First-Party Addons</li>
 @endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-newspaper-o"></i>News
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-newspaper-o d-block d-lg-none d-xl-block"></i>News
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('article') }}">
@@ -28,18 +28,18 @@
 </li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('page') }}">
-        <i class="nav-icon la la-file-o"></i> Pages
+        <i class="nav-icon la la-file-o d-block d-lg-none d-xl-block"></i> Pages
     </a>
 </li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-item') }}">
-        <i class="nav-icon la la-list"></i>Menu
+        <i class="nav-icon la la-list d-block d-lg-none d-xl-block"></i>Menu
     </a>
 </li>
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-group"></i> Authentication
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-group d-block d-lg-none d-xl-block"></i> Authentication
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('user') }}">
@@ -55,8 +55,8 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-cogs"></i> Advanced
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-cogs d-block d-lg-none d-xl-block"></i> Advanced
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('elfinder') }}">
@@ -74,13 +74,13 @@
     </div>
 </li>
 
-@if(!\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout())
+@if(backpack_theme_config('layout') === 'vertical')
 <li class="nav-separator">Example CRUDs</li>
 @endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-optin-monster"></i> Monsters & Stuff
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-optin-monster d-block d-lg-none d-xl-block"></i> Monsters & Stuff
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('monster') }}">
@@ -96,8 +96,8 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-question"></i> Other entities
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-question d-block d-lg-none d-xl-block"></i> Other entities
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('icon') }}">
@@ -123,8 +123,8 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ !\Backpack\ThemeTabler\ThemeOptions::isHorizontalLayout() ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-dog"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-dog d-block d-lg-none d-xl-block"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href='{{ backpack_url('pet-shop/about') }}'>
@@ -151,6 +151,6 @@
 
 <li class="nav-item">
     <a class="nav-link" href="{{ backpack_url('elfinder') }}">
-        <i class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span>
+        <i class="nav-icon la la-files-o d-block d-lg-none d-xl-block"></i> <span>{{ trans('backpack::crud.file_manager') }}</span>
     </a>
 </li>
