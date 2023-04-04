@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "158f3cbfbac4f127b5c52f0cce543a7b",
+    "content-hash": "97f54f12df8942b965a25aae5f057b13",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -147,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "bb67ec1cc20fd32723cc7a0acbccc014c1cc7147"
+                "reference": "b2514b24e27061f024a2816864088d527bfb1a8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/bb67ec1cc20fd32723cc7a0acbccc014c1cc7147",
-                "reference": "bb67ec1cc20fd32723cc7a0acbccc014c1cc7147",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/b2514b24e27061f024a2816864088d527bfb1a8a",
+                "reference": "b2514b24e27061f024a2816864088d527bfb1a8a",
                 "shasum": ""
             },
             "require": {
@@ -233,7 +233,7 @@
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
             },
-            "time": "2023-04-03T09:55:05+00:00"
+            "time": "2023-04-03T11:15:53+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -709,13 +709,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "ef9dfcd551aba6e9fa66ae9fa16d2a81454666b9"
+                "reference": "79144993548ce19d9684ceb49df294662db36864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-ef9dfcd551aba6e9fa66ae9fa16d2a81454666b9-zip-1a7b48.zip",
-                "reference": "ef9dfcd551aba6e9fa66ae9fa16d2a81454666b9",
-                "shasum": "518de31b05b58833991affe3db4476830441f0a0"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-79144993548ce19d9684ceb49df294662db36864-zip-e849da.zip",
+                "reference": "79144993548ce19d9684ceb49df294662db36864",
+                "shasum": "b10bea985b70e58acdd5fe0a82da94fe610e82db"
             },
             "require": {
                 "backpack/crud": "^5.4.9"
@@ -770,7 +770,7 @@
                 "source": "https://github.com/Laravel-Backpack/PRO/tree/v6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-03-20T12:58:00+00:00"
+            "time": "2023-04-03T10:54:26+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -916,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "da818c138c816a3f2182932cba94acf96e79c961"
+                "reference": "e27c523b1fda6348e2f8381863698d4161d5030a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/da818c138c816a3f2182932cba94acf96e79c961",
-                "reference": "da818c138c816a3f2182932cba94acf96e79c961",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/e27c523b1fda6348e2f8381863698d4161d5030a",
+                "reference": "e27c523b1fda6348e2f8381863698d4161d5030a",
                 "shasum": ""
             },
             "require": {
@@ -979,7 +979,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues"
             },
-            "time": "2023-03-21T15:12:38+00:00"
+            "time": "2023-04-04T13:55:52+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -987,12 +987,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "c85c36adf4a714ab009908f703a4c34afef0f165"
+                "reference": "e15e1972ec08ff710fada61f16ca0498ee1a0843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/c85c36adf4a714ab009908f703a4c34afef0f165",
-                "reference": "c85c36adf4a714ab009908f703a4c34afef0f165",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/e15e1972ec08ff710fada61f16ca0498ee1a0843",
+                "reference": "e15e1972ec08ff710fada61f16ca0498ee1a0843",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues"
             },
-            "time": "2023-03-21T15:45:51+00:00"
+            "time": "2023-04-04T13:58:07+00:00"
         },
         {
             "name": "backpack/theme-tabler",
@@ -1068,12 +1068,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/theme-tabler.git",
-                "reference": "375e2da42775932f10abca8e8f7e55f4556c4541"
+                "reference": "2b29afed3360eeeccf794bf4708b1929fc9e8bce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/375e2da42775932f10abca8e8f7e55f4556c4541",
-                "reference": "375e2da42775932f10abca8e8f7e55f4556c4541",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/2b29afed3360eeeccf794bf4708b1929fc9e8bce",
+                "reference": "2b29afed3360eeeccf794bf4708b1929fc9e8bce",
                 "shasum": ""
             },
             "require": {
@@ -1141,7 +1141,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues"
             },
-            "time": "2023-03-29T13:42:49+00:00"
+            "time": "2023-04-04T13:59:06+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -1788,72 +1788,6 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.2"
             },
             "time": "2022-10-27T11:44:00+00:00"
-        },
-        {
-            "name": "digitallyhappy/assets",
-            "version": "dev-bassets",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DigitallyHappy/assets.git",
-                "reference": "60e30151974e0a6564d48ef80fc64e5cd5c19637"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DigitallyHappy/assets/zipball/60e30151974e0a6564d48ef80fc64e5cd5c19637",
-                "reference": "60e30151974e0a6564d48ef80fc64e5cd5c19637",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.5",
-                "laravel/framework": "^10.1|^9.0"
-            },
-            "require-dev": {
-                "nunomaduro/collision": "^6.1",
-                "orchestra/testbench": "^8.0",
-                "pestphp/pest": "^1.22",
-                "pestphp/pest-plugin-laravel": "^1.4",
-                "phpunit/phpunit": "^9.6"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "DigitallyHappy\\Assets\\AssetsServiceProvider"
-                    ],
-                    "aliases": {
-                        "Assets": "DigitallyHappy\\Assets\\Facades\\Assets"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DigitallyHappy\\Assets\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cristian Tabacitu",
-                    "email": "hello@tabacitu.ro",
-                    "homepage": "https://tabacitu.ro"
-                }
-            ],
-            "description": "Dead-simple way to load CSS or JS assets only once per page, when using Laravel 8+.",
-            "homepage": "https://github.com/digitallyhappy/assets",
-            "keywords": [
-                "Load CSS once",
-                "Load JS once",
-                "assets",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/DigitallyHappy/assets/issues",
-                "source": "https://github.com/DigitallyHappy/assets/tree/bassets"
-            },
-            "time": "2023-03-20T14:51:42+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -4878,25 +4812,25 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0.1",
+            "version": "1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -4925,9 +4859,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-message/tree/master"
+                "source": "https://github.com/php-fig/http-message/tree/1.1"
             },
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2023-04-04T09:50:52+00:00"
         },
         {
             "name": "psr/log",
@@ -10977,17 +10911,10 @@
             "version": "6.9999999.9999999.9999999-dev",
             "alias": "1.99.99",
             "alias_normalized": "1.99.99.0"
-        },
-        {
-            "package": "digitallyhappy/assets",
-            "version": "dev-bassets",
-            "alias": "2.99.99",
-            "alias_normalized": "2.99.99.0"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "digitallyhappy/assets": 20,
         "backpack/crud": 20,
         "backpack/pro": 20,
         "backpack/filemanager": 20,
