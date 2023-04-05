@@ -17,7 +17,7 @@ class TablerThemeController extends Controller
      */
     public function __construct()
     {
-        if (config('backpack.base.view_namespace') !== 'backpack.theme-tabler::') {
+        if (config('backpack.ui.view_namespace') !== 'backpack.theme-tabler::') {
             throw new Exception('Page only available on Tabler theme.');
         }
     }

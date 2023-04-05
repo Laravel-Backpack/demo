@@ -68,11 +68,9 @@
         <a class="dropdown-item" href="{{ backpack_url('log') }}">
             <i class="nav-icon la la-terminal"></i>Logs
         </a>
-        @if(config('backpack.base.view_namespace') === 'backpack.theme-tabler::')
         <a class="dropdown-item" href="{{ backpack_url('layout') }}">
             <i class="nav-icon la la-icons"></i>Layouts
         </a>
-        @endif
         <a class="dropdown-item" href="{{ backpack_url('setting') }}">
             <i class="nav-icon la la-cog"></i>Settings
         </a>
@@ -152,10 +150,4 @@
             <i class='nav-icon la la-comment'></i>Comments
         </a>
     </div>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link" href="{{ backpack_url('elfinder') }}">
-        <i class="nav-icon la la-files-o d-block d-lg-none d-xl-block"></i> <span>{{ trans('backpack::crud.file_manager') }}</span>
-    </a>
 </li>
