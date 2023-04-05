@@ -1,4 +1,4 @@
-@extends(backpack_view('layouts.top_left'))
+@extends(backpack_view('blank'))
 
 @section('after_scripts')
         @include('vendor.elfinder.common_scripts')
