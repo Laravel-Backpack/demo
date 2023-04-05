@@ -9,6 +9,10 @@
         "laravel/framework": "^9.0",
         "backpack/crud": "v6.x-dev as 5.99.99",
         "backpack/pro": "v6.x-dev as 1.99.99",
+        "backpack/filemanager": "v6.x-dev as 2.99.99",
+        "backpack/theme-coreuiv2": "dev-main",
+        "backpack/theme-coreuiv4": "dev-main",
+        "backpack/theme-tabler": "dev-main",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
@@ -23,12 +27,8 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "backpack/filemanager": "dev-bassets as 2.99.99",
         "backpack/backupmanager": "^3.0",
-        "backpack/editable-columns": "^2.0",
-        "backpack/theme-coreuiv2": "dev-main",
-        "backpack/theme-coreuiv4": "dev-main",
-        "backpack/theme-tabler": "dev-main"
+        "backpack/editable-columns": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
