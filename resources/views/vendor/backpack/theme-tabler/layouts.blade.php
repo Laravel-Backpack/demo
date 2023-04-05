@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Vertical</h3>
-                    <img id="img-vertical" class="shadow" src="" alt="Horizontal Layout">
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Layout" data-layout="vertical">
                 </div>
                 <div class="card-footer">
                     @if(backpack_theme_config('layout') === 'vertical')
@@ -30,8 +30,26 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="card-title">Vertical Dark</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Layout" data-layout="vertical_dark">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'vertical_dark')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'vertical_dark']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
                     <h3 class="card-title">Horizontal</h3>
-                    <img id="img-horizontal" class="shadow" src="" alt="Vertical Horizontal">
+                    <img class="shadow backpack-sample-img" src="" alt="Vertical Horizontal" data-layout="horizontal">
                 </div>
                 <div class="card-footer">
                     @if(backpack_theme_config('layout') === 'horizontal')
@@ -48,8 +66,26 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="card-title">Horizontal Dark</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Vertical Horizontal" data-layout="horizontal_dark">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'horizontal_dark')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'horizontal_dark']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
                     <h3 class="card-title">Horizontal Overlap</h3>
-                    <img id="img-horizontal_overlap" class="shadow" src="" alt="Horizontal Overlap Layout">
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Overlap Layout" data-layout="horizontal_overlap">
                 </div>
                 <div class="card-footer">
                     @if(backpack_theme_config('layout') === 'horizontal_overlap')
@@ -68,18 +104,19 @@
 
 @section('after_scripts')
     <script>
-        const imgHorizontal = $('#img-horizontal');
-        const imgHorizontalOverlap = $('#img-horizontal_overlap');
-        const imgVertical = $('#img-vertical');
+        const images = $('.backpack-sample-img');
 
-        imgHorizontal.attr('src', '/img/horizontal-' + colorMode.get() + '.png');
-        imgHorizontalOverlap.attr('src', '/img/horizontal_overlap-' + colorMode.get() + '.png');
-        imgVertical.attr('src', '/img/vertical-' + colorMode.get() + '.png');
+        function loadSamplesImages() {
+            images.each(function () {
+                const layout = $(this).data('layout');
+                $(this).attr('src', '/img/' + layout + '-' + colorMode.get() + '.png');
+            });
+        }
 
-        colorMode.registerListener(function (theme) {
-            imgHorizontal.attr('src', '/img/horizontal-' + theme + '.png');
-            imgHorizontalOverlap.attr('src', '/img/horizontal_overlap-' + theme + '.png');
-            imgVertical.attr('src', '/img/vertical-' + theme + '.png');
+        colorMode.registerListener(function () {
+            loadSamplesImages();
         });
+
+        loadSamplesImages();
     </script>
 @endsection
