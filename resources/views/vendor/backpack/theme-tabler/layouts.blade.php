@@ -48,6 +48,24 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="card-title">Vertical Transparent</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Layout" data-layout="vertical_transparent">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'vertical_transparent')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'vertical_transparent']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
                     <h3 class="card-title">Horizontal</h3>
                     <img class="shadow backpack-sample-img" src="" alt="Vertical Horizontal" data-layout="horizontal">
                 </div>
