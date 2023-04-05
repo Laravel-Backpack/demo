@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97f54f12df8942b965a25aae5f057b13",
+    "content-hash": "08ceaed8c1c69f37729171434441bb43",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -306,16 +306,16 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "dev-bassets",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "9a033ee00a35a5be83c0d14ca07b9de3db17c430"
+                "reference": "d317f5c7220170211a6b060a3811c2f020ec2688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/9a033ee00a35a5be83c0d14ca07b9de3db17c430",
-                "reference": "9a033ee00a35a5be83c0d14ca07b9de3db17c430",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/d317f5c7220170211a6b060a3811c2f020ec2688",
+                "reference": "d317f5c7220170211a6b060a3811c2f020ec2688",
                 "shasum": ""
             },
             "require": {
@@ -323,9 +323,10 @@
                 "barryvdh/laravel-elfinder": "^0.5.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^8",
-                "phpunit/phpunit": "^10.0"
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3|~4",
+                "phpunit/phpunit": "^8.0",
+                "sempro/phpunit-pretty-print": "^1.0"
             },
             "type": "library",
             "extra": {
@@ -359,9 +360,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/bassets"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/2.0.1"
             },
-            "time": "2023-04-03T03:09:13+00:00"
+            "time": "2023-03-27T17:13:49+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -10901,12 +10902,6 @@
             "alias_normalized": "5.99.99.0"
         },
         {
-            "package": "backpack/filemanager",
-            "version": "dev-bassets",
-            "alias": "2.99.99",
-            "alias_normalized": "2.99.99.0"
-        },
-        {
             "package": "backpack/pro",
             "version": "6.9999999.9999999.9999999-dev",
             "alias": "1.99.99",
@@ -10917,7 +10912,6 @@
     "stability-flags": {
         "backpack/crud": 20,
         "backpack/pro": 20,
-        "backpack/filemanager": 20,
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-coreuiv4": 20,
         "backpack/theme-tabler": 20
