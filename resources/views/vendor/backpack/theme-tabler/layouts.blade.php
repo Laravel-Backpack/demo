@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Vertical</h3>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Vertical Dark</h3>
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Vertical Transparent</h3>
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Horizontal</h3>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Horizontal Dark</h3>
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Horizontal Overlap</h3>
@@ -110,6 +110,60 @@
                         <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
                     @else
                         <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'horizontal_overlap']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Right Vertical</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Overlap Layout" data-layout="right_vertical">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'right_vertical')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'right_vertical']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Right Vertical Dark</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Overlap Layout" data-layout="right_vertical_dark">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'right_vertical_dark')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'right_vertical_dark']) }}">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
+                        </form>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Right Vertical Transparent</h3>
+                    <img class="shadow backpack-sample-img" src="" alt="Horizontal Overlap Layout" data-layout="right_vertical_transparent">
+                </div>
+                <div class="card-footer">
+                    @if(backpack_theme_config('layout') === 'right_vertical_transparent')
+                        <button class="btn btn-success disabled"><i class="la la-check me-2"></i>Testing</button>
+                    @else
+                        <form method="POST" action="{{ route('tabler.update.layout', ['layout' => 'right_vertical_transparent']) }}">
                             @csrf
                             <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Try it</button>
                         </form>

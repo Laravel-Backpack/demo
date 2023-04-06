@@ -33,6 +33,6 @@ class TablerThemeController extends Controller
 
         Alert::success('<strong>Boom!</strong><br>How does it look like now?')->flash();
 
-        return Redirect::route('tabler.layouts');
+        return Redirect::route('backpack.dashboard');
     }
 }
