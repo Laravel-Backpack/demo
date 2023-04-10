@@ -30,7 +30,6 @@ class Ball extends Model
     public $timestamps = true;
     protected $guarded = ['id'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------
