@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.1",
         "laravel/framework": "^10.0",
-        "backpack/crud": "dev-laravel-v10 as 5.4.99",
+        "backpack/crud": "^5.5",
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/permissionmanager": "^6.0",
@@ -21,36 +21,22 @@
         "backpack/backupmanager": "^3.0",
         "backpack/editable-columns": "^2.0",
         "backpack/pro": "^1.6",
-        "cviebrock/eloquent-sluggable": "dev-l10-compatibility as 9.9.99",
-        "venturecraft/revisionable": "dev-patch-1 as 1.1.99",
         "backpack/newscrud": "^4.0",
         "backpack/menucrud": "^3.0",
         "backpack/revise-operation": "^1.0",
-        "mews/purifier": "dev-patch-1 as 3.3"
-        
+        "mews/purifier": "dev-master"
+
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
         "mockery/mockery": "1.5.*",
-        "phpunit/phpunit" : "^9.0||^8.5||^7.0",
+        "phpunit/phpunit" : "^10.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
         "backpack/generators": "^3.1",
         "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/laravel-shift/eloquent-sluggable.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/pxpm/revisionable.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/pxpm/Purifier.git"
-        },
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
