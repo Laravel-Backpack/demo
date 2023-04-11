@@ -27,7 +27,7 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "backpack/backupmanager": "^3.0",
+        "backpack/backupmanager": "^4.0",
         "backpack/editable-columns": "^2.0"
     },
     "require-dev": {

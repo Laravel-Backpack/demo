@@ -4,29 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08ceaed8c1c69f37729171434441bb43",
+    "content-hash": "cc79cc007caebdb9e6d5bcf1d38a1e8b",
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v3.0.9",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "a461313d706ca16ed04dfdc25cb09058f9bb503b"
+                "reference": "240ff3fbdd0db86ce01c83eaf610b2c7d009351e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/a461313d706ca16ed04dfdc25cb09058f9bb503b",
-                "reference": "a461313d706ca16ed04dfdc25cb09058f9bb503b",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/240ff3fbdd0db86ce01c83eaf610b2c7d009351e",
+                "reference": "240ff3fbdd0db86ce01c83eaf610b2c7d009351e",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0|^5.0",
-                "spatie/laravel-backup": "^8.0|^7.0|^6.1"
+                "backpack/crud": "^5.0",
+                "spatie/laravel-backup": "^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
-                "scrutinizer/ocular": "~1.1"
+                "scrutinizer/ocular": "~1.7|~1.1"
             },
             "type": "library",
             "extra": {
@@ -69,9 +69,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/BackupManager/issues",
-                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.9"
+                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v4.0.2"
             },
-            "time": "2022-04-05T06:00:17+00:00"
+            "time": "2023-04-11T03:47:23+00:00"
         },
         {
             "name": "backpack/basset",
@@ -1068,12 +1068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "296d7eb9ad110a1071eaf6c9796779016aaeb393"
+                "reference": "5a196da9452b0697d10f2b149757a4741a6e8dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/296d7eb9ad110a1071eaf6c9796779016aaeb393",
-                "reference": "296d7eb9ad110a1071eaf6c9796779016aaeb393",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/5a196da9452b0697d10f2b149757a4741a6e8dff",
+                "reference": "5a196da9452b0697d10f2b149757a4741a6e8dff",
                 "shasum": ""
             },
             "require": {
@@ -1140,7 +1140,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues"
             },
-            "time": "2023-04-06T08:11:09+00:00"
+            "time": "2023-04-10T17:29:41+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -4704,21 +4704,21 @@
         },
         {
             "name": "psr/http-client",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
+                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/0955afe48220520692d2d09f7ab7e0f93ffd6a31",
+                "reference": "0955afe48220520692d2d09f7ab7e0f93ffd6a31",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0 || ^8.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
             "extra": {
@@ -4738,7 +4738,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP clients",
@@ -4750,27 +4750,27 @@
                 "psr-18"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-client/tree/master"
+                "source": "https://github.com/php-fig/http-client/tree/1.0.2"
             },
-            "time": "2020-06-29T06:28:15+00:00"
+            "time": "2023-04-10T20:12:12+00:00"
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+                "reference": "e616d01114759c4c489f93b099585439f795fe35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
-                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
+                "reference": "e616d01114759c4c489f93b099585439f795fe35",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
             "extra": {
@@ -4790,7 +4790,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for PSR-7 HTTP message factories",
@@ -4805,9 +4805,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/master"
+                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
             },
-            "time": "2019-04-30T12:38:16+00:00"
+            "time": "2023-04-10T20:10:41+00:00"
         },
         {
             "name": "psr/http-message",
