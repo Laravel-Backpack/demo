@@ -68,9 +68,6 @@
         <a class="dropdown-item" href="{{ backpack_url('log') }}">
             <i class="nav-icon la la-terminal"></i>Logs
         </a>
-        <a class="dropdown-item" href="{{ backpack_url('layout') }}">
-            <i class="nav-icon la la-icons"></i>Layouts
-        </a>
         <a class="dropdown-item" href="{{ backpack_url('setting') }}">
             <i class="nav-icon la la-cog"></i>Settings
         </a>
