@@ -27,15 +27,6 @@
     </div>
 </li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('page') }}">
-        <i class="nav-icon la la-file-o d-block d-lg-none d-xl-block"></i> Pages
-    </a>
-</li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-item') }}">
-        <i class="nav-icon la la-list d-block d-lg-none d-xl-block"></i>Menu
-    </a>
-</li>
-
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
@@ -86,20 +77,12 @@
         <a class="dropdown-item" href="{{ backpack_url('monster') }}">
             <i class="nav-icon la la-optin-monster"></i>Monsters
         </a>
-        <a class='dropdown-item' href='{{ backpack_url('cave') }}'>
-            <i class='nav-icon la la-dungeon'></i>Caves <span class="badge badge-pill bg-warning">New</span>
+        <a class='dropdown-item' href="{{ backpack_url('cave') }}">
+            <i class="nav-icon la la-dungeon"></i>Caves <span class="badge badge-pill bg-warning">New</span>
         </a>
-        <a class='dropdown-item' href='{{ backpack_url('story') }}'>
-            <i class='nav-icon la la-book'></i>Stories <span class="badge badge-pill bg-warning">New</span>
+        <a class='dropdown-item' href="{{ backpack_url('story') }}">
+            <i class="nav-icon la la-book"></i>Stories <span class="badge badge-pill bg-warning">New</span>
         </a>
-    </div>
-</li>
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
-        <i class="nav-icon la la-question d-block d-lg-none d-xl-block"></i> Other entities
-    </a>
-    <div class="dropdown-menu" data-bs-popper="static">
         <a class="dropdown-item" href="{{ backpack_url('icon') }}">
             <i class="nav-icon la la-info-circle"></i>Icons
         </a>
@@ -124,27 +107,43 @@
 
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+        <i class="nav-icon la la-box d-block d-lg-none d-xl-block"></i> Addons
+    </a>
+    <div class="dropdown-menu" data-bs-popper="static">
+        <a class="dropdown-item" href="{{ backpack_url('page') }}">
+            <i class="nav-icon la la-file-o d-block"></i>
+            Pages
+        </a>
+        <a class="dropdown-item" href="{{ backpack_url('menu-item') }}">
+            <i class="nav-icon la la-list d-block"></i>
+            Menu
+        </a>
+    </div>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ backpack_theme_config('layout') === 'vertical' ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-dog d-block d-lg-none d-xl-block"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/about') }}'>
-            <i class='nav-icon la la-question'></i>About
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/about') }}">
+            <i class="nav-icon la la-question"></i>About
         </a>
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/invoice') }}'>
-            <i class='nav-icon la la-file-text'></i>Invoices
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/invoice') }}">
+            <i class="nav-icon la la-file-text"></i>Invoices
         </a>
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/owner') }}'>
-            <i class='nav-icon la la-user'></i>Owners
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/owner') }}">
+            <i class="nav-icon la la-user"></i>Owners
         </a>
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/pet') }}'>
-            <i class='nav-icon la la-dog'></i> Pets</a><a class="dropdown-item" href='{{ backpack_url('pet-shop/badge') }}'>
-            <i class='nav-icon la la-certificate'></i>Badges
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/pet') }}">
+            <i class="nav-icon la la-dog"></i> Pets</a><a class="dropdown-item" href="{{ backpack_url('pet-shop/badge') }}">
+            <i class="nav-icon la la-certificate"></i>Badges
         </a>
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/skill') }}'>
-            <i class='nav-icon la la-ribbon'></i>Skills
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/skill') }}">
+            <i class="nav-icon la la-ribbon"></i>Skills
         </a>
-        <a class="dropdown-item" href='{{ backpack_url('pet-shop/comment') }}'>
-            <i class='nav-icon la la-comment'></i>Comments
+        <a class="dropdown-item" href="{{ backpack_url('pet-shop/comment') }}">
+            <i class="nav-icon la la-comment"></i>Comments
         </a>
     </div>
 </li>
