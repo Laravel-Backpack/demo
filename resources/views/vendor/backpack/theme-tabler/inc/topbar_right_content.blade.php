@@ -1,4 +1,4 @@
-<li class="nav-item me-3">
+<li class="nav-item me-1">
     <a href="javascript:void(0);" class="nav-link px-0" data-bs-toggle="modal" data-bs-target="#modal-layout">
         <i class="la la-stream fs-2"></i>
     </a>
