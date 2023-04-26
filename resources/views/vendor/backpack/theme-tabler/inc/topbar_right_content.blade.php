@@ -14,7 +14,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Try out some of the layout Backpack offers out of the box...!</p>
+                        <p>Try out some layouts <strong>Backpack Tabler Theme</strong> offers out of the box...!</p>
                         @csrf
                         <div class="form-selectgroup-boxes row mb-3">
                             @unless(backpack_theme_config('layout') === 'horizontal')
