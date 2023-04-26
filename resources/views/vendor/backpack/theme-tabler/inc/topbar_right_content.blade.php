@@ -4,8 +4,8 @@
     </a>
 </li>
 
-@section('modals')
-    <div class="modal modal-blur fade" id="modal-layout" tabindex="-1" style="display: none;" aria-modal="false" role="dialog">
+@section('before_scripts')
+    <div class="modal modal-blur fade pe-0" id="modal-layout" tabindex="-1" style="display: none;" aria-modal="false" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <form method="POST" action="{{ route('tabler.switch.layout') }}">
                 <div class="modal-content">
