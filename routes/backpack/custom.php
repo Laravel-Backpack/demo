@@ -34,8 +34,7 @@ Route::group([
     Route::crud('dummy', 'DummyCrudController');
 
     // Layouts
-    Route::get('layout', 'TablerThemeController@index')->name('tabler.layouts');
-    Route::post('layout/{layout}', 'TablerThemeController@switchLayout')->name('tabler.update.layout');
+    Route::post('switch-layout', 'TablerThemeController@switchLayout')->name('tabler.switch.layout');
 
     // ------------------
     // AJAX Chart Widgets

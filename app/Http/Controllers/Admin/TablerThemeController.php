@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Prologue\Alerts\Facades\Alert;
@@ -27,12 +28,12 @@ class TablerThemeController extends Controller
         return view('backpack.theme-tabler::layouts');
     }
 
-    public function switchLayout(string $layout): RedirectResponse
+    public function switchLayout(Request $request): RedirectResponse
     {
-        Session::put('backpack.theme-tabler.layout', $layout);
+        Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
 
         Alert::success('<strong>Boom!</strong><br>How does it look like now?')->flash();
 
-        return Redirect::route('tabler.layouts');
+        return Redirect::back();
     }
 }
