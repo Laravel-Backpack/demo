@@ -26,7 +26,6 @@ class Product extends Model
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras', 'status', 'condition'];
     // protected $hidden = [];
-    // protected $dates = [];
     public $translatable = ['name', 'description', 'details', 'features', 'extras'];
     public $casts = [
         'features'       => 'object',
