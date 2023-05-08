@@ -710,13 +710,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "a33dd006ebb4a6264e39c4eee1ac3dd58e739d2b"
+                "reference": "a64f1143e7f90b51811082a16b6d1919580731ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-a33dd006ebb4a6264e39c4eee1ac3dd58e739d2b-zip-fc2623.zip",
-                "reference": "a33dd006ebb4a6264e39c4eee1ac3dd58e739d2b",
-                "shasum": "e1844a04c4c57a8ce3915329c3ba15521bc5d245"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-a64f1143e7f90b51811082a16b6d1919580731ef-zip-32dea2.zip",
+                "reference": "a64f1143e7f90b51811082a16b6d1919580731ef",
+                "shasum": "62407360519105b7edd84d9c14e4e7113847ca7a"
             },
             "require": {
                 "backpack/crud": "^6.0|v6.x-dev|^5.4.9"
@@ -771,7 +771,7 @@
                 "source": "https://github.com/Laravel-Backpack/PRO/tree/v6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-05-01T12:03:46+00:00"
+            "time": "2023-05-02T13:08:41+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -8682,12 +8682,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "6f1bc440355677a299f71a28db4e285a3cb93f1c"
+                "reference": "0dd943808363f1444e5aecce2401517a035e18c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/6f1bc440355677a299f71a28db4e285a3cb93f1c",
-                "reference": "6f1bc440355677a299f71a28db4e285a3cb93f1c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/0dd943808363f1444e5aecce2401517a035e18c7",
+                "reference": "0dd943808363f1444e5aecce2401517a035e18c7",
                 "shasum": ""
             },
             "require": {
@@ -8744,7 +8744,7 @@
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
                 "source": "https://github.com/Laravel-Backpack/Generators/tree/v6"
             },
-            "time": "2023-04-06T07:50:23+00:00"
+            "time": "2023-05-08T10:21:42+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
