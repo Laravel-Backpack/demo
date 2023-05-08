@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cb0e5b6e61f28b00468b6b1f3d25e63",
+    "content-hash": "f3dd30ed559b2d03d0e5405b30bca612",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -8678,21 +8678,20 @@
     "packages-dev": [
         {
             "name": "backpack/generators",
-            "version": "3.3.16",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "5f2675c69a6347ece5302d7bf670ff110ce8344a"
+                "reference": "6f1bc440355677a299f71a28db4e285a3cb93f1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/5f2675c69a6347ece5302d7bf670ff110ce8344a",
-                "reference": "5f2675c69a6347ece5302d7bf670ff110ce8344a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/6f1bc440355677a299f71a28db4e285a3cb93f1c",
+                "reference": "6f1bc440355677a299f71a28db4e285a3cb93f1c",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^5.3.11",
-                "php": "^7.4|^8.0"
+                "backpack/crud": "^6.0|v6.x-dev"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0||^7.0",
@@ -8743,9 +8742,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
-                "source": "https://github.com/Laravel-Backpack/Generators/tree/3.3.16"
+                "source": "https://github.com/Laravel-Backpack/Generators/tree/v6"
             },
-            "time": "2023-03-03T09:44:35+00:00"
+            "time": "2023-04-06T07:50:23+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -10734,7 +10733,8 @@
         "backpack/pro": 20,
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-coreuiv4": 20,
-        "backpack/theme-tabler": 20
+        "backpack/theme-tabler": 20,
+        "backpack/generators": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

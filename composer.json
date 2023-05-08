@@ -36,7 +36,7 @@
         "phpunit/phpunit" : "^10.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
-        "backpack/generators": "^3.1",
+        "backpack/generators": "v6.x-dev",
         "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": {
