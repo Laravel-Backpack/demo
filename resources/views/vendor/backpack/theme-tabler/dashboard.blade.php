@@ -126,7 +126,7 @@
             ],
             [
                 'type' => 'card',
-                // 'wrapperClass' => 'col-sm-6 col-md-4', // optional
+                'wrapperClass' => 'col-md-12 col-lg-4', // optional
                 'class' => 'card my-3', // optional
                 'accentColor' => 'secondary',
                 'ribbon' => ['bottom', 'la-list'], // ['top|right|left|bottom', 'la-xxx']
