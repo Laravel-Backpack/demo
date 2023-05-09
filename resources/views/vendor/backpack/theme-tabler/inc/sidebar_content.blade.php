@@ -6,16 +6,10 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
-@if(backpack_theme_config('layout') === 'vertical')
-    <li class="nav-separator">First-Party Addons</li>
-@endif
-
-@php
-    $verticalLayouts = ['vertical', 'vertical_dark', 'vertical_transparent', 'right_vertical', 'right_vertical_dark', 'right_vertical_transparent'];
-@endphp
+<li class="nav-separator">First-Party Addons</li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-newspaper-o d-block d-lg-none d-xl-block"></i>News
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -33,7 +27,7 @@
 
 <!-- Users, Roles Permissions -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-group d-block d-lg-none d-xl-block"></i> Authentication
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -50,7 +44,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-cogs d-block d-lg-none d-xl-block"></i> Advanced
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -69,12 +63,10 @@
     </div>
 </li>
 
-@if(backpack_theme_config('layout') === 'vertical')
 <li class="nav-separator">Example CRUDs</li>
-@endif
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-optin-monster d-block d-lg-none d-xl-block"></i> Monsters & Stuff
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -110,7 +102,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-box d-block d-lg-none d-xl-block"></i> Addons
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
@@ -126,7 +118,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="{{ in_array(backpack_theme_config('layout'), $verticalLayouts) ? 'false' : 'true' }}" data-bs-toggle="dropdown" role="button" aria-expanded="true">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="true">
         <i class="nav-icon la la-dog d-block d-lg-none d-xl-block"></i> Pet Shop <span class="badge text-light badge-pill bg-warning">New</span>
     </a>
     <div class="dropdown-menu" data-bs-popper="static">
