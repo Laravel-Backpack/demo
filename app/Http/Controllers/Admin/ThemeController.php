@@ -30,7 +30,7 @@ class ThemeController extends Controller
 
     public function switchLayout(Request $request): RedirectResponse
     {
-        $theme = 'backpack.theme-' . $request->get('theme', 'tabler') . '::';
+        $theme = 'backpack.theme-'.$request->get('theme', 'tabler').'::';
         Session::put('backpack.ui.view_namespace', $theme);
 
         if ($theme === 'backpack.theme-tabler::') {
