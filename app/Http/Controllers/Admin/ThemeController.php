@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Prologue\Alerts\Facades\Alert;
 
-class TablerThemeController extends Controller
+class ThemeController extends Controller
 {
     /**
      * @throws Exception
@@ -30,7 +30,12 @@ class TablerThemeController extends Controller
 
     public function switchLayout(Request $request): RedirectResponse
     {
-        Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
+        $theme = 'backpack.theme-' . $request->get('theme', 'tabler') . '::';
+        Session::put('backpack.ui.view_namespace', $theme);
+
+        if ($theme === 'backpack.theme-tabler::') {
+            Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
+        }
 
         Alert::success('<strong>Boom!</strong><br>How does it look like now?')->flash();
 
