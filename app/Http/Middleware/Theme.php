@@ -16,12 +16,8 @@ class Theme
         }
 
         // Set layout if exist in session — only for Tabler
-        if (
-            Session::has('backpack.ui.view_namespace')
-            && Session::get('backpack.ui.view_namespace') === 'backpack.theme-tabler::'
-            && Session::has('backpack.theme-tabler.layout')
-        ) {
-            Config::set('backpack.theme-tabler.layout', Session::get('backpack.theme-tabler.layout'));
+        if (Session::get('backpack.ui.view_namespace') === 'backpack.theme-tabler::') {
+            Config::set('backpack.theme-tabler.layout', Session::get('backpack.theme-tabler.layout') ?? config('backpack.theme-tabler.layout'));
         }
 
         return $next($request);
