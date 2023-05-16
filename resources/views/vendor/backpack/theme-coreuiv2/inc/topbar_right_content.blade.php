@@ -127,7 +127,7 @@
                         <a href="#" class="btn btn-link link-secondary" data-dismiss="modal" data-bs-dismiss="modal">
                             Cancel
                         </a>
-                        <button class="btn btn-primary" type="submit"><i class="la la-check me-2"></i>Apply layout</button>
+                        <button class="btn btn-primary" type="submit"><i class="la la-check mr-2"></i>Apply layout</button>
                     </div>
                 </div>
             </form>
