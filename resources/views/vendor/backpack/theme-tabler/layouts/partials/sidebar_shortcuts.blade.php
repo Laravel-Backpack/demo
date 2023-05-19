@@ -5,4 +5,4 @@
     </button>
 </div>
 
-@include('vendor.backpack.theme_switch_modal')
+@include('vendor.backpack.theme_switch_modal_bs5')

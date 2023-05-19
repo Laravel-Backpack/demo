@@ -37,8 +37,6 @@ class ThemeController extends Controller
             Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
         }
 
-        Alert::success('<strong>Boom!</strong><br>How does it look like now?')->flash();
-
         return Redirect::back();
     }
 }
