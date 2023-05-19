@@ -711,13 +711,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "42c36a16439c2b389880cee14eaa7a52575c50ce"
+                "reference": "6270099531c4eadf71a50c2498e1485eb8f5956b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-42c36a16439c2b389880cee14eaa7a52575c50ce-zip-cab8d0.zip",
-                "reference": "42c36a16439c2b389880cee14eaa7a52575c50ce",
-                "shasum": "04738cd403bbaf862d5076f6d72eca093edcbac1"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-6270099531c4eadf71a50c2498e1485eb8f5956b-zip-8609e2.zip",
+                "reference": "6270099531c4eadf71a50c2498e1485eb8f5956b",
+                "shasum": "993ccd62c020dbb1d09cc46df8e98bb07132801c"
             },
             "require": {
                 "backpack/crud": "^6.0|v6.x-dev|^5.4.9"
@@ -772,7 +772,7 @@
                 "source": "https://github.com/Laravel-Backpack/PRO/tree/v6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-05-15T15:03:01+00:00"
+            "time": "2023-05-17T15:30:50+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -988,12 +988,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "cb53bb79fcf43c923be0b20e7e82564005d98fd5"
+                "reference": "50ff8374bcd8bb53c50ab300467dfb5d897a0f4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/cb53bb79fcf43c923be0b20e7e82564005d98fd5",
-                "reference": "cb53bb79fcf43c923be0b20e7e82564005d98fd5",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/50ff8374bcd8bb53c50ab300467dfb5d897a0f4c",
+                "reference": "50ff8374bcd8bb53c50ab300467dfb5d897a0f4c",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1060,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues"
             },
-            "time": "2023-05-08T09:34:19+00:00"
+            "time": "2023-05-19T06:28:56+00:00"
         },
         {
             "name": "backpack/theme-tabler",
@@ -1068,12 +1068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "25ebaec3379e81eb4dedcf21c1c80680a0082fb8"
+                "reference": "29d6e257d98a24e6d35fb93a4305934f4224392c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/25ebaec3379e81eb4dedcf21c1c80680a0082fb8",
-                "reference": "25ebaec3379e81eb4dedcf21c1c80680a0082fb8",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/29d6e257d98a24e6d35fb93a4305934f4224392c",
+                "reference": "29d6e257d98a24e6d35fb93a4305934f4224392c",
                 "shasum": ""
             },
             "require": {
@@ -1144,7 +1144,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues"
             },
-            "time": "2023-05-15T12:12:16+00:00"
+            "time": "2023-05-19T06:29:50+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
