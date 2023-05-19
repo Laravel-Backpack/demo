@@ -194,7 +194,7 @@
     </div>
 @endsection
 
-@section('after_scripts')
+@push('after_scripts')
     <script>
         const layoutSelection = $('#tabler-layouts-selection');
         $('.theme-choice').on('click', function () {
@@ -203,4 +203,4 @@
                 : layoutSelection.slideUp();
         });
     </script>
-@endsection
+@endpush

@@ -135,7 +135,7 @@
     </div>
 @endsection
 
-@section('after_scripts')
+@push('after_scripts')
     <script>
         const layoutSelection = $('#tabler-layouts-selection');
         @if(config('backpack.ui.view_namespace') !== 'backpack.theme-tabler::')
@@ -147,4 +147,4 @@
                 : layoutSelection.slideUp();
         });
     </script>
-@endsection
+@endpush
