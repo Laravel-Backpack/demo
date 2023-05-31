@@ -249,7 +249,7 @@ class Monster extends Model
     public function setDropzoneAttribute($value)
     {
         if (app('env') === 'production') {
-            \Alert::warning('In the online demo the base64 images don\'t get stored.');
+            \Alert::warning('In the online demo the dropzone files don\'t get stored.');
 
             return true;
         }
