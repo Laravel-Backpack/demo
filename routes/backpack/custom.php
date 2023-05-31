@@ -25,12 +25,16 @@ Route::group([
     // ----------------
     // Other entities
     // ----------------
+    Route::crud('column-monster', 'ColumnMonsterCrudController');
     Route::crud('fluent-monster', 'FluentMonsterCrudController');
     Route::crud('field-monster', 'FieldMonsterCrudController');
     Route::crud('editable-monster', 'EditableMonsterCrudController');
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
     Route::crud('dummy', 'DummyCrudController');
+
+    // Layouts
+    Route::post('switch-layout', 'ThemeController@switchLayout')->name('tabler.switch.layout');
 
     // ------------------
     // AJAX Chart Widgets
