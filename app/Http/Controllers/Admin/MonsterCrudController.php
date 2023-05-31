@@ -1609,7 +1609,8 @@ class MonsterCrudController extends CrudController
         ];
     }
 
-    public function dropzoneUpload() {
+    public function dropzoneUpload()
+    {
         if (app('env') === 'production') {
             return response()->json([]);
         }
