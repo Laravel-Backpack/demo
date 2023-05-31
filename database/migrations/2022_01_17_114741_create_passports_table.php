@@ -17,7 +17,7 @@ class CreatePassportsTable extends Migration
 
         Schema::create('passports', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pet_id')->constrained();
+            $table->foreignId('pet_id')->constrained()->onDelete('cascade');
             $table->string('number');
             $table->date('issuance_date');
             $table->date('expiry_date')->nullable();

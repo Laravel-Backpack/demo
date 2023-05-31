@@ -33,7 +33,6 @@ class Product extends Model implements HasMedia
     protected $fillable = ['name', 'description', 'details', 'features', 'price', 'category_id', 'extras', 'status', 'condition', 'gallery', 'main_image', 'privacy_policy', 'specifications'];
 
     // protected $hidden = [];
-    // protected $dates = [];
     public $translatable = ['name', 'description', 'details', 'features', 'extras'];
 
     public $casts = [

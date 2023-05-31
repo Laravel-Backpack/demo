@@ -20,7 +20,6 @@ class Universe extends Model
     public $timestamps = false;
     protected $fillable = ['title'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------
