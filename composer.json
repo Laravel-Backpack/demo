@@ -30,7 +30,7 @@
         "backpack/backupmanager": "^4.0",
         "backpack/editable-columns": "^2.0",
         "spatie/laravel-medialibrary": "^10.7",
-        "backpack/media-library-uploads": "dev-master"
+        "backpack/medialibrary-uploaders": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -58,9 +58,9 @@
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
         },
-        {
+        "backpack/medialibrary-uploaders": {
             "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/media-library-uploads/"
+            "url": "https://github.com/Laravel-Backpack/medialibrary-uploaders/"
         }
     },
     "autoload": {

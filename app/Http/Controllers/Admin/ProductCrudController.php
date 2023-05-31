@@ -209,31 +209,31 @@ class ProductCrudController extends CrudController
         CRUD::field('main_image')
                 ->label('Main Image')
                 ->type('image')
-                ->tab('Product Media')
+                ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withUploads([
+                ->withMedia([
                     'disk' => 'products',
                 ]);
 
         CRUD::field('privacy_policy')
                 ->label('Privacy policy document')
                 ->type('upload')
-                ->tab('Product Media')
+                ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withUploads();
+                ->withMedia();
 
         CRUD::field('specifications')
                 ->label('Specifications')
                 ->type('upload_multiple')
-                ->tab('Product Media')
+                ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withUploads([
+                ->withMedia([
                     'disk' => 'products',
                 ]);
 
         CRUD::field('gallery')
             ->type('repeatable')
-            ->tab('Product Media')
+            ->tab('Media')
             ->subfields([
                 [
                     'name'    => 'image_title',
@@ -249,7 +249,7 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withUploads' => [
+                    'withMedia' => [
                         'disk' => 'products',
                     ],
                 ],
@@ -261,7 +261,7 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withUploads' => [
+                    'withMedia' => [
                         'disk' => 'products',
                     ],
                 ],
@@ -272,12 +272,11 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withUploads' => [
+                    'withMedia' => [
                         'disk' => 'products',
                     ],
                 ],
-            ])
-        ->withUploads();
+            ]);
 
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }
