@@ -1450,12 +1450,12 @@ class MonsterCrudController extends CrudController
             'tab' => 'Uploads',
         ];
 
-        $fields[] = [ 
+        $fields[] = [
             'label'        => 'Dropzone - drag&drop '.backpack_pro_badge(),
             'name'         => 'dropzone',
             'type'         => 'dropzone',
-            'tab' => 'Uploads',
-            'withFiles' => true,
+            'tab'          => 'Uploads',
+            'withFiles'    => true,
         ];
 
         return $fields;
