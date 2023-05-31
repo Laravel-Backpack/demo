@@ -14,6 +14,7 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
 
     public function setup()
     {
@@ -1449,6 +1450,14 @@ class MonsterCrudController extends CrudController
             'tab' => 'Uploads',
         ];
 
+        $fields[] = [
+            'label'        => 'Dropzone - drag&drop '.backpack_pro_badge(),
+            'name'         => 'dropzone',
+            'type'         => 'dropzone',
+            'tab'          => 'Uploads',
+            'withFiles'    => true,
+        ];
+
         return $fields;
     }
 
@@ -1598,5 +1607,14 @@ class MonsterCrudController extends CrudController
                 'tab' => 'Miscellaneous',
             ],
         ];
+    }
+
+    public function dropzoneUpload()
+    {
+        if (app('env') === 'production') {
+            return response()->json([]);
+        }
+
+        return $this->traitDropzone();
     }
 }

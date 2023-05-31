@@ -28,7 +28,7 @@ class Monster extends Model
     public $timestamps = true;
 
     // protected $guarded = ['id'];
-    protected $fillable = ['address_algolia', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'easymde', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id', 'editable_checkbox', 'fake-text', 'fake-switch', 'fake-checkbox', 'fake-select', 'status', 'features', 'ckeditor'];
+    protected $fillable = ['address_algolia', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'easymde', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id', 'editable_checkbox', 'fake-text', 'fake-switch', 'fake-checkbox', 'fake-select', 'status', 'features', 'ckeditor', 'dropzone'];
 
     // protected $hidden = [];
     protected $casts = [
@@ -244,6 +244,17 @@ class Monster extends Model
         }
 
         $this->attributes['base64_image'] = $value;
+    }
+
+    public function setDropzoneAttribute($value)
+    {
+        if (app('env') === 'production') {
+            \Alert::warning('In the online demo the dropzone files don\'t get stored.');
+
+            return true;
+        }
+
+        $this->attributes['dropzone'] = $value;
     }
 
     public function setImageAttribute($value)
