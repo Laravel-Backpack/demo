@@ -18,7 +18,7 @@ var monsterFields = [
     'date', // date
     'datetime', // datetime
     'email', // email
-    // enum
+    'status', //enum
     'hidden', // hidden
     'month', // month
     'number', 'float', 'number_with_prefix', 'number_with_suffix', 'text_with_both_prefix_and_suffix', // number
@@ -38,9 +38,11 @@ var monsterFields = [
     'upload_multiple', // upload_multiple
     'url', // url
     'switch', // switch
+    'dropzone', //dropzone
     // view
     'week', // week
-    // address_google PRO
+    'address_google',
+    'location', //google_map
     'browse', // browse PRO
     'browse_multiple', // browse_multiple PRO
     'base64_image', // base64_image PRO
