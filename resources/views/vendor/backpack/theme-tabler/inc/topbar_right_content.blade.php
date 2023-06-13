@@ -193,14 +193,3 @@
         </div>
     </div>
 @endsection
-
-@push('after_scripts')
-    <script>
-        const layoutSelection = $('#tabler-layouts-selection');
-        $('.theme-choice').on('click', function () {
-            $(this).val() === 'tabler'
-                ? layoutSelection.slideDown()
-                : layoutSelection.slideUp();
-        });
-    </script>
-@endpush
