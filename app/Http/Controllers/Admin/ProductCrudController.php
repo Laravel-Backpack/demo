@@ -17,6 +17,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzoneUpload;}
 
     public function setup()
     {
@@ -211,9 +212,7 @@ class ProductCrudController extends CrudController
                 ->type('image')
                 ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withMedia([
-                    'disk' => 'products',
-                ]);
+                ->withMedia();
 
         CRUD::field('privacy_policy')
                 ->label('Privacy policy document')
@@ -227,9 +226,7 @@ class ProductCrudController extends CrudController
                 ->type('upload_multiple')
                 ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
-                ->withMedia([
-                    'disk' => 'products',
-                ]);
+                ->withMedia();
 
         CRUD::field('gallery')
             ->type('repeatable')
@@ -249,9 +246,7 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withMedia' => [
-                        'disk' => 'products',
-                    ],
+                    'withMedia' => true,
                 ],
 
                 [
@@ -261,9 +256,7 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withMedia' => [
-                        'disk' => 'products',
-                    ],
+                    'withMedia' => true,
                 ],
                 [
                     'name'    => 'gallery_image_specifications',
@@ -272,9 +265,16 @@ class ProductCrudController extends CrudController
                     'wrapper' => [
                         'class' => 'form-group col-md-6',
                     ],
-                    'withMedia' => [
-                        'disk' => 'products',
+                    'withMedia' => true,
+                ],
+                [
+                    'name'    => 'gallery_image_certificates',
+                    'label'   => 'Image Certificates',
+                    'type'    => 'dropzone',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
                     ],
+                    'withMedia' => true,
                 ],
             ]);
 
@@ -284,5 +284,14 @@ class ProductCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function dropzoneUpload()
+    {
+        if (app('env') === 'production') {
+            return response()->json([]);
+        }
+
+        return $this->traitDropzoneUpload();
     }
 }
