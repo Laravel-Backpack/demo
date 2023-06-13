@@ -47,10 +47,11 @@ class Product extends Model implements HasMedia
     public function mainImage(): Attribute
     {
         return Attribute::make(
-            set: function($item) {
+            set: function ($item) {
                 if (app('env') === 'production') {
                     return null;
                 }
+
                 return $item;
             },
         );
@@ -59,10 +60,11 @@ class Product extends Model implements HasMedia
     public function privacyPolicy(): Attribute
     {
         return Attribute::make(
-            set: function($item) {
+            set: function ($item) {
                 if (app('env') === 'production') {
                     return null;
                 }
+
                 return $item;
             },
         );
@@ -71,10 +73,11 @@ class Product extends Model implements HasMedia
     public function specifications(): Attribute
     {
         return Attribute::make(
-            set: function($item) {
+            set: function ($item) {
                 if (app('env') === 'production') {
                     return null;
                 }
+
                 return json_encode($item);
             },
         );
@@ -83,10 +86,11 @@ class Product extends Model implements HasMedia
     public function gallery(): Attribute
     {
         return Attribute::make(
-            set: function($item) {
+            set: function ($item) {
                 if (app('env') === 'production') {
-                    array_walk($item, function(&$row) {
+                    array_walk($item, function (&$row) {
                         unset($row['gallery_image'], $row['gallery_image_drm'], $row['gallery_image_specifications'], $row['gallery_image_certificates']);
+
                         return $row;
                     });
                 }
