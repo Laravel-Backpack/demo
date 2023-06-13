@@ -134,17 +134,3 @@
         </div>
     </div>
 @endsection
-
-@push('after_scripts')
-    <script>
-        const layoutSelection = $('#tabler-layouts-selection');
-        @if(config('backpack.ui.view_namespace') !== 'backpack.theme-tabler::')
-        layoutSelection.hide();
-        @endif
-        $('.theme-choice').on('click', function () {
-            $(this).val() === 'tabler'
-                ? layoutSelection.slideDown()
-                : layoutSelection.slideUp();
-        });
-    </script>
-@endpush
