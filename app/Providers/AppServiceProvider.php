@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Database\Eloquent\Relations\Relation;
+use Backpack\CRUD\app\Library\CrudPanel\CrudField;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // register the services that are only used for development
+        // a simple helper to make fields disabled in production
+        CrudField::macro('disabledInProduction', function () {
+            if (app('env') !== 'production') {
+                return $this;
+            }
+
+            return $this->attributes(['disabled' => 'disabled'])
+                        ->hint('Uploads are disabled in production.');
+        });
     }
 }

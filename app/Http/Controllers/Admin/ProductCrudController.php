@@ -212,6 +212,7 @@ class ProductCrudController extends CrudController
                 ->type('image')
                 ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
                 ->withMedia();
 
         CRUD::field('privacy_policy')
@@ -219,6 +220,7 @@ class ProductCrudController extends CrudController
                 ->type('upload')
                 ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
                 ->withMedia();
 
         CRUD::field('specifications')
@@ -226,6 +228,7 @@ class ProductCrudController extends CrudController
                 ->type('upload_multiple')
                 ->tab('Media')
                 ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
                 ->withMedia();
 
         CRUD::field('gallery')
@@ -276,7 +279,10 @@ class ProductCrudController extends CrudController
                     ],
                     'withMedia' => true,
                 ],
-            ]);
+            ])
+            ->when(app('env') == 'production', function ($field) {
+                return $field->remove();
+            });
 
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }
