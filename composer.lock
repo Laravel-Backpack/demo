@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3dd30ed559b2d03d0e5405b30bca612",
+    "content-hash": "cf8cafcb003a02ceed644739b8fce620",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -630,20 +630,20 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "6.0.16",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "e092031c7ee13328bf6ae06452647e2be11f09e9"
+                "reference": "e5b949fa14817cb2d7978e69fd827287b67ac9fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/e092031c7ee13328bf6ae06452647e2be11f09e9",
-                "reference": "e092031c7ee13328bf6ae06452647e2be11f09e9",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/e5b949fa14817cb2d7978e69fd827287b67ac9fd",
+                "reference": "e5b949fa14817cb2d7978e69fd827287b67ac9fd",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^5.0",
+                "backpack/crud": "^5.0|^6.0|v6.x-dev",
                 "spatie/laravel-permission": "^5.0||^4.0||^3.0"
             },
             "require-dev": {
@@ -701,9 +701,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/PermissionManager/issues",
-                "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/6.0.16"
+                "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/v6"
             },
-            "time": "2023-05-25T10:51:39+00:00"
+            "time": "2023-06-12T07:39:12+00:00"
         },
         {
             "name": "backpack/pro",
@@ -10759,6 +10759,12 @@
             "alias_normalized": "5.99.99.0"
         },
         {
+            "package": "backpack/permissionmanager",
+            "version": "6.9999999.9999999.9999999-dev",
+            "alias": "6.9.99",
+            "alias_normalized": "6.9.99.0"
+        },
+        {
             "package": "backpack/pro",
             "version": "6.9999999.9999999.9999999-dev",
             "alias": "1.99.99",
@@ -10772,6 +10778,7 @@
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-coreuiv4": 20,
         "backpack/theme-tabler": 20,
+        "backpack/permissionmanager": 20,
         "backpack/generators": 20
     },
     "prefer-stable": true,

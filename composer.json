@@ -16,7 +16,7 @@
         "backpack/logmanager": "^4.0",
         "backpack/settings": "^3.0",
         "backpack/newscrud": "^4.0",
-        "backpack/permissionmanager": "^6.0",
+        "backpack/permissionmanager": "v6.x-dev as 6.9.99",
         "backpack/pagemanager": "^3.0",
         "backpack/menucrud": "^3.0",
         "spatie/laravel-translatable": "^6.0",
