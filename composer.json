@@ -83,9 +83,7 @@
             "php artisan key:generate",
             "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
         ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall"
-        ],
+        "post-install-cmd": ["Illuminate\\Foundation\\ComposerScripts::postInstall", "php artisan storage:link"],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
