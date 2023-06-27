@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf8cafcb003a02ceed644739b8fce620",
+    "content-hash": "da1ff2d743f566931d9d57f17c14ef9c",
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v4.0.2",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "240ff3fbdd0db86ce01c83eaf610b2c7d009351e"
+                "reference": "e1097293e28c326bef3aabfc7bf1fb96b88b49b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/240ff3fbdd0db86ce01c83eaf610b2c7d009351e",
-                "reference": "240ff3fbdd0db86ce01c83eaf610b2c7d009351e",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/e1097293e28c326bef3aabfc7bf1fb96b88b49b8",
+                "reference": "e1097293e28c326bef3aabfc7bf1fb96b88b49b8",
                 "shasum": ""
             },
             "require": {
@@ -69,9 +69,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/BackupManager/issues",
-                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v4.0.2"
+                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v6"
             },
-            "time": "2023-04-11T03:47:23+00:00"
+            "time": "2023-06-27T08:24:20+00:00"
         },
         {
             "name": "backpack/basset",
@@ -147,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "679655dd5622615983280381e55b66d673a058a7"
+                "reference": "36b7d48a93361c713ba48728c4bad40015cbf318"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/679655dd5622615983280381e55b66d673a058a7",
-                "reference": "679655dd5622615983280381e55b66d673a058a7",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/36b7d48a93361c713ba48728c4bad40015cbf318",
+                "reference": "36b7d48a93361c713ba48728c4bad40015cbf318",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
             },
-            "time": "2023-06-26T07:38:12+00:00"
+            "time": "2023-06-27T12:40:31+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -307,27 +307,26 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "2.0.1",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "d317f5c7220170211a6b060a3811c2f020ec2688"
+                "reference": "47a1df5fa785ae971432e5e0127bce0bf40688b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/d317f5c7220170211a6b060a3811c2f020ec2688",
-                "reference": "d317f5c7220170211a6b060a3811c2f020ec2688",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/47a1df5fa785ae971432e5e0127bce0bf40688b0",
+                "reference": "47a1df5fa785ae971432e5e0127bce0bf40688b0",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^5.0",
+                "backpack/crud": "^5.0|^6.0|6.x-dev",
                 "barryvdh/laravel-elfinder": "^0.5.0"
             },
             "require-dev": {
-                "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~3|~4",
-                "phpunit/phpunit": "^8.0",
-                "sempro/phpunit-pretty-print": "^1.0"
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^8",
+                "phpunit/phpunit": "^10.0"
             },
             "type": "library",
             "extra": {
@@ -361,22 +360,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/2.0.1"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/v6"
             },
-            "time": "2023-03-27T17:13:49+00:00"
+            "time": "2023-06-27T08:23:08+00:00"
         },
         {
             "name": "backpack/logmanager",
-            "version": "v4.0.10",
+            "version": "v6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/LogManager.git",
-                "reference": "999d6a8f92f849f530a70fa63c13d8ece8b0351f"
+                "reference": "dc14cbfb4cde4dcc5ccb1932a88bcdcc2a78272a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/999d6a8f92f849f530a70fa63c13d8ece8b0351f",
-                "reference": "999d6a8f92f849f530a70fa63c13d8ece8b0351f",
+                "url": "https://api.github.com/repos/Laravel-Backpack/LogManager/zipball/dc14cbfb4cde4dcc5ccb1932a88bcdcc2a78272a",
+                "reference": "dc14cbfb4cde4dcc5ccb1932a88bcdcc2a78272a",
                 "shasum": ""
             },
             "require": {
@@ -425,9 +424,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/LogManager/issues",
-                "source": "https://github.com/Laravel-Backpack/LogManager/tree/v4.0.10"
+                "source": "https://github.com/Laravel-Backpack/LogManager/tree/v6"
             },
-            "time": "2023-04-05T08:11:51+00:00"
+            "time": "2023-06-27T08:26:34+00:00"
         },
         {
             "name": "backpack/menucrud",
@@ -918,12 +917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "89db899f0e4dd9bba3e5d53301bf849fa71bfb50"
+                "reference": "c408771752236c9959c0c00722cdcf05197c3da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/89db899f0e4dd9bba3e5d53301bf849fa71bfb50",
-                "reference": "89db899f0e4dd9bba3e5d53301bf849fa71bfb50",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/c408771752236c9959c0c00722cdcf05197c3da9",
+                "reference": "c408771752236c9959c0c00722cdcf05197c3da9",
                 "shasum": ""
             },
             "require": {
@@ -980,7 +979,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues"
             },
-            "time": "2023-06-07T09:00:58+00:00"
+            "time": "2023-06-27T15:36:27+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -988,12 +987,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "65d33e61a1f577f377a251ae281c91dcd33d476c"
+                "reference": "22fd89922c33c6ba152a5d8b76c78cc68d7511c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/65d33e61a1f577f377a251ae281c91dcd33d476c",
-                "reference": "65d33e61a1f577f377a251ae281c91dcd33d476c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/22fd89922c33c6ba152a5d8b76c78cc68d7511c5",
+                "reference": "22fd89922c33c6ba152a5d8b76c78cc68d7511c5",
                 "shasum": ""
             },
             "require": {
@@ -1060,7 +1059,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues"
             },
-            "time": "2023-06-24T09:42:35+00:00"
+            "time": "2023-06-27T12:39:30+00:00"
         },
         {
             "name": "backpack/theme-tabler",
@@ -1068,12 +1067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "f9c695d52b514ba16dd4b066f1096ff549f87653"
+                "reference": "9108383c2feb8292d781a9e7f8b2c30ff3b95366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/f9c695d52b514ba16dd4b066f1096ff549f87653",
-                "reference": "f9c695d52b514ba16dd4b066f1096ff549f87653",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/9108383c2feb8292d781a9e7f8b2c30ff3b95366",
+                "reference": "9108383c2feb8292d781a9e7f8b2c30ff3b95366",
                 "shasum": ""
             },
             "require": {
@@ -1143,7 +1142,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues"
             },
-            "time": "2023-06-21T08:32:39+00:00"
+            "time": "2023-06-27T12:38:52+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -3045,16 +3044,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.13.5",
+            "version": "v10.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "03106ae9ba2ec4b36dc973b7bdca6fad81e032b4"
+                "reference": "285cdd86a4beb433513b38f41a89b510e0724a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/03106ae9ba2ec4b36dc973b7bdca6fad81e032b4",
-                "reference": "03106ae9ba2ec4b36dc973b7bdca6fad81e032b4",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/285cdd86a4beb433513b38f41a89b510e0724a3e",
+                "reference": "285cdd86a4beb433513b38f41a89b510e0724a3e",
                 "shasum": ""
             },
             "require": {
@@ -3241,7 +3240,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-06-08T20:25:36+00:00"
+            "time": "2023-06-27T13:26:12+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -5313,16 +5312,16 @@
         },
         {
             "name": "spatie/db-dumper",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "3b9fd47899bf6a59d3452392121c9ce675d55d34"
+                "reference": "bbd5ae0f331d47e6534eb307e256c11a65c8e24a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/3b9fd47899bf6a59d3452392121c9ce675d55d34",
-                "reference": "3b9fd47899bf6a59d3452392121c9ce675d55d34",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/bbd5ae0f331d47e6534eb307e256c11a65c8e24a",
+                "reference": "bbd5ae0f331d47e6534eb307e256c11a65c8e24a",
                 "shasum": ""
             },
             "require": {
@@ -5360,7 +5359,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/db-dumper/tree/3.3.1"
+                "source": "https://github.com/spatie/db-dumper/tree/3.4.0"
             },
             "funding": [
                 {
@@ -5372,7 +5371,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-02T11:05:31+00:00"
+            "time": "2023-06-27T08:34:52+00:00"
         },
         {
             "name": "spatie/flare-client-php",
@@ -8719,12 +8718,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "ed513f2ac51af1e689c1fe58bb3caa2286b374bc"
+                "reference": "0b50521f2ef5006c279a6cdbfe5f87b591f5cc51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/ed513f2ac51af1e689c1fe58bb3caa2286b374bc",
-                "reference": "ed513f2ac51af1e689c1fe58bb3caa2286b374bc",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/0b50521f2ef5006c279a6cdbfe5f87b591f5cc51",
+                "reference": "0b50521f2ef5006c279a6cdbfe5f87b591f5cc51",
                 "shasum": ""
             },
             "require": {
@@ -8781,7 +8780,7 @@
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
                 "source": "https://github.com/Laravel-Backpack/Generators/tree/v6"
             },
-            "time": "2023-06-19T07:56:13+00:00"
+            "time": "2023-06-27T15:54:51+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -10753,10 +10752,28 @@
     ],
     "aliases": [
         {
+            "package": "backpack/backupmanager",
+            "version": "6.9999999.9999999.9999999-dev",
+            "alias": "5.9.99",
+            "alias_normalized": "5.9.99.0"
+        },
+        {
             "package": "backpack/crud",
             "version": "6.9999999.9999999.9999999-dev",
             "alias": "5.99.99",
             "alias_normalized": "5.99.99.0"
+        },
+        {
+            "package": "backpack/filemanager",
+            "version": "6.9999999.9999999.9999999-dev",
+            "alias": "3.9.99",
+            "alias_normalized": "3.9.99.0"
+        },
+        {
+            "package": "backpack/logmanager",
+            "version": "6.9999999.9999999.9999999-dev",
+            "alias": "5.9.99",
+            "alias_normalized": "5.9.99.0"
         },
         {
             "package": "backpack/permissionmanager",
@@ -10775,10 +10792,13 @@
     "stability-flags": {
         "backpack/crud": 20,
         "backpack/pro": 20,
+        "backpack/filemanager": 20,
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-coreuiv4": 20,
         "backpack/theme-tabler": 20,
+        "backpack/logmanager": 20,
         "backpack/permissionmanager": 20,
+        "backpack/backupmanager": 20,
         "backpack/generators": 20
     },
     "prefer-stable": true,
