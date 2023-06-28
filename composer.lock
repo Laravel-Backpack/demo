@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da1ff2d743f566931d9d57f17c14ef9c",
+    "content-hash": "1e426bd40be544f2fb7da72718fdc395",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -147,12 +147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "36b7d48a93361c713ba48728c4bad40015cbf318"
+                "reference": "32b9e0a4e1e3d713cd8c039e3270d1c6cad8bf49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/36b7d48a93361c713ba48728c4bad40015cbf318",
-                "reference": "36b7d48a93361c713ba48728c4bad40015cbf318",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/32b9e0a4e1e3d713cd8c039e3270d1c6cad8bf49",
+                "reference": "32b9e0a4e1e3d713cd8c039e3270d1c6cad8bf49",
                 "shasum": ""
             },
             "require": {
@@ -234,21 +234,21 @@
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
             },
-            "time": "2023-06-27T12:40:31+00:00"
+            "time": "2023-06-28T09:43:49+00:00"
         },
         {
             "name": "backpack/editable-columns",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/editable-columns.git",
-                "reference": "07e96f2acfab0ddd38a18e98f490c231bda8c67b"
+                "reference": "1b97dc33f11c7fd53c2a0aa2b354e04f388b834d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-07e96f2acfab0ddd38a18e98f490c231bda8c67b-zip-ebd152.zip",
-                "reference": "07e96f2acfab0ddd38a18e98f490c231bda8c67b",
-                "shasum": "0f42146bf9b325289d12108c667e20eb76953e8f"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-1b97dc33f11c7fd53c2a0aa2b354e04f388b834d-zip-b814e2.zip",
+                "reference": "1b97dc33f11c7fd53c2a0aa2b354e04f388b834d",
+                "shasum": "dc233fb04b0aab64b3d31628ad9c910ceaa092b6"
             },
             "require": {
                 "backpack/crud": "^5.3.13"
@@ -300,10 +300,10 @@
                 "Laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/2.1.4",
+                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/2.1.5",
                 "issues": "https://github.com/Laravel-Backpack/editable-columns/issues"
             },
-            "time": "2023-04-21T17:17:49+00:00"
+            "time": "2023-06-27T16:00:16+00:00"
         },
         {
             "name": "backpack/filemanager",
@@ -433,13 +433,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "git@github.com:Laravel-Backpack/medialibrary-uploaders.git",
-                "reference": "df57a623b8d55daf6cd0ad08d4b63be561471fda"
+                "url": "https://github.com/Laravel-Backpack/medialibrary-uploaders.git",
+                "reference": "21de16c4f7aabfc3fbd9eb1e0a6ac26e26698b1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/df57a623b8d55daf6cd0ad08d4b63be561471fda",
-                "reference": "df57a623b8d55daf6cd0ad08d4b63be561471fda",
+                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/21de16c4f7aabfc3fbd9eb1e0a6ac26e26698b1b",
+                "reference": "21de16c4f7aabfc3fbd9eb1e0a6ac26e26698b1b",
                 "shasum": ""
             },
             "require": {
@@ -493,7 +493,7 @@
                 "source": "https://github.com/Laravel-Backpack/medialibrary-uploaders/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/medialibrary-uploaders/issues"
             },
-            "time": "2023-05-17T09:24:37+00:00"
+            "time": "2023-06-14T08:52:24+00:00"
         },
         {
             "name": "backpack/menucrud",
@@ -777,13 +777,13 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "2709cb9238593251c7269e57b6502df110cdbc20"
+                "reference": "6c974d992a941c141802b289a313184035ff8e58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-2709cb9238593251c7269e57b6502df110cdbc20-zip-5a2e90.zip",
-                "reference": "2709cb9238593251c7269e57b6502df110cdbc20",
-                "shasum": "5c18a4375fbc1ce737a4beb7a47587acb717cd10"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-6c974d992a941c141802b289a313184035ff8e58-zip-9f9790.zip",
+                "reference": "6c974d992a941c141802b289a313184035ff8e58",
+                "shasum": "2a37754b8b2697be000691e9f4349eb401514993"
             },
             "require": {
                 "backpack/crud": "^6.0|v6.x-dev|^5.4.9"
@@ -838,7 +838,7 @@
                 "source": "https://github.com/Laravel-Backpack/PRO/tree/v6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-06-19T08:35:04+00:00"
+            "time": "2023-06-27T13:09:45+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -984,12 +984,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "c408771752236c9959c0c00722cdcf05197c3da9"
+                "reference": "593d90cccf333bb6d7637e63b9399a7e1e5f2500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/c408771752236c9959c0c00722cdcf05197c3da9",
-                "reference": "c408771752236c9959c0c00722cdcf05197c3da9",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/593d90cccf333bb6d7637e63b9399a7e1e5f2500",
+                "reference": "593d90cccf333bb6d7637e63b9399a7e1e5f2500",
                 "shasum": ""
             },
             "require": {
@@ -1043,10 +1043,10 @@
                 "ThemeCoreuiv2"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/main",
+                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/1.0.2",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues"
             },
-            "time": "2023-06-27T15:36:27+00:00"
+            "time": "2023-06-28T09:26:36+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -1054,12 +1054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "22fd89922c33c6ba152a5d8b76c78cc68d7511c5"
+                "reference": "2dc2d149d68b353805432b3176f2648663b04511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/22fd89922c33c6ba152a5d8b76c78cc68d7511c5",
-                "reference": "22fd89922c33c6ba152a5d8b76c78cc68d7511c5",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/2dc2d149d68b353805432b3176f2648663b04511",
+                "reference": "2dc2d149d68b353805432b3176f2648663b04511",
                 "shasum": ""
             },
             "require": {
@@ -1126,7 +1126,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues"
             },
-            "time": "2023-06-27T12:39:30+00:00"
+            "time": "2023-06-28T09:26:03+00:00"
         },
         {
             "name": "backpack/theme-tabler",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "9108383c2feb8292d781a9e7f8b2c30ff3b95366"
+                "reference": "4c6904685eeb40a2053d0f3c8d6a259edaa7ffed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/9108383c2feb8292d781a9e7f8b2c30ff3b95366",
-                "reference": "9108383c2feb8292d781a9e7f8b2c30ff3b95366",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/4c6904685eeb40a2053d0f3c8d6a259edaa7ffed",
+                "reference": "4c6904685eeb40a2053d0f3c8d6a259edaa7ffed",
                 "shasum": ""
             },
             "require": {
@@ -1209,7 +1209,7 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues"
             },
-            "time": "2023-06-27T12:38:52+00:00"
+            "time": "2023-06-28T09:25:48+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -3111,16 +3111,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.14.0",
+            "version": "v10.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "285cdd86a4beb433513b38f41a89b510e0724a3e"
+                "reference": "6f89a2b74b232d8bf2e1d9ed87e311841263dfcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/285cdd86a4beb433513b38f41a89b510e0724a3e",
-                "reference": "285cdd86a4beb433513b38f41a89b510e0724a3e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6f89a2b74b232d8bf2e1d9ed87e311841263dfcb",
+                "reference": "6f89a2b74b232d8bf2e1d9ed87e311841263dfcb",
                 "shasum": ""
             },
             "require": {
@@ -3307,7 +3307,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-06-27T13:26:12+00:00"
+            "time": "2023-06-28T14:25:16+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -3952,16 +3952,16 @@
         },
         {
             "name": "maennchen/zipstream-php",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maennchen/ZipStream-PHP.git",
-                "reference": "b46726e666b5d2ad32959ae9492ee1034e798162"
+                "reference": "b8174494eda667f7d13876b4a7bfef0f62a7c0d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/b46726e666b5d2ad32959ae9492ee1034e798162",
-                "reference": "b46726e666b5d2ad32959ae9492ee1034e798162",
+                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/b8174494eda667f7d13876b4a7bfef0f62a7c0d1",
+                "reference": "b8174494eda667f7d13876b4a7bfef0f62a7c0d1",
                 "shasum": ""
             },
             "require": {
@@ -4017,7 +4017,7 @@
             ],
             "support": {
                 "issues": "https://github.com/maennchen/ZipStream-PHP/issues",
-                "source": "https://github.com/maennchen/ZipStream-PHP/tree/3.0.2"
+                "source": "https://github.com/maennchen/ZipStream-PHP/tree/3.1.0"
             },
             "funding": [
                 {
@@ -4029,7 +4029,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-04-19T19:51:03+00:00"
+            "time": "2023-06-21T14:59:35+00:00"
         },
         {
             "name": "mews/purifier",
@@ -5463,16 +5463,16 @@
         },
         {
             "name": "spatie/backtrace",
-            "version": "1.4.1",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/backtrace.git",
-                "reference": "47794d19e3215ace9e005a8f200cd7cc7be52572"
+                "reference": "483f76a82964a0431aa836b6ed0edde0c248e3ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/backtrace/zipball/47794d19e3215ace9e005a8f200cd7cc7be52572",
-                "reference": "47794d19e3215ace9e005a8f200cd7cc7be52572",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/483f76a82964a0431aa836b6ed0edde0c248e3ab",
+                "reference": "483f76a82964a0431aa836b6ed0edde0c248e3ab",
                 "shasum": ""
             },
             "require": {
@@ -5509,7 +5509,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/backtrace/tree/1.4.1"
+                "source": "https://github.com/spatie/backtrace/tree/1.5.3"
             },
             "funding": [
                 {
@@ -5521,7 +5521,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-06-13T14:35:04+00:00"
+            "time": "2023-06-28T12:59:17+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -5588,22 +5588,23 @@
         },
         {
             "name": "spatie/flare-client-php",
-            "version": "1.3.6",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/flare-client-php.git",
-                "reference": "530ac81255af79f114344286e4275f8869c671e2"
+                "reference": "82138174d5fe2829a7f085a6bdb2a06f6def9f7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/530ac81255af79f114344286e4275f8869c671e2",
-                "reference": "530ac81255af79f114344286e4275f8869c671e2",
+                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/82138174d5fe2829a7f085a6bdb2a06f6def9f7a",
+                "reference": "82138174d5fe2829a7f085a6bdb2a06f6def9f7a",
                 "shasum": ""
             },
             "require": {
                 "illuminate/pipeline": "^8.0|^9.0|^10.0",
+                "nesbot/carbon": "^2.62.1",
                 "php": "^8.0",
-                "spatie/backtrace": "^1.2",
+                "spatie/backtrace": "^1.5.2",
                 "symfony/http-foundation": "^5.0|^6.0",
                 "symfony/mime": "^5.2|^6.0",
                 "symfony/process": "^5.2|^6.0",
@@ -5620,7 +5621,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.1.x-dev"
+                    "dev-main": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -5645,7 +5646,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/flare-client-php/issues",
-                "source": "https://github.com/spatie/flare-client-php/tree/1.3.6"
+                "source": "https://github.com/spatie/flare-client-php/tree/1.4.0"
             },
             "funding": [
                 {
@@ -5653,28 +5654,28 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-12T07:57:12+00:00"
+            "time": "2023-06-28T11:08:09+00:00"
         },
         {
             "name": "spatie/ignition",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "d8eb8ea1ed27f48a694405cff363746ffd37f13e"
+                "reference": "de24ff1e01814d5043bd6eb4ab36a5a852a04973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/d8eb8ea1ed27f48a694405cff363746ffd37f13e",
-                "reference": "d8eb8ea1ed27f48a694405cff363746ffd37f13e",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/de24ff1e01814d5043bd6eb4ab36a5a852a04973",
+                "reference": "de24ff1e01814d5043bd6eb4ab36a5a852a04973",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "php": "^8.0",
-                "spatie/backtrace": "^1.4",
-                "spatie/flare-client-php": "^1.1",
+                "spatie/backtrace": "^1.5.3",
+                "spatie/flare-client-php": "^1.4.0",
                 "symfony/console": "^5.4|^6.0",
                 "symfony/var-dumper": "^5.4|^6.0"
             },
@@ -5686,7 +5687,7 @@
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "psr/simple-cache-implementation": "*",
-                "symfony/cache": "^6.2",
+                "symfony/cache": "^6.0",
                 "symfony/process": "^5.4|^6.0",
                 "vlucas/phpdotenv": "^5.5"
             },
@@ -5736,7 +5737,131 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-06T14:14:58+00:00"
+            "time": "2023-06-28T13:24:59+00:00"
+        },
+        {
+            "name": "spatie/image",
+            "version": "2.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/image.git",
+                "reference": "f72ca52acd77ca03b7843a0f86e2411ce90aecfc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/image/zipball/f72ca52acd77ca03b7843a0f86e2411ce90aecfc",
+                "reference": "f72ca52acd77ca03b7843a0f86e2411ce90aecfc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "league/glide": "^2.2.2",
+                "php": "^8.0",
+                "spatie/image-optimizer": "^1.1",
+                "spatie/temporary-directory": "^1.0|^2.0",
+                "symfony/process": "^3.0|^4.0|^5.0|^6.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^4.0|^5.0|^6.0",
+                "vimeo/psalm": "^4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Image\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Manipulate images with an expressive API",
+            "homepage": "https://github.com/spatie/image",
+            "keywords": [
+                "image",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/image/tree/2.2.6"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-05-06T10:20:33+00:00"
+        },
+        {
+            "name": "spatie/image-optimizer",
+            "version": "1.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/image-optimizer.git",
+                "reference": "d997e01ba980b2769ddca2f00badd3b80c2a2512"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/d997e01ba980b2769ddca2f00badd3b80c2a2512",
+                "reference": "d997e01ba980b2769ddca2f00badd3b80c2a2512",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": "^7.3|^8.0",
+                "psr/log": "^1.0 | ^2.0 | ^3.0",
+                "symfony/process": "^4.2|^5.0|^6.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.21",
+                "phpunit/phpunit": "^8.5.21|^9.4.4",
+                "symfony/var-dumper": "^4.2|^5.0|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ImageOptimizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily optimize images using PHP",
+            "homepage": "https://github.com/spatie/image-optimizer",
+            "keywords": [
+                "image-optimizer",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/image-optimizer/issues",
+                "source": "https://github.com/spatie/image-optimizer/tree/1.6.4"
+            },
+            "time": "2023-03-10T08:43:19+00:00"
         },
         {
             "name": "spatie/laravel-backup",
@@ -5839,16 +5964,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "2.1.3",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "35711943d4725aa80f8033e4f1cb3a6775530b25"
+                "reference": "dd15fbe82ef5392798941efae93c49395a87d943"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/35711943d4725aa80f8033e4f1cb3a6775530b25",
-                "reference": "35711943d4725aa80f8033e4f1cb3a6775530b25",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/dd15fbe82ef5392798941efae93c49395a87d943",
+                "reference": "dd15fbe82ef5392798941efae93c49395a87d943",
                 "shasum": ""
             },
             "require": {
@@ -5858,7 +5983,7 @@
                 "illuminate/support": "^10.0",
                 "php": "^8.1",
                 "spatie/flare-client-php": "^1.3.5",
-                "spatie/ignition": "^1.5.0",
+                "spatie/ignition": "^1.9",
                 "symfony/console": "^6.2.3",
                 "symfony/var-dumper": "^6.2.3"
             },
@@ -5927,7 +6052,116 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-25T11:30:27+00:00"
+            "time": "2023-06-28T13:51:52+00:00"
+        },
+        {
+            "name": "spatie/laravel-medialibrary",
+            "version": "10.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-medialibrary.git",
+                "reference": "bc802155cd621492fb33cdca6427a2666fdff707"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/bc802155cd621492fb33cdca6427a2666fdff707",
+                "reference": "bc802155cd621492fb33cdca6427a2666fdff707",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "ext-fileinfo": "*",
+                "ext-json": "*",
+                "illuminate/bus": "^9.18|^10.0",
+                "illuminate/conditionable": "^9.18|^10.0",
+                "illuminate/console": "^9.18|^10.0",
+                "illuminate/database": "^9.18|^10.0",
+                "illuminate/pipeline": "^9.18|^10.0",
+                "illuminate/support": "^9.18|^10.0",
+                "intervention/image": "^2.7",
+                "maennchen/zipstream-php": "^2.0|^3.0",
+                "php": "^8.0",
+                "spatie/image": "^2.2.2",
+                "spatie/temporary-directory": "^2.0",
+                "symfony/console": "^6.0"
+            },
+            "conflict": {
+                "php-ffmpeg/php-ffmpeg": "<0.6.1"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^3.133.11",
+                "doctrine/dbal": "^2.13",
+                "ext-imagick": "*",
+                "ext-pdo_sqlite": "*",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "^7.4",
+                "league/flysystem-aws-s3-v3": "^3.0",
+                "mockery/mockery": "^1.4",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": "^7.0|^8.0",
+                "pestphp/pest": "^1.21",
+                "phpstan/extension-installer": "^1.1",
+                "spatie/laravel-ray": "^1.28",
+                "spatie/pdf-to-image": "^2.1",
+                "spatie/phpunit-snapshot-assertions": "^4.2"
+            },
+            "suggest": {
+                "league/flysystem-aws-s3-v3": "Required to use AWS S3 file storage",
+                "php-ffmpeg/php-ffmpeg": "Required for generating video thumbnails",
+                "spatie/pdf-to-image": "Required for generating thumbnails of PDFs and SVGs"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\MediaLibrary\\MediaLibraryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\MediaLibrary\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Associate files with Eloquent models",
+            "homepage": "https://github.com/spatie/laravel-medialibrary",
+            "keywords": [
+                "cms",
+                "conversion",
+                "downloads",
+                "images",
+                "laravel",
+                "laravel-medialibrary",
+                "media",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-medialibrary/issues",
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-06-22T10:45:08+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -8931,12 +9165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "0b50521f2ef5006c279a6cdbfe5f87b591f5cc51"
+                "reference": "09bfb609460d1303b521ade8f71d73523983d881"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/0b50521f2ef5006c279a6cdbfe5f87b591f5cc51",
-                "reference": "0b50521f2ef5006c279a6cdbfe5f87b591f5cc51",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/09bfb609460d1303b521ade8f71d73523983d881",
+                "reference": "09bfb609460d1303b521ade8f71d73523983d881",
                 "shasum": ""
             },
             "require": {
@@ -8993,7 +9227,7 @@
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
                 "source": "https://github.com/Laravel-Backpack/Generators/tree/v6"
             },
-            "time": "2023-06-27T15:54:51+00:00"
+            "time": "2023-06-28T09:44:46+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -11009,10 +11243,10 @@
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-coreuiv4": 20,
         "backpack/theme-tabler": 20,
-        "backpack/medialibrary-uploaders": 20,
         "backpack/logmanager": 20,
         "backpack/permissionmanager": 20,
         "backpack/backupmanager": 20,
+        "backpack/medialibrary-uploaders": 20,
         "backpack/generators": 20
     },
     "prefer-stable": true,

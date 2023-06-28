@@ -28,7 +28,7 @@
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
         "backpack/backupmanager": "v6.x-dev as 5.9.99",
-        "backpack/editable-columns": "^2.0"
+        "backpack/editable-columns": "^2.0",
         "spatie/laravel-medialibrary": "^10.7",
         "backpack/medialibrary-uploaders": "dev-main"
     },
