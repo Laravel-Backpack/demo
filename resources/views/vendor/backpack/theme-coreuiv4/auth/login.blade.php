@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="row justify-content-center align-items-center d-flex flex-row min-vh-100">
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 col-md-6 col-lg-4">
         <h3 class="text-center mb-4">{{ trans('backpack::base.login') }}</h3>
-        <div class="card p-4 mb-0">
+        <div class="card p-2">
             <div class="card-body">
                 <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.login') }}">
                     {!! csrf_field() !!}
@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group mt-3">
+                    <div class="form-group mt-3 mb-0">
                         <div>
                             <button type="submit" class="btn btn-block btn-primary">
                                 {{ trans('backpack::base.login') }}
