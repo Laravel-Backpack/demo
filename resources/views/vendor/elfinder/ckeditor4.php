@@ -16,7 +16,7 @@
         <!-- elFinder JS (REQUIRED) -->
         <script src="<?= asset($dir.'/js/elfinder.min.js') ?>"></script>
 
-        <?php if($locale){ ?>
+        <?php if ($locale) { ?>
             <!-- elFinder translation (OPTIONAL) -->
             <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>
         <?php } ?>
@@ -36,13 +36,13 @@
 
                 var elf = $('#elfinder').elfinder({
                     // set your elFinder options here
-                    <?php if($locale){ ?>
+                    <?php if ($locale) { ?>
                         lang: '<?= $locale ?>', // locale
                     <?php } ?>
                     customData: { 
                         _token: '<?= csrf_token() ?>'
                     },
-                    url: '<?= route("elfinder.connector") ?>',  // connector URL
+                    url: '<?= route('elfinder.connector') ?>',  // connector URL
                     soundPath: '<?= asset($dir.'/sounds') ?>',
                     getFileCallback : function(file) {
                         window.opener.CKEDITOR.tools.callFunction(funcNum, file.url);
