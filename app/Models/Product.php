@@ -88,6 +88,7 @@ class Product extends Model implements HasMedia
         return Attribute::make(
             set: function ($item) {
                 if (app('env') === 'production') {
+                    $item = is_string($item) ? json_decode($item, true) : ($item ?? []);
                     array_walk($item, function (&$row) {
                         unset($row['gallery_image'], $row['gallery_image_drm'], $row['gallery_image_specifications'], $row['gallery_image_certificates']);
 
