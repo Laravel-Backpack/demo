@@ -163,6 +163,9 @@ return [
         * Other Service Providers...
         */
 
+        App\Demo\Coreuiv4AddonServiceProvider::class,
+        App\Demo\Coreuiv2AddonServiceProvider::class,
+        App\Demo\TablerAddonServiceProvider::class,
     ],
 
     /*
