@@ -2,8 +2,8 @@
 
 namespace App\Demo;
 
-use Backpack\CRUD\ViewNamespaces;
 use Backpack\Basset\Facades\Basset;
+use Backpack\CRUD\ViewNamespaces;
 
 /**
  * This trait automatically loads package stuff, if they're present
@@ -23,11 +23,11 @@ trait AutomaticServiceProvider
     /**
      * -------------------------
      * SERVICE PROVIDER DEFAULTS
-     * -------------------------
+     * -------------------------.
      */
 
     /**
-     * Boot method may be overrided by AddonServiceProvider
+     * Boot method may be overrided by AddonServiceProvider.
      *
      * @return void
      */
@@ -83,7 +83,7 @@ trait AutomaticServiceProvider
         // Add default ViewNamespaces
         foreach (['buttons', 'columns', 'fields', 'filters', 'widgets'] as $viewNamespace) {
             if ($this->packageDirectoryExistsAndIsNotEmpty("resources/views/$viewNamespace")) {
-                ViewNamespaces::addFor($viewNamespace, $this->vendorNameDotPackageName() . "::{$viewNamespace}");
+                ViewNamespaces::addFor($viewNamespace, $this->vendorNameDotPackageName()."::{$viewNamespace}");
             }
         }
 
@@ -142,7 +142,7 @@ trait AutomaticServiceProvider
         }
 
         // Registering package commands.
-        if (! empty($this->commands)) {
+        if (!empty($this->commands)) {
             $this->commands($this->commands);
         }
     }
@@ -150,9 +150,8 @@ trait AutomaticServiceProvider
     /**
      * -------------------
      * CONVENIENCE METHODS
-     * -------------------
+     * -------------------.
      */
-
     protected function vendorNameDotPackageName()
     {
         return $this->vendorName.'.'.$this->packageName;
@@ -233,7 +232,7 @@ trait AutomaticServiceProvider
     protected function packageDirectoryExistsAndIsNotEmpty($name)
     {
         // check if directory exists
-        if (! is_dir($this->path.'/'.$name)) {
+        if (!is_dir($this->path.'/'.$name)) {
             return false;
         }
 
@@ -249,7 +248,7 @@ trait AutomaticServiceProvider
 
     public function packageIsActiveTheme()
     {
-        $viewNamespace = $this->vendorNameDotPackageName() . '::';
+        $viewNamespace = $this->vendorNameDotPackageName().'::';
 
         return config('backpack.ui.view_namespace') === $viewNamespace ||
             config('backpack.ui.view_namespace_fallback') === $viewNamespace;

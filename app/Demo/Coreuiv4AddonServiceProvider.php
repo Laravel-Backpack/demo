@@ -2,7 +2,6 @@
 
 namespace App\Demo;
 
-use App\Demo\AutomaticServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class Coreuiv4AddonServiceProvider extends ServiceProvider
@@ -24,6 +23,6 @@ class Coreuiv4AddonServiceProvider extends ServiceProvider
     public function __construct($app)
     {
         $this->app = $app;
-        $this->path = __DIR__ . '/../../vendor/backpack/theme-coreuiv4';
+        $this->path = __DIR__.'/../../vendor/backpack/theme-coreuiv4';
     }
 }
