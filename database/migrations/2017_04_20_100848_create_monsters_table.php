@@ -37,7 +37,6 @@ class CreateMonstersTable extends Migration
             $table->boolean('checkbox')->nullable();
             $table->text('wysiwyg')->nullable();
             $table->string('color')->nullable();
-            $table->string('color_picker')->nullable();
             $table->date('date')->nullable();
             $table->date('date_picker')->nullable();
             $table->date('start_date')->nullable();
