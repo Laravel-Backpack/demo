@@ -333,12 +333,6 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'color_picker',
-            'type'  => 'color_picker',
-            'label' => 'Color Picker',
-        ]);
-
-        $this->crud->addColumn([
             'name'  => 'date_picker',
             'type'  => 'date_picker',
             'label' => 'Date Picker',

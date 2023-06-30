@@ -30,14 +30,13 @@ class CreateMonstersTable extends Migration
         Schema::create('monsters', function (Blueprint $table) use ($columnType) {
             $table->increments('id');
             $table->string('address')->nullable();
-            if (!isset($columnType)) {
+            if (! isset($columnType)) {
                 $table->binary('base64_image');
             }
             $table->string('browse')->nullable();
             $table->boolean('checkbox')->nullable();
             $table->text('wysiwyg')->nullable();
             $table->string('color')->nullable();
-            $table->string('color_picker')->nullable();
             $table->date('date')->nullable();
             $table->date('date_picker')->nullable();
             $table->date('start_date')->nullable();
