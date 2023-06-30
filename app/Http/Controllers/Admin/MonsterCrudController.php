@@ -253,7 +253,7 @@ class MonsterCrudController extends CrudController
             'name'   => 'upload_multiple',
             'label'  => 'Upload Multiple',
             'type'   => 'upload_multiple',
-            // 'prefix' => 'uploads/',
+            'disk'   => 'public'
         ]);
 
         $this->crud->addColumn([
