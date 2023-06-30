@@ -30,7 +30,7 @@ class CreateMonstersTable extends Migration
         Schema::create('monsters', function (Blueprint $table) use ($columnType) {
             $table->increments('id');
             $table->string('address')->nullable();
-            if (! isset($columnType)) {
+            if (!isset($columnType)) {
                 $table->binary('base64_image');
             }
             $table->string('browse')->nullable();
