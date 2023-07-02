@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+
 // --------------------------
 // Custom Backpack Routes
 // --------------------------
@@ -33,8 +38,17 @@ Route::group([
     Route::crud('product', 'ProductCrudController');
     Route::crud('dummy', 'DummyCrudController');
 
-    // Layouts
-    Route::post('switch-layout', 'ThemeController@switchLayout')->name('tabler.switch.layout');
+    // Allow demo users to switch between available themes and layouts
+    Route::post('switch-layout', function(Request $request) {
+        $theme = 'backpack.theme-' . $request->get('theme', 'tabler') . '::';
+        Session::put('backpack.ui.view_namespace', $theme);
+
+        if ($theme === 'backpack.theme-tabler::') {
+            Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
+        }
+
+        return Redirect::back();
+    })->name('tabler.switch.layout');
 
     // ------------------
     // AJAX Chart Widgets
