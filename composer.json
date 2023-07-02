@@ -70,10 +70,12 @@
             "php -r \"copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate",
-            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
+            "php artisan key:generate"
         ],
-        "post-install-cmd": ["Illuminate\\Foundation\\ComposerScripts::postInstall", "php artisan storage:link"],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan storage:link"
+        ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
@@ -81,7 +83,6 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-        "test": "vendor/bin/phpunit --testdox",
         "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear"
     },
     "config": {
