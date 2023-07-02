@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d3306b05b6a0d6dd2fb7038a24dcadb",
+    "content-hash": "f98a3ffa7b10730e66f628e88c7021ff",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -3820,8 +3820,6 @@
             ],
             "authors": [
                 {
-                    "name": "Frank de Jonge",
-                    "email": "info@frankdejonge.nl"
                     "name": "Jonathan Reinink",
                     "email": "jonathan@reinink.ca",
                     "homepage": "http://reinink.ca"
@@ -3832,15 +3830,9 @@
                     "homepage": "https://titouangalopin.com"
                 }
             ],
-            "description": "Local filesystem adapter for Flysystem.",
             "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
             "homepage": "http://glide.thephpleague.com",
             "keywords": [
-                "Flysystem",
-                "file",
-                "files",
-                "filesystem",
-                "local"
                 "ImageMagick",
                 "editing",
                 "gd",
@@ -3851,22 +3843,9 @@
                 "processing"
             ],
             "support": {
-                "issues": "https://github.com/thephpleague/flysystem-local/issues",
-                "source": "https://github.com/thephpleague/flysystem-local/tree/3.15.0"
                 "issues": "https://github.com/thephpleague/glide/issues",
                 "source": "https://github.com/thephpleague/glide/tree/2.2.4"
             },
-            "funding": [
-                {
-                    "url": "https://ecologi.com/frankdejonge",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/frankdejonge",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-05-02T20:02:14+00:00"
             "time": "2023-04-18T18:42:22+00:00"
         },
         {
