@@ -7,30 +7,30 @@
     "require": {
         "php": "^8.1",
         "laravel/framework": "^10.0",
-        "backpack/crud": "v6.x-dev as 5.99.99",
-        "backpack/pro": "v6.x-dev as 1.99.99",
-        "backpack/filemanager": "v6.x-dev as 3.9.99",
-        "backpack/theme-coreuiv2": "dev-main",
-        "backpack/theme-coreuiv4": "dev-main",
-        "backpack/theme-tabler": "dev-main",
-        "backpack/logmanager": "v6.x-dev as 5.9.99",
-        "backpack/settings": "^3.0",
-        "backpack/newscrud": "^4.0",
-        "backpack/permissionmanager": "v6.x-dev as 6.9.99",
-        "backpack/pagemanager": "^3.0",
-        "backpack/menucrud": "^3.0",
+        "backpack/crud": "v6.x-dev as 6.0.0",
+        "backpack/pro": "^2.0",
+        "backpack/filemanager": "^3.0",
+        "backpack/theme-coreuiv2": "^1.0",
+        "backpack/theme-coreuiv4": "^1.0",
+        "backpack/theme-tabler": "^1.0",
+        "backpack/logmanager": "^5.0",
+        "backpack/settings": "^3.1",
+        "backpack/newscrud": "^5.0",
+        "backpack/permissionmanager": "^7.0",
+        "backpack/pagemanager": "^3.2",
+        "backpack/menucrud": "^4.0",
+        "backpack/backupmanager": "^5.0",
+        "backpack/editable-columns": "^3.0",
+        "backpack/revise-operation": "^2.0",
+        "backpack/medialibrary-uploaders": "^1.0",
+        "spatie/laravel-medialibrary": "^10.7",
         "spatie/laravel-translatable": "^6.0",
         "laravel/tinker": "^2.1",
         "spatie/laravel-ignition": "^2.0",
         "intervention/image": "^2.3",
-        "backpack/revise-operation": "^1.0",
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
-        "mews/purifier": "^3.3",
-        "backpack/backupmanager": "v6.x-dev as 5.9.99",
-        "backpack/editable-columns": "^2.0",
-        "spatie/laravel-medialibrary": "^10.7",
-        "backpack/medialibrary-uploaders": "dev-main"
+        "mews/purifier": "^3.3"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -38,29 +38,13 @@
         "phpunit/phpunit" : "^10.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
-        "backpack/generators": "v6.x-dev",
+        "backpack/generators": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": {
-        "backpack/theme-coreuiv2": {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git"
-        },
-        "backpack/theme-coreuiv4": {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git"
-        },
-        "backpack/theme-tabler": {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/theme-tabler.git"
-        },
         "0": {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        "backpack/medialibrary-uploaders": {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/medialibrary-uploaders/"
         }
     },
     "autoload": {
