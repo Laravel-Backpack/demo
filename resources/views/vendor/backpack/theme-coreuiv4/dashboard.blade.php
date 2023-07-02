@@ -18,24 +18,24 @@
 	// FLUENT SYNTAX for widgets
 	// -------------------------
 	// Using the progress_white widget
-	// 
+	//
 	// Obviously, you should NOT do any big queries directly in the view.
 	// In fact, it can be argued that you shouldn't add Widgets from blade files when you
 	// need them to show information from the DB.
-	// 
+	//
 	// But you do whatever you think it's best. Who am I, your mom?
 	$productCount = App\Models\Product::count();
 	$userCount = App\User::count();
 	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
 	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
 	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
- 
+
  	// notice we use Widget::add() to add widgets to a certain group
 	Widget::add()->to('before_content')->type('div')->class('row')->content([
 		// notice we use Widget::make() to add widgets as content (not in a group)
 		Widget::make()
 			->type('progress')
-			->class('card border-0 text-white bg-primary')
+			->class('card border-0 text-white bg-info')
 			->progressClass('progress-bar')
 			->value($userCount)
 			->description('Registered users.')
@@ -51,7 +51,7 @@
 		    ->description('Articles.')
 		    ->progress(80)
 		    ->hint('Great! Don\'t stop.')
-		    ->onlyHere(), 
+		    ->onlyHere(),
 		// alternatively, you can just push the widget to a "hidden" group
 		Widget::make()
 			->group('hidden')
@@ -66,7 +66,7 @@
 		// if you prefer defining your widgets as arrays
 	    Widget::make([
 			'type' => 'progress',
-			'class'=> 'card border-0 text-white bg-dark',
+			'class'=> 'card border-0 text-white bg-danger',
 			'progressClass' => 'progress-bar',
 			'value' => $productCount,
 			'description' => 'Products.',
@@ -78,7 +78,7 @@
     $widgets['after_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
-	  'content' => [ // widgets 
+	  'content' => [ // widgets
 	       [
 			  'type' => 'card',
 			  // 'wrapperClass' => 'col-sm-6 col-md-4', // optional
@@ -110,7 +110,7 @@
 	];
     $widgets['after_content'][] = [
 	  'type'         => 'alert',
-	  'class'        => 'alert alert-warning bg-dark border-0 mb-4',
+	  'class'        => 'alert bg-dark text-bg-dark border-0 mb-4',
 	  'heading'      => 'Demo Refreshes Every Hour on the Hour',
 	  'content'      => 'At hh:00, all custom entries are deleted, all files, everything. This cleanup is necessary because developers like to joke with their test entries, and mess with stuff. But you know that :-) Go ahead - make a developer smile.' ,
 	  'close_button' => true, // show close button or not
@@ -119,8 +119,8 @@
     $widgets['before_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
-	  'content' => [ // widgets 
-		  	[ 
+	  'content' => [ // widgets
+		  	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -128,10 +128,10 @@
 				'content' => [
 				    'header' => 'New Users Past 7 Days', // optional
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
-					
+
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -147,9 +147,9 @@
     $widgets['after_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
-	  'content' => [ // widgets 
+	  'content' => [ // widgets
 
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-4',
 		        // 'class' => 'col-md-6',
@@ -159,7 +159,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-4',
 		        // 'class' => 'col-md-6',
@@ -169,7 +169,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-4',
 		        // 'class' => 'col-md-6',
@@ -187,9 +187,9 @@
     $widgets['after_content'][] = [
 	  'type' => 'div',
 	  'class' => 'row',
-	  'content' => [ // widgets 
+	  'content' => [ // widgets
 
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -199,7 +199,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -209,7 +209,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -219,7 +219,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	[ 
+	    	[
 		        'type' => 'chart',
 		        'wrapperClass' => 'col-md-6',
 		        // 'class' => 'col-md-6',
@@ -229,7 +229,7 @@
 				    // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
 		    	]
 	    	],
-	    	
+
 
     	]
 	];

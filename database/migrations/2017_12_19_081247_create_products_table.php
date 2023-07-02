@@ -20,7 +20,11 @@ class CreateProductsTable extends Migration
             $table->json('features')->nullable();
             $table->integer('price');
             $table->integer('category_id');
+            $table->json('gallery')->nullable();
             $table->json('extras')->nullable();
+            $table->string('main_image')->nullable();
+            $table->string('privacy_policy')->nullable();
+            $table->text('specifications')->nullable();
             $table->timestamps();
         });
     }
