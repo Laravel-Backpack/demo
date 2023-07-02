@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44bda682127e77f8cf98daa2e61e8a66",
+    "content-hash": "0d3306b05b6a0d6dd2fb7038a24dcadb",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -139,16 +139,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "v6.x-dev",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "61316f172862837f76d20f101fb9088e0f70e526"
+                "reference": "56c091f2099b6e17a37034e76a1da65f9052e842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/61316f172862837f76d20f101fb9088e0f70e526",
-                "reference": "61316f172862837f76d20f101fb9088e0f70e526",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/56c091f2099b6e17a37034e76a1da65f9052e842",
+                "reference": "56c091f2099b6e17a37034e76a1da65f9052e842",
                 "shasum": ""
             },
             "require": {
@@ -228,9 +228,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/v6"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.0.0"
             },
-            "time": "2023-07-02T13:23:27+00:00"
+            "time": "2023-07-02T15:21:31+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -11151,18 +11151,9 @@
             "time": "2021-07-28T10:34:58+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "backpack/crud",
-            "version": "6.9999999.9999999.9999999-dev",
-            "alias": "6.0.0",
-            "alias_normalized": "6.0.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "backpack/crud": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
