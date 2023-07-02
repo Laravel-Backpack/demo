@@ -12,8 +12,8 @@ return [
     // and choosing that view_namespace instead of the default one. Backpack will load a file from there
     // if it exists, otherwise it will load it from the fallback namespace.
 
-    'view_namespace'          => env('BACKPACK_THEME', 'backpack.theme-tabler').'::',
-    'view_namespace_fallback' => 'backpack.theme-tabler::',
+    'view_namespace'          => 'backpack.theme-coreuiv2::',
+    'view_namespace_fallback' => 'backpack.theme-coreuiv2::',
 
     /*
     |--------------------------------------------------------------------------
