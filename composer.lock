@@ -303,16 +303,16 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "9cd439c472401ced20af9159a35a8039d960c546"
+                "reference": "49904ff5c01679a158b03f51a49e717f957549f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/9cd439c472401ced20af9159a35a8039d960c546",
-                "reference": "9cd439c472401ced20af9159a35a8039d960c546",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/49904ff5c01679a158b03f51a49e717f957549f3",
+                "reference": "49904ff5c01679a158b03f51a49e717f957549f3",
                 "shasum": ""
             },
             "require": {
@@ -356,9 +356,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/3.0.0"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/3.0.1"
             },
-            "time": "2023-07-01T05:53:10+00:00"
+            "time": "2023-07-03T11:41:06+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -763,17 +763,17 @@
         },
         {
             "name": "backpack/pro",
-            "version": "2.0.1",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "819d8b67d3ec1f318eb0ae2d3e3819d5e2d8a5a2"
+                "reference": "ef8e78769f837ad958908b6e77b49df6a9236557"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-819d8b67d3ec1f318eb0ae2d3e3819d5e2d8a5a2-zip-829034.zip",
-                "reference": "819d8b67d3ec1f318eb0ae2d3e3819d5e2d8a5a2",
-                "shasum": "7847edac7936e37e46bd02b1c4dc6788da887e85"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-ef8e78769f837ad958908b6e77b49df6a9236557-zip-7051b2.zip",
+                "reference": "ef8e78769f837ad958908b6e77b49df6a9236557",
+                "shasum": "140f7cb0e192d7edf81fccd7252088069afa55f9"
             },
             "require": {
                 "backpack/crud": "^6.0"
@@ -825,10 +825,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.1",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.4",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-07-01T09:34:54+00:00"
+            "time": "2023-07-03T15:09:40+00:00"
         },
         {
             "name": "backpack/revise-operation",
