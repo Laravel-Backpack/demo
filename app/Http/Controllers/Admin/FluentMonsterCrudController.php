@@ -230,7 +230,7 @@ class FluentMonsterCrudController extends CrudController
             ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
-        CRUD::field(['start_date', 'end_date'])
+        CRUD::field('start_date,end_date')
             ->type('date_range')
             ->label('Date Range')
             ->default(['2020-03-28 01:01', '2020-04-05 02:00'])
