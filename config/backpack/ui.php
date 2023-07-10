@@ -57,7 +57,7 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<img src="/assets/img/backpack_logo.png" class="project-logo" style="max-width: 150px; height: auto;" alt="Backpack for Laravel">',
+    'project_logo'   => '<img src="/assets/img/backpack_logo.svg" class="project-logo" style="width: 142px; height: auto;" alt="Backpack for Laravel">',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
