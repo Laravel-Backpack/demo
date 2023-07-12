@@ -139,16 +139,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "6.0.0",
+            "version": "6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "56c091f2099b6e17a37034e76a1da65f9052e842"
+                "reference": "2cbe6c30acbda1ea3f6888b25a9b15511b6b276f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/56c091f2099b6e17a37034e76a1da65f9052e842",
-                "reference": "56c091f2099b6e17a37034e76a1da65f9052e842",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/2cbe6c30acbda1ea3f6888b25a9b15511b6b276f",
+                "reference": "2cbe6c30acbda1ea3f6888b25a9b15511b6b276f",
                 "shasum": ""
             },
             "require": {
@@ -228,23 +228,23 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.0.0"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.0.4"
             },
-            "time": "2023-07-02T15:21:31+00:00"
+            "time": "2023-07-10T11:16:42+00:00"
         },
         {
             "name": "backpack/editable-columns",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/editable-columns.git",
-                "reference": "7d649b5c197960e873f79a9496d4bfbc73ab5f32"
+                "reference": "a7dd9f34579652f5fce3c434c316f6fbe3c52e33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-7d649b5c197960e873f79a9496d4bfbc73ab5f32-zip-d3782b.zip",
-                "reference": "7d649b5c197960e873f79a9496d4bfbc73ab5f32",
-                "shasum": "4a56794a6f61873ee09490d1767f18e2615fe636"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/editable-columns/backpack-editable-columns-a7dd9f34579652f5fce3c434c316f6fbe3c52e33-zip-d8a064.zip",
+                "reference": "a7dd9f34579652f5fce3c434c316f6fbe3c52e33",
+                "shasum": "a12f0eef6f2f1d094a6a1e247f20681416aac2b5"
             },
             "require": {
                 "backpack/crud": "^6.0"
@@ -296,23 +296,23 @@
                 "Laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/3.0.0",
+                "source": "https://github.com/Laravel-Backpack/editable-columns/tree/3.0.1",
                 "issues": "https://github.com/Laravel-Backpack/editable-columns/issues"
             },
-            "time": "2023-07-01T11:11:42+00:00"
+            "time": "2023-07-10T11:25:07+00:00"
         },
         {
             "name": "backpack/filemanager",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "49904ff5c01679a158b03f51a49e717f957549f3"
+                "reference": "82084087a4bd4387aded16dfc65cd5a86c6cf7e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/49904ff5c01679a158b03f51a49e717f957549f3",
-                "reference": "49904ff5c01679a158b03f51a49e717f957549f3",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/82084087a4bd4387aded16dfc65cd5a86c6cf7e8",
+                "reference": "82084087a4bd4387aded16dfc65cd5a86c6cf7e8",
                 "shasum": ""
             },
             "require": {
@@ -356,9 +356,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/3.0.1"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/3.0.2"
             },
-            "time": "2023-07-03T11:41:06+00:00"
+            "time": "2023-07-07T08:23:11+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -763,20 +763,20 @@
         },
         {
             "name": "backpack/pro",
-            "version": "2.0.4",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "ef8e78769f837ad958908b6e77b49df6a9236557"
+                "reference": "d9e655cf94f9a4e1f6a3de3e6ef7e319f3326000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-ef8e78769f837ad958908b6e77b49df6a9236557-zip-7051b2.zip",
-                "reference": "ef8e78769f837ad958908b6e77b49df6a9236557",
-                "shasum": "140f7cb0e192d7edf81fccd7252088069afa55f9"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-d9e655cf94f9a4e1f6a3de3e6ef7e319f3326000-zip-5fce60.zip",
+                "reference": "d9e655cf94f9a4e1f6a3de3e6ef7e319f3326000",
+                "shasum": "84162ae6d83bb10993e1e3c69c5ae2a6981c5b81"
             },
             "require": {
-                "backpack/crud": "^6.0"
+                "backpack/crud": "^6.0.1"
             },
             "require-dev": {
                 "orchestra/testbench": "~5|~6",
@@ -825,10 +825,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.4",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-07-03T15:09:40+00:00"
+            "time": "2023-07-10T10:32:24+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -964,16 +964,16 @@
         },
         {
             "name": "backpack/theme-coreuiv2",
-            "version": "1.1.0",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "7ba2837bbf7fdaa4c0160dc68b82985d77f52608"
+                "reference": "0c66d9a17bc0010335319b080004800a8bd40f8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/7ba2837bbf7fdaa4c0160dc68b82985d77f52608",
-                "reference": "7ba2837bbf7fdaa4c0160dc68b82985d77f52608",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/0c66d9a17bc0010335319b080004800a8bd40f8c",
+                "reference": "0c66d9a17bc0010335319b080004800a8bd40f8c",
                 "shasum": ""
             },
             "require": {
@@ -1018,22 +1018,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/1.1.0"
+                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/1.1.3"
             },
-            "time": "2023-06-30T15:29:38+00:00"
+            "time": "2023-07-10T11:15:10+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "c41a83bec1b26b0c24c7767ab4c8da39b4695902"
+                "reference": "4850ffe58a0f3b87c34bb7775a2a117970916a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/c41a83bec1b26b0c24c7767ab4c8da39b4695902",
-                "reference": "c41a83bec1b26b0c24c7767ab4c8da39b4695902",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/4850ffe58a0f3b87c34bb7775a2a117970916a3e",
+                "reference": "4850ffe58a0f3b87c34bb7775a2a117970916a3e",
                 "shasum": ""
             },
             "require": {
@@ -1088,22 +1088,22 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/1.0.0"
+                "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/1.0.3"
             },
-            "time": "2023-06-30T15:33:22+00:00"
+            "time": "2023-07-10T11:15:06+00:00"
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "1591affbe0090ff649f691910808e4adc326a5e6"
+                "reference": "ffaf480450df5062f9d5982c8b39893e7bb72737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/1591affbe0090ff649f691910808e4adc326a5e6",
-                "reference": "1591affbe0090ff649f691910808e4adc326a5e6",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/ffaf480450df5062f9d5982c8b39893e7bb72737",
+                "reference": "ffaf480450df5062f9d5982c8b39893e7bb72737",
                 "shasum": ""
             },
             "require": {
@@ -1161,9 +1161,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.1"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.3"
             },
-            "time": "2023-07-01T09:15:59+00:00"
+            "time": "2023-07-11T09:04:11+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -3065,16 +3065,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.14.1",
+            "version": "v10.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6f89a2b74b232d8bf2e1d9ed87e311841263dfcb"
+                "reference": "c7599dc92e04532824bafbd226c2936ce6a905b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6f89a2b74b232d8bf2e1d9ed87e311841263dfcb",
-                "reference": "6f89a2b74b232d8bf2e1d9ed87e311841263dfcb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c7599dc92e04532824bafbd226c2936ce6a905b8",
+                "reference": "c7599dc92e04532824bafbd226c2936ce6a905b8",
                 "shasum": ""
             },
             "require": {
@@ -3261,7 +3261,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-06-28T14:25:16+00:00"
+            "time": "2023-07-11T13:43:52+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -3785,16 +3785,16 @@
         },
         {
             "name": "league/glide",
-            "version": "2.2.4",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/glide.git",
-                "reference": "d31132bf5651d5abeef345ff523cd9cf2575b971"
+                "reference": "2ff92c8f1edc80b74e2d3c5efccfc7223f74d407"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/glide/zipball/d31132bf5651d5abeef345ff523cd9cf2575b971",
-                "reference": "d31132bf5651d5abeef345ff523cd9cf2575b971",
+                "url": "https://api.github.com/repos/thephpleague/glide/zipball/2ff92c8f1edc80b74e2d3c5efccfc7223f74d407",
+                "reference": "2ff92c8f1edc80b74e2d3c5efccfc7223f74d407",
                 "shasum": ""
             },
             "require": {
@@ -3844,9 +3844,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/glide/issues",
-                "source": "https://github.com/thephpleague/glide/tree/2.2.4"
+                "source": "https://github.com/thephpleague/glide/tree/2.3.0"
             },
-            "time": "2023-04-18T18:42:22+00:00"
+            "time": "2023-07-08T06:26:07+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -5542,16 +5542,16 @@
         },
         {
             "name": "spatie/flare-client-php",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/flare-client-php.git",
-                "reference": "82138174d5fe2829a7f085a6bdb2a06f6def9f7a"
+                "reference": "943894c6a6b00501365ac0b91ae0dce56f2226fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/82138174d5fe2829a7f085a6bdb2a06f6def9f7a",
-                "reference": "82138174d5fe2829a7f085a6bdb2a06f6def9f7a",
+                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/943894c6a6b00501365ac0b91ae0dce56f2226fa",
+                "reference": "943894c6a6b00501365ac0b91ae0dce56f2226fa",
                 "shasum": ""
             },
             "require": {
@@ -5600,7 +5600,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/flare-client-php/issues",
-                "source": "https://github.com/spatie/flare-client-php/tree/1.4.0"
+                "source": "https://github.com/spatie/flare-client-php/tree/1.4.1"
             },
             "funding": [
                 {
@@ -5608,7 +5608,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-28T11:08:09+00:00"
+            "time": "2023-07-06T09:29:49+00:00"
         },
         {
             "name": "spatie/ignition",
@@ -6179,16 +6179,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "5.10.1",
+            "version": "5.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "d08b3ffc5870cce4a47a39f22174947b33c191ae"
+                "reference": "671e46e079cbd4990a98427daaa09f4977b57ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/d08b3ffc5870cce4a47a39f22174947b33c191ae",
-                "reference": "d08b3ffc5870cce4a47a39f22174947b33c191ae",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/671e46e079cbd4990a98427daaa09f4977b57ca9",
+                "reference": "671e46e079cbd4990a98427daaa09f4977b57ca9",
                 "shasum": ""
             },
             "require": {
@@ -6249,7 +6249,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/5.10.1"
+                "source": "https://github.com/spatie/laravel-permission/tree/5.10.2"
             },
             "funding": [
                 {
@@ -6257,7 +6257,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-12T17:08:32+00:00"
+            "time": "2023-07-04T13:38:13+00:00"
         },
         {
             "name": "spatie/laravel-signal-aware-command",
@@ -10022,16 +10022,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.2.3",
+            "version": "10.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "35c8cac1734ede2ae354a6644f7088356ff5b08e"
+                "reference": "68484779b5a2ed711fbdeba6ca01910d87acdff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/35c8cac1734ede2ae354a6644f7088356ff5b08e",
-                "reference": "35c8cac1734ede2ae354a6644f7088356ff5b08e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68484779b5a2ed711fbdeba6ca01910d87acdff2",
+                "reference": "68484779b5a2ed711fbdeba6ca01910d87acdff2",
                 "shasum": ""
             },
             "require": {
@@ -10103,7 +10103,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.3"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.2.4"
             },
             "funding": [
                 {
@@ -10119,7 +10119,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-30T06:17:38+00:00"
+            "time": "2023-07-10T04:06:08+00:00"
         },
         {
             "name": "sebastian/cli-parser",
