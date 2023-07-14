@@ -1607,8 +1607,8 @@ class MonsterCrudController extends CrudController
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
-                'dropzone' => ['Uploads are disabled in production']
-                ]
+                'dropzone' => ['Uploads are disabled in production'],
+            ],
             ], 500);
         }
 
