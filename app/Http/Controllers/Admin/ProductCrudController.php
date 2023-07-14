@@ -295,7 +295,10 @@ class ProductCrudController extends CrudController
     public function dropzoneUpload()
     {
         if (app('env') === 'production') {
-            return response()->json([]);
+            return response()->json(['errors' => [
+                'dropzone' => ['Uploads are disabled in production']
+                ]
+            ], 500);
         }
 
         return $this->traitDropzoneUpload();
