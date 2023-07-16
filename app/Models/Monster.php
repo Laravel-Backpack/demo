@@ -32,7 +32,7 @@ class Monster extends Model
 
     // protected $hidden = [];
     protected $casts = [
-        'address_google'       => 'object',
+        'address_google'        => 'object',
         'video'                 => 'array',
         'upload_multiple'       => 'array',
         'browse_multiple'       => 'array',

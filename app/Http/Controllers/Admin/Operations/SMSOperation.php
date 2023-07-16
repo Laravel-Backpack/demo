@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Operations;
 
 use Backpack\CRUD\app\Http\Controllers\Operations\Concerns\HasForm;
 
-trait SMSOperation//Custom Form Operation Example
+trait SMSOperation //Custom Form Operation Example
 {
     use HasForm;
 
@@ -35,31 +35,31 @@ trait SMSOperation//Custom Form Operation Example
             operationName: 'SMS',
             buttonStack: 'line', // alternatives: top, bottom
             buttonMeta: [
-                'icon' => 'las la-sms',
-                'label' => 'SMS',
+                'icon'    => 'las la-sms',
+                'label'   => 'SMS',
                 'wrapper' => [
-                     'target' => '_blank',
+                    'target' => '_blank',
                 ],
             ],
         );
     }
 
     /**
-     * Method to handle the GET request and display the View with a Backpack form
-     *
+     * Method to handle the GET request and display the View with a Backpack form.
      */
-    public function getSMSForm(?int $id = null) : \Illuminate\Contracts\View\View
+    public function getSMSForm(?int $id = null): \Illuminate\Contracts\View\View
     {
         $this->crud->hasAccessOrFail('SMS');
         $this->crud->addField('text');
+
         return $this->formView($id);
     }
 
     /**
-    * Method to handle the POST request and perform the operation
-    *
-    * @return array|\Illuminate\Http\RedirectResponse
-    */
+     * Method to handle the POST request and perform the operation.
+     *
+     * @return array|\Illuminate\Http\RedirectResponse
+     */
     public function postSMSForm(?int $id = null)
     {
         $this->crud->hasAccessOrFail('SMS');

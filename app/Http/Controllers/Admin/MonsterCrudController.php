@@ -15,7 +15,7 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
-    use \App\Http\Controllers\Admin\Operations\SMSOperation;//Custom Form Operation Example
+    use \App\Http\Controllers\Admin\Operations\SMSOperation; //Custom Form Operation Example
 
     public function setup()
     {
@@ -130,7 +130,7 @@ class MonsterCrudController extends CrudController
                 'type'          => 'enum',
                 'label'         => 'Enum',
                 'enum_function' => 'getReadableStatus',
-                'tab'   => 'Simple',
+                'tab'           => 'Simple',
             ],
             [
                 // show both text and email values in one column
@@ -174,10 +174,10 @@ class MonsterCrudController extends CrudController
                 ],
             ],
             [   // select_from_array
-                'name'    => 'select_from_array',
-                'label'   => 'Select_from_array',
-                'type'    => 'select_from_array',
-                'options' => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
+                'name'      => 'select_from_array',
+                'label'     => 'Select_from_array',
+                'type'      => 'select_from_array',
+                'options'   => ['one' => 'One', 'two' => 'Two', 'three' => 'Three'],
                 'tab'       => 'Selects',
             ],
             [   // select_multiple: n-n relationship (with pivot table)
@@ -216,15 +216,15 @@ class MonsterCrudController extends CrudController
 
         //quickly create a button
         $this->crud->button('email')->stack('top')->view('crud::buttons.quick')->meta([
-            'access' => 'Quick Button',
-            'label' => 'Quick Button',
-            'icon' => 'la la-fast-forward',
+            'access'  => 'Quick Button',
+            'label'   => 'Quick Button',
+            'icon'    => 'la la-fast-forward',
             'wrapper' => [
                 // 'element' => 'a',
-                'href' => url('something'),
+                'href'   => url('something'),
                 'target' => '_blank',
-                'title' => 'Create a new email to this user',
-            ]
+                'title'  => 'Create a new email to this user',
+            ],
         ]);
 
         $this->addCustomCrudFilters();
@@ -274,30 +274,30 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'ckeditor',
-            'type'  => 'ckeditor',
-            'label' => 'Ckeditor',
+            'name'    => 'ckeditor',
+            'type'    => 'ckeditor',
+            'label'   => 'Ckeditor',
             'tab'     => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'summernote',
-            'type'  => 'summernote',
-            'label' => 'Summernote',
+            'name'   => 'summernote',
+            'type'   => 'summernote',
+            'label'  => 'Summernote',
             'tab'    => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'tinymce',
-            'type'  => 'tinymce',
-            'label' => 'TinyMCE',
+            'name'   => 'tinymce',
+            'type'   => 'tinymce',
+            'label'  => 'TinyMCE',
             'tab'    => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'wysiwyg',
-            'type'  => 'wysiwyg',
-            'label' => 'Wysiwyg',
+            'name'    => 'wysiwyg',
+            'type'    => 'wysiwyg',
+            'label'   => 'Wysiwyg',
             'tab'     => 'WYSIWYG Editors',
         ]);
 
@@ -305,7 +305,7 @@ class MonsterCrudController extends CrudController
             'name'            => 'table',
             'label'           => 'Table',
             'type'            => 'table',
-            'tab' => 'Miscellaneous',
+            'tab'             => 'Miscellaneous',
             'columns'         => [
                 'name'  => 'Name',
                 'desc'  => 'Description',
@@ -391,7 +391,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'features',
             'label' => 'JSON',
             'type'  => 'json',
-            'tab' => 'Miscellaneous',
+            'tab'   => 'Miscellaneous',
         ]);
 
         $this->crud->addColumn([
@@ -457,7 +457,7 @@ class MonsterCrudController extends CrudController
             'name'       => 'start_date,end_date', // two columns with a comma
             'label'      => 'Date Range',
             'type'       => 'date_range',
-            'tab'   => 'Time and space',
+            'tab'        => 'Time and space',
         ]);
 
         $this->crud->addColumn([
