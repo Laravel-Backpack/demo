@@ -237,35 +237,6 @@ class MonsterCrudController extends CrudController
 
         $this->crud->set('show.contentClass', 'col-md-12');
 
-        $this->crud->addColumn([
-            'name'      => 'features',
-            'label'     => 'Features'.backpack_pro_badge(),
-            'type'      => 'repeatable',
-            'fake'      => true,
-            'subfields' => [
-                [
-                    'name'    => 'feature',
-                    'wrapper' => [
-                        'class' => 'col-md-3',
-                    ],
-                ],
-                [
-                    'name'    => 'value',
-                    'wrapper' => [
-                        'class' => 'col-md-6',
-                    ],
-                ],
-                [
-                    'name'    => 'quantity',
-                    'type'    => 'number',
-                    'wrapper' => [
-                        'class' => 'col-md-3',
-                    ],
-                ],
-            ],
-            'tab' => 'Miscellaneous',
-        ]);
-
         $this->crud->addColumn([   // EasyMDE
             'name'    => 'easymde',
             'label'   => 'Markdown (EasyMDE)',
@@ -299,6 +270,35 @@ class MonsterCrudController extends CrudController
             'type'    => 'wysiwyg',
             'label'   => 'Wysiwyg',
             'tab'     => 'WYSIWYG Editors',
+        ]);
+
+        $this->crud->addColumn([
+            'name'      => 'features',
+            'label'     => 'Features'.backpack_pro_badge(),
+            'type'      => 'repeatable',
+            'fake'      => true,
+            'subfields' => [
+                [
+                    'name'    => 'feature',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+                [
+                    'name'    => 'value',
+                    'wrapper' => [
+                        'class' => 'col-md-6',
+                    ],
+                ],
+                [
+                    'name'    => 'quantity',
+                    'type'    => 'number',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+            ],
+            'tab' => 'Miscellaneous',
         ]);
 
         $this->crud->addColumn([
