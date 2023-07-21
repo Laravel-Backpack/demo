@@ -36,6 +36,8 @@ You can find the demo online at [demo.backpackforlaravel.com](https://demo.backp
 
 ## Install
 
+> **IMPORTANT**. This demo requires ALL our premium packages. If you _do not_ have access to one of them, you will _not_ be able to install it. To install this demo yourself, make sure you've purchased all our premium add-ons individually, or our Everything bundle - https://backpackforlaravel.com/pricing
+
 1) Run in your terminal:
 
 ``` bash
