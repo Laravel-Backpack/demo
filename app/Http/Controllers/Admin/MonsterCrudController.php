@@ -397,7 +397,7 @@ class MonsterCrudController extends CrudController
 
         $this->crud->addColumn([
             'name'  => 'features',
-            'key'  => 'json_features',
+            'key'   => 'json_features',
             'label' => 'JSON',
             'type'  => 'json',
             'tab'   => 'Miscellaneous',
