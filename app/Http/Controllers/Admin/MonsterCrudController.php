@@ -69,7 +69,7 @@ class MonsterCrudController extends CrudController
             ],
             [
                 'name'  => 'base64_image', // The db column name
-                'label' => 'Base64 Image', // Table column heading
+                'label' => 'Base64 Image'.backpack_pro_badge(), // Table column heading
                 'type'  => 'image',
                 'tab'   => 'Uploads',
             ],
@@ -105,7 +105,7 @@ class MonsterCrudController extends CrudController
                 'function' => function ($entry) {
                     return 'Created on '.$entry->created_at;
                 },
-                'tab' => 'Function/Closure',
+                'tab' => 'Miscellaneous',
             ],
             [
                 'name'  => 'date', // The db column name
@@ -144,7 +144,7 @@ class MonsterCrudController extends CrudController
                     $query->orWhere('text', 'like', '%'.$searchTerm.'%');
                 },
                 'escaped'       => true,
-                'tab'           => 'Function/Closure',
+                'tab'           => 'Miscellaneous',
             ],
             [
                 'name'  => 'number', // The db column name
@@ -221,9 +221,9 @@ class MonsterCrudController extends CrudController
             'icon'    => 'la la-fast-forward',
             'wrapper' => [
                 // 'element' => 'a',
-                'href'   => url('something'),
+                'href'   => 'https://backpackforlaravel.com/docs/crud-buttons#creating-a-quick-button-1',
                 'target' => '_blank',
-                'title'  => 'Create a new email to this user',
+                'title'  => 'Creating a quick button',
             ],
         ]);
 
@@ -239,15 +239,23 @@ class MonsterCrudController extends CrudController
 
         $this->crud->addColumn([   // EasyMDE
             'name'    => 'easymde',
-            'label'   => 'Markdown (EasyMDE)',
+            'key'     => 'easymde_markdown',
+            'label'   => 'Markdown'.backpack_pro_badge(),
             'type'    => 'markdown',
+            'tab'     => 'WYSIWYG Editors',
+        ]);
+
+        $this->crud->addColumn([   // EasyMDE
+            'name'    => 'easymde',
+            'label'   => 'EasyMDE'.backpack_pro_badge(),
+            'type'    => 'easymde',
             'tab'     => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
             'name'    => 'ckeditor',
             'type'    => 'ckeditor',
-            'label'   => 'Ckeditor',
+            'label'   => 'Ckeditor'.backpack_pro_badge(),
             'tab'     => 'WYSIWYG Editors',
         ]);
 
@@ -261,14 +269,14 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'   => 'tinymce',
             'type'   => 'tinymce',
-            'label'  => 'TinyMCE',
+            'label'  => 'TinyMCE'.backpack_pro_badge(),
             'tab'    => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
             'name'    => 'wysiwyg',
             'type'    => 'wysiwyg',
-            'label'   => 'Wysiwyg',
+            'label'   => 'Wysiwyg'.backpack_pro_badge(),
             'tab'     => 'WYSIWYG Editors',
         ]);
 
@@ -303,7 +311,7 @@ class MonsterCrudController extends CrudController
 
         $this->crud->addColumn([
             'name'            => 'table',
-            'label'           => 'Table',
+            'label'           => 'Table'.backpack_pro_badge(),
             'type'            => 'table',
             'tab'             => 'Miscellaneous',
             'columns'         => [
@@ -314,9 +322,17 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
+            'name'  => 'browse_multiple', // The db column name
+            'key'   => 'browse_multiple_array',
+            'label' => 'Array'.backpack_pro_badge(), // Table column heading
+            'type'  => 'array',
+            'tab'   => 'Miscellaneous',
+        ]);
+
+        $this->crud->addColumn([
             'name'  => 'table', // The db column name
             'key'   => 'table_count',
-            'label' => 'Array count', // Table column heading
+            'label' => 'Array count'.backpack_pro_badge(), // Table column heading
             'type'  => 'array_count',
             'tab'   => 'Miscellaneous',
         ]);
@@ -337,7 +353,7 @@ class MonsterCrudController extends CrudController
             'type'          => 'model_function_attribute',
             'function_name' => 'getCategory', // the method in your Model
             'attribute'     => 'name',
-            'tab'           => 'Function/Closure',
+            'tab'           => 'Miscellaneous',
         ]);
 
         $this->crud->addColumn([
@@ -346,14 +362,6 @@ class MonsterCrudController extends CrudController
             'label' => 'Phone', // Table column heading
             'type'  => 'phone',
             'tab'   => 'Simple',
-        ]);
-
-        $this->crud->addColumn([   // Upload
-            'name'   => 'upload_multiple',
-            'label'  => 'Upload Multiple',
-            'type'   => 'upload_multiple',
-            'disk'   => 'public',
-            'tab'    => 'Uploads',
         ]);
 
         $this->crud->addColumn([
@@ -389,6 +397,7 @@ class MonsterCrudController extends CrudController
 
         $this->crud->addColumn([
             'name'  => 'features',
+            'key'  => 'json_features',
             'label' => 'JSON',
             'type'  => 'json',
             'tab'   => 'Miscellaneous',
@@ -403,31 +412,17 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'browse_multiple',
-            'type'  => 'array',
-            'label' => 'Browse Multiple',
-            'tab'   => 'Uploads',
-        ]);
-
-        $this->crud->addColumn([
             'name'  => 'dummyproducts',
             'type'  => 'relationship',
-            'label' => 'Relationship',
+            'label' => 'Relationship'.backpack_pro_badge(),
             'tab'   => 'Relationship',
         ]);
 
         $this->crud->addColumn([
             'name'  => 'address_google',
             'type'  => 'address_google',
-            'label' => 'Address Google',
+            'label' => 'Address Google'.backpack_pro_badge(),
             'tab'   => 'Time and space',
-        ]);
-
-        $this->crud->addColumn([
-            'name'  => 'browse',
-            'type'  => 'browse',
-            'label' => 'Browse',
-            'tab'   => 'Uploads',
         ]);
 
         $this->crud->addColumn([
@@ -449,13 +444,13 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'date_picker',
             'type'  => 'date_picker',
-            'label' => 'Date Picker',
+            'label' => 'Date Picker'.backpack_pro_badge(),
             'tab'   => 'Time and space',
         ]);
 
         $this->crud->addColumn([ // Date_range
             'name'       => 'start_date,end_date', // two columns with a comma
-            'label'      => 'Date Range',
+            'label'      => 'Date Range'.backpack_pro_badge(),
             'type'       => 'date_range',
             'tab'        => 'Time and space',
         ]);
@@ -463,21 +458,21 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'datetime_picker',
             'type'  => 'datetime_picker',
-            'label' => 'Datetime Picker',
+            'label' => 'Datetime Picker'.backpack_pro_badge(),
             'tab'   => 'Time and space',
         ]);
 
         $this->crud->addColumn([
             'name'  => 'location',
             'type'  => 'google_map',
-            'label' => 'Google Map',
+            'label' => 'Google Map'.backpack_pro_badge(),
             'tab'   => 'Time and space',
         ]);
 
         $this->crud->addColumn([
             'name'    => 'icon_picker',
             'type'    => 'icon_picker',
-            'label'   => 'Icon Picker',
+            'label'   => 'Icon Picker'.backpack_pro_badge(),
             'iconset' => 'fontawesome',
             'tab'     => 'Miscellaneous',
         ]);
@@ -499,7 +494,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'select_and_order',
             'type'  => 'select_and_order',
-            'label' => 'Select And Order',
+            'label' => 'Select And Order'.backpack_pro_badge(),
             'tab'   => 'Selects',
         ]);
 
@@ -514,7 +509,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'   => 'select2',
             'type'   => 'select2',
-            'label'  => 'Select2',
+            'label'  => 'Select2'.backpack_pro_badge(),
             'entity' => 'categorySelect2',
             'tab'    => 'Selects',
         ]);
@@ -522,7 +517,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'   => 'select2_from_ajax',
             'type'   => 'select2_from_ajax',
-            'label'  => 'Select2 From Ajax',
+            'label'  => 'Select2 From Ajax'.backpack_pro_badge(),
             'entity' => 'article',
             'tab'    => 'Selects',
         ]);
@@ -530,14 +525,14 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'select2_from_array',
             'type'  => 'select2_from_array',
-            'label' => 'Select2 From Array',
+            'label' => 'Select2 From Array'.backpack_pro_badge(),
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addColumn([
             'name'   => 'select2_grouped_id',
             'type'   => 'select2_grouped',
-            'label'  => 'Select2 Grouped',
+            'label'  => 'Select2 Grouped'.backpack_pro_badge(),
             'entity' => 'article',
             'tab'    => 'Selects',
         ]);
@@ -545,14 +540,14 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'categories',
             'type'  => 'select2_multiple',
-            'label' => 'Select2 Multiple',
+            'label' => 'Select2 Multiple'.backpack_pro_badge(),
             'tab'   => 'Selects',
         ]);
 
         $this->crud->addColumn([
             'name'   => 'select2_nested_id',
             'type'   => 'select2_nested',
-            'label'  => 'Select2 Nested',
+            'label'  => 'Select2 Nested'.backpack_pro_badge(),
             'entity' => 'category',
             'tab'    => 'Selects',
         ]);
@@ -560,7 +555,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addColumn([
             'name'  => 'slug',
             'type'  => 'slug',
-            'label' => 'Slug',
+            'label' => 'Slug'.backpack_pro_badge(),
             'tab'   => 'Miscellaneous',
         ]);
 
@@ -577,6 +572,28 @@ class MonsterCrudController extends CrudController
             'label'  => 'Upload',
             'disk'   => 'uploads',
             'tab'    => 'Uploads',
+        ]);
+
+        $this->crud->addColumn([   // Upload
+            'name'   => 'upload_multiple',
+            'label'  => 'Upload Multiple',
+            'type'   => 'upload_multiple',
+            'disk'   => 'public',
+            'tab'    => 'Uploads',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'browse',
+            'type'  => 'browse',
+            'label' => 'Browse'.backpack_pro_badge(),
+            'tab'   => 'Uploads',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'browse_multiple',
+            'type'  => 'browse_multiple',
+            'label' => 'Browse Multiple'.backpack_pro_badge(),
+            'tab'   => 'Uploads',
         ]);
 
         $this->crud->addColumn([
@@ -602,8 +619,16 @@ class MonsterCrudController extends CrudController
 
         $this->crud->addColumn([
             'name'  => 'video', // The db column name
-            'label' => 'Video', // Table column heading
+            'label' => 'Video'.backpack_pro_badge(), // Table column heading
             'type'  => 'video',
+            'tab'   => 'Miscellaneous',
+        ]);
+
+        $this->crud->addColumn([
+            'name'  => 'browse_multiple',
+            'key'   => 'browse_multiple_array',
+            'type'  => 'array',
+            'label' => 'Array'.backpack_pro_badge(),
             'tab'   => 'Miscellaneous',
         ]);
     }
