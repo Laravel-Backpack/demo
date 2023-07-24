@@ -71,16 +71,16 @@
         },
         {
             "name": "backpack/basset",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/basset.git",
-                "reference": "d801836a2b0ed97671c28e983550195329c06a46"
+                "reference": "f5177010471bae6b450414e1a204a2219eb3060a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/d801836a2b0ed97671c28e983550195329c06a46",
-                "reference": "d801836a2b0ed97671c28e983550195329c06a46",
+                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/f5177010471bae6b450414e1a204a2219eb3060a",
+                "reference": "f5177010471bae6b450414e1a204a2219eb3060a",
                 "shasum": ""
             },
             "require": {
@@ -94,6 +94,9 @@
                 "pestphp/pest-plugin-laravel": "^1.4|^2.0",
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "~9.0|~10.0"
+            },
+            "suggest": {
+                "ext-zip": "Required to use @bassetArchive with .zip archives."
             },
             "type": "library",
             "extra": {
@@ -133,9 +136,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/basset/issues",
-                "source": "https://github.com/Laravel-Backpack/basset/tree/1.0.0"
+                "source": "https://github.com/Laravel-Backpack/basset/tree/1.0.2"
             },
-            "time": "2023-06-26T07:10:07+00:00"
+            "time": "2023-07-24T16:44:48+00:00"
         },
         {
             "name": "backpack/crud",
@@ -763,17 +766,17 @@
         },
         {
             "name": "backpack/pro",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "50980c0b4947564d4a9591d333b23b831b6411bd"
+                "reference": "24fb8c9166e12d6f56cd2d5632be8a467e26c28f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-50980c0b4947564d4a9591d333b23b831b6411bd-zip-5a2cd2.zip",
-                "reference": "50980c0b4947564d4a9591d333b23b831b6411bd",
-                "shasum": "46e1dabf4900d8d9d7424bca56af7cb1e96bd5f5"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-24fb8c9166e12d6f56cd2d5632be8a467e26c28f-zip-63cbb2.zip",
+                "reference": "24fb8c9166e12d6f56cd2d5632be8a467e26c28f",
+                "shasum": "6190c240a9facbc307cb21e227afae98b1d0a132"
             },
             "require": {
                 "backpack/crud": "^6.0.1"
@@ -825,10 +828,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.8",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.0.9",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2023-07-18T21:32:22+00:00"
+            "time": "2023-07-20T14:20:56+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -964,16 +967,16 @@
         },
         {
             "name": "backpack/theme-coreuiv2",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "0c66d9a17bc0010335319b080004800a8bd40f8c"
+                "reference": "68b8cd1bd01fa423df440bba071bcacbb05ae1d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/0c66d9a17bc0010335319b080004800a8bd40f8c",
-                "reference": "0c66d9a17bc0010335319b080004800a8bd40f8c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/68b8cd1bd01fa423df440bba071bcacbb05ae1d3",
+                "reference": "68b8cd1bd01fa423df440bba071bcacbb05ae1d3",
                 "shasum": ""
             },
             "require": {
@@ -1018,9 +1021,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/1.1.3"
+                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/1.1.4"
             },
-            "time": "2023-07-10T11:15:10+00:00"
+            "time": "2023-07-20T14:31:47+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -1094,16 +1097,16 @@
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "2e42a5a04d09adb471878e0cf9b037b02025a30c"
+                "reference": "ff0f27a94fecd34b0ebb5271b5e91625cc4c78ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/2e42a5a04d09adb471878e0cf9b037b02025a30c",
-                "reference": "2e42a5a04d09adb471878e0cf9b037b02025a30c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/ff0f27a94fecd34b0ebb5271b5e91625cc4c78ff",
+                "reference": "ff0f27a94fecd34b0ebb5271b5e91625cc4c78ff",
                 "shasum": ""
             },
             "require": {
@@ -1161,9 +1164,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.5"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.6"
             },
-            "time": "2023-07-18T08:53:47+00:00"
+            "time": "2023-07-20T14:28:55+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -1832,16 +1835,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.6.4",
+            "version": "3.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f"
+                "reference": "96d5a70fd91efdcec81fc46316efc5bf3da17ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f",
-                "reference": "19f0dec95edd6a3c3c5ff1d188ea94c6b7fc903f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/96d5a70fd91efdcec81fc46316efc5bf3da17ddf",
+                "reference": "96d5a70fd91efdcec81fc46316efc5bf3da17ddf",
                 "shasum": ""
             },
             "require": {
@@ -1856,10 +1859,10 @@
             "require-dev": {
                 "doctrine/coding-standard": "12.0.0",
                 "fig/log-test": "^1",
-                "jetbrains/phpstorm-stubs": "2022.3",
-                "phpstan/phpstan": "1.10.14",
+                "jetbrains/phpstorm-stubs": "2023.1",
+                "phpstan/phpstan": "1.10.21",
                 "phpstan/phpstan-strict-rules": "^1.5",
-                "phpunit/phpunit": "9.6.7",
+                "phpunit/phpunit": "9.6.9",
                 "psalm/plugin-phpunit": "0.18.4",
                 "squizlabs/php_codesniffer": "3.7.2",
                 "symfony/cache": "^5.4|^6.0",
@@ -1924,7 +1927,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.6.4"
+                "source": "https://github.com/doctrine/dbal/tree/3.6.5"
             },
             "funding": [
                 {
@@ -1940,7 +1943,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-15T07:40:12+00:00"
+            "time": "2023-07-17T09:15:50+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -5695,16 +5698,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "f72ca52acd77ca03b7843a0f86e2411ce90aecfc"
+                "reference": "2f802853aab017aa615224daae1588054b5ab20e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/f72ca52acd77ca03b7843a0f86e2411ce90aecfc",
-                "reference": "f72ca52acd77ca03b7843a0f86e2411ce90aecfc",
+                "url": "https://api.github.com/repos/spatie/image/zipball/2f802853aab017aa615224daae1588054b5ab20e",
+                "reference": "2f802853aab017aa615224daae1588054b5ab20e",
                 "shasum": ""
             },
             "require": {
@@ -5713,7 +5716,7 @@
                 "ext-mbstring": "*",
                 "league/glide": "^2.2.2",
                 "php": "^8.0",
-                "spatie/image-optimizer": "^1.1",
+                "spatie/image-optimizer": "^1.7",
                 "spatie/temporary-directory": "^1.0|^2.0",
                 "symfony/process": "^3.0|^4.0|^5.0|^6.0"
             },
@@ -5748,7 +5751,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/2.2.6"
+                "source": "https://github.com/spatie/image/tree/2.2.7"
             },
             "funding": [
                 {
@@ -5760,20 +5763,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-06T10:20:33+00:00"
+            "time": "2023-07-24T13:54:13+00:00"
         },
         {
             "name": "spatie/image-optimizer",
-            "version": "1.6.4",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image-optimizer.git",
-                "reference": "d997e01ba980b2769ddca2f00badd3b80c2a2512"
+                "reference": "9551e2df936656bda3567901a033579345d52e88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/d997e01ba980b2769ddca2f00badd3b80c2a2512",
-                "reference": "d997e01ba980b2769ddca2f00badd3b80c2a2512",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/9551e2df936656bda3567901a033579345d52e88",
+                "reference": "9551e2df936656bda3567901a033579345d52e88",
                 "shasum": ""
             },
             "require": {
@@ -5813,9 +5816,9 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image-optimizer/issues",
-                "source": "https://github.com/spatie/image-optimizer/tree/1.6.4"
+                "source": "https://github.com/spatie/image-optimizer/tree/1.7.0"
             },
-            "time": "2023-03-10T08:43:19+00:00"
+            "time": "2023-07-22T16:28:37+00:00"
         },
         {
             "name": "spatie/laravel-backup",
@@ -6010,16 +6013,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "10.10.1",
+            "version": "10.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "84f7bb253bc7b9498ff2cd0d74f82e88d299c517"
+                "reference": "83e902ed0d4204a217e19e7a764b33236c1d4526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/84f7bb253bc7b9498ff2cd0d74f82e88d299c517",
-                "reference": "84f7bb253bc7b9498ff2cd0d74f82e88d299c517",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/83e902ed0d4204a217e19e7a764b33236c1d4526",
+                "reference": "83e902ed0d4204a217e19e7a764b33236c1d4526",
                 "shasum": ""
             },
             "require": {
@@ -6035,7 +6038,7 @@
                 "intervention/image": "^2.7",
                 "maennchen/zipstream-php": "^2.0|^3.0",
                 "php": "^8.0",
-                "spatie/image": "^2.2.2",
+                "spatie/image": "^2.2.7",
                 "spatie/temporary-directory": "^2.0",
                 "symfony/console": "^6.0"
             },
@@ -6103,7 +6106,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.10.1"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/10.11.0"
             },
             "funding": [
                 {
@@ -6115,7 +6118,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-29T07:18:20+00:00"
+            "time": "2023-07-24T13:59:14+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -6335,16 +6338,16 @@
         },
         {
             "name": "spatie/laravel-translatable",
-            "version": "6.5.2",
+            "version": "6.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translatable.git",
-                "reference": "29d08d2088bda0d2b05452a348a7af2e81f9c668"
+                "reference": "1906a3f1492c4b4b99d9f150b67cca4b697d85d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/29d08d2088bda0d2b05452a348a7af2e81f9c668",
-                "reference": "29d08d2088bda0d2b05452a348a7af2e81f9c668",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/1906a3f1492c4b4b99d9f150b67cca4b697d85d7",
+                "reference": "1906a3f1492c4b4b99d9f150b67cca4b697d85d7",
                 "shasum": ""
             },
             "require": {
@@ -6405,7 +6408,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-translatable/issues",
-                "source": "https://github.com/spatie/laravel-translatable/tree/6.5.2"
+                "source": "https://github.com/spatie/laravel-translatable/tree/6.5.3"
             },
             "funding": [
                 {
@@ -6413,7 +6416,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-20T18:08:15+00:00"
+            "time": "2023-07-19T19:21:38+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -9115,16 +9118,16 @@
     "packages-dev": [
         {
             "name": "backpack/generators",
-            "version": "v4.0.1",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "6f1c0d78e08ac286110afd42cb79bf43e238a903"
+                "reference": "e5314899f3b449c3f23dff06f2569371b0de35df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/6f1c0d78e08ac286110afd42cb79bf43e238a903",
-                "reference": "6f1c0d78e08ac286110afd42cb79bf43e238a903",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/e5314899f3b449c3f23dff06f2569371b0de35df",
+                "reference": "e5314899f3b449c3f23dff06f2569371b0de35df",
                 "shasum": ""
             },
             "require": {
@@ -9179,9 +9182,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
-                "source": "https://github.com/Laravel-Backpack/Generators/tree/v4.0.1"
+                "source": "https://github.com/Laravel-Backpack/Generators/tree/v4.0.2"
             },
-            "time": "2023-07-01T05:36:32+00:00"
+            "time": "2023-07-24T10:35:15+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -9454,16 +9457,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.6.3",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "b1be135c1ba7632f0248e07ee5e6e412576a309d"
+                "reference": "d1413755e26fe56a63455f7753221c86cbb88f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/b1be135c1ba7632f0248e07ee5e6e412576a309d",
-                "reference": "b1be135c1ba7632f0248e07ee5e6e412576a309d",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/d1413755e26fe56a63455f7753221c86cbb88f66",
+                "reference": "d1413755e26fe56a63455f7753221c86cbb88f66",
                 "shasum": ""
             },
             "require": {
@@ -9477,16 +9480,17 @@
             "require-dev": {
                 "phpunit/phpunit": "^8.5 || ^9.3",
                 "psalm/plugin-phpunit": "^0.18.4",
+                "symplify/easy-coding-standard": "^11.5.0",
                 "vimeo/psalm": "^5.13.1"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/helpers.php",
-                    "src/Mockery.php"
+                    "library/helpers.php",
+                    "library/Mockery.php"
                 ],
                 "psr-4": {
-                    "Mockery\\": "src/Mockery"
+                    "Mockery\\": "library/Mockery"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -9534,7 +9538,7 @@
                 "security": "https://github.com/mockery/mockery/security/advisories",
                 "source": "https://github.com/mockery/mockery"
             },
-            "time": "2023-07-18T17:47:29+00:00"
+            "time": "2023-07-19T15:51:02+00:00"
         },
         {
             "name": "myclabs/deep-copy",
