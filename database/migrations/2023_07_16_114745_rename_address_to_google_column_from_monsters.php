@@ -14,8 +14,22 @@ class RenameAddressToGoogleColumnFromMonsters extends Migration
     public function up()
     {
         Schema::table('monsters', function (Blueprint $table) {
-            if (!Schema::hasColumn('monsters', 'address_google')) {
-                $table->text('address_google')->nullable()->after('week');
+            if (Schema::hasColumn('monsters', 'address_algolia') && !Schema::hasColumn('monsters', 'address_google')) {
+                $table->renameColumn('address_algolia', 'address_google');
+            }
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('monsters', function (Blueprint $table) {
+            if (Schema::hasColumn('monsters', 'address_google') && !Schema::hasColumn('monsters', 'address_algolia')) {
+                $table->renameColumn('address_google', 'address_algolia');
             }
         });
     }
