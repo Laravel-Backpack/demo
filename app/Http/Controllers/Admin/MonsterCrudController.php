@@ -391,7 +391,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'view',
             'label' => 'Custom View',
             'type'  => 'view',
-            'view'  => 'crud::columns.something',
+            'view'  => 'crud::columns.custom_view_column_example',
             'tab'   => 'Miscellaneous',
         ]);
 

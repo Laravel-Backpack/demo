@@ -1,2 +1,2 @@
 {{-- Used for 'custom_view' column example --}}
-<s>Something</s>
+<s>Bad</s><b>Good</b>
