@@ -12,8 +12,8 @@ return [
     // and choosing that view_namespace instead of the default one. Backpack will load a file from there
     // if it exists, otherwise it will load it from the fallback namespace.
 
-    'view_namespace'          => 'backpack.theme-coreuiv2::',
-    'view_namespace_fallback' => 'backpack.theme-coreuiv2::',
+    'view_namespace'          => 'backpack.theme-tabler::',
+    'view_namespace_fallback' => 'backpack.theme-tabler::',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<img src="/assets/img/backpack_logo.png" class="project-logo" style="max-width: 150px; height: auto;" alt="Backpack for Laravel">',
+    'project_logo'   => '<img src="/assets/img/backpack_logo.svg" class="project-logo" style="width: 142px; height: auto;" alt="Backpack for Laravel">',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
