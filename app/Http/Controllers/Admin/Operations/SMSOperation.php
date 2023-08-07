@@ -37,9 +37,6 @@ trait SMSOperation //Custom Form Operation Example
             buttonMeta: [
                 'icon'    => 'las la-sms',
                 'label'   => 'SMS',
-                'wrapper' => [
-                    'target' => '_blank',
-                ],
             ],
         );
     }
