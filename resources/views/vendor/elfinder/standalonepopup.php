@@ -24,6 +24,8 @@
 
         <script type="text/javascript">
             $().ready(function () {
+                var theme = 'default';
+
                 var elf = $('#elfinder').elfinder({
                     // set your elFinder options here
                     <?php if ($locale) { ?>
@@ -44,8 +46,29 @@
                     getFileCallback: function (file) {
                         window.parent.processSelectedFile(file.path, '<?= $input_id?>');
                         parent.jQuery.colorbox.close();
-                    }
+                    },
+                    themes: {
+                        default : 'https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/manifests/material-gray.json',
+                        dark : 'https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/manifests/material-default.json',
+                    },
+                    theme: theme
+                },
+                function(fm, extraObj) {
+                    fm.bind('open', function() {
+                        setElFinderColorMode();
+                    });
                 }).elfinder('instance');
+
+                function isElfinderInDarkMode() {
+                    return typeof window.parent?.colorMode !== 'undefined' && window.parent.colorMode.result === 'dark';
+                }
+
+                function setElFinderColorMode() {
+                    theme = isElfinderInDarkMode() ? 'dark' : 'default';
+
+                    let instance = $('#elfinder').elfinder('instance');
+                    instance.changeTheme(theme).storage('theme', theme);
+                }
             });
         </script>
 

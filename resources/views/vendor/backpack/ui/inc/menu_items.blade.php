@@ -52,4 +52,3 @@
         :link="backpack_url('editable-monster')" />
     <x-backpack::menu-dropdown-item title="Dummies" icon="la la-poo" :link="backpack_url('dummy')" />
 </x-backpack::menu-dropdown>
-
