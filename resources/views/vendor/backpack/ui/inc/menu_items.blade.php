@@ -52,6 +52,3 @@
         :link="backpack_url('editable-monster')" />
     <x-backpack::menu-dropdown-item title="Dummies" icon="la la-poo" :link="backpack_url('dummy')" />
 </x-backpack::menu-dropdown>
-
-
-<x-backpack::menu-item :title="trans('backpack::crud.file_manager')" icon="la la-files-o" :link="backpack_url('elfinder')" />
