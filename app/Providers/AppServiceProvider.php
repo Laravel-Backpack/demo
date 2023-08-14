@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
-use App\User;
+use Backpack\CRUD\app\Library\CrudPanel\CrudField;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Activitylog\Facades\CauserResolver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,10 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'monster' => 'App\Models\Monster',
-            'user'    => 'App\User',
+            'user' => 'App\User',
         ]);
 
-        CauserResolver::setCauser(User::first());
+        // CauserResolver::setCauser(User::first());
     }
 
     /**
@@ -31,6 +30,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // register the services that are only used for development
+        // a simple helper to make fields disabled in production
+        CrudField::macro('disabledInProduction', function () {
+            if (app('env') !== 'production') {
+                return $this;
+            }
+
+            return $this->attributes(['disabled' => 'disabled'])
+                ->hint('Uploads are disabled in production.');
+        });
     }
 }

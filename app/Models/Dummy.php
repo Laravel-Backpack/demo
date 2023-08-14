@@ -24,7 +24,6 @@ class Dummy extends Model
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
-    // protected $dates = [];
     protected $casts = [
         'extras' => 'array',
     ];

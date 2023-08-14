@@ -23,7 +23,6 @@ class Bill extends Model
     public $timestamps = true;
     protected $fillable = ['title'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------

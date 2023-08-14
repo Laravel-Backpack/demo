@@ -57,6 +57,12 @@ class CaveCrudController extends CrudController
         CRUD::setOperationSetting('contentClass', 'col-md-12');
 
         CRUD::field('name');
+        if (env('GOOGLE_PLACES_KEY')) {
+            CRUD::field('location')->label('Cave Location')->type('google_map')->map_options([
+                'default_lat' => 38.6915837,
+                'default_lng' => -9.2159772,
+            ]);
+        }
         CRUD::field('monster')
             ->label('Monster '.backpack_new_badge())
             ->subfields(self::getMonsterSubfields())

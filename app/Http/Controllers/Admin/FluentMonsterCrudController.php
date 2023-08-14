@@ -46,7 +46,7 @@ class FluentMonsterCrudController extends CrudController
                 ->wrapper([
                     'element' => 'span',
                     'class'   => static function ($crud, $column, $entry) {
-                        return 'badge badge-'.($entry->{$column['name']} ? 'default' : 'success');
+                        return 'badge rounded-pill bg-'.($entry->{$column['name']} ? 'danger' : 'success');
                     },
                 ]);
         CRUD::column('checkbox')->key('check')->label('Agreed')->type('check');
@@ -230,7 +230,7 @@ class FluentMonsterCrudController extends CrudController
             ->wrapper(['class' => 'form-group col-md-6'])
             ->tab('Time and space');
 
-        CRUD::field(['start_date', 'end_date'])
+        CRUD::field('start_date,end_date')
             ->type('date_range')
             ->label('Date Range')
             ->default(['2020-03-28 01:01', '2020-04-05 02:00'])
@@ -238,12 +238,6 @@ class FluentMonsterCrudController extends CrudController
                 'timePicker' => true,
                 'locale'     => ['format' => 'DD/MM/YYYY HH:mm'],
             ])
-            ->tab('Time and space');
-
-        CRUD::field('address_algolia')
-            ->type('address')
-            ->label('Address (Algolia Places search)')
-            ->store_as_json(true)
             ->tab('Time and space');
 
         // -----------------
@@ -467,12 +461,6 @@ class FluentMonsterCrudController extends CrudController
         CRUD::field('color')
                 ->type('color')
                 ->label('Color picker (HTML5 spec)')
-                ->wrapper(['class' => 'form-group col-md-6'])
-                ->tab('Miscellaneous');
-
-        CRUD::field('color_picker')
-                ->type('color_picker')
-                ->label('Color picker (jQuery plugin)')
                 ->wrapper(['class' => 'form-group col-md-6'])
                 ->tab('Miscellaneous');
 

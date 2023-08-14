@@ -36,7 +36,6 @@ class Comment extends Model
 
     protected $guarded = ['id'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------

@@ -22,9 +22,7 @@ class PostalBoxer extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = ['monster_id', 'postal_name'];
-
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\MonsterStatus;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,17 +23,22 @@ class Monster extends Model
     */
 
     protected $table = 'monsters';
+
     protected $primaryKey = 'id';
+
     public $timestamps = true;
+
     // protected $guarded = ['id'];
-    protected $fillable = ['address_algolia', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'color_picker', 'date', 'date_picker', 'easymde', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id', 'editable_checkbox', 'fake-text', 'fake-switch', 'fake-checkbox', 'fake-select'];
+    protected $fillable = ['address_google', 'base64_image', 'browse', 'browse_multiple', 'checkbox', 'wysiwyg', 'color', 'date', 'date_picker', 'easymde', 'start_date', 'end_date', 'datetime', 'datetime_picker', 'email', 'hidden', 'icon_picker', 'image', 'month', 'number', 'float', 'password', 'radio', 'range', 'select', 'select_from_array', 'select2', 'select2_from_ajax', 'select2_from_array', 'summernote', 'table', 'textarea', 'text', 'tinymce', 'upload', 'upload_multiple', 'url', 'video', 'week', 'extras', 'icon_id', 'editable_checkbox', 'fake-text', 'fake-switch', 'fake-checkbox', 'fake-select', 'status', 'features', 'ckeditor', 'dropzone'];
+
     // protected $hidden = [];
-    // protected $dates = [];
     protected $casts = [
-        'address_algolia'       => 'object',
+        'address_google'        => 'object',
         'video'                 => 'array',
         'upload_multiple'       => 'array',
         'browse_multiple'       => 'array',
+        'status'                => MonsterStatus::class,
+        'features'              => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array'     => 'array',
         // 'select2_from_array'    => 'array'
@@ -241,6 +247,17 @@ class Monster extends Model
         $this->attributes['base64_image'] = $value;
     }
 
+    public function setDropzoneAttribute($value)
+    {
+        if (app('env') === 'production') {
+            \Alert::warning('In the online demo the dropzone files don\'t get stored.');
+
+            return true;
+        }
+
+        $this->attributes['dropzone'] = $value;
+    }
+
     public function setImageAttribute($value)
     {
         if (app('env') == 'production') {
@@ -275,8 +292,10 @@ class Monster extends Model
             // 2. Store the image on disk.
             \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
 
-            // 3. Delete the previous image, if there was one.
-            \Storage::disk($disk)->delete($this->{$attribute_name});
+            // delete previous image from the disk
+            if ($this->{$attribute_name}) {
+                \Storage::disk($disk)->delete($this->{$attribute_name});
+            }
 
             // 4. Save the public path to the database
             // but first, remove "public/" from the path, since we're pointing to it from the root folder

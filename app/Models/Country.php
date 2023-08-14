@@ -21,7 +21,6 @@ class Country extends Model
     public $timestamps = false;
     protected $fillable = ['name', 'code'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------

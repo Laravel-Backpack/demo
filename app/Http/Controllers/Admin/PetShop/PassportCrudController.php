@@ -113,7 +113,6 @@ class PassportCrudController extends CrudController
             ['name' => 'breed', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
             ['name' => 'colour', 'type' => 'text', 'wrapperAttributes' => ['class' => 'form-group col-md-4']],
             ['name' => 'notes', 'type' => 'textarea'],
-
         ];
     }
 

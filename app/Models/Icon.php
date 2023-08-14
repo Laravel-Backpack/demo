@@ -24,7 +24,6 @@ class Icon extends Model
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'icon'];
     // protected $hidden = [];
-    // protected $dates = [];
 
     public function identifiableAttribute()
     {

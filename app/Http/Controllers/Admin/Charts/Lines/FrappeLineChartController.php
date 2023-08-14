@@ -16,7 +16,7 @@ class FrappeLineChartController extends ChartController
         $this->chart->dataset('Blue', 'line', [4, 3, 5, 1])
                     ->color('rgba(70, 127, 208, 1)');
         $this->chart->dataset('Yellow', 'line', [8, 1, 4, 3])
-                    ->color('rgb(255, 193, 7)');
+                    ->color('#FFC107');
         $this->chart->dataset('Green', 'line', [1, 4, 7, 11])
                     ->color('rgb(66, 186, 150)');
         $this->chart->dataset('Purple', 'line', [2, 10, 5, 3])

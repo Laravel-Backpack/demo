@@ -16,7 +16,7 @@
         <!-- elFinder JS (REQUIRED) -->
         <script src="<?= asset($dir.'/js/elfinder.min.js') ?>"></script>
 
-        <?php if($locale){ ?>
+        <?php if ($locale) { ?>
             <!-- elFinder translation (OPTIONAL) -->
             <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>
         <?php } ?>
@@ -33,22 +33,44 @@
 
             $().ready(function() {
                 var funcNum = getUrlParam('CKEditorFuncNum');
+                var theme = 'default';
 
                 var elf = $('#elfinder').elfinder({
                     // set your elFinder options here
-                    <?php if($locale){ ?>
+                    <?php if ($locale) { ?>
                         lang: '<?= $locale ?>', // locale
                     <?php } ?>
                     customData: { 
                         _token: '<?= csrf_token() ?>'
                     },
-                    url: '<?= route("elfinder.connector") ?>',  // connector URL
+                    url: '<?= route('elfinder.connector') ?>',  // connector URL
                     soundPath: '<?= asset($dir.'/sounds') ?>',
                     getFileCallback : function(file) {
                         window.opener.CKEDITOR.tools.callFunction(funcNum, file.url);
                         window.close();
-                    }
+                    },
+                    themes: {
+                        default : 'https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/manifests/material-gray.json',
+                        dark : 'https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/manifests/material-default.json',
+                    },
+                    theme: theme
+                },
+                function(fm, extraObj) {
+                    fm.bind('open', function() {
+                        setElFinderColorMode();
+                    });
                 }).elfinder('instance');
+
+                function isElfinderInDarkMode() {
+                    return typeof window.parent?.colorMode !== 'undefined' && window.parent.colorMode.result === 'dark';
+                }
+
+                function setElFinderColorMode() {
+                    theme = isElfinderInDarkMode() ? 'dark' : 'default';
+
+                    let instance = $('#elfinder').elfinder('instance');
+                    instance.changeTheme(theme).storage('theme', theme);
+                }
             });
         </script>
     </head>

@@ -5,48 +5,50 @@
     "license": "proprietary",
     "type": "project",
     "require": {
-        "php": "^8.0",
-        "laravel/framework": "^9.0",
+        "php": "^8.1",
+        "laravel/framework": "^10.0",
         "backpack/activity-log": "dev-main",
-        "backpack/crud": "^5.1",
-        "backpack/logmanager": "^4.0",
-        "backpack/settings": "^3.0",
-        "backpack/newscrud": "^4.0",
-        "backpack/permissionmanager": "^6.0",
-        "backpack/pagemanager": "^3.0",
-        "backpack/menucrud": "^3.0",
-        "spatie/laravel-translatable": "^5.0",
+        "backpack/crud": "^6.0",
+        "backpack/pro": "^2.0",
+        "backpack/filemanager": "^3.0",
+        "backpack/theme-coreuiv2": "^1.0",
+        "backpack/theme-coreuiv4": "^1.0",
+        "backpack/theme-tabler": "^1.0",
+        "backpack/logmanager": "^5.0",
+        "backpack/settings": "^3.1",
+        "backpack/newscrud": "^5.0",
+        "backpack/permissionmanager": "^7.0",
+        "backpack/pagemanager": "^3.2",
+        "backpack/menucrud": "^4.0",
+        "backpack/backupmanager": "^5.0",
+        "backpack/editable-columns": "^3.0",
+        "backpack/revise-operation": "^2.0",
+        "backpack/medialibrary-uploaders": "^1.0",
+        "spatie/laravel-medialibrary": "^10.7",
+        "spatie/laravel-translatable": "^6.0",
         "laravel/tinker": "^2.1",
-        "spatie/laravel-ignition": "^1.0",
+        "spatie/laravel-ignition": "^2.0",
         "intervention/image": "^2.3",
-        "backpack/revise-operation": "^1.0",
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "backpack/filemanager": "^2.0",
-        "backpack/backupmanager": "^3.0",
-        "backpack/editable-columns": "^2.0"
+        "league/flysystem-aws-s3-v3": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
-        "mockery/mockery": "1.5.*",
-        "phpunit/phpunit" : "^9.0||^8.5||^7.0",
+        "mockery/mockery": "1.6.*",
+        "phpunit/phpunit" : "^10.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
-        "laracasts/generators": "^2.0",
-        "backpack/generators": "^3.1",
+        "backpack/generators": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/activity-log/"
         }
-    ],
+    },
     "autoload": {
         "files": [
             "app/helpers.php"
@@ -60,35 +62,25 @@
             "Database\\Seeders\\": "database/seeders/"
         }
     },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
-    },
     "scripts": {
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "php artisan key:generate",
-            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
+            "php artisan key:generate"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall"
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan storage:link"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
         ],
-        "test": "vendor/bin/phpunit --testdox",
-        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear",
-        "bp-assets-publish": "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force",
-        "bp-assets-link": "cd public && rm -rf packages || true && ln -s ../vendor/backpack/crud/src/public/packages && cd ../",
-        "bp-assets-unlink": "rm -rf public/packages || true && composer bp-assets-publish"
+        "fresh": "php artisan key:generate --force && php artisan db:wipe --force && php artisan migrate --force && php artisan db:seed --force && php artisan backup:clean && php artisan cache:clear && php artisan view:clear && php artisan config:clear"
     },
     "config": {
         "preferred-install": "dist",

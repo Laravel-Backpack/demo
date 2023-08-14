@@ -17,6 +17,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzoneUpload; }
 
     public function setup()
     {
@@ -206,11 +207,100 @@ class ProductCrudController extends CrudController
             ],
         ]);
 
+        CRUD::field('main_image')
+                ->label('Main Image')
+                ->type('image')
+                ->tab('Media')
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
+                ->withMedia();
+
+        CRUD::field('privacy_policy')
+                ->label('Privacy policy document')
+                ->type('upload')
+                ->tab('Media')
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
+                ->withMedia();
+
+        CRUD::field('specifications')
+                ->label('Specifications')
+                ->type('upload_multiple')
+                ->tab('Media')
+                ->wrapper(['class' => 'form-group col-md-4'])
+                ->disabledInProduction()
+                ->withMedia();
+
+        CRUD::field('gallery')
+            ->type('repeatable')
+            ->tab('Media')
+            ->subfields([
+                [
+                    'name'    => 'image_title',
+                    'type'    => 'text',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                ],
+                [
+                    'name'    => 'gallery_image',
+                    'label'   => 'image',
+                    'type'    => 'image',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withMedia' => true,
+                ],
+
+                [
+                    'name'    => 'gallery_image_drm',
+                    'label'   => 'Image DRM',
+                    'type'    => 'upload',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withMedia' => true,
+                ],
+                [
+                    'name'    => 'gallery_image_specifications',
+                    'label'   => 'Image Specifications',
+                    'type'    => 'upload_multiple',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withMedia' => true,
+                ],
+                [
+                    'name'    => 'gallery_image_certificates',
+                    'label'   => 'Image Certificates',
+                    'type'    => 'dropzone',
+                    'wrapper' => [
+                        'class' => 'form-group col-md-6',
+                    ],
+                    'withMedia' => true,
+                ],
+            ])
+            ->when(app('env') == 'production', function ($field) {
+                return $field->remove();
+            });
+
         $this->crud->setOperationSetting('contentClass', 'col-md-12');
     }
 
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function dropzoneUpload()
+    {
+        if (app('env') === 'production') {
+            return response()->json(['errors' => [
+                'dropzone' => ['Uploads are disabled in production'],
+            ],
+            ], 500);
+        }
+
+        return $this->traitDropzoneUpload();
     }
 }
