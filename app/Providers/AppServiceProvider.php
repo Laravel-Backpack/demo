@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'monster' => 'App\Models\Monster',
-            'user' => 'App\User',
+            'user'    => 'App\User',
         ]);
 
         // CauserResolver::setCauser(User::first());
