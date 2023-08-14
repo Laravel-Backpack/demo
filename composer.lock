@@ -291,16 +291,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "6.1.5",
+            "version": "6.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "0e8cda5e5ea5e4e503a5a967fd617b9bdaa4118e"
+                "reference": "31927e85f41a5e0262bcaf603dd9513cc92b6214"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/0e8cda5e5ea5e4e503a5a967fd617b9bdaa4118e",
-                "reference": "0e8cda5e5ea5e4e503a5a967fd617b9bdaa4118e",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/31927e85f41a5e0262bcaf603dd9513cc92b6214",
+                "reference": "31927e85f41a5e0262bcaf603dd9513cc92b6214",
                 "shasum": ""
             },
             "require": {
@@ -380,9 +380,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.5"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.8"
             },
-            "time": "2023-08-04T08:37:34+00:00"
+            "time": "2023-08-11T12:52:38+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -1246,16 +1246,16 @@
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "c03824258fd7f21a2038ea98aece41c339178d39"
+                "reference": "fe63787558ca138a71eac795a26a645f0f8e4757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/c03824258fd7f21a2038ea98aece41c339178d39",
-                "reference": "c03824258fd7f21a2038ea98aece41c339178d39",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/fe63787558ca138a71eac795a26a645f0f8e4757",
+                "reference": "fe63787558ca138a71eac795a26a645f0f8e4757",
                 "shasum": ""
             },
             "require": {
@@ -1313,9 +1313,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.8"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.9"
             },
-            "time": "2023-08-04T14:53:24+00:00"
+            "time": "2023-08-12T14:08:45+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -2402,16 +2402,16 @@
         },
         {
             "name": "dragonmantank/cron-expression",
-            "version": "v3.3.2",
+            "version": "v3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dragonmantank/cron-expression.git",
-                "reference": "782ca5968ab8b954773518e9e49a6f892a34b2a8"
+                "reference": "adfb1f505deb6384dc8b39804c5065dd3c8c8c0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/782ca5968ab8b954773518e9e49a6f892a34b2a8",
-                "reference": "782ca5968ab8b954773518e9e49a6f892a34b2a8",
+                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/adfb1f505deb6384dc8b39804c5065dd3c8c8c0a",
+                "reference": "adfb1f505deb6384dc8b39804c5065dd3c8c8c0a",
                 "shasum": ""
             },
             "require": {
@@ -2451,7 +2451,7 @@
             ],
             "support": {
                 "issues": "https://github.com/dragonmantank/cron-expression/issues",
-                "source": "https://github.com/dragonmantank/cron-expression/tree/v3.3.2"
+                "source": "https://github.com/dragonmantank/cron-expression/tree/v3.3.3"
             },
             "funding": [
                 {
@@ -2459,7 +2459,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-10T18:51:20+00:00"
+            "time": "2023-08-10T19:36:49+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -4591,21 +4591,21 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f"
+                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
-                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
+                "url": "https://api.github.com/repos/nette/schema/zipball/c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
+                "reference": "c9ff517a53903b3d4e29ec547fb20feecb05b8ab",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": ">=7.1 <8.3"
+                "php": "7.1 - 8.3"
             },
             "require-dev": {
                 "nette/tester": "^2.3 || ^2.4",
@@ -4647,9 +4647,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.3"
+                "source": "https://github.com/nette/schema/tree/v1.2.4"
             },
-            "time": "2022-10-13T01:24:26+00:00"
+            "time": "2023-08-05T18:56:25+00:00"
         },
         {
             "name": "nette/utils",
@@ -11501,5 +11501,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
