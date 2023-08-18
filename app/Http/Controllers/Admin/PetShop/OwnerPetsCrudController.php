@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\PetShop;
 
 use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
 use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-use Illuminate\Database\Eloquent\Builder;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class PetCrudController.
@@ -14,11 +14,11 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  */
 class OwnerPetsCrudController extends PetCrudController
 {
-
-    use CreateOperation {store as traitStore;}
-    use UpdateOperation {update as traitUpdate;}
+    use CreateOperation {store as traitStore; }
+    use UpdateOperation {update as traitUpdate; }
 
     private int $owner;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -34,9 +34,9 @@ class OwnerPetsCrudController extends PetCrudController
         // set a different route for the admin panel
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/owner/'.$this->owner.'/pets');
 
-        // show only that owner's pets   
+        // show only that owner's pets
         CRUD::addBaseClause(function (Builder $query) {
-            $query->whereHas('owners', function(Builder $query) { 
+            $query->whereHas('owners', function (Builder $query) {
                 $query->where('owner_id', $this->owner)
                   ->where('role', 'Owner');
             });
@@ -65,17 +65,17 @@ class OwnerPetsCrudController extends PetCrudController
     {
         CRUD::setRequest($this->addOwnerToRequest());
 
-        return $this->traitStore(); 
+        return $this->traitStore();
     }
 
     public function update()
     {
         CRUD::setRequest($this->addOwnerToRequest());
 
-        return $this->traitUpdate(); 
+        return $this->traitUpdate();
     }
 
-    private function addOwnerToRequest() 
+    private function addOwnerToRequest()
     {
         $request = CRUD::getRequest();
 
@@ -83,12 +83,11 @@ class OwnerPetsCrudController extends PetCrudController
             'owners' => [
                 [
                     'owners' => $this->owner,
-                    'role' => 'Owner'
-                ]
-            ]
+                    'role'   => 'Owner',
+                ],
+            ],
         ]);
 
         return $request;
     }
-    
 }
