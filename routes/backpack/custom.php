@@ -86,8 +86,7 @@ Route::group([
         Route::crud('skill', 'SkillCrudController');
         Route::crud('comment', 'CommentCrudController');
         Route::crud('badge', 'BadgeCrudController');
-        Route::group(['prefix' => 'owner/{owner}'], function()
-        {
+        Route::group(['prefix' => 'owner/{owner}'], function () {
             Route::crud('pets', 'OwnerPetsCrudController');
         });
     });
