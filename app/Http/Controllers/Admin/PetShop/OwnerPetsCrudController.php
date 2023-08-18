@@ -7,11 +7,6 @@ use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class PetCrudController.
- *
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class OwnerPetsCrudController extends PetCrudController
 {
     use CreateOperation {store as traitStore; }
