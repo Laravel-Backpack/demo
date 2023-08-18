@@ -28,7 +28,7 @@ class OwnerPetsCrudController extends PetCrudController
     {
         parent::setup();
 
-        // get the owner_id parameter
+        // get the owner parameter
         $this->owner = \Route::current()->parameter('owner');
 
         // set a different route for the admin panel
