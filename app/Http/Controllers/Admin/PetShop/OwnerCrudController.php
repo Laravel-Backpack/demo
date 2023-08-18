@@ -55,7 +55,6 @@ class OwnerCrudController extends CrudController
             'label'   => 'View Pets',
             'icon'    => 'la la-envelope',
             'wrapper' => [
-                // 'element' => 'a',
                 'href' => function ($entry, $crud) {
                     return url($crud->route.'/'.$entry->getKey().'/pets');
                 },
