@@ -86,5 +86,9 @@ Route::group([
         Route::crud('skill', 'SkillCrudController');
         Route::crud('comment', 'CommentCrudController');
         Route::crud('badge', 'BadgeCrudController');
+        Route::group(['prefix' => 'owner/{owner}'], function()
+        {
+            Route::crud('pets', 'OwnerPetsCrudController');
+        });
     });
 }); // this should be the absolute last line of this file

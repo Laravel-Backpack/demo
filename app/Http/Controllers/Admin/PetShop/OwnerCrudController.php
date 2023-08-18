@@ -49,6 +49,19 @@ class OwnerCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('avatar.url')->type('image')->label('Avatar');
+
+        CRUD::button('view_pets')->stack('line')->view('crud::buttons.quick')->meta([
+            'access' => true,
+            'label' => 'View Pets',
+            'icon' => 'la la-envelope',
+            'wrapper' => [
+                // 'element' => 'a',
+                'href' => function($entry, $crud) {
+                    return url($crud->route.'/'.$entry->getKey().'/pets');
+                },
+                'title' => 'view owner pets',
+            ]
+        ]);
     }
 
     /**
