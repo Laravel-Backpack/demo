@@ -53,7 +53,7 @@ class OwnerCrudController extends CrudController
         CRUD::button('view_pets')->stack('line')->view('crud::buttons.quick')->meta([
             'access'  => true,
             'label'   => 'View Pets',
-            'icon'    => 'la la-envelope',
+            'icon'    => 'la la-paw',
             'wrapper' => [
                 'href' => function ($entry, $crud) {
                     return url($crud->route.'/'.$entry->getKey().'/pets');
