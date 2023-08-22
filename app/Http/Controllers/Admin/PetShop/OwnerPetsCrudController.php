@@ -72,9 +72,7 @@ class OwnerPetsCrudController extends PetCrudController
 
     private function addOwnerToRequest()
     {
-        $request = CRUD::getRequest();
-
-        $request->merge([
+        return CRUD::getRequest()->merge([
             'owners' => [
                 [
                     'owners' => $this->owner,
@@ -82,7 +80,5 @@ class OwnerPetsCrudController extends PetCrudController
                 ],
             ],
         ]);
-
-        return $request;
     }
 }
