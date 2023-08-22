@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2841f36f1deda1f6c69f57dce5ba0f1",
+    "content-hash": "2cc8413c1d4a80b9ab6d9620420bdcc6",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -291,16 +291,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "6.1.12",
+            "version": "6.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "cc743c3b43e7a5a60f0980ffd1765df886253124"
+                "reference": "67e07027a8742eca8f23c4ec17ad62c779134199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/cc743c3b43e7a5a60f0980ffd1765df886253124",
-                "reference": "cc743c3b43e7a5a60f0980ffd1765df886253124",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/67e07027a8742eca8f23c4ec17ad62c779134199",
+                "reference": "67e07027a8742eca8f23c4ec17ad62c779134199",
                 "shasum": ""
             },
             "require": {
@@ -380,9 +380,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.12"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.13"
             },
-            "time": "2023-08-21T16:44:16+00:00"
+            "time": "2023-08-22T08:12:08+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -3218,16 +3218,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.19.0",
+            "version": "v10.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb"
+                "reference": "a655dca3fbe83897e22adff652b1878ba352d041"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb",
-                "reference": "b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a655dca3fbe83897e22adff652b1878ba352d041",
+                "reference": "a655dca3fbe83897e22adff652b1878ba352d041",
                 "shasum": ""
             },
             "require": {
@@ -3414,7 +3414,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-08-15T13:42:57+00:00"
+            "time": "2023-08-22T13:37:09+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -11559,5 +11559,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
