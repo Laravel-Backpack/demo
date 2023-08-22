@@ -79,13 +79,14 @@ Route::group([
         Route::get('about', function () {
             return view('admin.petshop_about');
         });
-        Route::crud('owner', 'OwnerCrudController');
         Route::crud('invoice', 'InvoiceCrudController');
         Route::crud('pet', 'PetCrudController');
         Route::crud('passport', 'PassportCrudController');
         Route::crud('skill', 'SkillCrudController');
         Route::crud('comment', 'CommentCrudController');
         Route::crud('badge', 'BadgeCrudController');
+        Route::crud('owner', 'OwnerCrudController');
+        // nested crud panel for owner pets
         Route::group(['prefix' => 'owner/{owner}'], function () {
             Route::crud('pets', 'OwnerPetsCrudController');
         });
