@@ -28,6 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // override user crud controller
+        $this->app->bind(
+            \Backpack\PermissionManager\app\Http\Controllers\UserCrudController::class,
+            \App\Http\Controllers\Admin\UserCrudController::class
+        );
+
         // a simple helper to make fields disabled in production
         CrudField::macro('disabledInProduction', function () {
             if (app('env') !== 'production') {
