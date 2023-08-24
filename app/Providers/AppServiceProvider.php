@@ -19,8 +19,6 @@ class AppServiceProvider extends ServiceProvider
             'monster' => 'App\Models\Monster',
             'user'    => 'App\User',
         ]);
-
-        // CauserResolver::setCauser(User::first());
     }
 
     /**
