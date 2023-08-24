@@ -8,7 +8,7 @@
         "php": "^8.1",
         "laravel/framework": "^10.0",
         "backpack/activity-log": "v6.x-dev",
-        "backpack/crud": "^6.0",
+        "backpack/crud": "^6.1.13",
         "backpack/pro": "^2.0",
         "backpack/filemanager": "^3.0",
         "backpack/theme-coreuiv2": "^1.0",

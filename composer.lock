@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.279.2",
+            "version": "3.279.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ebd5e47c5be0425bb5cf4f80737850ed74767107"
+                "reference": "13e0142365a1f07cedab01dbbda605dff8b7832f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ebd5e47c5be0425bb5cf4f80737850ed74767107",
-                "reference": "ebd5e47c5be0425bb5cf4f80737850ed74767107",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/13e0142365a1f07cedab01dbbda605dff8b7832f",
+                "reference": "13e0142365a1f07cedab01dbbda605dff8b7832f",
                 "shasum": ""
             },
             "require": {
@@ -151,74 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.279.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.279.3"
             },
-            "time": "2023-08-18T18:13:09+00:00"
-        },
-        {
-            "name": "backpack/activity-log",
-            "version": "v6.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel-backpack/activity-log",
-                "reference": "f8f2ff839d3a02044593a154069c455cdd663639"
-            },
-            "require": {
-                "backpack/crud": "^6.0|^5.3.13",
-                "spatie/laravel-activitylog": "^4.7"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~5|~6",
-                "phpunit/phpunit": "~9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Backpack\\ActivityLog\\ActivityLogServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Backpack\\ActivityLog\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Backpack\\ActivityLog\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit --testdox"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Antonio Almeida",
-                    "email": "promatik@gmail.com",
-                    "homepage": "https://promatik.pt"
-                },
-                {
-                    "name": "Cristian Tabacitu",
-                    "email": "cristian.tabacitu@backpackforlaravel.com",
-                    "homepage": "https://backpackforlaravel.com"
-                }
-            ],
-            "description": "Activity Log for Backpack",
-            "homepage": "https://github.com/backpack/activity-log",
-            "keywords": [
-                "ActivityLog",
-                "Backpack",
-                "Backpack Addon",
-                "Backpack for Laravel",
-                "Laravel"
-            ],
-            "time": "2023-07-26T09:58:54+00:00"
+            "time": "2023-08-21T18:04:10+00:00"
         },
         {
             "name": "backpack/backupmanager",
@@ -356,16 +291,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "6.1.11",
+            "version": "6.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6305d3e8c85327b0b145eba5f6d618cecf515056"
+                "reference": "67e07027a8742eca8f23c4ec17ad62c779134199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6305d3e8c85327b0b145eba5f6d618cecf515056",
-                "reference": "6305d3e8c85327b0b145eba5f6d618cecf515056",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/67e07027a8742eca8f23c4ec17ad62c779134199",
+                "reference": "67e07027a8742eca8f23c4ec17ad62c779134199",
                 "shasum": ""
             },
             "require": {
@@ -445,9 +380,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.11"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.1.13"
             },
-            "time": "2023-08-20T08:30:35+00:00"
+            "time": "2023-08-22T08:12:08+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -903,16 +838,16 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "7.0.0",
+            "version": "7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "2831a3e4e4e694de94dd3695da2e3d209bcbcd69"
+                "reference": "50eae06d2a14a5a329415e58dfded889972c03f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/2831a3e4e4e694de94dd3695da2e3d209bcbcd69",
-                "reference": "2831a3e4e4e694de94dd3695da2e3d209bcbcd69",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/50eae06d2a14a5a329415e58dfded889972c03f4",
+                "reference": "50eae06d2a14a5a329415e58dfded889972c03f4",
                 "shasum": ""
             },
             "require": {
@@ -974,9 +909,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/PermissionManager/issues",
-                "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/7.0.0"
+                "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/7.0.1"
             },
-            "time": "2023-07-01T06:01:45+00:00"
+            "time": "2023-08-21T16:58:40+00:00"
         },
         {
             "name": "backpack/pro",
@@ -1311,20 +1246,20 @@
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "fad0d3cbe045178e8e52fb2ac635f1c5e69c48ea"
+                "reference": "8ad7e2cc938400decb045b6cf6e8fc36550e6271"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/fad0d3cbe045178e8e52fb2ac635f1c5e69c48ea",
-                "reference": "fad0d3cbe045178e8e52fb2ac635f1c5e69c48ea",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/8ad7e2cc938400decb045b6cf6e8fc36550e6271",
+                "reference": "8ad7e2cc938400decb045b6cf6e8fc36550e6271",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^6.0"
+                "backpack/crud": "^6.1.12"
             },
             "require-dev": {
                 "orchestra/testbench": "~5|~6",
@@ -1378,9 +1313,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.11"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.0.12"
             },
-            "time": "2023-08-15T13:12:54+00:00"
+            "time": "2023-08-21T16:45:22+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
@@ -3283,16 +3218,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.19.0",
+            "version": "v10.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb"
+                "reference": "a655dca3fbe83897e22adff652b1878ba352d041"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb",
-                "reference": "b8557e4a708a1bd2bc8229bd53feecfa2ac1c6fb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a655dca3fbe83897e22adff652b1878ba352d041",
+                "reference": "a655dca3fbe83897e22adff652b1878ba352d041",
                 "shasum": ""
             },
             "require": {
@@ -3479,7 +3414,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-08-15T13:42:57+00:00"
+            "time": "2023-08-22T13:37:09+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -6057,16 +5992,16 @@
         },
         {
             "name": "spatie/ignition",
-            "version": "1.9.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "de24ff1e01814d5043bd6eb4ab36a5a852a04973"
+                "reference": "d92b9a081e99261179b63a858c7a4b01541e7dd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/de24ff1e01814d5043bd6eb4ab36a5a852a04973",
-                "reference": "de24ff1e01814d5043bd6eb4ab36a5a852a04973",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/d92b9a081e99261179b63a858c7a4b01541e7dd1",
+                "reference": "d92b9a081e99261179b63a858c7a4b01541e7dd1",
                 "shasum": ""
             },
             "require": {
@@ -6136,7 +6071,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-28T13:24:59+00:00"
+            "time": "2023-08-21T15:06:37+00:00"
         },
         {
             "name": "spatie/image",
@@ -11717,5 +11652,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
