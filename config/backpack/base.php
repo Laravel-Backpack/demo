@@ -42,7 +42,7 @@ return [
     // Make sure your Authenticable model implements the MustVerifyEmail contract and your
     // database table contains the email_verified_at column.
     // https://backpackforlaravel.com/docs/6.x/base-how-to#enable-email-verification-in-backpack-routes
-    'setup_email_verification_routes' => true,
+    'setup_email_verification_routes' => false,
 
     // How many times in any given time period should the user be allowed to
     // request a new verification email?
