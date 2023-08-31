@@ -11,7 +11,7 @@ trait LogsActivity
 
     /**
      * Spatie Log Options
-     * By default will log only the changes between fillables
+     * By default will log only the changes between fillables.
      *
      * @return LogOptions
      */
