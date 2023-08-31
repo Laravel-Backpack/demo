@@ -42,7 +42,7 @@ return [
     // Make sure your user model implements the MustVerifyEmail contract and your database
     // table contains the `email_verified_at` column. Read the following before enabling:
     // https://backpackforlaravel.com/docs/6.x/base-how-to#enable-email-verification-in-backpack-routes
-    'setup_email_verification_routes' => true,
+    'setup_email_verification_routes' => (env('APP_ENV') === 'local'),
 
     // When email verification is enabled, automatically add the Verified middleware to Backpack routes?
     // Set false if you want to use your own Verified middleware in `middleware_class`.
