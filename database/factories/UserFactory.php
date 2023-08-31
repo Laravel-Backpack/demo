@@ -24,11 +24,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name'           => $this->faker->name,
-            'email'          => $this->faker->unique()->safeEmail,
-            'password'       => bcrypt(Str::random(10)),
-            'remember_token' => Str::random(10),
-            'created_at'     => Carbon::now()->subDays(rand(0, 7)),
+            'name'              => $this->faker->name,
+            'email'             => $this->faker->unique()->safeEmail,
+            'password'          => bcrypt(Str::random(10)),
+            'remember_token'    => Str::random(10),
+            'created_at'        => Carbon::now()->subDays(rand(0, 7)),
             'email_verified_at' => random_int(1, 999) % 2 == 0 ? now() : null,
         ];
     }
