@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pet extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    use \Backpack\ActivityLog\Traits\LogsActivity;
+    use \App\Models\Traits\LogsActivity;
     use HasFactory;
     use SoftDeletes;
 

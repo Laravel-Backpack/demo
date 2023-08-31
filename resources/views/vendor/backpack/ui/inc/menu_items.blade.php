@@ -4,6 +4,7 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
+{{-- Addons --}}
 <x-backpack::menu-dropdown title="Add-ons" icon="la la-puzzle-piece">
     <x-backpack::menu-dropdown-header title="News" />
     <x-backpack::menu-dropdown-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" />
@@ -26,7 +27,7 @@
 
 <x-backpack::menu-separator title="Example CRUDs" />
 
-<!-- Pets -->
+{{-- Pets --}}
 <x-backpack::menu-dropdown title="Pet Shop" icon="la la-store-alt">
     <x-backpack::menu-dropdown-item title="About" icon="la la-question" :link="backpack_url('pet-shop/about')" />
     <x-backpack::menu-dropdown-item title="Invoices" icon="la la-file-text" :link="backpack_url('pet-shop/invoice')" />
@@ -37,7 +38,7 @@
     <x-backpack::menu-dropdown-item title="Comments" icon="la la-comment" :link="backpack_url('pet-shop/comment')" />
 </x-backpack::menu-dropdown>
 
-<!-- Monsters -->
+{{-- Monsters --}}
 <x-backpack::menu-dropdown title="Crazy Stuff" icon="la la-skull-crossbones">
     <x-backpack::menu-dropdown-item title="Monsters" icon="la la-optin-monster" :link="backpack_url('monster')" />
     <x-backpack::menu-dropdown-item title="Caves" icon="la la-dungeon" :link="backpack_url('cave')" />

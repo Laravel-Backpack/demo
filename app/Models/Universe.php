@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Universe extends Model
 {
     use CrudTrait;
-    use \Backpack\ActivityLog\Traits\LogsActivity;
+    use \App\Models\Traits\LogsActivity;
 
     /*
     |--------------------------------------------------------------------------

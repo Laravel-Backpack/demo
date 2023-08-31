@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Article extends OriginalArticle
 {
     use HasFactory;
-    use \Backpack\ActivityLog\Traits\LogsActivity;
+    use \App\Models\Traits\LogsActivity;
 }

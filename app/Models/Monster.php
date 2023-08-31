@@ -12,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Monster extends Model
 {
     use CrudTrait;
-    use \Backpack\ActivityLog\Traits\LogsActivity;
+    use \App\Models\Traits\LogsActivity;
     use HasRoles;
     use HasFactory;
 

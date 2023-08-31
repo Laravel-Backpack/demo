@@ -3,6 +3,7 @@
 namespace App;
 
 use Alert;
+use App\Models\Traits\LogsActivity;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use Notifiable;
     use HasFactory;
     use CausesActivity;
+    use LogsActivity;
 
     /**
      * The attributes that are mass assignable.
