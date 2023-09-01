@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\Traits\LogsActivity;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Backpack\MenuCRUD\app\Models\MenuItem as OriginalMenuItem;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MenuItem extends OriginalMenuItem
 {
