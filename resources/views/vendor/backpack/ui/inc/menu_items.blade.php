@@ -6,17 +6,18 @@
 
 {{-- Addons --}}
 <x-backpack::menu-dropdown title="Add-ons" icon="la la-puzzle-piece">
-    <x-backpack::menu-dropdown-header title="News" />
-    <x-backpack::menu-dropdown-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" />
-    <x-backpack::menu-dropdown-item title="Categories" icon="la la-list" :link="backpack_url('category')" />
-    <x-backpack::menu-dropdown-item title="Tags" icon="la la-tag" :link="backpack_url('tag')" />
+    <x-backpack::menu-dropdown title="News" icon="la la-newspaper-o" nested="true">
+        <x-backpack::menu-dropdown-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" />
+        <x-backpack::menu-dropdown-item title="Categories" icon="la la-list" :link="backpack_url('category')" />
+        <x-backpack::menu-dropdown-item title="Tags" icon="la la-tag" :link="backpack_url('tag')" />
+    </x-backpack::menu-dropdown>
 
-    <x-backpack::menu-dropdown-header title="Authentication" />
-    <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />
-    <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
-    <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
+    <x-backpack::menu-dropdown title="Authentication" icon="la la-user" nested="true">
+        <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />
+        <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
+        <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
+    </x-backpack::menu-dropdown>
 
-    <x-backpack::menu-dropdown-header title="Others" />
     <x-backpack::menu-dropdown-item title="File Manager" icon="la la-files-o" :link="backpack_url('elfinder')" />
     <x-backpack::menu-dropdown-item title="Activity Logs" icon="la la-stream" :link="backpack_url('activity-log')" />
     <x-backpack::menu-dropdown-item title="Backups" icon="la la-hdd-o" :link="backpack_url('backup')" />
@@ -30,13 +31,15 @@
 
 {{-- Pets --}}
 <x-backpack::menu-dropdown title="Pet Shop" icon="la la-store-alt">
-    <x-backpack::menu-dropdown-item title="About" icon="la la-question" :link="backpack_url('pet-shop/about')" />
     <x-backpack::menu-dropdown-item title="Invoices" icon="la la-file-text" :link="backpack_url('pet-shop/invoice')" />
     <x-backpack::menu-dropdown-item title="Owners" icon="la la-user" :link="backpack_url('pet-shop/owner')" />
     <x-backpack::menu-dropdown-item title="Pets" icon="la la-dog" :link="backpack_url('pet-shop/pet')" />
     <x-backpack::menu-dropdown-item title="Badges" icon="la la-certificate" :link="backpack_url('pet-shop/badge')" />
     <x-backpack::menu-dropdown-item title="Skills" icon="la la-ribbon" :link="backpack_url('pet-shop/skill')" />
     <x-backpack::menu-dropdown-item title="Comments" icon="la la-comment" :link="backpack_url('pet-shop/comment')" />
+
+    <x-backpack::menu-dropdown-header title="Info" />
+    <x-backpack::menu-dropdown-item title="About" icon="la la-question" :link="backpack_url('pet-shop/about')" />
 </x-backpack::menu-dropdown>
 
 {{-- Monsters --}}

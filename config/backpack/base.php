@@ -38,6 +38,21 @@ return [
     // (you then need to manually define the routes in your web.php)
     'setup_my_account_routes' => true,
 
+    // Set this to true if you would like to enable email verification for your user model.
+    // Make sure your user model implements the MustVerifyEmail contract and your database
+    // table contains the `email_verified_at` column. Read the following before enabling:
+    // https://backpackforlaravel.com/docs/6.x/base-how-to#enable-email-verification-in-backpack-routes
+    'setup_email_verification_routes' => (env('APP_ENV') === 'local'),
+
+    // When email verification is enabled, automatically add the Verified middleware to Backpack routes?
+    // Set false if you want to use your own Verified middleware in `middleware_class`.
+    'setup_email_verification_middleware' => true,
+
+    // How many times in any given time period should the user be allowed to
+    // request a new verification email?
+    // Defaults to 1,10 - 1 time in 10 minutes.
+    'email_verification_throttle_access' => '3,15',
+
     /*
     |--------------------------------------------------------------------------
     | Authentication
