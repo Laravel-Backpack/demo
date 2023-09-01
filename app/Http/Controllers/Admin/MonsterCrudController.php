@@ -16,8 +16,8 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
     use \App\Http\Controllers\Admin\Operations\SMSOperation; //Custom Form Operation Example
-    use \Backpack\ActivityLog\Http\Controllers\Operations\ShowModelActivityLogsOperation;
-    use \Backpack\ActivityLog\Http\Controllers\Operations\ShowEntryActivityLogsOperation;
+    use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
+    use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
 
     public function setup()
     {

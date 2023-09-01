@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use App\Enums\MonsterStatus;
+use App\Models\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Spatie\Permission\Traits\HasRoles;
 
 class Monster extends Model
 {
     use CrudTrait;
-    use \App\Models\Traits\LogsActivity;
+    use LogsActivity;
     use HasRoles;
     use HasFactory;
 

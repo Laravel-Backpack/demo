@@ -18,6 +18,7 @@
 
     <x-backpack::menu-dropdown-header title="Others" />
     <x-backpack::menu-dropdown-item title="File Manager" icon="la la-files-o" :link="backpack_url('elfinder')" />
+    <x-backpack::menu-dropdown-item title="Activity Logs" icon="la la-stream" :link="backpack_url('activity-log')" />
     <x-backpack::menu-dropdown-item title="Backups" icon="la la-hdd-o" :link="backpack_url('backup')" />
     <x-backpack::menu-dropdown-item title="Logs" icon="la la-terminal" :link="backpack_url('log')" />
     <x-backpack::menu-dropdown-item title="Settings" icon="la la-cog" :link="backpack_url('setting')" />

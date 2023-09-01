@@ -3,18 +3,19 @@
 namespace App\Models;
 
 use App\Enums\ProductStatus;
+use Spatie\MediaLibrary\HasMedia;
+use App\Models\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Product extends Model implements HasMedia
 {
     use CrudTrait;
-    use \App\Models\Traits\LogsActivity;
+    use LogsActivity;
     use HasTranslations;
     use HasFactory;
     use InteractsWithMedia;

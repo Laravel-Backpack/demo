@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class PostalBoxer extends Model
 {
     use CrudTrait;
-    use \App\Models\Traits\LogsActivity;
+    use LogsActivity;
     use HasFactory;
 
     /*

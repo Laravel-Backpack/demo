@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Models\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class Address extends Model
 {
     use CrudTrait;
-    use \App\Models\Traits\LogsActivity;
+    use LogsActivity;
 
     /*
     |--------------------------------------------------------------------------

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Backpack\PageManager\app\Models\Page as OriginalPage;
+use App\Models\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Backpack\PageManager\app\Models\Page as OriginalPage;
 
 class Page extends OriginalPage
 {
     use HasFactory;
-    use \App\Models\Traits\LogsActivity;
+    use LogsActivity;
 }
