@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Traits\LogsActivity;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Graffiti extends Model
 {
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use CrudTrait;
+    use LogsActivity;
     use HasFactory;
 
     protected $fillable = [

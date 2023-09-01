@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class InvoiceItem extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use \App\Models\Traits\LogsActivity;
     use HasFactory;
 
     protected $fillable = [

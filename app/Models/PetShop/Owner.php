@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Owner extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use \App\Models\Traits\LogsActivity;
     use HasFactory;
 
     /**

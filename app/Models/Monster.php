@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\MonsterStatus;
+use App\Models\Traits\LogsActivity;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Monster extends Model
 {
     use CrudTrait;
+    use LogsActivity;
     use HasRoles;
     use HasFactory;
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\LogsActivity;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
@@ -9,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Dummy extends Model
 {
     use CrudTrait;
+    use LogsActivity;
     use HasRoles;
 
     /*

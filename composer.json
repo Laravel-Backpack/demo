@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.1",
         "laravel/framework": "^10.0",
+        "backpack/activity-log": "^2.0",
         "backpack/crud": "^6.1.13",
         "backpack/pro": "^2.0",
         "backpack/filemanager": "^3.0",

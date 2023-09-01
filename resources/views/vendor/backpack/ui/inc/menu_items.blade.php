@@ -4,6 +4,7 @@
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
+{{-- Addons --}}
 <x-backpack::menu-dropdown title="Add-ons" icon="la la-puzzle-piece">
     <x-backpack::menu-dropdown title="News" icon="la la-newspaper-o" nested="true">
         <x-backpack::menu-dropdown-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" />
@@ -18,6 +19,7 @@
     </x-backpack::menu-dropdown>
 
     <x-backpack::menu-dropdown-item title="File Manager" icon="la la-files-o" :link="backpack_url('elfinder')" />
+    <x-backpack::menu-dropdown-item title="Activity Logs" icon="la la-stream" :link="backpack_url('activity-log')" />
     <x-backpack::menu-dropdown-item title="Backups" icon="la la-hdd-o" :link="backpack_url('backup')" />
     <x-backpack::menu-dropdown-item title="Logs" icon="la la-terminal" :link="backpack_url('log')" />
     <x-backpack::menu-dropdown-item title="Settings" icon="la la-cog" :link="backpack_url('setting')" />
@@ -27,7 +29,7 @@
 
 <x-backpack::menu-separator title="Example CRUDs" />
 
-<!-- Pets -->
+{{-- Pets --}}
 <x-backpack::menu-dropdown title="Pet Shop" icon="la la-store-alt">
     <x-backpack::menu-dropdown-item title="Invoices" icon="la la-file-text" :link="backpack_url('pet-shop/invoice')" />
     <x-backpack::menu-dropdown-item title="Owners" icon="la la-user" :link="backpack_url('pet-shop/owner')" />
@@ -40,7 +42,7 @@
     <x-backpack::menu-dropdown-item title="About" icon="la la-question" :link="backpack_url('pet-shop/about')" />
 </x-backpack::menu-dropdown>
 
-<!-- Monsters -->
+{{-- Monsters --}}
 <x-backpack::menu-dropdown title="Crazy Stuff" icon="la la-skull-crossbones">
     <x-backpack::menu-dropdown-item title="Monsters" icon="la la-optin-monster" :link="backpack_url('monster')" />
     <x-backpack::menu-dropdown-item title="Caves" icon="la la-dungeon" :link="backpack_url('cave')" />
