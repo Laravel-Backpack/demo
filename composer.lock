@@ -583,11 +583,11 @@
         },
         {
             "name": "backpack/language-switcher",
-            "version": "dev-language-switcher",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./packages/language-switcher",
-                "reference": "a679067965db00f82a042132a6e473c4ae2c3aac"
+                "reference": "af28575b4ef977c44f9301c7a05b75c215c7e4ff"
             },
             "require": {
                 "backpack/crud": "^6.0",
