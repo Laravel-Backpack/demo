@@ -67,7 +67,7 @@ return [
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \Backpack\MultiLanguage\Http\Middleware\LanguageSwitcherMiddleware::class,
+        \Backpack\LanguageSwitcher\Http\Middleware\LanguageSwitcherMiddleware::class,
         // \Backpack\CRUD\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
     ],
 
@@ -78,7 +78,7 @@ return [
     // Username column for authentication
     // The Backpack default is the same as the Laravel default (email)
     // If you need to switch to username, you also need to create that column in your db
-    'authentication_column'      => 'email',
+    'authentication_column' => 'email',
     'authentication_column_name' => 'Email',
 
     // The guard that protects the Backpack admin panel.
