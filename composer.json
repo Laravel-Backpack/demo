@@ -20,7 +20,7 @@
         "backpack/permissionmanager": "^7.0",
         "backpack/pagemanager": "^3.2",
         "backpack/menucrud": "^4.0",
-        "backpack/language-switcher": "@dev",
+        "backpack/language-switcher": "^1.0",
         "backpack/backupmanager": "^5.0",
         "backpack/editable-columns": "^3.0",
         "backpack/revise-operation": "^2.0",
@@ -48,13 +48,6 @@
         "0": {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        "language-switcher": {
-            "type": "path",
-            "url": "./packages/language-switcher",
-            "options": {
-                "symlink": true
-            }
         }
     },
     "autoload": {

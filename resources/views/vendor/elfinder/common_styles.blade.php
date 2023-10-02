@@ -4,6 +4,14 @@
 @bassetArchive('https://github.com/Studio-42/elFinder/archive/refs/tags/2.1.61.tar.gz', 'elfinder-2.1.61')
 @basset('elfinder-2.1.61/elFinder-2.1.61/css/elfinder.min.css')
 @basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/css/theme.min.css')
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/images/loading.svg', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/icons/material.eot', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/icons/material.svg', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/images/icons-big.svg', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/images/icons-small.svg', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/icons/material.woff', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/icons/material.ttf', false)
+@basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme/Material/icons/material.woff2', false)
 
 @bassetBlock('elfinderThemeSwitcherScript.js')
 <script type="text/javascript">
