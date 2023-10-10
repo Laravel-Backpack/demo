@@ -4,6 +4,8 @@
     </button>
 </li>
 
+@include('backpack.language-switcher::language-switcher')
+
 @section('before_scripts')
     <div class="modal modal-blur fade pe-0" id="modal-layout" tabindex="-1" style="display: none;" aria-modal="false" role="dialog">
         <div class="modal-dialog modal-lg" role="document">

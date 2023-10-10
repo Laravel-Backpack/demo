@@ -1,8 +1,10 @@
 <li class="nav-item">
-    <button class="btn btn-link nav-link shadow-none border-0" data-toggle="modal" data-target="#modal-layout">
+    <button class="btn btn-link nav-link shadow-none border-0 bg-transparent" data-toggle="modal" data-target="#modal-layout" style="height: 1.25rem">
         <i class="la la-palette" style="font-size: 20px;"></i>
     </button>
 </li>
+
+@include('backpack.language-switcher::language-switcher')
 
 @section('before_scripts')
     <div class="modal modal-blur fade pe-0" id="modal-layout" tabindex="-1" style="display: none;" aria-modal="false" role="dialog">
