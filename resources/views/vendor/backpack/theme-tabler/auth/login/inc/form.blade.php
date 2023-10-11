@@ -19,7 +19,7 @@
     </div>
     <div class="d-flex justify-content-between align-items-center mb-2">
         <label class="form-check mb-0">
-            <input tabindex="3" type="checkbox" class="form-check-input">
+            <input name="remember" tabindex="3" type="checkbox" class="form-check-input">
             <span class="form-check-label">{{ trans('backpack::base.remember_me') }}</span>
         </label>
         @if (backpack_users_have_email())
