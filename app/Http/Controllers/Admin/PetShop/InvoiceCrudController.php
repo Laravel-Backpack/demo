@@ -41,7 +41,14 @@ class InvoiceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('owner');
+        CRUD::addColumn([
+            'name'  => 'owner',
+            'label' => 'Owner',
+            'linkTo' => [
+                'routeName' => 'owner.show',
+                'target' => '_blank'
+            ],
+        ]);
         CRUD::column('series');
         CRUD::column('number');
         CRUD::column('issuance_date');
