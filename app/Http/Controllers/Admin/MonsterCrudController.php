@@ -218,7 +218,7 @@ class MonsterCrudController extends CrudController
 
         //quickly create a button
         $this->crud->button('email')->stack('top')->view('crud::buttons.quick')->meta([
-            'access'  => 'Quick Button',
+            'access'  => true,
             'label'   => 'Quick Button',
             'icon'    => 'la la-fast-forward',
             'wrapper' => [
