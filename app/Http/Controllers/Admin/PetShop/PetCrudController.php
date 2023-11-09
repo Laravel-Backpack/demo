@@ -48,8 +48,9 @@ class PetCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('nickname');
-        CRUD::column('passport');
-        CRUD::column('skills');
+        CRUD::column('passport.number')->attribute('number')->linkTo('passport.show');
+        CRUD::column('owners')->linkTo('owner.show');
+        CRUD::column('skills')->linkTo('skill.show');
         CRUD::column('avatar.url')->type('image')->label('Avatar');
 
         CRUD::addButtonFromView('top', 'passports', 'passports');
