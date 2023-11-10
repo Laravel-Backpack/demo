@@ -45,7 +45,7 @@ class InvoiceCrudController extends CrudController
             'name'   => 'owner',
             'label'  => 'Owner',
             'linkTo' => [
-                'route' => 'owner.show',
+                'route'     => 'owner.show',
                 'target'    => '_blank',
             ],
         ]);
