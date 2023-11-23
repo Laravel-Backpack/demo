@@ -1084,7 +1084,7 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'Relationship',
             ],
             [
-                'name'              => 'category',
+                'name'              => 'categoryRelationship',
                 'label'             => 'BelongsTo (n-1)',
                 'tab'               => 'Relationship',
                 'wrapper'           => [
