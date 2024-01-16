@@ -11,3 +11,4 @@ Homestead.json
 .quarantine
 .tmb
 /.vapor
+/.vscode
