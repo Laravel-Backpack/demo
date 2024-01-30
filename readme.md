@@ -6,14 +6,14 @@
     <a href="https://scrutinizer-ci.com/g/laravel-backpack/demo/code-structure" title="Coverage Status"><img src="https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/demo.svg?style=flat-square"></a>
     <a href="LICENSE.md" title="Software License"><img src="https://img.shields.io/badge/License-dual-blue"></a>
     <br><br>
-    <a href="https://backpackforlaravel.com/">Website</a> | 
-    <a href="https://backpackforlaravel.com/docs/">Documentation</a> | 
-    <a href="https://backpackforlaravel.com/addons">Add-ons</a> | 
+    <a href="https://backpackforlaravel.com/">Website</a> |
+    <a href="https://backpackforlaravel.com/docs/">Documentation</a> |
+    <a href="https://backpackforlaravel.com/addons">Add-ons</a> |
     <a href="https://backpackforlaravel.com/pricing">Pricing</a> |
-    <a href="https://backpackforlaravel.com/need-freelancer-or-development-team">Services</a> | 
-    <a href="https://stackoverflow.com/questions/tagged/backpack-for-laravel">Stack Overflow</a> | 
-    <a href="https://www.reddit.com/r/BackpackForLaravel/">Reddit</a> | 
-    <a href="https://backpackforlaravel.com/articles">Blog</a> | 
+    <a href="https://backpackforlaravel.com/need-freelancer-or-development-team">Services</a> |
+    <a href="https://stackoverflow.com/questions/tagged/backpack-for-laravel">Stack Overflow</a> |
+    <a href="https://www.reddit.com/r/BackpackForLaravel/">Reddit</a> |
+    <a href="https://backpackforlaravel.com/articles">Blog</a> |
     <a href="https://backpackforlaravel.com/newsletter">Newsletter</a>
 </p>
 
@@ -46,7 +46,9 @@ git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
 
 2) Set your database information in your .env file (use the .env.example as an example);
 
-3) Run in your backpack-demo folder:
+3) Set the APP_URL in .env, this value should match the URL you use to access your application in a browser.
+
+4) Run in your backpack-demo folder:
 ``` bash
 composer install
 php artisan key:generate
@@ -54,11 +56,11 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## Usage 
+## Usage
 
 1. Your admin panel is available at http://localhost/backpack-demo/admin
 2. Login with email ```admin@example.com```, password ```admin```
-3. [optional] You can register a different account, to check out the process and see your gravatar inside the admin panel. 
+3. [optional] You can register a different account, to check out the process and see your gravatar inside the admin panel.
 4. By default, registration is open only in your local environment. Check out ```config/backpack/base.php``` to change this and other preferences.
 
 Note: Depending on your configuration you may need to define a site within NGINX or Apache; Your URL domain may change from localhost to what you have defined.
@@ -117,7 +119,7 @@ To stop the server simply run
 docker-compose down
 ```
 
-Note: 
+Note:
 
 In docker, to connect to your database from your GUI use `127.0.0.1` as your database host, instead of `localhost`
 
