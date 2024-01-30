@@ -46,7 +46,7 @@ git clone https://github.com/Laravel-Backpack/demo.git backpack-demo
 
 2) Set your database information in your .env file (use the .env.example as an example);
 
-3) Set the APP_URL in .env, this value should match the URL you use to access your application in a browser.
+3) Make sure the `APP_URL` in your .env file is correctly pointing to the URL you use to access your application in the browser, for example: `http:127.0.0.1:8000` or `http://something.test`
 
 4) Run in your backpack-demo folder:
 ``` bash
