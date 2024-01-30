@@ -26,8 +26,7 @@ Laravel BackPack's demo, which includes all Backpack packages.
 > Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 
-![Example generated CRUD interface](https://backpackforlaravel.com/uploads/docs-4-0/getting_started/monster_crud_list_entries.png)
-
+![image](https://github.com/Laravel-Backpack/demo/assets/7188159/a8caa891-75fe-4df5-bf97-5593a334540b)
 
 ## How to Use
 
