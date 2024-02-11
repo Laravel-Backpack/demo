@@ -57,7 +57,7 @@
             });          
         </script>
     </head>
-    <body style="margin:0;position:absolute;top:0;left:0;width:100%;height:100%;transition: opacity 1s ease-out;opacity: 0;">
+    <body style="margin:0;position:absolute;top:0;left:0;width:100%;height:100%;">
 
         <!-- Element where elFinder will be created (REQUIRED) -->
         <div id="elfinder" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
