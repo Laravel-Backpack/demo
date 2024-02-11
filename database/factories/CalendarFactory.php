@@ -36,13 +36,13 @@ class CalendarFactory extends Factory
         ]);
 
         return [
-            'title' => $title,
-            'start' => $start,
-            'end' => $end,
-            'email' => $this->faker->email,
-            'number' => $this->faker->phoneNumber,
+            'title'            => $title,
+            'start'            => $start,
+            'end'              => $end,
+            'email'            => $this->faker->email,
+            'number'           => $this->faker->phoneNumber,
             'background_color' => $backgroundColor,
-            'text_color' => $textColor,
+            'text_color'       => $textColor,
         ];
     }
 }
