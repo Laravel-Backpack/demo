@@ -12,3 +12,4 @@ Homestead.json
 .tmb
 /.vapor
 /packages
+/.vscode
