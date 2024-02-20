@@ -54,36 +54,35 @@ class CalendarCrudController extends CrudController
 
         $this->crud->setOperationSetting('editable', true);
 
-        // Add SMS button
-        // $this->addCalendarLineButton(
-        //     action: 'sms',
-        //     label: 'Send SMS',
-        //     url: url($this->crud->route.'/{id}/s-m-s'),
-        //     group: 'send'
-        // );
+        $this->addCalendarLineButton(
+            action: 'sms',
+            label: 'Send SMS',
+            url: url($this->crud->route.'/{id}/s-m-s'),
+            group: 'send'
+        );
 
-        // $this->addCalendarLineButton(
-        //     action: 'email',
-        //     label: 'Send Email',
-        //     url: url($this->crud->route.'/{id}/s-m-s?email={email}'),
-        //     group: 'send'
-        // );
+        $this->addCalendarLineButton(
+            action: 'email',
+            label: 'Send Email',
+            url: url($this->crud->route.'/{id}/s-m-s?email={email}'),
+            group: 'send'
+        );
 
-        // $this->addCalendarLineButton(
-        //     action: 'call',
-        //     label: 'Call',
-        //     url: url($this->crud->route.'/{id}/s-m-s?call={number}'),
-        //     group: 'call'
-        // );
+        $this->addCalendarLineButton(
+            action: 'call',
+            label: 'Call',
+            url: url($this->crud->route.'/{id}/s-m-s?call={number}'),
+            group: 'call'
+        );
 
-        // $this->addCalendarLineButton(
-        //     action: 'alert',
-        //     label: 'Javascript Event',
-        //     group: 'alert',
-        //     properties: [
-        //         'message' => 'Alert message!',
-        //     ],
-        // );
+        $this->addCalendarLineButton(
+            action: 'alert',
+            label: 'Javascript Event',
+            group: 'alert',
+            properties: [
+                'message' => 'Alert message!',
+            ],
+        );
 
         Widget::add()
             ->type('script')
