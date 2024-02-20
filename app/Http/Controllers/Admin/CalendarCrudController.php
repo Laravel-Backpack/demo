@@ -41,11 +41,11 @@ class CalendarCrudController extends CrudController
     {
         // Map crud fields to the calendar
         $this->crud->setOperationSetting('fields', [
-            'title' => 'title',
-            'start' => 'start',
-            'end' => 'end',
+            'title'            => 'title',
+            'start'            => 'start',
+            'end'              => 'end',
             'background_color' => 'background_color',
-            'text_color' => 'text_color',
+            'text_color'       => 'text_color',
         ]);
 
         $this->crud->setOperationSetting('initial-view', 'dayGridMonth');
