@@ -33,45 +33,50 @@ class CalendarCrudController extends CrudController
         CRUD::setModel(Calendar::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/calendar');
         CRUD::setEntityNameStrings(__('calendar event'), __('calendar events'));
-
-        // CRUD::denyAccess('create');
     }
 
-    public function setupCalendarOperation()
+    public function getCalendarFieldsMap()
     {
-        // Map crud fields to the calendar
-        $this->crud->setOperationSetting('fields', [
+        return [
             'title' => 'title',
             'start' => 'start',
             'end' => 'end',
             'background_color' => 'background_color',
             'text_color' => 'text_color',
-        ]);
+            'all_day' => 'all_day',
+        ];
+    }
 
+    public function setupCalendarOperation()
+    {
         $this->crud->setOperationSetting('initial-view', 'dayGridMonth');
 
         $this->crud->setOperationSetting('views', ['dayGridMonth', 'timeGridWeek', 'timeGridDay']);
 
         $this->crud->setOperationSetting('editable', true);
 
+        $this->crud->setOperationSetting('background_color', '#3788d8');
+
+        $this->crud->setOperationSetting('text_color', '#ffffff');
+
         $this->addCalendarLineButton(
             action: 'sms',
             label: 'Send SMS',
-            url: url($this->crud->route.'/{id}/s-m-s'),
+            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
             group: 'send'
         );
 
         $this->addCalendarLineButton(
             action: 'email',
             label: 'Send Email',
-            url: url($this->crud->route.'/{id}/s-m-s?email={email}'),
+            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
             group: 'send'
         );
 
         $this->addCalendarLineButton(
             action: 'call',
             label: 'Call',
-            url: url($this->crud->route.'/{id}/s-m-s?call={number}'),
+            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
             group: 'call'
         );
 
