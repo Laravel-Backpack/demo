@@ -38,12 +38,12 @@ class CalendarCrudController extends CrudController
     public function getCalendarFieldsMap()
     {
         return [
-            'title' => 'title',
-            'start' => 'start',
-            'end' => 'end',
+            'title'            => 'title',
+            'start'            => 'start',
+            'end'              => 'end',
             'background_color' => 'background_color',
-            'text_color' => 'text_color',
-            'all_day' => 'all_day',
+            'text_color'       => 'text_color',
+            'all_day'          => 'all_day',
         ];
     }
 
@@ -62,21 +62,21 @@ class CalendarCrudController extends CrudController
         $this->addCalendarLineButton(
             action: 'sms',
             label: 'Send SMS',
-            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
+            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
             group: 'send'
         );
 
         $this->addCalendarLineButton(
             action: 'email',
             label: 'Send Email',
-            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
+            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
             group: 'send'
         );
 
         $this->addCalendarLineButton(
             action: 'call',
             label: 'Call',
-            url: fn(Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
+            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
             group: 'call'
         );
 
