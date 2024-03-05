@@ -146,12 +146,12 @@ class CalendarCrudController extends CrudController
         CRUD::field('background_color')
             ->type('color')
             ->wrapper(['class' => 'form-group col-md-6'])
-            ->value('#3788d8');
+            ->default('#3788d8');
 
         CRUD::field('text_color')
             ->type('color')
             ->wrapper(['class' => 'form-group col-md-6'])
-            ->value('#ffffff');
+            ->default('#ffffff');
 
         Widget::add()
             ->type('script')
