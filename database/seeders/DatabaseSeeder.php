@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Article;
 use App\Models\Bill;
+use App\Models\Calendar;
 use App\Models\Category;
 use App\Models\MenuItem;
 use App\Models\Monster;
@@ -63,5 +64,11 @@ class DatabaseSeeder extends Seeder
 
         MenuItem::truncate();
         MenuItem::factory()->count(7)->create();
+
+        MenuItem::truncate();
+        MenuItem::factory()->count(7)->create();
+
+        Calendar::truncate();
+        Calendar::factory()->count(50)->create();
     }
 }
