@@ -44,6 +44,7 @@ class CalendarCrudController extends CrudController
             'background_color' => 'background_color',
             'text_color'       => 'text_color',
             'all_day'          => 'all_day',
+            'number'           => 'number',
         ];
     }
 
