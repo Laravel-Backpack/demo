@@ -25,10 +25,10 @@ class MeetingRequest extends FormRequest
     public function rules()
     {
         return [
-            'start' => 'required|date',
-            'end' => 'nullable|date|after:start',
+            'start'            => 'required|date',
+            'end'              => 'nullable|date|after:start',
             'background_color' => 'nullable|hex_color',
-            'text_color' => 'nullable|hex_color',
+            'text_color'       => 'nullable|hex_color',
         ];
     }
 }
