@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Calendar;
+use App\Models\Meeting;
 use Illuminate\Database\Seeder;
 
-class CalendarSeeder extends Seeder
+class MeetingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Calendar::factory()->count(5)->create();
+        Meeting::factory()->count(5)->create();
     }
 }

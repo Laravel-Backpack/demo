@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CalendarRequest;
-use App\Models\Calendar;
+use App\Http\Requests\MeetingRequest;
+use App\Models\Meeting;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\CRUD\app\Library\Widget;
 use Carbon\Carbon;
 
 /**
- * Class CalendarCrudController.
+ * Class MeetingCrudController.
  *
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CalendarCrudController extends CrudController
+class MeetingCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -30,12 +30,12 @@ class CalendarCrudController extends CrudController
      */
     public function setup(): void
     {
-        CRUD::setModel(Calendar::class);
-        CRUD::setRoute(config('backpack.base.route_prefix').'/calendar');
-        CRUD::setEntityNameStrings(__('calendar event'), __('calendar events'));
+        CRUD::setModel(Meeting::class);
+        CRUD::setRoute(config('backpack.base.route_prefix').'/meeting');
+        CRUD::setEntityNameStrings(__('meeting'), __('meetings'));
     }
 
-    public function getCalendarFieldsMap()
+    public function getMeetingFieldsMap()
     {
         return [
             'title'            => 'title',
@@ -48,7 +48,7 @@ class CalendarCrudController extends CrudController
         ];
     }
 
-    public function setupCalendarOperation()
+    public function setupMeetingOperation()
     {
         $this->crud->setOperationSetting('initial-view', 'dayGridMonth');
 
@@ -60,28 +60,28 @@ class CalendarCrudController extends CrudController
 
         $this->crud->setOperationSetting('text_color', '#ffffff');
 
-        $this->addCalendarLineButton(
+        $this->addMeetingLineButton(
             action: 'sms',
             label: 'Send SMS',
-            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
+            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
             group: 'send'
         );
 
-        $this->addCalendarLineButton(
+        $this->addMeetingLineButton(
             action: 'email',
             label: 'Send Email',
-            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
+            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
             group: 'send'
         );
 
-        $this->addCalendarLineButton(
+        $this->addMeetingLineButton(
             action: 'call',
             label: 'Call',
-            url: fn (Calendar $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
+            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
             group: 'call'
         );
 
-        $this->addCalendarLineButton(
+        $this->addMeetingLineButton(
             action: 'alert',
             label: 'Javascript Event',
             group: 'alert',
@@ -92,7 +92,7 @@ class CalendarCrudController extends CrudController
 
         Widget::add()
             ->type('script')
-            ->content('assets/js/calendar.js');
+            ->content('assets/js/meeting.js');
     }
 
     /**
@@ -119,7 +119,7 @@ class CalendarCrudController extends CrudController
      */
     protected function setupCreateOperation(): void
     {
-        CRUD::setValidation(CalendarRequest::class);
+        CRUD::setValidation(MeetingRequest::class);
 
         $start = request()->has('start') ? Carbon::parse(request('start')) : null;
         $end = request()->has('end') ? Carbon::parse(request('end')) : null;
@@ -156,7 +156,7 @@ class CalendarCrudController extends CrudController
 
         Widget::add()
             ->type('script')
-            ->content('assets/js/calendar.js');
+            ->content('assets/js/meeting.js');
     }
 
     /**

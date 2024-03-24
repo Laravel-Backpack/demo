@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Calendar;
+use App\Models\Meeting;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CalendarFactory extends Factory
+class MeetingFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Calendar::class;
+    protected $model = Meeting::class;
 
     /**
      * Define the model's default state.
@@ -36,13 +36,13 @@ class CalendarFactory extends Factory
         ]);
 
         return [
-            'title'            => $title,
-            'start'            => $start,
-            'end'              => $end,
-            'email'            => $this->faker->email,
-            'number'           => $this->faker->phoneNumber,
+            'title' => $title,
+            'start' => $start,
+            'end' => $end,
+            'email' => $this->faker->email,
+            'number' => $this->faker->phoneNumber,
             'background_color' => $backgroundColor,
-            'text_color'       => $textColor,
+            'text_color' => $textColor,
         ];
     }
 }
