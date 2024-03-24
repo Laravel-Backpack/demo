@@ -44,12 +44,19 @@
         "backpack/generators": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
     },
-    "repositories": {
-        "0": {
+    "repositories": [
+        {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
+        },
+        {
+            "type": "path",
+            "url": "packages/language-manager",
+            "options": {
+                "symlink": true
+            }
         }
-    },
+    ],
     "autoload": {
         "files": [
             "app/helpers.php"
@@ -60,7 +67,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Backpack\\LanguageManager\\": "packages/language-manager/src"
         }
     },
     "scripts": {
