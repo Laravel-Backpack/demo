@@ -35,16 +35,17 @@ class MeetingCrudController extends CrudController
         CRUD::setEntityNameStrings(__('meeting'), __('meetings'));
     }
 
-    public function getMeetingFieldsMap()
+    public function getCalendarFieldsMap()
     {
         return [
-            'title'            => 'title',
-            'start'            => 'start',
-            'end'              => 'end',
+            'title' => 'title',
+            'start' => 'start',
+            'end' => 'end',
             'background_color' => 'background_color',
-            'text_color'       => 'text_color',
-            'all_day'          => 'all_day',
-            'number'           => 'number',
+            'text_color' => 'text_color',
+            'all_day' => 'all_day',
+            'email' => 'email',
+            'number' => 'number',
         ];
     }
 
@@ -60,24 +61,24 @@ class MeetingCrudController extends CrudController
 
         $this->crud->setOperationSetting('text_color', '#ffffff');
 
-        $this->addMeetingLineButton(
+        $this->addCalendarLineButton(
             action: 'sms',
             label: 'Send SMS',
-            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
+            url: fn(Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s'),
             group: 'send'
         );
 
         $this->addMeetingLineButton(
             action: 'email',
             label: 'Send Email',
-            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
+            url: fn(Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
             group: 'send'
         );
 
         $this->addMeetingLineButton(
             action: 'call',
             label: 'Call',
-            url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
+            url: fn(Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
             group: 'call'
         );
 
@@ -126,6 +127,14 @@ class MeetingCrudController extends CrudController
 
         CRUD::field('title')
             ->type('text');
+
+        CRUD::field('email')
+            ->wrapper(['class' => 'form-group col-md-6'])
+            ->type('text');
+
+        CRUD::field('number')
+            ->wrapper(['class' => 'form-group col-md-6'])
+            ->type('phone');
 
         CRUD::field('all_day')
             ->type('switch');

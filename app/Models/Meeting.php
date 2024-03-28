@@ -13,6 +13,8 @@ class Meeting extends Model
 
     protected $fillable = [
         'title',
+        'email',
+        'number',
         'start',
         'end',
         'background_color',
