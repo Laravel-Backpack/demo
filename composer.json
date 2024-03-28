@@ -33,7 +33,8 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "mews/purifier": "^3.3",
-        "league/flysystem-aws-s3-v3": "^3.0"
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "backpack/calendar-operation": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",

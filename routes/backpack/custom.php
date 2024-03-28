@@ -37,6 +37,7 @@ Route::group([
     Route::crud('icon', 'IconCrudController');
     Route::crud('product', 'ProductCrudController');
     Route::crud('dummy', 'DummyCrudController');
+    Route::crud('meeting', 'MeetingCrudController');
 
     // Allow demo users to switch between available themes and layouts
     Route::post('switch-layout', function (Request $request) {
