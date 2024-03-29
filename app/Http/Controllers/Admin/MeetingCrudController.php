@@ -22,8 +22,7 @@ class MeetingCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CalendarOperation\CalendarOperation;
-
-    use \App\Http\Controllers\Admin\Operations\SMSOperation;
+    use Operations\SMSOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -49,7 +48,7 @@ class MeetingCrudController extends CrudController
         ];
     }
 
-    public function setupMeetingOperation()
+    public function setupCalendarOperation()
     {
         $this->crud->setOperationSetting('initial-view', 'dayGridMonth');
 
@@ -68,21 +67,21 @@ class MeetingCrudController extends CrudController
             group: 'send'
         );
 
-        $this->addMeetingLineButton(
+        $this->addCalendarLineButton(
             action: 'email',
             label: 'Send Email',
             url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?email='.$entry->email),
             group: 'send'
         );
 
-        $this->addMeetingLineButton(
+        $this->addCalendarLineButton(
             action: 'call',
             label: 'Call',
             url: fn (Meeting $entry) => url($this->crud->route.'/'.$entry->id.'/s-m-s?call='.$entry->number),
             group: 'call'
         );
 
-        $this->addMeetingLineButton(
+        $this->addCalendarLineButton(
             action: 'alert',
             label: 'Javascript Event',
             group: 'alert',
@@ -93,7 +92,7 @@ class MeetingCrudController extends CrudController
 
         Widget::add()
             ->type('script')
-            ->content('assets/js/meeting.js');
+            ->content('assets/js/meetings.js');
     }
 
     /**
