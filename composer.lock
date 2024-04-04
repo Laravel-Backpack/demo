@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebc046c1dd06b831be927b1911ddb6c9",
+    "content-hash": "a12b3529a8994cafa43f77dafb366721",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -360,7 +360,85 @@
         },
         {
             "name": "backpack/calendar-operation",
-            "version": "1.0.3",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/calendar-operation.git",
+                "reference": "e4ff6c7b9513075beb1597c5e0ea8a04ce6ac56f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/calendar-operation/backpack-calendar-operation-e4ff6c7b9513075beb1597c5e0ea8a04ce6ac56f-zip-1d21cc.zip",
+                "reference": "e4ff6c7b9513075beb1597c5e0ea8a04ce6ac56f",
+                "shasum": "496491fce77b3db073d40ad9c1ec795dfef5ea09"
+            },
+            "require": {
+                "backpack/crud": "^6.5"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.8",
+                "orchestra/testbench": "^8.21",
+                "phpunit/phpunit": "~10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\CalendarOperation\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\CalendarOperation\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Backpack\\CalendarOperation\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/phpunit --testdox"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "António Almeida",
+                    "email": "promatik@gmail.co",
+                    "homepage": "https://promatik.pt"
+                },
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "cristian.tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "Quickly add a Calendar view to your CRUDs.",
+            "homepage": "https://github.com/laravel-backpack/calendar-operation",
+            "keywords": [
+                "Backpack",
+                "Backpack Addon",
+                "Backpack for Laravel",
+                "Calendar Operation",
+                "Laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/calendar-operation/tree/1.0.0",
+                "issues": "https://github.com/Laravel-Backpack/calendar-operation/issues"
+            },
+            "time": "2024-02-29T16:04:12+00:00"
+        },
+        {
+            "name": "backpack/crud",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/calendar-operation.git",

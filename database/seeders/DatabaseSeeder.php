@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Bill;
 use App\Models\Category;
+use App\Models\Meeting;
 use App\Models\MenuItem;
 use App\Models\Monster;
 use App\Models\Page;
@@ -63,5 +64,8 @@ class DatabaseSeeder extends Seeder
 
         MenuItem::truncate();
         MenuItem::factory()->count(7)->create();
+
+        Meeting::truncate();
+        Meeting::factory()->count(50)->create();
     }
 }
