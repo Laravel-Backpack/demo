@@ -31,7 +31,7 @@
         "consoletvs/charts": "6.*",
         "laravel/legacy-factories": "^1.0",
         "league/flysystem-aws-s3-v3": "^3.0",
-        "mews/purifier": "dev-l11-compatibility",
+        "mews/purifier": "^3.4",
    
         "backpack/calendar-operation": "^1.0",
         "backpack/language-switcher": "^2.0"
@@ -49,10 +49,6 @@
         "0": {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        "1": {
-            "type": "vcs",
-            "url": "https://github.com/laravel-shift/Purifier.git"
         }
     },
     "autoload": {
