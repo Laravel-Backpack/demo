@@ -32,7 +32,6 @@
         "laravel/legacy-factories": "^1.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "mews/purifier": "^3.4",
-   
         "backpack/calendar-operation": "^1.0",
         "backpack/language-switcher": "^2.0"
     },
