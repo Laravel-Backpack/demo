@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\ActivityLog\Models\ActivityLog;
+use Backpack\ActivityLog\Enums\ActivityLogEnum;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\PermissionManager\app\Http\Controllers\UserCrudController as OriginalUserCrudController;
 
@@ -13,7 +13,7 @@ class UserCrudController extends OriginalUserCrudController
 
     public function setupListOperation()
     {
-        CRUD::set('activity-log.options', ActivityLog::CAUSER);
+        CRUD::set('activity-log.options', ActivityLogEnum::CAUSER);
 
         parent::setupListOperation();
     }
