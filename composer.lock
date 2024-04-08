@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09b9a30aea0b6cc7e75c5d791b557d56",
+    "content-hash": "7e9b5c8306eff3fd6c7b606726236cf8",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -157,16 +157,16 @@
         },
         {
             "name": "backpack/activity-log",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/activity-log.git",
-                "reference": "42f7da84cde10fa211859e637a9d6d398c1ca55a"
+                "reference": "d190e7f19a3dbcf71ba8d3cae17c8a450b49bc02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/activity-log/zipball/42f7da84cde10fa211859e637a9d6d398c1ca55a",
-                "reference": "42f7da84cde10fa211859e637a9d6d398c1ca55a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/activity-log/zipball/d190e7f19a3dbcf71ba8d3cae17c8a450b49bc02",
+                "reference": "d190e7f19a3dbcf71ba8d3cae17c8a450b49bc02",
                 "shasum": ""
             },
             "require": {
@@ -217,9 +217,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/activity-log/issues",
-                "source": "https://github.com/Laravel-Backpack/activity-log/tree/2.0.2"
+                "source": "https://github.com/Laravel-Backpack/activity-log/tree/2.0.3"
             },
-            "time": "2024-02-13T11:48:43+00:00"
+            "time": "2024-04-07T23:31:16+00:00"
         },
         {
             "name": "backpack/backupmanager",
