@@ -22,7 +22,7 @@
         "backpack/menucrud": "^4.0",
         "backpack/backupmanager": "^5.0",
         "backpack/revise-operation": "^2.0",
-        "backpack/editable-columns": "^2.0|^3.0",
+        "backpack/editable-columns": "^3.0",
         "backpack/medialibrary-uploaders": "^1.0",
         "spatie/laravel-translatable": "^6.0",
         "laravel/tinker": "^2.1",
@@ -38,9 +38,9 @@
     "require-dev": {
         "fakerphp/faker": "~1.4",
         "mockery/mockery": "1.6.*",
-        "phpunit/phpunit" : "^10.0",
-        "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
+        "phpunit/phpunit" : "^11",
+        "symfony/css-selector": "^7",
+        "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.0",
         "barryvdh/laravel-debugbar": "^3.2"
     },
