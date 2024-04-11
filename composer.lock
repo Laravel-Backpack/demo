@@ -1516,16 +1516,16 @@
         },
         {
             "name": "backpack/translation-manager",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/translation-manager.git",
-                "reference": "d3deb7e1f913a59583d2e2078fdf68a406c6cb06"
+                "reference": "55d35503cb8d8e20a1af00989009fd86a7764f56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/translation-manager/zipball/d3deb7e1f913a59583d2e2078fdf68a406c6cb06",
-                "reference": "d3deb7e1f913a59583d2e2078fdf68a406c6cb06",
+                "url": "https://api.github.com/repos/Laravel-Backpack/translation-manager/zipball/55d35503cb8d8e20a1af00989009fd86a7764f56",
+                "reference": "55d35503cb8d8e20a1af00989009fd86a7764f56",
                 "shasum": ""
             },
             "require": {
@@ -1579,9 +1579,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/translation-manager/issues",
-                "source": "https://github.com/Laravel-Backpack/translation-manager/tree/1.0.1"
+                "source": "https://github.com/Laravel-Backpack/translation-manager/tree/1.0.2"
             },
-            "time": "2024-04-02T18:33:27+00:00"
+            "time": "2024-04-11T11:47:11+00:00"
         },
         {
             "name": "balping/json-raw-encoder",
