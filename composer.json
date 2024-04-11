@@ -33,7 +33,8 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "mews/purifier": "^3.4",
         "backpack/calendar-operation": "^1.0",
-        "backpack/language-switcher": "^2.0"
+        "backpack/language-switcher": "^2.0",
+        "backpack/translation-manager": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -48,13 +49,6 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        {
-            "type": "path",
-            "url": "packages/language-manager",
-            "options": {
-                "symlink": true
-            }
         }
     ],
     "autoload": {
@@ -68,7 +62,6 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Backpack\\LanguageManager\\": "packages/language-manager/src"
         }
     },
     "scripts": {
