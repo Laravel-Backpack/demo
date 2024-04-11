@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1558ad66d9b2c41900fe60ec4bc8db3f",
+    "content-hash": "d3a9c7526b7a69e08962cce816e7ad04",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1515,6 +1515,75 @@
             "time": "2024-03-08T11:06:48+00:00"
         },
         {
+            "name": "backpack/translation-manager",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/translation-manager.git",
+                "reference": "d3deb7e1f913a59583d2e2078fdf68a406c6cb06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/translation-manager/zipball/d3deb7e1f913a59583d2e2078fdf68a406c6cb06",
+                "reference": "d3deb7e1f913a59583d2e2078fdf68a406c6cb06",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.7",
+                "calebporzio/sushi": "^2.4",
+                "outhebox/blade-flags": "^1.2",
+                "spatie/laravel-translation-loader": "^2.8"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9",
+                "orchestra/testbench": "~8.0|~9.0",
+                "phpunit/phpunit": "~10.0|~11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\TranslationManager\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\TranslationManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Almeida",
+                    "email": "promatik@gmail.com",
+                    "homepage": "https://promatik.pt"
+                },
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "cristian.tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "Translation Manager for Backpack",
+            "homepage": "https://github.com/backpack/translation-manager",
+            "keywords": [
+                "Backpack Addon",
+                "Backpack for Laravel",
+                "backpack",
+                "laravel",
+                "translationmanager"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Backpack/translation-manager/issues",
+                "source": "https://github.com/Laravel-Backpack/translation-manager/tree/1.0.1"
+            },
+            "time": "2024-04-02T18:33:27+00:00"
+        },
+        {
             "name": "balping/json-raw-encoder",
             "version": "v1.0.2",
             "source": {
@@ -1826,6 +1895,59 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "calebporzio/sushi",
+            "version": "v2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/calebporzio/sushi.git",
+                "reference": "20aad4e9d9ea74df64a86f6d327e55bdfc92d204"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/calebporzio/sushi/zipball/20aad4e9d9ea74df64a86f6d327e55bdfc92d204",
+                "reference": "20aad4e9d9ea74df64a86f6d327e55bdfc92d204",
+                "shasum": ""
+            },
+            "require": {
+                "ext-sqlite3": "*",
+                "illuminate/database": "^5.8 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+                "illuminate/support": "^5.8 || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0",
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.9 || ^3.1.4",
+                "orchestra/testbench": "3.8.* || 3.9.* || ^4.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "phpunit/phpunit": "^7.5 || ^8.4 || ^9.0 || ^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sushi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "Eloquent's missing \"array\" driver.",
+            "support": {
+                "source": "https://github.com/calebporzio/sushi/tree/v2.5.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/calebporzio",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-05T14:40:50+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -7075,6 +7197,76 @@
                 }
             ],
             "time": "2024-03-01T10:24:53+00:00"
+        },
+        {
+            "name": "spatie/laravel-translation-loader",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translation-loader.git",
+                "reference": "aaf88739159ec415137738e4cc2b93b179fc1094"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translation-loader/zipball/aaf88739159ec415137738e4cc2b93b179fc1094",
+                "reference": "aaf88739159ec415137738e4cc2b93b179fc1094",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/translation": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^8.0|^9.0|^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\TranslationLoader\\TranslationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TranslationLoader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Store your language lines in the database, yaml or other sources",
+            "homepage": "https://github.com/spatie/laravel-translation-loader",
+            "keywords": [
+                "database",
+                "db",
+                "i8n",
+                "language",
+                "laravel",
+                "laravel-translation-loader",
+                "spatie",
+                "translate"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-translation-loader/tree/2.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-03-02T05:30:59+00:00"
         },
         {
             "name": "spatie/temporary-directory",
