@@ -66,30 +66,31 @@ class MonsterCrudController extends CrudController
 
         Collection::macro('paginate', function (int $perPage = 15, int $page = null, array $options = []) {
             $page ??= \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
-            return new \Illuminate\Pagination\LengthAwarePaginator(($this->forPage($page, $perPage)->toArray()), $this->count(), $perPage, $page, $options);
+
+            return new \Illuminate\Pagination\LengthAwarePaginator($this->forPage($page, $perPage)->toArray(), $this->count(), $perPage, $page, $options);
         });
 
         return collect($types)
-            ->filter(fn(array $value): bool => str_contains(strtolower($value['title']), strtolower(request('q'))))
+            ->filter(fn (array $value): bool => str_contains(strtolower($value['title']), strtolower(request('q'))))
             ->paginate(4);
     }
 
     public function fetchSimpleTypes()
     {
         $types = [
-            'informational' => 'Informational',
-            'brainstorming' => 'Brainstorming',
+            'informational'   => 'Informational',
+            'brainstorming'   => 'Brainstorming',
             'decision-making' => 'Decision Making',
             'problem-solving' => 'Problem Solving',
-            'training' => 'Training',
-            'planning' => 'Planning',
-            'social' => 'Social',
-            'networking' => 'Networking',
-            'interview' => 'Interview',
-            'review' => 'Review',
+            'training'        => 'Training',
+            'planning'        => 'Planning',
+            'social'          => 'Social',
+            'networking'      => 'Networking',
+            'interview'       => 'Interview',
+            'review'          => 'Review',
         ];
 
-        return collect($types)->filter(fn(string $value): bool => str_contains(strtolower($value), strtolower(request('q'))));
+        return collect($types)->filter(fn (string $value): bool => str_contains(strtolower($value), strtolower(request('q'))));
     }
 
     public function setupListOperation()

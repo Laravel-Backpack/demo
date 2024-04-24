@@ -8,7 +8,6 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\CRUD\app\Library\Widget;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
 
 /**
  * Class MeetingCrudController.
@@ -125,7 +124,7 @@ class MeetingCrudController extends CrudController
 
         CRUD::column('types')
             ->type('text')
-            ->value(fn(Meeting $entry): string => collect($entry->types)->map(fn($type) => $type['title'].' ('.$type['location'].')')->join(', '));
+            ->value(fn (Meeting $entry): string => collect($entry->types)->map(fn ($type) => $type['title'].' ('.$type['location'].')')->join(', '));
 
         CRUD::column('start')
             ->type('datetime');
@@ -215,6 +214,6 @@ class MeetingCrudController extends CrudController
     public function fetchTypes()
     {
         return collect($this->meetingTypes)
-            ->filter(fn($value): bool => str_contains(strtolower($value['title']), strtolower(request('q'))));
+            ->filter(fn ($value): bool => str_contains(strtolower($value['title']), strtolower(request('q'))));
     }
 }
