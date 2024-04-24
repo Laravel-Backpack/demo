@@ -13,11 +13,16 @@ class Meeting extends Model
 
     protected $fillable = [
         'title',
+        'types',
         'email',
         'number',
         'start',
         'end',
         'background_color',
         'text_color',
+    ];
+
+    protected $casts = [
+        'types' => 'array',
     ];
 }
