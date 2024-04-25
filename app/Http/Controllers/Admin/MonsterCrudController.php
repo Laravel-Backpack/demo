@@ -1571,18 +1571,18 @@ class MonsterCrudController extends CrudController
                 'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
             ],
             [ // Select2_json_from_api paginated
-                'label'                => 'Select2_json_from_api (paginated)'.backpack_pro_badge(), // Table column heading
-                'type'                 => 'select2_json_from_api',
-                'name'                 => 'select2_json_from_api', // the column that contains the ID of that connected entity;
-                'attribute'            => 'title', // foreign key attribute that is shown to user
-                'data_source'          => backpack_url('monster/fetch/paginated-types'), // url to controller search function (with /{id} should return model)
-                'method'               => 'POST', // route method, either GET or POST
-                'placeholder'          => 'Select one or more types', // placeholder for the select
-                'minimum_input_length' => 0, // minimum characters to type before querying results
-                'tab'                  => 'Selects',
-                'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+                'label'                  => 'Select2_json_from_api (paginated)'.backpack_pro_badge(), // Table column heading
+                'type'                   => 'select2_json_from_api',
+                'name'                   => 'select2_json_from_api', // the column that contains the ID of that connected entity;
+                'attribute'              => 'title', // foreign key attribute that is shown to user
+                'data_source'            => backpack_url('monster/fetch/paginated-types'), // url to controller search function (with /{id} should return model)
+                'method'                 => 'POST', // route method, either GET or POST
+                'placeholder'            => 'Select one or more types', // placeholder for the select
+                'minimum_input_length'   => 0, // minimum characters to type before querying results
+                'tab'                    => 'Selects',
+                'wrapperAttributes'      => ['class' => 'form-group col-md-6'],
                 'attributes_to_store'    => ['id', 'title', 'location'],
-                'multiple'             => true,
+                'multiple'               => true,
             ],
             [ // Select2_json_from_api not paginated
                 'label'                => 'Select2_json_from_api (simple array)'.backpack_pro_badge(), // Table column heading
