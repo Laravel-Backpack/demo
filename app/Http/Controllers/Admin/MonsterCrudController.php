@@ -1581,7 +1581,7 @@ class MonsterCrudController extends CrudController
                 'minimum_input_length' => 0, // minimum characters to type before querying results
                 'tab'                  => 'Selects',
                 'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
-                'stored_attributes'    => ['id', 'title', 'location'],
+                'attributes_to_store'    => ['id', 'title', 'location'],
                 'multiple'             => true,
             ],
             [ // Select2_json_from_api not paginated

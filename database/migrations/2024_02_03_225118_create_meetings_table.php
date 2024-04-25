@@ -15,6 +15,7 @@ return new class() extends Migration {
             $table->string('title');
             $table->string('email')->nullable();
             $table->string('number')->nullable();
+            $table->json('types')->nullable();
             $table->dateTime('start');
             $table->dateTime('end')->nullable();
             $table->string('background_color')->nullable();
