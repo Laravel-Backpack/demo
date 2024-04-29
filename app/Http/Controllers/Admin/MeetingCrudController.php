@@ -155,7 +155,7 @@ class MeetingCrudController extends CrudController
             ->data_source(backpack_url('meeting/fetch/types'))
             ->method('POST')
             ->default($this->meetingTypes[0])
-            ->stored_attributes(['id', 'title', 'location'])
+            ->attributes_to_store(['id', 'title', 'location'])
             ->attribute('title')
             ->multiple(true)
             ->minimum_input_length(0);
