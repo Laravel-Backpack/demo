@@ -1112,17 +1112,17 @@
         },
         {
             "name": "backpack/pro",
-            "version": "2.1.13",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "efa77cd510aec52302997fdd58215f4f26c05348"
+                "reference": "edf0f8670eeb8f9dbd102937bcff380af197e747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-efa77cd510aec52302997fdd58215f4f26c05348-zip-967763.zip",
-                "reference": "efa77cd510aec52302997fdd58215f4f26c05348",
-                "shasum": "f9f1b8252f989171aa6725c57413713c710be4fb"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-edf0f8670eeb8f9dbd102937bcff380af197e747-zip-081e8d.zip",
+                "reference": "edf0f8670eeb8f9dbd102937bcff380af197e747",
+                "shasum": "ea681929362ec1e8895d23c953be72692ea5afd7"
             },
             "require": {
                 "backpack/crud": "^6.0.1"
@@ -1174,10 +1174,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.1.13",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.2.0",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2024-04-16T10:06:38+00:00"
+            "time": "2024-04-30T10:09:56+00:00"
         },
         {
             "name": "backpack/revise-operation",
