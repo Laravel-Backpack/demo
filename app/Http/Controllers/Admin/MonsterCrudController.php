@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Support\Collection;
 
 class MonsterCrudController extends CrudController
 {
@@ -46,6 +47,50 @@ class MonsterCrudController extends CrudController
     public function fetchArticle()
     {
         return $this->fetch(\App\Models\Article::class);
+    }
+
+    public function fetchPaginatedTypes()
+    {
+        $types = [
+            ['id' => 'informational', 'title' => 'Informational', 'location' => 'In-person'],
+            ['id' => 'brainstorming', 'title' => 'Brainstorming', 'location' => 'In-person'],
+            ['id' => 'decision-making', 'title' => 'Decision Making', 'location' => 'In-person'],
+            ['id' => 'problem-solving', 'title' => 'Problem Solving', 'location' => 'In-person'],
+            ['id' => 'training', 'title' => 'Training', 'location' => 'Virtual'],
+            ['id' => 'planning', 'title' => 'Planning', 'location' => 'Virtual'],
+            ['id' => 'social', 'title' => 'Social', 'location' => 'Virtual'],
+            ['id' => 'networking', 'title' => 'Networking', 'location' => 'Hybrid'],
+            ['id' => 'interview', 'title' => 'Interview', 'location' => 'Hybrid'],
+            ['id' => 'review', 'title' => 'Review', 'location' => 'Hybrid'],
+        ];
+
+        Collection::macro('paginate', function (int $perPage = 15, int $page = null, array $options = []) {
+            $page ??= \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
+
+            return new \Illuminate\Pagination\LengthAwarePaginator($this->forPage($page, $perPage)->toArray(), $this->count(), $perPage, $page, $options);
+        });
+
+        return collect($types)
+            ->filter(fn (array $value): bool => str_contains(strtolower($value['title']), strtolower(request('q'))))
+            ->paginate(4);
+    }
+
+    public function fetchSimpleTypes()
+    {
+        $types = [
+            'informational'   => 'Informational',
+            'brainstorming'   => 'Brainstorming',
+            'decision-making' => 'Decision Making',
+            'problem-solving' => 'Problem Solving',
+            'training'        => 'Training',
+            'planning'        => 'Planning',
+            'social'          => 'Social',
+            'networking'      => 'Networking',
+            'interview'       => 'Interview',
+            'review'          => 'Review',
+        ];
+
+        return collect($types)->filter(fn (string $value): bool => str_contains(strtolower($value), strtolower(request('q'))));
     }
 
     public function setupListOperation()
@@ -1524,6 +1569,32 @@ class MonsterCrudController extends CrudController
                 'pivot'                => true, // on create&update, do you need to add/delete pivot table entries?
                 'tab'                  => 'Selects',
                 'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+            ],
+            [ // Select2_json_from_api paginated
+                'label'                  => 'Select2_json_from_api (paginated)'.backpack_pro_badge(), // Table column heading
+                'type'                   => 'select2_json_from_api',
+                'name'                   => 'select2_json_from_api', // the column that contains the ID of that connected entity;
+                'attribute'              => 'title', // foreign key attribute that is shown to user
+                'data_source'            => backpack_url('monster/fetch/paginated-types'), // url to controller search function (with /{id} should return model)
+                'method'                 => 'POST', // route method, either GET or POST
+                'placeholder'            => 'Select one or more types', // placeholder for the select
+                'minimum_input_length'   => 0, // minimum characters to type before querying results
+                'tab'                    => 'Selects',
+                'wrapperAttributes'      => ['class' => 'form-group col-md-6'],
+                'attributes_to_store'    => ['id', 'title', 'location'],
+                'multiple'               => true,
+            ],
+            [ // Select2_json_from_api not paginated
+                'label'                => 'Select2_json_from_api (simple array)'.backpack_pro_badge(), // Table column heading
+                'type'                 => 'select2_json_from_api',
+                'name'                 => 'select2_json_from_api_simple', // the column that contains the ID of that connected entity;
+                'data_source'          => backpack_url('monster/fetch/simple-types'), // url to controller search function (with /{id} should return model)
+                'method'               => 'POST', // route method, either GET or POST
+                'placeholder'          => 'Select one or more types', // placeholder for the select
+                'minimum_input_length' => 0, // minimum characters to type before querying results
+                'tab'                  => 'Selects',
+                'wrapperAttributes'    => ['class' => 'form-group col-md-6'],
+                'multiple'             => true,
             ],
         ];
     }
