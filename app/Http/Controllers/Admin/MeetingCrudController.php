@@ -124,7 +124,7 @@ class MeetingCrudController extends CrudController
 
         CRUD::column('types')
             ->type('text')
-            ->value(fn (Meeting $entry): string => collect($entry->types)->map(fn ($type) => $type['title'].' ('.$type['location'].')')->join(', '));
+            ->value(fn (Meeting $entry): string => collect($entry->types)->map(fn ($type) => ($type['title'] ?? '').' ('.($type['location'] ?? '').')')->join(', '));
 
         CRUD::column('start')
             ->type('datetime');
