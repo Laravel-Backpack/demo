@@ -67,7 +67,7 @@
             ->statusBorder('start') // start|top|bottom
             ->accentColor('info') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-star']) // ['top|right|bottom']
-            ->value($lastArticleDaysAgo.' days')
+            ->value($lastArticleDaysAgo)
             ->progressClass('progress-bar')
             ->description('Since last article.')
             ->progress(30)
