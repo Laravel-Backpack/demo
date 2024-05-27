@@ -28,7 +28,7 @@
 	$userCount = App\User::count();
 	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
 	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
-	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
+    $lastArticleDaysAgo = $lastArticle !== null ? \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today()).' days' : 'No articles';
 
  	// notice we use Widget::add() to add widgets to a certain group
 	Widget::add()->to('before_content')->type('div')->class('row')->content([
@@ -57,7 +57,7 @@
 			->group('hidden')
 		    ->type('progress')
 		    ->class('card border-0 text-white bg-warning')
-		    ->value($lastArticleDaysAgo.' days')
+		    ->value($lastArticleDaysAgo)
 		    ->progressClass('progress-bar')
 		    ->description('Since last article.')
 		    ->progress(30)
