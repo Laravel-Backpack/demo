@@ -1,27 +1,56 @@
-version: "3.8"
-
-volumes:
-  mysql57:
-    name: mysql57
-
 services:
-  db:
-    image: mysql:5.7
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: asdf
-      MYSQL_DATABASE: backpackdemo
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     volumes:
-      - mysql57:/var/lib/mysql
+      - .:/var/www/html/
+    restart: unless-stopped
+    working_dir: /var/www/html
+    networks:
+      - development
+    ports:
+      - 80:8080
+      - 443:8443
+      - 5173:5173
+    depends_on:
+      - mariadb
+    environment:
+      SSL_MODE: "full"
+      SSL_CERTIFICATE_FILE: "certs/local-dev.pem"
+      SSL_PRIVATE_KEY_FILE: "certs/local-dev-key.pem"
+      # docker-php configs
+      AUTORUN_ENABLED: "true"
+      AUTORUN_LARAVEL_MIGRATION: "true"
+      AUTORUN_LARAVEL_CONFIG_CACHE: "false"
+      AUTORUN_LARAVEL_EVENT_CACHE: "false"
+      AUTORUN_LARAVEL_ROUTE_CACHE: "false"
+      AUTORUN_LARAVEL_STORAGE_LINK: "true"
+      AUTORUN_LARAVEL_VIEW_CACHE: "false"
 
-  web:
-    image: webdevops/php-nginx:7.4-alpine
-    ports:
-      - 80:80
+  mariadb:
+    image: mariadb:11
+    networks:
+      - development
     volumes:
-      - ./:/app
-    working_dir: /app
+      - ./_volumes/mysql/mysqsl_data:/var/lib/mysql
     environment:
-      WEB_DOCUMENT_ROOT: /app/public
-      WEB_ALIAS_DOMAIN: localhost
+        MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_DATABASE: '${DB_DATABASE}'
+        MYSQL_USER: '${DB_USERNAME}'
+        MYSQL_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+    ports:
+      - "3306:3306"
+
+  mailpit:
+      image: axllent/mailpit
+      networks:
+        - development
+networks:
+  development:

@@ -50,7 +50,7 @@ class OwnerSeeder extends Seeder
                 while ($invoiceItems) {
                     InvoiceItem::create([
                         'invoice_id'  => $invoice->id,
-                        'order'       => $faker->bothify('?????-#####'),
+                        'order'       => $fake->randomNumber(2),
                         'description' => $faker->text,
                         'quantity'    => $faker->randomFloat(0, 0, 999),
                         'unit_price'  => $faker->randomFloat(0, 0, 9999),

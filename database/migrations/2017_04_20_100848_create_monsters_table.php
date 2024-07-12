@@ -20,6 +20,7 @@ class CreateMonstersTable extends Migration
                 $columnType = 'BYTEA';
                 break;
             case 'mysql':
+            case 'mariadb':
                 $columnType = 'MEDIUMBLOB';
                 break;
             case 'sqlite':

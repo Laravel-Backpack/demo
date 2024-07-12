@@ -1,12 +1,13 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch"
+      "dev": "vite",
+      "build": "vite build"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
-    "bootstrap-sass": "^3.0.0"
+      "axios": "^1.6.4",
+      "laravel-vite-plugin": "^1.0",
+      "vite": "^5.0"
   }
 }
