@@ -49,7 +49,7 @@ class MonsterRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function messages()
     {
         return [
-            'dummyicon.required' => 'The field "Relationships (all field attributes are guessed)" in #Relationships tab is required.'
+            'dummyicon.required' => 'The field "Relationships (all field attributes are guessed)" in #Relationships tab is required.',
         ];
     }
 }
