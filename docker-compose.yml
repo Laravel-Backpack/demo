@@ -10,7 +10,6 @@ services:
     volumes:
       - .:/var/www/html/
     restart: unless-stopped
-    working_dir: /var/www/html
     networks:
       - development
     ports:

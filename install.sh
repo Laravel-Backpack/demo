@@ -18,6 +18,6 @@ rm -rf vendor/backpack
 
 composer install --no-interaction --prefer-source --ansi
 
-php artisan key:generate
+php artisan key:generate 
 
 bash start.sh
