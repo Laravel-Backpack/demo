@@ -35,37 +35,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Faker factories
-        Recommend::truncate();
         Recommend::factory()->count(30)->create();
 
-        PostalBoxer::truncate();
         PostalBoxer::factory()->count(30)->create();
 
-        Bill::truncate();
         Bill::factory()->count(30)->create();
 
-        Tag::truncate();
         Tag::factory()->count(21)->create();
 
-        Category::truncate();
         Category::factory()->count(40)->create();
 
-        Article::truncate();
         Article::factory()->count(1031)->create();
 
-        Product::truncate();
         Product::factory()->count(210)->create();
 
-        Monster::truncate();
         Monster::factory()->count(140)->create();
 
-        Page::truncate();
         Page::factory()->count(16)->create();
 
-        MenuItem::truncate();
         MenuItem::factory()->count(7)->create();
 
-        Meeting::truncate();
         Meeting::factory()->count(50)->create();
     }
 }
