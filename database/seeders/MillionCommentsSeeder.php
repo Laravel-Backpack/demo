@@ -32,13 +32,13 @@ class MillionCommentsSeeder extends Seeder
         DB::disableQueryLog();
         DB::beginTransaction();
 
-        for ($i = 1; $i <= 1000; $i++) {
+        for ($i = 1; $i <= 100; $i++) {
             $body = $this->faker->text;
             $commentable = $i % 2 == 0 ? $this->owners->random() : $this->pets->random();
             $commentable_type = get_class($commentable);
             $commentable_id = $commentable->getKey();
 
-            $comments = array_fill(0, 1000, [
+            $comments = array_fill(0, 100, [
                 'body'             => $body,
                 'commentable_type' => $commentable_type,
                 'commentable_id'   => $commentable_id,
