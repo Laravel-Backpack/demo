@@ -67,7 +67,6 @@ class InvoiceCrudController extends CrudController
         CRUD::column('total');
 
         $this->runCustomViews();
-
     }
 
     /**
