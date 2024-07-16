@@ -19,6 +19,7 @@ class InvoiceCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\TrashOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -30,6 +31,16 @@ class InvoiceCrudController extends CrudController
         CRUD::setModel(\App\Models\PetShop\Invoice::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/invoice');
         CRUD::setEntityNameStrings('invoice', 'invoices');
+
+        // enable db transactions for create and update operations
+        CRUD::operation(['create', 'update'], function () {
+            CRUD::set('useDatabaseTransactions', true);
+        });
+    }
+
+    public function setupLast5YearsView()
+    {
+        CRUD::addClause('where', 'issuance_date', '>=', now()->subYears(5)->format('Y-m-d'));
     }
 
     /**
@@ -54,6 +65,9 @@ class InvoiceCrudController extends CrudController
         CRUD::column('issuance_date');
         CRUD::column('due_date');
         CRUD::column('total');
+
+        $this->runCustomViews();
+
     }
 
     /**
