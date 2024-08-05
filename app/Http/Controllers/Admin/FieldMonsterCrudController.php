@@ -33,6 +33,7 @@ class FieldMonsterCrudController extends MonsterCrudController
         Widget::add()->type('script')->content('assets/js/monster/test-unrequire-field.js');
         Widget::add()->type('script')->content('assets/js/monster/test-custom-field.js');
         Widget::add()->type('script')->content('assets/js/monster/test-onchange-field.js');
+        Widget::add()->type('script')->content('assets/js/monster/test-readonly-field.js');
     }
 
     protected function setupFieldsForTopScenarios()
