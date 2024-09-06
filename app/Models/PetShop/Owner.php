@@ -46,7 +46,7 @@ class Owner extends Model
 
     public function comments()
     {
-        return $this->morphMany(\App\Models\PetShop\Comment::class, 'commentable', null, null, 'user_id');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function badges()
