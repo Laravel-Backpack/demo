@@ -76,6 +76,11 @@ class Dummy extends Model
         return $this->belongsToMany(\Backpack\NewsCRUD\app\Models\Article::class, 'monster_article', 'monster_id', 'article_id');
     }
 
+    public function categorySelect2()
+    {
+        return $this->belongsTo(\Backpack\NewsCRUD\app\Models\Category::class, 'select2');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

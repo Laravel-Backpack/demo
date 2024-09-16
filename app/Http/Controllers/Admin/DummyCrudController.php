@@ -68,12 +68,12 @@ class DummyCrudController extends CrudController
 
         foreach ($this->groups() as $groupKey => $groupFields) {
             CRUD::addField([
-                'name'     => $groupKey,
-                'label'    => str_replace('_', ' ', Str::title($groupKey)),
-                'type'     => 'repeatable',
-                'fake'     => true,
-                'store_in' => 'extras',
-                'fields'   => $groupFields,
+                'name'        => $groupKey,
+                'label'       => str_replace('_', ' ', Str::title($groupKey)),
+                'type'        => 'repeatable',
+                'fake'        => true,
+                'store_in'    => 'extras',
+                'subfields'   => $groupFields,
             ]);
         }
     }
