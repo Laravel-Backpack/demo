@@ -73,7 +73,7 @@ class DummyCrudController extends CrudController
                 'type'     => 'repeatable',
                 'fake'     => true,
                 'store_in' => 'extras',
-                'fields'   => $groupFields,
+                'subfields'   => $groupFields,
             ]);
         }
     }
