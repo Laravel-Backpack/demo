@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6246f1ff4f85800cc4d96fd8de9867e8",
+    "content-hash": "ecb7bb89b0603cb53dcc270797a50964",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1042,6 +1042,53 @@
                 "source": "https://github.com/Laravel-Backpack/PageManager/tree/3.3.2"
             },
             "time": "2024-09-27T09:04:10+00:00"
+        },
+        {
+            "name": "backpack/pan-panel",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/pan-panel.git",
+                "reference": "4f9d6ec9f2c7336a82fd0eb5a828e583fb1cc34f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/pan-panel/zipball/4f9d6ec9f2c7336a82fd0eb5a828e583fb1cc34f",
+                "reference": "4f9d6ec9f2c7336a82fd0eb5a828e583fb1cc34f",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.0",
+                "panphp/pan": "^0.1.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\Pan\\BackpackPanServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Pan\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A pan analytics viewer",
+            "keywords": [
+                "backpack",
+                "laravel",
+                "pan"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/pan-panel/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/pan-panel/issues"
+            },
+            "time": "2024-10-25T19:59:05+00:00"
         },
         {
             "name": "backpack/permissionmanager",
@@ -5264,6 +5311,94 @@
                 }
             ],
             "time": "2024-04-23T09:00:44+00:00"
+        },
+        {
+            "name": "panphp/pan",
+            "version": "v0.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/panphp/pan.git",
+                "reference": "b26dc3f65cca3de56eb884b70de6486c9ef1cf8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/panphp/pan/zipball/b26dc3f65cca3de56eb884b70de6486c9ef1cf8b",
+                "reference": "b26dc3f65cca3de56eb884b70de6486c9ef1cf8b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3.0"
+            },
+            "conflict": {
+                "laravel/framework": "<11.0.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.18.1",
+                "orchestra/testbench": "^9.5.2",
+                "pestphp/pest": "^3.5.0",
+                "pestphp/pest-plugin-type-coverage": "^3.1.0",
+                "phpstan/phpstan": "^1.12.7",
+                "rector/rector": "^1.2.8",
+                "symfony/var-dumper": "^7.1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pan\\Adapters\\Laravel\\Providers\\PanServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                },
+                {
+                    "name": "David Hill",
+                    "email": "david@laravel.com"
+                }
+            ],
+            "description": "A simple, lightweight, and privacy-focused product analytics php package.",
+            "keywords": [
+                "analytics",
+                "laravel",
+                "library",
+                "pan",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/panphp/pan/issues",
+                "source": "https://github.com/panphp/pan/tree/v0.1.7"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/enunomaduro",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/iamdavidhill",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2024-10-26T12:46:15+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -12229,12 +12364,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "backpack/pan-panel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
