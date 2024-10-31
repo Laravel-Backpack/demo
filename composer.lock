@@ -1045,16 +1045,16 @@
         },
         {
             "name": "backpack/pan-panel",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/pan-panel.git",
-                "reference": "0e3a2d6246c7d215012afa23047f1116d355cd26"
+                "reference": "53b976280a0a9e49f6e251aedbec38413257be28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/pan-panel/zipball/0e3a2d6246c7d215012afa23047f1116d355cd26",
-                "reference": "0e3a2d6246c7d215012afa23047f1116d355cd26",
+                "url": "https://api.github.com/repos/Laravel-Backpack/pan-panel/zipball/53b976280a0a9e49f6e251aedbec38413257be28",
+                "reference": "53b976280a0a9e49f6e251aedbec38413257be28",
                 "shasum": ""
             },
             "require": {
@@ -1086,9 +1086,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/pan-panel/issues",
-                "source": "https://github.com/Laravel-Backpack/pan-panel/tree/1.0.0"
+                "source": "https://github.com/Laravel-Backpack/pan-panel/tree/1.0.1"
             },
-            "time": "2024-10-31T12:47:26+00:00"
+            "time": "2024-10-31T18:45:54+00:00"
         },
         {
             "name": "backpack/permissionmanager",
