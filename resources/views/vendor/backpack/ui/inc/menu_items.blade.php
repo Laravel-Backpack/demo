@@ -27,7 +27,7 @@
     <x-backpack::menu-dropdown-item title="Settings" icon="la la-cog" :link="backpack_url('setting')" data-pan="menu-item-settings" />
     <x-backpack::menu-dropdown-item title="Pages" icon="la la-file-o" :link="backpack_url('page')" data-pan="menu-item-page-manager" />
     <x-backpack::menu-dropdown-item title="Menu" icon="la la-list" :link="backpack_url('menu-item')" data-pan="menu-item-menu-manager" />
-    <x-backpack::menu-dropdown-item title="Analytics" icon="la la-chart-bar" :link="backpack_url(config('backpack.pan.route_prefix'))" data-pan="menu-item-analytics" />
+    <x-backpack::menu-dropdown-item title="Analytics" icon="la la-chart-bar" :link="backpack_url(config('backpack.pan.panel_route_prefix'))" data-pan="menu-item-analytics" />
 </x-backpack::menu-dropdown>
 
 <x-backpack::menu-separator title="Example CRUDs" />
