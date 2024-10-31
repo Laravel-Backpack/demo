@@ -35,7 +35,7 @@
         "mews/purifier": "^3.4",
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.0",
-        "backpack/pan-panel": "dev-main"
+        "backpack/pan-panel": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -50,10 +50,6 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/pan-panel.git"
         }
     ],
     "autoload": {
