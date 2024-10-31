@@ -65,17 +65,17 @@
         {{-- Plausibile.io analytics, proxied through a CloudFlare Worker --}}
         <script defer data-domain="demo.backpackforlaravel.com" src="https://sweet-surf-fd04.dhcfw.workers.dev/js/script.js"></script>
     </head>
-    <body>
+    <body data-pan="welcome-page">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}" data-pan="welcome-home-link">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}" data-pan="welcome-login-link">>Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" data-pan="welcome-register-link">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -87,10 +87,10 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ backpack_url() }}">Login</a>
-                    <a target="_blank" href="https://backpackforlaravel.com/docs">Docs</a>
-                    <a target="_blank" href="https://github.com/laravel-backpack/crud">GitHub</a>
-                    <a target="_blank" href="https://backpackforlaravel.com/contact">Contact</a>
+                    <a href="{{ backpack_url() }}" data-pan="welcome-login-link">Login</a>
+                    <a target="_blank" href="https://backpackforlaravel.com/docs" data-pan="welcome-docs-link">Docs</a>
+                    <a target="_blank" href="https://github.com/laravel-backpack/crud" data-pan="welcome-github-link">GitHub</a>
+                    <a target="_blank" href="https://backpackforlaravel.com/contact" data-pan="welcome-contact-link">Contact</a>
                 </div>
 
                 <div class="m-t-lg">

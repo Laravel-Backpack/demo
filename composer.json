@@ -34,7 +34,8 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "mews/purifier": "^3.4",
         "spatie/laravel-ignition": "^2.0",
-        "spatie/laravel-translatable": "^6.0"
+        "spatie/laravel-translatable": "^6.0",
+        "backpack/pan-panel": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",

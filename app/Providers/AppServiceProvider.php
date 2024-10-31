@@ -5,6 +5,7 @@ namespace App\Providers;
 use Backpack\CRUD\app\Library\CrudPanel\CrudField;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
+use Pan\PanConfiguration;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,31 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'monster' => 'App\Models\Monster',
             'user'    => 'App\User',
+        ]);
+
+        PanConfiguration::allowedAnalytics([
+            'my-button',
+            'welcome-page',
+            'welcome-login-link',
+            'welcome-docs-link',
+            'welcome-github-link',
+            'welcome-contact-link',
+            'login-form',
+            'menu-item-dashboard',
+            'menu-item-addons',
+            'menu-item-petshop',
+            'menu-item-news',
+            'menu-item-auth',
+            'menu-item-filemanager',
+            'menu-item-activity-log',
+            'menu-item-translation-manager',
+            'menu-item-calendar-operation',
+            'menu-item-backup-manager',
+            'menu-item-log-manager',
+            'menu-item-settings',
+            'menu-item-page-manager',
+            'menu-item-menu-manager',
+            'menu-item-analytics',
         ]);
     }
 

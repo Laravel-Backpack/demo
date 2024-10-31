@@ -1,5 +1,5 @@
 <h2 class="h2 text-center my-4">{{ trans('backpack::base.login') }}</h2>
-<form method="POST" action="{{ route('backpack.auth.login') }}" autocomplete="off" novalidate="">
+<form method="POST" action="{{ route('backpack.auth.login') }}" autocomplete="off" novalidate=""  data-pan="login-form">
     @csrf
     <div class="mb-3">
         <label class="form-label" for="{{ $username }}">{{ config('backpack.base.authentication_column_name') }}</label>
