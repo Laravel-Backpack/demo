@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a033538a94e4399e448ffc8ec522cac",
+    "content-hash": "7effeda4626c6673c1a5f2e8f8a4037d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -438,6 +438,51 @@
                 "issues": "https://github.com/Laravel-Backpack/calendar-operation/issues"
             },
             "time": "2024-09-24T08:50:43+00:00"
+        },
+        {
+            "name": "backpack/ckeditor-field",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/ckeditor-field.git",
+                "reference": "dbfa9dc6a1bd89e979778bf292680dfe5406a11c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/ckeditor-field/zipball/dbfa9dc6a1bd89e979778bf292680dfe5406a11c",
+                "reference": "dbfa9dc6a1bd89e979778bf292680dfe5406a11c",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\CkeditorField\\BackpackCkeditorFieldProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\CkeditorField\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CKEditor field for Backpack",
+            "keywords": [
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/ckeditor-field/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/ckeditor-field/issues"
+            },
+            "time": "2024-10-18T10:44:16+00:00"
         },
         {
             "name": "backpack/crud",
@@ -1566,6 +1611,48 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.2.15"
             },
             "time": "2024-10-28T10:58:44+00:00"
+        },
+        {
+            "name": "backpack/tinymce-field",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/tinymce-field.git",
+                "reference": "6988d583933e38480d7313e5ffc716ce39df6aee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/tinymce-field/zipball/6988d583933e38480d7313e5ffc716ce39df6aee",
+                "reference": "6988d583933e38480d7313e5ffc716ce39df6aee",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\TinyMCEField\\BackpackTinyMCEFieldProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\TinyMCEField\\": "src/"
+                }
+            },
+            "description": "TinyMCE field for Backpack",
+            "keywords": [
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/tinymce-field/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/tinymce-field/issues"
+            },
+            "time": "2024-10-18T10:44:00+00:00"
         },
         {
             "name": "backpack/translation-manager",
@@ -12368,6 +12455,12 @@
     ],
     "aliases": [
         {
+            "package": "backpack/ckeditor-field",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
+        },
+        {
             "package": "backpack/crud",
             "version": "dev-next",
             "alias": "6.99.99",
@@ -12384,13 +12477,21 @@
             "version": "dev-next",
             "alias": "2.9.99",
             "alias_normalized": "2.9.99.0"
+        },
+        {
+            "package": "backpack/tinymce-field",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
         "backpack/crud": 20,
         "backpack/pro": 20,
-        "backpack/medialibrary-uploaders": 20
+        "backpack/medialibrary-uploaders": 20,
+        "backpack/ckeditor-field": 20,
+        "backpack/tinymce-field": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

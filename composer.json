@@ -10,6 +10,8 @@
         "backpack/crud": "dev-next as 6.99.99",
         "backpack/pro": "dev-next as 2.9.99",
         "backpack/medialibrary-uploaders": "dev-next as 1.99.99",
+        "backpack/ckeditor-field": "dev-main as 1.0.0",
+        "backpack/tinymce-field": "dev-main as 1.0.0",
         "backpack/activity-log": "^2.0.3",
         "backpack/backupmanager": "^5.0",
         "backpack/calendar-operation": "^1.0",
@@ -50,6 +52,14 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/ckeditor-field.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Laravel-Backpack/tinymce-field.git"
         }
     ],
     "autoload": {
