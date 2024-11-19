@@ -16,7 +16,7 @@
         "backpack/backupmanager": "^5.0",
         "backpack/calendar-operation": "^1.0",
         "backpack/editable-columns": "^3.0",
-        "backpack/filemanager": "^3.0",
+        "backpack/filemanager": "dev-next as 3.99.99",
         "backpack/language-switcher": "^2.0",
         "backpack/logmanager": "^5.0",
         "backpack/menucrud": "^4.0",
