@@ -1703,10 +1703,10 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'WYSIWYG Editors',
             ],
             [   // Summernote
-                'name'  => 'summernote',
-                'label' => 'Summernote editor'.backpack_free_badge(),
-                'type'  => 'summernote',
-                'tab'   => 'WYSIWYG Editors',
+                'name'      => 'summernote',
+                'label'     => 'Summernote editor'.backpack_free_badge(),
+                'type'      => 'summernote',
+                'tab'       => 'WYSIWYG Editors',
                 'withFiles' => true,
             ],
             [   // CKEditor
@@ -1842,8 +1842,8 @@ class MonsterCrudController extends CrudController
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
-                'dropzone' => ['Uploads are disabled in production'],
-                'easymde' => ['Uploads are disabled in production'],
+                'dropzone'   => ['Uploads are disabled in production'],
+                'easymde'    => ['Uploads are disabled in production'],
                 'summernote' => ['Uploads are disabled in production'],
             ],
             ], 500);
