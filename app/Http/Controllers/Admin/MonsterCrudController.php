@@ -15,7 +15,7 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
-    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
     use \App\Http\Controllers\Admin\Operations\SMSOperation; //Custom Form Operation Example
     use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
     use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
@@ -1707,6 +1707,7 @@ class MonsterCrudController extends CrudController
                 'label' => 'Summernote editor'.backpack_free_badge(),
                 'type'  => 'summernote',
                 'tab'   => 'WYSIWYG Editors',
+                'withFiles' => true,
             ],
             [   // CKEditor
                 'name'  => 'ckeditor',
@@ -1837,15 +1838,17 @@ class MonsterCrudController extends CrudController
         ];
     }
 
-    public function dropzoneUpload()
+    public function ajaxUpload()
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
                 'dropzone' => ['Uploads are disabled in production'],
+                'easymde' => ['Uploads are disabled in production'],
+                'summernote' => ['Uploads are disabled in production'],
             ],
             ], 500);
         }
 
-        return $this->traitDropzone();
+        return $this->traitAjaxUpload();
     }
 }
