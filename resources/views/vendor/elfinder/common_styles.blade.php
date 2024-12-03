@@ -4,8 +4,8 @@
 @php
     $themeStylesheetVersion = '3.0.0';
 @endphp
-@bassetArchive('https://github.com/Studio-42/elFinder/archive/refs/tags/2.1.62.tar.gz', 'elfinder-2.1.62')
-@basset('elfinder-2.1.62/elFinder-2.1.62/css/elfinder.min.css')
+@bassetArchive('https://github.com/Studio-42/elFinder/archive/refs/tags/2.1.64.tar.gz', 'elfinder-2.1.64')
+@basset('elfinder-2.1.64/elFinder-2.1.64/css/elfinder.min.css')
 @basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@'.$themeStylesheetVersion.'/Material/css/theme.min.css')
 @basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@'.$themeStylesheetVersion.'/Material/images/loading.svg', false)
 @basset('https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@'.$themeStylesheetVersion.'/Material/font/material.eot', false)
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if(colorMode) {
         let colorModeClass = window.parent.colorMode ?? window.colorMode;
         colorModeClass.onChange(function(scheme) {
-            let styleSheetType = scheme === 'dark' ? false : true;
-            let selectedLinkElement = getElfinderStyleSheet(styleSheetType);
+            let getMainStylesheet = scheme === 'dark' ? false : true;
+            let selectedLinkElement = getElfinderStyleSheet(getMainStylesheet);
 
             if (! selectedLinkElement) {
                 return true;
