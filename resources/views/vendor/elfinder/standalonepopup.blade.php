@@ -31,7 +31,6 @@
                     },
                     url: '{{ route("elfinder.connector") }}',  // connector URL
                     soundPath: '{{ Basset::getUrl(base_path("vendor/studio-42/elfinder/sounds")) }}',
-                    dialog: {width: 900, modal: true, title: 'Select a file'},
                     resizable: false,
                     onlyMimes: @json(unserialize(urldecode(request('mimes'))), JSON_UNESCAPED_SLASHES),
                     commandsOptions: {
@@ -40,20 +39,19 @@
                             oncomplete: 'destroy'
                         }
                     },
-                    getFileCallback: function (file) {
+                    getFileCallback: (file) => {
                         @if (request()->has('multiple') && request()->input('multiple') == 1)
                             window.parent.processSelectedMultipleFiles(file, '{{ $input_id  }}');
                         @else
                             window.parent.processSelectedFile(file.path, '{{ $input_id  }}');
                         @endif
-
                         window.parent.jQuery.colorbox.close();
                     },                    
                 };
+                let elfinderOptions = window.parent.elfinderOptions ?? {};
+                var elf = $('#elfinder').elfinder({...elfinderConfig, ...elfinderOptions}).elfinder('instance');
 
-                var elf = $('#elfinder').elfinder(elfinderConfig);
-                document.getElementById('elfinder').style.opacity = 1;
-              
+                document.getElementById('elfinder').style.opacity = 1;   
             });          
         </script>
     </head>
