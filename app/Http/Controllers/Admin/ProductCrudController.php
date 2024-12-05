@@ -91,10 +91,10 @@ class ProductCrudController extends CrudController
             'tab'   => 'Texts',
         ]);
 
-        CRUD::addField([   // Wysiwyg
+        CRUD::addField([   // summernote
             'name'  => 'details',
             'label' => 'Details',
-            'type'  => 'wysiwyg',
+            'type'  => 'summernote',
             'tab'   => 'Texts',
         ]);
 
