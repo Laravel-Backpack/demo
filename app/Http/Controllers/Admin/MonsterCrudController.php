@@ -727,7 +727,7 @@ class MonsterCrudController extends CrudController
             ],
             false, // the simple filter has no values, just the "Draft" label specified above
             function () { // if the filter is active (the GET parameter "draft" exits)
-            $this->crud->addClause('where', 'checkbox', '1');
+                $this->crud->addClause('where', 'checkbox', '1');
             }
         );
 
@@ -748,7 +748,7 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
+                $this->crud->addClause('where', 'text', 'LIKE', "%$value%");
             }
         );
 
@@ -762,7 +762,7 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active
-            $range = json_decode($value);
+                $range = json_decode($value);
                 if ($range->from && $range->to) {
                     $this->crud->addClause('where', 'number', '>=', (float) $range->from);
                     $this->crud->addClause('where', 'number', '<=', (float) $range->to);
@@ -778,7 +778,7 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active, apply these constraints
-            $this->crud->addClause('where', 'date', '=', $value);
+                $this->crud->addClause('where', 'date', '=', $value);
             }
         );
 
@@ -796,7 +796,7 @@ class MonsterCrudController extends CrudController
             ],
             false,
             function ($value) { // if the filter is active, apply these constraints
-            $dates = json_decode($value);
+                $dates = json_decode($value);
                 $this->crud->addClause('where', 'date', '>=', $dates->from);
                 $this->crud->addClause('where', 'date', '<=', $dates->to);
             }
@@ -809,7 +809,7 @@ class MonsterCrudController extends CrudController
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($value) { // if the filter is active
-        $this->crud->addClause('where', 'select2', $value);
+            $this->crud->addClause('where', 'select2', $value);
         });
 
         $this->crud->addFilter([ // select2_multiple filter
@@ -819,9 +819,9 @@ class MonsterCrudController extends CrudController
         ], function () {
             return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
         }, function ($values) { // if the filter is active
-        foreach (json_decode($values) as $key => $value) {
-            $this->crud->addClause('orWhere', 'select2', $value);
-        }
+            foreach (json_decode($values) as $key => $value) {
+                $this->crud->addClause('orWhere', 'select2', $value);
+            }
         });
 
         $this->crud->addFilter(
@@ -834,7 +834,7 @@ class MonsterCrudController extends CrudController
             ],
             url('api/article-search'), // the ajax route
             function ($value) { // if the filter is active
-            $this->crud->addClause('where', 'select2_from_ajax', $value);
+                $this->crud->addClause('where', 'select2_from_ajax', $value);
             }
         );
     }
