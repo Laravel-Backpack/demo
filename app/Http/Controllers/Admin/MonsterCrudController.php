@@ -15,8 +15,8 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
-    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
-    use \App\Http\Controllers\Admin\Operations\SMSOperation; //Custom Form Operation Example
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
+    use Operations\SMSOperation; //Custom Form Operation Example
     use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
     use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
 
@@ -318,13 +318,6 @@ class MonsterCrudController extends CrudController
             'type'   => 'tinymce',
             'label'  => 'TinyMCE'.backpack_pro_badge(),
             'tab'    => 'WYSIWYG Editors',
-        ]);
-
-        $this->crud->addColumn([
-            'name'    => 'wysiwyg',
-            'type'    => 'wysiwyg',
-            'label'   => 'Wysiwyg'.backpack_pro_badge(),
-            'tab'     => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
@@ -1703,10 +1696,11 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'WYSIWYG Editors',
             ],
             [   // Summernote
-                'name'  => 'summernote',
-                'label' => 'Summernote editor'.backpack_free_badge(),
-                'type'  => 'summernote',
-                'tab'   => 'WYSIWYG Editors',
+                'name'      => 'summernote',
+                'label'     => 'Summernote editor'.backpack_free_badge(),
+                'type'      => 'summernote',
+                'tab'       => 'WYSIWYG Editors',
+                'withFiles' => true,
             ],
             [   // CKEditor
                 'name'  => 'ckeditor',
@@ -1718,12 +1712,6 @@ class MonsterCrudController extends CrudController
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE'.backpack_pro_badge(),
                 'type'  => 'tinymce',
-                'tab'   => 'WYSIWYG Editors',
-            ],
-            [   // Wysiwyg
-                'name'  => 'wysiwyg',
-                'label' => 'Wysiwyg'.backpack_pro_badge(),
-                'type'  => 'wysiwyg',
                 'tab'   => 'WYSIWYG Editors',
             ],
         ];
@@ -1837,15 +1825,17 @@ class MonsterCrudController extends CrudController
         ];
     }
 
-    public function dropzoneUpload()
+    public function ajaxUpload()
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
-                'dropzone' => ['Uploads are disabled in production'],
+                'dropzone'   => ['Uploads are disabled in production'],
+                'easymde'    => ['Uploads are disabled in production'],
+                'summernote' => ['Uploads are disabled in production'],
             ],
             ], 500);
         }
 
-        return $this->traitDropzone();
+        return $this->traitAjaxUpload();
     }
 }

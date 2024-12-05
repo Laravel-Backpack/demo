@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86e5bec7f0a125c9e8da66ee12eb7e8c",
+    "content-hash": "a5f57df4dc51bd6e892c2960e79135be",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.332.2",
+            "version": "3.334.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6790e53ab0aceca59e1d44fae06c66481013950c"
+                "reference": "3938b3467f64a30fed7ee1762a6785f808a5ae4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6790e53ab0aceca59e1d44fae06c66481013950c",
-                "reference": "6790e53ab0aceca59e1d44fae06c66481013950c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3938b3467f64a30fed7ee1762a6785f808a5ae4d",
+                "reference": "3938b3467f64a30fed7ee1762a6785f808a5ae4d",
                 "shasum": ""
             },
             "require": {
@@ -154,9 +154,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.332.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.334.1"
             },
-            "time": "2024-12-03T06:16:16+00:00"
+            "time": "2024-12-05T01:17:41+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -440,17 +440,62 @@
             "time": "2024-11-20T16:14:01+00:00"
         },
         {
-            "name": "backpack/crud",
-            "version": "6.7.43",
+            "name": "backpack/ckeditor-field",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "c09e3f393e039423a83a51e3a095613bec79b0b4"
+                "url": "git@github.com:Laravel-Backpack/ckeditor-field.git",
+                "reference": "67f2e60207bd5ca8fe2bd8ef981bb3fa3a4ff6c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/c09e3f393e039423a83a51e3a095613bec79b0b4",
-                "reference": "c09e3f393e039423a83a51e3a095613bec79b0b4",
+                "url": "https://api.github.com/repos/Laravel-Backpack/ckeditor-field/zipball/67f2e60207bd5ca8fe2bd8ef981bb3fa3a4ff6c7",
+                "reference": "67f2e60207bd5ca8fe2bd8ef981bb3fa3a4ff6c7",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\CkeditorField\\BackpackCkeditorFieldProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\CkeditorField\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "CKEditor field for Backpack",
+            "keywords": [
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/ckeditor-field/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/ckeditor-field/issues"
+            },
+            "time": "2024-11-25T10:17:57+00:00"
+        },
+        {
+            "name": "backpack/crud",
+            "version": "dev-next",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/CRUD.git",
+                "reference": "523aeb856124d331d29cd0f6021a01fb3a5832cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/523aeb856124d331d29cd0f6021a01fb3a5832cd",
+                "reference": "523aeb856124d331d29cd0f6021a01fb3a5832cd",
                 "shasum": ""
             },
             "require": {
@@ -529,9 +574,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/6.7.43"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/next"
             },
-            "time": "2024-12-02T11:57:01+00:00"
+            "time": "2024-12-05T11:07:22+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -604,16 +649,16 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "3.0.10",
+            "version": "dev-next",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "25b5c97084b8a2af67d822c376066e4f4fdb8e85"
+                "reference": "7c39b24e962fe0cf803263c9d4cde5c81a9017b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/25b5c97084b8a2af67d822c376066e4f4fdb8e85",
-                "reference": "25b5c97084b8a2af67d822c376066e4f4fdb8e85",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/7c39b24e962fe0cf803263c9d4cde5c81a9017b4",
+                "reference": "7c39b24e962fe0cf803263c9d4cde5c81a9017b4",
                 "shasum": ""
             },
             "require": {
@@ -657,9 +702,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/3.0.10"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/next"
             },
-            "time": "2024-11-18T13:11:07+00:00"
+            "time": "2024-11-19T14:14:55+00:00"
         },
         {
             "name": "backpack/language-switcher",
@@ -786,25 +831,25 @@
         },
         {
             "name": "backpack/medialibrary-uploaders",
-            "version": "1.2.1",
+            "version": "dev-next",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/medialibrary-uploaders.git",
-                "reference": "267e1a26d03b7272e8d0c6fd963adf59ecad79ae"
+                "reference": "6f4f6b205e0728ed90f3da5a852f90feca12f5dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/267e1a26d03b7272e8d0c6fd963adf59ecad79ae",
-                "reference": "267e1a26d03b7272e8d0c6fd963adf59ecad79ae",
+                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/6f4f6b205e0728ed90f3da5a852f90feca12f5dc",
+                "reference": "6f4f6b205e0728ed90f3da5a852f90feca12f5dc",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^6.0",
+                "backpack/crud": "^6.99.99|dev-next",
                 "spatie/laravel-medialibrary": "^10.7|^11.3"
             },
             "require-dev": {
-                "orchestra/testbench": "~6|^8.0",
-                "phpunit/phpunit": "^9.0|^10.0"
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
             },
             "type": "library",
             "extra": {
@@ -841,9 +886,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/medialibrary-uploaders/issues",
-                "source": "https://github.com/Laravel-Backpack/medialibrary-uploaders/tree/1.2.1"
+                "source": "https://github.com/Laravel-Backpack/medialibrary-uploaders/tree/next"
             },
-            "time": "2024-10-04T15:12:40+00:00"
+            "time": "2024-12-02T12:52:08+00:00"
         },
         {
             "name": "backpack/menucrud",
@@ -869,13 +914,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Backpack\\MenuCRUD\\MenuCRUDServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -1162,24 +1207,25 @@
         },
         {
             "name": "backpack/pro",
-            "version": "2.2.27",
+            "version": "dev-next",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "d539fa175ffc571604db4e721d4b930c54318798"
+                "reference": "891af7f57f4811521bc0dfa6e7958eaae6df50cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-d539fa175ffc571604db4e721d4b930c54318798-zip-9d4cdf.zip",
-                "reference": "d539fa175ffc571604db4e721d4b930c54318798",
-                "shasum": "524a7700fec972d9073abe9600580ff15ce323fe"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-891af7f57f4811521bc0dfa6e7958eaae6df50cc-zip-743fcb.zip",
+                "reference": "891af7f57f4811521bc0dfa6e7958eaae6df50cc",
+                "shasum": "5f4b34a263144c4d32cfe7c7ec67b1ff9c96d5e4"
             },
             "require": {
-                "backpack/crud": "^6.0.1"
+                "backpack/crud": "dev-next as 6.99.99"
             },
             "require-dev": {
-                "orchestra/testbench": "~5|~6",
-                "phpunit/phpunit": "~9.0"
+                "backpack/medialibrary-uploaders": "dev-next as 1.0",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
             },
             "type": "library",
             "extra": {
@@ -1196,7 +1242,9 @@
             },
             "autoload-dev": {
                 "psr-4": {
-                    "Backpack\\Pro\\Tests\\": "tests"
+                    "Backpack\\Pro\\Tests\\": "tests",
+                    "Backpack\\CRUD\\Tests\\": "vendor/backpack/crud/tests",
+                    "Backpack\\MediaLibraryUploaders\\Tests\\": "vendor/backpack/medialibrary-uploaders/tests"
                 }
             },
             "scripts": {
@@ -1224,10 +1272,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/2.2.27",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/next",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2024-11-26T16:15:38+00:00"
+            "time": "2024-12-04T10:05:55+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -1563,6 +1611,48 @@
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/1.2.15"
             },
             "time": "2024-10-28T10:58:44+00:00"
+        },
+        {
+            "name": "backpack/tinymce-field",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/tinymce-field.git",
+                "reference": "e6b8d02b1b989254ce3d60028b1575b905a6b03e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/tinymce-field/zipball/e6b8d02b1b989254ce3d60028b1575b905a6b03e",
+                "reference": "e6b8d02b1b989254ce3d60028b1575b905a6b03e",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\TinyMCEField\\BackpackTinyMCEFieldProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\TinyMCEField\\": "src/"
+                }
+            },
+            "description": "TinyMCE field for Backpack",
+            "keywords": [
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/tinymce-field/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/tinymce-field/issues"
+            },
+            "time": "2024-11-25T10:17:44+00:00"
         },
         {
             "name": "backpack/translation-manager",
@@ -10578,16 +10668,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.23.3",
+            "version": "v1.23.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "687400043d77943ef95e8417cb44e1673ee57844"
+                "reference": "0815f47bdd867b816b4bf2ca1c7bd7f89e1527ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/687400043d77943ef95e8417cb44e1673ee57844",
-                "reference": "687400043d77943ef95e8417cb44e1673ee57844",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/0815f47bdd867b816b4bf2ca1c7bd7f89e1527ca",
+                "reference": "0815f47bdd867b816b4bf2ca1c7bd7f89e1527ca",
                 "shasum": ""
             },
             "require": {
@@ -10640,9 +10730,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.23.3"
+                "source": "https://github.com/maximebf/php-debugbar/tree/v1.23.4"
             },
-            "time": "2024-10-29T12:24:25+00:00"
+            "time": "2024-12-05T10:36:51+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -11766,16 +11856,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "6.1.3",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "c414673eee9a8f9d51bbf8d61fc9e3ef1e85b20e"
+                "reference": "3473f61172093b2da7de1fb5782e1f24cc036dc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/c414673eee9a8f9d51bbf8d61fc9e3ef1e85b20e",
-                "reference": "c414673eee9a8f9d51bbf8d61fc9e3ef1e85b20e",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/3473f61172093b2da7de1fb5782e1f24cc036dc3",
+                "reference": "3473f61172093b2da7de1fb5782e1f24cc036dc3",
                 "shasum": ""
             },
             "require": {
@@ -11784,7 +11874,7 @@
                 "sebastian/recursion-context": "^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^11.2"
+                "phpunit/phpunit": "^11.3"
             },
             "type": "library",
             "extra": {
@@ -11832,7 +11922,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/exporter/issues",
                 "security": "https://github.com/sebastianbergmann/exporter/security/policy",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/6.1.3"
+                "source": "https://github.com/sebastianbergmann/exporter/tree/6.3.0"
             },
             "funding": [
                 {
@@ -11840,7 +11930,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-03T04:56:19+00:00"
+            "time": "2024-12-05T09:17:50+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -12369,9 +12459,53 @@
             "time": "2024-03-03T12:36:25+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "backpack/ckeditor-field",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
+        },
+        {
+            "package": "backpack/crud",
+            "version": "dev-next",
+            "alias": "6.99.99",
+            "alias_normalized": "6.99.99.0"
+        },
+        {
+            "package": "backpack/filemanager",
+            "version": "dev-next",
+            "alias": "3.99.99",
+            "alias_normalized": "3.99.99.0"
+        },
+        {
+            "package": "backpack/medialibrary-uploaders",
+            "version": "dev-next",
+            "alias": "1.99.99",
+            "alias_normalized": "1.99.99.0"
+        },
+        {
+            "package": "backpack/pro",
+            "version": "dev-next",
+            "alias": "2.9.99",
+            "alias_normalized": "2.9.99.0"
+        },
+        {
+            "package": "backpack/tinymce-field",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "backpack/crud": 20,
+        "backpack/pro": 20,
+        "backpack/medialibrary-uploaders": 20,
+        "backpack/ckeditor-field": 20,
+        "backpack/tinymce-field": 20,
+        "backpack/filemanager": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
