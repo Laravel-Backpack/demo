@@ -207,9 +207,9 @@ return [
         'discord' => [
             'webhook_url' => '',
 
-            'username' => null,
+            'username' => '',
 
-            'avatar_url' => null,
+            'avatar_url' => '',
         ],
     ],
 
