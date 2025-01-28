@@ -1,7 +1,13 @@
 {
     "name": "backpack/demo",
     "description": "A Laravel + Backpack installation to show off most features.",
-    "keywords": ["backpack", "laravel", "backpack for laravel", "admin panel", "crud"],
+    "keywords": [
+        "backpack",
+        "laravel",
+        "backpack for laravel",
+        "admin panel",
+        "crud"
+    ],
     "license": "proprietary",
     "type": "project",
     "require": {
@@ -42,7 +48,7 @@
     "require-dev": {
         "fakerphp/faker": "~1.4",
         "mockery/mockery": "1.6.*",
-        "phpunit/phpunit" : "^11",
+        "phpunit/phpunit": "^11",
         "symfony/css-selector": "^7",
         "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.0",
@@ -84,10 +90,12 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan storage:link -q"
+            "php artisan storage:link -q",
+            "@php artisan basset:cache"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan basset:cache"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
