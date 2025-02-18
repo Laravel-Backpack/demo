@@ -443,12 +443,6 @@ class FluentMonsterCrudController extends CrudController
                 ->type('summernote')
                 ->label('Summernote editor')
                 ->tab('Big texts');
-
-        CRUD::field('wysiwyg')
-                ->type('ckeditor')
-                ->label('CKEditor - also called the WYSIWYG field')
-                ->tab('Big texts');
-
         CRUD::field('tinymce')
                 ->type('tinymce')
                 ->label('TinyMCE')
