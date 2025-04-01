@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\Widget;
 use Illuminate\Support\Collection;
 
 class MonsterCrudController extends CrudController
@@ -279,10 +280,23 @@ class MonsterCrudController extends CrudController
 
     public function setupShowOperation()
     {
+
+        // add a widget
+        Widget::add([
+            'type' => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\IconCrudController',
+        ]);
+
         $this->crud->setOperationSetting('tabsEnabled', true);
         $this->setupListOperation();
 
         $this->crud->set('show.contentClass', 'col-md-12');
+
+        $this->crud->addColumn([
+            'type' => 'datatable',
+            'name' => 'icon_crud',
+            'controller' => 'App\Http\Controllers\Admin\IconCrudController',
+        ]);
 
         $this->crud->addColumn([   // EasyMDE
             'name'    => 'easymde',
