@@ -65,7 +65,7 @@ class MonsterCrudController extends CrudController
             ['id' => 'review', 'title' => 'Review', 'location' => 'Hybrid'],
         ];
 
-        Collection::macro('paginate', function (int $perPage = 15, int $page = null, array $options = []) {
+        Collection::macro('paginate', function (int $perPage = 15, ?int $page = null, array $options = []) {
             $page ??= \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
 
             return new \Illuminate\Pagination\LengthAwarePaginator($this->forPage($page, $perPage)->toArray(), $this->count(), $perPage, $page, $options);
@@ -280,10 +280,9 @@ class MonsterCrudController extends CrudController
 
     public function setupShowOperation()
     {
-
         // add a widget
         Widget::add([
-            'type' => 'datatable',
+            'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
         ]);
 
@@ -293,8 +292,8 @@ class MonsterCrudController extends CrudController
         $this->crud->set('show.contentClass', 'col-md-12');
 
         $this->crud->addColumn([
-            'type' => 'datatable',
-            'name' => 'icon_crud',
+            'type'       => 'datatable',
+            'name'       => 'icon_crud',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
         ]);
 
