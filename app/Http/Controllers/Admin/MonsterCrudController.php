@@ -290,7 +290,31 @@ class MonsterCrudController extends CrudController
         $this->setupListOperation();
 
         $this->crud->set('show.contentClass', 'col-md-12');
-
+        $this->crud->addColumn([
+            'type'       => 'datatable',
+            'name'       => 'products_datatable',
+            'label'      => 'Products (Datatable)',
+            'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
+            'configure'  => function($crud) {
+                // Get the current monster's products
+                $monster = $this->crud->getCurrentEntry();
+                
+                // Configure the controller to only show products related to this monster
+                $crud->addClause('whereIn', 'id', $monster->products->pluck('id')->toArray());
+                
+                // Customize which columns to show
+                $crud->removeAllColumns();
+                $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
+                $crud->addColumn(['name' => 'price', 'label' => 'Price']);
+                
+                // Remove buttons that aren't needed for this embedded view
+                $crud->removeAllButtons();
+                
+                // Disable features that aren't needed
+                $crud->denyAccess(['create', 'update', 'delete']);
+                $crud->disableResponsiveTable();
+            }
+        ]);
         $this->crud->addColumn([
             'type'       => 'datatable',
             'name'       => 'icon_crud',
