@@ -284,7 +284,7 @@ class MonsterCrudController extends CrudController
         Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
-            'name' => 'icon_crud',
+            'name'       => 'icon_crud',
         ]);
 
         $this->crud->setOperationSetting('tabsEnabled', true);
@@ -301,7 +301,7 @@ class MonsterCrudController extends CrudController
                     'crud' => $crud->crudController,
                 ]);
                 // Get the current monster's products
-                if($entry) {                
+                if ($entry) {
                     $productIds = $entry->products->pluck('id')->toArray();
                     if (count($productIds) > 0) {
                         // Configure the controller to only show products related to this monster
