@@ -284,6 +284,7 @@ class MonsterCrudController extends CrudController
         Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
+            'name' => 'icon_crud',
         ]);
 
         $this->crud->setOperationSetting('tabsEnabled', true);
@@ -295,13 +296,21 @@ class MonsterCrudController extends CrudController
             'name'       => 'products_datatable',
             'label'      => 'Products (Datatable)',
             'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
-            'configure'  => function ($crud) {
+            'configure'  => function ($crud, $entry = null) {
+                \Log::debug('Configuring datatable for:', [
+                    'crud' => $crud->crudController,
+                ]);
                 // Get the current monster's products
-                $monster = $this->crud->getCurrentEntry();
-
-                // Configure the controller to only show products related to this monster
-                $crud->addClause('whereIn', 'id', $monster->products->pluck('id')->toArray());
-
+                if($entry) {                
+                    $productIds = $entry->products->pluck('id')->toArray();
+                    if (count($productIds) > 0) {
+                        // Configure the controller to only show products related to this monster
+                        $crud->addClause('whereIn', 'id', $productIds);
+                    } else {
+                        // Force an empty result when there are no products
+                        $crud->addClause('where', 'id', 0); // This will match no products
+                    }
+                }
                 // Customize which columns to show
                 $crud->removeAllColumns();
                 $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
