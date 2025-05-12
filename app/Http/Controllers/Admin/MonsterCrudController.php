@@ -298,7 +298,7 @@ class MonsterCrudController extends CrudController
             'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
             'configure'  => function ($crud, $entry = null) {
                 \Log::debug('Configuring datatable for:', [
-                    'crud' => $crud->crudController,
+                    'crud' => $crud->controller,
                 ]);
                 // Get the current monster's products
                 if ($entry) {
