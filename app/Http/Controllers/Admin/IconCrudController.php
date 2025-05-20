@@ -27,11 +27,11 @@ class IconCrudController extends CrudController
         $this->crud->addColumns(['name', 'icon']);
         $this->crud->addFilter([ // dropdown filter
             'name' => 'my_filter',
-            'type' => 'dropdown',
-            'label'=> 'Dropdown',
-        ], ['one' => 'One', 'two' => 'Two', 'three' => 'Three'], function ($value) {
+            'type' => 'text',
+            'label'=> 'Icon',
+        ], null, function ($value) {
             // if the filter is active
-            $this->crud->addClause('where', 'select_from_array', $value);
+            $this->crud->addClause('where', 'icon', 'LIKE', "%$value%");
         });
     }
 
