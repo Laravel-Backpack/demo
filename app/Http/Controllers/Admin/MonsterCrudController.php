@@ -285,6 +285,7 @@ class MonsterCrudController extends CrudController
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
             'name'       => 'icon_crud',
+            'wrapper' => ['class'=> 'mb-3'] ,
         ]);
 
         $this->crud->setOperationSetting('tabsEnabled', true);
@@ -297,9 +298,11 @@ class MonsterCrudController extends CrudController
             'label'      => 'Products (Datatable)',
             'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
             'configure'  => function ($crud, $entry = null) {
-                \Log::debug('Configuring datatable for:', [
-                    'crud' => $crud->controller,
-                ]);
+                 // Customize which columns to show
+                $crud->removeAllColumns();
+                $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
+                $crud->addColumn(['name' => 'price', 'label' => 'Price']);
+
                 // Get the current monster's products
                 if ($entry) {
                     $productIds = $entry->products->pluck('id')->toArray();
@@ -310,18 +313,15 @@ class MonsterCrudController extends CrudController
                         // Force an empty result when there are no products
                         $crud->addClause('where', 'id', 0); // This will match no products
                     }
-                }
-                // Customize which columns to show
-                $crud->removeAllColumns();
-                $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
-                $crud->addColumn(['name' => 'price', 'label' => 'Price']);
+
+                
 
                 // Remove buttons that aren't needed for this embedded view
-                $crud->removeAllButtons();
 
                 // Disable features that aren't needed
                 $crud->denyAccess(['create', 'update', 'delete']);
                 $crud->disableResponsiveTable();
+                }
             },
         ]);
         $this->crud->addColumn([
