@@ -285,7 +285,7 @@ class MonsterCrudController extends CrudController
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
             'name'       => 'icon_crud',
-            'wrapper' => ['class'=> 'mb-3'] ,
+            'wrapper'    => ['class'=> 'mb-3'],
         ]);
 
         $this->crud->setOperationSetting('tabsEnabled', true);
@@ -298,7 +298,7 @@ class MonsterCrudController extends CrudController
             'label'      => 'Products (Datatable)',
             'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
             'configure'  => function ($crud, $entry = null) {
-                 // Customize which columns to show
+                // Customize which columns to show
                 $crud->removeAllColumns();
                 $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
                 $crud->addColumn(['name' => 'price', 'label' => 'Price']);
@@ -314,13 +314,11 @@ class MonsterCrudController extends CrudController
                         $crud->addClause('where', 'id', 0); // This will match no products
                     }
 
-                
+                    // Remove buttons that aren't needed for this embedded view
 
-                // Remove buttons that aren't needed for this embedded view
-
-                // Disable features that aren't needed
-                $crud->denyAccess(['create', 'update', 'delete']);
-                $crud->disableResponsiveTable();
+                    // Disable features that aren't needed
+                    $crud->denyAccess(['create', 'update', 'delete']);
+                    $crud->disableResponsiveTable();
                 }
             },
         ]);
