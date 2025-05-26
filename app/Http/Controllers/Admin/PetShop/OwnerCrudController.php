@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\PetShop;
 
 use App\Http\Requests\OwnerRequest;
+use Backpack\CRUD\app\Library\Widget;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -98,5 +99,70 @@ class OwnerCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->setupListOperation();
+
+        // TODO: this is not working; but do we need a datatable column AT ALL?!?!
+        // CRUD::column('pets_table')
+        //     ->type('datatable')
+        //     ->controller('App\Http\Controllers\Admin\PetShop\PetCrudController')
+        //     ->configure(function ($crud, $entry = null) {
+        //         // only show the pets of this owner (owner is an n-n relationship)
+        //         if ($entry) {
+        //             $crud->addClause('whereHas', 'owners', function ($query) use ($entry) {
+        //             });
+        //         }
+        //     });
+
+        // add a widget
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\PetShop\PetCrudController',
+            'name'       => 'pets_crud',
+            'section'    => 'after_content',
+            'wrapper'    => ['class' => 'mt-3'],
+            'content'    => [
+                'header' => 'Pets for this owner',
+                // COULD-DO: maybe add support for a subheader?
+                // 'subheader' => 'This is a list of all pets owned by this owner.',
+            ],
+            // MUST-DO: How the fuck do I make this only show related pets?!?!
+            // 'configure' => function ($crud, $entry = null) {
+            //     // only show the pets of this owner (owner is an n-n relationship)
+            //     if ($entry) {
+            //         $crud->addClause('whereHas', 'owners', function ($query) use ($entry) {
+            //             $query->where('id', $entry->id);
+            //         });
+            //     }
+            // },
+        ]);
+
+        // SHOULD-DO: how do I make a new entry automatically related to the owner?
+
+        // add a widget
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
+            'name'       => 'invoices_crud',
+            'section'    => 'after_content',
+            'wrapper'    => ['class' => 'mt-3'],
+            'content'    => [
+                'header' => 'Invoices for this owner',
+            ],
+            // MUST-DO: How the fuck do I make this only show related pets?!?!
+            'configure' => function ($crud, $entry = null) {
+                // only show the pets of this owner (owner is an n-n relationship)
+                if ($entry) {
+                    $crud->addClause('where', 'owner_id', $entry->id);
+                }
+            },
+            // SHOULD-DO: maybe we do something like this?!
+            // 'query' => function ($query, $entry) {
+            //     return $query->where('owner_id', $entry->id);
+            // }
+        ]);
     }
 }

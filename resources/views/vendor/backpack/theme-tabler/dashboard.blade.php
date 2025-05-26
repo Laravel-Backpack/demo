@@ -268,6 +268,17 @@
 
         ]
     ];
+
+    $widgets['after_content'][] = [
+        'type'       => 'datatable',
+        'controller' => 'App\Http\Controllers\Admin\PetShop\OwnerCrudController',
+        'name'       => 'owners_crud',
+        'section'    => 'after_content',
+        'wrapper'    => ['class' => 'mt-3'],
+        'content'    => [
+            'header' => 'Pet Owners',
+        ],
+    ];
 @endphp
 
 @section('content')
