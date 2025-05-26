@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\PetShop;
 
 use App\Http\Requests\OwnerRequest;
-use Backpack\CRUD\app\Library\Widget;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class OwnerCrudController.
