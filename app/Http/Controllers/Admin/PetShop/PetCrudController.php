@@ -57,8 +57,8 @@ class PetCrudController extends CrudController
 
         // add a filter for the nickname
         CRUD::addFilter([
-            'name' => 'nickname',
-            'type' => 'text',
+            'name'  => 'nickname',
+            'type'  => 'text',
             'label' => 'Nickname',
         ], null, function ($value) {
             // if the filter is active
