@@ -54,6 +54,16 @@ class PetCrudController extends CrudController
         CRUD::column('avatar.url')->type('image')->label('Avatar');
 
         CRUD::addButtonFromView('top', 'passports', 'passports');
+
+        // add a filter for the nickname
+        CRUD::addFilter([
+            'name' => 'nickname',
+            'type' => 'text',
+            'label' => 'Nickname',
+        ], null, function ($value) {
+            // if the filter is active
+            $this->crud->addClause('where', 'nickname', 'LIKE', "%$value%");
+        });
     }
 
     /**
