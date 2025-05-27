@@ -130,11 +130,11 @@ class OwnerCrudController extends CrudController
                 // 'subheader' => 'This is a list of all pets owned by this owner.',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            // 'configure' => function ($crud, $entry = null) {
+            // 'configure' => function ($crud, $parent) {
             //     // only show the pets of this owner (owner is an n-n relationship)
-            //     if ($entry) {
-            //         $crud->addClause('whereHas', 'owners', function ($query) use ($entry) {
-            //             $query->where('id', $entry->id);
+            //     if ($parent) {
+            //         $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
+            //             $query->where('id', $parent->id);
             //         });
             //     }
             // },
@@ -153,16 +153,12 @@ class OwnerCrudController extends CrudController
                 'header' => 'Invoices for this owner',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            'configure' => function ($crud, $entry = null) {
-                // only show the pets of this owner (owner is an n-n relationship)
-                if ($entry) {
-                    $crud->addClause('where', 'owner_id', $entry->id);
-                }
-            },
-            // SHOULD-DO: maybe we do something like this?!
-            // 'query' => function ($query, $entry) {
-            //     return $query->where('owner_id', $entry->id);
-            // }
+            // 'configure' => function ($crud, $parent) {
+            //     // only show the pets of this owner (owner is an n-n relationship)
+            //     if ($parent) {
+            //         $crud->addClause('where', 'owner_id', $$parent->id);
+            //     }
+            // },
         ]);
     }
 }

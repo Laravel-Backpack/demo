@@ -285,18 +285,22 @@ class MonsterCrudController extends CrudController
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\IconCrudController',
             'name'       => 'icon_crud',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Icons for this monster',
+            ],
             'wrapper'    => ['class'=> 'mb-3'],
         ]);
 
-        $this->crud->setOperationSetting('tabsEnabled', true);
-        $this->setupListOperation();
-
-        $this->crud->set('show.contentClass', 'col-md-12');
-        $this->crud->addColumn([
+        Widget::add([
             'type'       => 'datatable',
-            'name'       => 'products_datatable',
-            'label'      => 'Products (Datatable)',
             'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
+            'name'       => 'products_datatable',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Products for this monster',
+            ],
+            'wrapper'    => ['class'=> 'mb-3'],
             'configure'  => function ($crud, $entry = null) {
                 // Customize which columns to show
                 $crud->removeAllColumns();
@@ -322,11 +326,11 @@ class MonsterCrudController extends CrudController
                 }
             },
         ]);
-        $this->crud->addColumn([
-            'type'       => 'datatable',
-            'name'       => 'icon_crud',
-            'controller' => 'App\Http\Controllers\Admin\IconCrudController',
-        ]);
+
+        $this->crud->setOperationSetting('tabsEnabled', true);
+        $this->setupListOperation();
+
+        $this->crud->set('show.contentClass', 'col-md-12');
 
         $this->crud->addColumn([   // EasyMDE
             'name'    => 'easymde',

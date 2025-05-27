@@ -25,13 +25,19 @@ class IconCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->addColumns(['name', 'icon']);
-        $this->crud->addFilter([ // dropdown filter
-            'name' => 'my_filter',
-            'type' => 'text',
-            'label'=> 'Icon',
+
+        $this->crud->addFilter([
+            'type'  => 'date_range',
+            'name'  => 'created_at',
+            'label' => 'Created At',
         ], null, function ($value) {
+            $value = json_decode($value, true);
+
             // if the filter is active
-            $this->crud->addClause('where', 'icon', 'LIKE', "%$value%");
+            if ($value) {
+                $this->crud->addClause('where', 'created_at', '>=', $value['from']);
+                $this->crud->addClause('where', 'created_at', '<=', $value['to']);
+            }
         });
     }
 
