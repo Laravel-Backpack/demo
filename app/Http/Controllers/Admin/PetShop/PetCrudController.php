@@ -55,15 +55,18 @@ class PetCrudController extends CrudController
 
         CRUD::addButtonFromView('top', 'passports', 'passports');
 
-        // add a filter for the nickname
-        CRUD::addFilter([
-            'name'  => 'nickname',
-            'type'  => 'text',
-            'label' => 'Nickname',
-        ], null, function ($value) {
-            // if the filter is active
-            $this->crud->addClause('where', 'nickname', 'LIKE', "%$value%");
-        });
+        CRUD::filter('skills')
+            ->type('select2_multiple')
+            ->values(function () {
+                return \App\Models\Petshop\Skill::all()->keyBy('id')->pluck('name', 'id')->toArray();
+            })
+            ->whenActive(function ($values) {
+                $values = json_decode($values, true);
+
+                $this->crud->addClause('whereHas', 'skills', function ($query) use ($values) {
+                    $query->whereIn('id', $values);
+                });
+            });
     }
 
     /**

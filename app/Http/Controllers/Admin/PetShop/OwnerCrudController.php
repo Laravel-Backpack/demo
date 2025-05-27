@@ -105,19 +105,6 @@ class OwnerCrudController extends CrudController
     {
         $this->setupListOperation();
 
-        // TODO: this is not working; but do we need a datatable column AT ALL?!?!
-        // CRUD::column('pets_table')
-        //     ->type('datatable')
-        //     ->controller('App\Http\Controllers\Admin\PetShop\PetCrudController')
-        //     ->configure(function ($crud, $entry = null) {
-        //         // only show the pets of this owner (owner is an n-n relationship)
-        //         if ($entry) {
-        //             $crud->addClause('whereHas', 'owners', function ($query) use ($entry) {
-        //             });
-        //         }
-        //     });
-
-        // add a widget
         Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\PetShop\PetCrudController',
@@ -138,11 +125,9 @@ class OwnerCrudController extends CrudController
             //         });
             //     }
             // },
+            // SHOULD-DO: how do I make a new entry automatically related to the owner?
         ]);
 
-        // SHOULD-DO: how do I make a new entry automatically related to the owner?
-
-        // add a widget
         Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
