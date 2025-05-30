@@ -117,18 +117,20 @@ class OwnerCrudController extends CrudController
                 // 'subheader' => 'This is a list of all pets owned by this owner.',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            // 'configure' => function ($crud, $parent) {
-            //     // only show the pets of this owner (owner is an n-n relationship)
-            //     if ($parent) {
-            //         $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
-            //             $query->where('id', $parent->id);
-            //         });
-            //     }
-            // },
+            'configure' => function ($crud, $parent) {
+                 // only show the pets of this owner (owner is an n-n relationship)
+                if ($parent) {
+                    $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
+                        $query->where('id', $parent->id);
+                    });
+                }
+            },
             // SHOULD-DO: how do I make a new entry automatically related to the owner?
         ]);
 
-        Widget::add([
+        \Log::info($this->crud->settings());
+
+       Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
             'name'       => 'invoices_crud',
@@ -138,12 +140,13 @@ class OwnerCrudController extends CrudController
                 'header' => 'Invoices for this owner',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            // 'configure' => function ($crud, $parent) {
-            //     // only show the pets of this owner (owner is an n-n relationship)
-            //     if ($parent) {
-            //         $crud->addClause('where', 'owner_id', $$parent->id);
-            //     }
-            // },
+             'configure' => function ($crud, $parent) {
+                \Log::info('running configure with parent? ' . isset($parent) ? 'true' : 'false');
+                 // only show the pets of this owner (owner is an n-n relationship)
+                 if ($parent) {
+                     $crud->addClause('where', 'owner_id', $parent->id);
+                 }
+             },
         ]);
     }
 }
