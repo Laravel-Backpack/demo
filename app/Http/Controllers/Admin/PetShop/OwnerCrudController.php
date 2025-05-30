@@ -140,13 +140,12 @@ class OwnerCrudController extends CrudController
                 'header' => 'Invoices for this owner',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            'configure' => function ($crud, $parent) {
-                \Log::info('running configure with parent? '.isset($parent) ? 'true' : 'false');
-                // only show the pets of this owner (owner is an n-n relationship)
-                if ($parent) {
-                    $crud->addClause('where', 'owner_id', $parent->id);
-                }
-            },
+             'configure' => function ($crud, $parent) {
+                 // only show the pets of this owner (owner is an n-n relationship)
+                 if ($parent) {
+                     $crud->addClause('where', 'owner_id', $parent->id);
+                 }
+             },
         ]);
     }
 }
