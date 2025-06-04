@@ -122,7 +122,6 @@ class OwnerCrudController extends CrudController
                 $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
                     $query->where('id', $parent->id);
                 });
-                
             },
             // SHOULD-DO: how do I make a new entry automatically related to the owner?
         ]);
@@ -136,10 +135,10 @@ class OwnerCrudController extends CrudController
                 'header' => 'Invoices for this owner',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-             'setup' => function ($crud, $parent) {
-                 // only show the pets of this owner (owner is an n-n relationship)
+            'setup' => function ($crud, $parent) {
+                // only show the pets of this owner (owner is an n-n relationship)
                 $crud->addClause('where', 'owner_id', $parent->id);
-             },
+            },
         ]);
     }
 }
