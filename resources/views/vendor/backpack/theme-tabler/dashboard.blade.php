@@ -268,20 +268,11 @@
 
         ]
     ];
-
-    $widgets['after_content'][] = [
-        'type'       => 'datatable',
-        'controller' => 'App\Http\Controllers\Admin\PetShop\OwnerCrudController',
-        'name'       => 'owners_crud',
-        'section'    => 'after_content',
-        'wrapper'    => ['class' => 'mt-3'],
-        'content'    => [
-            'header' => 'Pet Owners',
-        ],
-    ];
 @endphp
 
 @section('content')
     {{-- In case widgets have been added to a 'content' group, show those widgets. --}}
+    <x-datatable controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" :setup="function($crud, $parent) { $crud->removeAllColumns(); }" :modifiesUrl="false" name="invoices_table" />
+
     @include(backpack_view('inc.widgets'), [ 'widgets' => app('widgets')->where('group', 'content')->toArray() ])
 @endsection

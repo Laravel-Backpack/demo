@@ -117,7 +117,7 @@ class OwnerCrudController extends CrudController
                 // 'subheader' => 'This is a list of all pets owned by this owner.',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            'configure' => function ($crud, $parent) {
+            'setup' => function ($crud, $parent) {
                 // only show the pets of this owner (owner is an n-n relationship)
                 if ($parent) {
                     $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
@@ -127,9 +127,6 @@ class OwnerCrudController extends CrudController
             },
             // SHOULD-DO: how do I make a new entry automatically related to the owner?
         ]);
-
-        \Log::info($this->crud->settings());
-
         Widget::add([
             'type'       => 'datatable',
             'controller' => 'App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
@@ -140,12 +137,12 @@ class OwnerCrudController extends CrudController
                 'header' => 'Invoices for this owner',
             ],
             // MUST-DO: How the fuck do I make this only show related pets?!?!
-            'configure' => function ($crud, $parent) {
-                // only show the pets of this owner (owner is an n-n relationship)
-                if ($parent) {
-                    $crud->addClause('where', 'owner_id', $parent->id);
-                }
-            },
+             'setup' => function ($crud, $parent) {
+                 // only show the pets of this owner (owner is an n-n relationship)
+                 if ($parent) {
+                     $crud->addClause('where', 'owner_id', $parent->id);
+                 }
+             },
         ]);
     }
 }
