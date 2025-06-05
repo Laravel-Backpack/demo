@@ -116,14 +116,17 @@ class OwnerCrudController extends CrudController
                 // COULD-DO: maybe add support for a subheader?
                 // 'subheader' => 'This is a list of all pets owned by this owner.',
             ],
-            // MUST-DO: How the fuck do I make this only show related pets?!?!
             'setup' => function ($crud, $parent) {
+
+                // change some column attributes just inside this instance
+                $crud->column('skills')->label('Pet skills');
+                $crud->column('passport.number')->label('Passport Number');
+
                 // only show the pets of this owner (owner is an n-n relationship)
                 $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
                     $query->where('id', $parent->id);
                 });
             },
-            // SHOULD-DO: how do I make a new entry automatically related to the owner?
         ]);
         Widget::add([
             'type'       => 'datatable',

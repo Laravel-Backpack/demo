@@ -264,15 +264,29 @@
                     // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
                 ]
             ],
-
-
         ]
     ];
 @endphp
 
 @section('content')
-    {{-- In case widgets have been added to a 'content' group, show those widgets. --}}
-    <x-datatable controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" :setup="function($crud, $parent) { $crud->removeAllColumns(); }" :modifiesUrl="false" name="invoices_table" />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-stacked mt-3">
+                <div class="card-body">
+                    <h3 class="card-title">Invoices</h3>
 
+                    <x-datatable
+                        controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController"
+                        :setup="function($crud, $parent) {
+                            $crud->enableExportButtons();
+                        }"
+                    />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- In case widgets have been added to a 'content' group, show those widgets. --}}
     @include(backpack_view('inc.widgets'), [ 'widgets' => app('widgets')->where('group', 'content')->toArray() ])
 @endsection
