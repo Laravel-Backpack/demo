@@ -117,7 +117,6 @@ class OwnerCrudController extends CrudController
                 // 'subheader' => 'This is a list of all pets owned by this owner.',
             ],
             'setup' => function ($crud, $parent) {
-
                 // change some column attributes just inside this instance
                 $crud->column('skills')->label('Pet skills');
                 $crud->column('passport.number')->label('Passport Number');
