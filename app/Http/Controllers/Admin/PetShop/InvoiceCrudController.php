@@ -66,6 +66,24 @@ class InvoiceCrudController extends CrudController
         CRUD::column('due_date');
         CRUD::column('total');
 
+        CRUD::filter('series')
+            ->type('dropdown')
+            ->values(\App\Models\PetShop\Invoice::select('series')->distinct()->pluck('series', 'series')->toArray())
+            ->label('Series')
+            ->placeholder('Search by series')
+            ->whenActive(function ($value) {
+                CRUD::addClause('where', 'series', '=', $value);
+            });
+
+        CRUD::filter('issuance_date')
+            ->type('date_range')
+            ->label('Issuance Date')
+            ->placeholder('Search by issuance date')
+            ->whenActive(function ($value) {
+                $dates = json_decode($value);
+                CRUD::addClause('whereBetween', 'issuance_date', [$dates->from, $dates->to]);
+            });
+
         $this->runCustomViews();
     }
 

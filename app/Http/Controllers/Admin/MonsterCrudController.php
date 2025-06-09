@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\Widget;
 use Illuminate\Support\Collection;
 
 class MonsterCrudController extends CrudController
@@ -64,7 +65,7 @@ class MonsterCrudController extends CrudController
             ['id' => 'review', 'title' => 'Review', 'location' => 'Hybrid'],
         ];
 
-        Collection::macro('paginate', function (int $perPage = 15, int $page = null, array $options = []) {
+        Collection::macro('paginate', function (int $perPage = 15, ?int $page = null, array $options = []) {
             $page ??= \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
 
             return new \Illuminate\Pagination\LengthAwarePaginator($this->forPage($page, $perPage)->toArray(), $this->count(), $perPage, $page, $options);
@@ -279,6 +280,53 @@ class MonsterCrudController extends CrudController
 
     public function setupShowOperation()
     {
+        // add a widget
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\IconCrudController',
+            'name'       => 'icon_crud',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Icons for this monster',
+            ],
+            'wrapper'    => ['class'=> 'mb-3'],
+        ]);
+
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
+            'name'       => 'products_datatable',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Products for this monster',
+            ],
+            'wrapper'    => ['class'=> 'mb-3'],
+            'configure'  => function ($crud, $entry = null) {
+                // Customize which columns to show
+                $crud->removeAllColumns();
+                $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
+                $crud->addColumn(['name' => 'price', 'label' => 'Price']);
+
+                // Get the current monster's products
+                if ($entry) {
+                    $productIds = $entry->products->pluck('id')->toArray();
+                    if (count($productIds) > 0) {
+                        // Configure the controller to only show products related to this monster
+                        $crud->addClause('whereIn', 'id', $productIds);
+                    } else {
+                        // Force an empty result when there are no products
+                        $crud->addClause('where', 'id', 0); // This will match no products
+                    }
+
+                    // Remove buttons that aren't needed for this embedded view
+
+                    // Disable features that aren't needed
+                    $crud->denyAccess(['create', 'update', 'delete']);
+                    $crud->disableResponsiveTable();
+                }
+            },
+        ]);
+
         $this->crud->setOperationSetting('tabsEnabled', true);
         $this->setupListOperation();
 
