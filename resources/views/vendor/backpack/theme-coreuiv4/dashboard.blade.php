@@ -240,7 +240,6 @@
 		<div class="col-md-12">
 			<div class="card card-stacked mt-3">
 				<div class="card-body">
-					<h3 class="card-title">Invoices</h3>
 
 					<x-backpack::datatable
 						controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController"
