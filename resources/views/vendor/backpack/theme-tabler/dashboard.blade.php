@@ -280,6 +280,14 @@
                             $crud->enableExportButtons();
                         }"
                     />
+<x-backpack::form
+                        controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" 
+                    />
+
+                    <x-backpack::form-modal 
+                        controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController"
+                    />
+                    
 
                 </div>
             </div>
