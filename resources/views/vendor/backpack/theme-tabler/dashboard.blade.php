@@ -270,6 +270,57 @@
 
 @section('content')
     <div class="row">
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Quick Add Tag
+                    </h3>
+                </div>
+                <div class="card-body bg-light">
+
+                    <x-backpack::form id="quickAddTag"
+                        controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Other Quick Actions
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#addOwnerForm"
+                        data-bs-target="#addOwnerForm">
+                        Add Owner
+                    </button>
+                    <x-backpack::form-modal id="addOwnerForm" controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController" modalTitle="Add Owner" />
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#addPetForm"
+                        data-bs-target="#addPetForm">
+                        Add Pet
+                    </button>
+                    <x-backpack::form-modal id="addPetForm" controller="\App\Http\Controllers\Admin\PetShop\PetCrudController"
+                        modalTitle="Add Pet" />
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#addProductForm"
+                        data-bs-target="#addProductForm">
+                        Add Product
+                    </button>
+                    <x-backpack::form-modal id="addProductForm" controller="\App\Http\Controllers\Admin\ProductCrudController" modalTitle="Add Product" />
+                </div>
+            </div>
+
+            @include('backpack.theme-tabler::inc.commercial')
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-12">
             <div class="card card-stacked mt-3">
                 <div class="card-body">
@@ -280,22 +331,6 @@
                             $crud->enableExportButtons();
                         }"
                     />
-                    
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#myForm" data-bs-target="#myForm">
-                        Open Form Modal
-                    </button>
-                    <x-backpack::form-modal
-                        id="myForm" 
-                        controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController"
-                    />
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#myForm2" data-bs-target="#myForm2">
-                        Open Second Form Modal
-                    </button>
-                    <x-backpack::form-modal
-                        id="myForm2" 
-                        controller="\App\Http\Controllers\Admin\ProductCrudController"
-                    />
-                    
 
                 </div>
             </div>

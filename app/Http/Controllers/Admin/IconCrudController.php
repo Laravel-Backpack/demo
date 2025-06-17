@@ -41,7 +41,7 @@ class IconCrudController extends CrudController
         });
 
         $this->crud->removeButton('update');
-        $this->crud->addButton('line', 'inline_edit', 'view', 'crud::buttons.inline_edit', 'beginning');
+        $this->crud->addButton('line', 'inline_edit_icon', 'view', 'crud::buttons.inline_edit_icon', 'beginning');
     }
 
     protected function setupCreateOperation()

@@ -5,9 +5,10 @@
 <x-backpack::form-modal
     id="myForm{{$entry->getKey()}}"
     controller="App\Http\Controllers\Admin\IconCrudController"
+    modalTitle="Update Icon"
     :action="url($crud->route.'/'.$entry->getKey().'')"
-    method="PUT"
     :formRouteOperation="url($crud->route.'/'.$entry->getKey().'/edit')"
+    method="PUT"
     refreshDatatable="true"
     operation="update"
-    />
+/>
