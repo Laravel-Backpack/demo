@@ -280,12 +280,20 @@
                             $crud->enableExportButtons();
                         }"
                     />
-<x-backpack::form
-                        controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" 
-                    />
-
-                    <x-backpack::form-modal 
+                    
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#myForm" data-bs-target="#myForm">
+                        Open Form Modal
+                    </button>
+                    <x-backpack::form-modal
+                        id="myForm" 
                         controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController"
+                    />
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#myForm2" data-bs-target="#myForm2">
+                        Open Second Form Modal
+                    </button>
+                    <x-backpack::form-modal
+                        id="myForm2" 
+                        controller="\App\Http\Controllers\Admin\ProductCrudController"
                     />
                     
 
