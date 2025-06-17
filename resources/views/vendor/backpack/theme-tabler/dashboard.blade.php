@@ -264,6 +264,15 @@
                     // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
                 ]
             ],
+            [
+                'type' => 'form',
+                'wrapperClass' => 'col-12',
+                'controller' => '\App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
+                'content' => [
+                    'header' => 'Create Invoice', // optional
+                    'body' => 'This form should make it easy to create a new invoice.<br><br>', // optional
+                ],
+            ]
         ]
     ];
 @endphp
