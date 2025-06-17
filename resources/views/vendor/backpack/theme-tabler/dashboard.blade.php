@@ -281,6 +281,27 @@
                         }"
                     />
 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-stacked mt-3">
+                <div class="card-body">
+
+                    <x-bp-datagrid
+                        :entry="\App\User::find(1)"
+                        :columns="[
+                            ['label' => 'Name', 'type' => 'text', 'name' => 'name', 'size' => 6],
+                            ['label' => 'Email', 'type' => 'email', 'name' => 'email', 'size' => 6],
+                            ['label' => 'Created At', 'type' => 'datetime', 'name' => 'created_at'],
+                            ['label' => 'Updated At', 'type' => 'datetime', 'name' => 'updated_at'],
+                        ]"
+                    />
+
                 </div>
             </div>
         </div>
