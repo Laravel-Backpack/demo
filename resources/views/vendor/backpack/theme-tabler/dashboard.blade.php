@@ -35,7 +35,7 @@
         // notice we use Widget::make() to add widgets as content (not in a group)
         Widget::make()
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('success') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-user']) // ['top|right|bottom']
@@ -48,7 +48,7 @@
         // but we need to use onlyHere() or remove() at the end
         Widget::add()
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('danger') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-bell']) // ['top|right|bottom']
@@ -63,7 +63,7 @@
         Widget::make()
             ->group('hidden')
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('info') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-star']) // ['top|right|bottom']
@@ -76,7 +76,7 @@
         // if you prefer defining your widgets as arrays
         Widget::make([
             'type' => 'progress',
-            'class'=> 'card mb-3',
+            'class'=> 'card mb-1',
             'statusBorder' => 'start', // start|top|bottom
             'accentColor' => 'warning', // primary|secondary|warning|danger|info
             'ribbon' => ['top', 'la-lock'], // ['top|right|left|bottom', 'la-xxx']
@@ -151,7 +151,7 @@
       'close_button' => true, // show close button or not
     ];
 
-    $widgets['before_content'][] = [
+    $widgets['after_content'][] = [
       'type' => 'div',
       'class' => 'row',
       'content' => [ // widgets
