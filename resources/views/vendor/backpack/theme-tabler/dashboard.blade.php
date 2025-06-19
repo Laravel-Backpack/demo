@@ -266,7 +266,9 @@
             ],
             [
                 'type' => 'form',
-                'wrapperClass' => 'col-12',
+                'wrapper' => [
+                    'class' => 'col-md-12',
+                ],
                 'controller' => '\App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
                 'content' => [
                     'header' => 'Create Invoice', // optional
