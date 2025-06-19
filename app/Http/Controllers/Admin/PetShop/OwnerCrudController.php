@@ -48,8 +48,8 @@ class OwnerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('avatar.url')->type('image')->label('Avatar');
+        CRUD::column('name')->size(6);
+        CRUD::column('avatar.url')->type('image')->label('Avatar')->size(6);
         CRUD::column('pets')->label('Pets')->linkTo('pet.show');
         CRUD::column('invoices')->linkTo('invoice.show');
         CRUD::column('badges')->label('Badges')->linkTo('badge.show');
