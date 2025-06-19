@@ -308,20 +308,20 @@
                         data-bs-target="#addOwnerForm">
                         Add Owner
                     </button>
-                    <x-backpack::form-modal id="addOwnerForm" controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController" modalTitle="Add Owner" />
+                    <x-backpack::form-modal id="addOwnerForm" controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController" title="Add Owner" />
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#addPetForm"
                         data-bs-target="#addPetForm">
                         Add Pet
                     </button>
                     <x-backpack::form-modal id="addPetForm" controller="\App\Http\Controllers\Admin\PetShop\PetCrudController"
-                        modalTitle="Add Pet" />
+                        title="Add Pet" />
 
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" data-target="#addProductForm"
                         data-bs-target="#addProductForm">
                         Add Product
                     </button>
-                    <x-backpack::form-modal id="addProductForm" controller="\App\Http\Controllers\Admin\ProductCrudController" modalTitle="Add Product" />
+                    <x-backpack::form-modal id="addProductForm" controller="\App\Http\Controllers\Admin\ProductCrudController" title="Add Product" />
                 </div>
             </div>
 
