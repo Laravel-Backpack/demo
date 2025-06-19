@@ -19,6 +19,11 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    // ------------
+    // Custom Pages
+    // ------------
+    Route::get('new-in-v7', 'AdminPageController@newInV7')->name('new-in-v7');
+
     // ----------------
     // Monsters & Stuff
     // ----------------
