@@ -12,7 +12,7 @@ class AdminPageController
     public function newInV7()
     {
         return view('admin.new-in-v7', [
-            'title' => 'New in v7',
+            'title'       => 'New in v7',
             'description' => 'Discover the new features and improvements in Backpack v7.',
         ]);
     }
