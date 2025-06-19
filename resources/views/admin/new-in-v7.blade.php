@@ -1,10 +1,31 @@
 @extends(backpack_view('blank'))
 
+@php
+    // Add the form widget to the 'after_content' section of the widgets array
+    $widgets['after_content'][] = [
+      'type' => 'div',
+      'class' => 'row',
+      'content' => [ // widgets
+            [
+                'type' => 'form',
+                'wrapper' => [
+                    'class' => 'col-md-12 mt-3',
+                ],
+                'controller' => '\App\Http\Controllers\Admin\PetShop\SkillCrudController',
+                'content' => [
+                    'header' => 'Create Skill', // optional
+                    'body' => 'This form should make it easy to create a new skill.<br><br>', // optional
+                ],
+            ]
+        ]
+    ];
+@endphp
+
 @section('content')
 
 <!-- Heading for Datagrid component -->
 <div class="row g-2 align-items-center">
-    <div class="col text-white">
+    <div class="col">
         <div class="page-pretitle">Components</div>
         <h2 class="page-title">Datagrid</h2>
         <p class="mt-2 mb-2">Show the most important info about an Eloquent entry, anywhere you want.</p>
@@ -55,5 +76,23 @@
 </div>
 
 @include('admin.partials.datatable-examples')
+
+<!-- Heading for Form component -->
+<div class="row g-2 align-items-center mt-3">
+    <div class="col">
+        <div class="page-pretitle">Components</div>
+        <h2 class="page-title">Dataform</h2>
+        <p class="mt-2 mb-2">Show a form for an Eloquent entry, anywhere you want.</p>
+    </div>
+    <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+            <span class="d-none d-sm-inline">
+                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+            </span>
+        </div>
+    </div>
+</div>
+
+@include('admin.partials.dataform-examples')
 
 @endsection
