@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
 
-                <x-bp-form controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" />
+                <x-bp-data-form controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" />
 
             </div>
         </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="card-body bg-light">
 
-                <x-backpack::form id="quickAddTag"
+                <x-backpack::data-form id="quickAddTag"
                     controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController" />
 
             </div>
@@ -56,37 +56,6 @@
     </div>
 
     <div class="col-md-6">
-        <div class="card mt-3">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Other Quick Actions
-                </h3>
-            </div>
-
-            <div class="card-body">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal"
-                    data-target="#addOwnerForm" data-bs-target="#addOwnerForm">
-                    Add Owner
-                </button>
-                <x-backpack::form-modal id="addOwnerForm"
-                    controller="\App\Http\Controllers\Admin\PetShop\OwnerCrudController" title="Add Owner" />
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal"
-                    data-target="#addPetForm" data-bs-target="#addPetForm">
-                    Add Pet
-                </button>
-                <x-backpack::form-modal id="addPetForm"
-                    controller="\App\Http\Controllers\Admin\PetShop\PetCrudController" title="Add Pet" />
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal"
-                    data-target="#addProductForm" data-bs-target="#addProductForm">
-                    Add Product
-                </button>
-                <x-backpack::form-modal id="addProductForm"
-                    controller="\App\Http\Controllers\Admin\ProductCrudController" title="Add Product" />
-            </div>
-        </div>
-
         @include('backpack.theme-tabler::inc.commercial')
     </div>
 </div>
