@@ -48,8 +48,12 @@
             </div>
             <div class="card-body bg-light">
 
-                <x-backpack::data-form id="quickAddTag"
-                    controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController" />
+                <x-backpack::data-form
+                    id="quickAddTag"
+                    controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
+                    operation="update"
+                    :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
+                />
 
             </div>
         </div>

@@ -39,9 +39,6 @@ class IconCrudController extends CrudController
                 $this->crud->addClause('where', 'created_at', '<=', $value['to']);
             }
         });
-
-        $this->crud->removeButton('update');
-        $this->crud->addButton('line', 'inline_edit_icon', 'view', 'crud::buttons.inline_edit_icon', 'beginning');
     }
 
     protected function setupCreateOperation()
