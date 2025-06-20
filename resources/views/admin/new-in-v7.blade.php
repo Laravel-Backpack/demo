@@ -7,14 +7,16 @@
       'class' => 'row',
       'content' => [ // widgets
             [
-                'type' => 'form',
+                'type' => 'dataform',
                 'wrapper' => [
                     'class' => 'col-md-12 mt-3',
                 ],
                 'controller' => '\App\Http\Controllers\Admin\PetShop\SkillCrudController',
+                'operation' => 'update',
+                'entry' => \App\Models\PetShop\Skill::find(1),
                 'content' => [
-                    'header' => 'Create Skill', // optional
-                    'body' => 'This form should make it easy to create a new skill.<br><br>', // optional
+                    'header' => 'Edit Skill', // optional
+                    'body' => 'This form should make it easy to update an existing skill.<br><br>', // optional
                 ],
             ]
         ]

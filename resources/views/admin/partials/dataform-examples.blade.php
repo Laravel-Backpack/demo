@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
 
-                <x-bp-data-form controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" />
+                <x-bp-dataform controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" />
 
             </div>
         </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="card-body bg-light">
 
-                <x-backpack::data-form
+                <x-backpack::dataform
                     id="quickAddTag"
                     controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
                     operation="update"
