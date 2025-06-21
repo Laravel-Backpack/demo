@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\PetShop;
 use App\Http\Requests\InvoiceRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class InvoiceCrudController.
@@ -53,15 +54,10 @@ class InvoiceCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addColumn([
-            'name'   => 'owner',
-            'label'  => 'Owner',
-            'linkTo' => [
-                'route'     => 'owner.show',
-                'target'    => '_blank',
-            ],
+            'name' => 'info',
+            'type' => 'view',
+            'view' => 'crud::chips.invoice',
         ]);
-        CRUD::column('series');
-        CRUD::column('number');
         CRUD::column('issuance_date');
         CRUD::column('due_date');
         CRUD::column('total');
@@ -148,6 +144,17 @@ class InvoiceCrudController extends CrudController
         $this->autoSetupShowOperation();
 
         CRUD::column('total');
+
+        // get the owner with important relationships
+        $owner = CRUD::getCurrentEntry()->owner()->with('avatar', 'invoices')->first();
+
+        // add a chip widget for the owner
+        Widget::add()
+            ->to('after_content')
+            ->type('chip')
+            ->view('crud::chips.owner')
+            ->title('Owner')
+            ->entry($owner);
     }
 
     public function fetchOwner()
