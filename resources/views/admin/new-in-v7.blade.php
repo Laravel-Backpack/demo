@@ -11,7 +11,7 @@
                 'wrapper' => [
                     'class' => 'col-md-12 mt-3',
                 ],
-                'controller' => '\App\Http\Controllers\Admin\PetShop\SkillCrudController',
+                'controller' => \App\Http\Controllers\Admin\PetShop\SkillCrudController::class,
                 'operation' => 'update',
                 'entry' => \App\Models\PetShop\Skill::find(1),
                 'content' => [

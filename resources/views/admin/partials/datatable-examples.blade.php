@@ -28,7 +28,7 @@
             <div class="card-body">
 
                 <x-backpack::datatable
-                    controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController"
+                    :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
                     :setup="function($crud, $parent) {
                         $crud->enableExportButtons();
                     }" />

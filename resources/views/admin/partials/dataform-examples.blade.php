@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
 
-                <x-bp-dataform controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController" />
+                <x-bp-dataform :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
 
             </div>
         </div>
@@ -51,8 +51,11 @@
 
                 <x-backpack::dataform
                     id="quickAddTag"
-                    controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
+                    :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     operation="create"
+                    :setup="function($crud, $entry)  {
+                        $crud->field('custom_test_field')->type('text');
+                    }"
                 />
 
             </div>
@@ -69,7 +72,7 @@
 
                 <x-backpack::dataform
                     id="quickEditTag"
-                    controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
+                    :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     operation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
                 />
