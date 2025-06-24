@@ -21,6 +21,14 @@
             ]
         ]
     ];
+
+    $widgets['after_content'][] = [
+        'type' => 'view',
+        'view' => 'backpack.theme-tabler::inc.commercial',
+        'wrapper' => [
+            'class' => 'mt-3',
+        ],
+    ];
 @endphp
 
 @section('content')

@@ -39,6 +39,7 @@
 </div>
 
 <div class="row">
+
     <div class="col-md-6">
         <div class="card mt-3">
             <div class="card-header">
@@ -51,6 +52,24 @@
                 <x-backpack::dataform
                     id="quickAddTag"
                     controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
+                    operation="create"
+                />
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Quick Edit Tag
+                </h3>
+            </div>
+            <div class="card-body bg-light">
+
+                <x-backpack::dataform
+                    id="quickEditTag"
+                    controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController"
                     operation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
                 />
@@ -59,7 +78,4 @@
         </div>
     </div>
 
-    <div class="col-md-6">
-        @include('backpack.theme-tabler::inc.commercial')
-    </div>
 </div>
