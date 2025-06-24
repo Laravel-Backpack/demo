@@ -1,5 +1,3 @@
-{{-- @dump($entry) --}}
-
 @php
     $last_purchase = $entry->invoices()->orderBy('issuance_date', 'DESC')->first()->issuance_date;
 @endphp
