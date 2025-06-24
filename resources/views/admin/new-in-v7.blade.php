@@ -27,7 +27,7 @@
 
 <!-- Heading for Datagrid component -->
 <div class="row g-2 align-items-center">
-    <div class="col">
+    <div class="col @if(session('backpack.theme-tabler.layout') == 'horizontal_overlap') text-white @endif">
         <div class="page-pretitle">Components</div>
         <h2 class="page-title">Datagrid</h2>
         <p class="mt-2 mb-2">Show the most important info about an Eloquent entry, anywhere you want.</p>
