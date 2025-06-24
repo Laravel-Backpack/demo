@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.346.1",
+            "version": "3.347.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "27401e70b1b01114e4e228861933eb7b78630be7"
+                "reference": "c66a35e650f077caddd7db8d3a1f58b2c2b8c78b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/27401e70b1b01114e4e228861933eb7b78630be7",
-                "reference": "27401e70b1b01114e4e228861933eb7b78630be7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c66a35e650f077caddd7db8d3a1f58b2c2b8c78b",
+                "reference": "c66a35e650f077caddd7db8d3a1f58b2c2b8c78b",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.346.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.347.0"
             },
-            "time": "2025-06-19T18:05:45+00:00"
+            "time": "2025-06-23T18:12:15+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-alpha.7",
+            "version": "7.0.0-alpha.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "5087c1dd5fe67a3430078c7441f226a086dd105d"
+                "reference": "c4bfb8fd4bb2f8ff0169bcab3d4ec8167dd7076c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/5087c1dd5fe67a3430078c7441f226a086dd105d",
-                "reference": "5087c1dd5fe67a3430078c7441f226a086dd105d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/c4bfb8fd4bb2f8ff0169bcab3d4ec8167dd7076c",
+                "reference": "c4bfb8fd4bb2f8ff0169bcab3d4ec8167dd7076c",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-alpha.7"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-alpha.8"
             },
-            "time": "2025-06-19T12:05:43+00:00"
+            "time": "2025-06-24T09:00:20+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -1543,12 +1543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "126c9c0f6bab7805d316df581cbe7c0df6b6390a"
+                "reference": "30b740344b297f81cd9127928fdb2ba7c59ab81f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/126c9c0f6bab7805d316df581cbe7c0df6b6390a",
-                "reference": "126c9c0f6bab7805d316df581cbe7c0df6b6390a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/30b740344b297f81cd9127928fdb2ba7c59ab81f",
+                "reference": "30b740344b297f81cd9127928fdb2ba7c59ab81f",
                 "shasum": ""
             },
             "require": {
@@ -1608,7 +1608,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/next"
             },
-            "time": "2025-06-20T09:07:52+00:00"
+            "time": "2025-06-24T08:33:19+00:00"
         },
         {
             "name": "backpack/tinymce-field",
@@ -5116,16 +5116,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9"
+                "reference": "1fd1935b2d90aef2f093c5e35f7ae1257c448d00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
-                "reference": "c1397390dd0a7e0f11660f0ae20f753d88c1f3d9",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
+                "reference": "1fd1935b2d90aef2f093c5e35f7ae1257c448d00",
                 "shasum": ""
             },
             "require": {
@@ -5217,7 +5217,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-12T10:24:28+00:00"
+            "time": "2025-06-21T15:19:35+00:00"
         },
         {
             "name": "nette/schema",
@@ -6275,16 +6275,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.8",
+            "version": "v0.12.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "85057ceedee50c49d4f6ecaff73ee96adb3b3625"
+                "reference": "1b801844becfe648985372cb4b12ad6840245ace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/85057ceedee50c49d4f6ecaff73ee96adb3b3625",
-                "reference": "85057ceedee50c49d4f6ecaff73ee96adb3b3625",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1b801844becfe648985372cb4b12ad6840245ace",
+                "reference": "1b801844becfe648985372cb4b12ad6840245ace",
                 "shasum": ""
             },
             "require": {
@@ -6348,9 +6348,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.8"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.9"
             },
-            "time": "2025-03-16T03:05:19+00:00"
+            "time": "2025-06-23T02:35:06+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -11497,16 +11497,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.23",
+            "version": "11.5.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "86ebcd8a3dbcd1857d88505109b2a2b376501cde"
+                "reference": "6b07ab1047155cf38f82dd691787a277782271dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86ebcd8a3dbcd1857d88505109b2a2b376501cde",
-                "reference": "86ebcd8a3dbcd1857d88505109b2a2b376501cde",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6b07ab1047155cf38f82dd691787a277782271dd",
+                "reference": "6b07ab1047155cf38f82dd691787a277782271dd",
                 "shasum": ""
             },
             "require": {
@@ -11520,7 +11520,7 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.2",
-                "phpunit/php-code-coverage": "^11.0.9",
+                "phpunit/php-code-coverage": "^11.0.10",
                 "phpunit/php-file-iterator": "^5.1.0",
                 "phpunit/php-invoker": "^5.0.1",
                 "phpunit/php-text-template": "^4.0.1",
@@ -11578,7 +11578,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.23"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.24"
             },
             "funding": [
                 {
@@ -11602,7 +11602,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-13T05:47:49+00:00"
+            "time": "2025-06-20T11:31:02+00:00"
         },
         {
             "name": "sebastian/cli-parser",
