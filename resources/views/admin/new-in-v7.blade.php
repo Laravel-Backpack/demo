@@ -33,6 +33,25 @@
 
 @section('content')
 
+<!-- Heading for chips -->
+<div class="row g-2 align-items-center mt-3">
+    <div class="col">
+        <div class="page-pretitle">Views</div>
+        <h2 class="page-title">Chips</h2>
+        <p class="mt-2 mb-2">Include more information about an Eloquent model, in a small space. Hover over the headings
+            to understand more about the examples.</p>
+    </div>
+    <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+            <span class="d-none d-sm-inline">
+                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+            </span>
+        </div>
+    </div>
+</div>
+
+@include('admin.partials.chip-examples')
+
 <!-- Heading for Datagrid component -->
 <div class="row g-2 align-items-center">
     <div class="col @if(session('backpack.theme-tabler.layout') == 'horizontal_overlap') text-white @endif">
@@ -105,23 +124,5 @@
 
 
 @include('admin.partials.dataform-examples')
-
-<!-- Heading for chips -->
-<div class="row g-2 align-items-center mt-3">
-    <div class="col">
-        <div class="page-pretitle">Views</div>
-        <h2 class="page-title">Chips</h2>
-        <p class="mt-2 mb-2">Include more information about an Eloquent model, in a small space. Hover over the headings to understand more about the examples.</p>
-    </div>
-    <div class="col-auto ms-auto d-print-none">
-        <div class="btn-list">
-            <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
-            </span>
-        </div>
-    </div>
-</div>
-
-@include('admin.partials.chip-examples')
 
 @endsection

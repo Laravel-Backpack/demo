@@ -200,7 +200,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mb-4">
 
     @foreach ($products as $product)
 
