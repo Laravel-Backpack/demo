@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-alpha.7",
+            "version": "7.0.0-alpha.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "5087c1dd5fe67a3430078c7441f226a086dd105d"
+                "reference": "53c4ef9eaa4cbdf45d525d79284d155a3ba9bbe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/5087c1dd5fe67a3430078c7441f226a086dd105d",
-                "reference": "5087c1dd5fe67a3430078c7441f226a086dd105d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/53c4ef9eaa4cbdf45d525d79284d155a3ba9bbe0",
+                "reference": "53c4ef9eaa4cbdf45d525d79284d155a3ba9bbe0",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-alpha.7"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-alpha.9"
             },
-            "time": "2025-06-19T12:05:43+00:00"
+            "time": "2025-06-25T11:01:47+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -10503,12 +10503,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Generators.git",
-                "reference": "fa29b49290899cb42f11411b5cf021b17b603ebd"
+                "reference": "6f7cf04d01a87f08639b116d43adbb26fdde1d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/fa29b49290899cb42f11411b5cf021b17b603ebd",
-                "reference": "fa29b49290899cb42f11411b5cf021b17b603ebd",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/6f7cf04d01a87f08639b116d43adbb26fdde1d37",
+                "reference": "6f7cf04d01a87f08639b116d43adbb26fdde1d37",
                 "shasum": ""
             },
             "require": {
@@ -10561,7 +10561,7 @@
                 "issues": "https://github.com/Laravel-Backpack/Generators/issues",
                 "source": "https://github.com/Laravel-Backpack/Generators/tree/next"
             },
-            "time": "2025-03-05T16:05:27+00:00"
+            "time": "2025-06-25T10:57:55+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
