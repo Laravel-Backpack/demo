@@ -4,5 +4,3 @@
         <i class="la la-palette fs-2 me-1"></i>
     </button>
 </div>
-
-@include('vendor.backpack.theme_switch_modal_bs5')
