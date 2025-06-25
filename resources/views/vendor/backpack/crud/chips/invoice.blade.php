@@ -1,20 +1,21 @@
 @include('crud::chips.general', [
-    'text' => 'Invoice '.$entry->series.' '.$entry->number.' - '.$entry->owner->name,
-    'url' => backpack_url('pet-shop/invoice/'.$entry->id.'/show'),
-    // 'showImage' => false,
+    'heading' => [
+        'content' => 'Invoice '.$entry->series.' '.$entry->number.' - '.$entry->owner->name,
+        'href' => backpack_url('pet-shop/invoice/'.$entry->id.'/show'),
+    ],
     'details' => [
         [
             'icon' => 'la la-dollar',
-            'text' => $entry->total,
+            'content' => $entry->total,
             'title' => 'Total invoice amount $'.$entry->total,
         ],
         [
             'icon' => 'la la-tags',
-            'text' => $entry->items->count().' items',
+            'content' => $entry->items->count().' items',
         ],
         [
             'icon' => 'la la-calendar',
-            'text' => $entry->issuance_date->format('F j, Y'),
+            'content' => $entry->issuance_date->format('F j, Y'),
             'title' => 'Issuance date: '.$entry->issuance_date,
         ]
     ]

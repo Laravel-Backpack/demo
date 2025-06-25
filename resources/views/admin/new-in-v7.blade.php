@@ -61,7 +61,7 @@
     <div class="col">
         <div class="page-pretitle">Views</div>
         <h2 class="page-title">Chips</h2>
-        <p class="mt-2 mb-2">Include more information about an Eloquent model, in a small space. Hover over the links to understand more about the examples.</p>
+        <p class="mt-2 mb-2">Include more information about an Eloquent model, in a small space. Hover over the headings to understand more about the examples.</p>
     </div>
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
