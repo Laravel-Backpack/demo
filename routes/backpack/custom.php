@@ -53,7 +53,7 @@ Route::group([
             Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
         }
 
-        return Redirect::back();
+        return redirect()->route('backpack.dashboard');
     })->name('tabler.switch.layout');
 
     // ------------------
