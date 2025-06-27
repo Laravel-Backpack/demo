@@ -63,6 +63,18 @@ Route::group([
             }
 
             Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
+
+            // Handle styles selection
+            $selectedStyles = $request->get('styles', []);
+            $currentStyles = Session::get('backpack.theme-tabler.styles', []);
+
+            // Only show success message if styles have actually changed
+            if ($selectedStyles !== $currentStyles) {
+                $styleCount = count($selectedStyles);
+                Alert::success("Applied {$styleCount} style(s)")->flash();
+            }
+
+            Session::put('backpack.theme-tabler.styles', $selectedStyles);
         }
 
         return Redirect::back();

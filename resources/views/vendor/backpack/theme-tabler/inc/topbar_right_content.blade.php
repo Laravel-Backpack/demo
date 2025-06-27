@@ -221,6 +221,43 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div id="tabler-styles-selection" class="mb-3">
+                            <p>Choose which <strong>skins</strong> to apply on top of the Tabler theme:</p>
+                            <div class="row">
+                                @php
+                                    // Get styles from both the vendor config and published config
+                                    $vendorConfigFile = include(base_path('vendor/backpack/theme-tabler/config/theme-tabler.php'));
+                                    $vendorStyles = $vendorConfigFile['styles'] ?? [];
+
+                                    $publishedConfigFile = [];
+                                    if (file_exists(config_path('backpack/theme-tabler.php'))) {
+                                        $publishedConfigFile = include(config_path('backpack/theme-tabler.php'));
+                                    }
+                                    $publishedStyles = $publishedConfigFile['styles'] ?? [];
+
+                                    // Merge both, with published config taking precedence
+                                    $allAvailableStyles = array_unique(array_merge($vendorStyles, $publishedStyles));
+                                    $selectedStyles = Session::get('backpack.theme-tabler.styles', $allAvailableStyles);
+                                @endphp
+                                @foreach($allAvailableStyles as $stylePath)
+                                    @php
+                                        $fileName = basename($stylePath);
+                                        $styleName = ucwords(str_replace(['-', '_', '.css'], [' ', ' ', ''], $fileName));
+                                        if (strpos($stylePath, '/skins/') !== false) {
+                                            $styleName = ucwords(str_replace(['-', '_', '.css'], [' ', ' ', ''], basename($stylePath, '.css')));
+                                        }
+                                        $isChecked = in_array($stylePath, $selectedStyles);
+                                    @endphp
+                                    <div class="col-lg-6 col-md-6 mb-2">
+                                        <label class="form-check">
+                                            <input type="checkbox" name="styles[]" value="{{ $stylePath }}" class="form-check-input" @if($isChecked) checked @endif>
+                                            <span class="form-check-label">{{ $styleName }}</span>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-link link-secondary" data-dismiss="modal" data-bs-dismiss="modal">
@@ -237,10 +274,12 @@
 @section('after_scripts')
     <script>
         const layoutSelection = $('#tabler-layouts-selection');
+        const stylesSelection = $('#tabler-styles-selection');
 
-        // Hide layout selection initially if not using Tabler theme
+        // Hide layout and styles selection initially if not using Tabler theme
         @if(config('backpack.ui.view_namespace') !== 'backpack.theme-tabler::')
         layoutSelection.hide();
+        stylesSelection.hide();
         @endif
 
         // Handle theme selection changes
@@ -249,9 +288,11 @@
 
             if (selectedTheme === 'tabler') {
                 layoutSelection.slideDown();
+                stylesSelection.slideDown();
             } else {
-                // Hide layout options for CoreUI themes (coreuiv2, coreuiv4)
+                // Hide layout and styles options for CoreUI themes (coreuiv2, coreuiv4)
                 layoutSelection.slideUp();
+                stylesSelection.slideUp();
             }
         });
 
@@ -260,8 +301,10 @@
             const checkedTheme = $('.theme-choice:checked').val();
             if (checkedTheme === 'tabler') {
                 layoutSelection.show();
+                stylesSelection.show();
             } else {
                 layoutSelection.hide();
+                stylesSelection.hide();
             }
         });
     </script>
