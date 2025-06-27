@@ -1,6 +1,6 @@
 <li class="nav-item me-2">
-    <button class="btn-link nav-link px-0 shadow-none" data-bs-toggle="modal" data-bs-target="#modal-layout">
-        <i class="la la-palette fs-2 me-1 text-secondary"></i>
+    <button class="btn-link nav-link px-0 shadow-none" data-bs-toggle="modal" data-bs-target="#modal-layout" title="Switch themes and layouts">
+        <i class="la la-swatchbook fs-2 me-1 text-secondary"></i>
     </button>
 </li>
 
@@ -16,19 +16,20 @@
                         <button type="button" class="btn-close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Try out the themes <strong>Backpack</strong> offers you out of the box...!</p>
+                        <p>You can also use one of the legacy Backpack themes:</p>
                         @csrf
                         <div class="form-selectgroup-boxes row mb-3">
+
                             <div class="col-lg-4 mb-2">
                                 <label class="form-selectgroup-item">
-                                    <input @if(config('backpack.ui.view_namespace') === 'backpack.theme-coreuiv2::') checked @endif type="radio" name="theme" value="coreuiv2" class="form-selectgroup-input theme-choice">
+                                    <input @if(config('backpack.ui.view_namespace') === 'backpack.theme-tabler::') checked @endif type="radio" name="theme" value="tabler" class="form-selectgroup-input theme-choice">
                                     <span class="form-selectgroup-label d-flex align-items-center p-3">
                                         <span class="me-3">
                                             <span class="form-selectgroup-check"></span>
                                         </span>
                                         <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Core UI v2</span><br>
-                                            <small>Bootstrap 4</small>
+                                            <span class="form-selectgroup-title strong mb-1">Tabler</span><br>
+                                            <small>Bootstrap 5 • Default</small>
                                         </span>
                                     </span>
                                 </label>
@@ -42,21 +43,21 @@
                                         </span>
                                         <span class="form-selectgroup-label-content">
                                             <span class="form-selectgroup-title strong mb-1">Core UI v4</span><br>
-                                            <small>Bootstrap 5</small>
+                                            <small>Bootstrap 5 • Legacy</small>
                                         </span>
                                     </span>
                                 </label>
                             </div>
                             <div class="col-lg-4 mb-2">
                                 <label class="form-selectgroup-item">
-                                    <input @if(config('backpack.ui.view_namespace') === 'backpack.theme-tabler::') checked @endif type="radio" name="theme" value="tabler" class="form-selectgroup-input theme-choice">
+                                    <input @if(config('backpack.ui.view_namespace') === 'backpack.theme-coreuiv2::') checked @endif type="radio" name="theme" value="coreuiv2" class="form-selectgroup-input theme-choice">
                                     <span class="form-selectgroup-label d-flex align-items-center p-3">
                                         <span class="me-3">
                                             <span class="form-selectgroup-check"></span>
                                         </span>
                                         <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Tabler</span><br>
-                                            <small>Bootstrap 5</small>
+                                            <span class="form-selectgroup-title strong mb-1">Core UI v2</span><br>
+                                            <small>Bootstrap 4 • Legacy</small>
                                         </span>
                                     </span>
                                 </label>
@@ -64,7 +65,7 @@
                         </div>
 
                         <div id="tabler-layouts-selection" class="form-selectgroup-boxes row mb-3">
-                            <p>Take it even further with the layouts <strong>Backpack Tabler Theme</strong> offers:</p>
+                            <p>Tabler comes wit a few layouts baked in - <strong>which layout one would you like to use?</strong></p>
                             <div class="col-lg-6 mb-2">
                                 <label class="form-selectgroup-item">
                                     <input @if(backpack_theme_config('layout') === 'horizontal') checked @endif type="radio" name="layout" value="horizontal" class="form-selectgroup-input">
@@ -194,4 +195,37 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('after_scripts')
+    <script>
+        const layoutSelection = $('#tabler-layouts-selection');
+
+        // Hide layout selection initially if not using Tabler theme
+        @if(config('backpack.ui.view_namespace') !== 'backpack.theme-tabler::')
+        layoutSelection.hide();
+        @endif
+
+        // Handle theme selection changes
+        $('.theme-choice').on('click', function () {
+            const selectedTheme = $(this).val();
+
+            if (selectedTheme === 'tabler') {
+                layoutSelection.slideDown();
+            } else {
+                // Hide layout options for CoreUI themes (coreuiv2, coreuiv4)
+                layoutSelection.slideUp();
+            }
+        });
+
+        // Also handle the case when modal is opened - ensure correct initial state
+        $('#modal-layout').on('shown.bs.modal', function () {
+            const checkedTheme = $('.theme-choice:checked').val();
+            if (checkedTheme === 'tabler') {
+                layoutSelection.show();
+            } else {
+                layoutSelection.hide();
+            }
+        });
+    </script>
 @endsection
