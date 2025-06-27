@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Http\Request;
-use Prologue\Alerts\Facades\Alert;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
+use Prologue\Alerts\Facades\Alert;
 
 // --------------------------
 // Custom Backpack Routes
@@ -51,7 +51,7 @@ Route::group([
 
         // if the theme has changed, let's show a success message
         if (Session::get('backpack.ui.view_namespace') !== $theme) {
-            Alert::success('Now using theme: ' . $request->get('theme', 'tabler'))->flash();
+            Alert::success('Now using theme: '.$request->get('theme', 'tabler'))->flash();
         }
 
         Session::put('backpack.ui.view_namespace', $theme);
@@ -59,7 +59,7 @@ Route::group([
         if ($theme === 'backpack.theme-tabler::') {
             // if the layout has changed, let's show a success message
             if (Session::get('backpack.theme-tabler.layout') !== $request->get('layout', 'horizontal')) {
-                Alert::success('Now using layout: ' . $request->get('layout', 'horizontal'))->flash();
+                Alert::success('Now using layout: '.$request->get('layout', 'horizontal'))->flash();
             }
 
             Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
