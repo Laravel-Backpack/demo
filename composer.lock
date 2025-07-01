@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.3",
+            "version": "7.0.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6a84281ba1e78a4b5190ed1c41c5808cedfe483f"
+                "reference": "d38bffcaec1a2f8c9fcb5748435edb05c851dc3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6a84281ba1e78a4b5190ed1c41c5808cedfe483f",
-                "reference": "6a84281ba1e78a4b5190ed1c41c5808cedfe483f",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/d38bffcaec1a2f8c9fcb5748435edb05c851dc3b",
+                "reference": "d38bffcaec1a2f8c9fcb5748435edb05c851dc3b",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.3"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.4"
             },
-            "time": "2025-07-01T12:31:59+00:00"
+            "time": "2025-07-01T15:30:12+00:00"
         },
         {
             "name": "backpack/editable-columns",
