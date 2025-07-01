@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.348.1",
+            "version": "3.348.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c384263bebbfcdd0f59b459e630851f59080955f"
+                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c384263bebbfcdd0f59b459e630851f59080955f",
-                "reference": "c384263bebbfcdd0f59b459e630851f59080955f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6acc8e4f8b7468e604d6f0442284937398c2959a",
+                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.2"
             },
-            "time": "2025-06-27T19:02:10+00:00"
+            "time": "2025-06-30T18:12:03+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -442,7 +442,7 @@
             "version": "dev-next",
             "source": {
                 "type": "git",
-                "url": "git@github.com:Laravel-Backpack/ckeditor-field.git",
+                "url": "https://github.com/Laravel-Backpack/ckeditor-field.git",
                 "reference": "f15a648e02bd8c494387d872942a602276f98970"
             },
             "dist": {
@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.2",
+            "version": "7.0.0-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "19d567ae4050a7a7a19a9a0ed86599eafc99a2cd"
+                "reference": "6a84281ba1e78a4b5190ed1c41c5808cedfe483f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/19d567ae4050a7a7a19a9a0ed86599eafc99a2cd",
-                "reference": "19d567ae4050a7a7a19a9a0ed86599eafc99a2cd",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6a84281ba1e78a4b5190ed1c41c5808cedfe483f",
+                "reference": "6a84281ba1e78a4b5190ed1c41c5808cedfe483f",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.2"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.3"
             },
-            "time": "2025-06-28T13:32:34+00:00"
+            "time": "2025-07-01T12:31:59+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -1615,7 +1615,7 @@
             "version": "dev-next",
             "source": {
                 "type": "git",
-                "url": "git@github.com:Laravel-Backpack/tinymce-field.git",
+                "url": "https://github.com/Laravel-Backpack/tinymce-field.git",
                 "reference": "5a5ccd61603f23999ac152260ad28a50da50ff68"
             },
             "dist": {
