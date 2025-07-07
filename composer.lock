@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.348.2",
+            "version": "3.349.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a"
+                "reference": "63cc727845f077d17cb94791deb327249e1626ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6acc8e4f8b7468e604d6f0442284937398c2959a",
-                "reference": "6acc8e4f8b7468e604d6f0442284937398c2959a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/63cc727845f077d17cb94791deb327249e1626ce",
+                "reference": "63cc727845f077d17cb94791deb327249e1626ce",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.349.2"
             },
-            "time": "2025-06-30T18:12:03+00:00"
+            "time": "2025-07-03T18:08:27+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.4",
+            "version": "7.0.0-beta.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "d38bffcaec1a2f8c9fcb5748435edb05c851dc3b"
+                "reference": "10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/d38bffcaec1a2f8c9fcb5748435edb05c851dc3b",
-                "reference": "d38bffcaec1a2f8c9fcb5748435edb05c851dc3b",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4",
+                "reference": "10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.4"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.6"
             },
-            "time": "2025-07-01T15:30:12+00:00"
+            "time": "2025-07-07T14:06:24+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -1204,20 +1204,20 @@
         },
         {
             "name": "backpack/pro",
-            "version": "3.0.0-alpha.4",
+            "version": "3.0.0-alpha.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "69d4308aec7ffee8ddfe0aa35849ae223a74f2e3"
+                "reference": "92acc7c2633057a7722eff596e66b5356bd99eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-69d4308aec7ffee8ddfe0aa35849ae223a74f2e3-zip-16eb60.zip",
-                "reference": "69d4308aec7ffee8ddfe0aa35849ae223a74f2e3",
-                "shasum": "4b3831304c4983a4a791f6959993eef55abb941f"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-92acc7c2633057a7722eff596e66b5356bd99eb8-zip-6071d3.zip",
+                "reference": "92acc7c2633057a7722eff596e66b5356bd99eb8",
+                "shasum": "e01738f27bafbd3a01d574dad53e6e04995a7874"
             },
             "require": {
-                "backpack/crud": "^7.0.0-alpha"
+                "backpack/crud": "^7.0.0-beta"
             },
             "require-dev": {
                 "backpack/medialibrary-uploaders": "dev-next as 1.0",
@@ -1270,10 +1270,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.0-alpha.4",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.0-alpha.6",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2025-06-09T13:47:59+00:00"
+            "time": "2025-07-04T11:05:42+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -10913,16 +10913,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.1",
+            "version": "1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/faed855a7b5f4d4637717c2b3863e277116beb36",
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36",
                 "shasum": ""
             },
             "require": {
@@ -10961,7 +10961,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.3"
             },
             "funding": [
                 {
@@ -10969,7 +10969,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-29T12:36:36+00:00"
+            "time": "2025-07-05T12:25:42+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -11496,16 +11496,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.5.25",
+            "version": "11.5.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "864ab32b3ff52058f917c5b19b3cef821e4a4f1b"
+                "reference": "4ad8fe263a0b55b54a8028c38a18e3c5bef312e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/864ab32b3ff52058f917c5b19b3cef821e4a4f1b",
-                "reference": "864ab32b3ff52058f917c5b19b3cef821e4a4f1b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4ad8fe263a0b55b54a8028c38a18e3c5bef312e0",
+                "reference": "4ad8fe263a0b55b54a8028c38a18e3c5bef312e0",
                 "shasum": ""
             },
             "require": {
@@ -11577,7 +11577,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.25"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.26"
             },
             "funding": [
                 {
@@ -11601,7 +11601,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-06-27T04:36:07+00:00"
+            "time": "2025-07-04T05:58:21+00:00"
         },
         {
             "name": "sebastian/cli-parser",
