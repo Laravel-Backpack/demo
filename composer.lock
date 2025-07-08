@@ -483,16 +483,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.6",
+            "version": "7.0.0-beta.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4"
+                "reference": "81e2317cc2b132b6d7f20bde2f91ce2a7a08b77f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4",
-                "reference": "10e333ac229a149d7a3a30dd7c5a43ec42a5b4a4",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/81e2317cc2b132b6d7f20bde2f91ce2a7a08b77f",
+                "reference": "81e2317cc2b132b6d7f20bde2f91ce2a7a08b77f",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +571,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.6"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.7"
             },
-            "time": "2025-07-07T14:06:24+00:00"
+            "time": "2025-07-08T14:23:43+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -650,16 +650,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "def497fbe3b6b7bbff6a8919968cffaf1611285c"
+                "reference": "c78ff4d3e939309af4fbd332587f21a27568f3db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/def497fbe3b6b7bbff6a8919968cffaf1611285c",
-                "reference": "def497fbe3b6b7bbff6a8919968cffaf1611285c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/c78ff4d3e939309af4fbd332587f21a27568f3db",
+                "reference": "c78ff4d3e939309af4fbd332587f21a27568f3db",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^7.0.0-alpha",
+                "backpack/crud": "^7.0.0-beta",
                 "barryvdh/laravel-elfinder": "^0.5.2"
             },
             "require-dev": {
@@ -701,7 +701,7 @@
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
                 "source": "https://github.com/Laravel-Backpack/FileManager/tree/next"
             },
-            "time": "2025-03-06T09:57:18+00:00"
+            "time": "2025-07-08T14:34:10+00:00"
         },
         {
             "name": "backpack/language-switcher",
@@ -1543,12 +1543,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "d369bdf75f69c5523e1215639c81d20d12c1288a"
+                "reference": "664307ef176be8da611d4cececc525f4148cd491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/d369bdf75f69c5523e1215639c81d20d12c1288a",
-                "reference": "d369bdf75f69c5523e1215639c81d20d12c1288a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/664307ef176be8da611d4cececc525f4148cd491",
+                "reference": "664307ef176be8da611d4cececc525f4148cd491",
                 "shasum": ""
             },
             "require": {
@@ -1608,7 +1608,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/next"
             },
-            "time": "2025-06-27T10:03:51+00:00"
+            "time": "2025-07-08T14:26:04+00:00"
         },
         {
             "name": "backpack/tinymce-field",
