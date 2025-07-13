@@ -24,8 +24,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/next/resources/views/admin/partials/datagrid-examples.blade.php">See demo code</a> <!-- TODO: link to demo code -->
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datagrid-1">See docs</a> <!-- TODO: link to final docs -->
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/next/resources/views/admin/partials/datagrid-examples.blade.php">See demo code</a> <!-- TODO: link to demo code -->
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datagrid-1">See docs</a> <!-- TODO: link to final docs -->
                         </div>
                     </div>
                 </div>
@@ -112,8 +112,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/next/resources/views/admin/partials/datagrid-examples.blade.php">See demo code</a> <!-- TODO: link to demo code -->
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datagrid-1">See docs</a> <!-- TODO: link to final docs -->
                         </div>
                     </div>
                 </div>

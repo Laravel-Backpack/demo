@@ -44,7 +44,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/crud-chips" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -62,7 +62,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datagrid-1" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -80,7 +80,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datalist-1" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -98,7 +98,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#datatable-1" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -116,7 +116,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x-dev/base-components#dataform-1" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
