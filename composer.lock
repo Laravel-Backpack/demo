@@ -650,12 +650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "3e5f9ff4055f388338fd56dafa46987c60a79fd1"
+                "reference": "0edef98ce1223a1945b47ff45ff151b7cc29aae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/3e5f9ff4055f388338fd56dafa46987c60a79fd1",
-                "reference": "3e5f9ff4055f388338fd56dafa46987c60a79fd1",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/0edef98ce1223a1945b47ff45ff151b7cc29aae7",
+                "reference": "0edef98ce1223a1945b47ff45ff151b7cc29aae7",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +701,7 @@
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
                 "source": "https://github.com/Laravel-Backpack/FileManager/tree/next"
             },
-            "time": "2025-07-14T09:58:52+00:00"
+            "time": "2025-07-14T12:39:15+00:00"
         },
         {
             "name": "backpack/language-switcher",
