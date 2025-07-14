@@ -21,6 +21,7 @@ class DummyCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
 
     public function setup()
     {
@@ -185,5 +186,16 @@ class DummyCrudController extends CrudController
         }
 
         return $groups;
+    }
+
+    public function ajaxUpload()
+    {
+        if (app('env') === 'production') {
+            return response()->json(['errors' => [
+                'message' => 'Uploads are disabled in production.',
+            ]], 500);
+        }
+
+        return $this->traitAjaxUpload();
     }
 }
