@@ -52,7 +52,9 @@ class DummyRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'simple.*.text.required' => 'The "Simple > Text" field is required.',
+            'simple.*.text.min'      => 'The "Simple > Text" field must be at least :min characters long.',
+            'simple.*.email.required' => 'The "Simple > Email" field is required.',
         ];
     }
 }

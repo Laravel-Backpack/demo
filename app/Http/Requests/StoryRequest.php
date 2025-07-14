@@ -27,6 +27,7 @@ class StoryRequest extends FormRequest
         return [
             'name'            => 'required|string',
             'monsters.*.text' => 'required|string',
+            'monsters.*.status' => 'required',
         ];
     }
 
@@ -50,7 +51,8 @@ class StoryRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'monsters.*.text.required' => 'The "Monsters > Text" field is required.',
+            'monsters.*.status.required' => 'The "Monsters > Status" field is required.',
         ];
     }
 }

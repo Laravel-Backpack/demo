@@ -27,6 +27,7 @@ class CaveRequest extends FormRequest
         return [
             'name'           => 'required|string',
             'monster.*.text' => 'required|string',
+            'monster.*.status' => 'required',
         ];
     }
 
@@ -50,7 +51,8 @@ class CaveRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'monster.*.text.required' => 'The "Monster > Text" field is required.',
+            'monster.*.status.required' => 'The "Monster > Status" field is required.',
         ];
     }
 }
