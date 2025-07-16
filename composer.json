@@ -58,14 +58,6 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/ckeditor-field.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/tinymce-field.git"
         }
     ],
     "autoload": {
