@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3da274f1b42be43a5fd9ea46f303ef50",
+    "content-hash": "f0fd2099dd941ff10978608b3fcea489",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.349.3",
+            "version": "3.350.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b2d4718786398f47626add9c29840fc416175ef2"
+                "reference": "ec8ab6bc46a0a0c07e2c81fbcc8c9ec8cb0ab1b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b2d4718786398f47626add9c29840fc416175ef2",
-                "reference": "b2d4718786398f47626add9c29840fc416175ef2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ec8ab6bc46a0a0c07e2c81fbcc8c9ec8cb0ab1b7",
+                "reference": "ec8ab6bc46a0a0c07e2c81fbcc8c9ec8cb0ab1b7",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.349.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.350.1"
             },
-            "time": "2025-07-09T18:10:17+00:00"
+            "time": "2025-07-16T00:32:17+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -287,16 +287,16 @@
         },
         {
             "name": "backpack/basset",
-            "version": "2.0.0-beta.1",
+            "version": "2.0.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/basset.git",
-                "reference": "7a6438b9f35b2d80b3044be8d227e0e281e5f5fb"
+                "reference": "160aeb18f5593f895777846dc910d0239ba768e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/7a6438b9f35b2d80b3044be8d227e0e281e5f5fb",
-                "reference": "7a6438b9f35b2d80b3044be8d227e0e281e5f5fb",
+                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/160aeb18f5593f895777846dc910d0239ba768e7",
+                "reference": "160aeb18f5593f895777846dc910d0239ba768e7",
                 "shasum": ""
             },
             "require": {
@@ -355,9 +355,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/basset/issues",
-                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.0-beta.1"
+                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.0-beta.2"
             },
-            "time": "2025-06-27T15:18:44+00:00"
+            "time": "2025-07-16T13:39:47+00:00"
         },
         {
             "name": "backpack/calendar-operation",
@@ -443,16 +443,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/ckeditor-field.git",
-                "reference": "f15a648e02bd8c494387d872942a602276f98970"
+                "reference": "0c5a320ead9216daa8983a638ad0558717cb08a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/ckeditor-field/zipball/f15a648e02bd8c494387d872942a602276f98970",
-                "reference": "f15a648e02bd8c494387d872942a602276f98970",
+                "url": "https://api.github.com/repos/Laravel-Backpack/ckeditor-field/zipball/0c5a320ead9216daa8983a638ad0558717cb08a5",
+                "reference": "0c5a320ead9216daa8983a638ad0558717cb08a5",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^7.0.0-alpha"
+                "backpack/crud": "^7.0.0-beta"
             },
             "type": "library",
             "extra": {
@@ -467,6 +467,7 @@
                     "Backpack\\CkeditorField\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -476,23 +477,23 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/ckeditor-field/tree/next",
-                "issues": "https://github.com/Laravel-Backpack/ckeditor-field/issues"
+                "issues": "https://github.com/Laravel-Backpack/ckeditor-field/issues",
+                "source": "https://github.com/Laravel-Backpack/ckeditor-field/tree/next"
             },
-            "time": "2025-03-06T10:01:09+00:00"
+            "time": "2025-07-16T10:46:01+00:00"
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.8",
+            "version": "7.0.0-beta.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "3de5eeb1bc9e911c2ab3bee44064764c9f70b6fe"
+                "reference": "028acc73026b8f08545f1eea539bf9e2750946b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/3de5eeb1bc9e911c2ab3bee44064764c9f70b6fe",
-                "reference": "3de5eeb1bc9e911c2ab3bee44064764c9f70b6fe",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/028acc73026b8f08545f1eea539bf9e2750946b7",
+                "reference": "028acc73026b8f08545f1eea539bf9e2750946b7",
                 "shasum": ""
             },
             "require": {
@@ -571,9 +572,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.8"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.10"
             },
-            "time": "2025-07-14T11:11:16+00:00"
+            "time": "2025-07-16T13:12:44+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -1413,12 +1414,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "135dfd180deffd22baa0c8cea0242d67f51dfccd"
+                "reference": "d2c78770e7ec4fd0304c1ac9a821b7532875fe6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/135dfd180deffd22baa0c8cea0242d67f51dfccd",
-                "reference": "135dfd180deffd22baa0c8cea0242d67f51dfccd",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/d2c78770e7ec4fd0304c1ac9a821b7532875fe6c",
+                "reference": "d2c78770e7ec4fd0304c1ac9a821b7532875fe6c",
                 "shasum": ""
             },
             "require": {
@@ -1465,7 +1466,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/next"
             },
-            "time": "2025-03-06T09:56:26+00:00"
+            "time": "2025-07-16T13:13:52+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -1473,12 +1474,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv4.git",
-                "reference": "53f2b991502426bf4ea9a17dbd38449351e0d0ba"
+                "reference": "21ed998d44b0a3d7cc5ddb3d887bd7f9a5020593"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/53f2b991502426bf4ea9a17dbd38449351e0d0ba",
-                "reference": "53f2b991502426bf4ea9a17dbd38449351e0d0ba",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv4/zipball/21ed998d44b0a3d7cc5ddb3d887bd7f9a5020593",
+                "reference": "21ed998d44b0a3d7cc5ddb3d887bd7f9a5020593",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1536,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv4/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv4/tree/next"
             },
-            "time": "2025-03-06T09:54:42+00:00"
+            "time": "2025-07-16T13:14:20+00:00"
         },
         {
             "name": "backpack/theme-tabler",
@@ -1543,12 +1544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "664307ef176be8da611d4cececc525f4148cd491"
+                "reference": "4525cb78273664d1deb754618b7ebea57c880e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/664307ef176be8da611d4cececc525f4148cd491",
-                "reference": "664307ef176be8da611d4cececc525f4148cd491",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/4525cb78273664d1deb754618b7ebea57c880e41",
+                "reference": "4525cb78273664d1deb754618b7ebea57c880e41",
                 "shasum": ""
             },
             "require": {
@@ -1608,7 +1609,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/next"
             },
-            "time": "2025-07-08T14:26:04+00:00"
+            "time": "2025-07-16T13:13:19+00:00"
         },
         {
             "name": "backpack/tinymce-field",
@@ -1640,14 +1641,15 @@
                     "Backpack\\TinyMCEField\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "description": "TinyMCE field for Backpack",
             "keywords": [
                 "backpack",
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/tinymce-field/tree/next",
-                "issues": "https://github.com/Laravel-Backpack/tinymce-field/issues"
+                "issues": "https://github.com/Laravel-Backpack/tinymce-field/issues",
+                "source": "https://github.com/Laravel-Backpack/tinymce-field/tree/next"
             },
             "time": "2025-03-11T14:24:32+00:00"
         },
