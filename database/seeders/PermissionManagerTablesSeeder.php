@@ -29,12 +29,12 @@ class PermissionManagerTablesSeeder extends Seeder
     ];
 
     /**
-     * Disable foreign key checks based on database driver
+     * Disable foreign key checks based on database driver.
      */
     protected function disableForeignKeyChecks()
     {
         $driver = DB::getDriverName();
-        
+
         switch ($driver) {
             case 'mysql':
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
@@ -49,12 +49,12 @@ class PermissionManagerTablesSeeder extends Seeder
     }
 
     /**
-     * Enable foreign key checks based on database driver
+     * Enable foreign key checks based on database driver.
      */
     protected function enableForeignKeyChecks()
     {
         $driver = DB::getDriverName();
-        
+
         switch ($driver) {
             case 'mysql':
                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');
