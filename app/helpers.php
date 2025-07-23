@@ -10,7 +10,7 @@ if (!function_exists('backpack_pro_badge')) {
      */
     function backpack_pro_badge(string $string = 'PRO')
     {
-        return '<a href="https://backpackforlaravel.com/pricing" target="_blank" class="badge badge-pill bg-primary mx-2" tabindex="-1">'.$string.'</a>';
+        return '<a href="https://backpackforlaravel.com/pricing" target="_blank" class="badge badge-pill bg-primary text-purple-fg mx-2" tabindex="-1">'.$string.'</a>';
     }
 }
 
@@ -24,7 +24,7 @@ if (!function_exists('backpack_new_badge')) {
      */
     function backpack_new_badge(string $string = 'NEW')
     {
-        return '<span class="badge badge-pill bg-warning mx-2">'.$string.'</span>';
+        return '<span class="badge badge-pill bg-warning text-yellow-fg mx-2">'.$string.'</span>';
     }
 }
 
@@ -38,6 +38,6 @@ if (!function_exists('backpack_free_badge')) {
      */
     function backpack_free_badge(string $string = 'FREE')
     {
-        return '<span class="badge badge-pill bg-success mx-2">'.$string.'</span>';
+        return '<span class="badge badge-pill bg-success text-green-fg mx-2">'.$string.'</span>';
     }
 }
