@@ -82,3 +82,60 @@
     </div>
 
 </div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Quick Add Invoice in a Modal
+                </h3>
+            </div>
+            <div class="card-body bg-light">
+
+                <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#create_invoice"
+                    bp-button="create" 
+                    data-style="zoom-in"
+                >
+                    <i class="la la-plus"></i> <span>Create Invoice</span>
+                </button>
+                <x-bp-dataform-modal id="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Quick Edit Invoice in a Modal
+                </h3>
+            </div>
+            <div class="card-body bg-light">
+                <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit_invoice"
+                    bp-button="create"
+                    data-style="zoom-in"
+                >
+                    <i class="la la-plus"></i> <span>Edit Invoice</span>
+                </button>
+                <x-backpack::dataform-modal
+                    id="edit_invoice"
+                    :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
+                    operation="update"
+                    :entry="\App\Models\PetShop\Invoice::find(1)"
+                />
+
+            </div>
+        </div>
+    </div>
+
+</div>
