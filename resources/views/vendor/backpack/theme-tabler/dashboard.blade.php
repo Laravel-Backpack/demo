@@ -186,7 +186,7 @@
 
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\ChartjsPieController::class,
                 'content' => [
@@ -196,7 +196,7 @@
             ],
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\EchartsPieController::class,
                 'content' => [
@@ -206,7 +206,7 @@
             ],
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\HighchartsPieController::class,
                 'content' => [
