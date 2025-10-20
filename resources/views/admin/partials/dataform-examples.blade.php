@@ -52,7 +52,7 @@
                 <x-backpack::dataform
                     id="quickAddTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="create"
+                    formOperation="create"
                     :setup="function($crud, $entry)  {
                         $crud->field('custom_test_field')->type('text');
                     }"
@@ -73,7 +73,7 @@
                 <x-backpack::dataform
                     id="quickEditTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="update"
+                    formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
                 />
 
@@ -105,7 +105,6 @@
                 </button>
                 <x-bp-dataform-modal id="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
 
-
             </div>
         </div>
     </div>
@@ -130,12 +129,11 @@
                 <x-backpack::dataform-modal
                     id="edit_invoice"
                     :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
-                    operation="update"
+                    formOperation="update"
                     :entry="\App\Models\PetShop\Invoice::find(1)"
                 />
 
             </div>
         </div>
     </div>
-
 </div>
