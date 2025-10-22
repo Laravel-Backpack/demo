@@ -47,7 +47,7 @@
                     Quick Add Tag
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
                     id="quickAddTag"
@@ -68,7 +68,7 @@
                     Quick Edit Tag
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
                     id="quickEditTag"
@@ -91,14 +91,14 @@
                     Quick Add Invoice in a Modal
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
-                <button 
-                    type="button" 
-                    class="btn btn-primary" 
+                <button
+                    type="button"
+                    class="btn btn-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#create_invoice"
-                    bp-button="create" 
+                    bp-button="create"
                     data-style="zoom-in"
                 >
                     <i class="la la-plus"></i> <span>Create Invoice</span>
@@ -115,10 +115,10 @@
                     Quick Edit Invoice in a Modal
                 </h3>
             </div>
-            <div class="card-body bg-light">
-                <button 
-                    type="button" 
-                    class="btn btn-primary" 
+            <div class="card-body">
+                <button
+                    type="button"
+                    class="btn btn-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#edit_invoice"
                     bp-button="create"
