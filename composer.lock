@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0fd2099dd941ff10978608b3fcea489",
+    "content-hash": "60fc375cc18a735a6894822b7a517b75",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1544,12 +1544,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "43d0ddce409f83b822d47802c6b56b1e6b6498df"
+                "reference": "ad0cba5725ba17e5ff5f364b0927e77e82136da6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/43d0ddce409f83b822d47802c6b56b1e6b6498df",
-                "reference": "43d0ddce409f83b822d47802c6b56b1e6b6498df",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/ad0cba5725ba17e5ff5f364b0927e77e82136da6",
+                "reference": "ad0cba5725ba17e5ff5f364b0927e77e82136da6",
                 "shasum": ""
             },
             "require": {
@@ -1609,7 +1609,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/next"
             },
-            "time": "2025-08-04T11:49:46+00:00"
+            "time": "2025-10-21T15:47:18+00:00"
         },
         {
             "name": "backpack/tinymce-field",
