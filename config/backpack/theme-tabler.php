@@ -14,7 +14,7 @@ return [
     */
 
     /**
-     * 1st layer of customization
+     * 1st layer of customization.
      *
      * Simple pick a layout and let Backpack decide the best look for it.
      * No extra step is required.
@@ -26,7 +26,7 @@ return [
 
     /**
      * Pick a login page layout.
-     * Possible values: default, illustration, cover
+     * Possible values: default, illustration, cover.
      */
     'auth_layout' => 'default', // default, illustration, cover
 
@@ -49,7 +49,7 @@ return [
     ],
 
     /**
-     * 2nd Layer of customization
+     * 2nd Layer of customization.
      *
      * If you need to further customize the way your panel looks,
      * these options will help you achieve that.
@@ -60,8 +60,8 @@ return [
          */
         'colorModes' => [
             'system' => 'la-desktop',
-            'light' => 'la-sun',
-            'dark' => 'la-moon',
+            'light'  => 'la-sun',
+            'dark'   => 'la-moon',
         ],
 
         /**
@@ -104,7 +104,7 @@ return [
     ],
 
     /**
-     * 3rd Layer of customization
+     * 3rd Layer of customization.
      *
      * In case the first two steps were not enough, here you have full control over
      * the classes that make up the look of your panel.
@@ -121,7 +121,6 @@ return [
          * bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white.
          *
          * For links to be visible on different background colors use: "navbar-dark", "navbar-light".
-         *
          */
         'topHeader' => null,
 
@@ -131,7 +130,7 @@ return [
          *      - Remove "navbar-dark/light"
          *      - Remove "navbar-light/dark" from 'classes.topHeader' and instead use "bg-light"
          * You can also add a background class like bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success,
-         * bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan
+         * bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan.
          */
         'sidebar' => null,
 
@@ -156,24 +155,24 @@ return [
 
         /**
          * Use this to pass classes to the table displayed in List Operation
-         * It defaults to: "table table-striped table-hover nowrap rounded card-table table-vcenter card-table shadow-xs border-xs"
+         * It defaults to: "table table-striped table-hover nowrap rounded card-table table-vcenter card-table shadow-xs border-xs".
          */
         'table' => null,
 
         /**
-         * Use this to pass classes to the table wrapper component displayed in List Operation
+         * Use this to pass classes to the table wrapper component displayed in List Operation.
          */
         'tableWrapper' => null,
     ],
 
-    /**
-     * 4th Layer of customization
-     *
-     * Alright, if nothing so far met your need, then you still have an easy way to build
-     * a custom layout using the already existing components of this theme.
-     *
-     * 1. Create a new blade file in resources/views/layouts/your-custom-layout.blade.php
-     * 2. Replace the value of layout on this file with "your-custom-layout"
-     * 3. Customize the blade and place components such as sidebar, header, top-bar, where you need them!
-     */
+/**
+ * 4th Layer of customization.
+ *
+ * Alright, if nothing so far met your need, then you still have an easy way to build
+ * a custom layout using the already existing components of this theme.
+ *
+ * 1. Create a new blade file in resources/views/layouts/your-custom-layout.blade.php
+ * 2. Replace the value of layout on this file with "your-custom-layout"
+ * 3. Customize the blade and place components such as sidebar, header, top-bar, where you need them!
+ */
 ];
