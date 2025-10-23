@@ -74,7 +74,17 @@ Route::group([
                 Alert::success("Applied {$styleCount} style(s)")->flash();
             }
 
-            Session::put('backpack.theme-tabler.styles', $selectedStyles);
+            // Handle direction selection
+        if ($request->has('direction')) {
+            $direction = $request->get('direction', 'ltr');
+            // if the direction has changed, let's show a success message
+            if (Session::get('backpack.ui.html_direction') !== $direction) {
+                Alert::success('Now using direction: ' . $direction)->flash();
+            }
+            Session::put('backpack.ui.html_direction', $direction);
+        }
+
+        Session::put('backpack.theme-tabler.styles', $selectedStyles);
         }
 
         return Redirect::back();
