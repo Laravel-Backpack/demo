@@ -23,7 +23,7 @@
                                 <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
                             </svg>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end" style="">
+                        <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
                             <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
                         </div>
