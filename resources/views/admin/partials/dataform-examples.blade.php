@@ -50,7 +50,7 @@
             <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickAddTag"
+                    formId="quickAddTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     formOperation="create"
                     :setup="function($crud, $entry)  {
@@ -71,7 +71,7 @@
             <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickEditTag"
+                    formId="quickEditTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
@@ -103,7 +103,7 @@
                 >
                     <i class="la la-plus"></i> <span>Create Invoice</span>
                 </button>
-                <x-bp-dataform-modal id="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
+                <x-bp-dataform-modal formId="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
 
             </div>
         </div>
@@ -127,7 +127,7 @@
                     <i class="la la-plus"></i> <span>Edit Invoice</span>
                 </button>
                 <x-backpack::dataform-modal
-                    id="edit_invoice"
+                    formId="edit_invoice"
                     :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
                     formOperation="update"
                     :entry="\App\Models\PetShop\Invoice::find(1)"

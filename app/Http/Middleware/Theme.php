@@ -26,6 +26,11 @@ class Theme
             }
         }
 
+        // Set HTML direction if exists in session
+        if (Session::has('backpack.ui.html_direction')) {
+            Config::set('backpack.ui.html_direction', Session::get('backpack.ui.html_direction'));
+        }
+
         return $next($request);
     }
 }
