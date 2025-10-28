@@ -126,10 +126,10 @@
                 >
                     <i class="la la-plus"></i> <span>Edit Invoice</span>
                 </button>
-                <x-backpack::dataform-modal
+                <x-bp-dataform-modal
                     formId="edit_invoice"
                     :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
-                    formOperation="update"
+                    formOperation="updateInModal"
                     :entry="\App\Models\PetShop\Invoice::find(1)"
                 />
 
