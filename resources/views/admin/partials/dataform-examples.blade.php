@@ -41,10 +41,13 @@
 <div class="row">
 
     <div class="col-md-6">
-        <div class="card mt-3">
+        <div class="card card-stacked mt-3">
             <div class="card-header">
                 <h3 class="card-title">
-                    Quick Add Tag
+                    Quick Add Tag (With Extra Field)
+
+                    <i class="la la-info-circle text-muted" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Showing the form to create a Tag. Configuration is from TagCrudController, and one custom field is added here."></i>
                 </h3>
             </div>
             <div class="card-body">
@@ -81,59 +84,4 @@
         </div>
     </div>
 
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="card mt-3">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Quick Add Invoice in a Modal
-                </h3>
-            </div>
-            <div class="card-body">
-
-                <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#create_invoice"
-                    bp-button="create"
-                    data-style="zoom-in"
-                >
-                    <i class="la la-plus"></i> <span>Create Invoice</span>
-                </button>
-                <x-bp-dataform-modal formId="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
-
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card mt-3">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Quick Edit Invoice in a Modal
-                </h3>
-            </div>
-            <div class="card-body">
-                <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#edit_invoice"
-                    bp-button="create"
-                    data-style="zoom-in"
-                >
-                    <i class="la la-plus"></i> <span>Edit Invoice</span>
-                </button>
-                <x-bp-dataform-modal
-                    formId="edit_invoice"
-                    :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
-                    formOperation="updateInModal"
-                    :entry="\App\Models\PetShop\Invoice::find(1)"
-                />
-
-            </div>
-        </div>
-    </div>
 </div>

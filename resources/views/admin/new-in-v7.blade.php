@@ -15,7 +15,7 @@
                 'formOperation' => 'update',
                 'entry' => \App\Models\PetShop\Skill::find(1),
                 'content' => [
-                    'header' => 'Edit Skill', // optional
+                    'header' => 'Edit Skill (TODO: move this to the right place on page)', // optional
                     'body' => 'This form should make it easy to update an existing skill.<br><br>', // optional
                 ],
             ]
@@ -124,5 +124,23 @@
 
 
 @include('admin.partials.dataform-examples')
+
+<!-- Heading for Form component -->
+<div class="row g-2 align-items-center mt-3">
+    <div class="col">
+        <div class="page-pretitle">Components</div>
+        <h2 class="page-title">Dataform Modal</h2>
+        <p class="mt-2 mb-2">Show a form for an Eloquent entry, in a modal.</p>
+    </div>
+    <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+            <span class="d-none d-sm-inline">
+                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+            </span>
+        </div>
+    </div>
+</div>
+
+@include('admin.partials.dataform-modal-examples')
 
 @endsection
