@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60fc375cc18a735a6894822b7a517b75",
+    "content-hash": "d9beb26af042aa078739aab43616808a",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -575,6 +575,48 @@
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.16"
             },
             "time": "2025-08-26T14:17:10+00:00"
+        },
+        {
+            "name": "backpack/dataform-modal",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Laravel-Backpack/dataform-modal.git",
+                "reference": "2124237ade0b1fb7c79ccd03984fffbb751beb12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/dataform-modal/zipball/2124237ade0b1fb7c79ccd03984fffbb751beb12",
+                "reference": "2124237ade0b1fb7c79ccd03984fffbb751beb12",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^7.0.0-beta"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\DataformModal\\BackpackDataformModalProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\DataformModal\\": "src/"
+                }
+            },
+            "description": "Dataform modal for Backpack",
+            "keywords": [
+                "backpack",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/Laravel-Backpack/dataform-modal/tree/main",
+                "issues": "https://github.com/Laravel-Backpack/dataform-modal/issues"
+            },
+            "time": "2025-10-28T16:56:55+00:00"
         },
         {
             "name": "backpack/editable-columns",
@@ -13041,6 +13083,12 @@
             "alias_normalized": "1.0.0.0"
         },
         {
+            "package": "backpack/dataform-modal",
+            "version": "dev-main",
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0"
+        },
+        {
             "package": "backpack/editable-columns",
             "version": "dev-next",
             "alias": "1.0.0",
@@ -13155,6 +13203,7 @@
         "backpack/backupmanager": 20,
         "backpack/calendar-operation": 20,
         "backpack/ckeditor-field": 20,
+        "backpack/dataform-modal": 20,
         "backpack/editable-columns": 20,
         "backpack/filemanager": 20,
         "backpack/generators": 20,

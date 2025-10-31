@@ -47,12 +47,12 @@
                     Quick Add Tag
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickAddTag"
+                    formId="quickAddTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="create"
+                    formOperation="create"
                     :setup="function($crud, $entry)  {
                         $crud->field('custom_test_field')->type('text');
                     }"
@@ -68,12 +68,12 @@
                     Quick Edit Tag
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickEditTag"
+                    formId="quickEditTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="update"
+                    formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
                 />
 
@@ -81,4 +81,59 @@
         </div>
     </div>
 
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Quick Add Invoice in a Modal
+                </h3>
+            </div>
+            <div class="card-body">
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#create_invoice"
+                    bp-button="create"
+                    data-style="zoom-in"
+                >
+                    <i class="la la-plus"></i> <span>Create Invoice</span>
+                </button>
+                <x-bp-dataform-modal formId="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Quick Edit Invoice in a Modal
+                </h3>
+            </div>
+            <div class="card-body">
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit_invoice"
+                    bp-button="create"
+                    data-style="zoom-in"
+                >
+                    <i class="la la-plus"></i> <span>Edit Invoice</span>
+                </button>
+                <x-bp-dataform-modal
+                    formId="edit_invoice"
+                    :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
+                    formOperation="updateInModal"
+                    :entry="\App\Models\PetShop\Invoice::find(1)"
+                />
+
+            </div>
+        </div>
+    </div>
 </div>
