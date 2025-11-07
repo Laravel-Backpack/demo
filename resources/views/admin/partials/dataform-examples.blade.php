@@ -59,6 +59,7 @@
                     :setup="function($crud, $entry)  {
                         $crud->field('custom_test_field')->type('text');
                     }"
+                    :saveActions="[\Backpack\CRUD\app\Library\CrudPanel\SaveActions\SaveAndList::class]"
                 />
 
             </div>
@@ -78,6 +79,7 @@
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
+                    :formInsideCard="true"
                 />
 
             </div>

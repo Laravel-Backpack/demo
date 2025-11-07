@@ -31,7 +31,9 @@
                     :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
                     :setup="function($crud, $parent) {
                         $crud->enableExportButtons();
-                    }" />
+                    }" 
+                    :useFixedHeader="false"
+                />
 
             </div>
         </div>
