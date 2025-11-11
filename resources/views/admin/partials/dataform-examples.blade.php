@@ -60,6 +60,7 @@
                         $crud->field('custom_test_field')->type('text');
                     }"
                     :saveActions="[\Backpack\CRUD\app\Library\CrudPanel\SaveActions\SaveAndList::class]"
+                    :showCancelButton="false"
                 />
 
             </div>
