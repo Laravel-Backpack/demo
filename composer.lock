@@ -484,16 +484,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "7.0.0-beta.17",
+            "version": "7.0.0-beta.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "b1aacdf0c987029fe7cbfb36d39167a961dc6209"
+                "reference": "63bfe1fe747271d39e387a7fd988c0daae481078"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/b1aacdf0c987029fe7cbfb36d39167a961dc6209",
-                "reference": "b1aacdf0c987029fe7cbfb36d39167a961dc6209",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/63bfe1fe747271d39e387a7fd988c0daae481078",
+                "reference": "63bfe1fe747271d39e387a7fd988c0daae481078",
                 "shasum": ""
             },
             "require": {
@@ -572,9 +572,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.17"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0-beta.18"
             },
-            "time": "2025-11-07T10:44:11+00:00"
+            "time": "2025-11-11T11:29:19+00:00"
         },
         {
             "name": "backpack/dataform-modal",
@@ -582,12 +582,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/dataform-modal.git",
-                "reference": "3b0deda954d290dc4bfa490e7d55d7b6a04118dd"
+                "reference": "fab056cc8a0dec6e10ec70940211569722b0a26c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/dataform-modal/zipball/3b0deda954d290dc4bfa490e7d55d7b6a04118dd",
-                "reference": "3b0deda954d290dc4bfa490e7d55d7b6a04118dd",
+                "url": "https://api.github.com/repos/Laravel-Backpack/dataform-modal/zipball/fab056cc8a0dec6e10ec70940211569722b0a26c",
+                "reference": "fab056cc8a0dec6e10ec70940211569722b0a26c",
                 "shasum": ""
             },
             "require": {
@@ -616,7 +616,7 @@
                 "source": "https://github.com/Laravel-Backpack/dataform-modal/tree/main",
                 "issues": "https://github.com/Laravel-Backpack/dataform-modal/issues"
             },
-            "time": "2025-11-03T12:10:42+00:00"
+            "time": "2025-11-11T11:11:57+00:00"
         },
         {
             "name": "backpack/editable-columns",
