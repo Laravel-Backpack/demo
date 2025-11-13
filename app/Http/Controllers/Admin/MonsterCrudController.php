@@ -64,7 +64,7 @@ class MonsterCrudController extends CrudController
             ['id' => 'review', 'title' => 'Review', 'location' => 'Hybrid'],
         ];
 
-        Collection::macro('paginate', function (int $perPage = 15, int $page = null, array $options = []) {
+        Collection::macro('paginate', function (int $perPage = 15, ?int $page = null, array $options = []) {
             $page ??= \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
 
             return new \Illuminate\Pagination\LengthAwarePaginator($this->forPage($page, $perPage)->toArray(), $this->count(), $perPage, $page, $options);
