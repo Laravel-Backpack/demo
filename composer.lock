@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33e28dd604d21096cc0da37437c05b32",
+    "content-hash": "8f436d74bcaef6c3f8b0dc705bd132bb",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -890,16 +890,16 @@
         },
         {
             "name": "backpack/medialibrary-uploaders",
-            "version": "dev-next",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/medialibrary-uploaders.git",
-                "reference": "ad483e9349f828270e187fab066c0d56df5c601c"
+                "reference": "0c214a1256cf8879895e34abb9c1bd4a1910d927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/ad483e9349f828270e187fab066c0d56df5c601c",
-                "reference": "ad483e9349f828270e187fab066c0d56df5c601c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/medialibrary-uploaders/zipball/0c214a1256cf8879895e34abb9c1bd4a1910d927",
+                "reference": "0c214a1256cf8879895e34abb9c1bd4a1910d927",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +908,8 @@
             },
             "require-dev": {
                 "orchestra/testbench": "^10.0",
-                "phpunit/phpunit": "^11.0"
+                "phpunit/phpunit": "^11.0",
+                "spatie/laravel-translatable": "^6.0"
             },
             "type": "library",
             "extra": {
@@ -945,9 +946,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/medialibrary-uploaders/issues",
-                "source": "https://github.com/Laravel-Backpack/medialibrary-uploaders/tree/next"
+                "source": "https://github.com/Laravel-Backpack/medialibrary-uploaders/tree/2.0.0"
             },
-            "time": "2025-11-19T12:30:39+00:00"
+            "time": "2025-11-19T16:55:14+00:00"
         },
         {
             "name": "backpack/menucrud",
@@ -13053,12 +13054,6 @@
             "alias_normalized": "3.99.99.0"
         },
         {
-            "package": "backpack/medialibrary-uploaders",
-            "version": "dev-next",
-            "alias": "1.99.99",
-            "alias_normalized": "1.99.99.0"
-        },
-        {
             "package": "backpack/theme-coreuiv2",
             "version": "dev-next",
             "alias": "3.99.99",
@@ -13075,7 +13070,6 @@
     "stability-flags": {
         "backpack/crud": 20,
         "backpack/filemanager": 20,
-        "backpack/medialibrary-uploaders": 20,
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-tabler": 20
     },

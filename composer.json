@@ -15,7 +15,7 @@
         "laravel/framework": "^12.0",
         "backpack/crud": "dev-next as 7.0.0",
         "backpack/pro": "^3.0.0-alpha",
-        "backpack/medialibrary-uploaders": "dev-next as 1.99.99",
+        "backpack/medialibrary-uploaders": "^2.0",
         "backpack/ckeditor-field": "^1.0",
         "backpack/tinymce-field": "^1.0",
         "backpack/activity-log": "^2.1",
