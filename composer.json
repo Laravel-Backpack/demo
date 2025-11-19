@@ -13,28 +13,28 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "backpack/crud": "^7.0.0-beta",
+        "backpack/crud": "dev-next as 7.0.0",
         "backpack/pro": "^3.0.0-alpha",
         "backpack/medialibrary-uploaders": "dev-next as 1.99.99",
-        "backpack/ckeditor-field": "dev-next as 1.0.0",
-        "backpack/tinymce-field": "dev-next as 1.0.0",
-        "backpack/activity-log": "dev-next as 1.0.0",
-        "backpack/backupmanager": "dev-next as 6.0",
-        "backpack/calendar-operation": "dev-next as 1.0.0",
-        "backpack/editable-columns": "dev-next as 1.0.0",
+        "backpack/ckeditor-field": "^1.0",
+        "backpack/tinymce-field": "^1.0",
+        "backpack/activity-log": "^2.1",
+        "backpack/backupmanager": "^5.1",
+        "backpack/calendar-operation": "^1.1",
+        "backpack/editable-columns": "^3.1",
         "backpack/filemanager": "dev-next as 3.99.99",
-        "backpack/language-switcher": "dev-next as 3.99.99",
-        "backpack/logmanager": "dev-next as 3.99.99",
-        "backpack/menucrud": "dev-next as 3.99.99",
-        "backpack/newscrud": "dev-next as 3.99.99",
-        "backpack/pagemanager": "dev-next as 3.99.99",
-        "backpack/permissionmanager": "dev-next as 3.99.99",
-        "backpack/revise-operation": "dev-next as 3.99.99",
-        "backpack/settings": "dev-next as 3.99.99",
+        "backpack/language-switcher": "^2.1",
+        "backpack/logmanager": "^5.1",
+        "backpack/menucrud": "^4.1",
+        "backpack/newscrud": "^5.2",
+        "backpack/pagemanager": "^3.4",
+        "backpack/permissionmanager": "^7.3",
+        "backpack/revise-operation": "^2.1",
+        "backpack/settings": "^3.2",
         "backpack/theme-coreuiv2": "dev-next as 3.99.99",
-        "backpack/theme-coreuiv4": "dev-next as 3.99.99",
+        "backpack/theme-coreuiv4": "^1.2",
         "backpack/theme-tabler": "dev-next as 3.99.99",
-        "backpack/translation-manager": "dev-next as 3.99.99",
+        "backpack/translation-manager": "^1.1",
         "consoletvs/charts": "6.*",
         "intervention/image": "^2.3",
         "laravel/legacy-factories": "^1.0",
@@ -43,8 +43,8 @@
         "mews/purifier": "^3.4",
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.0",
-        "backpack/pan-panel": "dev-next as 3.99.99",
-        "backpack/dataform-modal": "dev-main as 1.0.0"
+        "backpack/pan-panel": "^1.1",
+        "backpack/dataform-modal": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -52,17 +52,13 @@
         "phpunit/phpunit": "^11",
         "symfony/css-selector": "^7",
         "symfony/dom-crawler": "^7",
-        "backpack/generators": "dev-next as 3.99.99",
+        "backpack/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Laravel-Backpack/dataform-modal.git"
         }
     ],
     "autoload": {
