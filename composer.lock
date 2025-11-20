@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b014f659f3e89b656bfc6b0cb1f83990",
+    "content-hash": "a9dd7bfa9cc2ba2e0f211278de56eaa0",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1267,20 +1267,20 @@
         },
         {
             "name": "backpack/pro",
-            "version": "3.0.0-alpha.8",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "b27880b64639f71c3708ad6472e0be5e2d81de23"
+                "reference": "82aeb52e1f76ab65aa3535d12e2cc4b32cd8065a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-b27880b64639f71c3708ad6472e0be5e2d81de23-zip-ca9171.zip",
-                "reference": "b27880b64639f71c3708ad6472e0be5e2d81de23",
-                "shasum": "b499b839d1ff6723b9c72c2b9046d7e1eb499f96"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-82aeb52e1f76ab65aa3535d12e2cc4b32cd8065a-zip-d344fa.zip",
+                "reference": "82aeb52e1f76ab65aa3535d12e2cc4b32cd8065a",
+                "shasum": "30a9412773f58440a7642aead659150d704b8a26"
             },
             "require": {
-                "backpack/crud": "^7.0.0-beta"
+                "backpack/crud": "^7.0"
             },
             "require-dev": {
                 "backpack/medialibrary-uploaders": "dev-next as 1.0",
@@ -1333,10 +1333,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.0-alpha.8",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.0",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2025-10-27T10:05:29+00:00"
+            "time": "2025-11-20T22:10:24+00:00"
         },
         {
             "name": "backpack/revise-operation",

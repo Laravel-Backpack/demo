@@ -14,7 +14,7 @@
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "backpack/crud": "dev-next as 7.0.0",
-        "backpack/pro": "^3.0.0-alpha",
+        "backpack/pro": "^3.0",
         "backpack/medialibrary-uploaders": "^2.0",
         "backpack/ckeditor-field": "^1.0",
         "backpack/tinymce-field": "^1.0",
