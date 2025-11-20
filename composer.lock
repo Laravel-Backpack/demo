@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76e90386b992aeb6c08a216770dda53e",
+    "content-hash": "b014f659f3e89b656bfc6b0cb1f83990",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1472,20 +1472,20 @@
         },
         {
             "name": "backpack/theme-coreuiv2",
-            "version": "dev-next",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "d4a1ef23fa2a533f0da945bad5c546f6801b5e78"
+                "reference": "e3b27b31e00e3e660c653f399be3e23dd61aacc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/d4a1ef23fa2a533f0da945bad5c546f6801b5e78",
-                "reference": "d4a1ef23fa2a533f0da945bad5c546f6801b5e78",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/e3b27b31e00e3e660c653f399be3e23dd61aacc9",
+                "reference": "e3b27b31e00e3e660c653f399be3e23dd61aacc9",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^7.0.0-alpha"
+                "backpack/crud": "^7.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^8||^9||^10||^11",
@@ -1526,9 +1526,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/next"
+                "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/2.0.0"
             },
-            "time": "2025-11-20T11:01:49+00:00"
+            "time": "2025-11-20T12:21:35+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -1602,16 +1602,16 @@
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "dev-next",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "c029b3ab7dde922d2fbe98c0bc04e781a2cb29ec"
+                "reference": "cad096012c02bdca202c86257d48825008e2fd09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/c029b3ab7dde922d2fbe98c0bc04e781a2cb29ec",
-                "reference": "c029b3ab7dde922d2fbe98c0bc04e781a2cb29ec",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/cad096012c02bdca202c86257d48825008e2fd09",
+                "reference": "cad096012c02bdca202c86257d48825008e2fd09",
                 "shasum": ""
             },
             "require": {
@@ -1669,9 +1669,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/next"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/2.0.0"
             },
-            "time": "2025-11-19T12:46:51+00:00"
+            "time": "2025-11-20T15:45:39+00:00"
         },
         {
             "name": "backpack/tinymce-field",
@@ -13046,25 +13046,11 @@
             "version": "dev-next",
             "alias": "7.0.0",
             "alias_normalized": "7.0.0.0"
-        },
-        {
-            "package": "backpack/theme-coreuiv2",
-            "version": "dev-next",
-            "alias": "3.99.99",
-            "alias_normalized": "3.99.99.0"
-        },
-        {
-            "package": "backpack/theme-tabler",
-            "version": "dev-next",
-            "alias": "3.99.99",
-            "alias_normalized": "3.99.99.0"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "backpack/crud": 20,
-        "backpack/theme-coreuiv2": 20,
-        "backpack/theme-tabler": 20
+        "backpack/crud": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
