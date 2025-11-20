@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f436d74bcaef6c3f8b0dc705bd132bb",
+    "content-hash": "76e90386b992aeb6c08a216770dda53e",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.360.1",
+            "version": "3.362.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "09b2636a4afdf678b41659e3b0e507e078ca25b1"
+                "reference": "717d63914cc3e2391678c587157a30e43318d7d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/09b2636a4afdf678b41659e3b0e507e078ca25b1",
-                "reference": "09b2636a4afdf678b41659e3b0e507e078ca25b1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/717d63914cc3e2391678c587157a30e43318d7d7",
+                "reference": "717d63914cc3e2391678c587157a30e43318d7d7",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.360.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.362.0"
             },
-            "time": "2025-11-18T19:05:48+00:00"
+            "time": "2025-11-19T20:01:26+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -708,20 +708,20 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "dev-next",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "88574406166bb252978b71aa26a3751042959f3f"
+                "reference": "bcf6c2df66c5c9a06c318056de9a4310d3f25672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/88574406166bb252978b71aa26a3751042959f3f",
-                "reference": "88574406166bb252978b71aa26a3751042959f3f",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/bcf6c2df66c5c9a06c318056de9a4310d3f25672",
+                "reference": "bcf6c2df66c5c9a06c318056de9a4310d3f25672",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^7.0.0-beta",
+                "backpack/crud": "^7.0",
                 "barryvdh/laravel-elfinder": "^0.5.2"
             },
             "require-dev": {
@@ -761,9 +761,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/next"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/4.0.0"
             },
-            "time": "2025-10-23T09:48:42+00:00"
+            "time": "2025-11-20T12:14:06+00:00"
         },
         {
             "name": "backpack/language-switcher",
@@ -1476,12 +1476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-coreuiv2.git",
-                "reference": "d2c78770e7ec4fd0304c1ac9a821b7532875fe6c"
+                "reference": "d4a1ef23fa2a533f0da945bad5c546f6801b5e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/d2c78770e7ec4fd0304c1ac9a821b7532875fe6c",
-                "reference": "d2c78770e7ec4fd0304c1ac9a821b7532875fe6c",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-coreuiv2/zipball/d4a1ef23fa2a533f0da945bad5c546f6801b5e78",
+                "reference": "d4a1ef23fa2a533f0da945bad5c546f6801b5e78",
                 "shasum": ""
             },
             "require": {
@@ -1528,7 +1528,7 @@
                 "issues": "https://github.com/Laravel-Backpack/theme-coreuiv2/issues",
                 "source": "https://github.com/Laravel-Backpack/theme-coreuiv2/tree/next"
             },
-            "time": "2025-07-16T13:13:52+00:00"
+            "time": "2025-11-20T11:01:49+00:00"
         },
         {
             "name": "backpack/theme-coreuiv4",
@@ -5503,31 +5503,31 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v2.3.2",
+            "version": "v2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "eb61920a53057a7debd718a5b89c2178032b52c0"
+                "reference": "6fb2a640ff502caace8e05fd7be3b503a7e1c017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/eb61920a53057a7debd718a5b89c2178032b52c0",
-                "reference": "eb61920a53057a7debd718a5b89c2178032b52c0",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/6fb2a640ff502caace8e05fd7be3b503a7e1c017",
+                "reference": "6fb2a640ff502caace8e05fd7be3b503a7e1c017",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": "^8.2",
-                "symfony/console": "^7.3.4"
+                "symfony/console": "^7.3.6"
             },
             "require-dev": {
                 "illuminate/console": "^11.46.1",
                 "laravel/pint": "^1.25.1",
                 "mockery/mockery": "^1.6.12",
-                "pestphp/pest": "^2.36.0 || ^3.8.4",
+                "pestphp/pest": "^2.36.0 || ^3.8.4 || ^4.1.3",
                 "phpstan/phpstan": "^1.12.32",
                 "phpstan/phpstan-strict-rules": "^1.6.2",
-                "symfony/var-dumper": "^7.3.4",
+                "symfony/var-dumper": "^7.3.5",
                 "thecodingmachine/phpstan-strict-rules": "^1.0.0"
             },
             "type": "library",
@@ -5570,7 +5570,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v2.3.2"
+                "source": "https://github.com/nunomaduro/termwind/tree/v2.3.3"
             },
             "funding": [
                 {
@@ -5586,7 +5586,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-18T11:10:27+00:00"
+            "time": "2025-11-20T02:34:59+00:00"
         },
         {
             "name": "outhebox/blade-flags",
@@ -13048,12 +13048,6 @@
             "alias_normalized": "7.0.0.0"
         },
         {
-            "package": "backpack/filemanager",
-            "version": "dev-next",
-            "alias": "3.99.99",
-            "alias_normalized": "3.99.99.0"
-        },
-        {
             "package": "backpack/theme-coreuiv2",
             "version": "dev-next",
             "alias": "3.99.99",
@@ -13069,7 +13063,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "backpack/crud": 20,
-        "backpack/filemanager": 20,
         "backpack/theme-coreuiv2": 20,
         "backpack/theme-tabler": 20
     },
