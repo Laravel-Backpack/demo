@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.359.11",
+            "version": "3.362.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c04a8b3c40bca26da591a8ff14bcc390d26c1644"
+                "reference": "f29a49b74d5ee771f13432e16d58651de91f7e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c04a8b3c40bca26da591a8ff14bcc390d26c1644",
-                "reference": "c04a8b3c40bca26da591a8ff14bcc390d26c1644",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f29a49b74d5ee771f13432e16d58651de91f7e79",
+                "reference": "f29a49b74d5ee771f13432e16d58651de91f7e79",
                 "shasum": ""
             },
             "require": {
