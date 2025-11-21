@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9dd7bfa9cc2ba2e0f211278de56eaa0",
+    "content-hash": "0ec919c6038e5fd0318c26e646fce7c1",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.362.0",
+            "version": "3.362.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "717d63914cc3e2391678c587157a30e43318d7d7"
+                "reference": "f29a49b74d5ee771f13432e16d58651de91f7e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/717d63914cc3e2391678c587157a30e43318d7d7",
-                "reference": "717d63914cc3e2391678c587157a30e43318d7d7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f29a49b74d5ee771f13432e16d58651de91f7e79",
+                "reference": "f29a49b74d5ee771f13432e16d58651de91f7e79",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.362.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.362.1"
             },
-            "time": "2025-11-19T20:01:26+00:00"
+            "time": "2025-11-20T19:10:40+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -287,16 +287,16 @@
         },
         {
             "name": "backpack/basset",
-            "version": "2.0.0-beta.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/basset.git",
-                "reference": "160aeb18f5593f895777846dc910d0239ba768e7"
+                "reference": "1efadaf5e2352a4b6b21e8799a8e1b9029707da1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/160aeb18f5593f895777846dc910d0239ba768e7",
-                "reference": "160aeb18f5593f895777846dc910d0239ba768e7",
+                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/1efadaf5e2352a4b6b21e8799a8e1b9029707da1",
+                "reference": "1efadaf5e2352a4b6b21e8799a8e1b9029707da1",
                 "shasum": ""
             },
             "require": {
@@ -355,9 +355,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/basset/issues",
-                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.0-beta.2"
+                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.0"
             },
-            "time": "2025-07-16T13:39:47+00:00"
+            "time": "2025-11-21T07:27:01+00:00"
         },
         {
             "name": "backpack/calendar-operation",
@@ -484,20 +484,20 @@
         },
         {
             "name": "backpack/crud",
-            "version": "dev-next",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "6e31ff57dc6ba36d50d998d2501aabdd0e865525"
+                "reference": "9abc482607aaaefcd6ee2455bc0a6e603cc1b69f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/6e31ff57dc6ba36d50d998d2501aabdd0e865525",
-                "reference": "6e31ff57dc6ba36d50d998d2501aabdd0e865525",
+                "url": "https://api.github.com/repos/Laravel-Backpack/CRUD/zipball/9abc482607aaaefcd6ee2455bc0a6e603cc1b69f",
+                "reference": "9abc482607aaaefcd6ee2455bc0a6e603cc1b69f",
                 "shasum": ""
             },
             "require": {
-                "backpack/basset": "^2.0.0-beta",
+                "backpack/basset": "^2.0.",
                 "creativeorange/gravatar": "^1.0",
                 "doctrine/dbal": "^4.0",
                 "guzzlehttp/guzzle": "^7.0",
@@ -572,9 +572,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/CRUD/issues",
-                "source": "https://github.com/Laravel-Backpack/CRUD/tree/next"
+                "source": "https://github.com/Laravel-Backpack/CRUD/tree/7.0.0"
             },
-            "time": "2025-11-19T14:55:52+00:00"
+            "time": "2025-11-21T13:29:48+00:00"
         },
         {
             "name": "backpack/dataform-modal",
@@ -13040,18 +13040,9 @@
             "time": "2025-11-17T20:03:58+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "backpack/crud",
-            "version": "dev-next",
-            "alias": "7.0.0",
-            "alias_normalized": "7.0.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "backpack/crud": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
