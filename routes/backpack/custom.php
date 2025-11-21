@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Prologue\Alerts\Facades\Alert;
 
 // --------------------------
 // Custom Backpack Routes
@@ -19,6 +20,11 @@ Route::group([
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    // ------------
+    // Custom Pages
+    // ------------
+    Route::get('new-in-v7', 'AdminPageController@newInV7')->name('new-in-v7');
+
     // ----------------
     // Monsters & Stuff
     // ----------------
@@ -42,10 +48,43 @@ Route::group([
     // Allow demo users to switch between available themes and layouts
     Route::post('switch-layout', function (Request $request) {
         $theme = 'backpack.theme-'.$request->get('theme', 'tabler').'::';
+
+        // if the theme has changed, let's show a success message
+        if (Session::get('backpack.ui.view_namespace') !== $theme) {
+            Alert::success('Now using theme: '.$request->get('theme', 'tabler'))->flash();
+        }
+
         Session::put('backpack.ui.view_namespace', $theme);
 
         if ($theme === 'backpack.theme-tabler::') {
+            // if the layout has changed, let's show a success message
+            if (Session::get('backpack.theme-tabler.layout') !== $request->get('layout', 'horizontal')) {
+                Alert::success('Now using layout: '.$request->get('layout', 'horizontal'))->flash();
+            }
+
             Session::put('backpack.theme-tabler.layout', $request->get('layout', 'horizontal'));
+
+            // Handle styles selection
+            $selectedStyles = $request->get('styles', []);
+            $currentStyles = Session::get('backpack.theme-tabler.styles', []);
+
+            // Only show success message if styles have actually changed
+            if ($selectedStyles !== $currentStyles) {
+                $styleCount = count($selectedStyles);
+                Alert::success("Applied {$styleCount} style(s)")->flash();
+            }
+
+            // Handle direction selection
+            if ($request->has('direction')) {
+                $direction = $request->get('direction', 'ltr');
+                // if the direction has changed, let's show a success message
+                if (Session::get('backpack.ui.html_direction') !== $direction) {
+                    Alert::success('Now using direction: '.$direction)->flash();
+                }
+                Session::put('backpack.ui.html_direction', $direction);
+            }
+
+            Session::put('backpack.theme-tabler.styles', $selectedStyles);
         }
 
         return Redirect::back();

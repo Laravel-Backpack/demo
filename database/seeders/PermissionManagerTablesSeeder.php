@@ -29,20 +29,60 @@ class PermissionManagerTablesSeeder extends Seeder
     ];
 
     /**
+     * Disable foreign key checks based on database driver.
+     */
+    protected function disableForeignKeyChecks()
+    {
+        $driver = DB::getDriverName();
+
+        switch ($driver) {
+            case 'mysql':
+                DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                break;
+            case 'sqlite':
+                DB::statement('PRAGMA foreign_keys=OFF;');
+                break;
+            case 'pgsql':
+                // PostgreSQL doesn't have a global setting, would need to defer constraints
+                break;
+        }
+    }
+
+    /**
+     * Enable foreign key checks based on database driver.
+     */
+    protected function enableForeignKeyChecks()
+    {
+        $driver = DB::getDriverName();
+
+        switch ($driver) {
+            case 'mysql':
+                DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+                break;
+            case 'sqlite':
+                DB::statement('PRAGMA foreign_keys=ON;');
+                break;
+            case 'pgsql':
+                // PostgreSQL doesn't have a global setting, would need to defer constraints
+                break;
+        }
+    }
+
+    /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        $this->disableForeignKeyChecks();
 
         DB::table(Config::get('permission.table_names.model_has_roles'))->truncate();
         DB::table(Config::get('permission.table_names.role_has_permissions'))->truncate();
         Permission::truncate();
         Role::truncate();
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        $this->enableForeignKeyChecks();
 
         foreach ($this->roles as $role) {
             Role::create(['name' => $role, 'guard_name' => 'web']);

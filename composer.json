@@ -1,32 +1,40 @@
 {
     "name": "backpack/demo",
     "description": "A Laravel + Backpack installation to show off most features.",
-    "keywords": ["backpack", "laravel", "backpack for laravel", "admin panel", "crud"],
+    "keywords": [
+        "backpack",
+        "laravel",
+        "backpack for laravel",
+        "admin panel",
+        "crud"
+    ],
     "license": "proprietary",
     "type": "project",
     "require": {
         "php": "^8.2",
-        "laravel/framework": "^11.0",
-        "backpack/activity-log": "^2.0.3",
-        "backpack/backupmanager": "^5.0",
-        "backpack/calendar-operation": "^1.0",
-        "backpack/crud": "^6.7",
-        "backpack/editable-columns": "^3.0",
-        "backpack/filemanager": "^3.0",
-        "backpack/language-switcher": "^2.0",
-        "backpack/logmanager": "^5.0",
-        "backpack/medialibrary-uploaders": "^1.0",
-        "backpack/menucrud": "^4.0",
-        "backpack/newscrud": "^5.0",
-        "backpack/pagemanager": "^3.0",
-        "backpack/permissionmanager": "^7.0",
-        "backpack/pro": "^2.0",
-        "backpack/revise-operation": "^2.0",
-        "backpack/settings": "^3.1",
-        "backpack/theme-coreuiv2": "^1.0",
-        "backpack/theme-coreuiv4": "^1.0",
-        "backpack/theme-tabler": "^1.0",
-        "backpack/translation-manager": "^1.0",
+        "laravel/framework": "^12.0",
+        "backpack/crud": "^7.0",
+        "backpack/pro": "^3.0",
+        "backpack/medialibrary-uploaders": "^2.0",
+        "backpack/ckeditor-field": "^1.0",
+        "backpack/tinymce-field": "^1.0",
+        "backpack/activity-log": "^2.1",
+        "backpack/backupmanager": "^5.1",
+        "backpack/calendar-operation": "^1.1",
+        "backpack/editable-columns": "^3.1",
+        "backpack/filemanager": "^4.0",
+        "backpack/language-switcher": "^2.1",
+        "backpack/logmanager": "^5.1",
+        "backpack/menucrud": "^4.1",
+        "backpack/newscrud": "^5.2",
+        "backpack/pagemanager": "^3.4",
+        "backpack/permissionmanager": "^7.3",
+        "backpack/revise-operation": "^2.1",
+        "backpack/settings": "^3.2",
+        "backpack/theme-coreuiv2": "^2.0",
+        "backpack/theme-coreuiv4": "^1.2",
+        "backpack/theme-tabler": "^2.0",
+        "backpack/translation-manager": "^1.1",
         "consoletvs/charts": "6.*",
         "intervention/image": "^2.3",
         "laravel/legacy-factories": "^1.0",
@@ -35,15 +43,16 @@
         "mews/purifier": "^3.4",
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.0",
-        "backpack/pan-panel": "^1.0"
+        "backpack/pan-panel": "^1.1",
+        "backpack/dataform-modal": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
         "mockery/mockery": "1.6.*",
-        "phpunit/phpunit" : "^11",
+        "phpunit/phpunit": "^11",
         "symfony/css-selector": "^7",
         "symfony/dom-crawler": "^7",
-        "backpack/generators": "^4.0",
+        "backpack/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^3.2"
     },
     "repositories": [
@@ -74,10 +83,12 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan storage:link -q"
+            "php artisan storage:link -q",
+            "@php artisan basset:cache"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan basset:cache"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

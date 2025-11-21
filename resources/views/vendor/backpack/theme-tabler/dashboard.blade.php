@@ -35,7 +35,7 @@
         // notice we use Widget::make() to add widgets as content (not in a group)
         Widget::make()
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('success') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-user']) // ['top|right|bottom']
@@ -48,7 +48,7 @@
         // but we need to use onlyHere() or remove() at the end
         Widget::add()
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('danger') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-bell']) // ['top|right|bottom']
@@ -63,7 +63,7 @@
         Widget::make()
             ->group('hidden')
             ->type('progress')
-            ->class('card mb-3')
+            ->class('card mb-1')
             ->statusBorder('start') // start|top|bottom
             ->accentColor('info') // primary|secondary|warning|danger|info
             ->ribbon(['top', 'la-star']) // ['top|right|bottom']
@@ -76,7 +76,7 @@
         // if you prefer defining your widgets as arrays
         Widget::make([
             'type' => 'progress',
-            'class'=> 'card mb-3',
+            'class'=> 'card mb-1',
             'statusBorder' => 'start', // start|top|bottom
             'accentColor' => 'warning', // primary|secondary|warning|danger|info
             'ribbon' => ['top', 'la-lock'], // ['top|right|left|bottom', 'la-xxx']
@@ -151,7 +151,7 @@
       'close_button' => true, // show close button or not
     ];
 
-    $widgets['before_content'][] = [
+    $widgets['after_content'][] = [
       'type' => 'div',
       'class' => 'row',
       'content' => [ // widgets
@@ -186,7 +186,7 @@
 
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\ChartjsPieController::class,
                 'content' => [
@@ -196,7 +196,7 @@
             ],
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\EchartsPieController::class,
                 'content' => [
@@ -206,7 +206,7 @@
             ],
             [
                 'type' => 'chart',
-                'wrapperClass' => 'col-md-4 mb-3',
+                'wrapperClass' => 'col-md-4 mt-3 mb-3',
                 // 'class' => 'col-md-6',
                 'controller' => \App\Http\Controllers\Admin\Charts\Pies\HighchartsPieController::class,
                 'content' => [
@@ -263,14 +263,13 @@
                     'header' => 'Line Chart - Frappe', // optional
                     // 'body' => 'This chart should make it obvious how many new users have signed up in the past 7 days.<br><br>', // optional
                 ]
-            ],
-
-
+            ]
         ]
     ];
 @endphp
 
 @section('content')
+
     {{-- In case widgets have been added to a 'content' group, show those widgets. --}}
     @include(backpack_view('inc.widgets'), [ 'widgets' => app('widgets')->where('group', 'content')->toArray() ])
 @endsection

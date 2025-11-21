@@ -39,10 +39,12 @@ class RefreshDb extends Command
      */
     public function handle()
     {
+        Artisan::call('down');
         Log::warning('Cleanup time. Refreshing the database.');
         Artisan::call('db:wipe --force');
         Artisan::call('migrate --force');
         Artisan::call('db:seed --force');
         Artisan::call('backup:clean');
+        Artisan::call('up');
     }
 }

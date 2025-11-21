@@ -17,7 +17,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
-    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzoneUpload; }
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
 
     public function setup()
     {
@@ -91,10 +91,10 @@ class ProductCrudController extends CrudController
             'tab'   => 'Texts',
         ]);
 
-        CRUD::addField([   // Wysiwyg
+        CRUD::addField([   // summernote
             'name'  => 'details',
             'label' => 'Details',
-            'type'  => 'wysiwyg',
+            'type'  => 'summernote',
             'tab'   => 'Texts',
         ]);
 
@@ -292,7 +292,7 @@ class ProductCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    public function dropzoneUpload()
+    public function ajaxUpload()
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
@@ -301,6 +301,6 @@ class ProductCrudController extends CrudController
             ], 500);
         }
 
-        return $this->traitDropzoneUpload();
+        return $this->traitAjaxUpload();
     }
 }

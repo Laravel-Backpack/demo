@@ -18,6 +18,7 @@ class CaveCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -146,5 +147,16 @@ class CaveCrudController extends CrudController
         }
 
         return $subfields;
+    }
+
+    public function ajaxUpload()
+    {
+        if (app('env') === 'production') {
+            return response()->json(['errors' => [
+                'message' => 'Uploads are disabled in production.',
+            ]], 500);
+        }
+
+        return $this->traitAjaxUpload();
     }
 }

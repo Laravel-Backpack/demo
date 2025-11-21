@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\PetShop;
 use App\Http\Requests\OwnerRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class OwnerCrudController.
@@ -47,8 +48,8 @@ class OwnerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('name');
-        CRUD::column('avatar.url')->type('image')->label('Avatar');
+        CRUD::column('name')->size(6);
+        CRUD::column('avatar.url')->type('image')->label('Avatar')->size(6);
         CRUD::column('pets')->label('Pets')->linkTo('pet.show');
         CRUD::column('invoices')->linkTo('invoice.show');
         CRUD::column('badges')->label('Badges')->linkTo('badge.show');
@@ -98,5 +99,48 @@ class OwnerCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->setupListOperation();
+
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\PetShop\PetCrudController',
+            'name'       => 'pets_crud',
+            'section'    => 'after_content',
+            'wrapper'    => ['class' => 'mt-3'],
+            'content'    => [
+                'header' => 'Pets for this owner',
+                // COULD-DO: maybe add support for a subheader?
+                // 'subheader' => 'This is a list of all pets owned by this owner.',
+            ],
+            'setup' => function ($crud, $parent) {
+                // change some column attributes just inside this instance
+                $crud->column('skills')->label('Pet skills');
+                $crud->column('passport.number')->label('Passport Number');
+
+                // only show the pets of this owner (owner is an n-n relationship)
+                $crud->addClause('whereHas', 'owners', function ($query) use ($parent) {
+                    $query->where('id', $parent->id);
+                });
+            },
+        ]);
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\PetShop\InvoiceCrudController',
+            'name'       => 'invoices_crud',
+            'section'    => 'after_content',
+            'wrapper'    => ['class' => 'mt-3'],
+            'content'    => [
+                'header' => 'Invoices for this owner',
+            ],
+            // MUST-DO: How the fuck do I make this only show related pets?!?!
+            'setup' => function ($crud, $parent) {
+                // only show the pets of this owner (owner is an n-n relationship)
+                $crud->addClause('where', 'owner_id', $parent->id);
+            },
+        ]);
     }
 }

@@ -1,6 +1,7 @@
 {{-- This file is used for menu items by any Backpack v6 theme --}}
 
 <x-backpack::menu-item title="Dashboard" icon="la la-dashboard" :link="backpack_url('dashboard')" data-pan="menu-item-dashboard" />
+<x-backpack::menu-item title="New in v7" icon="la la-exclamation-circle" :link="backpack_url('new-in-v7')"  data-pan="menu-item-new-in-v7" />
 
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 

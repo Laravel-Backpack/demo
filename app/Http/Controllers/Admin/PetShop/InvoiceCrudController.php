@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\PetShop;
 use App\Http\Requests\InvoiceRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\CRUD\app\Library\Widget;
 
 /**
  * Class InvoiceCrudController.
@@ -14,12 +15,14 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class InvoiceCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    // use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\TrashOperation;
     use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -53,18 +56,31 @@ class InvoiceCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addColumn([
-            'name'   => 'owner',
-            'label'  => 'Owner',
-            'linkTo' => [
-                'route'     => 'owner.show',
-                'target'    => '_blank',
-            ],
+            'name' => 'info',
+            'type' => 'view',
+            'view' => 'crud::chips.invoice',
         ]);
-        CRUD::column('series');
-        CRUD::column('number');
         CRUD::column('issuance_date');
         CRUD::column('due_date');
         CRUD::column('total');
+
+        CRUD::filter('series')
+            ->type('dropdown')
+            ->values(\App\Models\PetShop\Invoice::select('series')->distinct()->pluck('series', 'series')->toArray())
+            ->label('Series')
+            ->placeholder('Search by series')
+            ->whenActive(function ($value) {
+                CRUD::addClause('where', 'series', '=', $value);
+            });
+
+        CRUD::filter('issuance_date')
+            ->type('date_range')
+            ->label('Issuance Date')
+            ->placeholder('Search by issuance date')
+            ->whenActive(function ($value) {
+                $dates = json_decode($value);
+                CRUD::addClause('whereBetween', 'issuance_date', [$dates->from, $dates->to]);
+            });
 
         $this->runCustomViews();
     }
@@ -130,6 +146,17 @@ class InvoiceCrudController extends CrudController
         $this->autoSetupShowOperation();
 
         CRUD::column('total');
+
+        // get the owner with important relationships
+        $owner = CRUD::getCurrentEntry()->owner()->with('avatar', 'invoices')->first();
+
+        // add a chip widget for the owner
+        Widget::add()
+            ->to('after_content')
+            ->type('chip')
+            ->view('crud::chips.owner')
+            ->title('Owner')
+            ->entry($owner);
     }
 
     public function fetchOwner()

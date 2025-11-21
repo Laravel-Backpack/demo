@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\Widget;
 use Illuminate\Support\Collection;
 
 class MonsterCrudController extends CrudController
@@ -12,11 +13,13 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
-    use \Backpack\Pro\Http\Controllers\Operations\DropzoneOperation { dropzoneUpload as traitDropzone; }
-    use \App\Http\Controllers\Admin\Operations\SMSOperation; //Custom Form Operation Example
+    use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
+    use Operations\SMSOperation; //Custom Form Operation Example
     use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
     use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
 
@@ -131,10 +134,10 @@ class MonsterCrudController extends CrudController
                     'element' => 'span',
                     'class'   => function ($crud, $column, $entry, $related_key) {
                         if ($column['text'] == 'Yes') {
-                            return 'badge rounded-pill bg-success';
+                            return 'badge rounded-pill bg-success text-white';
                         }
 
-                        return 'badge rounded-pill bg-danger';
+                        return 'badge rounded-pill bg-danger text-white';
                     },
                 ],
             ],
@@ -279,6 +282,53 @@ class MonsterCrudController extends CrudController
 
     public function setupShowOperation()
     {
+        // add a widget
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\IconCrudController',
+            'name'       => 'icon_crud',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Icons for this monster',
+            ],
+            'wrapper'    => ['class'=> 'mb-3'],
+        ]);
+
+        Widget::add([
+            'type'       => 'datatable',
+            'controller' => 'App\Http\Controllers\Admin\ProductCrudController',
+            'name'       => 'products_datatable',
+            'section'    => 'after_content',
+            'content'    => [
+                'header' => 'Products for this monster',
+            ],
+            'wrapper'    => ['class'=> 'mb-3'],
+            'configure'  => function ($crud, $entry = null) {
+                // Customize which columns to show
+                $crud->removeAllColumns();
+                $crud->addColumn(['name' => 'name', 'label' => 'Product Name']);
+                $crud->addColumn(['name' => 'price', 'label' => 'Price']);
+
+                // Get the current monster's products
+                if ($entry) {
+                    $productIds = $entry->products->pluck('id')->toArray();
+                    if (count($productIds) > 0) {
+                        // Configure the controller to only show products related to this monster
+                        $crud->addClause('whereIn', 'id', $productIds);
+                    } else {
+                        // Force an empty result when there are no products
+                        $crud->addClause('where', 'id', 0); // This will match no products
+                    }
+
+                    // Remove buttons that aren't needed for this embedded view
+
+                    // Disable features that aren't needed
+                    $crud->denyAccess(['create', 'update', 'delete']);
+                    $crud->disableResponsiveTable();
+                }
+            },
+        ]);
+
         $this->crud->setOperationSetting('tabsEnabled', true);
         $this->setupListOperation();
 
@@ -318,13 +368,6 @@ class MonsterCrudController extends CrudController
             'type'   => 'tinymce',
             'label'  => 'TinyMCE'.backpack_pro_badge(),
             'tab'    => 'WYSIWYG Editors',
-        ]);
-
-        $this->crud->addColumn([
-            'name'    => 'wysiwyg',
-            'type'    => 'wysiwyg',
-            'label'   => 'Wysiwyg'.backpack_pro_badge(),
-            'tab'     => 'WYSIWYG Editors',
         ]);
 
         $this->crud->addColumn([
@@ -1703,10 +1746,11 @@ class MonsterCrudController extends CrudController
                 'tab'   => 'WYSIWYG Editors',
             ],
             [   // Summernote
-                'name'  => 'summernote',
-                'label' => 'Summernote editor'.backpack_free_badge(),
-                'type'  => 'summernote',
-                'tab'   => 'WYSIWYG Editors',
+                'name'      => 'summernote',
+                'label'     => 'Summernote editor'.backpack_free_badge(),
+                'type'      => 'summernote',
+                'tab'       => 'WYSIWYG Editors',
+                'withFiles' => true,
             ],
             [   // CKEditor
                 'name'  => 'ckeditor',
@@ -1718,12 +1762,6 @@ class MonsterCrudController extends CrudController
                 'name'  => 'tinymce',
                 'label' => 'TinyMCE'.backpack_pro_badge(),
                 'type'  => 'tinymce',
-                'tab'   => 'WYSIWYG Editors',
-            ],
-            [   // Wysiwyg
-                'name'  => 'wysiwyg',
-                'label' => 'Wysiwyg'.backpack_pro_badge(),
-                'type'  => 'wysiwyg',
                 'tab'   => 'WYSIWYG Editors',
             ],
         ];
@@ -1837,15 +1875,17 @@ class MonsterCrudController extends CrudController
         ];
     }
 
-    public function dropzoneUpload()
+    public function ajaxUpload()
     {
         if (app('env') === 'production') {
             return response()->json(['errors' => [
-                'dropzone' => ['Uploads are disabled in production'],
+                'dropzone'   => ['Uploads are disabled in production'],
+                'easymde'    => ['Uploads are disabled in production'],
+                'summernote' => ['Uploads are disabled in production'],
             ],
             ], 500);
         }
 
-        return $this->traitDropzone();
+        return $this->traitAjaxUpload();
     }
 }
