@@ -2,25 +2,26 @@
 
 @php
     // Add the form widget to the 'after_content' section of the widgets array
-    $widgets['after_content'][] = [
-      'type' => 'div',
-      'class' => 'row',
-      'content' => [ // widgets
-            [
-                'type' => 'dataform',
-                'wrapper' => [
-                    'class' => 'col-md-12 mt-3',
-                ],
-                'controller' => \App\Http\Controllers\Admin\PetShop\SkillCrudController::class,
-                'formOperation' => 'update',
-                'entry' => \App\Models\PetShop\Skill::find(1),
-                'content' => [
-                    'header' => 'Edit Skill (TODO: move this to the right place on page)', // optional
-                    'body' => 'This form should make it easy to update an existing skill.<br><br>', // optional
-                ],
-            ]
-        ]
-    ];
+
+    // $widgets['after_content'][] = [
+    //   'type' => 'div',
+    //   'class' => 'row',
+    //   'content' => [ // widgets
+    //         [
+    //             'type' => 'dataform',
+    //             'wrapper' => [
+    //                 'class' => 'col-md-12 mt-3',
+    //             ],
+    //             'controller' => \App\Http\Controllers\Admin\PetShop\SkillCrudController::class,
+    //             'formOperation' => 'update',
+    //             'entry' => \App\Models\PetShop\Skill::find(1),
+    //             'content' => [
+    //                 'header' => 'Edit Skill (TODO: move this to the right place on page)', // optional
+    //                 'body' => 'This form should make it easy to update an existing skill.<br><br>', // optional
+    //             ],
+    //         ]
+    //     ]
+    // ];
 
     $widgets['after_content'][] = [
         'type' => 'view',
@@ -44,7 +45,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/crud-chips" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -62,7 +63,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datagrid-1" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -80,7 +81,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datalist-1" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -98,7 +99,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datatable-1" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -116,7 +117,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#dataform-1" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>
@@ -135,7 +136,7 @@
     <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
             <span class="d-none d-sm-inline">
-                <a href="#" class="btn btn-primary"> See docs </a> <!-- TODO: link to final docs -->
+                <a target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#dataform-modal-1" class="btn btn-primary"> See docs  <i class="ms-2 la la-external-link-alt"></i></a> <!-- TODO: link to final docs -->
             </span>
         </div>
     </div>

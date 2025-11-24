@@ -19,8 +19,9 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/main/resources/views/admin/partials/datatable-examples.blade.php">See demo code</a>
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datatable-1">See docs</a>
                         </div>
                     </div>
                 </div>
@@ -31,7 +32,7 @@
                     :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
                     :setup="function($crud, $parent) {
                         $crud->enableExportButtons();
-                    }" 
+                    }"
                     :useFixedHeader="false"
                 />
 

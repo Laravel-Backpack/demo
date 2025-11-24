@@ -24,8 +24,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/main/resources/views/admin/partials/datalist-examples.blade.php">See demo code</a>
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datalist-1">See docs</a>
                         </div>
                     </div>
                 </div>
@@ -67,8 +67,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/main/resources/views/admin/partials/datalist-examples.blade.php">See demo code</a>
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datalist-1">See docs</a>
                         </div>
                     </div>
                 </div>
@@ -114,8 +114,8 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="#">See demo code</a> <!-- TODO: link to demo code -->
-                            <a class="dropdown-item" href="#">See docs</a> <!-- TODO: link to final docs -->
+                            <a class="dropdown-item" target="_blank" href="https://github.com/Laravel-Backpack/demo/blob/main/resources/views/admin/partials/datalist-examples.blade.php">See demo code</a>
+                            <a class="dropdown-item" target="_blank" href="https://backpackforlaravel.com/docs/7.x/base-components#datalist-1">See docs</a>
                         </div>
                     </div>
                 </div>
