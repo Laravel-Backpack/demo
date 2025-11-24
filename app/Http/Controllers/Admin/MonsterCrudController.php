@@ -13,6 +13,8 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
+    use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
@@ -132,10 +134,10 @@ class MonsterCrudController extends CrudController
                     'element' => 'span',
                     'class'   => function ($crud, $column, $entry, $related_key) {
                         if ($column['text'] == 'Yes') {
-                            return 'badge rounded-pill bg-success';
+                            return 'badge rounded-pill bg-success text-white';
                         }
 
-                        return 'badge rounded-pill bg-danger';
+                        return 'badge rounded-pill bg-danger text-white';
                     },
                 ],
             ],

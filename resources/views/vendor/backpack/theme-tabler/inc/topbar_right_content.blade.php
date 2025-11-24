@@ -222,6 +222,30 @@
                             </div>
                         </div>
 
+                        <div id="tabler-direction-selection" class="mb-3">
+                            <p>Choose the text <strong>direction</strong> for your admin panel:</p>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 mb-3">
+                                    <label class="form-selectgroup-item cursor-pointer">
+                                        <input @if(Session::get('backpack.ui.html_direction', config('backpack.ui.html_direction', 'ltr')) === 'ltr') checked @endif type="radio" name="direction" value="ltr" class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label border rounded p-3">
+                                            <div class="form-selectgroup-title fw-bold mb-1">LTR</div>
+                                            <small class="text-muted">Left to Right (Default)</small>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 mb-3">
+                                    <label class="form-selectgroup-item cursor-pointer">
+                                        <input @if(Session::get('backpack.ui.html_direction', config('backpack.ui.html_direction', 'ltr')) === 'rtl') checked @endif type="radio" name="direction" value="rtl" class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label border rounded p-3">
+                                            <div class="form-selectgroup-title fw-bold mb-1">RTL</div>
+                                            <small class="text-muted">Right to Left</small>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div id="tabler-styles-selection" class="mb-3">
                             <p>Choose which <strong>skins</strong> to apply on top of the Tabler theme:</p>
                             <div class="row">
@@ -289,12 +313,17 @@
             if (selectedTheme === 'tabler') {
                 layoutSelection.slideDown();
                 stylesSelection.slideDown();
+                directionSelection.slideDown();
             } else {
                 // Hide layout and styles options for CoreUI themes (coreuiv2, coreuiv4)
                 layoutSelection.slideUp();
                 stylesSelection.slideUp();
+                directionSelection.slideUp();
             }
         });
+
+        // Get direction selection element
+        const directionSelection = $('#tabler-direction-selection');
 
         // Also handle the case when modal is opened - ensure correct initial state
         $('#modal-layout').on('shown.bs.modal', function () {
@@ -302,9 +331,11 @@
             if (checkedTheme === 'tabler') {
                 layoutSelection.show();
                 stylesSelection.show();
+                directionSelection.show();
             } else {
                 layoutSelection.hide();
                 stylesSelection.hide();
+                directionSelection.hide();
             }
         });
     </script>

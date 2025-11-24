@@ -41,21 +41,26 @@
 <div class="row">
 
     <div class="col-md-6">
-        <div class="card mt-3">
+        <div class="card card-stacked mt-3">
             <div class="card-header">
                 <h3 class="card-title">
-                    Quick Add Tag
+                    Quick Add Tag (With Extra Field)
+
+                    <i class="la la-info-circle text-muted" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Showing the form to create a Tag. Configuration is from TagCrudController, and one custom field is added here."></i>
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickAddTag"
+                    formId="quickAddTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="create"
+                    formOperation="create"
                     :setup="function($crud, $entry)  {
                         $crud->field('custom_test_field')->type('text');
                     }"
+                    :saveActions="[\Backpack\CRUD\app\Library\CrudPanel\SaveActions\SaveAndList::class]"
+                    :showCancelButton="false"
                 />
 
             </div>
@@ -68,13 +73,14 @@
                     Quick Edit Tag
                 </h3>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body">
 
                 <x-backpack::dataform
-                    id="quickEditTag"
+                    formId="quickEditTag"
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
-                    operation="update"
+                    formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
+                    :formInsideCard="true"
                 />
 
             </div>

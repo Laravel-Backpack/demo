@@ -54,7 +54,7 @@ trait PageTemplates
         $this->crud->addField([
             'name'        => 'content',
             'label'       => 'Content',
-            'type'        => 'wysiwyg',
+            'type'        => 'summernote',
             'placeholder' => 'Your content here',
         ]);
     }
@@ -64,7 +64,7 @@ trait PageTemplates
         $this->crud->addField([
             'name'        => 'content',
             'label'       => 'Content',
-            'type'        => 'wysiwyg',
+            'type'        => 'summernote',
             'placeholder' => 'Your content here',
         ]);
     }
