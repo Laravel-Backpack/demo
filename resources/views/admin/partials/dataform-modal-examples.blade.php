@@ -61,7 +61,11 @@
                     </a>
                 </p>
 
-                <x-bp-dataform-modal formId="create_invoice" :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class' />
+                <x-bp-dataform-modal
+                    formId="create_invoice"
+                    :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class'
+                    :formInsideCard="false"
+                />
 
             </div>
         </div>

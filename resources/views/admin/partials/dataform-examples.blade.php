@@ -80,6 +80,7 @@
                     :controller="\Backpack\NewsCRUD\app\Http\Controllers\Admin\TagCrudController::class"
                     formOperation="update"
                     :entry="\Backpack\NewsCRUD\app\Models\Tag::find(1)"
+                    :saveActions="[\Backpack\CRUD\app\Library\CrudPanel\SaveActions\SaveAndEdit::class]"
                     :formInsideCard="true"
                 />
 
