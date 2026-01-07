@@ -6,6 +6,7 @@ use App\Http\Requests\ProductRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\ReviseOperation\ReviseOperation;
 
 class ProductCrudController extends CrudController
 {
@@ -18,6 +19,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
+    use ReviseOperation;
 
     public function setup()
     {
@@ -112,37 +114,6 @@ class ProductCrudController extends CrudController
             'tab' => 'Texts',
         ]);
 
-        // Fake repeatable with translations
-        CRUD::addField([ // Extra Features
-            'name'      => 'extra_features',
-            'label'     => 'Extra Features',
-            'type'      => 'repeatable',
-            'tab'       => 'Texts',
-            'store_in'  => 'extras',
-            'fake'      => true,
-            'subfields' => [
-                [
-                    'name'    => 'feature',
-                    'wrapper' => [
-                        'class' => 'col-md-3',
-                    ],
-                ],
-                [
-                    'name'    => 'value',
-                    'wrapper' => [
-                        'class' => 'col-md-6',
-                    ],
-                ],
-                [
-                    'name'    => 'quantity',
-                    'type'    => 'number',
-                    'wrapper' => [
-                        'class' => 'col-md-3',
-                    ],
-                ],
-            ],
-        ]);
-
         CRUD::addField([  // Select2
             'label'     => 'Category',
             'type'      => 'select2',
@@ -192,13 +163,6 @@ class ProductCrudController extends CrudController
                 'tab'   => 'Metas',
             ],
             [ // Text
-                'name'  => 'meta_description',
-                'label' => 'Meta Description',
-                'type'  => 'text',
-                'fake'  => true,
-                'tab'   => 'Metas',
-            ],
-            [ // Text
                 'name'  => 'meta_keywords',
                 'label' => 'Meta Keywords',
                 'type'  => 'text',
@@ -206,6 +170,45 @@ class ProductCrudController extends CrudController
                 'tab'   => 'Metas',
             ],
         ]);
+
+        // Fake repeatable with translations
+        CRUD::addField([ // Extra Features
+            'name'      => 'extra_features',
+            'label'     => 'Extra Features',
+            'type'      => 'repeatable',
+            'tab'       => 'Texts',
+            'store_in'  => 'extras',
+            'fake'      => true,
+            'subfields' => [
+                [
+                    'name'    => 'feature',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+                [
+                    'name'    => 'value',
+                    'wrapper' => [
+                        'class' => 'col-md-6',
+                    ],
+                ],
+                [
+                    'name'    => 'quantity',
+                    'type'    => 'number',
+                    'wrapper' => [
+                        'class' => 'col-md-3',
+                    ],
+                ],
+            ],
+        ]);
+
+        CRUD::field([ // Text
+                'name'  => 'meta_description',
+                'label' => 'Meta Description',
+                'type'  => 'text',
+                'fake'  => true,
+                'tab'   => 'Metas',
+            ]);
 
         CRUD::field('main_image')
                 ->label('Main Image')
