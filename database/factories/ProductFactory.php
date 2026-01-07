@@ -40,7 +40,7 @@ class ProductFactory extends Factory
                     'meta_keywords'    => implode(', ', $this->faker->words(5)),
                     'extra_features'   => null,
                     'meta_description' => $this->faker->sentence(),
-                ]
+                ],
             ],
             'gallery'    => [],
             'features'   => null,

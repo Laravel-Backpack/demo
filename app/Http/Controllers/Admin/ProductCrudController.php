@@ -203,12 +203,12 @@ class ProductCrudController extends CrudController
         ]);
 
         CRUD::field([ // Text
-                'name'  => 'meta_description',
-                'label' => 'Meta Description',
-                'type'  => 'text',
-                'fake'  => true,
-                'tab'   => 'Metas',
-            ]);
+            'name'  => 'meta_description',
+            'label' => 'Meta Description',
+            'type'  => 'text',
+            'fake'  => true,
+            'tab'   => 'Metas',
+        ]);
 
         CRUD::field('main_image')
                 ->label('Main Image')
