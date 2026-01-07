@@ -34,6 +34,16 @@ class ProductFactory extends Factory
                     return Category::all()->random()->id;
                 }
             },
+            'extras' => [
+                'en' => [
+                    'meta_title'       => $this->faker->sentence(),
+                    'meta_keywords'    => implode(', ', $this->faker->words(5)),
+                    'extra_features'   => null,
+                    'meta_description' => $this->faker->sentence(),
+                ],
+            ],
+            'gallery'    => [],
+            'features'   => null,
         ];
     }
 }

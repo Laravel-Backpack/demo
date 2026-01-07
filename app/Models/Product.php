@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Product extends Model implements HasMedia
 {
@@ -19,7 +20,7 @@ class Product extends Model implements HasMedia
     use HasTranslations;
     use HasFactory;
     use InteractsWithMedia;
-
+    use RevisionableTrait;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
