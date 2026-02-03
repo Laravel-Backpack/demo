@@ -773,7 +773,7 @@ class MonsterCrudController extends CrudController
         $this->crud->addFilter(
             [ // add a "simple" filter called Draft
                 'type'  => 'simple',
-                'name'  => 'checkbox',
+                'name'  => 'checkbox_filter',
                 'label' => 'Simple',
             ],
             false, // the simple filter has no values, just the "Draft" label specified above
