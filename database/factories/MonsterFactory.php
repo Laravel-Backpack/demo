@@ -31,8 +31,8 @@ class MonsterFactory extends Factory
             'date'                    => $this->faker->date(),
             'start_date'              => $this->faker->date(),
             'end_date'                => $this->faker->date(),
-            'datetime'                => $this->faker->datetime(),
-            'datetime_picker'         => $this->faker->datetime(),
+            'datetime'                => $this->faker->dateTime()->format('Y-m-d H:i:s'),
+            'datetime_picker'         => $this->faker->dateTime()->format('Y-m-d H:i:s'),
             'email'                   => $this->faker->email(),
             'checkbox'                => $this->faker->boolean(),
             'number'                  => rand(),
@@ -40,6 +40,10 @@ class MonsterFactory extends Factory
             'belongs_to_non_nullable' => 0,
             'select'                  => rand(1, 40),
             'icon_id'                 => rand(1, 4),
+            'status'                  => \App\Enums\MonsterStatus::WORKING->value,
+            'select2_json_from_api'   => '{}',
+            'select2_json_from_api_simple' => '{}',
+            'icondummy'               => 1,
         ];
     }
 }
