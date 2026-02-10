@@ -26,7 +26,7 @@ class ProductFactory extends Factory
             'name'        => ucfirst($this->faker->unique()->sentence()),
             'description' => $this->faker->text(50),
             'details'     => $this->faker->text(800),
-            'price'       => $this->faker->randomFloat(2, 1, 100),
+            'price'       => random_int(10, 1000),
             'category_id' => function () {
                 if (rand(1, 100) % 50 == 0) {
                     return Category::factory()->create()->id;

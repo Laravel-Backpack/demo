@@ -28,4 +28,13 @@ class PetFactory extends Factory
             'nickname' => Arr::random($this->petNames),
         ];
     }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Pet $pet) {
+            $pet->avatar()->create([
+                'url' => 'https://placekitten.com/'.rand(200,400).'/'.rand(200,400),
+            ]);
+        });
+    }
 }

@@ -374,6 +374,16 @@ class FluentMonsterCrudController extends CrudController
                 ])
                 ->fake(true)
                 ->tab('Selects');
+        CRUD::field('wysiwyg')->type('summernote')->label('WYSIWYG')->tab('Editors');
+
+        CRUD::field('belongs_to_non_nullable')
+                ->type('relationship')
+                ->label('Relationship to non-nullable model (belongs_to_non_nullable)')
+                ->entity('icondummy')
+                ->attribute('icon')
+                ->model(\App\Models\Icon::class)
+                ->allows_null(false)
+                ->tab('Selects');
 
         // -----------------
         // UPLOADS tab
