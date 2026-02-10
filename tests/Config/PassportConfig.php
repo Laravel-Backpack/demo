@@ -8,6 +8,7 @@ class PassportConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHe
     {
         $passport = parent::validCreateInput($model);
         $passport['pet'] = 1;
+
         return $passport;
     }
 
@@ -16,6 +17,7 @@ class PassportConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHe
         $passport = parent::createTestEntry($model, $attributes);
         $passport->pet()->associate(1);
         $passport->save();
+
         return $passport;
     }
 }

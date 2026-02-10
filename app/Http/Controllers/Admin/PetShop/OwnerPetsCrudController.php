@@ -26,7 +26,7 @@ class OwnerPetsCrudController extends PetCrudController
         // get the owner parameter
         $this->owner = \Route::current()?->parameter('owner');
 
-        if(! $this->owner) {
+        if (!$this->owner) {
             abort(404);
         }
 

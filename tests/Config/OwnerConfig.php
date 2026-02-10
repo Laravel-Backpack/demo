@@ -4,7 +4,6 @@ namespace Tests\Config;
 
 class OwnerConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHelper
 {
-
     public function getRouteParameters()
     {
         return [
@@ -16,6 +15,7 @@ class OwnerConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHelpe
     {
         $owner = parent::validCreateInput($model);
         $owner['avatar']['url'] = 'https://placekitten.com/300/300';
+
         return $owner;
     }
 }

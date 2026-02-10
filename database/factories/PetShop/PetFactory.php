@@ -33,7 +33,7 @@ class PetFactory extends Factory
     {
         return $this->afterCreating(function (Pet $pet) {
             $pet->avatar()->create([
-                'url' => 'https://placekitten.com/'.rand(200,400).'/'.rand(200,400),
+                'url' => 'https://placekitten.com/'.rand(200, 400).'/'.rand(200, 400),
             ]);
         });
     }

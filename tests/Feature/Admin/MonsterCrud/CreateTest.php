@@ -7,7 +7,7 @@ class CreateTest extends MonsterCrudTestBase
     public string $operation = 'create';
 
     /**
-     * Test that the create page loads without errors
+     * Test that the create page loads without errors.
      */
     public function test_create_page_loads_successfully(): void
     {
@@ -22,22 +22,21 @@ class CreateTest extends MonsterCrudTestBase
     }
 
     /**
-     * Test that entry is added to the database
+     * Test that entry is added to the database.
      */
     public function test_create_adds_entry_to_database(): void
     {
-        
         $data = $this->testConfig->validCreateInput($this->model);
 
         $response = $this->post($this->getCrudUrl(), $data);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
         $this->assertDatabaseHas($this->model, $this->testConfig->getDatabaseAssertInput($this->model, $data));
     }
 
     /**
-     * Test that the create form validates wrong form data
+     * Test that the create form validates wrong form data.
      */
     public function test_create_validates_wrong_data(): void
     {
@@ -49,12 +48,13 @@ class CreateTest extends MonsterCrudTestBase
         if ($data !== null) {
             $response->assertStatus(302);
             $response->assertSessionHasErrors();
+
             return;
         }
 
         $fields = $this->getOperationSettings()['fields'] ?? [];
         $requiredFields = collect($fields)
-            ->filter(function($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
+            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
 
         if ($requiredFields->isNotEmpty()) {
             // Check that we are redirected back
@@ -66,31 +66,30 @@ class CreateTest extends MonsterCrudTestBase
     }
 
     /**
-     * Test create page loads with old() inputs after failed validation and errors are present on page
+     * Test create page loads with old() inputs after failed validation and errors are present on page.
      */
     public function test_create_page_loads_with_old_inputs(): void
     {
-         // Submit empty data to trigger required validation
+        // Submit empty data to trigger required validation
         $response = $this->post($this->route, []);
-        
+
         $fields = $this->getOperationSettings()['fields'] ?? [];
         $requiredFields = collect($fields)
-            ->filter(function($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
+            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
 
         if ($requiredFields->isNotEmpty()) {
             // Check that we are redirected back
             $response->assertStatus(302);
-            
+
             // Follow the redirect to see the page with errors
             $response = $this->followRedirects($response);
             $response->assertStatus(200);
-            
+
             // Check for error messages
             // This is a basic check.
             $response->assertSee('required');
         } else {
-             $this->assertTrue(true);
+            $this->assertTrue(true);
         }
     }
-
 }

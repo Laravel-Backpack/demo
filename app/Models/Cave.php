@@ -35,7 +35,7 @@ class Cave extends Model
     {
         return $this->hasOne(\App\Models\Monster::class);
     }
-    
+
     public function category()
     {
         return $this->monster()->getRelated()->category();
