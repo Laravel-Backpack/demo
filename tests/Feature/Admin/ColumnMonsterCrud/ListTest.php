@@ -1,0 +1,55 @@
+<?php
+
+namespace Tests\Feature\Admin\ColumnMonsterCrud;
+
+class ListTest extends ColumnMonsterCrudTestBase
+{
+    public string $operation = 'list';
+    
+    /**
+     * Test that the list page loads without errors
+     */
+    public function test_list_page_loads_successfully(): void
+    {
+        $response = $this->get($this->getCrudUrl());
+        $response->assertStatus(200);
+        $response->assertSee($this->entityName ?? '');
+    }
+
+    /**
+     * Test that DataTables ajax endpoint returns datatable compatible data
+     */
+    public function test_list_datatables_returns_compatible_data(): void
+    {
+        
+        $this->createTestEntries(5);
+        $response = $this->post($this->getCrudUrl('search'));
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            'draw',
+            'recordsTotal',
+            'recordsFiltered',
+            'data'
+        ]);
+    }
+
+    /**
+     * Test that filters are on page
+     */
+    public function test_list_filters_are_on_page(): void
+    {
+        $filters = $this->getOperationSettings()['filters'] ?? [];
+
+        if (count($filters) > 0) {
+             $response = $this->get($this->getCrudUrl());
+             $response->assertStatus(200);
+             
+             foreach ($filters as $filter) {
+                 $response->assertSee('filter-name="'.$filter->name.'"', false);
+             }
+        } else {
+             $this->assertTrue(true);
+        }
+    }
+
+}
