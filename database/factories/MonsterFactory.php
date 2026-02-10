@@ -23,8 +23,7 @@ class MonsterFactory extends Factory
     {
         return [
             'text'                    => ucfirst($this->faker->unique()->sentence()),
-            'wysiwyg'                 => $this->faker->text(800),
-            'summernote'              => $this->faker->text(800),
+            'summernote'              => '<p>'.$this->faker->text(800).'</p>',
             'tinymce'                 => $this->faker->text(800),
             'textarea'                => $this->faker->text(250),
             'text'                    => $this->faker->text(120),
@@ -34,16 +33,15 @@ class MonsterFactory extends Factory
             'datetime'                => $this->faker->dateTime()->format('Y-m-d H:i:s'),
             'datetime_picker'         => $this->faker->dateTime()->format('Y-m-d H:i:s'),
             'email'                   => $this->faker->email(),
-            'checkbox'                => $this->faker->boolean(),
+            'checkbox'                => 0,
             'number'                  => rand(),
             'float'                   => rand(),
             'belongs_to_non_nullable' => 0,
-            'select'                  => rand(1, 40),
-            'icon_id'                 => rand(1, 4),
+            'select'                  => null,
+            'icon_id'                 => null,
             'status'                  => \App\Enums\MonsterStatus::WORKING->value,
-            'select2_json_from_api'   => '{}',
-            'select2_json_from_api_simple' => '{}',
-            'icondummy'               => 1,
+            'select2_json_from_api'   => null,
+            'select2_json_from_api_simple' => null,
         ];
     }
 }

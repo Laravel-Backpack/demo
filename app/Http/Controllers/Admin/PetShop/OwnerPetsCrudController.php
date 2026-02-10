@@ -24,7 +24,11 @@ class OwnerPetsCrudController extends PetCrudController
         parent::setup();
 
         // get the owner parameter
-        $this->owner = \Route::current()->parameter('owner');
+        $this->owner = \Route::current()?->parameter('owner');
+
+        if(! $this->owner) {
+            abort(404);
+        }
 
         // set a different route for the admin panel
         CRUD::setRoute(config('backpack.base.route_prefix').'/pet-shop/owner/'.$this->owner.'/pets');
