@@ -27,7 +27,7 @@ class EditableMonsterCrudTestBase extends CrudFeatureTestCase
             $this->app['crud']->clearFilters();
         }
 
-        if(config('backpack.testing.configurations.'.$this->controller)) {
+        if (config('backpack.testing.configurations.'.$this->controller)) {
             $this->testConfig = new (config('backpack.testing.configurations.'.$this->controller))();
         }
     }

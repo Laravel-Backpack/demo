@@ -7,7 +7,7 @@ class OwnerPetsConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigH
     /**
      * Define the route parameters for the controller.
      * These will be injected into the mocked route.
-     * 
+     *
      * @return array
      */
     public function getRouteParameters()
@@ -24,9 +24,10 @@ class OwnerPetsConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigH
         $pet['owners'] = [
             [
                 'owner_id' => 1,
-                'role' => 'Owner',
+                'role'     => 'Owner',
             ],
         ];
+
         return $pet;
     }
 
@@ -37,9 +38,10 @@ class OwnerPetsConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigH
         $pet['owners'] = [
             [
                 'owner_id' => 1,
-                'role' => 'Owner',
+                'role'     => 'Owner',
             ],
         ];
+
         return $pet;
     }
 
@@ -48,6 +50,7 @@ class OwnerPetsConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigH
         $pet = parent::createTestEntry($model, $attributes);
         // Ensure the pet is linked to owner 1
         $pet->owners()->attach(1, ['role' => 'Owner']);
+
         return $pet;
     }
 }

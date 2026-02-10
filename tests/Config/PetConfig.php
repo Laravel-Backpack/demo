@@ -8,6 +8,7 @@ class PetConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHelper
     {
         $pet = parent::validCreateInput($model);
         $pet['avatar']['url'] = 'https://placekitten.com/300/300';
+
         return $pet;
     }
 
@@ -15,6 +16,7 @@ class PetConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHelper
     {
         $pet = parent::validUpdateInput($model);
         $pet['avatar']['url'] = 'https://placekitten.com/400/400';
+
         return $pet;
     }
 
@@ -24,6 +26,7 @@ class PetConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHelper
         $pet->avatar()->create([
             'url' => 'https://placekitten.com/350/350',
         ]);
+
         return $pet;
     }
 }

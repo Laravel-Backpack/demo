@@ -62,15 +62,15 @@ class HeroCrudController extends CrudController
             ->label('Stories'.backpack_new_badge())
             ->subfields([
                 [
-                    'name' => 'name'
+                    'name' => 'name',
                 ],
                 [
-                    'name' => 'monsters',
-                    'type' => 'select2_multiple',
-                    'model' => \App\Models\Monster::class,
-                    'entity' => 'monsters',
+                    'name'      => 'monsters',
+                    'type'      => 'select2_multiple',
+                    'model'     => \App\Models\Monster::class,
+                    'entity'    => 'monsters',
                     'attribute' => 'text',
-                    'pivot' => true,
+                    'pivot'     => true,
                 ],
             ])
             ->hint('<small class="float-right">Select the related Story over a <code>belongsToMany</code> relationship (n-n) with extra pivot fields.</small>');

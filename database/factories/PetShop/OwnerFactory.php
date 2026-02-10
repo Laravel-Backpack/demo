@@ -30,7 +30,7 @@ class OwnerFactory extends Factory
     {
         return $this->afterCreating(function (Owner $owner) {
             $owner->avatar()->create([
-                'url' => 'https://placekitten.com/'.rand(200,400).'/'.rand(200,400),
+                'url' => 'https://placekitten.com/'.rand(200, 400).'/'.rand(200, 400),
             ]);
         });
     }

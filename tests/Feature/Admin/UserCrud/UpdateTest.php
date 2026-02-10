@@ -5,13 +5,12 @@ namespace Tests\Feature\Admin\UserCrud;
 class UpdateTest extends UserCrudTestBase
 {
     public string $operation = 'update';
-    
+
     /**
-     * Test that the update page loads without errors
+     * Test that the update page loads without errors.
      */
     public function test_update_page_loads_successfully(): void
     {
-        
         $entry = $this->createTestEntry();
         $response = $this->get($this->getCrudUrl($entry->getKey().'/edit'));
         $response->assertStatus(200);
@@ -24,17 +23,16 @@ class UpdateTest extends UserCrudTestBase
     }
 
     /**
-     * Test that entry is updated in the database
+     * Test that entry is updated in the database.
      */
     public function test_update_updates_entry_in_database(): void
     {
-        
         $entry = $this->createTestEntry();
         $data = $this->testConfig->validUpdateInput($this->model);
 
         $data[$entry->getKeyName()] = $entry->getKey();
         $response = $this->put($this->getCrudUrl($entry->getKey()), $data);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
@@ -42,11 +40,10 @@ class UpdateTest extends UserCrudTestBase
     }
 
     /**
-     * Test that the update form validates wrong form data
+     * Test that the update form validates wrong form data.
      */
     public function test_update_validates_wrong_data(): void
     {
-        
         $entry = $this->createTestEntry();
         $data = $this->testConfig->invalidInput();
 
@@ -56,48 +53,47 @@ class UpdateTest extends UserCrudTestBase
         if ($data !== null) {
             $response->assertStatus(302);
             $response->assertSessionHasErrors();
+
             return;
         }
-        
+
         // Assert session has errors if there are required fields
         $fields = $this->getOperationSettings()['fields'] ?? [];
         $requiredFields = collect($fields)
-            ->filter(function($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
-            
+            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
+
         if ($requiredFields->isNotEmpty()) {
             $response->assertSessionHasErrors($requiredFields->keys()->toArray());
         } else {
-             $response->assertStatus(302);
+            $response->assertStatus(302);
         }
     }
 
     /**
-     * Test update page loads with old() inputs after failed validation and errors are present on page
+     * Test update page loads with old() inputs after failed validation and errors are present on page.
      */
     public function test_update_page_loads_with_old_inputs(): void
     {
-        
         $entry = $this->createTestEntry();
-         // Submit empty data to trigger required validation
+        // Submit empty data to trigger required validation
         $response = $this->put($this->route.'/'.$entry->getKey(), []);
-        
+
         $fields = $this->getOperationSettings()['fields'] ?? [];
         $requiredFields = collect($fields)
-            ->filter(function($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
+            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
 
         if ($requiredFields->isNotEmpty()) {
             // Check that we are redirected back
             $response->assertStatus(302);
-            
+
             // Follow the redirect to see the page with errors
             $response = $this->followRedirects($response);
             $response->assertStatus(200);
-            
+
             // Check for error messages
             $response->assertSee('required');
         } else {
-             $this->assertTrue(true);
+            $this->assertTrue(true);
         }
     }
-
 }
