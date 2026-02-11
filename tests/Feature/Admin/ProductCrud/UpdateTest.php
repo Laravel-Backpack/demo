@@ -5,13 +5,12 @@ namespace Tests\Feature\Admin\ProductCrud;
 class UpdateTest extends ProductCrudTestBase
 {
     public string $operation = 'update';
-    
+
     /**
-     * Test that the update page loads without errors
+     * Test that the update page loads without errors.
      */
     public function test_update_page_loads_successfully(): void
     {
-        
         $entry = $this->testHelper->createEntry();
         $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/edit'));
         $response->assertStatus(200);
@@ -24,17 +23,16 @@ class UpdateTest extends ProductCrudTestBase
     }
 
     /**
-     * Test that entry is updated in the database
+     * Test that entry is updated in the database.
      */
     public function test_update_endpoint_updates_entry_in_database(): void
     {
-        
         $entry = $this->testHelper->createEntry();
         $data = $this->testHelper->validUpdateInput($this->model);
 
         $data[$entry->getKeyName()] = $entry->getKey();
         $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
@@ -42,11 +40,10 @@ class UpdateTest extends ProductCrudTestBase
     }
 
     /**
-     * Test that the update form validates wrong form data
+     * Test that the update form validates wrong form data.
      */
     public function test_update_endpoint_rejects_invalid_input(): void
     {
-        
         $entry = $this->testHelper->createEntry();
         $data = $this->testHelper->invalidInput();
 
@@ -56,5 +53,4 @@ class UpdateTest extends ProductCrudTestBase
         $response->assertStatus(302);
         $response->assertSessionHasErrors();
     }
-
 }

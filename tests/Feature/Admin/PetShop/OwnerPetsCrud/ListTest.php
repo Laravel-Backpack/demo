@@ -5,9 +5,9 @@ namespace Tests\Feature\Admin\PetShop\OwnerPetsCrud;
 class ListTest extends OwnerPetsCrudTestBase
 {
     public string $operation = 'list';
-    
+
     /**
-     * Test that the list page loads without errors
+     * Test that the list page loads without errors.
      */
     public function test_list_page_loads_successfully(): void
     {
@@ -17,11 +17,11 @@ class ListTest extends OwnerPetsCrudTestBase
     }
 
     /**
-     * Test that DataTables ajax endpoint returns datatable compatible data
+     * Test that DataTables ajax endpoint returns datatable compatible data.
      */
     public function test_datatables_returns_compatible_data(): void
     {
-        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $this->markTestSkipped('Factory not found for model '.$this->model);
         $this->testHelper->createTestEntries(5);
         $response = $this->post($this->testHelper->getCrudUrl('search'));
         $response->assertStatus(200);
@@ -29,27 +29,26 @@ class ListTest extends OwnerPetsCrudTestBase
             'draw',
             'recordsTotal',
             'recordsFiltered',
-            'data'
+            'data',
         ]);
     }
 
     /**
-     * Test that filters are on page
+     * Test that filters are on page.
      */
     public function test_filters_are_on_page(): void
     {
         $filters = $this->testHelper->getOperationSetting('filters', []);
 
         if (count($filters) > 0) {
-             $response = $this->get($this->testHelper->getCrudUrl());
-             $response->assertStatus(200);
-             
-             foreach ($filters as $filter) {
-                 $response->assertSee('filter-name="'.$filter->name.'"', false);
-             }
+            $response = $this->get($this->testHelper->getCrudUrl());
+            $response->assertStatus(200);
+
+            foreach ($filters as $filter) {
+                $response->assertSee('filter-name="'.$filter->name.'"', false);
+            }
         } else {
-             $this->assertTrue(true);
+            $this->assertTrue(true);
         }
     }
-
 }
