@@ -27,9 +27,8 @@ class UserFactory extends Factory
             'name'              => $this->faker->name,
             'email'             => $this->faker->unique()->safeEmail,
             'password'          => bcrypt(Str::random(10)),
-            'remember_token'    => Str::random(10),
-            'created_at'        => Carbon::now()->subDays(rand(0, 7)),
-            'email_verified_at' => random_int(1, 999) % 2 == 0 ? now() : null,
+            'remember_token'    => null,
+            'email_verified_at' => null,
         ];
     }
 }

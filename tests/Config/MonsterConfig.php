@@ -14,11 +14,6 @@ class MonsterConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigHel
         return array_merge(parent::validCreateInput($model), ['icondummy' => 1]);
     }
 
-    public static function createTestEntry(string $model, array $attributes = [])
-    {
-        return parent::createTestEntry($model, $attributes);
-    }
-
     public static function getDatabaseAssertInput(string $model, array $input = []): array
     {
         $input = parent::getDatabaseAssertInput($model, $input);
