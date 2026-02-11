@@ -376,7 +376,7 @@ class FluentMonsterCrudController extends CrudController
                 ->tab('Selects');
         CRUD::field('wysiwyg')->type('summernote')->label('WYSIWYG')->tab('Editors');
 
-        CRUD::field('belongs_to_non_nullable')
+        CRUD::field('icondummy')
                 ->type('relationship')
                 ->label('Relationship to non-nullable model (belongs_to_non_nullable)')
                 ->entity('icondummy')

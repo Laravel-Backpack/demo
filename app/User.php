@@ -30,6 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name', 'email', 'password',
     ];
 
+    public $timestamps = true;
+
     /**
      * The attributes that should be hidden for arrays.
      *

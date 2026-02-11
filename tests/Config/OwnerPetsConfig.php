@@ -48,7 +48,6 @@ class OwnerPetsConfig extends \Backpack\CRUD\app\Library\CrudTesting\TestConfigH
     public static function createTestEntry(string $model, array $attributes = [])
     {
         $pet = parent::createTestEntry($model, $attributes);
-        // Ensure the pet is linked to owner 1
         $pet->owners()->attach(1, ['role' => 'Owner']);
 
         return $pet;
