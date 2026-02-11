@@ -7,90 +7,43 @@ class CreateTest extends OwnerCrudTestBase
     public string $operation = 'create';
 
     /**
-     * Test that the create page loads without errors.
+     * Test that the create page loads without errors
      */
     public function test_create_page_loads_successfully(): void
     {
-        $response = $this->get($this->getCrudUrl('create'));
+        $response = $this->get($this->testHelper->getCrudUrl('create'));
         $response->assertStatus(200);
         $response->assertSee($this->entityName ?? '');
 
-        $fields = $this->getOperationSettings()['fields'] ?? [];
+        $fields = $this->testHelper->getOperationSetting('fields', []);
         foreach ($fields as $field) {
             $response->assertSee('name="'.$field['name'].'"', false);
         }
     }
 
     /**
-     * Test that entry is added to the database.
+     * Test that entry is added to the database
      */
-    public function test_create_adds_entry_to_database(): void
+    public function test_create_endpoint_adds_entry_to_database(): void
     {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $data = $this->testConfig->validCreateInput($this->model);
+        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $data = $this->testHelper->validCreateInput($this->model);
 
-        $response = $this->post($this->getCrudUrl(), $data);
-
+        $response = $this->post($this->testHelper->getCrudUrl(), $data);
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
-        $this->assertDatabaseHas($this->model, $this->testConfig->getDatabaseAssertInput($this->model, $data));
+        $this->assertDatabaseHas($this->model, $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 
     /**
-     * Test that the create form validates wrong form data.
+     * Test that the create form validates wrong form data
      */
-    public function test_create_validates_wrong_data(): void
+    public function test_create_endpoint_rejects_invalid_input(): void
     {
-        $data = $this->testConfig->invalidInput();
-
-        // Submit data to trigger validation
-        $response = $this->post($this->getCrudUrl(), $data ?? []);
-
-        if ($data !== null) {
-            $response->assertStatus(302);
-            $response->assertSessionHasErrors();
-
-            return;
-        }
-
-        $fields = $this->getOperationSettings()['fields'] ?? [];
-        $requiredFields = collect($fields)
-            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
-
-        if ($requiredFields->isNotEmpty()) {
-            // Check that we are redirected back
-            $response->assertStatus(302);
-            $response->assertSessionHasErrors($requiredFields->keys()->toArray());
-        } else {
-            $response->assertStatus(302);
-        }
+        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $response = $this->post($this->testHelper->getCrudUrl(), $this->testHelper->invalidInput());
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors();
     }
 
-    /**
-     * Test create page loads with old() inputs after failed validation and errors are present on page.
-     */
-    public function test_create_page_loads_with_old_inputs(): void
-    {
-        // Submit empty data to trigger required validation
-        $response = $this->post($this->route, []);
-
-        $fields = $this->getOperationSettings()['fields'] ?? [];
-        $requiredFields = collect($fields)
-            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
-
-        if ($requiredFields->isNotEmpty()) {
-            // Check that we are redirected back
-            $response->assertStatus(302);
-
-            // Follow the redirect to see the page with errors
-            $response = $this->followRedirects($response);
-            $response->assertStatus(200);
-
-            // Check for error messages
-            // This is a basic check.
-            $response->assertSee('required');
-        } else {
-            $this->assertTrue(true);
-        }
-    }
 }

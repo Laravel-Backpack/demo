@@ -20,15 +20,6 @@ class SkillCrudTestBase extends CrudFeatureTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->actingAsAdmin();
-
-        // Clear filters to avoid duplication conflict when the request is run
-        if ($this->app->bound('crud')) {
-            $this->app['crud']->clearFilters();
-        }
-
-        if (config('backpack.testing.configurations.'.$this->controller)) {
-            $this->testConfig = new (config('backpack.testing.configurations.'.$this->controller))();
-        }
+        $this->testHelper->actingAsAdmin($this);
     }
 }
