@@ -7,7 +7,7 @@ class CreateTest extends HeroCrudTestBase
     public string $operation = 'create';
 
     /**
-     * Test that the create page loads without errors
+     * Test that the create page loads without errors.
      */
     public function test_create_page_loads_successfully(): void
     {
@@ -22,11 +22,10 @@ class CreateTest extends HeroCrudTestBase
     }
 
     /**
-     * Test that entry is added to the database
+     * Test that entry is added to the database.
      */
     public function test_create_endpoint_adds_entry_to_database(): void
     {
-        
         $data = $this->testHelper->validCreateInput($this->model);
 
         $response = $this->post($this->testHelper->getCrudUrl(), $data);
@@ -36,14 +35,12 @@ class CreateTest extends HeroCrudTestBase
     }
 
     /**
-     * Test that the create form validates wrong form data
+     * Test that the create form validates wrong form data.
      */
     public function test_create_endpoint_rejects_invalid_input(): void
     {
-        
         $response = $this->post($this->testHelper->getCrudUrl(), $this->testHelper->invalidInput());
         $response->assertStatus(302);
         $response->assertSessionHasErrors();
     }
-
 }

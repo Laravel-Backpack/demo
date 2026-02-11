@@ -5,13 +5,13 @@ namespace Tests\Feature\Admin\PetShop\CommentCrud;
 class UpdateTest extends CommentCrudTestBase
 {
     public string $operation = 'update';
-    
+
     /**
-     * Test that the update page loads without errors
+     * Test that the update page loads without errors.
      */
     public function test_update_page_loads_successfully(): void
     {
-        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $this->markTestSkipped('Factory not found for model '.$this->model);
         $entry = $this->testHelper->createEntry();
         $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/edit'));
         $response->assertStatus(200);
@@ -24,17 +24,17 @@ class UpdateTest extends CommentCrudTestBase
     }
 
     /**
-     * Test that entry is updated in the database
+     * Test that entry is updated in the database.
      */
     public function test_update_endpoint_updates_entry_in_database(): void
     {
-        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $this->markTestSkipped('Factory not found for model '.$this->model);
         $entry = $this->testHelper->createEntry();
         $data = $this->testHelper->validUpdateInput($this->model);
 
         $data[$entry->getKeyName()] = $entry->getKey();
         $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
-        
+
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
@@ -42,11 +42,11 @@ class UpdateTest extends CommentCrudTestBase
     }
 
     /**
-     * Test that the update form validates wrong form data
+     * Test that the update form validates wrong form data.
      */
     public function test_update_endpoint_rejects_invalid_input(): void
     {
-        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $this->markTestSkipped('Factory not found for model '.$this->model);
         $entry = $this->testHelper->createEntry();
         $data = $this->testHelper->invalidInput();
 
@@ -56,5 +56,4 @@ class UpdateTest extends CommentCrudTestBase
         $response->assertStatus(302);
         $response->assertSessionHasErrors();
     }
-
 }
