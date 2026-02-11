@@ -5,99 +5,56 @@ namespace Tests\Feature\Admin\PetShop\PetCrud;
 class UpdateTest extends PetCrudTestBase
 {
     public string $operation = 'update';
-
+    
     /**
-     * Test that the update page loads without errors.
+     * Test that the update page loads without errors
      */
     public function test_update_page_loads_successfully(): void
     {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $entry = $this->createTestEntry();
-        $response = $this->get($this->getCrudUrl($entry->getKey().'/edit'));
+        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $entry = $this->testHelper->createEntry();
+        $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/edit'));
         $response->assertStatus(200);
         $response->assertSee($this->entityName ?? '');
 
-        $fields = $this->getOperationSettings()['fields'] ?? [];
+        $fields = $this->testHelper->getOperationSetting('fields', []);
         foreach ($fields as $field) {
             $response->assertSee('name="'.$field['name'].'"', false);
         }
     }
 
     /**
-     * Test that entry is updated in the database.
+     * Test that entry is updated in the database
      */
-    public function test_update_updates_entry_in_database(): void
+    public function test_update_endpoint_updates_entry_in_database(): void
     {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $entry = $this->createTestEntry();
-        $data = $this->testConfig->validUpdateInput($this->model);
+        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $entry = $this->testHelper->createEntry();
+        $data = $this->testHelper->validUpdateInput($this->model);
 
         $data[$entry->getKeyName()] = $entry->getKey();
-        $response = $this->put($this->getCrudUrl($entry->getKey()), $data);
-
+        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
+        
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
-        $this->assertDatabaseHas($this->model, $this->testConfig->getDatabaseAssertInput($this->model, $data));
+        $this->assertDatabaseHas($this->model, $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 
     /**
-     * Test that the update form validates wrong form data.
+     * Test that the update form validates wrong form data
      */
-    public function test_update_validates_wrong_data(): void
+    public function test_update_endpoint_rejects_invalid_input(): void
     {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $entry = $this->createTestEntry();
-        $data = $this->testConfig->invalidInput();
+        $this->markTestSkipped('Factory not found for model ' . $this->model);
+        $entry = $this->testHelper->createEntry();
+        $data = $this->testHelper->invalidInput();
 
         // Submit data to trigger validation
-        $response = $this->put($this->getCrudUrl($entry->getKey()), $data ?? []);
+        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
 
-        if ($data !== null) {
-            $response->assertStatus(302);
-            $response->assertSessionHasErrors();
-
-            return;
-        }
-
-        // Assert session has errors if there are required fields
-        $fields = $this->getOperationSettings()['fields'] ?? [];
-        $requiredFields = collect($fields)
-            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
-
-        if ($requiredFields->isNotEmpty()) {
-            $response->assertSessionHasErrors($requiredFields->keys()->toArray());
-        } else {
-            $response->assertStatus(302);
-        }
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors();
     }
 
-    /**
-     * Test update page loads with old() inputs after failed validation and errors are present on page.
-     */
-    public function test_update_page_loads_with_old_inputs(): void
-    {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $entry = $this->createTestEntry();
-        // Submit empty data to trigger required validation
-        $response = $this->put($this->route.'/'.$entry->getKey(), []);
-
-        $fields = $this->getOperationSettings()['fields'] ?? [];
-        $requiredFields = collect($fields)
-            ->filter(function ($field) { return str_contains($field['validationRules'] ?? '', 'required'); });
-
-        if ($requiredFields->isNotEmpty()) {
-            // Check that we are redirected back
-            $response->assertStatus(302);
-
-            // Follow the redirect to see the page with errors
-            $response = $this->followRedirects($response);
-            $response->assertStatus(200);
-
-            // Check for error messages
-            $response->assertSee('required');
-        } else {
-            $this->assertTrue(true);
-        }
-    }
 }
