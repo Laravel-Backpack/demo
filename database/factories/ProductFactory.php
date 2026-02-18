@@ -31,7 +31,7 @@ class ProductFactory extends Factory
                 if (rand(1, 100) % 50 == 0) {
                     return Category::factory()->create()->id;
                 } else {
-                    return Category::all()->random()->id;
+                    return Category::inRandomOrder()->first()->id ?? Category::factory()->create()->id;
                 }
             },
         ];

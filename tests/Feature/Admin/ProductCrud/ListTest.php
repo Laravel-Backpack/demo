@@ -2,52 +2,7 @@
 
 namespace Tests\Feature\Admin\ProductCrud;
 
-class ListTest extends ProductCrudTestBase
+class ListTest extends TestBase
 {
-    public string $operation = 'list';
-
-    /**
-     * Test that the list page loads without errors.
-     */
-    public function test_list_page_loads_successfully(): void
-    {
-        $response = $this->get($this->testHelper->getCrudUrl());
-        $response->assertStatus(200);
-        $response->assertSee($this->entityName ?? '');
-    }
-
-    /**
-     * Test that DataTables ajax endpoint returns datatable compatible data.
-     */
-    public function test_datatables_returns_compatible_data(): void
-    {
-        $this->testHelper->createTestEntries(5);
-        $response = $this->post($this->testHelper->getCrudUrl('search'));
-        $response->assertStatus(200);
-        $response->assertJsonStructure([
-            'draw',
-            'recordsTotal',
-            'recordsFiltered',
-            'data',
-        ]);
-    }
-
-    /**
-     * Test that filters are on page.
-     */
-    public function test_filters_are_on_page(): void
-    {
-        $filters = $this->testHelper->getOperationSetting('filters', []);
-
-        if (count($filters) > 0) {
-            $response = $this->get($this->testHelper->getCrudUrl());
-            $response->assertStatus(200);
-
-            foreach ($filters as $filter) {
-                $response->assertSee('filter-name="'.$filter->name.'"', false);
-            }
-        } else {
-            $this->assertTrue(true);
-        }
-    }
+    use \Tests\Feature\Backpack\DefaultListTests;
 }
