@@ -11,7 +11,7 @@ class CreateTest extends TestBase
         parent::setUp();
 
         $this->createInput = array_merge($this->model::factory()->make()->toArray(), [
-            'pet' => 1
+            'pet' => 1,
         ]);
     }
 }

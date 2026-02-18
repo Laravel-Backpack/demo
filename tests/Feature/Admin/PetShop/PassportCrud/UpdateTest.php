@@ -11,7 +11,7 @@ class UpdateTest extends TestBase
         parent::setUp();
 
         $this->updateInput = array_merge($this->model::factory()->create()->toArray(), [
-            'pet' => 1
+            'pet' => 1,
         ]);
     }
 }
