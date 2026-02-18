@@ -1,0 +1,50 @@
+<?php
+
+namespace Tests\Feature\Backpack;
+
+trait DefaultUpdateTests
+{
+    public ?array $updateInput = null;
+
+    public ?array $assertUpdateInput = null;
+
+    /**
+     * Test that the update page loads without errors
+     */
+    public function test_update_page_loads_successfully(): void
+    {
+        $this->skipIfModelDoesNotHaveFactory();
+        
+        $entry = $this->model::factory()->create();
+
+        $response = $this->get($this->testHelper->getCrudUrl($entry->getKey() . '/edit'));
+        $response->assertStatus(200);
+        $response->assertSee($this->entityName ?? '');
+
+        $fields = $this->testHelper->getOperationSetting('fields', []);
+        foreach ($fields as $field) {
+            $response->assertSee('name="'.$field['name'].'"', false);
+        }
+    }
+
+    /**
+     * Test that entry is updated in the database
+     */
+    public function test_update_endpoint_modifies_entry_in_database(): void
+    {
+        $this->skipIfModelDoesNotHaveFactory();
+
+        $entry = $this->model::factory()->create();
+        $data = $this->updateInput ?? $this->model::factory()->raw();
+
+        $data = array_merge($data, [
+            $entry->getKeyName() => $entry->getKey(),
+        ]);
+
+        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
+        $response->assertSessionHasNoErrors();
+        $response->assertStatus(302);
+        
+        $this->assertDatabaseHas($this->model, $this->assertUpdateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
+    }
+}

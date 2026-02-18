@@ -6,7 +6,9 @@ use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
 use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Database\Eloquent\Builder;
+use Backpack\CRUD\app\Library\CrudTesting\TestingRouteParameters;
 
+#[TestingRouteParameters(['owner' => 1])]
 class OwnerPetsCrudController extends PetCrudController
 {
     use CreateOperation {store as traitStore; }

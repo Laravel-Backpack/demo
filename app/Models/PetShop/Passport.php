@@ -40,9 +40,9 @@ class Passport extends Model
     protected $casts = [
         'id'            => 'integer',
         'pet_id'        => 'integer',
-        'issuance_date' => 'date',
-        'expiry_date'   => 'date',
-        'birth_date'    => 'date',
+        'issuance_date' => 'date:Y-m-d',
+        'expiry_date'   => 'date:Y-m-d',
+        'birth_date'    => 'date:Y-m-d',
     ];
 
     public function pet()

@@ -2,45 +2,20 @@
 
 namespace Tests\Feature\Admin\UserCrud;
 
-class CreateTest extends UserCrudTestBase
+class CreateTest extends TestBase
 {
-    public string $operation = 'create';
+    use \Tests\Feature\Backpack\DefaultCreateTests;
 
-    /**
-     * Test that the create page loads without errors.
-     */
-    public function test_create_page_loads_successfully(): void
+    public function setUp(): void
     {
-        $response = $this->get($this->testHelper->getCrudUrl('create'));
-        $response->assertStatus(200);
-        $response->assertSee($this->entityName ?? '');
+        parent::setUp();
+        $user = $this->model::factory()->raw();
+        $this->createInput = array_merge($user, ['password_confirmation' => $user['password']]);
 
-        $fields = $this->testHelper->getOperationSetting('fields', []);
-        foreach ($fields as $field) {
-            $response->assertSee('name="'.$field['name'].'"', false);
-        }
-    }
+        $assertion = $this->testHelper->getDatabaseAssertInput($this->model, $this->createInput);
+        unset($assertion['password']);
+        unset($assertion['password_confirmation']);
 
-    /**
-     * Test that entry is added to the database.
-     */
-    public function test_create_endpoint_adds_entry_to_database(): void
-    {
-        $data = $this->testHelper->validCreateInput($this->model);
-
-        $response = $this->post($this->testHelper->getCrudUrl(), $data);
-        $response->assertSessionHasNoErrors();
-        $response->assertStatus(302);
-        $this->assertDatabaseHas($this->model, $this->testHelper->getDatabaseAssertInput($this->model, $data));
-    }
-
-    /**
-     * Test that the create form validates wrong form data.
-     */
-    public function test_create_endpoint_rejects_invalid_input(): void
-    {
-        $response = $this->post($this->testHelper->getCrudUrl(), $this->testHelper->invalidInput());
-        $response->assertStatus(302);
-        $response->assertSessionHasErrors();
+        $this->assertCreateInput = $assertion;
     }
 }

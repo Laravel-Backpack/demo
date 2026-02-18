@@ -2,18 +2,22 @@
 
 namespace Tests\Feature\Admin\PetShop\OwnerPetsCrud;
 
-class ShowTest extends OwnerPetsCrudTestBase
+class ShowTest extends TestBase
 {
-    public string $operation = 'show';
-
     /**
-     * Test that show page loads.
+     * Test logic for show operation
      */
     public function test_show_page_loads_successfully(): void
     {
-        $this->markTestSkipped('Factory not found for model '.$this->model);
-        $entry = $this->testHelper->createEntry();
+        $this->skipIfModelDoesNotHaveFactory();
+
+        $entry = $this->model::factory()->create();
+
+        $entry->owners()->attach(1, ['role' => 'Owner']); // attach the pet to the owner with id 1
+        $entry->save();
+
         $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/show'));
         $response->assertStatus(200);
+        $response->assertSee($this->entityName ?? '');
     }
 }

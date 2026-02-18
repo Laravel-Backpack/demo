@@ -2,55 +2,20 @@
 
 namespace Tests\Feature\Admin\UserCrud;
 
-class UpdateTest extends UserCrudTestBase
+class UpdateTest extends TestBase
 {
-    public string $operation = 'update';
+    use \Tests\Feature\Backpack\DefaultUpdateTests;
 
-    /**
-     * Test that the update page loads without errors.
-     */
-    public function test_update_page_loads_successfully(): void
+    public function setUp(): void
     {
-        $entry = $this->testHelper->createEntry();
-        $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/edit'));
-        $response->assertStatus(200);
-        $response->assertSee($this->entityName ?? '');
+        parent::setUp();
+        $user = $this->model::factory()->raw();
+        $this->updateInput = array_merge($user, ['password_confirmation' => $user['password']]);
 
-        $fields = $this->testHelper->getOperationSetting('fields', []);
-        foreach ($fields as $field) {
-            $response->assertSee('name="'.$field['name'].'"', false);
-        }
-    }
+        $assertion = $this->testHelper->getDatabaseAssertInput($this->model, $this->updateInput);
+        unset($assertion['password']);
+        unset($assertion['password_confirmation']);
 
-    /**
-     * Test that entry is updated in the database.
-     */
-    public function test_update_endpoint_updates_entry_in_database(): void
-    {
-        $entry = $this->testHelper->createEntry();
-        $data = $this->testHelper->validUpdateInput($this->model);
-
-        $data[$entry->getKeyName()] = $entry->getKey();
-        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
-
-        $response->assertSessionHasNoErrors();
-        $response->assertStatus(302);
-
-        $this->assertDatabaseHas($this->model, $this->testHelper->getDatabaseAssertInput($this->model, $data));
-    }
-
-    /**
-     * Test that the update form validates wrong form data.
-     */
-    public function test_update_endpoint_rejects_invalid_input(): void
-    {
-        $entry = $this->testHelper->createEntry();
-        $data = $this->testHelper->invalidInput();
-
-        // Submit data to trigger validation
-        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
-
-        $response->assertStatus(302);
-        $response->assertSessionHasErrors();
+        $this->assertUpdateInput = $assertion;
     }
 }
