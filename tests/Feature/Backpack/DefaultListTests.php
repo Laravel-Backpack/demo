@@ -5,7 +5,7 @@ namespace Tests\Feature\Backpack;
 trait DefaultListTests
 {
     /**
-     * Test logic for list operation
+     * Test logic for list operation.
      */
     public function test_list_page_loads_successfully(): void
     {
@@ -17,33 +17,33 @@ trait DefaultListTests
     public function test_datatables_returns_compatible_data(): void
     {
         $this->skipIfModelDoesNotHaveFactory();
-        
+
         $response = $this->post($this->testHelper->getCrudUrl('search'));
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'draw',
             'recordsTotal',
             'recordsFiltered',
-            'data'
+            'data',
         ]);
     }
 
     /**
-     * Test that filters are on page
+     * Test that filters are on page.
      */
     public function test_filters_are_on_page(): void
     {
         $filters = $this->testHelper->getOperationSetting('filters', []);
 
         if (count($filters) > 0) {
-             $response = $this->get($this->testHelper->getCrudUrl());
-             $response->assertStatus(200);
-             
-             foreach ($filters as $filter) {
-                 $response->assertSee('filter-name="'.$filter->name.'"', false);
-             }
+            $response = $this->get($this->testHelper->getCrudUrl());
+            $response->assertStatus(200);
+
+            foreach ($filters as $filter) {
+                $response->assertSee('filter-name="'.$filter->name.'"', false);
+            }
         } else {
-             $this->assertTrue(true);
+            $this->assertTrue(true);
         }
     }
 }

@@ -6,7 +6,7 @@ class UpdateTest extends TestBase
 {
     use \Tests\Feature\Backpack\DefaultUpdateTests;
 
-     public function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 

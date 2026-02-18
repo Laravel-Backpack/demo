@@ -13,7 +13,7 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public ?string $entityName = 'pet';
     public ?string $entityNamePlural = 'pets';
 
-     public function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 

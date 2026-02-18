@@ -7,7 +7,7 @@ class UpdateTest extends TestBase
     use \Tests\Feature\Backpack\DefaultUpdateTests {
         test_update_page_loads_successfully as default_test_update_page_loads_successfully;
     }
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -20,7 +20,7 @@ class UpdateTest extends TestBase
     }
 
     /**
-     * Test logic for update operation
+     * Test logic for update operation.
      */
     public function test_update_page_loads_successfully(): void
     {

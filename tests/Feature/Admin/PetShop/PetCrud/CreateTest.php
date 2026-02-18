@@ -6,7 +6,7 @@ class CreateTest extends TestBase
 {
     use \Tests\Feature\Backpack\DefaultCreateTests;
 
-     public function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 
