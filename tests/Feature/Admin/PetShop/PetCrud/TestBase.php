@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = PetCrudController::class;
     public string $model = Pet::class;
     public string $route = 'pet-shop/pet';
-    public ?string $entityName = 'pet';
-    public ?string $entityNamePlural = 'pets';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

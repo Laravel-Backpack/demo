@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = MeetingCrudController::class;
     public string $model = Meeting::class;
     public string $route = 'meeting';
-    public ?string $entityName = 'meeting';
-    public ?string $entityNamePlural = 'meetings';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

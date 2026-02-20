@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = DummyCrudController::class;
     public string $model = Dummy::class;
     public string $route = 'dummy';
-    public ?string $entityName = 'dummy';
-    public ?string $entityNamePlural = 'dummies';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

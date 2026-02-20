@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = OwnerCrudController::class;
     public string $model = Owner::class;
     public string $route = 'pet-shop/owner';
-    public ?string $entityName = 'owner';
-    public ?string $entityNamePlural = 'owners';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

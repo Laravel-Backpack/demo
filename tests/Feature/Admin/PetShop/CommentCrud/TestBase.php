@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = CommentCrudController::class;
     public string $model = Comment::class;
     public string $route = 'pet-shop/comment';
-    public ?string $entityName = 'comment';
-    public ?string $entityNamePlural = 'comments';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

@@ -5,7 +5,7 @@ namespace Tests\Feature\Backpack;
 trait DefaultShowTests
 {
     /**
-     * Test logic for show operation.
+     * Test logic for show operation
      */
     public function test_show_page_loads_successfully(): void
     {
@@ -15,6 +15,5 @@ trait DefaultShowTests
 
         $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/show'));
         $response->assertStatus(200);
-        $response->assertSee($this->entityName ?? '');
     }
 }

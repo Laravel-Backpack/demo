@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = StoryCrudController::class;
     public string $model = Story::class;
     public string $route = 'story';
-    public ?string $entityName = 'story';
-    public ?string $entityNamePlural = 'stories';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = PassportCrudController::class;
     public string $model = Passport::class;
     public string $route = 'pet-shop/passport';
-    public ?string $entityName = 'passport';
-    public ?string $entityNamePlural = 'passports';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

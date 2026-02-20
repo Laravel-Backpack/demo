@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = HeroCrudController::class;
     public string $model = Hero::class;
     public string $route = 'hero';
-    public ?string $entityName = 'hero';
-    public ?string $entityNamePlural = 'heroes';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

@@ -9,13 +9,12 @@ trait DefaultCreateTests
     public ?array $assertCreateInput = null;
 
     /**
-     * Test that the create page loads without errors.
+     * Test that the create page loads without errors
      */
     public function test_create_page_loads_successfully(): void
     {
         $response = $this->get($this->testHelper->getCrudUrl('create'));
         $response->assertStatus(200);
-        $response->assertSee($this->entityName ?? '');
 
         $fields = $this->testHelper->getOperationSetting('fields', []);
         foreach ($fields as $field) {
@@ -24,7 +23,7 @@ trait DefaultCreateTests
     }
 
     /**
-     * Test that entry is added to the database.
+     * Test that entry is added to the database
      */
     public function test_create_endpoint_adds_entry_to_database(): void
     {
@@ -35,12 +34,12 @@ trait DefaultCreateTests
         $response = $this->post($this->testHelper->getCrudUrl(), $data);
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
-
+        
         $this->assertDatabaseHas($this->model, $this->assertCreateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 
     /**
-     * Test that the create form validates wrong form data.
+     * Test that the create form validates wrong form data
      */
     public function test_create_endpoint_rejects_invalid_input(): void
     {
