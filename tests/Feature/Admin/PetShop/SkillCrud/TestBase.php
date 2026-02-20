@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = SkillCrudController::class;
     public string $model = Skill::class;
     public string $route = 'pet-shop/skill';
-    public ?string $entityName = 'skill';
-    public ?string $entityNamePlural = 'skills';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = FluentMonsterCrudController::class;
     public string $model = Monster::class;
     public string $route = 'fluent-monster';
-    public ?string $entityName = 'fluent monster';
-    public ?string $entityNamePlural = 'fluent monsters';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

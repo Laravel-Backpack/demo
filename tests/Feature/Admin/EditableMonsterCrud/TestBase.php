@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = EditableMonsterCrudController::class;
     public string $model = Monster::class;
     public string $route = 'editable-monster';
-    public ?string $entityName = 'editable monster';
-    public ?string $entityNamePlural = 'editable monsters';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

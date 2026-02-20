@@ -10,6 +10,6 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $controller = BadgeCrudController::class;
     public string $model = Badge::class;
     public string $route = 'pet-shop/badge';
-    public ?string $entityName = 'badge';
-    public ?string $entityNamePlural = 'badges';
+    // Pass additional parameters to controller routes. eg. ['owner' => 1]
+    public array $routeParameters = []; 
 }

@@ -8,7 +8,6 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\CRUD\app\Library\CrudTesting\TestingRouteParameters;
 use Illuminate\Database\Eloquent\Builder;
 
-#[TestingRouteParameters(['owner' => 1])]
 class OwnerPetsCrudController extends PetCrudController
 {
     use CreateOperation {store as traitStore; }

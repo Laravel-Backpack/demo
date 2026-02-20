@@ -5,7 +5,7 @@ namespace Tests\Feature\Backpack;
 trait DefaultDeleteTests
 {
     /**
-     * Test logic for deleting an entry.
+     * Test logic for deleting an entry
      */
     public function test_delete_endpoint_removes_entry_from_database(): void
     {
@@ -15,6 +15,11 @@ trait DefaultDeleteTests
 
         $response = $this->delete($this->testHelper->getCrudUrl($entry->getKey()));
         $response->assertStatus(200);
-        $this->assertDatabaseMissing($this->model, [$entry->getKeyName() => $entry->getKey()]);
+
+        if ($this->testHelper->modelUsesSoftDeletes()) {
+            $this->assertSoftDeleted($entry);
+        } else {
+            $this->assertDatabaseMissing($this->model, [$entry->getKeyName() => $entry->getKey()]);
+        }
     }
 }
