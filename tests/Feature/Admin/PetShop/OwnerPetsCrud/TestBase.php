@@ -16,8 +16,7 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Pet::class;
     public string $route = 'pet-shop/owner/1/pets';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
-
+    public array $routeParameters = [];
 
     public function setUp(): void
     {
@@ -25,5 +24,4 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
         // ensure we have an owner in the database
         \App\Models\PetShop\Owner::factory()->create();
     }
-    
 }
