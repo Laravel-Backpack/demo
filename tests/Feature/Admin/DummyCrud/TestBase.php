@@ -11,5 +11,5 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Dummy::class;
     public string $route = 'dummy';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

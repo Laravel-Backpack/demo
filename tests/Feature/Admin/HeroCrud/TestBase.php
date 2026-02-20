@@ -11,5 +11,5 @@ class TestBase extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Hero::class;
     public string $route = 'hero';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

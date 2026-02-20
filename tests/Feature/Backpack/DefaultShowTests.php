@@ -5,7 +5,7 @@ namespace Tests\Feature\Backpack;
 trait DefaultShowTests
 {
     /**
-     * Test logic for show operation
+     * Test logic for show operation.
      */
     public function test_show_page_loads_successfully(): void
     {

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\PetShop;
 use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
 use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Backpack\CRUD\app\Library\CrudTesting\TestingRouteParameters;
 use Illuminate\Database\Eloquent\Builder;
 
 class OwnerPetsCrudController extends PetCrudController
