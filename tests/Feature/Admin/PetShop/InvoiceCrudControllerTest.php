@@ -14,5 +14,5 @@ class InvoiceCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Invoice::class;
     public string $route = 'pet-shop/invoice';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

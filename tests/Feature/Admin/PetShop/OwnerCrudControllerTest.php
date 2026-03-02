@@ -17,7 +17,7 @@ class OwnerCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Owner::class;
     public string $route = 'pet-shop/owner';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 
     public function setup(): void
     {
@@ -28,7 +28,5 @@ class OwnerCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
                 'url' => 'https://lorempixel.com/400/200/animals',
             ],
         ]);
-
-
     }
 }
