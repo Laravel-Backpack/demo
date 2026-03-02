@@ -67,7 +67,7 @@ return [
             'strict'                        => false,
             'engine'                        => null,
             'options'                       => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                Pdo\Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
             'dump'                          => [
                 'dump_binary_path' => env('MYSQL_DUMP_PATH', '/opt/homebrew/bin/'),
