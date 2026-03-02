@@ -17,5 +17,18 @@ class MonsterCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Monster::class;
     public string $route = 'monster';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
+
+    public function setup(): void
+    {
+        parent::setUp();
+
+        $this->createInput = array_merge($this->model::factory()->make()->toArray(), [
+            'icondummy' => 1,
+        ]);
+
+        $this->assertCreateInput = array_merge($this->testHelper->getDatabaseAssertInput($this->model, $this->createInput), [
+            'belongs_to_non_nullable' => 1,
+        ]);
+    }
 }
