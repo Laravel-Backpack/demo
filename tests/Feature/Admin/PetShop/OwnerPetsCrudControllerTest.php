@@ -19,7 +19,7 @@ class OwnerPetsCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBas
     public string $route = 'pet-shop/owner/1/pets';
     public string $model = \App\Models\PetShop\Pet::class;
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = ['owner' => 1]; 
+    public array $routeParameters = ['owner' => 1];
 
     public function setup(): void
     {
@@ -51,7 +51,7 @@ class OwnerPetsCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBas
         $response->assertSee($this->entityName ?? '');
     }
 
-       /**
+    /**
      * Test logic for show operation.
      */
     public function test_show_page_loads_successfully(): void
