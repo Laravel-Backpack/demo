@@ -16,5 +16,5 @@ class ProductCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Product::class;
     public string $route = 'product';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

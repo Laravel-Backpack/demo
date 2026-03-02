@@ -17,5 +17,5 @@ class MeetingCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Meeting::class;
     public string $route = 'meeting';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

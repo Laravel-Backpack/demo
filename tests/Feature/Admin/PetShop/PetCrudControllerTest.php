@@ -16,7 +16,7 @@ class PetCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Pet::class;
     public string $route = 'pet-shop/pet';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 
     public function setup(): void
     {

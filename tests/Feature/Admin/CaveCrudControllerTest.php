@@ -17,5 +17,5 @@ class CaveCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Cave::class;
     public string $route = 'cave';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }

@@ -3,7 +3,6 @@
 namespace Tests\Feature\Admin;
 
 use App\Http\Controllers\Admin\FluentMonsterCrudController;
-use App\Models\Monster;
 
 class FluentMonsterCrudControllerTest extends MonsterCrudControllerTest
 {

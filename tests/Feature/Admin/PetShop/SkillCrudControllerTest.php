@@ -17,5 +17,5 @@ class SkillCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBase
     public string $model = Skill::class;
     public string $route = 'pet-shop/skill';
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
-    public array $routeParameters = []; 
+    public array $routeParameters = [];
 }
