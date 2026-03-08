@@ -708,11 +708,11 @@ class MonsterCrudController extends CrudController
         ]);
 
         $this->crud->addColumn([
-            'name'  => 'video', // The db column name
-            'label' => 'Video'.backpack_pro_badge(), // Table column heading
-            'type'  => 'video',
+            'name'            => 'video', // The db column name
+            'label'           => 'Video'.backpack_pro_badge(), // Table column heading
+            'type'            => 'video',
             'youtube_api_key' => env('YOUTUBE_API_KEY'),
-            'tab'   => 'Miscellaneous',
+            'tab'             => 'Miscellaneous',
         ]);
 
         $this->crud->addColumn([
