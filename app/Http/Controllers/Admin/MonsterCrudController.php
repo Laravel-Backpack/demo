@@ -711,6 +711,7 @@ class MonsterCrudController extends CrudController
             'name'  => 'video', // The db column name
             'label' => 'Video'.backpack_pro_badge(), // Table column heading
             'type'  => 'video',
+            'youtube_api_key' => env('YOUTUBE_API_KEY'),
             'tab'   => 'Miscellaneous',
         ]);
 
