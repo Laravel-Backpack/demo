@@ -60,7 +60,19 @@ class HeroCrudController extends CrudController
         CRUD::field('name');
         CRUD::field('stories')
             ->label('Stories'.backpack_new_badge())
-            ->subfields(self::getMonsterSubfields())
+            ->subfields([
+                [
+                    'name' => 'name',
+                ],
+                [
+                    'name'      => 'monsters',
+                    'type'      => 'select2_multiple',
+                    'model'     => \App\Models\Monster::class,
+                    'entity'    => 'monsters',
+                    'attribute' => 'text',
+                    'pivot'     => true,
+                ],
+            ])
             ->hint('<small class="float-right">Select the related Story over a <code>belongsToMany</code> relationship (n-n) with extra pivot fields.</small>');
     }
 
@@ -80,7 +92,7 @@ class HeroCrudController extends CrudController
     {
         $subfields = CaveCrudController::getMonsterSubfields();
 
-        foreach ($subfields as $key => $subfield) {
+        /* foreach ($subfields as $key => $subfield) {
             // fake fields don't work here for some reason
             // TODO: fix the problem and remove this
             if (isset($subfield['fake']) && $subfield['fake']) {
@@ -100,7 +112,7 @@ class HeroCrudController extends CrudController
                 continue;
             }
         }
-
+ */
         return $subfields;
     }
 }

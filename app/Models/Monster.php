@@ -40,6 +40,8 @@ class Monster extends Model
         'browse_multiple'       => 'array',
         'status'                => MonsterStatus::class,
         'features'              => 'array',
+        'table'                 => 'array',
+        'extras'                => 'array',
         // optional casts for select from array fields that allow multiple selection
         // 'select_from_array'     => 'array',
         // 'select2_from_array'    => 'array'
@@ -341,5 +343,10 @@ class Monster extends Model
         $destination_path = 'uploads/monsters/upload_multiple_field';
 
         $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
+    }
+
+    public function setIcondummyAttribute($value)
+    {
+        $this->attributes['belongs_to_non_nullable'] = $value;
     }
 }
