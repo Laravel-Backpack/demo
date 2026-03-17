@@ -38,6 +38,13 @@ class Invoice extends Model
     |--------------------------------------------------------------------------
     */
 
+    protected static function booted()
+    {
+        static::forceDeleting(function (Invoice $invoice) {
+            $invoice->items()->delete();
+        });
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
