@@ -53,7 +53,8 @@
         "symfony/css-selector": "^7",
         "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.1",
-        "barryvdh/laravel-debugbar": "^3.2"
+        "barryvdh/laravel-debugbar": "^3.2",
+        "backpack/test-generators": "dev-main"
     },
     "repositories": [
         {
