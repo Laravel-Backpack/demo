@@ -54,7 +54,7 @@
         "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^3.2",
-        "backpack/test-generators": "dev-main"
+        "backpack/test-generators": "^1.0"
     },
     "repositories": [
         {
