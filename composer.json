@@ -54,7 +54,7 @@
         "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^3.2",
-        "backpack/test-generators": "dev-main"
+        "backpack/test-generators": "^1.0"
     },
     "repositories": [
         {
@@ -73,6 +73,11 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

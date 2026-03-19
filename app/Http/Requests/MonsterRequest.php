@@ -25,7 +25,7 @@ class MonsterRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
         return [
             'text'            => 'required|min:5|max:255',
             'email'           => 'nullable|email',
-            'icondummy'       => 'required',
+            // 'icondummy'       => 'required',
         ];
     }
 

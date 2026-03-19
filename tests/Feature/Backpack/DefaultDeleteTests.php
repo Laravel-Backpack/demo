@@ -1,0 +1,25 @@
+<?php
+
+namespace Tests\Feature\Backpack;
+
+trait DefaultDeleteTests
+{
+    /**
+     * Test logic for deleting an entry.
+     */
+    public function test_delete_endpoint_removes_entry_from_database(): void
+    {
+        $this->skipIfModelDoesNotHaveFactory();
+
+        $entry = $this->model::factory()->create();
+
+        $response = $this->delete($this->testHelper->getCrudUrl($entry->getKey()));
+        $response->assertStatus(200);
+
+        if ($this->testHelper->modelUsesSoftDeletes()) {
+            $this->assertSoftDeleted($entry);
+        } else {
+            $this->assertDatabaseMissing($this->model, [$entry->getKeyName() => $entry->getKey()]);
+        }
+    }
+}

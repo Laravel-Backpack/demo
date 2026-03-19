@@ -2,14 +2,12 @@
 
 namespace App\Models\PetShop;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use \App\Models\Traits\LogsActivity;
-    use HasFactory;
 
     protected $fillable = [
         'body',

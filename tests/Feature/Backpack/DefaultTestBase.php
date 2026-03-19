@@ -1,0 +1,22 @@
+<?php
+
+namespace Tests\Feature\Backpack;
+
+use Backpack\CRUD\app\Library\CrudTesting\CrudFeatureTestCase;
+
+abstract class DefaultTestBase extends CrudFeatureTestCase
+{
+    use \Illuminate\Foundation\Testing\RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        $this->afterApplicationCreated(function () {
+            $userModel = config('backpack.base.user_model_fqn', 'App\Models\User');
+            $user = $userModel::find(1) ?? $userModel::factory()->create();
+            $guard = config('backpack.base.guard') ?? config('auth.defaults.guard');
+            $this->actingAs($user, $guard);
+        });
+
+        parent::setUp();
+    }
+}
