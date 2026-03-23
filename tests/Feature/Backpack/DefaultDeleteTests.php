@@ -5,7 +5,7 @@ namespace Tests\Feature\Backpack;
 trait DefaultDeleteTests
 {
     /**
-     * Test logic for deleting an entry.
+     * Test logic for deleting an entry
      */
     public function test_delete_endpoint_removes_entry_from_database(): void
     {
