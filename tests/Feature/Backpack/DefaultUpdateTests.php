@@ -9,15 +9,15 @@ trait DefaultUpdateTests
     public ?array $assertUpdateInput = null;
 
     /**
-     * Test that the update page loads without errors
+     * Test that the update page loads without errors.
      */
     public function test_update_page_loads_successfully(): void
     {
         $this->skipIfModelDoesNotHaveFactory();
-        
+
         $entry = $this->model::factory()->create();
 
-        $response = $this->get($this->testHelper->getCrudUrl($entry->getKey() . '/edit'));
+        $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/edit'));
         $response->assertStatus(200);
 
         $fields = $this->testHelper->getOperationSetting('fields', [], 'update');
@@ -27,7 +27,7 @@ trait DefaultUpdateTests
     }
 
     /**
-     * Test that entry is updated in the database
+     * Test that entry is updated in the database.
      */
     public function test_update_endpoint_modifies_entry_in_database(): void
     {
@@ -43,7 +43,7 @@ trait DefaultUpdateTests
         $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
-        
+
         $this->assertDatabaseHasModel($this->model, $this->assertUpdateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 }
