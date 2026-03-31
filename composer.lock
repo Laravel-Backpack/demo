@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.373.7",
+            "version": "3.375.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "4402bd10f913e66b7271f44466be8d5ba6c9146e"
+                "reference": "6cfa1798c3fa0182d902eda9419dca48c86d74a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4402bd10f913e66b7271f44466be8d5ba6c9146e",
-                "reference": "4402bd10f913e66b7271f44466be8d5ba6c9146e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6cfa1798c3fa0182d902eda9419dca48c86d74a1",
+                "reference": "6cfa1798c3fa0182d902eda9419dca48c86d74a1",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.373.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.375.0"
             },
-            "time": "2026-03-20T18:14:19+00:00"
+            "time": "2026-03-30T19:30:55+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -1267,24 +1267,24 @@
         },
         {
             "name": "backpack/pro",
-            "version": "3.0.10",
+            "version": "3.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/PRO.git",
-                "reference": "20c3ff1f0936766d09e16aa399e9ef41afd55abc"
+                "reference": "c01a4589d25ab7e7bfe5f17b6a80952f21f48781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-20c3ff1f0936766d09e16aa399e9ef41afd55abc-zip-48ecdf.zip",
-                "reference": "20c3ff1f0936766d09e16aa399e9ef41afd55abc",
-                "shasum": "6d37e42b5e11edd0bae43b47f74a0711ed3f0d5d"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/pro/backpack-pro-c01a4589d25ab7e7bfe5f17b6a80952f21f48781-zip-e1fa16.zip",
+                "reference": "c01a4589d25ab7e7bfe5f17b6a80952f21f48781",
+                "shasum": "4d8c0165dd76d768df8b9636862b7196bc1e9159"
             },
             "require": {
                 "backpack/crud": "^7.0"
             },
             "require-dev": {
-                "backpack/medialibrary-uploaders": "dev-next as 1.0",
-                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "backpack/medialibrary-uploaders": "^1.0|^2.0",
+                "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
                 "phpunit/phpunit": "^10.0|^11.0",
                 "spatie/laravel-translatable": "^6.0"
             },
@@ -1333,10 +1333,10 @@
                 "Pro"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.10",
+                "source": "https://github.com/Laravel-Backpack/PRO/tree/3.0.11",
                 "issues": "https://github.com/Laravel-Backpack/PRO/issues"
             },
-            "time": "2026-03-18T09:31:05+00:00"
+            "time": "2026-03-25T15:00:47+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -1904,7 +1904,7 @@
         },
         {
             "name": "barryvdh/laravel-elfinder",
-            "version": "dev-master",
+            "version": "v0.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-elfinder.git",
@@ -1922,7 +1922,6 @@
                 "php": "^8.1",
                 "studio-42/elfinder": "~2.1.62"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1958,7 +1957,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-elfinder/issues",
-                "source": "https://github.com/barryvdh/laravel-elfinder/tree/master"
+                "source": "https://github.com/barryvdh/laravel-elfinder/tree/v0.5.5"
             },
             "time": "2026-02-21T08:29:51+00:00"
         },
@@ -2435,7 +2434,7 @@
         },
         {
             "name": "creativeorange/gravatar",
-            "version": "1.0.x-dev",
+            "version": "v1.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brainpink/gravatar.git",
@@ -2456,7 +2455,6 @@
                 "orchestra/testbench": "^5.4|^8.0|^9.0|^10.0|^11.0",
                 "php": ">=7.2"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2493,7 +2491,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brainpink/gravatar/issues",
-                "source": "https://github.com/brainpink/gravatar/tree/1.0"
+                "source": "https://github.com/brainpink/gravatar/tree/v1.0.26"
             },
             "time": "2026-03-20T23:47:31+00:00"
         },
@@ -3728,16 +3726,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.1.1",
+            "version": "v13.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5525d87797815c55f7a89d0dfc1dd89e9de98b63"
+                "reference": "9e48d1fe933e89de628dafa167d2c5778566d4cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5525d87797815c55f7a89d0dfc1dd89e9de98b63",
-                "reference": "5525d87797815c55f7a89d0dfc1dd89e9de98b63",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9e48d1fe933e89de628dafa167d2c5778566d4cf",
+                "reference": "9e48d1fe933e89de628dafa167d2c5778566d4cf",
                 "shasum": ""
             },
             "require": {
@@ -3755,6 +3753,7 @@
                 "ext-tokenizer": "*",
                 "fruitcake/php-cors": "^1.3",
                 "guzzlehttp/guzzle": "^7.8.2",
+                "guzzlehttp/promises": "^2.0.3",
                 "guzzlehttp/uri-template": "^1.0",
                 "laravel/prompts": "^0.3.0",
                 "laravel/serializable-closure": "^2.0.10",
@@ -3839,7 +3838,6 @@
                 "aws/aws-sdk-php": "^3.322.9",
                 "ext-gmp": "*",
                 "fakerphp/faker": "^1.24",
-                "guzzlehttp/promises": "^2.0.3",
                 "guzzlehttp/psr7": "^2.4",
                 "laravel/pint": "^1.18",
                 "league/flysystem-aws-s3-v3": "^3.25.1",
@@ -3945,7 +3943,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-03-18T17:10:25+00:00"
+            "time": "2026-03-24T18:42:09+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -4005,16 +4003,16 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.15",
+            "version": "v0.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "4bb8107ec97651fd3f17f897d6489dbc4d8fb999"
+                "reference": "11e7d5f93803a2190b00e145142cb00a33d17ad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/4bb8107ec97651fd3f17f897d6489dbc4d8fb999",
-                "reference": "4bb8107ec97651fd3f17f897d6489dbc4d8fb999",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/11e7d5f93803a2190b00e145142cb00a33d17ad2",
+                "reference": "11e7d5f93803a2190b00e145142cb00a33d17ad2",
                 "shasum": ""
             },
             "require": {
@@ -4058,9 +4056,9 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.3.15"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.16"
             },
-            "time": "2026-03-17T13:45:17+00:00"
+            "time": "2026-03-23T14:35:33+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -4383,16 +4381,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.32.0",
+            "version": "3.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725"
+                "reference": "570b8871e0ce693764434b29154c54b434905350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/254b1595b16b22dbddaaef9ed6ca9fdac4956725",
-                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/570b8871e0ce693764434b29154c54b434905350",
+                "reference": "570b8871e0ce693764434b29154c54b434905350",
                 "shasum": ""
             },
             "require": {
@@ -4460,9 +4458,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.32.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.33.0"
             },
-            "time": "2026-02-25T17:01:41+00:00"
+            "time": "2026-03-25T07:59:30+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -6225,16 +6223,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.21",
+            "version": "v0.12.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97"
+                "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
-                "reference": "4821fab5b7cd8c49a673a9fd5754dc9162bb9e97",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
+                "reference": "3be75d5b9244936dd4ac62ade2bfb004d13acf0f",
                 "shasum": ""
             },
             "require": {
@@ -6298,9 +6296,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.21"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.22"
             },
-            "time": "2026-03-06T21:21:28+00:00"
+            "time": "2026-03-22T23:03:24+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -6987,16 +6985,16 @@
         },
         {
             "name": "spatie/laravel-activitylog",
-            "version": "4.12.1",
+            "version": "4.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-activitylog.git",
-                "reference": "bf66b5bbe9a946e977e876420d16b30b9aff1b2d"
+                "reference": "2a2024fcac05628b0d1bfdbb1b94dda8b0661dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/bf66b5bbe9a946e977e876420d16b30b9aff1b2d",
-                "reference": "bf66b5bbe9a946e977e876420d16b30b9aff1b2d",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/2a2024fcac05628b0d1bfdbb1b94dda8b0661dc0",
+                "reference": "2a2024fcac05628b0d1bfdbb1b94dda8b0661dc0",
                 "shasum": ""
             },
             "require": {
@@ -7062,7 +7060,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-activitylog/issues",
-                "source": "https://github.com/spatie/laravel-activitylog/tree/4.12.1"
+                "source": "https://github.com/spatie/laravel-activitylog/tree/4.12.3"
             },
             "funding": [
                 {
@@ -7074,20 +7072,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-22T08:37:18+00:00"
+            "time": "2026-03-24T12:33:53+00:00"
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "10.2.0",
+            "version": "10.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "b0cf953073b91ffbc48afa79b8112cf442effdfb"
+                "reference": "e69bda927005e4909e67b7b86eb7697ed1fe51bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/b0cf953073b91ffbc48afa79b8112cf442effdfb",
-                "reference": "b0cf953073b91ffbc48afa79b8112cf442effdfb",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/e69bda927005e4909e67b7b86eb7697ed1fe51bc",
+                "reference": "e69bda927005e4909e67b7b86eb7697ed1fe51bc",
                 "shasum": ""
             },
             "require": {
@@ -7162,7 +7160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/10.2.0"
+                "source": "https://github.com/spatie/laravel-backup/tree/10.2.1"
             },
             "funding": [
                 {
@@ -7174,7 +7172,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-03-19T18:01:53+00:00"
+            "time": "2026-03-24T10:30:33+00:00"
         },
         {
             "name": "spatie/laravel-ignition",
@@ -10673,17 +10671,17 @@
         },
         {
             "name": "backpack/test-generators",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/test-generators.git",
-                "reference": "e630f7b103db7a8d26d164d779923a644f1fd608"
+                "reference": "dbf40766c5e3fb716af544285ba980131fcd20e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/test-generators/backpack-test-generators-e630f7b103db7a8d26d164d779923a644f1fd608-zip-69f23b.zip",
-                "reference": "e630f7b103db7a8d26d164d779923a644f1fd608",
-                "shasum": "bef52ada7f34c87578cdfaddc5a6c04bdbfea4a0"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/test-generators/backpack-test-generators-dbf40766c5e3fb716af544285ba980131fcd20e7-zip-21ef5d.zip",
+                "reference": "dbf40766c5e3fb716af544285ba980131fcd20e7",
+                "shasum": "ed7ba3ec36f6f9bf652a76695902e608619878d9"
             },
             "require": {
                 "backpack/crud": "^7.0.31",
@@ -10708,23 +10706,23 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/test-generators/tree/1.0.0",
+                "source": "https://github.com/Laravel-Backpack/test-generators/tree/1.0.1",
                 "issues": "https://github.com/Laravel-Backpack/test-generators/issues"
             },
-            "time": "2026-03-19T14:37:27+00:00"
+            "time": "2026-03-23T14:56:34+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v4.1.3",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/laravel-debugbar.git",
-                "reference": "b48a68c4f8ffcdfa3a10d49930da4b03588dc87b"
+                "reference": "cc54fc0bde936e817bb5767c8aa2a66e13a06d06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/b48a68c4f8ffcdfa3a10d49930da4b03588dc87b",
-                "reference": "b48a68c4f8ffcdfa3a10d49930da4b03588dc87b",
+                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/cc54fc0bde936e817bb5767c8aa2a66e13a06d06",
+                "reference": "cc54fc0bde936e817bb5767c8aa2a66e13a06d06",
                 "shasum": ""
             },
             "require": {
@@ -10732,7 +10730,7 @@
                 "illuminate/session": "^11|^12|^13.0",
                 "illuminate/support": "^11|^12|^13.0",
                 "php": "^8.2",
-                "php-debugbar/php-debugbar": "^3.5",
+                "php-debugbar/php-debugbar": "^3.6",
                 "php-debugbar/symfony-bridge": "^1.1"
             },
             "require-dev": {
@@ -10761,7 +10759,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -10798,7 +10796,7 @@
             ],
             "support": {
                 "issues": "https://github.com/fruitcake/laravel-debugbar/issues",
-                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.1.3"
+                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v4.2.1"
             },
             "funding": [
                 {
@@ -10810,7 +10808,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-09T14:55:04+00:00"
+            "time": "2026-03-30T10:18:44+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -11256,16 +11254,16 @@
         },
         {
             "name": "php-debugbar/php-debugbar",
-            "version": "v3.5.1",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-debugbar/php-debugbar.git",
-                "reference": "486b32fd98efe9a3c10f0b24c0caabc187f78f04"
+                "reference": "2e1c66ba07183cf4134df479f6f246f820a463a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/486b32fd98efe9a3c10f0b24c0caabc187f78f04",
-                "reference": "486b32fd98efe9a3c10f0b24c0caabc187f78f04",
+                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/2e1c66ba07183cf4134df479f6f246f820a463a8",
+                "reference": "2e1c66ba07183cf4134df479f6f246f820a463a8",
                 "shasum": ""
             },
             "require": {
@@ -11342,7 +11340,7 @@
             ],
             "support": {
                 "issues": "https://github.com/php-debugbar/php-debugbar/issues",
-                "source": "https://github.com/php-debugbar/php-debugbar/tree/v3.5.1"
+                "source": "https://github.com/php-debugbar/php-debugbar/tree/v3.6.1"
             },
             "funding": [
                 {
@@ -11354,7 +11352,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-05T20:37:33+00:00"
+            "time": "2026-03-30T18:25:29+00:00"
         },
         {
             "name": "php-debugbar/symfony-bridge",
