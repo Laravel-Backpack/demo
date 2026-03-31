@@ -44,6 +44,6 @@ trait DefaultUpdateTests
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
-        $this->assertDatabaseHas($this->model, $this->assertUpdateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
+        $this->assertDatabaseHasModel($this->model, $this->assertUpdateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 }

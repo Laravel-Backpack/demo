@@ -35,7 +35,7 @@ trait DefaultCreateTests
         $response->assertSessionHasNoErrors();
         $response->assertStatus(302);
 
-        $this->assertDatabaseHas($this->model, $this->assertCreateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
+        $this->assertDatabaseHasModel($this->model, $this->assertCreateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 
     /**

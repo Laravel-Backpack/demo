@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Backpack;
 
-use Backpack\CRUD\app\Library\CrudTesting\CrudFeatureTestCase;
+use Backpack\TestGenerators\CrudFeatureTestCase;
 
 abstract class DefaultTestBase extends CrudFeatureTestCase
 {
