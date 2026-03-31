@@ -13,7 +13,7 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^13",
-        "backpack/crud": "dev-laravel-13 as 7.1",
+        "backpack/crud": "^7.0",
         "backpack/pro": "^3.0",
         "backpack/medialibrary-uploaders": "^2.0",
         "backpack/ckeditor-field": "^1.0",
