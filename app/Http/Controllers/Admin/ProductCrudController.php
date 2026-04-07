@@ -18,6 +18,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
 
     public function setup()
     {
@@ -302,5 +303,47 @@ class ProductCrudController extends CrudController
         }
 
         return $this->traitAjaxUpload();
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Stat: count with previous_period comparison ---
+        $this->addMetric('total_products', [
+            'type'      => 'stat',
+            'label'     => 'Total Products',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+            'compare'   => 'previous_period',
+        ]);
+
+        // --- Stat: avg aggregate with format ---
+        $this->addMetric('avg_price', [
+            'type'      => 'stat',
+            'label'     => 'Avg Price',
+            'column'    => 'price',
+            'aggregate' => 'avg',
+            'format'    => '$:value',
+            'period'    => 'created_at',
+        ]);
+
+        // --- Line chart ---
+        $this->addMetric('products_over_time', [
+            'type'      => 'line',
+            'label'     => 'Products Over Time',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+        ]);
+
+        // --- Bar chart: sum of prices over time ---
+        $this->addMetric('price_sum_over_time', [
+            'type'      => 'bar',
+            'label'     => 'Total Price Per Period',
+            'column'    => 'price',
+            'aggregate' => 'sum',
+            'period'    => 'created_at',
+        ]);
+
+        // --- Group the two stats so they share a single AJAX request ---
+        $this->groupMetrics('product_stats', ['total_products', 'avg_price']);
     }
 }

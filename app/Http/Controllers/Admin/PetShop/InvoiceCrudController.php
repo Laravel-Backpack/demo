@@ -23,6 +23,7 @@ class InvoiceCrudController extends CrudController
     use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -162,5 +163,72 @@ class InvoiceCrudController extends CrudController
     public function fetchOwner()
     {
         return $this->fetch(\App\Models\PetShop\Owner::class);
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Stat: total invoices (count + previous_period comparison) ---
+        $this->addMetric('total_invoices', [
+            'type'      => 'stat',
+            'label'     => 'Total Invoices',
+            'aggregate' => 'count',
+            'period'    => 'issuance_date',
+            'compare'   => 'previous_period',
+        ]);
+
+        // --- Stat: custom resolve returning arbitrary data ---
+        $this->addMetric('series_count', [
+            'type'    => 'stat',
+            'label'   => 'Unique Series',
+            'resolve' => fn ($query, $filters) => [
+                'value' => $query->distinct('series')->count('series'),
+            ],
+        ]);
+
+        // --- Stat: sum aggregate with format ---
+        $this->addMetric('total_items_value', [
+            'type'      => 'stat',
+            'label'     => 'Total Items Value',
+            'column'    => 'unit_price',
+            'aggregate' => 'sum',
+            'format'    => '$:value',
+            'period'    => 'created_at',
+            'query'     => fn ($q) => $q->setModel(new \App\Models\PetShop\InvoiceItem),
+        ]);
+
+        // --- Bar chart: invoice count per month (bar type) ---
+        $this->addMetric('invoices_bar', [
+            'type'      => 'bar',
+            'label'     => 'Invoices Per Period',
+            'aggregate' => 'count',
+            'period'    => 'issuance_date',
+        ]);
+
+        // --- Line chart: custom resolve returning chart data ---
+        $this->addMetric('items_per_invoice', [
+            'type'    => 'line',
+            'label'   => 'Avg Items Per Invoice',
+            'resolve' => function ($query, $filters) {
+                $rows = $query
+                    ->selectRaw('DATE_FORMAT(issuance_date, "%Y-%m") as label')
+                    ->selectRaw('AVG((SELECT COUNT(*) FROM invoice_items WHERE invoice_items.invoice_id = invoices.id)) as value')
+                    ->groupBy('label')
+                    ->orderBy('label')
+                    ->get();
+
+                return [
+                    'labels' => $rows->pluck('label')->toArray(),
+                    'data'   => $rows->pluck('value')->map(fn ($v) => round((float) $v, 1))->toArray(),
+                ];
+            },
+        ]);
+
+        // --- Wrapper with custom style attribute ---
+        $this->modifyMetric('series_count', [
+            'wrapper' => ['class' => 'col-md-3', 'style' => 'opacity: 0.9;'],
+        ]);
+
+        // --- Group stats into a single AJAX request ---
+        $this->groupMetrics('invoice_stats', ['total_invoices', 'series_count', 'total_items_value']);
     }
 }

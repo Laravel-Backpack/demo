@@ -22,6 +22,7 @@ class MonsterCrudController extends CrudController
     use Operations\SMSOperation; //Custom Form Operation Example
     use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
     use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
 
     public function setup()
     {
@@ -1665,6 +1666,7 @@ class MonsterCrudController extends CrudController
             'label' => 'Browse (using elFinder)'.backpack_pro_badge(),
             'type'  => 'browse',
             'tab'   => 'Uploads',
+            'mime_types' => ['image/png', 'image/jpeg'], // visible mime prefixes; ex. ['image'] or ['application/pdf']
         ];
 
         $fields[] = [   // Browse multiple
@@ -1888,5 +1890,71 @@ class MonsterCrudController extends CrudController
         }
 
         return $this->traitAjaxUpload();
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Override the content class for a narrower layout ---
+        $this->crud->setOperationSetting('contentClass', 'col-md-10 mx-auto');
+
+        // --- Remove the interval filter (not needed for stat-heavy reports) ---
+        $this->crud->removeFilter('report_interval');
+
+        // --- Stat: total monsters (count + previous period comparison + custom wrapper) ---
+        $this->addMetric('total_monsters', [
+            'type'      => 'stat',
+            'label'     => 'Total Monsters',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+            'compare'   => 'previous_period',
+            'wrapper'   => ['class' => 'col-md-3'],
+        ]);
+
+        // --- Stat: query scope to filter rows ---
+        $this->addMetric('working_monsters', [
+            'type'      => 'stat',
+            'label'     => 'Working',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+            'query'     => fn ($q) => $q->where('status', 'working'),
+            'wrapper'   => ['class' => 'col-md-3'],
+        ]);
+
+        // --- Stat: min aggregate ---
+        $this->addMetric('min_number', [
+            'type'      => 'stat',
+            'label'     => 'Min Number',
+            'column'    => 'number',
+            'aggregate' => 'min',
+            'wrapper'   => ['class' => 'col-md-3'],
+        ]);
+
+        // --- Stat: max aggregate ---
+        $this->addMetric('max_number', [
+            'type'      => 'stat',
+            'label'     => 'Max Number',
+            'column'    => 'number',
+            'aggregate' => 'max',
+            'wrapper'   => ['class' => 'col-md-3'],
+        ]);
+
+        // --- Demonstrate removeMetric (add then remove) ---
+        $this->addMetric('temp_metric', [
+            'type'  => 'stat',
+            'label' => 'Should Not Appear',
+        ]);
+        $this->removeMetric('temp_metric');
+
+        // --- Line chart: full width ---
+        $this->addMetric('monsters_over_time', [
+            'type'      => 'line',
+            'label'     => 'Monsters Created Over Time',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+            'wrapper'   => ['class' => 'col-md-12'],
+        ]);
+
+        // --- Group stats into one request ---
+        $this->groupMetrics('monster_stats', ['total_monsters', 'working_monsters', 'min_number', 'max_number']);
     }
 }
