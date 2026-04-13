@@ -23,8 +23,7 @@ class InvoiceCrudController extends CrudController
     use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
-
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *

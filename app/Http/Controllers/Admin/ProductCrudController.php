@@ -18,8 +18,8 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
-
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
+    
     public function setup()
     {
         CRUD::setModel(\App\Models\Product::class);
@@ -341,6 +341,18 @@ class ProductCrudController extends CrudController
             'column'    => 'price',
             'aggregate' => 'sum',
             'period'    => 'created_at',
+        ]);
+
+        // --- Pie chart: products by status ---
+        $this->addMetric('products_by_status', [
+            'type'     => 'pie',
+            'label'    => 'Products by Status',
+            'column'   => 'status',
+            'colors'   => [
+                'in-stock'     => 'rgba(0, 200, 83, 0.8)',
+                'out-of-stock' => 'rgba(255, 99, 132, 0.8)',
+                'on-hold'      => 'rgba(255, 206, 86, 0.8)',
+            ],
         ]);
 
         // --- Group the two stats so they share a single AJAX request ---

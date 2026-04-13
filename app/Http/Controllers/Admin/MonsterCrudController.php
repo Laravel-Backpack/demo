@@ -7,6 +7,7 @@ use App\Http\Requests\MonsterRequest as StoreRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
 use Illuminate\Support\Collection;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 class MonsterCrudController extends CrudController
 {
@@ -22,7 +23,7 @@ class MonsterCrudController extends CrudController
     use Operations\SMSOperation; //Custom Form Operation Example
     use \Backpack\ActivityLog\Http\Controllers\Operations\ModelActivityOperation;
     use \Backpack\ActivityLog\Http\Controllers\Operations\EntryActivityOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReportOperation;
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     public function setup()
     {
