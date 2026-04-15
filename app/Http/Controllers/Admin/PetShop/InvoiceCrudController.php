@@ -24,6 +24,7 @@ class InvoiceCrudController extends CrudController
     use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
     use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -197,7 +198,7 @@ class InvoiceCrudController extends CrudController
                 'format'    => '$:value',
                 'period'    => 'created_at',
                 'wrapper'   => ['class' => 'col-md-4'],
-                'query'     => fn ($q) => $q->setModel(new \App\Models\PetShop\InvoiceItem),
+                'query'     => fn ($q) => $q->setModel(new \App\Models\PetShop\InvoiceItem()),
             ]);
         });
 

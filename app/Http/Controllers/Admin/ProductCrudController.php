@@ -19,7 +19,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
     use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
-    
+
     public function setup()
     {
         CRUD::setModel(\App\Models\Product::class);

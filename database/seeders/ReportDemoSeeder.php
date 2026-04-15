@@ -131,8 +131,8 @@ class ReportDemoSeeder extends Seeder
                     'description' => Arr::random($itemDescriptions),
                     'quantity'    => $quantity,
                     'unit_price'  => $unitPrice,
-                    'created_at'  => $invoice->issuance_date . ' 12:00:00',
-                    'updated_at'  => $invoice->issuance_date . ' 12:00:00',
+                    'created_at'  => $invoice->issuance_date.' 12:00:00',
+                    'updated_at'  => $invoice->issuance_date.' 12:00:00',
                 ];
             }
         }
@@ -141,7 +141,7 @@ class ReportDemoSeeder extends Seeder
             InvoiceItem::insert($chunk);
         }
 
-        $this->command?->info('    ✓ ' . count($invoices) . ' invoices with ' . count($items) . ' items');
+        $this->command?->info('    ✓ '.count($invoices).' invoices with '.count($items).' items');
     }
 
     // ─── MONSTERS ────────────────────────────────────────────────────────
@@ -200,22 +200,22 @@ class ReportDemoSeeder extends Seeder
                 $ts = $createdAt->format('Y-m-d H:i:s');
 
                 $monsters[] = [
-                    'text'       => $faker->unique()->sentence(rand(3, 6)),
-                    'textarea'   => $faker->text(200),
-                    'email'      => $faker->email(),
-                    'number'     => $number,
-                    'float'      => round($faker->randomFloat(2, 0, 1000), 2),
-                    'status'     => $status,
-                    'checkbox'   => rand(0, 1),
-                    'date'       => $createdAt->format('Y-m-d'),
-                    'datetime'   => $ts,
-                    'start_date' => $createdAt->format('Y-m-d'),
-                    'end_date'   => $createdAt->copy()->addDays(rand(1, 90))->format('Y-m-d'),
-                    'select'     => null,
-                    'icon_id'    => null,
+                    'text'                    => $faker->unique()->sentence(rand(3, 6)),
+                    'textarea'                => $faker->text(200),
+                    'email'                   => $faker->email(),
+                    'number'                  => $number,
+                    'float'                   => round($faker->randomFloat(2, 0, 1000), 2),
+                    'status'                  => $status,
+                    'checkbox'                => rand(0, 1),
+                    'date'                    => $createdAt->format('Y-m-d'),
+                    'datetime'                => $ts,
+                    'start_date'              => $createdAt->format('Y-m-d'),
+                    'end_date'                => $createdAt->copy()->addDays(rand(1, 90))->format('Y-m-d'),
+                    'select'                  => null,
+                    'icon_id'                 => null,
                     'belongs_to_non_nullable' => 0,
-                    'created_at' => $ts,
-                    'updated_at' => $ts,
+                    'created_at'              => $ts,
+                    'updated_at'              => $ts,
                 ];
             }
         }
@@ -224,7 +224,7 @@ class ReportDemoSeeder extends Seeder
             Monster::insert($chunk);
         }
 
-        $this->command?->info('    ✓ ' . count($monsters) . ' monsters');
+        $this->command?->info('    ✓ '.count($monsters).' monsters');
     }
 
     // ─── PRODUCTS ────────────────────────────────────────────────────────
@@ -315,7 +315,7 @@ class ReportDemoSeeder extends Seeder
                     $condition = 'BROKEN';
                 }
 
-                $name = Arr::random($adjectives) . ' ' . Arr::random($productNames) . ' #' . rand(10000, 99999) . '-' . rand(100, 999);
+                $name = Arr::random($adjectives).' '.Arr::random($productNames).' #'.rand(10000, 99999).'-'.rand(100, 999);
 
                 $products[] = [
                     'name'        => json_encode(['en' => $name]),
@@ -335,6 +335,6 @@ class ReportDemoSeeder extends Seeder
             Product::insert($chunk);
         }
 
-        $this->command?->info('    ✓ ' . count($products) . ' products');
+        $this->command?->info('    ✓ '.count($products).' products');
     }
 }

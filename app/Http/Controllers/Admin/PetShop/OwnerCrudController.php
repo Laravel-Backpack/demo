@@ -124,7 +124,7 @@ class OwnerCrudController extends CrudController
                 'label'           => 'Total Invoices',
                 'aggregate'       => 'count',
                 'period'          => 'issuance_date',
-                'query'           => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice),
+                'query'           => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice()),
                 'refreshInterval' => 60,
                 'wrapper'         => ['class' => 'col-md-4'],
             ]);
@@ -154,7 +154,7 @@ class OwnerCrudController extends CrudController
                 'type'   => 'pie',
                 'label'  => 'Invoices by Series',
                 'column' => 'series',
-                'query'  => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice),
+                'query'  => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice()),
             ]);
         });
     }

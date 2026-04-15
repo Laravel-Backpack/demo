@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MonsterRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\CRUD\app\Library\Widget;
 use Illuminate\Support\Collection;
-use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 class MonsterCrudController extends CrudController
 {
@@ -1663,10 +1663,10 @@ class MonsterCrudController extends CrudController
         }
 
         $fields[] = [   // Browse
-            'name'  => 'browse',
-            'label' => 'Browse (using elFinder)'.backpack_pro_badge(),
-            'type'  => 'browse',
-            'tab'   => 'Uploads',
+            'name'       => 'browse',
+            'label'      => 'Browse (using elFinder)'.backpack_pro_badge(),
+            'type'       => 'browse',
+            'tab'        => 'Uploads',
             'mime_types' => ['image/png', 'image/jpeg'], // visible mime prefixes; ex. ['image'] or ['application/pdf']
         ];
 
