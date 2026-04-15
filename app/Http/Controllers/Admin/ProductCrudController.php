@@ -307,55 +307,72 @@ class ProductCrudController extends CrudController
 
     protected function setupReportOperation()
     {
-        // --- Stat: count with previous_period comparison ---
-        $this->addMetric('total_products', [
-            'type'      => 'stat',
-            'label'     => 'Total Products',
-            'aggregate' => 'count',
-            'period'    => 'created_at',
-            'compare'   => 'previous_period',
-        ]);
+        // --- Stat cards ---
+        $this->addMetricGroup([
+            'class' => 'row',
+        ], function () {
+            $this->addMetric('total_products', [
+                'type'      => 'stat',
+                'label'     => 'Total Products',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+                'compare'   => 'previous_period',
+                'wrapper'   => ['class' => 'col-md-6'],
+            ]);
 
-        // --- Stat: avg aggregate with format ---
-        $this->addMetric('avg_price', [
-            'type'      => 'stat',
-            'label'     => 'Avg Price',
-            'column'    => 'price',
-            'aggregate' => 'avg',
-            'format'    => '$:value',
-            'period'    => 'created_at',
-        ]);
+            $this->addMetric('avg_price', [
+                'type'      => 'stat',
+                'label'     => 'Avg Price',
+                'column'    => 'price',
+                'aggregate' => 'avg',
+                'format'    => '$:value',
+                'period'    => 'created_at',
+                'wrapper'   => ['class' => 'col-md-6'],
+            ]);
+        });
 
-        // --- Line chart ---
-        $this->addMetric('products_over_time', [
-            'type'      => 'line',
-            'label'     => 'Products Over Time',
-            'aggregate' => 'count',
-            'period'    => 'created_at',
-        ]);
+        // --- Charts ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('products_over_time', [
+                'type'      => 'line',
+                'label'     => 'Products Over Time',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+            ]);
 
-        // --- Bar chart: sum of prices over time ---
-        $this->addMetric('price_sum_over_time', [
-            'type'      => 'bar',
-            'label'     => 'Total Price Per Period',
-            'column'    => 'price',
-            'aggregate' => 'sum',
-            'period'    => 'created_at',
-        ]);
+            $this->addMetric('price_sum_over_time', [
+                'type'      => 'bar',
+                'label'     => 'Total Price Per Period',
+                'column'    => 'price',
+                'aggregate' => 'sum',
+                'period'    => 'created_at',
+            ]);
+        });
 
-        // --- Pie chart: products by status ---
-        $this->addMetric('products_by_status', [
-            'type'     => 'pie',
-            'label'    => 'Products by Status',
-            'column'   => 'status',
-            'colors'   => [
-                'in-stock'     => 'rgba(0, 200, 83, 0.8)',
-                'out-of-stock' => 'rgba(255, 99, 132, 0.8)',
-                'on-hold'      => 'rgba(255, 206, 86, 0.8)',
-            ],
-        ]);
+        // --- Pie chart ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('products_by_status', [
+                'type'     => 'pie',
+                'label'    => 'Products by Status',
+                'column'   => 'status',
+                'colors'   => [
+                    'in-stock'     => 'rgba(0, 200, 83, 0.8)',
+                    'out-of-stock' => 'rgba(255, 99, 132, 0.8)',
+                    'on-hold'      => 'rgba(255, 206, 86, 0.8)',
+                ],
+            ]);
+        });
 
-        // --- Group the two stats so they share a single AJAX request ---
-        $this->groupMetrics('product_stats', ['total_products', 'avg_price']);
+        // --- Custom view metric ---
+        $this->addMetric('top_products_table', [
+            'type'    => 'view',
+            'label'   => 'Top Products',
+            'view'    => 'admin.metrics.top_products',
+            'wrapper' => ['class' => 'col-md-12'],
+        ]);
     }
 }

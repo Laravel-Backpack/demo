@@ -43,7 +43,8 @@
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.0",
         "backpack/pan-panel": "^1.1",
-        "backpack/dataform-modal": "^1.0"
+        "backpack/dataform-modal": "^1.0",
+        "backpack/report-operation": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -59,6 +60,10 @@
         {
             "type": "composer",
             "url": "https://repo.backpackforlaravel.com/"
+        },
+        {
+           "type": "vcs",
+           "url": "https://github.com/Laravel-Backpack/report-operation"
         }
     ],
     "autoload": {
