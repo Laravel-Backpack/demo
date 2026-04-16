@@ -367,12 +367,17 @@ class ProductCrudController extends CrudController
             ]);
         });
 
-        // --- Custom view metric ---
+        // --- Table metric ---
         $this->addMetric('top_products_table', [
-            'type'    => 'view',
-            'label'   => 'Top Products',
-            'view'    => 'admin.metrics.top_products',
-            'wrapper' => ['class' => 'col-md-12'],
+            'type'     => 'table',
+            'label'    => 'Top Products by Price',
+            'group_by' => 'status',
+            'columns'  => [
+                'status'        => 'Status',
+                'product_count' => ['label' => 'Products', 'aggregate' => 'count'],
+                'avg_price'     => ['label' => 'Avg Price', 'aggregate' => 'avg', 'column' => 'price', 'format' => '$:value'],
+                'total_price'   => ['label' => 'Total Price', 'aggregate' => 'sum', 'column' => 'price', 'format' => '$:value'],
+            ],
         ]);
     }
 }

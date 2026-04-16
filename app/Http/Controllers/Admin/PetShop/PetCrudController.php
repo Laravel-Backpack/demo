@@ -109,8 +109,8 @@ class PetCrudController extends CrudController
             'type'            => 'stat',
             'label'           => 'Total Pets (All Time)',
             'aggregate'       => 'count',
-            'filters'         => false,
-            'refreshInterval' => 30,
+            'section'         => 'static',
+            'refreshInterval' => 5,
             'wrapper'         => ['class' => 'col-md-4'],
         ]);
 

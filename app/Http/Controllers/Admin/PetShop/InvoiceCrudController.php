@@ -177,7 +177,7 @@ class InvoiceCrudController extends CrudController
                 'aggregate'       => 'count',
                 'period'          => 'issuance_date',
                 'compare'         => 'previous_period',
-                'refreshInterval' => 60,
+                'refreshInterval' => 5,
                 'wrapper'         => ['class' => 'col-md-4'],
             ]);
 
@@ -229,6 +229,19 @@ class InvoiceCrudController extends CrudController
                         'data'   => $rows->pluck('value')->map(fn ($v) => round((float) $v, 1))->toArray(),
                     ];
                 },
+            ]);
+        });
+
+        // --- Stacked chart row ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('invoices_by_series', [
+                'type'      => 'stacked-bar',
+                'label'     => 'Invoices by Series',
+                'aggregate' => 'count',
+                'period'    => 'issuance_date',
+                'stack_by'  => 'series',
             ]);
         });
     }
