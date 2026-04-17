@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fc3fe4fdf43ee38ee627f955aa6f349",
+    "content-hash": "ad3c216b512a9ad6b85f5bc8f27d2e5f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.378.2",
+            "version": "3.379.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "df2a6c362ddce2ede3ac3a8286f5788847e614b4"
+                "reference": "261bfa48bb4dc0d9a8d0dcb5af7c329d97de7acc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/df2a6c362ddce2ede3ac3a8286f5788847e614b4",
-                "reference": "df2a6c362ddce2ede3ac3a8286f5788847e614b4",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/261bfa48bb4dc0d9a8d0dcb5af7c329d97de7acc",
+                "reference": "261bfa48bb4dc0d9a8d0dcb5af7c329d97de7acc",
                 "shasum": ""
             },
             "require": {
@@ -153,9 +153,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.378.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.379.1"
             },
-            "time": "2026-04-10T18:13:27+00:00"
+            "time": "2026-04-16T18:06:02+00:00"
         },
         {
             "name": "backpack/activity-log",
@@ -361,17 +361,17 @@
         },
         {
             "name": "backpack/calendar-operation",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/calendar-operation.git",
-                "reference": "5d8b1a731d6a26a304ff1c680383bfc98bb54f2c"
+                "reference": "a9f4be4fa0272999e93e42b50cb53a52b1e9fd7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/calendar-operation/backpack-calendar-operation-5d8b1a731d6a26a304ff1c680383bfc98bb54f2c-zip-51f7e1.zip",
-                "reference": "5d8b1a731d6a26a304ff1c680383bfc98bb54f2c",
-                "shasum": "e08a4600ee8498d3caf47825c15cf545878952b8"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/calendar-operation/backpack-calendar-operation-a9f4be4fa0272999e93e42b50cb53a52b1e9fd7e-zip-8dcb37.zip",
+                "reference": "a9f4be4fa0272999e93e42b50cb53a52b1e9fd7e",
+                "shasum": "d27232840514375353c48d3dd0e5ca0af34f4ca3"
             },
             "require": {
                 "backpack/crud": "^6.5|^7.0"
@@ -432,10 +432,10 @@
                 "Laravel"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/calendar-operation/tree/1.1.0",
+                "source": "https://github.com/Laravel-Backpack/calendar-operation/tree/1.1.1",
                 "issues": "https://github.com/Laravel-Backpack/calendar-operation/issues"
             },
-            "time": "2025-11-19T12:10:12+00:00"
+            "time": "2026-04-13T15:42:15+00:00"
         },
         {
             "name": "backpack/ckeditor-field",
@@ -708,21 +708,21 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "78c0408ab9bddbda2cf8f8206b6af04a833a1173"
+                "reference": "b9e4abc62deb856525bbf9be9f5d19ce7a38ed37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/78c0408ab9bddbda2cf8f8206b6af04a833a1173",
-                "reference": "78c0408ab9bddbda2cf8f8206b6af04a833a1173",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/b9e4abc62deb856525bbf9be9f5d19ce7a38ed37",
+                "reference": "b9e4abc62deb856525bbf9be9f5d19ce7a38ed37",
                 "shasum": ""
             },
             "require": {
                 "backpack/crud": "^7.0",
-                "barryvdh/laravel-elfinder": "^0.5.2"
+                "barryvdh/laravel-elfinder": "^0.5.2|^0.6"
             },
             "require-dev": {
                 "mockery/mockery": "^1.5",
@@ -761,9 +761,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/4.0.4"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/4.0.5"
             },
-            "time": "2026-03-31T15:50:08+00:00"
+            "time": "2026-04-13T12:59:38+00:00"
         },
         {
             "name": "backpack/language-switcher",
@@ -1340,22 +1340,21 @@
         },
         {
             "name": "backpack/report-operation",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/report-operation.git",
-                "reference": "318940cff445b8d633b6f6dc222829ef6e3e7496"
+                "reference": "53099ec1b46fa00234d186ea3e84836c7b290b74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/report-operation/zipball/318940cff445b8d633b6f6dc222829ef6e3e7496",
-                "reference": "318940cff445b8d633b6f6dc222829ef6e3e7496",
-                "shasum": ""
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/report-operation/backpack-report-operation-53099ec1b46fa00234d186ea3e84836c7b290b74-zip-e96f64.zip",
+                "reference": "53099ec1b46fa00234d186ea3e84836c7b290b74",
+                "shasum": "cac7b0c3020c0486452083b640595afbfec92c83"
             },
             "require": {
                 "backpack/crud": "^7.0.33"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1369,14 +1368,6 @@
                     "Backpack\\ReportOperation\\": "src/"
                 }
             },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit --testdox"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
             "authors": [
                 {
                     "name": "Cristian Tabacitu",
@@ -1394,10 +1385,10 @@
                 "ReportOperation"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/report-operation/tree/main",
+                "source": "https://github.com/Laravel-Backpack/report-operation/tree/1.0.0",
                 "issues": "https://github.com/Laravel-Backpack/report-operation/issues"
             },
-            "time": "2026-04-10T14:52:15+00:00"
+            "time": "2026-04-17T14:54:36+00:00"
         },
         {
             "name": "backpack/revise-operation",
@@ -1965,23 +1956,28 @@
         },
         {
             "name": "barryvdh/laravel-elfinder",
-            "version": "v0.5.5",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-elfinder.git",
-                "reference": "30700116a94828202b777da33a6d5c1ee7d004a6"
+                "reference": "80008c9bd099e6523e0b65ea2dc7fa7c6bba1055"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/30700116a94828202b777da33a6d5c1ee7d004a6",
-                "reference": "30700116a94828202b777da33a6d5c1ee7d004a6",
+                "url": "https://api.github.com/repos/barryvdh/laravel-elfinder/zipball/80008c9bd099e6523e0b65ea2dc7fa7c6bba1055",
+                "reference": "80008c9bd099e6523e0b65ea2dc7fa7c6bba1055",
                 "shasum": ""
             },
             "require": {
-                "barryvdh/elfinder-flysystem-driver": "^0.4.2|^0.5",
-                "illuminate/support": "^9|^10|^11.0|^12.0|^13.0",
+                "barryvdh/elfinder-flysystem-driver": "^0.4.2|^0.5|^0.6",
+                "illuminate/console": "^9.0|^10.0|^11.0|^12.0|^13.0",
+                "illuminate/contracts": "^9.0|^10.0|^11.0|^12.0|^13.0",
+                "illuminate/filesystem": "^9.0|^10.0|^11.0|^12.0|^13.0",
+                "illuminate/routing": "^9.0|^10.0|^11.0|^12.0|^13.0",
+                "illuminate/support": "^9.0|^10.0|^11.0|^12.0|^13.0",
                 "php": "^8.1",
-                "studio-42/elfinder": "~2.1.62"
+                "studio-42/elfinder": "~2.1.62",
+                "symfony/http-foundation": "^6.0|^7.0|^8.0"
             },
             "type": "library",
             "extra": {
@@ -1991,7 +1987,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -2018,9 +2014,9 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-elfinder/issues",
-                "source": "https://github.com/barryvdh/laravel-elfinder/tree/v0.5.5"
+                "source": "https://github.com/barryvdh/laravel-elfinder/tree/v0.6.0"
             },
-            "time": "2026-02-21T08:29:51+00:00"
+            "time": "2026-04-01T13:14:34+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
@@ -3787,16 +3783,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.4.0",
+            "version": "v13.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "912de244f88a69742b76e8a2807f6765947776da"
+                "reference": "ffa1850049a691b93129808f27ecd10e65c9d1a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/912de244f88a69742b76e8a2807f6765947776da",
-                "reference": "912de244f88a69742b76e8a2807f6765947776da",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ffa1850049a691b93129808f27ecd10e65c9d1a5",
+                "reference": "ffa1850049a691b93129808f27ecd10e65c9d1a5",
                 "shasum": ""
             },
             "require": {
@@ -3950,6 +3946,7 @@
                 "psr/http-message": "Required to allow Storage::put to accept a StreamInterface (^1.0).",
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^6.0 || ^7.0).",
                 "resend/resend-php": "Required to enable support for the Resend mail transport (^0.10.0 || ^1.0).",
+                "spatie/fork": "Required to use the 'fork' concurrency driver (^1.2).",
                 "symfony/cache": "Required to PSR-6 cache bridge (^7.4 || ^8.0).",
                 "symfony/filesystem": "Required to enable support for relative symbolic links (^7.4 || ^8.0).",
                 "symfony/http-client": "Required to enable support for the Symfony API mail transports (^7.4 || ^8.0).",
@@ -4005,7 +4002,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-04-07T13:38:26+00:00"
+            "time": "2026-04-14T13:55:03+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -4124,16 +4121,16 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v2.0.11",
+            "version": "v2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "d1af40ac4a6ccc12bd062a7184f63c9995a63bdd"
+                "reference": "a6abb4e54f6fcd3138120b9ad497f0bd146f9919"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/d1af40ac4a6ccc12bd062a7184f63c9995a63bdd",
-                "reference": "d1af40ac4a6ccc12bd062a7184f63c9995a63bdd",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/a6abb4e54f6fcd3138120b9ad497f0bd146f9919",
+                "reference": "a6abb4e54f6fcd3138120b9ad497f0bd146f9919",
                 "shasum": ""
             },
             "require": {
@@ -4181,20 +4178,20 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2026-04-07T13:32:18+00:00"
+            "time": "2026-04-14T13:33:34+00:00"
         },
         {
             "name": "laravel/tinker",
-            "version": "v3.0.0",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "cc74081282ba2e3dae1f0068ccb330370d24634e"
+                "reference": "4faba77764bd33411735936acdf30446d058c78b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/cc74081282ba2e3dae1f0068ccb330370d24634e",
-                "reference": "cc74081282ba2e3dae1f0068ccb330370d24634e",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/4faba77764bd33411735936acdf30446d058c78b",
+                "reference": "4faba77764bd33411735936acdf30446d058c78b",
                 "shasum": ""
             },
             "require": {
@@ -4248,9 +4245,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/tinker/issues",
-                "source": "https://github.com/laravel/tinker/tree/v3.0.0"
+                "source": "https://github.com/laravel/tinker/tree/v3.0.2"
             },
-            "time": "2026-03-17T14:53:17+00:00"
+            "time": "2026-03-17T14:54:13+00:00"
         },
         {
             "name": "league/commonmark",
@@ -7876,16 +7873,16 @@
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.66",
+            "version": "2.1.67",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "78488951e44d69e8b9e4e849f8268df408632a6c"
+                "reference": "5e463d1384972dffcb736ad3c94f35af10656ca2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/78488951e44d69e8b9e4e849f8268df408632a6c",
-                "reference": "78488951e44d69e8b9e4e849f8268df408632a6c",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/5e463d1384972dffcb736ad3c94f35af10656ca2",
+                "reference": "5e463d1384972dffcb736ad3c94f35af10656ca2",
                 "shasum": ""
             },
             "require": {
@@ -7932,7 +7929,7 @@
             "homepage": "http://elfinder.org",
             "support": {
                 "issues": "https://github.com/Studio-42/elFinder/issues",
-                "source": "https://github.com/Studio-42/elFinder/tree/2.1.66"
+                "source": "https://github.com/Studio-42/elFinder/tree/2.1.67"
             },
             "funding": [
                 {
@@ -7940,7 +7937,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-28T11:51:22+00:00"
+            "time": "2026-04-17T03:02:32+00:00"
         },
         {
             "name": "symfony/clock",
@@ -8977,7 +8974,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -9036,7 +9033,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9060,7 +9057,7 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
@@ -9118,7 +9115,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9142,7 +9139,7 @@
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
@@ -9205,7 +9202,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9229,7 +9226,7 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -9290,7 +9287,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9314,7 +9311,7 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -9375,7 +9372,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9399,7 +9396,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -9459,7 +9456,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9483,7 +9480,7 @@
         },
         {
             "name": "symfony/polyfill-php84",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php84.git",
@@ -9539,7 +9536,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php84/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-php84/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9563,7 +9560,7 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
@@ -9619,7 +9616,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -9643,7 +9640,7 @@
         },
         {
             "name": "symfony/polyfill-uuid",
-            "version": "v1.34.0",
+            "version": "v1.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-uuid.git",
@@ -9702,7 +9699,7 @@
                 "uuid"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.34.0"
+                "source": "https://github.com/symfony/polyfill-uuid/tree/v1.36.0"
             },
             "funding": [
                 {
@@ -10591,23 +10588,23 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "2.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "b1d923f88091c6bf09699efcd7c8a1b1bfd7351d"
+                "reference": "d870a33f0f79d2b4579740b0620200221ee44aeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/b1d923f88091c6bf09699efcd7c8a1b1bfd7351d",
-                "reference": "b1d923f88091c6bf09699efcd7c8a1b1bfd7351d",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/d870a33f0f79d2b4579740b0620200221ee44aeb",
+                "reference": "d870a33f0f79d2b4579740b0620200221ee44aeb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0"
+                "php": ">=7.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0 || ~9.0"
+                "phpunit/phpunit": "~8.5 || ~9.6 || ~10.5 || ~11.5"
             },
             "suggest": {
                 "ext-intl": "Use Intl for transliterator_transliterate() support"
@@ -10637,7 +10634,7 @@
             ],
             "support": {
                 "issues": "https://github.com/voku/portable-ascii/issues",
-                "source": "https://github.com/voku/portable-ascii/tree/2.0.3"
+                "source": "https://github.com/voku/portable-ascii/tree/2.1.0"
             },
             "funding": [
                 {
@@ -10661,7 +10658,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-21T01:49:47+00:00"
+            "time": "2026-04-16T23:10:39+00:00"
         }
     ],
     "packages-dev": [
@@ -13102,9 +13099,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "backpack/report-operation": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
