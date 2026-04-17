@@ -21,6 +21,7 @@ class OwnerCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     public function fetchComments()
     {
@@ -99,6 +100,63 @@ class OwnerCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Grouped stats with different refreshIntervals ---
+        // Both metrics share a group, so the lowest interval (30s) wins for the whole group.
+        $this->addMetricGroup([
+            'class' => 'row',
+        ], function () {
+            $this->addMetric('total_owners', [
+                'type'            => 'stat',
+                'label'           => 'Total Owners',
+                'aggregate'       => 'count',
+                'period'          => 'created_at',
+                'compare'         => true,
+                'refreshInterval' => 30,
+                'wrapper'         => ['class' => 'col-md-4'],
+            ]);
+
+            $this->addMetric('total_invoices', [
+                'type'            => 'stat',
+                'label'           => 'Total Invoices',
+                'aggregate'       => 'count',
+                'period'          => 'issuance_date',
+                'query'           => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice()),
+                'refreshInterval' => 60,
+                'wrapper'         => ['class' => 'col-md-4'],
+            ]);
+
+            $this->addMetric('avg_pets_per_owner', [
+                'type'    => 'stat',
+                'label'   => 'Avg Pets Per Owner',
+                'wrapper' => ['class' => 'col-md-4'],
+                'resolve' => fn ($query, $filters) => [
+                    'value' => round($query->withCount('pets')->get()->avg('pets_count'), 1),
+                ],
+            ]);
+        });
+
+        // --- Charts ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('owners_over_time', [
+                'type'      => 'line',
+                'label'     => 'Owners Over Time',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+            ]);
+
+            $this->addMetric('invoices_by_series', [
+                'type'   => 'pie',
+                'label'  => 'Invoices by Series',
+                'column' => 'series',
+                'query'  => fn ($q) => $q->setModel(new \App\Models\PetShop\Invoice()),
+            ]);
+        });
     }
 
     protected function setupShowOperation()

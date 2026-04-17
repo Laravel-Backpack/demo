@@ -20,6 +20,7 @@ class PetCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\TrashOperation;
     use \Backpack\Pro\Http\Controllers\Operations\BulkTrashOperation;
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     public function fetchComments()
     {
@@ -99,5 +100,59 @@ class PetCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Static metric with auto-refresh: always shows the current total, polls every 30s ---
+        $this->addMetric('total_pets_ever', [
+            'type'            => 'stat',
+            'label'           => 'Total Pets (All Time)',
+            'aggregate'       => 'count',
+            'section'         => 'static',
+            'refreshInterval' => 5,
+            'wrapper'         => ['class' => 'col-md-4'],
+        ]);
+
+        // --- Stat cards ---
+        $this->addMetricGroup([
+            'class' => 'row',
+        ], function () {
+            $this->addMetric('new_pets', [
+                'type'      => 'stat',
+                'label'     => 'New Pets',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+                'compare'   => true,
+                'wrapper'   => ['class' => 'col-md-4'],
+            ]);
+
+            $this->addMetric('trashed_pets', [
+                'type'        => 'stat',
+                'label'       => 'Trashed Pets',
+                'description' => 'Soft-deleted pets in the selected period.',
+                'aggregate'   => 'count',
+                'period'      => 'deleted_at',
+                'query'       => fn ($q) => $q->onlyTrashed(),
+                'wrapper'     => ['class' => 'col-md-4'],
+            ]);
+
+            $this->addMetric('avg_skills', [
+                'type'    => 'stat',
+                'label'   => 'Avg Skills Per Pet',
+                'wrapper' => ['class' => 'col-md-4'],
+                'resolve' => fn ($query, $filters) => [
+                    'value' => round($query->withCount('skills')->get()->avg('skills_count'), 1),
+                ],
+            ]);
+        });
+
+        // --- Chart ---
+        $this->addMetric('pets_over_time', [
+            'type'      => 'line',
+            'label'     => 'Pets Over Time',
+            'aggregate' => 'count',
+            'period'    => 'created_at',
+        ]);
     }
 }

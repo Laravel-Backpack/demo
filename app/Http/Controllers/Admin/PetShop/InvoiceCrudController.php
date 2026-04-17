@@ -23,6 +23,7 @@ class InvoiceCrudController extends CrudController
     use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
     use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -162,5 +163,86 @@ class InvoiceCrudController extends CrudController
     public function fetchOwner()
     {
         return $this->fetch(\App\Models\PetShop\Owner::class);
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Stat cards row ---
+        $this->addMetricGroup([
+            'class' => 'row',
+        ], function () {
+            $this->addMetric('total_invoices', [
+                'type'            => 'stat',
+                'label'           => 'Total Invoices',
+                'aggregate'       => 'count',
+                'period'          => 'issuance_date',
+                'compare'         => 'previous_period',
+                'refreshInterval' => 5,
+                'wrapper'         => ['class' => 'col-md-4'],
+            ]);
+
+            $this->addMetric('series_count', [
+                'type'    => 'stat',
+                'label'   => 'Unique Series',
+                'wrapper' => ['class' => 'col-md-4'],
+                'resolve' => fn ($query, $filters) => [
+                    'value' => $query->distinct('series')->count('series'),
+                ],
+            ]);
+
+            $this->addMetric('total_items_value', [
+                'type'      => 'stat',
+                'label'     => 'Total Items Value',
+                'column'    => 'unit_price',
+                'aggregate' => 'sum',
+                'format'    => '$:value',
+                'period'    => 'created_at',
+                'wrapper'   => ['class' => 'col-md-4'],
+                'query'     => fn ($q) => $q->setModel(new \App\Models\PetShop\InvoiceItem()),
+            ]);
+        });
+
+        // --- Charts row ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('invoices_bar', [
+                'type'      => 'bar',
+                'label'     => 'Invoices Per Period',
+                'aggregate' => 'count',
+                'period'    => 'issuance_date',
+            ]);
+
+            $this->addMetric('items_per_invoice', [
+                'type'    => 'line',
+                'label'   => 'Avg Items Per Invoice',
+                'resolve' => function ($query, $filters) {
+                    $rows = $query
+                        ->selectRaw('DATE_FORMAT(issuance_date, "%Y-%m") as label')
+                        ->selectRaw('AVG((SELECT COUNT(*) FROM invoice_items WHERE invoice_items.invoice_id = invoices.id)) as value')
+                        ->groupBy('label')
+                        ->orderBy('label')
+                        ->get();
+
+                    return [
+                        'labels' => $rows->pluck('label')->toArray(),
+                        'data'   => $rows->pluck('value')->map(fn ($v) => round((float) $v, 1))->toArray(),
+                    ];
+                },
+            ]);
+        });
+
+        // --- Stacked chart row ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('invoices_by_series', [
+                'type'      => 'stacked-bar',
+                'label'     => 'Invoices by Series',
+                'aggregate' => 'count',
+                'period'    => 'issuance_date',
+                'stack_by'  => 'series',
+            ]);
+        });
     }
 }

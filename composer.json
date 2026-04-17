@@ -43,7 +43,8 @@
         "spatie/laravel-ignition": "^2.0",
         "spatie/laravel-translatable": "^6.0",
         "backpack/pan-panel": "^1.1",
-        "backpack/dataform-modal": "^1.0"
+        "backpack/dataform-modal": "^1.0",
+        "backpack/report-operation": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",

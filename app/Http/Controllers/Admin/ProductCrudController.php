@@ -18,6 +18,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\Pro\Http\Controllers\Operations\AjaxUploadOperation { ajaxUpload as traitAjaxUpload; }
+    use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     public function setup()
     {
@@ -302,5 +303,81 @@ class ProductCrudController extends CrudController
         }
 
         return $this->traitAjaxUpload();
+    }
+
+    protected function setupReportOperation()
+    {
+        // --- Stat cards ---
+        $this->addMetricGroup([
+            'class' => 'row',
+        ], function () {
+            $this->addMetric('total_products', [
+                'type'      => 'stat',
+                'label'     => 'Total Products',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+                'compare'   => 'previous_period',
+                'wrapper'   => ['class' => 'col-md-6'],
+            ]);
+
+            $this->addMetric('avg_price', [
+                'type'      => 'stat',
+                'label'     => 'Avg Price',
+                'column'    => 'price',
+                'aggregate' => 'avg',
+                'format'    => '$:value',
+                'period'    => 'created_at',
+                'wrapper'   => ['class' => 'col-md-6'],
+            ]);
+        });
+
+        // --- Charts ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('products_over_time', [
+                'type'      => 'line',
+                'label'     => 'Products Over Time',
+                'aggregate' => 'count',
+                'period'    => 'created_at',
+            ]);
+
+            $this->addMetric('price_sum_over_time', [
+                'type'      => 'bar',
+                'label'     => 'Total Price Per Period',
+                'column'    => 'price',
+                'aggregate' => 'sum',
+                'period'    => 'created_at',
+            ]);
+        });
+
+        // --- Pie chart ---
+        $this->addMetricGroup([
+            'class' => 'row mt-2',
+        ], function () {
+            $this->addMetric('products_by_status', [
+                'type'     => 'pie',
+                'label'    => 'Products by Status',
+                'column'   => 'status',
+                'colors'   => [
+                    'in-stock'     => 'rgba(0, 200, 83, 0.8)',
+                    'out-of-stock' => 'rgba(255, 99, 132, 0.8)',
+                    'on-hold'      => 'rgba(255, 206, 86, 0.8)',
+                ],
+            ]);
+        });
+
+        // --- Table metric ---
+        $this->addMetric('top_products_table', [
+            'type'     => 'table',
+            'label'    => 'Top Products by Price',
+            'group_by' => 'status',
+            'columns'  => [
+                'status'        => 'Status',
+                'product_count' => ['label' => 'Products', 'aggregate' => 'count'],
+                'avg_price'     => ['label' => 'Avg Price', 'aggregate' => 'avg', 'column' => 'price', 'format' => '$:value'],
+                'total_price'   => ['label' => 'Total Price', 'aggregate' => 'sum', 'column' => 'price', 'format' => '$:value'],
+            ],
+        ]);
     }
 }
