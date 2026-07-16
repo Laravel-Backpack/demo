@@ -45,7 +45,8 @@
         "spatie/laravel-translatable": "^6.0",
         "backpack/pan-panel": "^1.1",
         "backpack/dataform-modal": "^1.0",
-        "backpack/report-operation": "^1.0"
+        "backpack/report-operation": "^1.0",
+        "backpack/devtools": "^5.0"
     },
     "require-dev": {
         "fakerphp/faker": "~1.4",
@@ -55,7 +56,8 @@
         "symfony/dom-crawler": "^7",
         "backpack/generators": "^4.1",
         "barryvdh/laravel-debugbar": "^4.0",
-        "backpack/test-generators": "^1.0"
+        "backpack/test-generators": "^1.0",
+        "laravel/boost": "^2.4"
     },
     "repositories": [
         {
@@ -95,6 +97,7 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan boost:update --ansi",
             "@php artisan basset:cache"
         ],
         "post-autoload-dump": [

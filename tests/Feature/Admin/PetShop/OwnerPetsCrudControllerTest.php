@@ -13,6 +13,7 @@ class OwnerPetsCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBas
     }
     use \Tests\Feature\Backpack\DefaultUpdateTests {
         test_update_page_loads_successfully as default_test_update_page_loads_successfully;
+        test_update_endpoint_modifies_entry_in_database as default_test_update_endpoint_modifies_entry_in_database;
     }
 
     public string $controller = OwnerPetsCrudController::class;
@@ -21,7 +22,7 @@ class OwnerPetsCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBas
     // Pass additional parameters to controller routes. eg. ['owner' => 1]
     public array $routeParameters = ['owner' => 1];
 
-    public function setup(): void
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -66,5 +67,22 @@ class OwnerPetsCrudControllerTest extends \Tests\Feature\Backpack\DefaultTestBas
         $response = $this->get($this->testHelper->getCrudUrl($entry->getKey().'/show'));
         $response->assertStatus(200);
         $response->assertSee($this->entityName ?? '');
+    }
+
+    public function test_update_endpoint_modifies_entry_in_database(): void
+    {
+        $this->skipIfModelDoesNotHaveFactory();
+
+        $entry = $this->model::factory()->create();
+        $entry->owners()->attach(1, ['role' => 'Owner']);
+
+        $data = $this->updateInput ?? $this->model::factory()->raw();
+        $data = array_merge($data, [$entry->getKeyName() => $entry->getKey()]);
+
+        $response = $this->put($this->testHelper->getCrudUrl($entry->getKey()), $data);
+        $response->assertSessionHasNoErrors();
+        $response->assertStatus(302);
+
+        $this->assertDatabaseHasModel($this->model, $this->assertUpdateInput ?? $this->testHelper->getDatabaseAssertInput($this->model, $data));
     }
 }

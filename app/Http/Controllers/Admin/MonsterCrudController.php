@@ -14,8 +14,8 @@ class MonsterCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
-    use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
+    use \Backpack\DataFormModal\Http\Controllers\Operations\CreateInModalOperation;
+    use \Backpack\DataFormModal\Http\Controllers\Operations\UpdateInModalOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
@@ -1076,13 +1076,13 @@ class MonsterCrudController extends CrudController
             [   // Date
                 // <span class="badge badge-pill bg-primary">PRO</span>
                 'name'  => 'date_picker',
-                'label' => 'Date picker (jQuery plugin)'.backpack_pro_badge(),
-                'type'  => 'date_picker',
+                'label' => 'Date picker (air-datepicker)'.backpack_pro_badge(),
+                'type'  => 'air-datepicker',
                 // optional:
-                'date_picker_options' => [
-                    'todayBtn' => true,
-                    'format'   => 'dd-mm-yyyy',
-                    'language' => 'en',
+                'air-datepicker' => [
+                    'dateFormat' => 'dd-MM-yyyy',
+                    'firstDay'   => 1,
+                    'buttons'    => ['today', 'clear'],
                 ],
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
                 'tab'               => 'Time and space',
@@ -1096,12 +1096,15 @@ class MonsterCrudController extends CrudController
             ],
             [   // DateTime
                 'name'  => 'datetime_picker',
-                'label' => 'Datetime picker (jQuery plugin)'.backpack_pro_badge(),
-                'type'  => 'datetime_picker',
+                'label' => 'Datetime picker (air-datepicker)'.backpack_pro_badge(),
+                'type'  => 'air-datepicker',
                 // optional:
-                'datetime_picker_options' => [
-                    'format'   => 'DD/MM/YYYY HH:mm',
-                    'language' => 'en',
+                'air-datepicker' => [
+                    'timepicker' => true,
+                    'dateFormat' => 'dd/MM/yyyy',
+                    'timeFormat' => 'HH:mm',
+                    'firstDay'   => 1,
+                    'buttons'    => ['today', 'clear'],
                 ],
                 'wrapperAttributes' => ['class' => 'form-group col-md-6'],
                 'tab'               => 'Time and space',
