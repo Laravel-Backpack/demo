@@ -287,16 +287,16 @@
         },
         {
             "name": "backpack/basset",
-            "version": "2.0.11",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/basset.git",
-                "reference": "c8d790aa6279a47dc0e3ec35ae9957c379949d19"
+                "reference": "5724b529793fd87b66c0bc7d9d1e3d6ff50f206a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/c8d790aa6279a47dc0e3ec35ae9957c379949d19",
-                "reference": "c8d790aa6279a47dc0e3ec35ae9957c379949d19",
+                "url": "https://api.github.com/repos/Laravel-Backpack/basset/zipball/5724b529793fd87b66c0bc7d9d1e3d6ff50f206a",
+                "reference": "5724b529793fd87b66c0bc7d9d1e3d6ff50f206a",
                 "shasum": ""
             },
             "require": {
@@ -355,9 +355,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/basset/issues",
-                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.11"
+                "source": "https://github.com/Laravel-Backpack/basset/tree/2.0.12"
             },
-            "time": "2026-07-16T11:30:49+00:00"
+            "time": "2026-07-20T15:41:16+00:00"
         },
         {
             "name": "backpack/calendar-operation",
@@ -575,17 +575,17 @@
         },
         {
             "name": "backpack/dataform-modal",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:Laravel-Backpack/dataform-modal.git",
-                "reference": "93c2112e9f67d1f172c1110999aef12a3955b9df"
+                "reference": "5b3dfcb56c758e20f1bb1c352d0131cb47c8b220"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.backpackforlaravel.com/dist/backpack/dataform-modal/backpack-dataform-modal-93c2112e9f67d1f172c1110999aef12a3955b9df-zip-3ac7d4.zip",
-                "reference": "93c2112e9f67d1f172c1110999aef12a3955b9df",
-                "shasum": "95107ecb4430bd1291c5595dbb0bb72b55f9777f"
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/dataform-modal/backpack-dataform-modal-5b3dfcb56c758e20f1bb1c352d0131cb47c8b220-zip-9f6754.zip",
+                "reference": "5b3dfcb56c758e20f1bb1c352d0131cb47c8b220",
+                "shasum": "de6722ee93df209dbec53d65747b9a4e06e8a712"
             },
             "require": {
                 "backpack/crud": "^7.1.6"
@@ -643,10 +643,10 @@
                 "Modal"
             ],
             "support": {
-                "source": "https://github.com/Laravel-Backpack/dataform-modal/tree/1.0.8",
+                "source": "https://github.com/Laravel-Backpack/dataform-modal/tree/1.0.9",
                 "issues": "https://github.com/Laravel-Backpack/dataform-modal/issues"
             },
-            "time": "2026-07-15T15:33:06+00:00"
+            "time": "2026-07-20T15:23:51+00:00"
         },
         {
             "name": "backpack/devtools",
