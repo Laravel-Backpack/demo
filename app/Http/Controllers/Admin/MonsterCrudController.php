@@ -261,6 +261,8 @@ class MonsterCrudController extends CrudController
 
         ]);
 
+        //$this->crud->disablePersistentTable();
+        $this->crud->setOperationSetting('showFilterValues', true);
         $this->crud->enableDetailsRow();
         $this->crud->setDetailsRowView('vendor.backpack.crud.details_row.monster');
         $this->crud->enableExportButtons();

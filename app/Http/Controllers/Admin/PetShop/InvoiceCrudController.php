@@ -21,8 +21,8 @@ class InvoiceCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
     use \Backpack\Pro\Http\Controllers\Operations\TrashOperation;
     use \Backpack\Pro\Http\Controllers\Operations\CustomViewOperation;
-    use \Backpack\DataformModal\Http\Controllers\Operations\CreateInModalOperation;
-    use \Backpack\DataformModal\Http\Controllers\Operations\UpdateInModalOperation;
+    use \Backpack\DataFormModal\Http\Controllers\Operations\CreateInModalOperation;
+    use \Backpack\DataFormModal\Http\Controllers\Operations\UpdateInModalOperation;
     use \Backpack\ReportOperation\Http\Controllers\Operations\ReportOperation;
 
     /**
