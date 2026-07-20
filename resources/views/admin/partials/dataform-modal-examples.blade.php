@@ -30,7 +30,7 @@
                                 <td>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#edit_invoice_{{ $invoice->id }}" bp-button="create">Edit</a>
 
-                                    <x-bp-dataform-modal
+                                    <x-bp-data-form-modal
                                         formId="edit_invoice_{{ $invoice->id }}"
                                         :controller="\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class"
                                         formOperation="updateInModal"
@@ -61,7 +61,7 @@
                     </a>
                 </p>
 
-                <x-bp-dataform-modal
+                <x-bp-data-form-modal
                     formId="create_invoice"
                     :controller='\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class'
                     :formInsideCard="false"
