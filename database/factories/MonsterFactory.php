@@ -26,7 +26,6 @@ class MonsterFactory extends Factory
             'summernote'                   => '<p>'.$this->faker->text(800).'</p>',
             'tinymce'                      => $this->faker->text(800),
             'textarea'                     => $this->faker->text(250),
-            'text'                         => $this->faker->text(120),
             'date'                         => $this->faker->date(),
             'start_date'                   => $this->faker->date(),
             'end_date'                     => $this->faker->date(),
