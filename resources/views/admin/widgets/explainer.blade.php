@@ -24,9 +24,16 @@
     {!! $body !!}
 
     <x-slot:actions>
-        <a href="{{ $explainer['docs'] }}" target="_blank" class="btn btn-primary">
-            Read the docs <i class="la la-external-link-alt ms-1"></i>
-        </a>
+        @if(! empty($explainer['product']))
+            <a href="{{ $explainer['product'] }}" target="_blank" class="btn btn-primary">
+                See on backpackforlaravel.com <i class="la la-external-link-alt ms-1"></i>
+            </a>
+            <a href="{{ $explainer['docs'] }}" target="_blank" class="btn btn-outline-primary">Read the docs</a>
+        @else
+            <a href="{{ $explainer['docs'] }}" target="_blank" class="btn btn-primary">
+                Read the docs <i class="la la-external-link-alt ms-1"></i>
+            </a>
+        @endif
         <a href="{{ $hideUrl }}" class="btn btn-ghost-secondary">Hide this</a>
     </x-slot:actions>
 
@@ -34,3 +41,17 @@
         <a href="{{ $hideUrl }}" class="btn-close" aria-label="Hide"></a>
     </x-slot:close>
 </x-demo-callout>
+
+<script>
+    // Drop ?explainer from the address bar now that the card is rendered. Backpack's
+    // persistent table remembers a list URL with query parameters and restores it
+    // later, even from a datatable embedded on another page; the parameter must not
+    // be part of what it remembers.
+    (function () {
+        var url = new URL(window.location.href);
+        if (url.searchParams.has('explainer')) {
+            url.searchParams.delete('explainer');
+            window.history.replaceState({}, '', url.toString());
+        }
+    })();
+</script>

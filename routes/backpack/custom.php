@@ -29,6 +29,12 @@ Route::group([
     Route::post('features/alerts', 'FeaturesController@triggerAlert')->name('features.alerts.trigger');
     Route::get('new-in-v7', 'FeaturesController@newInV7')->name('new-in-v7'); // old URL, redirects to Components
 
+    // -----------
+    // Paid Add-ons
+    // -----------
+    // One page per paid add-on (content in config/demo.php).
+    Route::get('paid/{addon}', 'PaidAddonsController@show')->name('paid.show');
+
     // ------------------
     // AJAX Chart Widgets
     // ------------------

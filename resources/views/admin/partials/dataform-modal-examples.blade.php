@@ -1,3 +1,14 @@
+{{--
+    Dataform Modal example: a custom invoice table whose Edit links (and the "create" link) open the real invoice form in a modal.
+    Used on Features > Components and on Paid Add-ons > Dataform Modal.
+--}}
+@php
+    // Workaround for backpack/dataform-modal: its component reads the CRUD route without running the
+    // controller setup, so on a page where nothing else set this CRUD up first, the form URL is empty.
+    // Setting the panel up here makes the example self-contained.
+    \Backpack\CRUD\CrudManager::setupCrudPanel(\App\Http\Controllers\Admin\PetShop\InvoiceCrudController::class, 'updateInModal');
+@endphp
+
 <div class="row">
     <div class="col-md-12">
         <div class="card mt-3">

@@ -4,7 +4,7 @@
       Dashboard      the Pet Shop dashboard
       Features       one page per Backpack feature (UI and CRUD operations)
       Free Add-ons   the free packages, each with its own live page
-      Paid Add-ons   the paid packages; some link to a live example, the rest are TODO
+      Paid Add-ons   the paid packages, each with a SILVER or GOLD badge for the bundle that includes it
       Examples       Pet Shop (a realistic app) and Crazy Stuff (every field & column)
 
     Greyed-out entries (<x-menu-todo-item>) are pages we still have to build.
@@ -16,12 +16,12 @@
 {{-- FEATURES --}}
 <x-backpack::menu-dropdown title="Features" icon="la la-star" data-pan="menu-item-features">
     <x-backpack::menu-dropdown-header title="UI" />
-    <x-backpack::menu-dropdown-item title="Widgets" icon="la la-th-large" :link="backpack_url('features/widgets')" data-pan="menu-item-widgets" />
-    <x-backpack::menu-dropdown-item title="Themes" icon="la la-palette" :link="backpack_url('features/themes')" data-pan="menu-item-themes" />
-    <x-backpack::menu-dropdown-item title="Skins" icon="la la-swatchbook" :link="backpack_url('features/skins')" data-pan="menu-item-skins" />
-    <x-backpack::menu-dropdown-item title="Alerts" icon="la la-bell" :link="backpack_url('features/alerts')" data-pan="menu-item-alerts" />
-    <x-backpack::menu-dropdown-item title="Components" icon="la la-cubes" :link="backpack_url('features/components')" data-pan="menu-item-components" />
-    <x-backpack::menu-dropdown-item title="Design" icon="la la-pencil-ruler" :link="backpack_url('features/design')" data-pan="menu-item-design" />
+    <x-menu-link-item title="Widgets" icon="la la-th-large" :link="backpack_url('features/widgets')" label="FREE" data-pan="menu-item-widgets" />
+    <x-menu-link-item title="Themes" icon="la la-palette" :link="backpack_url('features/themes')" label="FREE" data-pan="menu-item-themes" />
+    <x-menu-link-item title="Skins" icon="la la-swatchbook" :link="backpack_url('features/skins')" label="FREE" data-pan="menu-item-skins" />
+    <x-menu-link-item title="Alerts" icon="la la-bell" :link="backpack_url('features/alerts')" label="FREE" data-pan="menu-item-alerts" />
+    <x-menu-link-item title="Components" icon="la la-cubes" :link="backpack_url('features/components')" label="FREE" data-pan="menu-item-components" />
+    <x-menu-link-item title="Design" icon="la la-pencil-ruler" :link="backpack_url('features/design')" label="FREE" data-pan="menu-item-design" />
 
     {{-- Each links to a live CRUD page with ?explainer=<key>, which shows an explainer card at the top (see config/demo.php). --}}
     <x-backpack::menu-dropdown-header title="CRUD" />
@@ -40,44 +40,45 @@
 {{-- FREE ADD-ONS --}}
 <x-backpack::menu-dropdown title="Free Add-ons" icon="la la-puzzle-piece" data-pan="menu-item-addons">
     <x-backpack::menu-dropdown title="News" icon="la la-newspaper-o" nested="true" data-pan="menu-item-news">
-        <x-backpack::menu-dropdown-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" data-pan="menu-item-articles" />
-        <x-backpack::menu-dropdown-item title="Categories" icon="la la-list" :link="backpack_url('category')" data-pan="menu-item-categories" />
-        <x-backpack::menu-dropdown-item title="Tags" icon="la la-tag" :link="backpack_url('tag')" data-pan="menu-item-tags" />
+        <x-menu-link-item title="Articles" icon="la la-newspaper-o" :link="backpack_url('article')" label="FREE" data-pan="menu-item-articles" />
+        <x-menu-link-item title="Categories" icon="la la-list" :link="backpack_url('category')" label="FREE" data-pan="menu-item-categories" />
+        <x-menu-link-item title="Tags" icon="la la-tag" :link="backpack_url('tag')" label="FREE" data-pan="menu-item-tags" />
     </x-backpack::menu-dropdown>
 
     <x-backpack::menu-dropdown title="Authentication" icon="la la-user" nested="true" data-pan="menu-item-auth">
-        <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" data-pan="menu-item-users" />
-        <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" data-pan="menu-item-roles" />
-        <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" data-pan="menu-item-permissions" />
+        <x-menu-link-item title="Users" icon="la la-user" :link="backpack_url('user')" label="FREE" data-pan="menu-item-users" />
+        <x-menu-link-item title="Roles" icon="la la-group" :link="backpack_url('role')" label="FREE" data-pan="menu-item-roles" />
+        <x-menu-link-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" label="FREE" data-pan="menu-item-permissions" />
     </x-backpack::menu-dropdown>
 
-    <x-backpack::menu-dropdown-item title="File Manager" icon="la la-files-o" :link="backpack_url('elfinder')" data-pan="menu-item-filemanager" />
-    <x-backpack::menu-dropdown-item title="Activity Logs" icon="la la-stream" :link="backpack_url('activity-log')" data-pan="menu-item-activity-log" />
-    <x-backpack::menu-dropdown-item title="Translation Manager" icon="la la-language" :link="backpack_url('translation-manager')" data-pan="menu-item-translation-manager" />
-    <x-backpack::menu-dropdown-item title="Backups" icon="la la-hdd-o" :link="backpack_url('backup')" data-pan="menu-item-backup-manager" />
-    <x-backpack::menu-dropdown-item title="Logs" icon="la la-terminal" :link="backpack_url('log')" data-pan="menu-item-log-manager" />
-    <x-backpack::menu-dropdown-item title="Settings" icon="la la-cog" :link="backpack_url('setting')" data-pan="menu-item-settings" />
-    <x-backpack::menu-dropdown-item title="Pages" icon="la la-file-o" :link="backpack_url('page')" data-pan="menu-item-page-manager" />
-    <x-backpack::menu-dropdown-item title="Menu" icon="la la-list" :link="backpack_url('menu-item')" data-pan="menu-item-menu-manager" />
-    <x-backpack::menu-dropdown-item title="Analytics" icon="la la-chart-bar" :link="backpack_url(config('backpack.pan.panel_route_prefix'))" data-pan="menu-item-analytics" />
+    <x-menu-link-item title="File Manager" icon="la la-files-o" :link="backpack_url('elfinder')" label="FREE" data-pan="menu-item-filemanager" />
+    <x-menu-link-item title="Activity Logs" icon="la la-stream" :link="backpack_url('activity-log')" label="FREE" data-pan="menu-item-activity-log" />
+    <x-menu-link-item title="Translation Manager" icon="la la-language" :link="backpack_url('translation-manager')" label="FREE" data-pan="menu-item-translation-manager" />
+    <x-menu-link-item title="Backups" icon="la la-hdd-o" :link="backpack_url('backup')" label="FREE" data-pan="menu-item-backup-manager" />
+    <x-menu-link-item title="Logs" icon="la la-terminal" :link="backpack_url('log')" label="FREE" data-pan="menu-item-log-manager" />
+    <x-menu-link-item title="Settings" icon="la la-cog" :link="backpack_url('setting')" label="FREE" data-pan="menu-item-settings" />
+    <x-menu-link-item title="Pages" icon="la la-file-o" :link="backpack_url('page')" label="FREE" data-pan="menu-item-page-manager" />
+    <x-menu-link-item title="Menu" icon="la la-list" :link="backpack_url('menu-item')" label="FREE" data-pan="menu-item-menu-manager" />
+    <x-menu-link-item title="Analytics" icon="la la-chart-bar" :link="backpack_url(config('backpack.pan.panel_route_prefix'))" label="FREE" data-pan="menu-item-analytics" />
 </x-backpack::menu-dropdown>
 
 {{-- PAID ADD-ONS --}}
 <x-backpack::menu-dropdown title="Paid Add-ons" icon="la la-gem" data-pan="menu-item-paid-addons">
-    <x-backpack::menu-dropdown-item title="PRO" icon="la la-gem" :link="backpack_url('monster')" data-pan="menu-item-pro" />
+    {{-- Add-ons with a live example link straight to it (with an explainer card); the others get a page at /admin/paid/<key>. --}}
+    <x-menu-link-item title="PRO" icon="la la-gem" :link="backpack_url('monster?explainer=pro')" label="SILVER" data-pan="menu-item-pro" />
+    <x-menu-link-item title="Dataform Modal" icon="la la-window-restore" :link="backpack_url('paid/dataform-modal')" label="SILVER" data-pan="menu-item-dataform-modal" />
     @if(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class))
-        <x-backpack::menu-dropdown-item title="DevTools" icon="la la-toolbox" :link="backpack_url('devtools/model')" data-pan="menu-item-devtools" />
+        <x-menu-link-item title="DevTools" icon="la la-toolbox" :link="backpack_url('devtools/model?explainer=devtools')" label="GOLD" data-pan="menu-item-devtools" />
     @else
-        <x-menu-todo-item title="DevTools" icon="la la-toolbox" tooltip="Not installed in the online demo" />
+        <x-menu-link-item title="DevTools" icon="la la-toolbox" :link="backpack_url('paid/devtools')" label="GOLD" data-pan="menu-item-devtools" />
     @endif
-    <x-menu-todo-item title="Test Generators" icon="la la-vial" />
-    <x-menu-todo-item title="Multi Auth" icon="la la-user-shield" />
-    <x-backpack::menu-dropdown-item title="Editable Columns" icon="la la-spell-check" :link="backpack_url('editable-monster')" data-pan="menu-item-editable-columns" />
-    <x-backpack::menu-dropdown-item title="Calendar Operation" icon="la la-calendar" :link="backpack_url('meeting')" data-pan="menu-item-calendar-operation" />
-    <x-menu-todo-item title="Figma Template" icon="lab la-figma" />
-    <x-backpack::menu-dropdown-item title="Report Operation" icon="la la-chart-line" :link="backpack_url('pet-shop/invoice')" data-pan="menu-item-report-operation" />
-    <x-backpack::menu-dropdown-item title="Dataform Modal" icon="la la-window-restore" :link="backpack_url('features/components')" data-pan="menu-item-dataform-modal" />
-    <x-menu-todo-item title="Auto Translate" icon="la la-globe" />
+    <x-menu-link-item title="Test Generators" icon="la la-vial" :link="backpack_url('paid/test-generators')" label="GOLD" data-pan="menu-item-test-generators" />
+    <x-menu-link-item title="Multi Auth" icon="la la-user-shield" :link="backpack_url('paid/multi-auth')" label="GOLD" data-pan="menu-item-multi-auth" />
+    <x-menu-link-item title="Editable Columns" icon="la la-spell-check" :link="backpack_url('editable-monster?explainer=editable-columns')" label="GOLD" data-pan="menu-item-editable-columns" />
+    <x-menu-link-item title="Calendar Operation" icon="la la-calendar" :link="backpack_url('meeting/calendar?explainer=calendar-operation')" label="GOLD" data-pan="menu-item-calendar-operation" />
+    <x-menu-link-item title="Figma Template" icon="lab la-figma" :link="backpack_url('paid/figma-template')" label="GOLD" data-pan="menu-item-figma-template" />
+    <x-menu-link-item title="Report Operation" icon="la la-chart-line" :link="backpack_url('pet-shop/invoice/report?explainer=report-operation')" label="GOLD" data-pan="menu-item-report-operation" />
+    <x-menu-link-item title="Auto Translate" icon="la la-globe" :link="backpack_url('paid/auto-translate')" label="GOLD" data-pan="menu-item-auto-translate" />
 </x-backpack::menu-dropdown>
 
 {{-- EXAMPLES --}}

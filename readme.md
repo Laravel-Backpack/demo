@@ -35,7 +35,7 @@ You can find the demo online at [demo.backpackforlaravel.com](https://demo.backp
 
 ## Install
 
-> **IMPORTANT**. This demo requires ALL our premium packages. If you _do not_ have access to one of them, you will _not_ be able to install it. To install this demo yourself, make sure you've purchased all our premium add-ons individually, or our Everything bundle - https://backpackforlaravel.com/pricing
+> **IMPORTANT**. This demo requires ALL our premium packages. If you _do not_ have access to one of them, you will _not_ be able to install it. To install this demo yourself, make sure you've purchased all our premium add-ons individually, or our GOLD bundle - https://backpackforlaravel.com/pricing
 
 1) Run in your terminal:
 
@@ -73,7 +73,7 @@ The menu has five entries. Greyed-out items marked _soon_ are pages we still hav
 - **Dashboard** - a realistic Pet Shop dashboard (`resources/views/admin/dashboard.blade.php`, numbers from `App\View\Composers\DashboardComposer`).
 - **Features** - one page per Backpack feature: UI (Widgets, Themes, Skins, Alerts, Components, Design) and CRUD operations. The CRUD operations link to live CRUD pages with `?explainer=<key>`, which shows an explainer card at the top; the texts live in `config/demo.php`.
 - **Free Add-ons** - every free package, each with its live page.
-- **Paid Add-ons** - every paid package; some link to a live example, the rest are TODO.
+- **Paid Add-ons** - every paid package. Those with a live example in the demo link straight to it, with an explainer card on top; the others get a page at `/admin/paid/<key>` (content in `config/demo.php`, under `paid_addons`).
 - **Examples** - Pet Shop (a small realistic app) and Crazy Stuff (every field, column, filter and button in one place). This is where Backpack maintainers check that nothing broke.
 
 The **Customize** button (bottom-right, on the login page too) opens a drawer where visitors pick a skin, a layout and the text direction. Choices are kept in a cookie, so they survive logging out, and are applied by `App\Http\Middleware\Theme`; the options live in `config/demo.php`. Add `?open_drawer=true` to any URL to open the drawer on page load (the website links to the demo this way). Legacy CoreUI themes are behind a collapsed section, for maintainers only.

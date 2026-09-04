@@ -11,6 +11,16 @@
 --}}
 @props(['title', 'badge' => null, 'icon' => null])
 
+@php
+    // FREE is green, PRO purple, and the bundles get their metal.
+    $badgeClass = match ($badge) {
+        'PRO'    => 'bg-primary text-white',
+        'SILVER' => 'bg-secondary text-white',
+        'GOLD'   => 'bg-yellow text-dark',
+        default  => 'bg-green text-white',
+    };
+@endphp
+
 <div {{ $attributes->merge(['class' => 'card demo-callout']) }}>
     @include('admin.partials.dots_decoration')
     <div class="card-body position-relative p-4">
@@ -22,7 +32,7 @@
                 <div class="d-flex align-items-center flex-wrap mb-1">
                     <h2 class="h1 mb-0 me-2">{{ $title }}</h2>
                     @if($badge)
-                        <span class="badge {{ $badge === 'PRO' ? 'bg-primary text-white' : 'bg-green text-white' }}">{{ $badge }}</span>
+                        <span class="badge {{ $badgeClass }}">{{ $badge }}</span>
                     @endif
                 </div>
                 <div class="demo-callout-body fs-3 fw-normal text-secondary">{{ $slot }}</div>
