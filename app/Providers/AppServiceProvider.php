@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\View\Composers\DashboardComposer;
 use Backpack\CRUD\app\Library\CrudPanel\CrudField;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Pan\PanConfiguration;
 
@@ -21,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
             'user'    => 'App\User',
         ]);
 
+        // The Pet Shop numbers on the dashboard.
+        View::composer('admin.dashboard', DashboardComposer::class);
+
         PanConfiguration::allowedAnalytics([
             'my-button',
             'welcome-page',
@@ -30,8 +35,32 @@ class AppServiceProvider extends ServiceProvider
             'welcome-contact-link',
             'login-form',
             'menu-item-dashboard',
+            'menu-item-features',
+            'menu-item-widgets',
+            'menu-item-themes',
+            'menu-item-skins',
+            'menu-item-alerts',
+            'menu-item-components',
+            'menu-item-design',
+            'menu-item-op-list',
+            'menu-item-op-create',
+            'menu-item-op-update',
+            'menu-item-op-delete',
+            'menu-item-op-show',
+            'menu-item-op-clone',
+            'menu-item-op-reorder',
+            'menu-item-op-revise',
+            'menu-item-op-inline-create',
+            'menu-item-op-trash',
             'menu-item-addons',
+            'menu-item-paid-addons',
+            'menu-item-pro',
+            'menu-item-editable-columns',
+            'menu-item-report-operation',
+            'menu-item-dataform-modal',
+            'menu-item-examples',
             'menu-item-petshop',
+            'menu-item-crazy-stuff',
             'menu-item-news',
             'menu-item-auth',
             'menu-item-filemanager',

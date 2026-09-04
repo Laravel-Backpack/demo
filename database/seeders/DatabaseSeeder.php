@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             CountryTableSeeder::class,
             UniversesSeeder::class,
             PetShopSeeder::class,
+            ReportDemoSeeder::class,
         ]);
 
         // Faker factories
