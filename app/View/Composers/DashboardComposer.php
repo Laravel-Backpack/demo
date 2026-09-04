@@ -33,19 +33,19 @@ class DashboardComposer
         $invoicesPrevious30 = Invoice::whereBetween('issuance_date', [$previous30Start, $previous30End])->count();
 
         $view->with([
-            'revenue30'         => $revenue30,
-            'revenueChange'     => $this->percentChange($revenue30, $revenuePrevious30),
-            'invoices30'        => $invoices30,
-            'invoicesChange'    => $this->percentChange($invoices30, $invoicesPrevious30),
-            'dueThisWeek'       => Invoice::whereBetween('due_date', [$today, $today->copy()->addDays(7)])->count(),
-            'overdue'           => Invoice::whereDate('due_date', '<', $today)->whereDate('issuance_date', '>=', $today->copy()->subDays(60))->count(),
-            'petsCount'         => Pet::count(),
-            'speciesCount'      => Passport::distinct('species')->count('species'),
-            'ownersCount'       => Owner::count(),
+            'revenue30'            => $revenue30,
+            'revenueChange'        => $this->percentChange($revenue30, $revenuePrevious30),
+            'invoices30'           => $invoices30,
+            'invoicesChange'       => $this->percentChange($invoices30, $invoicesPrevious30),
+            'dueThisWeek'          => Invoice::whereBetween('due_date', [$today, $today->copy()->addDays(7)])->count(),
+            'overdue'              => Invoice::whereDate('due_date', '<', $today)->whereDate('issuance_date', '>=', $today->copy()->subDays(60))->count(),
+            'petsCount'            => Pet::count(),
+            'speciesCount'         => Passport::distinct('species')->count('species'),
+            'ownersCount'          => Owner::count(),
             'ownersWithInvoices30' => Invoice::whereBetween('issuance_date', [$last30Start, $today])->distinct('owner_id')->count('owner_id'),
-            'recentInvoices'    => Invoice::with(['owner', 'items'])->orderByDesc('issuance_date')->orderByDesc('id')->limit(8)->get(),
-            'topServices'       => $this->topServices($today->copy()->subDays(90), $today),
-            'newPets'           => Pet::with(['passport', 'avatar', 'owners'])->latest('id')->limit(5)->get(),
+            'recentInvoices'       => Invoice::with(['owner', 'items'])->orderByDesc('issuance_date')->orderByDesc('id')->limit(8)->get(),
+            'topServices'          => $this->topServices($today->copy()->subDays(90), $today),
+            'newPets'              => Pet::with(['passport', 'avatar', 'owners'])->latest('id')->limit(5)->get(),
         ]);
     }
 
