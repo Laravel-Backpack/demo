@@ -7,7 +7,7 @@ use App\Models\PetShop\Invoice;
 use App\Models\PetShop\InvoiceItem;
 use App\Models\PetShop\Owner;
 use App\Models\Product;
-use Backpack\NewsCRUD\app\Models\Category;
+use App\Models\Category;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Database\Seeder;

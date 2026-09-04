@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
             CountryTableSeeder::class,
             UniversesSeeder::class,
             PetShopSeeder::class,
-            ReportDemoSeeder::class,
         ]);
 
         // Faker factories
@@ -57,5 +56,9 @@ class DatabaseSeeder extends Seeder
         MenuItem::factory()->count(7)->create();
 
         Meeting::factory()->count(50)->create();
+
+        // Last, because it tops up what the factories above created (owners, categories)
+        // with 24 months of realistic, time-distributed entries for the dashboard and reports.
+        $this->call(ReportDemoSeeder::class);
     }
 }
