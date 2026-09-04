@@ -1,36 +1,12 @@
+{{--
+    Features > Components: chips, datagrid, datalist, datatable, dataform, dataform modal.
+    Each section has its own docs link. The examples live in resources/views/admin/partials.
+--}}
 @extends(backpack_view('blank'))
 
-@php
-    // Add the form widget to the 'after_content' section of the widgets array
-
-    // $widgets['after_content'][] = [
-    //   'type' => 'div',
-    //   'class' => 'row',
-    //   'content' => [ // widgets
-    //         [
-    //             'type' => 'dataform',
-    //             'wrapper' => [
-    //                 'class' => 'col-md-12 mt-3',
-    //             ],
-    //             'controller' => \App\Http\Controllers\Admin\PetShop\SkillCrudController::class,
-    //             'formOperation' => 'update',
-    //             'entry' => \App\Models\PetShop\Skill::find(1),
-    //             'content' => [
-    //                 'header' => 'Edit Skill (TODO: move this to the right place on page)', // optional
-    //                 'body' => 'This form should make it easy to update an existing skill.<br><br>', // optional
-    //             ],
-    //         ]
-    //     ]
-    // ];
-
-    $widgets['after_content'][] = [
-        'type' => 'view',
-        'view' => 'backpack.theme-tabler::inc.commercial',
-        'wrapper' => [
-            'class' => 'mt-3',
-        ],
-    ];
-@endphp
+@section('header')
+    @include('admin.partials.feature_header', ['title' => $title, 'description' => $description, 'docs' => 'https://backpackforlaravel.com/docs/7.x/base-components'])
+@endsection
 
 @section('content')
 

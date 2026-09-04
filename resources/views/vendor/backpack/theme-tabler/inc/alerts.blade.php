@@ -12,7 +12,8 @@ document.onreadystatechange = function () {
         });
 
         // get alerts from the alert bag
-        var $alerts_from_php = JSON.parse('@json(\Alert::getMessages())');
+        // The json directive already outputs a JS literal; wrapping it in JSON.parse('...') breaks on messages that contain quotes.
+        var $alerts_from_php = @json(\Alert::getMessages());
 
         // get the alerts from the localstorage
         var $alerts_from_localstorage = JSON.parse(localStorage.getItem('backpack_alerts'))

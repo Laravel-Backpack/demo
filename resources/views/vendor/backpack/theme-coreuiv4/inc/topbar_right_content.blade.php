@@ -10,7 +10,7 @@ function switchToTablerTheme() {
     // Create a form to submit the theme switch request
     const form = document.createElement('form');
     form.method = 'POST';
-    form.action = '{{ route('tabler.switch.layout') }}';
+    form.action = '{{ route('demo.switch-theme') }}';
     form.style.display = 'none';
 
     // Add CSRF token

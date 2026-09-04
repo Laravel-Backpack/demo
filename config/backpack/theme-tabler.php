@@ -38,14 +38,10 @@ return [
      *   - replace "base_path('vendor/backpack/theme-tabler/resources/assets/css/backpack-color-palette.css')," with the path to the file created above
      *   - boom!
      */
+    // Demo note: the skin the visitor picks in the "Customize" panel adds its own
+    // files on top of these, per request. See config/demo.php and App\Http\Middleware\Theme.
     'styles' => [
         base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/glass.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/vertical-lines-background.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/pinstripe-background.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/paper-background.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/dotted-background.css'),
-        base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/fuzzy-background.css'),
     ],
 
     /**
