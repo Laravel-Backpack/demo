@@ -375,15 +375,15 @@ return [
             'highlights'  => ['Date range and interval picker', 'Line, bar, pie and table metrics', 'Compare with the previous period', 'Defined in the controller, like everything else'],
         ],
         'dataform-modal' => [
-            'name'        => 'Dataform Modal',
-            'tagline'     => 'Create and update forms in modals, across your admin panel.',
-            'bundle'      => 'SILVER',
-            'icon'        => 'la la-window-restore',
-            'product'     => 'https://backpackforlaravel.com/products/dataform-modal',
-            'docs'        => 'https://backpackforlaravel.com/products/dataform-modal',
-            'example'     => null,
+            'name'         => 'Dataform Modal',
+            'tagline'      => 'Create and update forms in modals, across your admin panel.',
+            'bundle'       => 'SILVER',
+            'icon'         => 'la la-window-restore',
+            'product'      => 'https://backpackforlaravel.com/products/dataform-modal',
+            'docs'         => 'https://backpackforlaravel.com/products/dataform-modal',
+            'example'      => null,
             'example_view' => 'admin.partials.dataform-modal-examples',
-            'description' => [
+            'description'  => [
                 'Open a full Backpack form in a modal, from any page: a dashboard, a custom table, a show page. Same fields, same validation, same controller. It adds two operations, CreateInModal and UpdateInModal, and one Blade component.',
                 'Try it right here: the table below is a custom one, and every Edit link opens the real invoice form.',
             ],
