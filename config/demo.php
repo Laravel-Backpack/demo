@@ -73,11 +73,11 @@ return [
             'styles'      => [$skins.'atlas.css'],
         ],
         'aurora' => [
-            'name'        => 'Aurora',
-            'description' => 'What Backpack ships with: frosted-glass cards over a soft mesh gradient, Backpack purple.',
+            'name'          => 'Aurora',
+            'description'   => 'What Backpack ships with: frosted-glass cards over a soft mesh gradient, Backpack purple.',
             'theme_default' => true, // gets the "default" badge: this is what a fresh install looks like
-            'swatch'      => 'radial-gradient(at 20% 20%, #f9c5ff 0, transparent 55%), radial-gradient(at 85% 25%, #ffe6a7 0, transparent 55%), radial-gradient(at 40% 85%, #a7f0ff 0, transparent 55%), #fff',
-            'styles'      => [$skins.'aurora.css'],
+            'swatch'        => 'radial-gradient(at 20% 20%, #f9c5ff 0, transparent 55%), radial-gradient(at 85% 25%, #ffe6a7 0, transparent 55%), radial-gradient(at 40% 85%, #a7f0ff 0, transparent 55%), #fff',
+            'styles'        => [$skins.'aurora.css'],
         ],
         'manuscript' => [
             'name'        => 'Manuscript',

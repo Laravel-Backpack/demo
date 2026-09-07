@@ -56,7 +56,7 @@ class Theme
             $choices['layout'] = $request->query('layout');
         }
 
-        if (! $choices) {
+        if (!$choices) {
             return;
         }
 
