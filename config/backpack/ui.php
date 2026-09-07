@@ -40,7 +40,7 @@ return [
     // ----
 
     // Project name - shown in the window title
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'Backoffice',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -57,7 +57,10 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<img src="/assets/img/backpack_logo.svg" class="project-logo" style="width: 142px; height: auto;" alt="Backpack for Laravel">',
+    // Demo note: a wordmark for a made-up product, so it looks right in every skin. The mark is
+    // the Backpack "B" (public/assets/img/backpack_b.svg) on a tile that takes the skin's accent as
+    // a diagonal gradient. Styled in resources/views/admin/partials/theme_switcher.blade.php.
+    'project_logo'   => '<span class="demo-brand"><span class="demo-brand-mark" aria-hidden="true"></span><span class="demo-brand-name">Backoffice</span></span>',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,

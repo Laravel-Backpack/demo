@@ -50,7 +50,7 @@
                         <div class="col">
                             <div class="d-flex align-items-center">
                                 <strong>{{ $skin['name'] }}</strong>
-                                @if($key === config('demo.default_skin'))<span class="badge bg-secondary-lt ms-2">default</span>@endif
+                                @if(! empty($skin['theme_default']))<span class="badge bg-secondary-lt ms-2" title="What a fresh Backpack install looks like">default</span>@endif
                                 @if($key === $currentSkin)<span class="badge bg-green-lt ms-2">active</span>@endif
                             </div>
                             <div class="text-secondary">{{ $skin['description'] }}</div>

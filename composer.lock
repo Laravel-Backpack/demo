@@ -1666,16 +1666,16 @@
         },
         {
             "name": "backpack/theme-tabler",
-            "version": "2.0.8",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/theme-tabler.git",
-                "reference": "a6d45ae5305f0860f636be3d280c47aed7fe8747"
+                "reference": "15441b13cb3cf2be4279dcf275bdf1dcb5c96572"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/a6d45ae5305f0860f636be3d280c47aed7fe8747",
-                "reference": "a6d45ae5305f0860f636be3d280c47aed7fe8747",
+                "url": "https://api.github.com/repos/Laravel-Backpack/theme-tabler/zipball/15441b13cb3cf2be4279dcf275bdf1dcb5c96572",
+                "reference": "15441b13cb3cf2be4279dcf275bdf1dcb5c96572",
                 "shasum": ""
             },
             "require": {
@@ -1733,9 +1733,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/theme-tabler/issues",
-                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/2.0.8"
+                "source": "https://github.com/Laravel-Backpack/theme-tabler/tree/2.1.0"
             },
-            "time": "2026-07-20T13:35:01+00:00"
+            "time": "2026-09-07T07:47:38+00:00"
         },
         {
             "name": "backpack/tinymce-field",

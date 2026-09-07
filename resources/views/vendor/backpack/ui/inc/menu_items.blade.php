@@ -2,7 +2,7 @@
     Demo menu. Five top-level entries:
 
       Dashboard      the Pet Shop dashboard
-      Features       one page per Backpack feature (UI and CRUD operations)
+      Core Features  one page per Backpack feature (UI and CRUD operations)
       Free Add-ons   the free packages, each with its own live page
       Paid Add-ons   the paid packages, each with a SILVER or GOLD badge for the bundle that includes it
       Examples       Pet Shop (a realistic app) and Crazy Stuff (every field & column)
@@ -14,7 +14,7 @@
 <x-backpack::menu-item title="Dashboard" icon="la la-dashboard" :link="backpack_url('dashboard')" data-pan="menu-item-dashboard" />
 
 {{-- FEATURES --}}
-<x-backpack::menu-dropdown title="Features" icon="la la-star" data-pan="menu-item-features">
+<x-backpack::menu-dropdown title="Core Features" icon="la la-star" data-pan="menu-item-features">
     <x-backpack::menu-dropdown-header title="UI" />
     <x-menu-link-item title="Widgets" icon="la la-th-large" :link="backpack_url('features/widgets')" label="FREE" data-pan="menu-item-widgets" />
     <x-menu-link-item title="Themes" icon="la la-palette" :link="backpack_url('features/themes')" label="FREE" data-pan="menu-item-themes" />

@@ -22,6 +22,9 @@ class RevenueChartController extends ChartController
         $this->chart->load(backpack_url('charts/revenue'));
         $this->chart->minimalist(false);
         $this->chart->displayLegend(false);
+
+        // Marker for the demo's Customize drawer: recolor this chart on the fly when the skin changes.
+        $this->chart->options(['followsSkinAccent' => true]);
     }
 
     /**
@@ -46,9 +49,12 @@ class RevenueChartController extends ChartController
         $perMonth = $perDay->groupBy(fn ($row) => Carbon::parse($row->issuance_date)->format('Y-m'))
             ->map(fn (Collection $rows) => round($rows->sum('revenue'), 2));
 
+        // Bars follow the accent of the skin the visitor picked (config/demo.php), purple by default.
+        $accent = config('demo.skins.'.demo_skin().'.accent', '124, 105, 239');
+
         $this->chart->dataset('Revenue', 'bar', $this->months()->map(fn (Carbon $month) => $perMonth[$month->format('Y-m')] ?? 0)->all())
-            ->color('rgba(124, 105, 239, 1)')
-            ->backgroundColor('rgba(124, 105, 239, 0.35)');
+            ->color('rgba('.$accent.', 1)')
+            ->backgroundColor('rgba('.$accent.', 0.35)');
     }
 
     /**

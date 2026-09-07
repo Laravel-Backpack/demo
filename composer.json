@@ -33,7 +33,7 @@
         "backpack/settings": "^3.2",
         "backpack/theme-coreuiv2": "^2.0",
         "backpack/theme-coreuiv4": "^1.2",
-        "backpack/theme-tabler": "^2.0",
+        "backpack/theme-tabler": "^2.1",
         "backpack/translation-manager": "^1.1",
         "consoletvs/charts": "6.*",
         "intervention/image": "^2.3",

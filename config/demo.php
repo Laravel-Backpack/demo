@@ -14,6 +14,7 @@
 |
 */
 
+// Every skin ships with the theme (backpack/theme-tabler 2.1+), one CSS file each.
 $skins = base_path('vendor/backpack/theme-tabler/resources/assets/css/skins/');
 
 return [
@@ -64,48 +65,73 @@ return [
      * Tabler theme. Visitors pick exactly one.
      */
     'skins' => [
-        'clean' => [
-            'name'        => 'Clean',
-            'description' => 'Plain Tabler on a light grey canvas. Purple accent, no effects.',
-            'swatch'      => '#f6f7fb',
-            'styles'      => [],
+        'atlas' => [
+            'name'        => 'Atlas',
+            'description' => 'Cool greys, hairline borders, dense tables, a confident blue. Dependable, like a good fintech dashboard.',
+            'accent'      => '37, 99, 235',
+            'swatch'      => 'linear-gradient(#fff, #fff) 18% 50% / 64% 46% no-repeat, linear-gradient(#e3e8ee, #e3e8ee) 18% 50% / 64% 48% no-repeat, #f6f8fa',
+            'styles'      => [$skins.'atlas.css'],
         ],
         'aurora' => [
             'name'        => 'Aurora',
-            'description' => 'Frosted-glass cards floating over a pink, yellow and blue mesh gradient.',
+            'description' => 'What Backpack ships with: frosted-glass cards over a soft mesh gradient, Backpack purple.',
+            'theme_default' => true, // gets the "default" badge: this is what a fresh install looks like
             'swatch'      => 'radial-gradient(at 20% 20%, #f9c5ff 0, transparent 55%), radial-gradient(at 85% 25%, #ffe6a7 0, transparent 55%), radial-gradient(at 40% 85%, #a7f0ff 0, transparent 55%), #fff',
-            'styles'      => [
-                $skins.'glass.css',
-                $skins.'fuzzy-background.css',
-            ],
+            'styles'      => [$skins.'aurora.css'],
         ],
-        'paper' => [
-            'name'        => 'Paper',
-            'description' => 'Warm, off-white paper texture. Calm and easy on the eyes.',
-            'swatch'      => '#f3efe6',
-            'styles'      => [$skins.'paper-background.css'],
+        'manuscript' => [
+            'name'        => 'Manuscript',
+            'description' => 'Warm cream, serif headings, a terracotta accent and room to breathe.',
+            'accent'      => '196, 93, 60',
+            'swatch'      => 'radial-gradient(circle at 74% 50%, #c45d3c 0 14%, transparent 15%), linear-gradient(#fdfcf9, #fdfcf9) 16% 50% / 42% 46% no-repeat, #f4f1ea',
+            'styles'      => [$skins.'manuscript.css'],
         ],
-        'dotted' => [
-            'name'        => 'Dotted',
-            'description' => 'A faint dot grid behind everything, like an engineering notebook.',
-            'swatch'      => 'radial-gradient(#b9b9cc 1px, transparent 1px) 0 0/8px 8px, #fafafc',
-            'styles'      => [$skins.'dotted-background.css'],
+        'ink' => [
+            'name'        => 'Ink',
+            'description' => 'Dark first: near-black canvas, electric sky-blue accent, compact rows. Built for long nights in the admin.',
+            'accent'      => '56, 189, 248',
+            'swatch'      => 'linear-gradient(#16171e, #16171e) 18% 50% / 64% 46% no-repeat, linear-gradient(rgba(56,189,248,.7), rgba(56,189,248,.7)) 18% 50% / 64% 48% no-repeat, #0b0c10',
+            'color_mode'  => 'dark',
+            'styles'      => [$skins.'ink.css'],
         ],
-        'pinstripe' => [
-            'name'        => 'Pinstripe',
-            'description' => 'Thin diagonal pinstripes, banker style.',
-            'swatch'      => 'repeating-linear-gradient(135deg, #e9e9f2 0 3px, #fafafc 3px 8px)',
-            'styles'      => [$skins.'pinstripe-background.css'],
+        'mono' => [
+            'name'        => 'Mono',
+            'description' => 'Black on white, sharp corners, monospace labels. Nothing but the content.',
+            'accent'      => '115, 115, 115',
+            'swatch'      => 'linear-gradient(#000, #000) 18% 32% / 64% 18% no-repeat, linear-gradient(#eaeaea, #eaeaea) 18% 62% / 64% 2px no-repeat, linear-gradient(#eaeaea, #eaeaea) 18% 76% / 40% 2px no-repeat, #fff',
+            'styles'      => [$skins.'mono.css'],
         ],
-        'lines' => [
-            'name'        => 'Lines',
-            'description' => 'Faint vertical ruling, like a ledger page.',
-            'swatch'      => 'repeating-linear-gradient(90deg, #e3e3ee 0 1px, #fafafc 1px 10px)',
-            'styles'      => [$skins.'vertical-lines-background.css'],
+        'blueprint' => [
+            'name'        => 'Blueprint',
+            'description' => 'A graph-paper grid behind everything, with a blueprint blue accent. For people who plan.',
+            'swatch'      => 'radial-gradient(circle at 74% 50%, #2b4c7e 0 14%, transparent 15%), linear-gradient(#d9dde6 1px, transparent 1px) 0 0 / 12px 12px, linear-gradient(90deg, #d9dde6 1px, transparent 1px) 0 0 / 12px 12px, #f1f3f7',
+            'accent'      => '43, 76, 126',
+            'styles'      => [$skins.'blueprint.css'],
+        ],
+        'honey' => [
+            'name'        => 'Honey',
+            'description' => 'A warm honey-amber accent over a faint dot grid, like an engineering notebook.',
+            'swatch'      => 'radial-gradient(circle at 74% 50%, #d97706 0 14%, transparent 15%), radial-gradient(#b9b9cc 1px, transparent 1px) 0 0/8px 8px, #fafafc',
+            'accent'      => '217, 119, 6',
+            'styles'      => [$skins.'honey.css'],
+        ],
+        'pine' => [
+            'name'        => 'Pine',
+            'description' => 'A deep emerald accent over thin diagonal pinstripes. Quietly expensive.',
+            'swatch'      => 'radial-gradient(circle at 74% 50%, #047857 0 14%, transparent 15%), repeating-linear-gradient(135deg, #e9e9f2 0 3px, #fafafc 3px 8px)',
+            'accent'      => '4, 120, 87',
+            'styles'      => [$skins.'pine.css'],
+        ],
+        'synth' => [
+            'name'        => 'Synth',
+            'description' => 'A teal accent over faint vertical lines. A little retro, a little future.',
+            'swatch'      => 'radial-gradient(circle at 74% 50%, #0f766e 0 14%, transparent 15%), repeating-linear-gradient(90deg, #e3e3ee 0 1px, #fafafc 1px 10px)',
+            'accent'      => '15, 118, 110',
+            'styles'      => [$skins.'synth.css'],
         ],
     ],
 
-    'default_skin' => 'clean',
+    'default_skin' => 'atlas',
 
     /*
      * Explainers. Add ?explainer=<key> to any URL and App\Http\Middleware\DemoExplainer

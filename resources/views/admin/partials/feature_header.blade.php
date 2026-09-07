@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row g-2 align-items-center">
         <div class="col">
-            <div class="page-pretitle">{{ $pretitle ?? 'Features' }}</div>
+            <div class="page-pretitle">{{ $pretitle ?? 'Core Features' }}</div>
             <h2 class="page-title">{{ $title }}</h2>
             @if(! empty($description))
                 <p class="mt-2 mb-0 text-secondary">{{ $description }}</p>

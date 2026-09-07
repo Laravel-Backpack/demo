@@ -39,7 +39,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <form id="demo-customizer-form" method="POST" action="{{ route('demo.switch-theme') }}" data-skin-urls='@json($skinUrls)'>
+        <form id="demo-customizer-form" method="POST" action="{{ route('demo.switch-theme') }}" data-skin-urls='@json($skinUrls)' data-skin-modes='@json(collect($skins)->map(fn ($skin) => $skin['color_mode'] ?? null)->filter())' data-skin-accents='@json(collect($skins)->map(fn ($skin) => $skin['accent'] ?? '124, 105, 239'))'>
             @csrf
             <input type="hidden" name="theme" value="{{ $currentTheme }}">
 
@@ -60,7 +60,7 @@
                                 <span class="form-selectgroup-label-content">
                                     <span class="form-selectgroup-title strong mb-1">
                                         {{ $skin['name'] }}
-                                        @if($key === config('demo.default_skin'))<span class="badge bg-secondary-lt ms-1">default</span>@endif
+                                        @if(! empty($skin['theme_default']))<span class="badge bg-secondary-lt ms-1" title="What a fresh Backpack install looks like">default</span>@endif
                                     </span>
                                     <span class="d-block text-secondary small">{{ $skin['description'] }}</span>
                                 </span>
@@ -179,6 +179,55 @@
         opacity: .5;
         cursor: not-allowed;
     }
+    /* The "Demo Inc." wordmark (config/backpack/ui.php): the mark takes the skin's accent */
+    .demo-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: 1.125rem;
+        line-height: 1;
+        color: var(--tblr-emphasis-color);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    .demo-brand-mark {
+        position: relative;
+        display: inline-block;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: var(--tblr-border-radius);
+        /* A diagonal gradient built from the skin's accent, the way the Backpack logo uses its purple. */
+        background: linear-gradient(135deg,
+            color-mix(in srgb, var(--tblr-primary) 78%, #fff) 0%,
+            var(--tblr-primary) 55%,
+            color-mix(in srgb, var(--tblr-primary) 72%, #000) 100%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.18);
+    }
+    /* The Backpack "B", as a mask so it can take any colour (white on most tiles, black on Mono's white tile). */
+    .demo-brand-mark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--tblr-primary-fg, #fff);
+        -webkit-mask: url("{{ asset('assets/img/backpack_b.svg') }}") center / auto 58% no-repeat;
+        mask: url("{{ asset('assets/img/backpack_b.svg') }}") center / auto 58% no-repeat;
+    }
+    .demo-brand-name {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    .auth-logo-container .demo-brand {
+        font-size: 1.5rem;
+    }
+    .auth-logo-container .demo-brand-mark {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: var(--tblr-border-radius-lg);
+    }
+    [data-bs-theme=dark] .navbar-dark .demo-brand,
+    .navbar-dark .demo-brand {
+        color: #fff;
+    }
 </style>
 
 <script>
@@ -187,7 +236,43 @@
         if (! form) return;
 
         var skinUrls = JSON.parse(form.dataset.skinUrls || '{}');
+        var skinModes = JSON.parse(form.dataset.skinModes || '{}');
+        var skinAccents = JSON.parse(form.dataset.skinAccents || '{}');
         var token = form.querySelector('input[name="_token"]').value;
+
+        // Charts get their colours from the server when they load. Repaint the ones that
+        // follow the skin accent (options.followsSkinAccent) so an instant switch keeps up.
+        function recolorCharts(chosen) {
+            if (! window.Chart || ! Chart.instances) return;
+            var rgb = skinAccents[chosen] || '124, 105, 239';
+            Object.keys(Chart.instances).forEach(function (key) {
+                var chart = Chart.instances[key];
+                var options = chart && chart.config && chart.config.options;
+                if (! options || ! options.followsSkinAccent) return;
+                chart.data.datasets.forEach(function (dataset) {
+                    dataset.borderColor = 'rgba(' + rgb + ', 1)';
+                    dataset.backgroundColor = 'rgba(' + rgb + ', 0.35)';
+                });
+                chart.update();
+            });
+        }
+
+        // Some skins are dark first: picking one switches to dark mode, and leaving it
+        // restores whatever color mode the visitor had before.
+        function applyColorMode(chosen) {
+            if (! window.colorMode) return;
+            var wanted = skinModes[chosen];
+            var remembered = localStorage.getItem('demo_color_mode_before_skin');
+
+            if (wanted) {
+                if (remembered === null) localStorage.setItem('demo_color_mode_before_skin', colorMode.get() || 'system');
+                if (colorMode.result !== wanted) colorMode.set(wanted);
+            } else if (remembered !== null) {
+                localStorage.removeItem('demo_color_mode_before_skin');
+                colorMode.set(remembered);
+            }
+        }
+        applyColorMode('{{ $currentSkin }}');
 
         // Save the current choices, without leaving the page.
         function persist() {
@@ -199,13 +284,22 @@
             });
         }
 
+        // Find a stylesheet <link> by URL. Compare resolved URLs: the ones written into the
+        // head are relative (/storage/basset/...), the ones in our map are absolute.
+        function findLink(url) {
+            var absolute = new URL(url, window.location.href).href;
+            return Array.prototype.find.call(document.querySelectorAll('link[rel="stylesheet"]'), function (link) {
+                return link.href === absolute;
+            }) || null;
+        }
+
         // Enable the chosen skin's stylesheets and disable every other skin's.
         function applySkin(chosen) {
-            var wanted = skinUrls[chosen] || [];
+            var wanted = (skinUrls[chosen] || []).map(function (url) { return new URL(url, window.location.href).href; });
             Object.keys(skinUrls).forEach(function (key) {
                 skinUrls[key].forEach(function (url) {
-                    var link = document.querySelector('link[href="' + url + '"]');
-                    var enabled = wanted.indexOf(url) !== -1;
+                    var link = findLink(url);
+                    var enabled = wanted.indexOf(new URL(url, window.location.href).href) !== -1;
                     if (! link && enabled) {
                         link = document.createElement('link');
                         link.rel = 'stylesheet';
@@ -220,6 +314,8 @@
         form.querySelectorAll('input[name="skin"]').forEach(function (input) {
             input.addEventListener('change', function () {
                 applySkin(input.value);
+                applyColorMode(input.value);
+                recolorCharts(input.value);
                 persist();
             });
         });

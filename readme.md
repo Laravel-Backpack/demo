@@ -71,7 +71,7 @@ Note: Depending on your configuration you may need to define a site within NGINX
 The menu has five entries. Greyed-out items marked _soon_ are pages we still have to build.
 
 - **Dashboard** - a realistic Pet Shop dashboard (`resources/views/admin/dashboard.blade.php`, numbers from `App\View\Composers\DashboardComposer`).
-- **Features** - one page per Backpack feature: UI (Widgets, Themes, Skins, Alerts, Components, Design) and CRUD operations. The CRUD operations link to live CRUD pages with `?explainer=<key>`, which shows an explainer card at the top; the texts live in `config/demo.php`.
+- **Core Features** - one page per Backpack feature: UI (Widgets, Themes, Skins, Alerts, Components, Design) and CRUD operations. The CRUD operations link to live CRUD pages with `?explainer=<key>`, which shows an explainer card at the top; the texts live in `config/demo.php`.
 - **Free Add-ons** - every free package, each with its live page.
 - **Paid Add-ons** - every paid package. Those with a live example in the demo link straight to it, with an explainer card on top; the others get a page at `/admin/paid/<key>` (content in `config/demo.php`, under `paid_addons`).
 - **Examples** - Pet Shop (a small realistic app) and Crazy Stuff (every field, column, filter and button in one place). This is where Backpack maintainers check that nothing broke.

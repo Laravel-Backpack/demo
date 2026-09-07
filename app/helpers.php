@@ -88,9 +88,9 @@ if (!function_exists('demo_layout')) {
 if (!function_exists('demo_skin')) {
     function demo_skin(): string
     {
-        $skin = demo_choices()['skin'] ?? config('demo.default_skin', 'clean');
+        $skin = demo_choices()['skin'] ?? config('demo.default_skin', 'atlas');
 
-        return array_key_exists($skin, config('demo.skins', [])) ? $skin : config('demo.default_skin', 'clean');
+        return array_key_exists($skin, config('demo.skins', [])) ? $skin : config('demo.default_skin', 'atlas');
     }
 }
 
