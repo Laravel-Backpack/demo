@@ -30,10 +30,13 @@ class Theme
         // Layouts and skins are Tabler features.
         if ($theme['view_namespace'] === 'backpack.theme-tabler::') {
             Config::set('backpack.theme-tabler.layout', demo_layout());
-            Config::set('backpack.theme-tabler.styles', array_merge(
+            // Add to the styles instead of replacing them: packages append their
+            // own CSS there at boot (e.g. backpack/omnisearch's palette).
+            Config::set('backpack.theme-tabler.styles', array_values(array_unique(array_merge(
+                config('backpack.theme-tabler.styles', []),
                 config('demo.base_styles'),
                 config('demo.skins.'.demo_skin().'.styles', [])
-            ));
+            ))));
         }
 
         Config::set('backpack.ui.html_direction', demo_direction());
