@@ -1,0 +1,3 @@
+# The image only copies docker/entrypoint.d; the project is mounted at runtime.
+*
+!docker/entrypoint.d/

@@ -46,7 +46,8 @@
         "backpack/pan-panel": "^1.1",
         "backpack/dataform-modal": "^1.0",
         "backpack/report-operation": "^1.0",
-        "fakerphp/faker": "~1.4"
+        "fakerphp/faker": "~1.4",
+        "backpack/omnisearch": "^1.2"
     },
     "require-dev": {
         "mockery/mockery": "1.6.*",

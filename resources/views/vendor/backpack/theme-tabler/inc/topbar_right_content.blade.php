@@ -1,3 +1,7 @@
+{{-- Omnisearch palette (Cmd/Ctrl+K). Shows only to admins who may search at
+     least one entity or use one shortcut, see config/backpack/omnisearch.php. --}}
+@include('backpack.omnisearch::button')
+
 {{-- Opens the demo "Customize" drawer (skins, layouts, direction, legacy themes), next to the light/dark switch. --}}
 <li class="nav-item me-2">
     <button type="button" class="btn-link nav-link px-0 shadow-none" data-bs-toggle="offcanvas" data-bs-target="#demo-customizer" aria-controls="demo-customizer" title="Customize: skin, layout, theme">

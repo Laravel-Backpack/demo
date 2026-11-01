@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use App\View\Composers\DashboardComposer;
 use Backpack\CRUD\app\Library\CrudPanel\CrudField;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Pan\PanConfiguration;
@@ -25,6 +28,13 @@ class AppServiceProvider extends ServiceProvider
 
         // The Pet Shop numbers on the dashboard.
         View::composer('admin.dashboard', DashboardComposer::class);
+
+        // Omnisearch rate limit (see config/backpack/omnisearch.php). The package
+        // default, throttle:120,1, counts per user, and every demo visitor logs in
+        // as the same admin, so it would be one bucket shared by everyone online.
+        // Count per browser session instead.
+        RateLimiter::for('omnisearch', fn (Request $request) => Limit::perMinute(120)
+            ->by($request->hasSession() ? $request->session()->getId() : $request->ip()));
 
         PanConfiguration::allowedAnalytics([
             'my-button',
