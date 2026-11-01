@@ -69,7 +69,7 @@ return [
     // one LIKE per search column to each query, so these keep a pasted
     // paragraph from building a monster query.
     'max_length' => 100,
-    'max_words' => 8,
+    'max_words'  => 8,
 
     // Milliseconds the admin has to pause typing before the palette asks the
     // server. Each request runs to completion on the server even when the
@@ -159,73 +159,73 @@ return [
         //     'can' => 'manage settings',
         // ],
         [
-            'label' => 'Reorder categories',
-            'url' => 'category/reorder',
+            'label'       => 'Reorder categories',
+            'url'         => 'category/reorder',
             'description' => 'Drag blog categories into a new order',
-            'keywords' => 'sort',
-            'icon' => 'la la-sort',
+            'keywords'    => 'sort',
+            'icon'        => 'la la-sort',
         ],
         [
-            'label' => 'New article',
-            'url' => 'article/create',
+            'label'       => 'New article',
+            'url'         => 'article/create',
             'description' => 'Write a new blog article',
-            'keywords' => 'add create post',
-            'icon' => 'la la-plus',
+            'keywords'    => 'add create post',
+            'icon'        => 'la la-plus',
         ],
         [
-            'label' => 'New invoice',
-            'url' => 'pet-shop/invoice/create',
+            'label'       => 'New invoice',
+            'url'         => 'pet-shop/invoice/create',
             'description' => 'Bill a pet shop owner',
-            'keywords' => 'add create bill',
-            'icon' => 'la la-plus',
+            'keywords'    => 'add create bill',
+            'icon'        => 'la la-plus',
         ],
     ],
 
     // The demo grants every admin access to every CRUD, so no entity has a `can`.
     'entities' => [
         \App\User::class => [
-            'label' => 'Users',
-            'search' => ['name', 'email'],
-            'exact' => ['id'],
-            'url' => 'user/{id}/show',
+            'label'   => 'Users',
+            'search'  => ['name', 'email'],
+            'exact'   => ['id'],
+            'url'     => 'user/{id}/show',
             'details' => [
                 'la la-envelope' => '{email}',
-                'la la-hashtag' => '{id}',
+                'la la-hashtag'  => '{id}',
             ],
         ],
         \App\Models\Article::class => [
-            'search' => ['title', 'slug'],
-            'exact' => ['id'],
+            'search'  => ['title', 'slug'],
+            'exact'   => ['id'],
             'details' => [
                 'la la-folder' => '{category.name}',
             ],
             'with' => ['category'],
         ],
         \App\Models\Product::class => [
-            'search' => ['name'],
-            'exact' => ['id'],
+            'search'  => ['name'],
+            'exact'   => ['id'],
             'details' => [
-                'la la-tag' => '{category.name}',
+                'la la-tag'         => '{category.name}',
                 'la la-dollar-sign' => '{price}',
             ],
             'with' => ['category'],
         ],
         \App\Models\PetShop\Owner::class => [
-            'label' => 'Pet owners',
+            'label'  => 'Pet owners',
             'search' => ['name'],
-            'exact' => ['id'],
-            'url' => 'pet-shop/owner/{id}/show',
+            'exact'  => ['id'],
+            'url'    => 'pet-shop/owner/{id}/show',
         ],
         \App\Models\PetShop\Pet::class => [
             'search' => ['nickname'],
-            'exact' => ['id'],
-            'url' => 'pet-shop/pet/{id}/show',
+            'exact'  => ['id'],
+            'url'    => 'pet-shop/pet/{id}/show',
         ],
         \App\Models\PetShop\Invoice::class => [
-            'search' => ['series'],
-            'exact' => ['id', 'number'],
-            'url' => 'pet-shop/invoice/{id}/show',
-            'title' => '{series} {number}',
+            'search'  => ['series'],
+            'exact'   => ['id', 'number'],
+            'url'     => 'pet-shop/invoice/{id}/show',
+            'title'   => '{series} {number}',
             'details' => [
                 'la la-user' => '{owner.name}',
             ],
@@ -233,7 +233,7 @@ return [
         ],
         \App\Models\Monster::class => [
             'search' => ['text', 'email'],
-            'exact' => ['id'],
+            'exact'  => ['id'],
         ],
     ],
 ];
