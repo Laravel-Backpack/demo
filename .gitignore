@@ -16,3 +16,4 @@ Homestead.json
 /packages
 /_volumes
 /public/basset
+/auth.json

@@ -1,0 +1,1123 @@
+{
+    "https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js",
+        "asset_attributes": {
+            "integrity": "sha384-i61gTtaoovXtAbKjo903+O55Jkn2+RtzHtvNez+yI49HAASvznhe9sZyjaSHTau9",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/jquery-ui.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/jquery-ui.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/jquery-ui.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/jquery-ui.min.js",
+        "asset_attributes": {
+            "integrity": "sha384-tBcEcHGtNy7/Mx08+YxuvQ6v6s0N2jgehtFiT+bLtGwTj/txXtB/L5GqXfggm5sS",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_222222_256x240.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_222222_256x240.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_222222_256x240.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_222222_256x240.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_454545_256x240.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_454545_256x240.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_454545_256x240.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_454545_256x240.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_2e83ff_256x240.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_2e83ff_256x240.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_2e83ff_256x240.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_2e83ff_256x240.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_cd0a0a_256x240.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_cd0a0a_256x240.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_cd0a0a_256x240.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_cd0a0a_256x240.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_888888_256x240.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_888888_256x240.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_888888_256x240.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/images/ui-icons_888888_256x240.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/jquery-ui.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/jquery-ui.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/jquery-ui.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.14.2/dist/themes/smoothness/jquery-ui.min.css",
+        "asset_attributes": {
+            "integrity": "sha384-e4Bm/JKXqLbEnnDNLZIbB0u9VBy3H9D+TNdLb22ybxTLsmtWgRhQ3/BKEgJ13zU2",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.eot": {
+        "asset_name": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.eot",
+        "asset_path": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.eot",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.eot",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.svg": {
+        "asset_name": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.svg",
+        "asset_path": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.svg",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.svg",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff",
+        "asset_path": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.ttf": {
+        "asset_name": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.ttf",
+        "asset_path": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.ttf",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.ttf",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff2": {
+        "asset_name": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff2",
+        "asset_path": "https://cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff2",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/gh/RobiNN1/elFinder-Material-Theme@3.0.0/Material/font/material.woff2",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/colorbox.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_attributes": {
+            "integrity": "sha384-HmslgkPwGM5TYgFgpe7Hz++h4HkDNZij42ObIXoXK771r/rs+kicv69E2lj0WIRq",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/loading.gif": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_attributes": {
+            "integrity": "sha256-ZG7zstGXrrtjO6k6MkhemyiZVml/jgZY1LZCwarlmX0=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/controls.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_attributes": {
+            "integrity": "sha256-zTLuvjLgmphUaxZ/5gsLHyPz70A2wKH914uvqdG2xl0=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/jquery.colorbox.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/jquery.colorbox.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/jquery.colorbox.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/jquery.colorbox.js",
+        "asset_attributes": {
+            "integrity": "sha256-WYuzmp4s4GsP0fs+5V6iHJVa+ZbXywhZgnHyaJ95vSU=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://raw.githubusercontent.com/jquery/jquery-ui/refs/tags/1.13.2/dist/jquery-ui.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/jquery/jquery-ui/refs/tags/1.13.2/dist/jquery-ui.min.js",
+        "asset_path": "https://raw.githubusercontent.com/jquery/jquery-ui/refs/tags/1.13.2/dist/jquery-ui.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/jquery/jquery-ui/refs/tags/1.13.2/dist/jquery-ui.min.js",
+        "asset_attributes": {
+            "integrity": "sha384-4D3G3GikQs6hLlLZGdz5wLFzuqE9v4yVGAcOH86y23JqBDPzj9viv0EqyfIa6YUL",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://unpkg.com/jquery-colorbox@1.6.4/example2/colorbox.css": {
+        "asset_name": "https://unpkg.com/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_path": "https://unpkg.com/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_disk_path": "basset/unpkg.com/jquery-colorbox@1.6.4/example2/colorbox.css",
+        "asset_attributes": []
+    },
+    "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/loading.gif": {
+        "asset_name": "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_path": "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_disk_path": "basset/unpkg.com/jquery-colorbox@1.6.4/example2/images/loading.gif",
+        "asset_attributes": []
+    },
+    "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/controls.png": {
+        "asset_name": "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_path": "https://unpkg.com/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_disk_path": "basset/unpkg.com/jquery-colorbox@1.6.4/example2/images/controls.png",
+        "asset_attributes": []
+    },
+    "https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js": {
+        "asset_name": "https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js",
+        "asset_path": "https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js",
+        "asset_disk_path": "basset/cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js",
+        "asset_attributes": []
+    },
+    "https://unpkg.com/jquery-colorbox@1.6.4/jquery.colorbox-min.js": {
+        "asset_name": "https://unpkg.com/jquery-colorbox@1.6.4/jquery.colorbox-min.js",
+        "asset_path": "https://unpkg.com/jquery-colorbox@1.6.4/jquery.colorbox-min.js",
+        "asset_disk_path": "basset/unpkg.com/jquery-colorbox@1.6.4/jquery.colorbox-min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/2.1.8/js/dataTables.min.js": {
+        "asset_name": "https://cdn.datatables.net/2.1.8/js/dataTables.min.js",
+        "asset_path": "https://cdn.datatables.net/2.1.8/js/dataTables.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/2.1.8/js/dataTables.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js": {
+        "asset_name": "https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js",
+        "asset_path": "https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js": {
+        "asset_name": "https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js",
+        "asset_path": "https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js": {
+        "asset_name": "https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js",
+        "asset_path": "https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css": {
+        "asset_name": "https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css",
+        "asset_path": "https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css",
+        "asset_disk_path": "basset/cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css": {
+        "asset_name": "https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css",
+        "asset_path": "https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css",
+        "asset_disk_path": "basset/cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css": {
+        "asset_name": "https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css",
+        "asset_path": "https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css",
+        "asset_disk_path": "basset/cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/font/summernote.woff2": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/font/summernote.woff2",
+        "asset_path": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/font/summernote.woff2",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/summernote@0.9.1/dist/font/summernote.woff2",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/summernote@0.9.1/dist/summernote-lite.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/js/buttons.bootstrap5.min.js": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.bootstrap5.min.js",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.bootstrap5.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/js/buttons.bootstrap5.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/js/buttons.print.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/js/buttons.colVis.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css": {
+        "asset_name": "https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css",
+        "asset_path": "https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css",
+        "asset_disk_path": "basset/cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/urijs@1.19.11/src/URI.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/urijs@1.19.11/src/URI.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/urijs@1.19.11/src/URI.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/urijs@1.19.11/src/URI.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui@1.13.2/dist/jquery-ui.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui@1.13.2/dist/jquery-ui.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui@1.13.2/dist/jquery-ui.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui@1.13.2/dist/jquery-ui.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/dracula.min.css": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/dracula.min.css",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/dracula.min.css",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/dracula.min.css",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.compat.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.compat.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.compat.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.compat.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.css",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff2",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff2",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff2",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.woff",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.woff",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.woff",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.ttf": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.ttf",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.ttf",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-regular-400.ttf",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.ttf": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.ttf",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.ttf",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-solid-900.ttf",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.ttf": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.ttf",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.ttf",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/fonts/la-brands-400.ttf",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/css/ionicons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/css/ionicons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/css/ionicons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/css/ionicons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/fonts/ionicons.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/fonts/ionicons.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/fonts/ionicons.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/ionicons-1.5.2/fonts/ionicons.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/css/weather-icons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/fonts/weathericons-regular-webfont.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/fonts/weathericons-regular-webfont.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/fonts/weathericons-regular-webfont.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/weather-icons-1.2.0/fonts/weathericons-regular-webfont.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/css/map-icons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/css/map-icons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/css/map-icons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/css/map-icons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/fonts/map-icons.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/fonts/map-icons.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/fonts/map-icons.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/map-icons-2.1.0/fonts/map-icons.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/css/octicons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/css/octicons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/css/octicons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/css/octicons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/fonts/octicons.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/fonts/octicons.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/fonts/octicons.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/octicons-2.1.2/fonts/octicons.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/css/typicons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/css/typicons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/css/typicons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/css/typicons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/fonts/typicons.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/fonts/typicons.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/fonts/typicons.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/typicons-2.0.6/fonts/typicons.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/css/elusive-icons.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/fonts/Elusive-Icons.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/fonts/Elusive-Icons.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/fonts/Elusive-Icons.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/elusive-icons-2.0.0/fonts/Elusive-Icons.woff",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/css/material-design-iconic-font.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/fonts/Material-Design-Iconic-Font.woff": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/fonts/Material-Design-Iconic-Font.woff",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/fonts/Material-Design-Iconic-Font.woff",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker@1.8.2/icon-fonts/material-design-1.1.1/fonts/Material-Design-Iconic-Font.woff",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-cropper@1.0.1/dist/jquery-cropper.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-cropper@1.0.1/dist/jquery-cropper.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-cropper@1.0.1/dist/jquery-cropper.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-cropper@1.0.1/dist/jquery-cropper.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js",
+        "asset_attributes": []
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/css/bootstrap-datetimepicker.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/css/bootstrap-datetimepicker.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/css/bootstrap-datetimepicker.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/css/bootstrap-datetimepicker.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/js/bootstrap-datetimepicker.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/js/bootstrap-datetimepicker.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/js/bootstrap-datetimepicker.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/pc-bootstrap4-datetimepicker@4.17.51/build/js/bootstrap-datetimepicker.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/locales.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/locales.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/locales.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/moment@2.29.4/min/locales.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/moment@2.29.4/min/moment-with-locales.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-daterangepicker@3.1.0/daterangepicker.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/dropzone@6.0.0-beta.2/dist/dropzone-min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/easymde@2.18.0/dist/easymde.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker-latest@1.12.0/dist/css/bootstrap-iconpicker.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker-latest@1.12.0/dist/css/bootstrap-iconpicker.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap-iconpicker-latest@1.12.0/dist/css/bootstrap-iconpicker.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap-iconpicker-latest@1.12.0/dist/css/bootstrap-iconpicker.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/flags@2x.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe@2x.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.webp": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.webp",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.webp",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.webp",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.png": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.png",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.png",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/img/globe_light@2x.png",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/intlTelInput.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/intlTelInput.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/intlTelInput.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/intlTelInput.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/select2-bootstrap-theme@0.1.0-beta.10/dist/select2-bootstrap.min.css",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js",
+        "asset_attributes": {
+            "integrity": "sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js": {
+        "asset_name": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js",
+        "asset_path": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js",
+        "asset_disk_path": "basset/cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js",
+        "asset_attributes": {
+            "integrity": "sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js",
+        "asset_attributes": {
+            "integrity": "sha256-IEYW8sRtA+cOsgiyWfLZnsSXxew/8p4sqHogSZJ+bcQ=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/@digitallyhappy/backstrap@0.5.1/dist/css/legacy.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@digitallyhappy/backstrap@0.5.1/dist/css/legacy.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@digitallyhappy/backstrap@0.5.1/dist/css/legacy.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@digitallyhappy/backstrap@0.5.1/dist/css/legacy.min.css",
+        "asset_attributes": {
+            "integrity": "sha384-JZChMdvSKDQzhyLHIRN9IR9eigXQIhZ4CFYpO3fKZUN20e1m8M/cvLa1c9vbaaK+",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js",
+        "asset_attributes": {
+            "integrity": "sha256-m81NDyncZVbr7v9E6qCWXwx/cwjuWDlHCMzi9pjMobA=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://unpkg.com/@coreui/coreui@4.2.6/dist/js/coreui.min.js": {
+        "asset_name": "https://unpkg.com/@coreui/coreui@4.2.6/dist/js/coreui.min.js",
+        "asset_path": "https://unpkg.com/@coreui/coreui@4.2.6/dist/js/coreui.min.js",
+        "asset_disk_path": "basset/unpkg.com/@coreui/coreui@4.2.6/dist/js/coreui.min.js",
+        "asset_attributes": {
+            "integrity": "sha384-7z/8kRsWn+JzUhcmd/7if4xTkhFHSa91GbgPGNPuOACOF6hhbxLeSAX0OhEy5ug9",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://unpkg.com/simplebar@6.2.7/dist/simplebar.min.js": {
+        "asset_name": "https://unpkg.com/simplebar@6.2.7/dist/simplebar.min.js",
+        "asset_path": "https://unpkg.com/simplebar@6.2.7/dist/simplebar.min.js",
+        "asset_disk_path": "basset/unpkg.com/simplebar@6.2.7/dist/simplebar.min.js",
+        "asset_attributes": {
+            "integrity": "sha384-IiaRtt+2y5xh3HH+L4JkT7GRvNJgAnAHTOPt2/WWXW4sWqqQcBmQNlVFTWUQhkEp",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.6/dist/css/coreui.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.6/dist/css/coreui.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.6/dist/css/coreui.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@coreui/coreui@4.2.6/dist/css/coreui.min.css",
+        "asset_attributes": {
+            "integrity": "sha256-DQQL5S0Nr+FBPc95hePjvggeC3fQuIoNOffaAS/W5dU=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/simplebar@6.2.7/dist/simplebar.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/simplebar@6.2.7/dist/simplebar.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/simplebar@6.2.7/dist/simplebar.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/simplebar@6.2.7/dist/simplebar.min.css",
+        "asset_attributes": {
+            "integrity": "sha256-plFwFf/3EkfLQVO1lfLsgE+e95PitSEiMV9kjUEE+kg=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js",
+        "asset_attributes": {
+            "integrity": "sha256-tgx2Fg6XYkV027jPEKvmrummSTtgCW/fwV3R3SvZnrk=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css",
+        "asset_path": "https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css",
+        "asset_attributes": {
+            "integrity": "sha256-fvdQvRBUamldCxJ2etgEi9jz7F3n2u+xBn+dDao9HJo=",
+            "crossorigin": "anonymous"
+        }
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/skin.min.css": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/skin.min.css",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/skin.min.css",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/skin.min.css",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/content.min.css": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/content.min.css",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/content.min.css",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide/content.min.css",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/skin.min.css": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/skin.min.css",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/skin.min.css",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/skin.min.css",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/content.min.css": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/content.min.css",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/content.min.css",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/ui/oxide-dark/content.min.css",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/content/default/content.min.css": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/content/default/content.min.css",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/content/default/content.min.css",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/skins/content/default/content.min.css",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/tinymce.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/tinymce.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/tinymce.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/tinymce.min.js",
+        "asset_attributes": {
+            "loading-order": 1
+        }
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/themes/silver/theme.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/themes/silver/theme.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/themes/silver/theme.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/themes/silver/theme.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/models/dom/model.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/models/dom/model.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/models/dom/model.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/models/dom/model.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/icons/default/icons.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/icons/default/icons.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/icons/default/icons.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/icons/default/icons.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/image/plugin.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/image/plugin.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/image/plugin.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/image/plugin.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/link/plugin.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/link/plugin.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/link/plugin.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/link/plugin.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/media/plugin.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/media/plugin.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/media/plugin.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/media/plugin.min.js",
+        "asset_attributes": []
+    },
+    "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/anchor/plugin.min.js": {
+        "asset_name": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/anchor/plugin.min.js",
+        "asset_path": "https://raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/anchor/plugin.min.js",
+        "asset_disk_path": "basset/raw.githubusercontent.com/tinymce/tinymce-dist/refs/tags/6.3.2/plugins/anchor/plugin.min.js",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/backpack-color-palette.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/css/omnisearch.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/css/omnisearch.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/css/omnisearch.css",
+        "asset_disk_path": "basset/vendor/backpack/omnisearch/resources/assets/css/omnisearch.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/style.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/style.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/color-adjustments.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/css/common.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/css/common.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/atlas.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/atlas.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/atlas.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/atlas.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/aurora.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/aurora.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/aurora.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/aurora.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/manuscript.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/manuscript.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/manuscript.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/manuscript.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/ink.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/ink.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/ink.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/ink.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/mono.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/mono.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/mono.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/mono.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/blueprint.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/blueprint.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/blueprint.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/blueprint.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/honey.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/honey.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/honey.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/honey.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/pine.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/pine.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/pine.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/pine.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/synth.css": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/synth.css",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/css/skins/synth.css",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/css/skins/synth.css",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/js/common.js": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/js/common.js",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_disk_path": "basset/vendor/backpack/theme-tabler/resources/assets/js/tabler.js",
+        "asset_attributes": []
+    },
+    "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js": {
+        "asset_name": "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js",
+        "asset_path": "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js",
+        "asset_disk_path": "basset/cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/js/omnisearch.js": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/js/omnisearch.js",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/omnisearch/resources/assets/js/omnisearch.js",
+        "asset_disk_path": "basset/vendor/backpack/omnisearch/resources/assets/js/omnisearch.js",
+        "asset_attributes": []
+    },
+    "https://secure.gravatar.com/avatar/258d8dc916db8cea2cafb6c3cd0cb0246efe061421dbd83ec3a350428cabda4f.jpg?s=80&d=blank&r=g": {
+        "asset_name": "https://secure.gravatar.com/avatar/258d8dc916db8cea2cafb6c3cd0cb0246efe061421dbd83ec3a350428cabda4f.jpg?s=80&d=blank&r=g",
+        "asset_path": "https://secure.gravatar.com/avatar/258d8dc916db8cea2cafb6c3cd0cb0246efe061421dbd83ec3a350428cabda4f.jpg?s=80&d=blank&r=g",
+        "asset_disk_path": "basset/secure.gravatar.com/avatar/258d8dc916db8cea2cafb6c3cd0cb0246efe061421dbd83ec3a350428cabda4f.jpg",
+        "asset_attributes": []
+    },
+    "daterangepicker-filter.js": {
+        "asset_name": "daterangepicker-filter.js",
+        "asset_path": "C:\\laragon\\www\\demov7\\daterangepicker-filter.js",
+        "asset_disk_path": "basset/daterangepicker-filter-6b3d9c46.js",
+        "asset_attributes": []
+    },
+    "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/img/spinner.svg": {
+        "asset_name": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_path": "C:\\laragon\\www\\demov7\\vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_disk_path": "basset/vendor/backpack/crud/src/resources/assets/img/spinner.svg",
+        "asset_attributes": []
+    },
+    "tabler-menu-javascript.js": {
+        "asset_name": "tabler-menu-javascript.js",
+        "asset_path": "C:\\laragon\\www\\demov7\\tabler-menu-javascript.js",
+        "asset_disk_path": "basset/tabler-menu-javascript-d9d0ff05.js",
+        "asset_attributes": []
+    },
+    "https://secure.gravatar.com/avatar/2a072075d37e2fbccc33d48535ab6b83e0dca9abd678898a17db1ab7ada0a9dd.jpg?s=80&d=blank&r=g": {
+        "asset_name": "https://secure.gravatar.com/avatar/2a072075d37e2fbccc33d48535ab6b83e0dca9abd678898a17db1ab7ada0a9dd.jpg?s=80&d=blank&r=g",
+        "asset_path": "https://secure.gravatar.com/avatar/2a072075d37e2fbccc33d48535ab6b83e0dca9abd678898a17db1ab7ada0a9dd.jpg?s=80&d=blank&r=g",
+        "asset_disk_path": "basset/secure.gravatar.com/avatar/2a072075d37e2fbccc33d48535ab6b83e0dca9abd678898a17db1ab7ada0a9dd.jpg",
+        "asset_attributes": []
+    },
+    "https://secure.gravatar.com/avatar/e44fca2fd8ca4882ee4aa9180f770ebc78346710acdaf38222b0be7755460b85.jpg?s=80&d=blank&r=g": {
+        "asset_name": "https://secure.gravatar.com/avatar/e44fca2fd8ca4882ee4aa9180f770ebc78346710acdaf38222b0be7755460b85.jpg?s=80&d=blank&r=g",
+        "asset_path": "https://secure.gravatar.com/avatar/e44fca2fd8ca4882ee4aa9180f770ebc78346710acdaf38222b0be7755460b85.jpg?s=80&d=blank&r=g",
+        "asset_disk_path": "basset/secure.gravatar.com/avatar/e44fca2fd8ca4882ee4aa9180f770ebc78346710acdaf38222b0be7755460b85.jpg",
+        "asset_attributes": []
+    }
+}

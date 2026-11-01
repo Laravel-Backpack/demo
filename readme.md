@@ -85,59 +85,27 @@ Local-only helper routes (not available in production):
 
 ## If using docker
 
-This package provides an example `docker-compose.yml` to launch your database and web server easily
+`docker-compose.yml` runs the demo with PHP 8.4 + NGINX ([serversideup/php](https://serversideup.net/open-source/docker-php/)), MariaDB and Mailpit. The project folder is mounted into the container, so code changes show up immediately.
+
+First time:
 
 ```
-composer install
-cp .env.example .env
-php artisan key:generate
+bash install.sh
 ```
 
-Use these parameters in your .env file
+It creates `.env` from `.env.docker.example` if there is none, builds the image, generates the app key and starts everything. On its first start the container runs `composer install` (when `vendor/` is missing), migrates and seeds the demo data. The Backpack add-ons need your credentials for that: put an `auth.json` in the project root, or set `COMPOSER_AUTH` in `.env`.
 
-```
-APP_URL=http://localhost
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=backpackdemo
-DB_USERNAME=root
-DB_PASSWORD=asdf
-```
+Then:
 
-Launch docker
+- Demo: http://localhost:8080/admin (`admin@example.com` / `admin`), or https://localhost:8443 with a self-signed certificate
+- Mail: http://localhost:8025
+- Database from your GUI: `127.0.0.1:3307`, user `demo`, password `secret`, database `demo`
 
-```
-docker-compose up -d
-```
+Day to day: `docker compose up -d` and `docker compose down`. After changing the Dockerfile: `bash reload.sh`. To reset the demo data: `docker compose exec php php artisan migrate:fresh --seed --force`. Ports can be changed in `.env` (`APP_PORT`, `APP_SSL_PORT`, `FORWARD_DB_PORT`, `FORWARD_MAILPIT_PORT`).
 
-Create your database with following command
+The container sets its own database, mail and URL settings, so the same checkout keeps working with a local stack (Laragon, Herd, Valet) and its `.env`.
 
-```
-docker-compose exec db mysql -u root -pasdf -e "create database if not exists backpackdemo;"
-```
-
-Migrate and seed
-
-```
-php artisan migrate --seed
-```
-
-You should see the demo in your browser now
-
-```
-http://localhost/admin
-```
-
-To stop the server simply run
-
-```
-docker-compose down
-```
-
-Note:
-
-In docker, to connect to your database from your GUI use `127.0.0.1` as your database host, instead of `localhost`
+On Windows, keep the project inside WSL (for example `~/code/demo` in Ubuntu) rather than on the C: drive: through the C: drive every page takes several seconds.
 
 ## Change log
 

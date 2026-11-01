@@ -1,23 +1,34 @@
 #!/usr/bin/env bash
+# First-time setup with Docker: creates .env, builds and starts the stack, and
+# generates the app key. Composer, migrations and the demo data run inside the
+# container on its first start (docker/entrypoint.d).
+#
+#   bash install.sh            install the Backpack packages from dist (default)
+#   bash install.sh --source   Backpack maintainers: clone the Backpack packages
+#                              from git instead, so you can work on them in vendor/
+set -euo pipefail
 
-# if env file exists abort
-if [ -f .env ]; then
-    echo "Env file already exists. Use the start.sh script to start the project."
-    exit 1
+if [ ! -f .env ]; then
+    cp .env.docker.example .env
+    echo "Created .env from .env.docker.example."
 fi
 
-# copy the env file
-cp .env.docker.example .env
+if [ "${1:-}" = "--source" ]; then
+    docker compose run --rm --no-deps --entrypoint "" php \
+        sh -c 'rm -rf vendor/backpack && composer install --no-interaction --prefer-source'
+fi
 
-# Install the dependencies
-composer install --no-interaction --ansi
+docker compose build
 
-# remove backpack packages and install with --prefer-source so they are cloned from the git repositories
-# comment the following line if you are not a backpack maintainer.
-rm -rf vendor/backpack
+# Same format as php artisan key:generate, which can't run before vendor/ exists.
+if ! grep -qE '^APP_KEY=.+' .env; then
+    key=$(docker compose run --rm --no-deps --entrypoint "" php php -r 'echo "base64:".base64_encode(random_bytes(32));')
+    sed -i "s#^APP_KEY=.*#APP_KEY=${key}#" .env
+    echo "Generated APP_KEY."
+fi
 
-composer install --no-interaction --prefer-source --ansi
+docker compose up -d --wait
 
-php artisan key:generate 
-
-bash start.sh
+echo
+echo "Ready: http://localhost:$(docker compose port php 8080 | sed 's/.*://')  (admin@example.com / admin)"
+echo "Mail:  http://localhost:$(docker compose port mailpit 8025 | sed 's/.*://')"

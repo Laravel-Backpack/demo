@@ -1,55 +1,116 @@
+# Local development stack for the Backpack demo: PHP + NGINX, MariaDB, Mailpit.
+#
+#   docker compose up -d        then open http://localhost:8080 (admin@example.com / admin)
+#
+# The project folder is mounted into the container, so edits show up at once.
+# The container keeps its own database settings below, so the same checkout
+# keeps working with a local stack (Laragon, Herd, Valet) and its own .env.
+# Ports can be changed in .env (APP_PORT, APP_SSL_PORT, FORWARD_DB_PORT,
+# FORWARD_MAILPIT_PORT) when the defaults are taken.
+#
+# Speed: on Linux the mount is native and pages are fast. On Windows, a
+# checkout on the C: drive goes through a slow file share (about 1.5ms per file
+# check; a page touches thousands), so pages take 5-10s and a start takes a few
+# minutes. Clone the project inside WSL (e.g. ~/code/demo in Ubuntu) and run
+# docker compose from there to get Linux speed.
+
 services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
       target: development
       args:
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
     volumes:
-      - .:/var/www/html/
-    restart: unless-stopped
-    networks:
-      - development
+      - .:/var/www/html
+      # public/storage is a symlink (a junction on Windows) to an absolute
+      # host path that does not exist in the container; mount its target
+      # instead, so uploads and Basset's assets are served.
+      - ./storage/app/public:/var/www/html/public/storage
     ports:
-      - 80:8080
-      - 443:8443
-      - 5173:5173
+      - "${APP_PORT:-8080}:8080"
+      - "${APP_SSL_PORT:-8443}:8443"
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
+    restart: unless-stopped
+    # The image's check, with more time to start: NGINX only comes up after
+    # migrations and the first seed, which take a few minutes on a Windows or
+    # macOS mount.
+    healthcheck:
+      test: ["CMD", "sh", "-c", "curl --silent --fail http://localhost:8080/healthcheck || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10m
+      start_interval: 5s
     environment:
-      SSL_MODE: "full"
-      SSL_CERTIFICATE_FILE: "certs/local-dev.pem"
-      SSL_PRIVATE_KEY_FILE: "certs/local-dev-key.pem"
-      # docker-php configs
+      # Real environment variables win over .env in Laravel, so these point
+      # the app at the containers whatever your .env says.
+      APP_URL: "http://localhost:${APP_PORT:-8080}"
+      DB_CONNECTION: mysql
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_DATABASE: &db_name demo
+      DB_USERNAME: &db_user demo
+      DB_PASSWORD: &db_password secret
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailpit
+      MAIL_PORT: 1025
+      MYSQL_DUMP_PATH: /usr/bin/
+      # Backpack add-on credentials, for the first composer install (see
+      # docker/entrypoint.d/40-composer-install.sh). An auth.json works too.
+      COMPOSER_AUTH: ${COMPOSER_AUTH:-}
+      # PHP: show errors. OPcache on, but re-checking file timestamps on every
+      # request, so code changes still show up at once; with it off, every
+      # request re-reads thousands of files through the mount, which is slow
+      # on Windows and macOS.
+      PHP_DISPLAY_ERRORS: "On"
+      PHP_OPCACHE_ENABLE: "1"
+      PHP_OPCACHE_VALIDATE_TIMESTAMPS: "1"
+      PHP_OPCACHE_REVALIDATE_FREQ: "0"
+      # HTTPS on 8443 with a self-signed certificate; HTTP stays on 8080.
+      SSL_MODE: mixed
+      # serversideup/php Laravel automations: migrate and that's it. The cache
+      # commands are off because their files land in the mounted project
+      # (bootstrap/cache) and would leak these container settings into your
+      # local stack. The storage link is replaced by the mount above.
       AUTORUN_ENABLED: "true"
       AUTORUN_LARAVEL_MIGRATION: "true"
+      AUTORUN_LARAVEL_OPTIMIZE: "false"
       AUTORUN_LARAVEL_CONFIG_CACHE: "false"
-      AUTORUN_LARAVEL_EVENT_CACHE: "false"
       AUTORUN_LARAVEL_ROUTE_CACHE: "false"
-      AUTORUN_LARAVEL_STORAGE_LINK: "true"
       AUTORUN_LARAVEL_VIEW_CACHE: "false"
+      AUTORUN_LARAVEL_EVENT_CACHE: "false"
+      AUTORUN_LARAVEL_STORAGE_LINK: "false"
+      # Seed the demo data when the database is empty (first start).
+      DEMO_SEED_IF_EMPTY: "true"
 
   mariadb:
-    image: mariadb:11
-    networks:
-      - development
+    image: mariadb:11.8
     volumes:
-      - ./_volumes/mysql/mysqsl_data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
     environment:
-        MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
-        MYSQL_ROOT_HOST: "%"
-        MYSQL_DATABASE: '${DB_DATABASE}'
-        MYSQL_USER: '${DB_USERNAME}'
-        MYSQL_PASSWORD: '${DB_PASSWORD}'
-        MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+      MARIADB_ROOT_PASSWORD: secret
+      MARIADB_DATABASE: *db_name
+      MARIADB_USER: *db_user
+      MARIADB_PASSWORD: *db_password
     ports:
-      - "3306:3306"
+      - "${FORWARD_DB_PORT:-3307}:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    restart: unless-stopped
 
   mailpit:
-      image: axllent/mailpit
-      networks:
-        - development
-networks:
-  development:
+    image: axllent/mailpit:latest
+    ports:
+      - "${FORWARD_MAILPIT_PORT:-8025}:8025"
+    restart: unless-stopped
+
+volumes:
+  mariadb-data:

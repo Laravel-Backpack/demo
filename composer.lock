@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e86e55d9b6d456ae517e189bddcc553",
+    "content-hash": "6866a5fd000262ddb450407e7de27dd0",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1087,6 +1087,74 @@
                 "source": "https://github.com/Laravel-Backpack/NewsCRUD/tree/5.2.2"
             },
             "time": "2026-05-14T09:17:31+00:00"
+        },
+        {
+            "name": "backpack/omnisearch",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:laravel-backpack/omnisearch.git",
+                "reference": "9268f797f0658372d17213d69cb8cc12515d195d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.backpackforlaravel.com/dist/backpack/omnisearch/backpack-omnisearch-9268f797f0658372d17213d69cb8cc12515d195d-zip-ba41d9.zip",
+                "reference": "9268f797f0658372d17213d69cb8cc12515d195d",
+                "shasum": "d4067ab47410c34af538b98de22c5e83a1454723"
+            },
+            "require": {
+                "backpack/crud": "^7.1",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^10.0|^11.0",
+                "phpunit/phpunit": "^11.0|^12.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Backpack\\Omnisearch\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Omnisearch\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Backpack\\Omnisearch\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit --testdox"
+                ]
+            },
+            "license": [
+                "Proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "cristian.tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com"
+                }
+            ],
+            "description": "A Cmd/Ctrl+K command palette for your Backpack admin panel: search any entity, jump to any page, run actions.",
+            "homepage": "https://github.com/Laravel-Backpack/omnisearch",
+            "keywords": [
+                "Backpack",
+                "Backpack Addon",
+                "Backpack for Laravel",
+                "Laravel",
+                "command palette",
+                "omnisearch",
+                "search"
+            ],
+            "time": "2026-10-29T14:36:06+00:00"
         },
         {
             "name": "backpack/pagemanager",
